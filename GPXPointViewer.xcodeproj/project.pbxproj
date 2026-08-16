@@ -26,6 +26,10 @@
 		BB0000000000000000000011 /* moon_texture.png in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000012 /* moon_texture.png */; };
 		BB0000000000000000000012 /* PixelGlobe.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000013 /* PixelGlobe.swift */; };
 		BB0000000000000000000013 /* land_mask.bin in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000014 /* land_mask.bin */; };
+		BB0000000000000000000020 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000020 /* PreviewViewController.swift */; };
+		BB0000000000000000000021 /* GPXParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000005 /* GPXParser.swift */; };
+		BB0000000000000000000022 /* GeoCompute.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000006 /* GeoCompute.swift */; };
+		BB0000000000000000000023 /* GPXQuickLook.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000065 /* GPXQuickLook.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +54,11 @@
 		AA0000000000000000000013 /* PixelGlobe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelGlobe.swift; sourceTree = "<group>"; };
 		AA0000000000000000000014 /* land_mask.bin */ = {isa = PBXFileReference; lastKnownFileType = file; path = land_mask.bin; sourceTree = "<group>"; };
 		AA0000000000000000000064 /* GPXPointViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPXPointViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA0000000000000000000020 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		AA0000000000000000000021 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA0000000000000000000022 /* GPXQuickLook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GPXQuickLook.entitlements; sourceTree = "<group>"; };
+		AA0000000000000000000023 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA0000000000000000000065 /* GPXQuickLook.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GPXQuickLook.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,13 +69,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DD0000000000000000000005 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DD0000000000000000000007 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				BB0000000000000000000023 /* GPXQuickLook.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXGroup section */
 		CC0000000000000000000001 = {
 			isa = PBXGroup;
 			children = (
 				CC0000000000000000000002 /* GPXPointViewer */,
+				CC0000000000000000000004 /* GPXQuickLook */,
 				CC0000000000000000000003 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,6 +125,7 @@
 				AA0000000000000000000012 /* moon_texture.png */,
 				AA0000000000000000000013 /* PixelGlobe.swift */,
 				AA0000000000000000000014 /* land_mask.bin */,
+				AA0000000000000000000023 /* Info.plist */,
 			);
 			path = GPXPointViewer;
 			sourceTree = "<group>";
@@ -102,8 +134,19 @@
 			isa = PBXGroup;
 			children = (
 				AA0000000000000000000064 /* GPXPointViewer.app */,
+				AA0000000000000000000065 /* GPXQuickLook.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		CC0000000000000000000004 /* GPXQuickLook */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000020 /* PreviewViewController.swift */,
+				AA0000000000000000000021 /* Info.plist */,
+				AA0000000000000000000022 /* GPXQuickLook.entitlements */,
+			);
+			path = GPXQuickLook;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -116,15 +159,34 @@
 				DD0000000000000000000001 /* Sources */,
 				DD0000000000000000000002 /* Frameworks */,
 				DD0000000000000000000003 /* Resources */,
+				DD0000000000000000000007 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				GG0000000000000000000001 /* PBXTargetDependency */,
 			);
 			name = GPXPointViewer;
 			productName = GPXPointViewer;
 			productReference = AA0000000000000000000064 /* GPXPointViewer.app */;
 			productType = "com.apple.product-type.application";
+		};
+		EE0000000000000000000005 /* GPXQuickLook */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE0000000000000000000006 /* Build configuration list for PBXNativeTarget "GPXQuickLook" */;
+			buildPhases = (
+				DD0000000000000000000004 /* Sources */,
+				DD0000000000000000000005 /* Frameworks */,
+				DD0000000000000000000006 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GPXQuickLook;
+			productName = GPXQuickLook;
+			productReference = AA0000000000000000000065 /* GPXQuickLook.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -137,6 +199,9 @@
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					EE0000000000000000000001 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					EE0000000000000000000005 = {
 						CreatedOnToolsVersion = 16.0;
 					};
 				};
@@ -155,6 +220,7 @@
 			projectRoot = "";
 			targets = (
 				EE0000000000000000000001 /* GPXPointViewer */,
+				EE0000000000000000000005 /* GPXQuickLook */,
 			);
 		};
 /* End PBXProject section */
@@ -169,6 +235,13 @@
 				BB0000000000000000000010 /* earth_texture_light.png in Resources */,
 				BB0000000000000000000011 /* moon_texture.png in Resources */,
 				BB0000000000000000000013 /* land_mask.bin in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD0000000000000000000006 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,7 +269,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DD0000000000000000000004 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB0000000000000000000020 /* PreviewViewController.swift in Sources */,
+				BB0000000000000000000021 /* GPXParser.swift in Sources */,
+				BB0000000000000000000022 /* GeoCompute.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		GG0000000000000000000001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EE0000000000000000000005 /* GPXQuickLook */;
+			targetProxy = GG0000000000000000000002 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXContainerItemProxy section */
+		GG0000000000000000000002 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE0000000000000000000002 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EE0000000000000000000005;
+			remoteInfo = GPXQuickLook;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin XCBuildConfiguration section */
 		FF0000000000000000000001 /* Debug */ = {
@@ -328,6 +429,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GPXPointViewer/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "GPX 点位查看器";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -354,6 +456,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GPXPointViewer/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "GPX 点位查看器";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -363,6 +466,58 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = de.wayne.GPXPointViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		FF0000000000000000000005 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = GPXQuickLook/GPXQuickLook.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GPXQuickLook/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "GPX 预览";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = de.wayne.GPXPointViewer.GPXQuickLook;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		FF0000000000000000000006 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = GPXQuickLook/GPXQuickLook.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GPXQuickLook/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "GPX 预览";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = de.wayne.GPXPointViewer.GPXQuickLook;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -385,6 +540,15 @@
 			buildConfigurations = (
 				FF0000000000000000000003 /* Debug */,
 				FF0000000000000000000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE0000000000000000000006 /* Build configuration list for PBXNativeTarget "GPXQuickLook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF0000000000000000000005 /* Debug */,
+				FF0000000000000000000006 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
