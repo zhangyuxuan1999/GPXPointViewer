@@ -13,6 +13,17 @@
 
 **没有 push**：远程 `origin`（GitHub）保持原样，只在本机提交。要推送需用户另行决定。
 
+## 提交哈希（2026-10-29）
+
+| 内容 | 提交 | 标签 |
+|---|---|---|
+| 基线（N-19 修复前） | `f6a90494e3f8470a192eb69c530d4e1e9ea0a066`（短 `f6a9049`） | `baseline-2026-10-29` |
+| N-19 修复 + 记录 | `4ab625e8a6bb4d1acb1b6209154486414dc27fcd`（短 `4ab625e`） | `n19-fix-2026-10-29` |
+
+两个都是 annotated tag：`git rev-parse baseline-2026-10-29` 返回的是 tag 对象，
+取提交要写 `git rev-parse baseline-2026-10-29^{commit}`（或直接用 `git log` 里显示的短哈希）。
+远程 `origin/main` 仍停在 `b8927ed`。
+
 ## 提交范围
 
 包含：`GPXPointViewer/`（含 `Regions.bin` 与纹理）、`GPXQuickLook/`、`GPXThumbnail/`、`GPXPointViewer.xcodeproj/`、
