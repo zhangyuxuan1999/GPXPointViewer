@@ -65,6 +65,9 @@ git commit -m "revert: N-19 修复（只回代码，保留记录）"
 回滚后验证：`python3 Tests/segments/core/run.py /private/tmp/gpxpv-core-rollback`，
 应回到 **101 项通过**（新增的 11 项随测试文件一起回滚）。
 
+**2026-10-29 已实测**：按上面命令回滚后三个文件哈希回到修复前，core 为 **101/101**；
+再 `git checkout HEAD -- <三个文件>` 恢复，哈希回到修复版、core 回到 **112/112**，工作区干净。
+
 ### B. 撤销整个基线提交（回到导入前的工作区）
 
 ```sh
