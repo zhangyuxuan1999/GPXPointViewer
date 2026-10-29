@@ -50,15 +50,17 @@
 ```sh
 cd /Users/zyx/Documents/GPXPointViewer
 
-# 方式 1：保留历史，新增一个反向提交（推荐，已提交的内容都能审计）
-git revert --no-edit n19-fix-2026-10-29
-
-# 方式 2：只把三个文件退回基线版本（工作区改动保留在暂存区之外）
+# 推荐：只把三个代码/测试文件退回基线，记录文件保留，再提交一次
 git checkout baseline-2026-10-29 -- \
   GPXPointViewer/Colormaps.swift \
   GPXPointViewer/GeoCompute.swift \
   Tests/segments/core/main.swift
+git commit -m "revert: N-19 修复（只回代码，保留记录）"
 ```
+
+⚠️ **不要**直接 `git revert n19-fix-2026-10-29`：那个提交同时新增了 `DeepSeek/` 记录，
+而记录在后续 `docs:` 提交里又被修改过，直接 revert 会触发 `modify/delete` 冲突
+（它想删除 `DeepSeek/issues.md` 等文件，但这些文件在 HEAD 里已被改动）。
 
 回滚后验证：`python3 Tests/segments/core/run.py /private/tmp/gpxpv-core-rollback`，
 应回到 **101 项通过**（新增的 11 项随测试文件一起回滚）。
