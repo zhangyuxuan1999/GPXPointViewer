@@ -1,0 +1,2 @@
+Permission deny rule "MultiEdit" matches no known tool — check for typos.
+[claude-code:unrecognized_model] {"model":"deepseek-flash[1m]","query_source":"sdk"}

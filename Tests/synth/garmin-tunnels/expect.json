@@ -1,0 +1,538 @@
+{
+ "files": {
+  "highway_3tunnels_holes.gpx": {
+   "desc": "A2-style motorway at 120 km/h, eTrex 1 Hz; three tunnels (2.6 km @90, 3.7 km @80, 1.65 km @60 km/h) as pure time holes: no fixes inside, 2-3 s re-lock after the portal, 8-25 m decaying portal bias. Each hole is one consecutive-point step of 90-300 s / 1.5-4 km / 60-95 km/h -> exactly 3 timeGap, 0 staleClock (clock never stale), no replay (no bit-identical coordinates), no jitter (every 1 s step <= 40 m and forward; holes >= 20 s reset the jitter reference). [generated anchors A->B: T1: 2675 m/106 s/91 km/h; T2: 3808 m/171 s/80 km/h; T3: 1687 m/101 s/60 km/h]",
+   "points": 892,
+   "profile": "deviceLogger",
+   "gaps": [
+    3,
+    3
+   ],
+   "stale": [
+    0,
+    0
+   ],
+   "timegap": [
+    3,
+    3
+   ],
+   "replays": [
+    0,
+    0
+   ],
+   "jitter": [
+    0,
+    0
+   ],
+   "load_ok": true,
+   "gap_cover": [
+    [
+     1752302765,
+     1752302871
+    ],
+    [
+     1752303056,
+     1752303227
+    ],
+    [
+     1752303429,
+     1752303530
+    ]
+   ]
+  },
+  "stale_clock_tunnel.gpx": {
+   "desc": "Motorway 110 km/h, one 2.2 km tunnel at 80 km/h. Garmin stale clock: after re-lock the first 5 fixes are stamped entry+1..entry+5 (1 s apart, but the first one is ~2.2 km from the last entry fix), then the clock jumps by the real hole time (~100 s). -> exactly 1 staleClock candidate anchored entry fix -> first correctly-stamped fix (gap_cover), 0 timeGap (the clock-jump step itself is a ~25 m step), no jitter: the 1 s/2.2 km step opens a cluster but the >= 20 s clock jump right after it abandons it (hole inside cluster), and with only 1 forward jump it could not be emitted anyway. [generated anchors A->B: T: 2377 m/110 s/78 km/h, 5 stale fixes, clock jump 105 s]",
+   "points": 460,
+   "profile": "deviceLogger",
+   "gaps": [
+    1,
+    1
+   ],
+   "stale": [
+    1,
+    1
+   ],
+   "timegap": [
+    0,
+    0
+   ],
+   "replays": [
+    0,
+    0
+   ],
+   "jitter": [
+    0,
+    0
+   ],
+   "load_ok": true,
+   "gap_cover": [
+    [
+     1756908997,
+     1756909107
+    ]
+   ]
+  },
+  "stale_clock_variants.gpx": {
+   "desc": "Motorway 120 km/h with three stale-clock tunnels: T1 1.9 km, 3 stale fixes; T2 3.1 km, 8 stale fixes (upper end of the observed 3-8); T3 3.2 km with a two-step clock correction (4 stale fixes, +46 s, 6 more fixes still ~75 s behind, then +75 s -- modelled on the real case quoted in GapFill.swift, +46 s then +68 s). -> exactly 3 staleClock, 0 timeGap. For T3 the candidate must end at the SECOND correction (A->B1 alone implies ~240 km/h, far above the 100-120 km/h recorded around it); gap_cover for T3 uses the full [entry, second correction] interval, which an A->B1 candidate would cover only with IoU ~0.4. No jitter (clusters opened by the 1 s jumps are abandoned at the >= 20 s clock jumps). [generated anchors A->B: T1 k=3: 2062 m/74 s/100 km/h, 3 stale fixes, clock jump 71 s; T2 k=8: 3390 m/135 s/90 km/h, 8 stale fixes, clock jump 127 s; T3 two-step: 3570 m/130 s/99 km/h, 4 stale fixes, clock jump 46 s then 75 s (A->B1 alone 244 km/h)]",
+   "points": 707,
+   "profile": "deviceLogger",
+   "gaps": [
+    3,
+    3
+   ],
+   "stale": [
+    3,
+    3
+   ],
+   "timegap": [
+    0,
+    0
+   ],
+   "replays": [
+    0,
+    0
+   ],
+   "jitter": [
+    0,
+    0
+   ],
+   "load_ok": true,
+   "gap_cover": [
+    [
+     1760778508,
+     1760778582
+    ],
+    [
+     1760778765,
+     1760778900
+    ],
+    [
+     1760779069,
+     1760779199
+    ]
+   ]
+  },
+  "tunnel_chain_holes.gpx": {
+   "desc": "Tunnel chain at 100 km/h: 1.2 km, 2.4 km, 0.9 km tunnels separated by 780 m and 1.5 km of open road (~25 s and ~51 s of real on-road 1 Hz fixes after re-lock). Pure time holes (40-90 s) -> exactly 3 timeGap, 0 stale, 0 jitter, 0 replay. merged = 3: the open stretches hold >= 20 real points, far above mergeChains' 3-point limit (GapFill.swift: 'Garmin chains are 17-30 on-road points, not merged'). [generated anchors A->B: T1: 1276 m/47 s/98 km/h; T2: 2465 m/88 s/101 km/h; T3: 969 m/35 s/100 km/h]",
+   "points": 406,
+   "profile": "deviceLogger",
+   "gaps": [
+    3,
+    3
+   ],
+   "stale": [
+    0,
+    0
+   ],
+   "timegap": [
+    3,
+    3
+   ],
+   "replays": [
+    0,
+    0
+   ],
+   "jitter": [
+    0,
+    0
+   ],
+   "load_ok": true,
+   "gap_cover": [
+    [
+     1754152235,
+     1754152282
+    ],
+    [
+     1754152307,
+     1754152395
+    ],
+    [
+     1754152446,
+     1754152481
+    ]
+   ],
+   "merged": [
+    3,
+    3
+   ]
+  },
+  "tunnel_chain_stale.gpx": {
+   "desc": "Tunnel chain at 90 km/h (1.5 km, 2.0 km, 1.3 km; open stretches 900 m and 1250 m = 36 s and 50 s of fixes) where every tunnel exit has the Garmin stale clock (5/4/6 stale fixes, then the clock jumps by the real hole time 60-80 s). Each clock jump lies inside the 20-point stale window and before the next tunnel -> exactly 3 separate staleClock candidates, 0 timeGap, 0 jitter; merged = 3 (>= 20 points between candidates). [generated anchors A->B: T1 k=5: 1716 m/68 s/91 km/h, 5 stale fixes, clock jump 63 s; T2 k=4: 2197 m/87 s/91 km/h, 4 stale fixes, clock jump 83 s; T3 k=6: 1511 m/60 s/91 km/h, 6 stale fixes, clock jump 54 s]",
+   "points": 393,
+   "profile": "deviceLogger",
+   "gaps": [
+    3,
+    3
+   ],
+   "stale": [
+    3,
+    3
+   ],
+   "timegap": [
+    0,
+    0
+   ],
+   "replays": [
+    0,
+    0
+   ],
+   "jitter": [
+    0,
+    0
+   ],
+   "load_ok": true,
+   "gap_cover": [
+    [
+     1771067142,
+     1771067210
+    ],
+    [
+     1771067237,
+     1771067324
+    ],
+    [
+     1771067366,
+     1771067426
+    ]
+   ],
+   "merged": [
+    3,
+    3
+   ]
+  },
+  "short_tunnel_continuous.gpx": {
+   "desc": "100 km/h road with two 300 m tunnels and a 650 m avalanche gallery the eTrex logs straight through (1 Hz never interrupted, error grows to sigma ~8 m inside). No step >= 20 s, no 1 s step >= 150 m -> 0 candidates, 0 jitter (largest step ~50 m vs the 300 m jump floor), 0 replay; 1 trip.",
+   "points": 457,
+   "profile": "deviceLogger",
+   "gaps": [
+    0,
+    0
+   ],
+   "stale": [
+    0,
+    0
+   ],
+   "timegap": [
+    0,
+    0
+   ],
+   "replays": [
+    0,
+    0
+   ],
+   "jitter": [
+    0,
+    0
+   ],
+   "load_ok": true,
+   "trips": [
+    1,
+    1
+   ]
+  },
+  "short_holes_subthreshold.gpx": {
+   "desc": "100 km/h road with four short tunnels where exactly 8/13/18/19 fixes are missing (stamped holes of 9, 14, 19 and 20 s, 250-560 m, ~100 km/h). Only the 20 s hole meets dt >= 20 s -> exactly 1 timeGap (gap_cover), the others are gap_free (dt < 20 s and speed << 350 km/h, so neither the timeGap nor the stale branch applies). No jitter: a 19 s / 530 m step is far below the jump threshold 2.5*vRef*dt + 4*mLoc (~1.4 km). [generated anchors A->B: 9 s hole: 264 m/9 s/106 km/h; 14 s hole: 388 m/14 s/100 km/h; 19 s hole: 523 m/19 s/99 km/h; 20 s hole: 543 m/20 s/98 km/h]",
+   "points": 706,
+   "profile": "deviceLogger",
+   "gaps": [
+    1,
+    1
+   ],
+   "stale": [
+    0,
+    0
+   ],
+   "timegap": [
+    1,
+    1
+   ],
+   "replays": [
+    0,
+    0
+   ],
+   "jitter": [
+    0,
+    0
+   ],
+   "load_ok": true,
+   "gap_cover": [
+    [
+     1749493739,
+     1749493759
+    ]
+   ],
+   "gap_free": [
+    [
+     1749493338,
+     1749493357
+    ],
+    [
+     1749493463,
+     1749493487
+    ],
+    [
+     1749493591,
+     1749493620
+    ]
+   ],
+   "trips": [
+    1,
+    1
+   ]
+  },
+  "train_blackout_40km.gpx": {
+   "desc": "Regional train (RE, up to 160 km/h, station stops 50-60 s), eTrex on the seat: 1 Hz fixes except a 40 km blackout (km 24-64, includes a station stop) with only 3 isolated fixes (20 m error). The blackout is therefore 4 consecutive-point steps of 8.5-13.5 km / 200-500 s / 95-160 km/h, each a timeGap -> exactly 4 timeGap, 0 stale (all steps >= 20 s), 0 jitter (every >= 20 s step resets the reference), 0 replay. Detector-level only: no expectation on merging/filling (mergeChains would collapse the 4 steps into one chain because only 1 point separates them). [generated anchors A->B: 40 km blackout: 8916 m/210 s, 8505 m/206 s, 13536 m/490 s, 9192 m/216 s]",
+   "points": 1265,
+   "profile": "deviceLogger",
+   "gaps": [
+    4,
+    4
+   ],
+   "stale": [
+    0,
+    0
+   ],
+   "timegap": [
+    4,
+    4
+   ],
+   "replays": [
+    0,
+    0
+   ],
+   "jitter": [
+    0,
+    0
+   ],
+   "load_ok": true,
+   "gap_cover": [
+    [
+     1774538162,
+     1774538372
+    ],
+    [
+     1774538372,
+     1774538578
+    ],
+    [
+     1774538578,
+     1774539068
+    ],
+    [
+     1774539068,
+     1774539284
+    ]
+   ],
+   "trips": [
+    1,
+    1
+   ]
+  },
+  "tunnel_stop_1h.gpx": {
+   "desc": "Motorway; T1 (2 km at 90 km/h, ~80 s hole) is a normal positive control. T2 (2.6 km) is closed: the car crawls in, stands ~150 m inside the portal for 60 min, then drives out at 60 km/h. The T2 hole is one step of ~2.65 km in ~3830 s: > 3600 s AND ~2.5 km/h < 15 km/h -> not a candidate (gap_free). -> exactly 1 timeGap. trips = 2: the >= 10 min recording hole splits the day (crawl speed <= 2 m/s means a 30 s checkpoint lands within 150 m of the last fix before the hole). [generated anchors A->B: T1 control: 2078 m/84 s/89 km/h; T2 1 h stop: 2653 m/3844 s/2 km/h]",
+   "points": 615,
+   "profile": "deviceLogger",
+   "gaps": [
+    1,
+    1
+   ],
+   "stale": [
+    0,
+    0
+   ],
+   "timegap": [
+    1,
+    1
+   ],
+   "replays": [
+    0,
+    0
+   ],
+   "jitter": [
+    0,
+    0
+   ],
+   "load_ok": true,
+   "gap_cover": [
+    [
+     1766391436,
+     1766391520
+    ]
+   ],
+   "gap_free": [
+    [
+     1766391831,
+     1766395685
+    ]
+   ],
+   "trips": [
+    2,
+    2
+   ]
+  },
+  "bogus_overspeed_holes.gpx": {
+   "desc": "Road at ~105 km/h; T0 is a normal tunnel hole (positive control, ~80 s / 2 km). Three more tunnels whose receiver clock froze while unlocked and never caught up (the lag persists for the rest of the file): (a) 4.2 km stamped 30 s (~510 km/h), (b) 2.4 km stamped 22 s (~400 km/h), (c) 1.6 km stamped 12 s (~490 km/h). (a),(b): dt >= 20 but > 350 km/h -> rejected. (c): dt < 20 enters the staleClock branch but no clock jump >= 5 s follows within 20 points -> rejected. -> exactly 1 timeGap, 0 stale. Jitter 0: (c) opens a cluster (one forward 1.6 km jump, no reversal) that settles at the next fix; 1 jump and 0 reversals is below the emit rule. [generated anchors A->B: T0 control: 2066 m/83 s/90 km/h; a: 4.2 km in 30 s: 4333 m/30 s/520 km/h; b: 2.4 km in 22 s: 2494 m/22 s/408 km/h; c: 1.6 km in 12 s: 1641 m/12 s/492 km/h]",
+   "points": 777,
+   "profile": "deviceLogger",
+   "gaps": [
+    1,
+    1
+   ],
+   "stale": [
+    0,
+    0
+   ],
+   "timegap": [
+    1,
+    1
+   ],
+   "replays": [
+    0,
+    0
+   ],
+   "jitter": [
+    0,
+    0
+   ],
+   "load_ok": true,
+   "gap_cover": [
+    [
+     1762522383,
+     1762522466
+    ]
+   ],
+   "gap_free": [
+    [
+     1762522597,
+     1762522637
+    ],
+    [
+     1762522790,
+     1762522822
+    ],
+    [
+     1762522966,
+     1762522988
+    ]
+   ]
+  },
+  "mountain_hairpins_tunnel.gpx": {
+   "desc": "Alpine pass at 40-50 km/h: 8 ascending + 6 descending hairpins (172-175 deg turns on 38-42 m arcs, ~16 km/h through the bends, legs 25-60 m apart) and one 1.8 km tunnel at <= 60 km/h (~135 s hole). Hairpins are real 180-degree reversals of direction but at 4-14 m per 1 s step, far below the 200 m reversal floor -> 0 jitter; exactly 1 timeGap (the tunnel), 0 stale, 0 replay, 1 trip. [generated anchors A->B: tunnel: 1856 m/135 s/50 km/h]",
+   "points": 1266,
+   "profile": "deviceLogger",
+   "gaps": [
+    1,
+    1
+   ],
+   "stale": [
+    0,
+    0
+   ],
+   "timegap": [
+    1,
+    1
+   ],
+   "replays": [
+    0,
+    0
+   ],
+   "jitter": [
+    0,
+    0
+   ],
+   "load_ok": true,
+   "gap_cover": [
+    [
+     1755945023,
+     1755945158
+    ]
+   ],
+   "trips": [
+    1,
+    1
+   ]
+  },
+  "bunched_timestamps_tunnels.gpx": {
+   "desc": "Same as highway_3tunnels_holes (125 km/h, tunnels 2.9 km, 1.8 km, 3.4 km = 80-140 s holes) but with Garmin timestamp sticking: runs of 1-4 consecutive 1 Hz fixes share one whole-second stamp, then the stamp jumps by the run length (dt = 0 steps of ~35 m, then 1-4 s steps). Same-stamp steps are < 150 m so they never reach either branch -> exactly 3 timeGap, 0 stale, 0 jitter (per-second medians advance steadily), 0 replay (positions all differ). [generated anchors A->B: T1: 2995 m/108 s/100 km/h; T2: 1865 m/88 s/76 km/h; T3: 3487 m/139 s/90 km/h]",
+   "points": 577,
+   "profile": "deviceLogger",
+   "gaps": [
+    3,
+    3
+   ],
+   "stale": [
+    0,
+    0
+   ],
+   "timegap": [
+    3,
+    3
+   ],
+   "replays": [
+    0,
+    0
+   ],
+   "jitter": [
+    0,
+    0
+   ],
+   "load_ok": true,
+   "gap_cover": [
+    [
+     1769759872,
+     1769759980
+    ],
+    [
+     1769760113,
+     1769760201
+    ],
+    [
+     1769760336,
+     1769760475
+    ]
+   ]
+  },
+  "tunnel_jam_speed_boundary.gpx": {
+   "desc": "Holiday traffic: T1 (2 km) crawled at <= 22 km/h -> hole ~2 km in ~320 s = ~23 km/h >= 15 -> timeGap. T2 (2 km) in stop-and-go at <= 12 km/h with two 70-80 s standstills inside -> ~2 km in ~800 s = ~9 km/h < 15 km/h -> not a candidate (gap_free). -> exactly 1 timeGap, 0 stale, 0 jitter. trips = 2: the T2 hole (~770 s) is a recording hole >= 10 min, and at <= 12 km/h crawl a 30 s trip checkpoint always lies within 150 m of the last fix before it. [generated anchors A->B: T1 ~20 km/h: 2024 m/320 s/23 km/h; T2 ~9 km/h: 2000 m/769 s/9 km/h]",
+   "points": 855,
+   "profile": "deviceLogger",
+   "gaps": [
+    1,
+    1
+   ],
+   "stale": [
+    0,
+    0
+   ],
+   "timegap": [
+    1,
+    1
+   ],
+   "replays": [
+    0,
+    0
+   ],
+   "jitter": [
+    0,
+    0
+   ],
+   "load_ok": true,
+   "gap_cover": [
+    [
+     1754732616,
+     1754732936
+    ]
+   ],
+   "gap_free": [
+    [
+     1754733364,
+     1754734143
+    ]
+   ],
+   "trips": [
+    2,
+    2
+   ]
+  }
+ }
+}

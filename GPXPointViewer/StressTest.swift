@@ -60,7 +60,9 @@ enum StressTest {
 
         var out = ParsedTrack()
         out.lat = lat; out.lon = lon; out.ele = ele; out.time = time
-        out.name = "压力测试 · \(n.formatted()) 点"
+        let countText = n.formatted()
+        out.name = String(localized: "压力测试 · \(countText) 点",
+                          comment: "Track name of the synthetic stress-test data set (shown as the track title); %@ = point count with grouping")
         out.chunkCount = chunks
         out.byteCount = 0
         out.parseSeconds = Double(DispatchTime.now().uptimeNanoseconds - t0) / 1e9

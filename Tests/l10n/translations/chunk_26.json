@@ -1,0 +1,11 @@
+[
+ {"table": "Localizable", "key": "主地图跟随", "en": "Follow on Main Map", "de": "Hauptkarte folgt", "zh-Hant": "主地圖跟隨"},
+ {"table": "Localizable", "key": "只看要看一眼的 %lld 处", "en": "Only “Check this” (%lld)", "de": "Nur „Ansehen“ (%lld)", "zh-Hant": "只看要看一眼的 %lld 處"},
+ {"table": "Localizable", "key": "展开性能面板", "en": "Expand performance panel", "de": "Leistungsanzeige aufklappen", "zh-Hant": "展開效能面板"},
+ {"table": "Localizable", "key": "收起性能面板", "en": "Collapse performance panel", "de": "Leistungsanzeige zuklappen", "zh-Hant": "收起效能面板"},
+ {"table": "Localizable", "key": "开着时，用 ‹ › 或方向键翻页后主地图自动飞到那一处；关着时点「在主地图上看」才飞", "en": "When on, paging with ‹ › or the arrow keys also flies the main map to that change; when off, the main map only moves when you click “Show on Main Map”", "de": "Wenn aktiv, fliegt die Hauptkarte beim Blättern mit ‹ › oder den Pfeiltasten zur jeweiligen Änderung; sonst nur nach Klick auf „Auf Hauptkarte zeigen“", "zh-Hant": "開著時，用 ‹ › 或方向鍵翻頁後主地圖自動飛到那一處；關著時點「在主地圖上看」才飛"},
+ {"table": "Localizable", "key": "落地前自检的全部原因", "en": "All reasons from the pre-apply check", "de": "Alle Gründe der Vorab-Prüfung", "zh-Hant": "落地前自檢的全部原因"},
+ {"table": "Localizable", "key": "表格只列落地前自检判为「要看一眼」或「留意」的；点徽标看原因，点一行主地图飞过去", "en": "List only rows the pre-apply check marked “Check this” or “Note”; click a badge for the reasons, click a row to fly the main map there", "de": "Nur Zeilen zeigen, die die Vorab-Prüfung mit „Ansehen“ oder „Beachten“ markiert hat; Abzeichen anklicken für die Gründe, Zeile anklicken, um auf der Hauptkarte hinzufliegen", "zh-Hant": "表格只列落地前自檢判為「要看一眼」或「留意」的；點徽章看原因，點一列主地圖飛過去"},
+ {"table": "Localizable", "key": "要看一眼 %lld · 留意 %lld", "en": "Check this %1$lld · Note %2$lld", "de": "Ansehen %1$lld · Beachten %2$lld", "zh-Hant": "要看一眼 %1$lld · 留意 %2$lld"},
+ {"table": "Localizable", "key": "风险 %lld / 100 · %@", "en": "Risk %1$lld / 100 · %2$@", "de": "Risiko %1$lld / 100 · %2$@", "zh-Hant": "風險 %1$lld / 100 · %2$@"}
+]

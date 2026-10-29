@@ -1,0 +1,6 @@
+{
+  "name": "background-tasks",
+  "version": "0.1.0",
+  "description": "后台任务面板：每 10 秒显示现在有几个任务在跑",
+  "types": "./types/index.d.ts"
+}

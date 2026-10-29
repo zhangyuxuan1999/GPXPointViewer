@@ -1,0 +1,532 @@
+[
+  {
+    "table": "Localizable",
+    "key": "车道侧校验（靠右通行，查不到国家，按粗略范围判）：真实点在路线 A 侧 %@、B 侧 %@",
+    "en": "Driving-side check (right-hand traffic; country unknown, guessed from a rough area): real points relative to the route at A: %1$@; at B: %2$@",
+    "de": "Fahrseitenprüfung (Rechtsverkehr; Land unbekannt, nach grobem Gebiet geschätzt): echte Punkte relativ zur Route bei A: %1$@; bei B: %2$@",
+    "zh-Hant": "車道側校驗（靠右通行，查不到國家，按粗略範圍判）：真實點在路線 A 側 %1$@、B 側 %2$@"
+  },
+  {
+    "table": "Localizable",
+    "key": "车道侧校验（靠左通行）：真实点在路线 A 侧 %@、B 侧 %@",
+    "en": "Driving-side check (left-hand traffic): real points relative to the route at A: %1$@; at B: %2$@",
+    "de": "Fahrseitenprüfung (Linksverkehr): echte Punkte relativ zur Route bei A: %1$@; bei B: %2$@",
+    "zh-Hant": "車道側校驗（靠左通行）：真實點在路線 A 側 %1$@、B 側 %2$@"
+  },
+  {
+    "table": "Localizable",
+    "key": "车道侧校验（靠左通行，查不到国家，按粗略范围判）：真实点在路线 A 侧 %@、B 侧 %@",
+    "en": "Driving-side check (left-hand traffic; country unknown, guessed from a rough area): real points relative to the route at A: %1$@; at B: %2$@",
+    "de": "Fahrseitenprüfung (Linksverkehr; Land unbekannt, nach grobem Gebiet geschätzt): echte Punkte relativ zur Route bei A: %1$@; bei B: %2$@",
+    "zh-Hant": "車道側校驗（靠左通行，查不到國家，按粗略範圍判）：真實點在路線 A 側 %1$@、B 側 %2$@"
+  },
+  {
+    "table": "Localizable",
+    "key": "车道侧校验：几何太短，没法校验",
+    "en": "Driving-side check: geometry too short to check",
+    "de": "Fahrseitenprüfung: Geometrie zu kurz für eine Prüfung",
+    "zh-Hant": "車道側校驗：幾何太短，沒法校驗"
+  },
+  {
+    "table": "Localizable",
+    "key": "车道侧正确",
+    "en": "Driving side correct",
+    "de": "Fahrseite korrekt",
+    "zh-Hant": "車道側正確"
+  },
+  {
+    "table": "Localizable",
+    "key": "轨迹",
+    "en": "Track",
+    "de": "Track",
+    "zh-Hant": "軌跡"
+  },
+  {
+    "table": "Localizable",
+    "key": "轨迹线",
+    "en": "Track Line",
+    "de": "Tracklinie",
+    "zh-Hant": "軌跡線"
+  },
+  {
+    "table": "Localizable",
+    "key": "达姆施塔特",
+    "en": "Darmstadt",
+    "de": "Darmstadt",
+    "zh-Hant": "達姆施塔特"
+  },
+  {
+    "table": "Localizable",
+    "key": "过时时钟检测关",
+    "en": "Stale-clock detection off",
+    "de": "Erkennung veralteter Uhrzeit aus",
+    "zh-Hant": "過時時鐘偵測關"
+  },
+  {
+    "table": "Localizable",
+    "key": "过时时钟检测开",
+    "en": "Stale-clock detection on",
+    "de": "Erkennung veralteter Uhrzeit an",
+    "zh-Hant": "過時時鐘偵測開"
+  },
+  {
+    "table": "Localizable",
+    "key": "迈阿密",
+    "en": "Miami",
+    "de": "Miami",
+    "zh-Hant": "邁阿密"
+  },
+  {
+    "table": "Localizable",
+    "key": "近上下文（150 m 外）的路由不干净（绕路比 %@、贴路 %@/%@ m），改用远上下文（%@）：绕路比 %@、贴路 %@/%@ m",
+    "en": "The near-context route (from 150 m away) is not clean (detour ratio %1$@, snap %2$@/%3$@ m); using Far Context (%4$@) instead: detour ratio %5$@, snap %6$@/%7$@ m",
+    "de": "Die Route mit nahem Kontext (aus 150 m Entfernung) ist nicht sauber (Umwegfaktor %1$@, Anbindung %2$@/%3$@ m), daher wird „Weiter Kontext“ (%4$@) verwendet: Umwegfaktor %5$@, Anbindung %6$@/%7$@ m",
+    "zh-Hant": "近上下文（150 m 外）的路由不乾淨（繞路比 %1$@、貼路 %2$@/%3$@ m），改用遠上下文（%4$@）：繞路比 %5$@、貼路 %6$@/%7$@ m"
+  },
+  {
+    "table": "Localizable",
+    "key": "还原 %lld 处修改…",
+    "en": "Reverting %lld changes…",
+    "de": "%lld Änderungen werden zurückgesetzt…",
+    "zh-Hant": "還原 %lld 處修改…",
+    "plural": {
+      "en": {
+        "one": "Reverting %lld change…",
+        "other": "Reverting %lld changes…"
+      },
+      "de": {
+        "one": "%lld Änderung wird zurückgesetzt…",
+        "other": "%lld Änderungen werden zurückgesetzt…"
+      }
+    }
+  },
+  {
+    "table": "Localizable",
+    "key": "还原全部修改？",
+    "en": "Revert All Changes?",
+    "de": "Alle Änderungen zurücksetzen?",
+    "zh-Hant": "還原全部修改？"
+  },
+  {
+    "table": "Localizable",
+    "key": "还原按点的值找回，不按下标；逐处还原后其它修改不受影响",
+    "en": "Reverting finds points by their values, not by index; reverting one change leaves the others unaffected",
+    "de": "Beim Zurücksetzen werden Punkte über ihre Werte gefunden, nicht über den Index; einzelnes Zurücksetzen lässt andere Änderungen unberührt",
+    "zh-Hant": "還原按點的值找回，不按索引；逐處還原後其它修改不受影響"
+  },
+  {
+    "table": "Localizable",
+    "key": "还原此处",
+    "en": "Revert This",
+    "de": "Zurücksetzen",
+    "zh-Hant": "還原此處"
+  },
+  {
+    "table": "Localizable",
+    "key": "还有 %lld 处没选",
+    "en": "%lld gaps still need a choice",
+    "de": "Noch %lld Lücken ohne Auswahl",
+    "zh-Hant": "還有 %lld 處沒選",
+    "plural": {
+      "en": {
+        "one": "%lld gap still needs a choice",
+        "other": "%lld gaps still need a choice"
+      },
+      "de": {
+        "one": "Noch %lld Lücke ohne Auswahl",
+        "other": "Noch %lld Lücken ohne Auswahl"
+      }
+    }
+  },
+  {
+    "table": "Localizable",
+    "key": "还有 %lld 段在判断中…",
+    "en": "%lld segments still being checked…",
+    "de": "Noch %lld Abschnitte werden geprüft…",
+    "zh-Hant": "還有 %lld 段在判斷中…",
+    "plural": {
+      "en": {
+        "one": "%lld segment still being checked…",
+        "other": "%lld segments still being checked…"
+      },
+      "de": {
+        "one": "Noch %lld Abschnitt wird geprüft…",
+        "other": "Noch %lld Abschnitte werden geprüft…"
+      }
+    }
+  },
+  {
+    "table": "Localizable",
+    "key": "还没用地图判断；速度：%@",
+    "en": "Not checked with the map yet; speed: %@",
+    "de": "Noch nicht per Karte geprüft; Geschwindigkeit: %@",
+    "zh-Hant": "還沒用地圖判斷；速度：%@"
+  },
+  {
+    "table": "Localizable",
+    "key": "还没用地图，按速度 v95 %lld",
+    "en": "No map check yet, using speed v95 %lld",
+    "de": "Noch keine Kartenprüfung, nach Geschwindigkeit v95 %lld",
+    "zh-Hant": "還沒用地圖，按速度 v95 %lld"
+  },
+  {
+    "table": "Localizable",
+    "key": "这些点的坐标与几分钟前某个点一字不差，期间轨迹已离开几百米，而且是在移动中记下的：是设备没信号时回放的旧位置，不是新的定位。删掉后几何不变（每个位置首次出现的点留着），时间线会少掉这些来回；会记成一条「回放点清理」修改记录，可随时还原。",
+    "en": "These points have exactly the same coordinates as a point from a few minutes earlier, although the track had meanwhile moved a few hundred meters away, and they were recorded while moving: they are old positions the device replayed while it had no signal, not new fixes. Deleting them leaves the geometry unchanged (the first point at each position is kept) and removes this back-and-forth from the timeline; it is recorded as a “Replay Cleanup” entry in the change log and can be reverted at any time.",
+    "de": "Die Koordinaten dieser Punkte stimmen exakt mit einem Punkt von vor wenigen Minuten überein, obwohl sich der Track inzwischen einige hundert Meter entfernt hatte, und sie wurden in Bewegung aufgezeichnet: Es sind alte Positionen, die das Gerät ohne Signal erneut ausgegeben hat, keine neuen Ortungen. Das Löschen lässt die Geometrie unverändert (der erste Punkt an jeder Position bleibt erhalten) und entfernt dieses Hin und Her aus der Zeitleiste; es wird als Eintrag „Bereinigung der Wiederholungspunkte“ im Änderungsprotokoll erfasst und lässt sich jederzeit zurücksetzen.",
+    "zh-Hant": "這些點的座標與幾分鐘前某個點一字不差，期間軌跡已離開幾百公尺，而且是在移動中記下的：是裝置沒訊號時回放的舊位置，不是新的定位。刪掉後幾何不變（每個位置首次出現的點留著），時間線會少掉這些來回；會記成一條「回放點清理」修改記錄，可隨時還原。"
+  },
+  {
+    "table": "Localizable",
+    "key": "进入对比模式",
+    "en": "Enter Compare Mode",
+    "de": "Vergleichsmodus starten",
+    "zh-Hant": "進入對比模式"
+  },
+  {
+    "table": "Localizable",
+    "key": "远上下文",
+    "en": "Far Context",
+    "de": "Weiter Kontext",
+    "zh-Hant": "遠上下文"
+  },
+  {
+    "table": "Localizable",
+    "key": "远上下文也没更干净（绕路比 %@、贴路 %@/%@ m），仍用近上下文",
+    "en": "Far Context was no cleaner (detour ratio %1$@, snap %2$@/%3$@ m); keeping the near context",
+    "de": "„Weiter Kontext“ war nicht sauberer (Umwegfaktor %1$@, Anbindung %2$@/%3$@ m), es bleibt beim nahen Kontext",
+    "zh-Hant": "遠上下文也沒更乾淨（繞路比 %1$@、貼路 %2$@/%3$@ m），仍用近上下文"
+  },
+  {
+    "table": "Localizable",
+    "key": "连不上服务器",
+    "en": "Cannot connect to server",
+    "de": "Keine Verbindung zum Server",
+    "zh-Hant": "連不上伺服器"
+  },
+  {
+    "table": "Localizable",
+    "key": "连接中断",
+    "en": "Connection lost",
+    "de": "Verbindung unterbrochen",
+    "zh-Hant": "連線中斷"
+  },
+  {
+    "table": "Localizable",
+    "key": "迪拜",
+    "en": "Dubai",
+    "de": "Dubai",
+    "zh-Hant": "杜拜"
+  },
+  {
+    "table": "Localizable",
+    "key": "迷雾",
+    "en": "Fog",
+    "de": "Nebel",
+    "zh-Hant": "迷霧"
+  },
+  {
+    "table": "Localizable",
+    "key": "迷雾存档",
+    "en": "Fog Archives",
+    "de": "Fog-Archive",
+    "zh-Hant": "迷霧存檔"
+  },
+  {
+    "table": "Localizable",
+    "key": "迷雾存档模式：迷雾即数据本身，始终开启",
+    "en": "Fog archive mode: the fog is the data itself and is always on",
+    "de": "Fog-Archiv-Modus: Der Nebel stellt die Daten selbst dar und ist immer aktiv",
+    "zh-Hant": "迷霧存檔模式：迷霧即資料本身，始終開啟"
+  },
+  {
+    "table": "Localizable",
+    "key": "迷雾存档没有可用的时间线（区块时间戳单一）。",
+    "en": "The fog archive has no usable timeline (all blocks share one timestamp).",
+    "de": "Das Fog-Archiv hat keine verwendbare Zeitleiste (alle Blöcke haben denselben Zeitstempel).",
+    "zh-Hant": "迷霧存檔沒有可用的時間線（區塊時間戳記單一）。"
+  },
+  {
+    "table": "Localizable",
+    "key": "迷雾显隐仅支持前 32 个文件，此文件恒显示",
+    "en": "Fog show/hide is supported only for the first 32 files; this file is always shown",
+    "de": "Nebel ein-/ausblenden ist nur für die ersten 32 Dateien möglich; diese Datei wird immer angezeigt",
+    "zh-Hant": "迷霧顯隱僅支援前 32 個檔案，此檔案恆顯示"
+  },
+  {
+    "table": "Localizable",
+    "key": "迷雾清除半径（米）：走过的地方向两侧擦亮多宽",
+    "en": "Fog clearing radius (m): how far the fog is cleared on each side of where you went",
+    "de": "Nebel-Freilegungsradius (m): wie breit der Nebel beiderseits des Wegs aufgedeckt wird",
+    "zh-Hant": "迷霧清除半徑（公尺）：走過的地方向兩側擦亮多寬"
+  },
+  {
+    "table": "Localizable",
+    "key": "迷雾统计 · 世界迷雾口径",
+    "en": "Fog Stats · Fog of World Method",
+    "de": "Nebelstatistik · nach Fog of World",
+    "zh-Hant": "迷霧統計 · 世界迷霧口徑"
+  },
+  {
+    "table": "Localizable",
+    "key": "迷雾统计（世界迷雾口径）",
+    "en": "Fog Stats (Fog of World Method)",
+    "de": "Nebelstatistik (nach Fog of World)",
+    "zh-Hant": "迷霧統計（世界迷霧口徑）"
+  },
+  {
+    "table": "Localizable",
+    "key": "退出",
+    "en": "Exit",
+    "de": "Beenden",
+    "zh-Hant": "退出"
+  },
+  {
+    "table": "Localizable",
+    "key": "退出(不删)",
+    "en": "Exit (Keep Points)",
+    "de": "Beenden (nicht löschen)",
+    "zh-Hant": "退出(不刪)"
+  },
+  {
+    "table": "Localizable",
+    "key": "退出对比",
+    "en": "Exit Compare",
+    "de": "Vergleich beenden",
+    "zh-Hant": "退出對比"
+  },
+  {
+    "table": "Localizable",
+    "key": "退出补点",
+    "en": "Exit Gap Fill",
+    "de": "Lückenfüllung beenden",
+    "zh-Hant": "退出補點"
+  },
+  {
+    "table": "Localizable",
+    "key": "选择 GPX / CSV 文件（可多选合并）或一个 .fwdb 迷雾存档",
+    "en": "Choose GPX / CSV files (several are merged) or one .fwdb fog archive",
+    "de": "GPX- / CSV-Dateien wählen (mehrere werden zusammengeführt) oder ein .fwdb-Fog-Archiv",
+    "zh-Hant": "選擇 GPX / CSV 檔案（可多選合併）或一個 .fwdb 迷霧存檔"
+  },
+  {
+    "table": "Localizable",
+    "key": "选择图片导出位置",
+    "en": "Choose where to export the image",
+    "de": "Speicherort für den Bildexport wählen",
+    "zh-Hant": "選擇圖片匯出位置"
+  },
+  {
+    "table": "Localizable",
+    "key": "选择导出位置",
+    "en": "Choose export location",
+    "de": "Speicherort für den Export wählen",
+    "zh-Hant": "選擇匯出位置"
+  },
+  {
+    "table": "Localizable",
+    "key": "选择视频导出位置",
+    "en": "Choose where to export the video",
+    "de": "Speicherort für den Videoexport wählen",
+    "zh-Hant": "選擇影片匯出位置"
+  },
+  {
+    "table": "Localizable",
+    "key": "透明背景（只导出点云图层）",
+    "en": "Transparent Background (Point Cloud Layer Only)",
+    "de": "Transparenter Hintergrund (nur Punktwolke)",
+    "zh-Hant": "透明背景（只匯出點雲圖層）"
+  },
+  {
+    "table": "Localizable",
+    "key": "速度",
+    "en": "Speed",
+    "de": "Geschwindigkeit",
+    "zh-Hant": "速度"
+  },
+  {
+    "table": "Localizable",
+    "key": "郑州",
+    "en": "Zhengzhou",
+    "de": "Zhengzhou",
+    "zh-Hant": "鄭州"
+  },
+  {
+    "table": "Localizable",
+    "key": "采样 %@ · 中位 %@ s / %@ m",
+    "en": "Sampling: %1$@ · median %2$@ s / %3$@ m",
+    "de": "Abtastung: %1$@ · Median %2$@ s / %3$@ m",
+    "zh-Hant": "採樣 %1$@ · 中位 %2$@ s / %3$@ m"
+  },
+  {
+    "table": "Localizable",
+    "key": "采样 %@ · 中位 %@ s / %@ m（稀疏时 %@ m）",
+    "en": "Sampling: %1$@ · median %2$@ s / %3$@ m (sparse at times: %4$@ m)",
+    "de": "Abtastung: %1$@ · Median %2$@ s / %3$@ m (zeitweise spärlich: %4$@ m)",
+    "zh-Hant": "採樣 %1$@ · 中位 %2$@ s / %3$@ m（稀疏時 %4$@ m）"
+  },
+  {
+    "table": "Localizable",
+    "key": "采样率",
+    "en": "Sample Rate",
+    "de": "Abtastrate",
+    "zh-Hant": "採樣率"
+  },
+  {
+    "table": "Localizable",
+    "key": "采样稀疏",
+    "en": "Sparse sampling",
+    "de": "Spärliche Abtastung",
+    "zh-Hant": "採樣稀疏"
+  },
+  {
+    "table": "Localizable",
+    "key": "采样稀疏的全部跳过（%lld 处）",
+    "en": "Skip All with Sparse Sampling (%lld Gaps)",
+    "de": "Alle mit spärlicher Abtastung überspringen (%lld Lücken)",
+    "zh-Hant": "採樣稀疏的全部跳過（%lld 處）",
+    "plural": {
+      "en": {
+        "one": "Skip All with Sparse Sampling (%lld Gap)",
+        "other": "Skip All with Sparse Sampling (%lld Gaps)"
+      },
+      "de": {
+        "one": "Alle mit spärlicher Abtastung überspringen (%lld Lücke)",
+        "other": "Alle mit spärlicher Abtastung überspringen (%lld Lücken)"
+      }
+    }
+  },
+  {
+    "table": "Localizable",
+    "key": "采用",
+    "en": "Use",
+    "de": "Verwenden",
+    "zh-Hant": "採用"
+  },
+  {
+    "table": "Localizable",
+    "key": "采用「%@」，贴路 %@ / %@ m",
+    "en": "Using “%1$@”, snap %2$@ / %3$@ m",
+    "de": "„%1$@“ verwendet, Anbindung %2$@ / %3$@ m",
+    "zh-Hant": "採用「%1$@」，貼路 %2$@ / %3$@ m"
+  },
+  {
+    "table": "Localizable",
+    "key": "采用「上下文」：绕路比 %@、贴路 %@/%@ m，达标即止（批量先走上下文：/route 0.6 s，地图匹配被服务器节流到 7–9 s）",
+    "en": "Using “Context”: detour ratio %1$@, snap %2$@/%3$@ m, good enough, so the search stops here (batch mode tries Context first: /route takes 0.6 s, map matching is throttled by the server to 7–9 s)",
+    "de": "„Kontext“ verwendet: Umwegfaktor %1$@, Anbindung %2$@/%3$@ m, gut genug, Suche beendet (Stapelmodus versucht zuerst Kontext: /route 0,6 s, Kartenabgleich vom Server auf 7–9 s gedrosselt)",
+    "zh-Hant": "採用「上下文」：繞路比 %1$@、貼路 %2$@/%3$@ m，達標即止（批量先走上下文：/route 0.6 s，地圖匹配被伺服器節流到 7–9 s）"
+  },
+  {
+    "table": "Localizable",
+    "key": "采用「匹配」（A 前 %lld 点 + B 后 %lld 点，半径 %@ m）：绕路比 %@、贴路 %@/%@ m，达标即止，没再比较其它候选",
+    "en": "Using “Match” (%1$lld pts before A + %2$lld pts after B, radius %3$@ m): detour ratio %4$@, snap %5$@/%6$@ m, good enough, no other candidates compared",
+    "de": "„Abgleich“ verwendet (%1$lld Pkt. vor A + %2$lld Pkt. nach B, Radius %3$@ m): Umwegfaktor %4$@, Anbindung %5$@/%6$@ m, gut genug, keine weiteren Kandidaten verglichen",
+    "zh-Hant": "採用「匹配」（A 前 %1$lld 點 + B 後 %2$lld 點，半徑 %3$@ m）：繞路比 %4$@、貼路 %5$@/%6$@ m，達標即止，沒再比較其它候選"
+  },
+  {
+    "table": "Localizable",
+    "key": "里斯本",
+    "en": "Lisbon",
+    "de": "Lissabon",
+    "zh-Hant": "里斯本"
+  },
+  {
+    "table": "Localizable",
+    "key": "里约热内卢",
+    "en": "Rio de Janeiro",
+    "de": "Rio de Janeiro",
+    "zh-Hant": "里約熱內盧"
+  },
+  {
+    "table": "Localizable",
+    "key": "重叠",
+    "en": "Overlay",
+    "de": "Überlagerung",
+    "zh-Hant": "重疊"
+  },
+  {
+    "table": "Localizable",
+    "key": "重叠/对比模式下不可删除点（请切回单文件模式）",
+    "en": "Points can't be deleted in Overlay/Compare mode (switch back to Single File mode)",
+    "de": "Im Überlagerungs-/Vergleichsmodus lassen sich keine Punkte löschen (zurück in den Einzeldateimodus wechseln)",
+    "zh-Hant": "重疊/對比模式下不可刪除點（請切回單檔案模式）"
+  },
+  {
+    "table": "Localizable",
+    "key": "重叠模式：每个文件单独着色（见右侧文件列表）",
+    "en": "Overlay mode: each file has its own color (see the file list on the right)",
+    "de": "Überlagerungsmodus: jede Datei in eigener Farbe (siehe Dateiliste rechts)",
+    "zh-Hant": "重疊模式：每個檔案單獨著色（見右側檔案列表）"
+  },
+  {
+    "table": "Localizable",
+    "key": "重庆",
+    "en": "Chongqing",
+    "de": "Chongqing",
+    "zh-Hant": "重慶"
+  },
+  {
+    "table": "Localizable",
+    "key": "重新加载当前文件",
+    "en": "Reload Current File",
+    "de": "Aktuelle Datei neu laden",
+    "zh-Hant": "重新載入目前檔案"
+  },
+  {
+    "table": "Localizable",
+    "key": "重新圈选",
+    "en": "Lasso Again",
+    "de": "Erneut einkreisen",
+    "zh-Hant": "重新圈選"
+  },
+  {
+    "table": "Localizable",
+    "key": "重新用地图判断",
+    "en": "Re-check with Map",
+    "de": "Erneut per Karte prüfen",
+    "zh-Hant": "重新用地圖判斷"
+  },
+  {
+    "table": "Localizable",
+    "key": "釜山",
+    "en": "Busan",
+    "de": "Busan",
+    "zh-Hant": "釜山"
+  },
+  {
+    "table": "Localizable",
+    "key": "铁路",
+    "en": "Rail",
+    "de": "Bahn",
+    "zh-Hant": "鐵路"
+  },
+  {
+    "table": "Localizable",
+    "key": "铁路不像隧道、不补 %lld",
+    "en": "Rail, not a tunnel, not filled: %lld",
+    "de": "Bahn, kein Tunnel, nicht gefüllt: %lld",
+    "zh-Hant": "鐵路不像隧道、不補 %lld"
+  },
+  {
+    "table": "Localizable",
+    "key": "铁路不像隧道不补 %lld",
+    "en": "Rail, not a tunnel, not filled: %lld",
+    "de": "Bahn, kein Tunnel, nicht gefüllt: %lld",
+    "zh-Hant": "鐵路不像隧道不補 %lld"
+  },
+  {
+    "table": "Localizable",
+    "key": "铁路只补判定为隧道的断档：OSM 铁路线段自带 tunnel 标签，裁出的 A–B 路径里隧道占比 ≥50% 才补；车厢里收不到信号造成的长空洞请从 gpx.studio 导入",
+    "en": "Rail only fills gaps judged to be tunnels: OSM railway segments carry a tunnel tag, and a gap is filled only if tunnels make up ≥50% of the trimmed A–B path; for long holes caused by no signal inside the train, import from gpx.studio",
+    "de": "Bei der Bahn werden nur als Tunnel erkannte Lücken gefüllt: OSM-Bahnabschnitte tragen ein tunnel-Tag, gefüllt wird nur, wenn Tunnel ≥50% des zugeschnittenen A–B-Wegs ausmachen; lange Löcher durch fehlenden Empfang im Zug bitte aus gpx.studio importieren",
+    "zh-Hant": "鐵路只補判定為隧道的斷檔：OSM 鐵路線段自帶 tunnel 標籤，裁出的 A–B 路徑裡隧道佔比 ≥50% 才補；車廂裡收不到訊號造成的長空洞請從 gpx.studio 匯入"
+  },
+  {
+    "table": "Localizable",
+    "key": "铁路断档只补判定为隧道的：A–B 铁路路径里 OSM tunnel 标签段占 ≥50%，且直线 ≤60 km、时长 ≤25 分钟。其余多半是车厢里收不到信号，不补，需要的话从 gpx.studio 导",
+    "en": "Rail gaps are filled only if judged to be tunnels: segments with the OSM tunnel tag make up ≥50% of the A–B rail path, the straight line is ≤60 km and the duration ≤25 min. The rest are mostly no signal inside the train and are not filled; import them from gpx.studio if needed",
+    "de": "Bahnlücken werden nur gefüllt, wenn sie als Tunnel erkannt sind: Abschnitte mit OSM-tunnel-Tag machen ≥50% des A–B-Bahnwegs aus, Luftlinie ≤60 km, Dauer ≤25 min. Der Rest ist meist fehlender Empfang im Zug und wird nicht gefüllt; bei Bedarf aus gpx.studio importieren",
+    "zh-Hant": "鐵路斷檔只補判定為隧道的：A–B 鐵路路徑裡 OSM tunnel 標籤段佔 ≥50%，且直線 ≤60 km、時長 ≤25 分鐘。其餘多半是車廂裡收不到訊號，不補，需要的話從 gpx.studio 匯入"
+  }
+]

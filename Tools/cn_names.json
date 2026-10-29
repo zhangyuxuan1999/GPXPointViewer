@@ -1,0 +1,2852 @@
+{
+ "110101": {
+  "de": "Dongcheng",
+  "en": "Dongcheng",
+  "zh": "东城区",
+  "zh-Hant": "東城"
+ },
+ "110102": {
+  "de": "Xicheng",
+  "en": "Xicheng",
+  "zh": "西城区",
+  "zh-Hant": "西城"
+ },
+ "110105": {
+  "de": "Chaoyang",
+  "en": "Chaoyang",
+  "zh": "朝阳区",
+  "zh-Hant": "朝陽"
+ },
+ "110106": {
+  "de": "Fengtai",
+  "en": "Fengtai",
+  "zh": "丰台区",
+  "zh-Hant": "豐台"
+ },
+ "110107": {
+  "de": "Shijingshan",
+  "en": "Shijingshan",
+  "zh": "石景山区",
+  "zh-Hant": "石景山"
+ },
+ "110108": {
+  "de": "Haidian",
+  "en": "Haidian",
+  "zh": "海淀区",
+  "zh-Hant": "海淀"
+ },
+ "110109": {
+  "de": "Mentougou",
+  "en": "Mentougou",
+  "zh": "门头沟区",
+  "zh-Hant": "門頭溝"
+ },
+ "110111": {
+  "de": "Fangshan",
+  "en": "Fangshan",
+  "zh": "房山区",
+  "zh-Hant": "房山"
+ },
+ "110112": {
+  "de": "Tongzhou",
+  "en": "Tongzhou",
+  "zh": "通州区",
+  "zh-Hant": "通州"
+ },
+ "110113": {
+  "de": "Shunyi",
+  "en": "Shunyi",
+  "zh": "顺义区",
+  "zh-Hant": "順義"
+ },
+ "110114": {
+  "de": "Changping",
+  "en": "Changping",
+  "zh": "昌平区",
+  "zh-Hant": "昌平"
+ },
+ "110115": {
+  "de": "Daxing",
+  "en": "Daxing",
+  "zh": "大兴区",
+  "zh-Hant": "大興"
+ },
+ "110116": {
+  "de": "Huairou",
+  "en": "Huairou",
+  "zh": "怀柔区",
+  "zh-Hant": "懷柔"
+ },
+ "110117": {
+  "de": "Pinggu",
+  "en": "Pinggu",
+  "zh": "平谷区",
+  "zh-Hant": "平谷"
+ },
+ "110118": {
+  "de": "Miyun",
+  "en": "Miyun",
+  "zh": "密云区",
+  "zh-Hant": "密雲"
+ },
+ "110119": {
+  "de": "Yanqing",
+  "en": "Yanqing",
+  "zh": "延庆区",
+  "zh-Hant": "延慶"
+ },
+ "120101": {
+  "de": "Heping",
+  "en": "Heping",
+  "zh": "和平区",
+  "zh-Hant": "和平"
+ },
+ "120102": {
+  "de": "Hedong",
+  "en": "Hedong",
+  "zh": "河东区",
+  "zh-Hant": "河東"
+ },
+ "120103": {
+  "de": "Hexi",
+  "en": "Hexi",
+  "zh": "河西区",
+  "zh-Hant": "河西"
+ },
+ "120104": {
+  "de": "Nankai",
+  "en": "Nankai",
+  "zh": "南开区",
+  "zh-Hant": "南開"
+ },
+ "120105": {
+  "de": "Hebei",
+  "en": "Hebei",
+  "zh": "河北区",
+  "zh-Hant": "河北"
+ },
+ "120106": {
+  "de": "Hongqiao",
+  "en": "Hongqiao",
+  "zh": "红桥区",
+  "zh-Hant": "紅橋"
+ },
+ "120110": {
+  "de": "Dongli",
+  "en": "Dongli",
+  "zh": "东丽区",
+  "zh-Hant": "東麗"
+ },
+ "120111": {
+  "de": "Xiqing",
+  "en": "Xiqing",
+  "zh": "西青区",
+  "zh-Hant": "西青"
+ },
+ "120112": {
+  "de": "Jinnan",
+  "en": "Jinnan",
+  "zh": "津南区",
+  "zh-Hant": "津南"
+ },
+ "120113": {
+  "de": "Beichen",
+  "en": "Beichen",
+  "zh": "北辰区",
+  "zh-Hant": "北辰"
+ },
+ "120114": {
+  "de": "Wuqing",
+  "en": "Wuqing",
+  "zh": "武清区",
+  "zh-Hant": "武清"
+ },
+ "120115": {
+  "de": "Baodi",
+  "en": "Baodi",
+  "zh": "宝坻区",
+  "zh-Hant": "寶坻"
+ },
+ "120116": {
+  "de": "Binhai",
+  "en": "Binhai",
+  "zh": "滨海新区",
+  "zh-Hant": "濱海新區"
+ },
+ "120117": {
+  "de": "Ninghe",
+  "en": "Ninghe",
+  "zh": "宁河区",
+  "zh-Hant": "寧河"
+ },
+ "120118": {
+  "de": "Jinghai",
+  "en": "Jinghai",
+  "zh": "静海区",
+  "zh-Hant": "靜海"
+ },
+ "120119": {
+  "de": "Jizhou",
+  "en": "Jizhou",
+  "zh": "蓟州区",
+  "zh-Hant": "薊州"
+ },
+ "130100": {
+  "de": "Shijiazhuang",
+  "en": "Shijiazhuang",
+  "zh": "石家庄市",
+  "zh-Hant": "石家莊"
+ },
+ "130200": {
+  "de": "Tangshan",
+  "en": "Tangshan",
+  "zh": "唐山市",
+  "zh-Hant": "唐山"
+ },
+ "130300": {
+  "de": "Qinhuangdao",
+  "en": "Qinhuangdao",
+  "zh": "秦皇岛市",
+  "zh-Hant": "秦皇島"
+ },
+ "130400": {
+  "de": "Handan",
+  "en": "Handan",
+  "zh": "邯郸市",
+  "zh-Hant": "邯鄲"
+ },
+ "130500": {
+  "de": "Xingtai",
+  "en": "Xingtai",
+  "zh": "邢台市",
+  "zh-Hant": "邢台"
+ },
+ "130600": {
+  "de": "Baoding",
+  "en": "Baoding",
+  "zh": "保定市",
+  "zh-Hant": "保定"
+ },
+ "130700": {
+  "de": "Zhangjiakou",
+  "en": "Zhangjiakou",
+  "zh": "张家口市",
+  "zh-Hant": "張家口"
+ },
+ "130800": {
+  "de": "Chengde",
+  "en": "Chengde",
+  "zh": "承德市",
+  "zh-Hant": "承德"
+ },
+ "130900": {
+  "de": "Cangzhou",
+  "en": "Cangzhou",
+  "zh": "沧州市",
+  "zh-Hant": "滄州"
+ },
+ "131000": {
+  "de": "Langfang",
+  "en": "Langfang",
+  "zh": "廊坊市",
+  "zh-Hant": "廊坊"
+ },
+ "131100": {
+  "de": "Hengshui",
+  "en": "Hengshui",
+  "zh": "衡水市",
+  "zh-Hant": "衡水"
+ },
+ "140100": {
+  "de": "Taiyuan",
+  "en": "Taiyuan",
+  "zh": "太原市",
+  "zh-Hant": "太原"
+ },
+ "140200": {
+  "de": "Datong",
+  "en": "Datong",
+  "zh": "大同市",
+  "zh-Hant": "大同"
+ },
+ "140300": {
+  "de": "Yangquan",
+  "en": "Yangquan",
+  "zh": "阳泉市",
+  "zh-Hant": "陽泉"
+ },
+ "140400": {
+  "de": "Changzhi",
+  "en": "Changzhi",
+  "zh": "长治市",
+  "zh-Hant": "長治"
+ },
+ "140500": {
+  "de": "Jincheng",
+  "en": "Jincheng",
+  "zh": "晋城市",
+  "zh-Hant": "晉城"
+ },
+ "140600": {
+  "de": "Shuozhou",
+  "en": "Shuozhou",
+  "zh": "朔州市",
+  "zh-Hant": "朔州"
+ },
+ "140700": {
+  "de": "Jinzhong",
+  "en": "Jinzhong",
+  "zh": "晋中市",
+  "zh-Hant": "晉中"
+ },
+ "140800": {
+  "de": "Yuncheng",
+  "en": "Yuncheng",
+  "zh": "运城市",
+  "zh-Hant": "運城"
+ },
+ "140900": {
+  "de": "Xinzhou",
+  "en": "Xinzhou",
+  "zh": "忻州市",
+  "zh-Hant": "忻州"
+ },
+ "141000": {
+  "de": "Linfen",
+  "en": "Linfen",
+  "zh": "临汾市",
+  "zh-Hant": "臨汾"
+ },
+ "141100": {
+  "de": "Lüliang",
+  "en": "Lüliang",
+  "zh": "吕梁市",
+  "zh-Hant": "呂梁"
+ },
+ "150100": {
+  "de": "Hohhot",
+  "en": "Hohhot",
+  "zh": "呼和浩特市",
+  "zh-Hant": "呼和浩特"
+ },
+ "150200": {
+  "de": "Baotou",
+  "en": "Baotou",
+  "zh": "包头市",
+  "zh-Hant": "包頭"
+ },
+ "150300": {
+  "de": "Wuhai",
+  "en": "Wuhai",
+  "zh": "乌海市",
+  "zh-Hant": "烏海"
+ },
+ "150400": {
+  "de": "Chifeng",
+  "en": "Chifeng",
+  "zh": "赤峰市",
+  "zh-Hant": "赤峰"
+ },
+ "150500": {
+  "de": "Tongliao",
+  "en": "Tongliao",
+  "zh": "通辽市",
+  "zh-Hant": "通遼"
+ },
+ "150600": {
+  "de": "Ordos",
+  "en": "Ordos",
+  "zh": "鄂尔多斯市",
+  "zh-Hant": "鄂爾多斯"
+ },
+ "150700": {
+  "de": "Hulunbuir",
+  "en": "Hulunbuir",
+  "zh": "呼伦贝尔市",
+  "zh-Hant": "呼倫貝爾"
+ },
+ "150800": {
+  "de": "Bayannur",
+  "en": "Bayannur",
+  "zh": "巴彦淖尔市",
+  "zh-Hant": "巴彥淖爾"
+ },
+ "150900": {
+  "de": "Ulanqab",
+  "en": "Ulanqab",
+  "zh": "乌兰察布市",
+  "zh-Hant": "烏蘭察布"
+ },
+ "152200": {
+  "de": "Hinggan-Bund",
+  "en": "Hinggan League",
+  "zh": "兴安盟",
+  "zh-Hant": "興安盟"
+ },
+ "152500": {
+  "de": "Xilingol-Bund",
+  "en": "Xilingol League",
+  "zh": "锡林郭勒盟",
+  "zh-Hant": "錫林郭勒盟"
+ },
+ "152900": {
+  "de": "Alxa-Bund",
+  "en": "Alxa League",
+  "zh": "阿拉善盟",
+  "zh-Hant": "阿拉善盟"
+ },
+ "210100": {
+  "de": "Shenyang",
+  "en": "Shenyang",
+  "zh": "沈阳市",
+  "zh-Hant": "瀋陽"
+ },
+ "210200": {
+  "de": "Dalian",
+  "en": "Dalian",
+  "zh": "大连市",
+  "zh-Hant": "大連"
+ },
+ "210300": {
+  "de": "Anshan",
+  "en": "Anshan",
+  "zh": "鞍山市",
+  "zh-Hant": "鞍山"
+ },
+ "210400": {
+  "de": "Fushun",
+  "en": "Fushun",
+  "zh": "抚顺市",
+  "zh-Hant": "撫順"
+ },
+ "210500": {
+  "de": "Benxi",
+  "en": "Benxi",
+  "zh": "本溪市",
+  "zh-Hant": "本溪"
+ },
+ "210600": {
+  "de": "Dandong",
+  "en": "Dandong",
+  "zh": "丹东市",
+  "zh-Hant": "丹東"
+ },
+ "210700": {
+  "de": "Jinzhou",
+  "en": "Jinzhou",
+  "zh": "锦州市",
+  "zh-Hant": "錦州"
+ },
+ "210800": {
+  "de": "Yingkou",
+  "en": "Yingkou",
+  "zh": "营口市",
+  "zh-Hant": "營口"
+ },
+ "210900": {
+  "de": "Fuxin",
+  "en": "Fuxin",
+  "zh": "阜新市",
+  "zh-Hant": "阜新"
+ },
+ "211000": {
+  "de": "Liaoyang",
+  "en": "Liaoyang",
+  "zh": "辽阳市",
+  "zh-Hant": "遼陽"
+ },
+ "211100": {
+  "de": "Panjin",
+  "en": "Panjin",
+  "zh": "盘锦市",
+  "zh-Hant": "盤錦"
+ },
+ "211200": {
+  "de": "Tieling",
+  "en": "Tieling",
+  "zh": "铁岭市",
+  "zh-Hant": "鐵嶺"
+ },
+ "211300": {
+  "de": "Chaoyang",
+  "en": "Chaoyang",
+  "zh": "朝阳市",
+  "zh-Hant": "朝陽"
+ },
+ "211400": {
+  "de": "Huludao",
+  "en": "Huludao",
+  "zh": "葫芦岛市",
+  "zh-Hant": "葫蘆島"
+ },
+ "220100": {
+  "de": "Changchun",
+  "en": "Changchun",
+  "zh": "长春市",
+  "zh-Hant": "長春"
+ },
+ "220200": {
+  "de": "Jilin",
+  "en": "Jilin",
+  "zh": "吉林市",
+  "zh-Hant": "吉林"
+ },
+ "220300": {
+  "de": "Siping",
+  "en": "Siping",
+  "zh": "四平市",
+  "zh-Hant": "四平"
+ },
+ "220400": {
+  "de": "Liaoyuan",
+  "en": "Liaoyuan",
+  "zh": "辽源市",
+  "zh-Hant": "遼源"
+ },
+ "220500": {
+  "de": "Tonghua",
+  "en": "Tonghua",
+  "zh": "通化市",
+  "zh-Hant": "通化"
+ },
+ "220600": {
+  "de": "Baishan",
+  "en": "Baishan",
+  "zh": "白山市",
+  "zh-Hant": "白山"
+ },
+ "220700": {
+  "de": "Songyuan",
+  "en": "Songyuan",
+  "zh": "松原市",
+  "zh-Hant": "松原"
+ },
+ "220800": {
+  "de": "Baicheng",
+  "en": "Baicheng",
+  "zh": "白城市",
+  "zh-Hant": "白城"
+ },
+ "222400": {
+  "de": "Autonomer Bezirk Yanbian der Koreaner",
+  "en": "Yanbian Korean Autonomous Prefecture",
+  "zh": "延边朝鲜族自治州",
+  "zh-Hant": "延邊朝鮮族自治州"
+ },
+ "230100": {
+  "de": "Harbin",
+  "en": "Harbin",
+  "zh": "哈尔滨市",
+  "zh-Hant": "哈爾濱"
+ },
+ "230200": {
+  "de": "Qiqihar",
+  "en": "Qiqihar",
+  "zh": "齐齐哈尔市",
+  "zh-Hant": "齊齊哈爾"
+ },
+ "230300": {
+  "de": "Jixi",
+  "en": "Jixi",
+  "zh": "鸡西市",
+  "zh-Hant": "雞西"
+ },
+ "230400": {
+  "de": "Hegang",
+  "en": "Hegang",
+  "zh": "鹤岗市",
+  "zh-Hant": "鶴崗"
+ },
+ "230500": {
+  "de": "Shuangyashan",
+  "en": "Shuangyashan",
+  "zh": "双鸭山市",
+  "zh-Hant": "雙鴨山"
+ },
+ "230600": {
+  "de": "Daqing",
+  "en": "Daqing",
+  "zh": "大庆市",
+  "zh-Hant": "大慶"
+ },
+ "230700": {
+  "de": "Yichun",
+  "en": "Yichun",
+  "zh": "伊春市",
+  "zh-Hant": "伊春"
+ },
+ "230800": {
+  "de": "Jiamusi",
+  "en": "Jiamusi",
+  "zh": "佳木斯市",
+  "zh-Hant": "佳木斯"
+ },
+ "230900": {
+  "de": "Qitaihe",
+  "en": "Qitaihe",
+  "zh": "七台河市",
+  "zh-Hant": "七台河"
+ },
+ "231000": {
+  "de": "Mudanjiang",
+  "en": "Mudanjiang",
+  "zh": "牡丹江市",
+  "zh-Hant": "牡丹江"
+ },
+ "231100": {
+  "de": "Heihe",
+  "en": "Heihe",
+  "zh": "黑河市",
+  "zh-Hant": "黑河"
+ },
+ "231200": {
+  "de": "Suihua",
+  "en": "Suihua",
+  "zh": "绥化市",
+  "zh-Hant": "綏化"
+ },
+ "232700": {
+  "de": "Regierungsbezirk Daxing'anling",
+  "en": "Daxing'anling Prefecture",
+  "zh": "大兴安岭地区",
+  "zh-Hant": "大興安嶺地區"
+ },
+ "310101": {
+  "de": "Huangpu",
+  "en": "Huangpu",
+  "zh": "黄浦区",
+  "zh-Hant": "黃浦"
+ },
+ "310104": {
+  "de": "Xuhui",
+  "en": "Xuhui",
+  "zh": "徐汇区",
+  "zh-Hant": "徐匯"
+ },
+ "310105": {
+  "de": "Changning",
+  "en": "Changning",
+  "zh": "长宁区",
+  "zh-Hant": "長寧"
+ },
+ "310106": {
+  "de": "Jing'an",
+  "en": "Jing'an",
+  "zh": "静安区",
+  "zh-Hant": "靜安"
+ },
+ "310107": {
+  "de": "Putuo",
+  "en": "Putuo",
+  "zh": "普陀区",
+  "zh-Hant": "普陀"
+ },
+ "310109": {
+  "de": "Hongkou",
+  "en": "Hongkou",
+  "zh": "虹口区",
+  "zh-Hant": "虹口"
+ },
+ "310110": {
+  "de": "Yangpu",
+  "en": "Yangpu",
+  "zh": "杨浦区",
+  "zh-Hant": "楊浦"
+ },
+ "310112": {
+  "de": "Minhang",
+  "en": "Minhang",
+  "zh": "闵行区",
+  "zh-Hant": "閔行"
+ },
+ "310113": {
+  "de": "Baoshan",
+  "en": "Baoshan",
+  "zh": "宝山区",
+  "zh-Hant": "寶山"
+ },
+ "310114": {
+  "de": "Jiading",
+  "en": "Jiading",
+  "zh": "嘉定区",
+  "zh-Hant": "嘉定"
+ },
+ "310115": {
+  "de": "Pudong",
+  "en": "Pudong",
+  "zh": "浦东新区",
+  "zh-Hant": "浦東新區"
+ },
+ "310116": {
+  "de": "Jinshan",
+  "en": "Jinshan",
+  "zh": "金山区",
+  "zh-Hant": "金山"
+ },
+ "310117": {
+  "de": "Songjiang",
+  "en": "Songjiang",
+  "zh": "松江区",
+  "zh-Hant": "松江"
+ },
+ "310118": {
+  "de": "Qingpu",
+  "en": "Qingpu",
+  "zh": "青浦区",
+  "zh-Hant": "青浦"
+ },
+ "310120": {
+  "de": "Fengxian",
+  "en": "Fengxian",
+  "zh": "奉贤区",
+  "zh-Hant": "奉賢"
+ },
+ "310151": {
+  "de": "Chongming",
+  "en": "Chongming",
+  "zh": "崇明区",
+  "zh-Hant": "崇明"
+ },
+ "320100": {
+  "de": "Nanjing",
+  "en": "Nanjing",
+  "zh": "南京市",
+  "zh-Hant": "南京"
+ },
+ "320200": {
+  "de": "Wuxi",
+  "en": "Wuxi",
+  "zh": "无锡市",
+  "zh-Hant": "無錫"
+ },
+ "320300": {
+  "de": "Xuzhou",
+  "en": "Xuzhou",
+  "zh": "徐州市",
+  "zh-Hant": "徐州"
+ },
+ "320400": {
+  "de": "Changzhou",
+  "en": "Changzhou",
+  "zh": "常州市",
+  "zh-Hant": "常州"
+ },
+ "320500": {
+  "de": "Suzhou",
+  "en": "Suzhou",
+  "zh": "苏州市",
+  "zh-Hant": "蘇州"
+ },
+ "320600": {
+  "de": "Nantong",
+  "en": "Nantong",
+  "zh": "南通市",
+  "zh-Hant": "南通"
+ },
+ "320700": {
+  "de": "Lianyungang",
+  "en": "Lianyungang",
+  "zh": "连云港市",
+  "zh-Hant": "連雲港"
+ },
+ "320800": {
+  "de": "Huai'an",
+  "en": "Huai'an",
+  "zh": "淮安市",
+  "zh-Hant": "淮安"
+ },
+ "320900": {
+  "de": "Yancheng",
+  "en": "Yancheng",
+  "zh": "盐城市",
+  "zh-Hant": "鹽城"
+ },
+ "321000": {
+  "de": "Yangzhou",
+  "en": "Yangzhou",
+  "zh": "扬州市",
+  "zh-Hant": "揚州"
+ },
+ "321100": {
+  "de": "Zhenjiang",
+  "en": "Zhenjiang",
+  "zh": "镇江市",
+  "zh-Hant": "鎮江"
+ },
+ "321200": {
+  "de": "Taizhou",
+  "en": "Taizhou",
+  "zh": "泰州市",
+  "zh-Hant": "泰州"
+ },
+ "321300": {
+  "de": "Suqian",
+  "en": "Suqian",
+  "zh": "宿迁市",
+  "zh-Hant": "宿遷"
+ },
+ "330100": {
+  "de": "Hangzhou",
+  "en": "Hangzhou",
+  "zh": "杭州市",
+  "zh-Hant": "杭州"
+ },
+ "330200": {
+  "de": "Ningbo",
+  "en": "Ningbo",
+  "zh": "宁波市",
+  "zh-Hant": "寧波"
+ },
+ "330300": {
+  "de": "Wenzhou",
+  "en": "Wenzhou",
+  "zh": "温州市",
+  "zh-Hant": "溫州"
+ },
+ "330400": {
+  "de": "Jiaxing",
+  "en": "Jiaxing",
+  "zh": "嘉兴市",
+  "zh-Hant": "嘉興"
+ },
+ "330500": {
+  "de": "Huzhou",
+  "en": "Huzhou",
+  "zh": "湖州市",
+  "zh-Hant": "湖州"
+ },
+ "330600": {
+  "de": "Shaoxing",
+  "en": "Shaoxing",
+  "zh": "绍兴市",
+  "zh-Hant": "紹興"
+ },
+ "330700": {
+  "de": "Jinhua",
+  "en": "Jinhua",
+  "zh": "金华市",
+  "zh-Hant": "金華"
+ },
+ "330800": {
+  "de": "Quzhou",
+  "en": "Quzhou",
+  "zh": "衢州市",
+  "zh-Hant": "衢州"
+ },
+ "330900": {
+  "de": "Zhoushan",
+  "en": "Zhoushan",
+  "zh": "舟山市",
+  "zh-Hant": "舟山"
+ },
+ "331000": {
+  "de": "Taizhou",
+  "en": "Taizhou",
+  "zh": "台州市",
+  "zh-Hant": "台州"
+ },
+ "331100": {
+  "de": "Lishui",
+  "en": "Lishui",
+  "zh": "丽水市",
+  "zh-Hant": "麗水"
+ },
+ "340100": {
+  "de": "Hefei",
+  "en": "Hefei",
+  "zh": "合肥市",
+  "zh-Hant": "合肥"
+ },
+ "340200": {
+  "de": "Wuhu",
+  "en": "Wuhu",
+  "zh": "芜湖市",
+  "zh-Hant": "蕪湖"
+ },
+ "340300": {
+  "de": "Bengbu",
+  "en": "Bengbu",
+  "zh": "蚌埠市",
+  "zh-Hant": "蚌埠"
+ },
+ "340400": {
+  "de": "Huainan",
+  "en": "Huainan",
+  "zh": "淮南市",
+  "zh-Hant": "淮南"
+ },
+ "340500": {
+  "de": "Ma'anshan",
+  "en": "Ma'anshan",
+  "zh": "马鞍山市",
+  "zh-Hant": "馬鞍山"
+ },
+ "340600": {
+  "de": "Huaibei",
+  "en": "Huaibei",
+  "zh": "淮北市",
+  "zh-Hant": "淮北"
+ },
+ "340700": {
+  "de": "Tongling",
+  "en": "Tongling",
+  "zh": "铜陵市",
+  "zh-Hant": "銅陵"
+ },
+ "340800": {
+  "de": "Anqing",
+  "en": "Anqing",
+  "zh": "安庆市",
+  "zh-Hant": "安慶"
+ },
+ "341000": {
+  "de": "Huangshan",
+  "en": "Huangshan",
+  "zh": "黄山市",
+  "zh-Hant": "黃山"
+ },
+ "341100": {
+  "de": "Chuzhou",
+  "en": "Chuzhou",
+  "zh": "滁州市",
+  "zh-Hant": "滁州"
+ },
+ "341200": {
+  "de": "Fuyang",
+  "en": "Fuyang",
+  "zh": "阜阳市",
+  "zh-Hant": "阜陽"
+ },
+ "341300": {
+  "de": "Suzhou",
+  "en": "Suzhou",
+  "zh": "宿州市",
+  "zh-Hant": "宿州"
+ },
+ "341500": {
+  "de": "Lu'an",
+  "en": "Lu'an",
+  "zh": "六安市",
+  "zh-Hant": "六安"
+ },
+ "341600": {
+  "de": "Bozhou",
+  "en": "Bozhou",
+  "zh": "亳州市",
+  "zh-Hant": "亳州"
+ },
+ "341700": {
+  "de": "Chizhou",
+  "en": "Chizhou",
+  "zh": "池州市",
+  "zh-Hant": "池州"
+ },
+ "341800": {
+  "de": "Xuancheng",
+  "en": "Xuancheng",
+  "zh": "宣城市",
+  "zh-Hant": "宣城"
+ },
+ "350100": {
+  "de": "Fuzhou",
+  "en": "Fuzhou",
+  "zh": "福州市",
+  "zh-Hant": "福州"
+ },
+ "350200": {
+  "de": "Xiamen",
+  "en": "Xiamen",
+  "zh": "厦门市",
+  "zh-Hant": "廈門"
+ },
+ "350300": {
+  "de": "Putian",
+  "en": "Putian",
+  "zh": "莆田市",
+  "zh-Hant": "莆田"
+ },
+ "350400": {
+  "de": "Sanming",
+  "en": "Sanming",
+  "zh": "三明市",
+  "zh-Hant": "三明"
+ },
+ "350500": {
+  "de": "Quanzhou",
+  "en": "Quanzhou",
+  "zh": "泉州市",
+  "zh-Hant": "泉州"
+ },
+ "350600": {
+  "de": "Zhangzhou",
+  "en": "Zhangzhou",
+  "zh": "漳州市",
+  "zh-Hant": "漳州"
+ },
+ "350700": {
+  "de": "Nanping",
+  "en": "Nanping",
+  "zh": "南平市",
+  "zh-Hant": "南平"
+ },
+ "350800": {
+  "de": "Longyan",
+  "en": "Longyan",
+  "zh": "龙岩市",
+  "zh-Hant": "龍岩"
+ },
+ "350900": {
+  "de": "Ningde",
+  "en": "Ningde",
+  "zh": "宁德市",
+  "zh-Hant": "寧德"
+ },
+ "360100": {
+  "de": "Nanchang",
+  "en": "Nanchang",
+  "zh": "南昌市",
+  "zh-Hant": "南昌"
+ },
+ "360200": {
+  "de": "Jingdezhen",
+  "en": "Jingdezhen",
+  "zh": "景德镇市",
+  "zh-Hant": "景德鎮"
+ },
+ "360300": {
+  "de": "Pingxiang",
+  "en": "Pingxiang",
+  "zh": "萍乡市",
+  "zh-Hant": "萍鄉"
+ },
+ "360400": {
+  "de": "Jiujiang",
+  "en": "Jiujiang",
+  "zh": "九江市",
+  "zh-Hant": "九江"
+ },
+ "360500": {
+  "de": "Xinyu",
+  "en": "Xinyu",
+  "zh": "新余市",
+  "zh-Hant": "新餘"
+ },
+ "360600": {
+  "de": "Yingtan",
+  "en": "Yingtan",
+  "zh": "鹰潭市",
+  "zh-Hant": "鷹潭"
+ },
+ "360700": {
+  "de": "Ganzhou",
+  "en": "Ganzhou",
+  "zh": "赣州市",
+  "zh-Hant": "贛州"
+ },
+ "360800": {
+  "de": "Ji'an",
+  "en": "Ji'an",
+  "zh": "吉安市",
+  "zh-Hant": "吉安"
+ },
+ "360900": {
+  "de": "Yichun",
+  "en": "Yichun",
+  "zh": "宜春市",
+  "zh-Hant": "宜春"
+ },
+ "361000": {
+  "de": "Fuzhou",
+  "en": "Fuzhou",
+  "zh": "抚州市",
+  "zh-Hant": "撫州"
+ },
+ "361100": {
+  "de": "Shangrao",
+  "en": "Shangrao",
+  "zh": "上饶市",
+  "zh-Hant": "上饒"
+ },
+ "370100": {
+  "de": "Jinan",
+  "en": "Jinan",
+  "zh": "济南市",
+  "zh-Hant": "濟南"
+ },
+ "370200": {
+  "de": "Qingdao",
+  "en": "Qingdao",
+  "zh": "青岛市",
+  "zh-Hant": "青島"
+ },
+ "370300": {
+  "de": "Zibo",
+  "en": "Zibo",
+  "zh": "淄博市",
+  "zh-Hant": "淄博"
+ },
+ "370400": {
+  "de": "Zaozhuang",
+  "en": "Zaozhuang",
+  "zh": "枣庄市",
+  "zh-Hant": "棗莊"
+ },
+ "370500": {
+  "de": "Dongying",
+  "en": "Dongying",
+  "zh": "东营市",
+  "zh-Hant": "東營"
+ },
+ "370600": {
+  "de": "Yantai",
+  "en": "Yantai",
+  "zh": "烟台市",
+  "zh-Hant": "煙台"
+ },
+ "370700": {
+  "de": "Weifang",
+  "en": "Weifang",
+  "zh": "潍坊市",
+  "zh-Hant": "濰坊"
+ },
+ "370800": {
+  "de": "Jining",
+  "en": "Jining",
+  "zh": "济宁市",
+  "zh-Hant": "濟寧"
+ },
+ "370900": {
+  "de": "Tai'an",
+  "en": "Tai'an",
+  "zh": "泰安市",
+  "zh-Hant": "泰安"
+ },
+ "371000": {
+  "de": "Weihai",
+  "en": "Weihai",
+  "zh": "威海市",
+  "zh-Hant": "威海"
+ },
+ "371100": {
+  "de": "Rizhao",
+  "en": "Rizhao",
+  "zh": "日照市",
+  "zh-Hant": "日照"
+ },
+ "371300": {
+  "de": "Linyi",
+  "en": "Linyi",
+  "zh": "临沂市",
+  "zh-Hant": "臨沂"
+ },
+ "371400": {
+  "de": "Dezhou",
+  "en": "Dezhou",
+  "zh": "德州市",
+  "zh-Hant": "德州"
+ },
+ "371500": {
+  "de": "Liaocheng",
+  "en": "Liaocheng",
+  "zh": "聊城市",
+  "zh-Hant": "聊城"
+ },
+ "371600": {
+  "de": "Binzhou",
+  "en": "Binzhou",
+  "zh": "滨州市",
+  "zh-Hant": "濱州"
+ },
+ "371700": {
+  "de": "Heze",
+  "en": "Heze",
+  "zh": "菏泽市",
+  "zh-Hant": "菏澤"
+ },
+ "410100": {
+  "de": "Zhengzhou",
+  "en": "Zhengzhou",
+  "zh": "郑州市",
+  "zh-Hant": "鄭州"
+ },
+ "410200": {
+  "de": "Kaifeng",
+  "en": "Kaifeng",
+  "zh": "开封市",
+  "zh-Hant": "開封"
+ },
+ "410300": {
+  "de": "Luoyang",
+  "en": "Luoyang",
+  "zh": "洛阳市",
+  "zh-Hant": "洛陽"
+ },
+ "410400": {
+  "de": "Pingdingshan",
+  "en": "Pingdingshan",
+  "zh": "平顶山市",
+  "zh-Hant": "平頂山"
+ },
+ "410500": {
+  "de": "Anyang",
+  "en": "Anyang",
+  "zh": "安阳市",
+  "zh-Hant": "安陽"
+ },
+ "410600": {
+  "de": "Hebi",
+  "en": "Hebi",
+  "zh": "鹤壁市",
+  "zh-Hant": "鶴壁"
+ },
+ "410700": {
+  "de": "Xinxiang",
+  "en": "Xinxiang",
+  "zh": "新乡市",
+  "zh-Hant": "新鄉"
+ },
+ "410800": {
+  "de": "Jiaozuo",
+  "en": "Jiaozuo",
+  "zh": "焦作市",
+  "zh-Hant": "焦作"
+ },
+ "410900": {
+  "de": "Puyang",
+  "en": "Puyang",
+  "zh": "濮阳市",
+  "zh-Hant": "濮陽"
+ },
+ "411000": {
+  "de": "Xuchang",
+  "en": "Xuchang",
+  "zh": "许昌市",
+  "zh-Hant": "許昌"
+ },
+ "411100": {
+  "de": "Luohe",
+  "en": "Luohe",
+  "zh": "漯河市",
+  "zh-Hant": "漯河"
+ },
+ "411200": {
+  "de": "Sanmenxia",
+  "en": "Sanmenxia",
+  "zh": "三门峡市",
+  "zh-Hant": "三門峽"
+ },
+ "411300": {
+  "de": "Nanyang",
+  "en": "Nanyang",
+  "zh": "南阳市",
+  "zh-Hant": "南陽"
+ },
+ "411400": {
+  "de": "Shangqiu",
+  "en": "Shangqiu",
+  "zh": "商丘市",
+  "zh-Hant": "商丘"
+ },
+ "411500": {
+  "de": "Xinyang",
+  "en": "Xinyang",
+  "zh": "信阳市",
+  "zh-Hant": "信陽"
+ },
+ "411600": {
+  "de": "Zhoukou",
+  "en": "Zhoukou",
+  "zh": "周口市",
+  "zh-Hant": "周口"
+ },
+ "411700": {
+  "de": "Zhumadian",
+  "en": "Zhumadian",
+  "zh": "驻马店市",
+  "zh-Hant": "駐馬店"
+ },
+ "419001": {
+  "de": "Jiyuan",
+  "en": "Jiyuan",
+  "zh": "济源市",
+  "zh-Hant": "濟源"
+ },
+ "420100": {
+  "de": "Wuhan",
+  "en": "Wuhan",
+  "zh": "武汉市",
+  "zh-Hant": "武漢"
+ },
+ "420200": {
+  "de": "Huangshi",
+  "en": "Huangshi",
+  "zh": "黄石市",
+  "zh-Hant": "黃石"
+ },
+ "420300": {
+  "de": "Shiyan",
+  "en": "Shiyan",
+  "zh": "十堰市",
+  "zh-Hant": "十堰"
+ },
+ "420500": {
+  "de": "Yichang",
+  "en": "Yichang",
+  "zh": "宜昌市",
+  "zh-Hant": "宜昌"
+ },
+ "420600": {
+  "de": "Xiangyang",
+  "en": "Xiangyang",
+  "zh": "襄阳市",
+  "zh-Hant": "襄陽"
+ },
+ "420700": {
+  "de": "Ezhou",
+  "en": "Ezhou",
+  "zh": "鄂州市",
+  "zh-Hant": "鄂州"
+ },
+ "420800": {
+  "de": "Jingmen",
+  "en": "Jingmen",
+  "zh": "荆门市",
+  "zh-Hant": "荊門"
+ },
+ "420900": {
+  "de": "Xiaogan",
+  "en": "Xiaogan",
+  "zh": "孝感市",
+  "zh-Hant": "孝感"
+ },
+ "421000": {
+  "de": "Jingzhou",
+  "en": "Jingzhou",
+  "zh": "荆州市",
+  "zh-Hant": "荊州"
+ },
+ "421100": {
+  "de": "Huanggang",
+  "en": "Huanggang",
+  "zh": "黄冈市",
+  "zh-Hant": "黃岡"
+ },
+ "421200": {
+  "de": "Xianning",
+  "en": "Xianning",
+  "zh": "咸宁市",
+  "zh-Hant": "咸寧"
+ },
+ "421300": {
+  "de": "Suizhou",
+  "en": "Suizhou",
+  "zh": "随州市",
+  "zh-Hant": "隨州"
+ },
+ "422800": {
+  "de": "Autonomer Bezirk Enshi der Tujia und Miao",
+  "en": "Enshi Tujia and Miao Autonomous Prefecture",
+  "zh": "恩施土家族苗族自治州",
+  "zh-Hant": "恩施土家族苗族自治州"
+ },
+ "429004": {
+  "de": "Xiantao",
+  "en": "Xiantao",
+  "zh": "仙桃市",
+  "zh-Hant": "仙桃"
+ },
+ "429005": {
+  "de": "Qianjiang",
+  "en": "Qianjiang",
+  "zh": "潜江市",
+  "zh-Hant": "潛江"
+ },
+ "429006": {
+  "de": "Tianmen",
+  "en": "Tianmen",
+  "zh": "天门市",
+  "zh-Hant": "天門"
+ },
+ "429021": {
+  "de": "Shennongjia",
+  "en": "Shennongjia",
+  "zh": "神农架林区",
+  "zh-Hant": "神農架林區"
+ },
+ "430100": {
+  "de": "Changsha",
+  "en": "Changsha",
+  "zh": "长沙市",
+  "zh-Hant": "長沙"
+ },
+ "430200": {
+  "de": "Zhuzhou",
+  "en": "Zhuzhou",
+  "zh": "株洲市",
+  "zh-Hant": "株洲"
+ },
+ "430300": {
+  "de": "Xiangtan",
+  "en": "Xiangtan",
+  "zh": "湘潭市",
+  "zh-Hant": "湘潭"
+ },
+ "430400": {
+  "de": "Hengyang",
+  "en": "Hengyang",
+  "zh": "衡阳市",
+  "zh-Hant": "衡陽"
+ },
+ "430500": {
+  "de": "Shaoyang",
+  "en": "Shaoyang",
+  "zh": "邵阳市",
+  "zh-Hant": "邵陽"
+ },
+ "430600": {
+  "de": "Yueyang",
+  "en": "Yueyang",
+  "zh": "岳阳市",
+  "zh-Hant": "岳陽"
+ },
+ "430700": {
+  "de": "Changde",
+  "en": "Changde",
+  "zh": "常德市",
+  "zh-Hant": "常德"
+ },
+ "430800": {
+  "de": "Zhangjiajie",
+  "en": "Zhangjiajie",
+  "zh": "张家界市",
+  "zh-Hant": "張家界"
+ },
+ "430900": {
+  "de": "Yiyang",
+  "en": "Yiyang",
+  "zh": "益阳市",
+  "zh-Hant": "益陽"
+ },
+ "431000": {
+  "de": "Chenzhou",
+  "en": "Chenzhou",
+  "zh": "郴州市",
+  "zh-Hant": "郴州"
+ },
+ "431100": {
+  "de": "Yongzhou",
+  "en": "Yongzhou",
+  "zh": "永州市",
+  "zh-Hant": "永州"
+ },
+ "431200": {
+  "de": "Huaihua",
+  "en": "Huaihua",
+  "zh": "怀化市",
+  "zh-Hant": "懷化"
+ },
+ "431300": {
+  "de": "Loudi",
+  "en": "Loudi",
+  "zh": "娄底市",
+  "zh-Hant": "婁底"
+ },
+ "433100": {
+  "de": "Autonomer Bezirk Xiangxi der Tujia und Miao",
+  "en": "Xiangxi Tujia and Miao Autonomous Prefecture",
+  "zh": "湘西土家族苗族自治州",
+  "zh-Hant": "湘西土家族苗族自治州"
+ },
+ "440100": {
+  "de": "Guangzhou",
+  "en": "Guangzhou",
+  "zh": "广州市",
+  "zh-Hant": "廣州"
+ },
+ "440200": {
+  "de": "Shaoguan",
+  "en": "Shaoguan",
+  "zh": "韶关市",
+  "zh-Hant": "韶關"
+ },
+ "440300": {
+  "de": "Shenzhen",
+  "en": "Shenzhen",
+  "zh": "深圳市",
+  "zh-Hant": "深圳"
+ },
+ "440400": {
+  "de": "Zhuhai",
+  "en": "Zhuhai",
+  "zh": "珠海市",
+  "zh-Hant": "珠海"
+ },
+ "440500": {
+  "de": "Shantou",
+  "en": "Shantou",
+  "zh": "汕头市",
+  "zh-Hant": "汕頭"
+ },
+ "440600": {
+  "de": "Foshan",
+  "en": "Foshan",
+  "zh": "佛山市",
+  "zh-Hant": "佛山"
+ },
+ "440700": {
+  "de": "Jiangmen",
+  "en": "Jiangmen",
+  "zh": "江门市",
+  "zh-Hant": "江門"
+ },
+ "440800": {
+  "de": "Zhanjiang",
+  "en": "Zhanjiang",
+  "zh": "湛江市",
+  "zh-Hant": "湛江"
+ },
+ "440900": {
+  "de": "Maoming",
+  "en": "Maoming",
+  "zh": "茂名市",
+  "zh-Hant": "茂名"
+ },
+ "441200": {
+  "de": "Zhaoqing",
+  "en": "Zhaoqing",
+  "zh": "肇庆市",
+  "zh-Hant": "肇慶"
+ },
+ "441300": {
+  "de": "Huizhou",
+  "en": "Huizhou",
+  "zh": "惠州市",
+  "zh-Hant": "惠州"
+ },
+ "441400": {
+  "de": "Meizhou",
+  "en": "Meizhou",
+  "zh": "梅州市",
+  "zh-Hant": "梅州"
+ },
+ "441500": {
+  "de": "Shanwei",
+  "en": "Shanwei",
+  "zh": "汕尾市",
+  "zh-Hant": "汕尾"
+ },
+ "441600": {
+  "de": "Heyuan",
+  "en": "Heyuan",
+  "zh": "河源市",
+  "zh-Hant": "河源"
+ },
+ "441700": {
+  "de": "Yangjiang",
+  "en": "Yangjiang",
+  "zh": "阳江市",
+  "zh-Hant": "陽江"
+ },
+ "441800": {
+  "de": "Qingyuan",
+  "en": "Qingyuan",
+  "zh": "清远市",
+  "zh-Hant": "清遠"
+ },
+ "441900": {
+  "de": "Dongguan",
+  "en": "Dongguan",
+  "zh": "东莞市",
+  "zh-Hant": "東莞"
+ },
+ "442000": {
+  "de": "Zhongshan",
+  "en": "Zhongshan",
+  "zh": "中山市",
+  "zh-Hant": "中山"
+ },
+ "445100": {
+  "de": "Chaozhou",
+  "en": "Chaozhou",
+  "zh": "潮州市",
+  "zh-Hant": "潮州"
+ },
+ "445200": {
+  "de": "Jieyang",
+  "en": "Jieyang",
+  "zh": "揭阳市",
+  "zh-Hant": "揭陽"
+ },
+ "445300": {
+  "de": "Yunfu",
+  "en": "Yunfu",
+  "zh": "云浮市",
+  "zh-Hant": "雲浮"
+ },
+ "450100": {
+  "de": "Nanning",
+  "en": "Nanning",
+  "zh": "南宁市",
+  "zh-Hant": "南寧"
+ },
+ "450200": {
+  "de": "Liuzhou",
+  "en": "Liuzhou",
+  "zh": "柳州市",
+  "zh-Hant": "柳州"
+ },
+ "450300": {
+  "de": "Guilin",
+  "en": "Guilin",
+  "zh": "桂林市",
+  "zh-Hant": "桂林"
+ },
+ "450400": {
+  "de": "Wuzhou",
+  "en": "Wuzhou",
+  "zh": "梧州市",
+  "zh-Hant": "梧州"
+ },
+ "450500": {
+  "de": "Beihai",
+  "en": "Beihai",
+  "zh": "北海市",
+  "zh-Hant": "北海"
+ },
+ "450600": {
+  "de": "Fangchenggang",
+  "en": "Fangchenggang",
+  "zh": "防城港市",
+  "zh-Hant": "防城港"
+ },
+ "450700": {
+  "de": "Qinzhou",
+  "en": "Qinzhou",
+  "zh": "钦州市",
+  "zh-Hant": "欽州"
+ },
+ "450800": {
+  "de": "Guigang",
+  "en": "Guigang",
+  "zh": "贵港市",
+  "zh-Hant": "貴港"
+ },
+ "450900": {
+  "de": "Yulin",
+  "en": "Yulin",
+  "zh": "玉林市",
+  "zh-Hant": "玉林"
+ },
+ "451000": {
+  "de": "Baise",
+  "en": "Baise",
+  "zh": "百色市",
+  "zh-Hant": "百色"
+ },
+ "451100": {
+  "de": "Hezhou",
+  "en": "Hezhou",
+  "zh": "贺州市",
+  "zh-Hant": "賀州"
+ },
+ "451200": {
+  "de": "Hechi",
+  "en": "Hechi",
+  "zh": "河池市",
+  "zh-Hant": "河池"
+ },
+ "451300": {
+  "de": "Laibin",
+  "en": "Laibin",
+  "zh": "来宾市",
+  "zh-Hant": "來賓"
+ },
+ "451400": {
+  "de": "Chongzuo",
+  "en": "Chongzuo",
+  "zh": "崇左市",
+  "zh-Hant": "崇左"
+ },
+ "460100": {
+  "de": "Haikou",
+  "en": "Haikou",
+  "zh": "海口市",
+  "zh-Hant": "海口"
+ },
+ "460200": {
+  "de": "Sanya",
+  "en": "Sanya",
+  "zh": "三亚市",
+  "zh-Hant": "三亞"
+ },
+ "460300": {
+  "de": "Sansha",
+  "en": "Sansha",
+  "zh": "三沙市",
+  "zh-Hant": "三沙"
+ },
+ "460400": {
+  "de": "Danzhou",
+  "en": "Danzhou",
+  "zh": "儋州市",
+  "zh-Hant": "儋州"
+ },
+ "469001": {
+  "de": "Wuzhishan",
+  "en": "Wuzhishan",
+  "zh": "五指山市",
+  "zh-Hant": "五指山"
+ },
+ "469002": {
+  "de": "Qionghai",
+  "en": "Qionghai",
+  "zh": "琼海市",
+  "zh-Hant": "瓊海"
+ },
+ "469005": {
+  "de": "Wenchang",
+  "en": "Wenchang",
+  "zh": "文昌市",
+  "zh-Hant": "文昌"
+ },
+ "469006": {
+  "de": "Wanning",
+  "en": "Wanning",
+  "zh": "万宁市",
+  "zh-Hant": "萬寧"
+ },
+ "469007": {
+  "de": "Dongfang",
+  "en": "Dongfang",
+  "zh": "东方市",
+  "zh-Hant": "東方"
+ },
+ "469021": {
+  "de": "Kreis Ding'an",
+  "en": "Ding'an County",
+  "zh": "定安县",
+  "zh-Hant": "定安縣"
+ },
+ "469022": {
+  "de": "Kreis Tunchang",
+  "en": "Tunchang County",
+  "zh": "屯昌县",
+  "zh-Hant": "屯昌縣"
+ },
+ "469023": {
+  "de": "Kreis Chengmai",
+  "en": "Chengmai County",
+  "zh": "澄迈县",
+  "zh-Hant": "澄邁縣"
+ },
+ "469024": {
+  "de": "Kreis Lingao",
+  "en": "Lingao County",
+  "zh": "临高县",
+  "zh-Hant": "臨高縣"
+ },
+ "469025": {
+  "de": "Autonomer Kreis Baisha der Li",
+  "en": "Baisha Li Autonomous County",
+  "zh": "白沙黎族自治县",
+  "zh-Hant": "白沙黎族自治縣"
+ },
+ "469026": {
+  "de": "Autonomer Kreis Changjiang der Li",
+  "en": "Changjiang Li Autonomous County",
+  "zh": "昌江黎族自治县",
+  "zh-Hant": "昌江黎族自治縣"
+ },
+ "469027": {
+  "de": "Autonomer Kreis Ledong der Li",
+  "en": "Ledong Li Autonomous County",
+  "zh": "乐东黎族自治县",
+  "zh-Hant": "樂東黎族自治縣"
+ },
+ "469028": {
+  "de": "Autonomer Kreis Lingshui der Li",
+  "en": "Lingshui Li Autonomous County",
+  "zh": "陵水黎族自治县",
+  "zh-Hant": "陵水黎族自治縣"
+ },
+ "469029": {
+  "de": "Autonomer Kreis Baoting der Li und Miao",
+  "en": "Baoting Li and Miao Autonomous County",
+  "zh": "保亭黎族苗族自治县",
+  "zh-Hant": "保亭黎族苗族自治縣"
+ },
+ "469030": {
+  "de": "Autonomer Kreis Qiongzhong der Li und Miao",
+  "en": "Qiongzhong Li and Miao Autonomous County",
+  "zh": "琼中黎族苗族自治县",
+  "zh-Hant": "瓊中黎族苗族自治縣"
+ },
+ "500101": {
+  "de": "Wanzhou",
+  "en": "Wanzhou",
+  "zh": "万州区",
+  "zh-Hant": "萬州"
+ },
+ "500102": {
+  "de": "Fuling",
+  "en": "Fuling",
+  "zh": "涪陵区",
+  "zh-Hant": "涪陵"
+ },
+ "500103": {
+  "de": "Yuzhong",
+  "en": "Yuzhong",
+  "zh": "渝中区",
+  "zh-Hant": "渝中"
+ },
+ "500104": {
+  "de": "Dadukou",
+  "en": "Dadukou",
+  "zh": "大渡口区",
+  "zh-Hant": "大渡口"
+ },
+ "500105": {
+  "de": "Jiangbei",
+  "en": "Jiangbei",
+  "zh": "江北区",
+  "zh-Hant": "江北"
+ },
+ "500106": {
+  "de": "Shapingba",
+  "en": "Shapingba",
+  "zh": "沙坪坝区",
+  "zh-Hant": "沙坪壩"
+ },
+ "500107": {
+  "de": "Jiulongpo",
+  "en": "Jiulongpo",
+  "zh": "九龙坡区",
+  "zh-Hant": "九龍坡"
+ },
+ "500108": {
+  "de": "Nan'an",
+  "en": "Nan'an",
+  "zh": "南岸区",
+  "zh-Hant": "南岸"
+ },
+ "500109": {
+  "de": "Beibei",
+  "en": "Beibei",
+  "zh": "北碚区",
+  "zh-Hant": "北碚"
+ },
+ "500110": {
+  "de": "Qijiang",
+  "en": "Qijiang",
+  "zh": "綦江区",
+  "zh-Hant": "綦江"
+ },
+ "500111": {
+  "de": "Dazu",
+  "en": "Dazu",
+  "zh": "大足区",
+  "zh-Hant": "大足"
+ },
+ "500112": {
+  "de": "Yubei",
+  "en": "Yubei",
+  "zh": "渝北区",
+  "zh-Hant": "渝北"
+ },
+ "500113": {
+  "de": "Banan",
+  "en": "Banan",
+  "zh": "巴南区",
+  "zh-Hant": "巴南"
+ },
+ "500114": {
+  "de": "Qianjiang",
+  "en": "Qianjiang",
+  "zh": "黔江区",
+  "zh-Hant": "黔江"
+ },
+ "500115": {
+  "de": "Changshou",
+  "en": "Changshou",
+  "zh": "长寿区",
+  "zh-Hant": "長壽"
+ },
+ "500116": {
+  "de": "Jiangjin",
+  "en": "Jiangjin",
+  "zh": "江津区",
+  "zh-Hant": "江津"
+ },
+ "500117": {
+  "de": "Hechuan",
+  "en": "Hechuan",
+  "zh": "合川区",
+  "zh-Hant": "合川"
+ },
+ "500118": {
+  "de": "Yongchuan",
+  "en": "Yongchuan",
+  "zh": "永川区",
+  "zh-Hant": "永川"
+ },
+ "500119": {
+  "de": "Nanchuan",
+  "en": "Nanchuan",
+  "zh": "南川区",
+  "zh-Hant": "南川"
+ },
+ "500120": {
+  "de": "Bishan",
+  "en": "Bishan",
+  "zh": "璧山区",
+  "zh-Hant": "璧山"
+ },
+ "500151": {
+  "de": "Tongliang",
+  "en": "Tongliang",
+  "zh": "铜梁区",
+  "zh-Hant": "銅梁"
+ },
+ "500152": {
+  "de": "Tongnan",
+  "en": "Tongnan",
+  "zh": "潼南区",
+  "zh-Hant": "潼南"
+ },
+ "500153": {
+  "de": "Rongchang",
+  "en": "Rongchang",
+  "zh": "荣昌区",
+  "zh-Hant": "榮昌"
+ },
+ "500154": {
+  "de": "Kaizhou",
+  "en": "Kaizhou",
+  "zh": "开州区",
+  "zh-Hant": "開州"
+ },
+ "500155": {
+  "de": "Liangping",
+  "en": "Liangping",
+  "zh": "梁平区",
+  "zh-Hant": "梁平"
+ },
+ "500156": {
+  "de": "Wulong",
+  "en": "Wulong",
+  "zh": "武隆区",
+  "zh-Hant": "武隆"
+ },
+ "500229": {
+  "de": "Kreis Chengkou",
+  "en": "Chengkou County",
+  "zh": "城口县",
+  "zh-Hant": "城口縣"
+ },
+ "500230": {
+  "de": "Kreis Fengdu",
+  "en": "Fengdu County",
+  "zh": "丰都县",
+  "zh-Hant": "豐都縣"
+ },
+ "500231": {
+  "de": "Kreis Dianjiang",
+  "en": "Dianjiang County",
+  "zh": "垫江县",
+  "zh-Hant": "墊江縣"
+ },
+ "500233": {
+  "de": "Kreis Zhong",
+  "en": "Zhong County",
+  "zh": "忠县",
+  "zh-Hant": "忠縣"
+ },
+ "500235": {
+  "de": "Kreis Yunyang",
+  "en": "Yunyang County",
+  "zh": "云阳县",
+  "zh-Hant": "雲陽縣"
+ },
+ "500236": {
+  "de": "Kreis Fengjie",
+  "en": "Fengjie County",
+  "zh": "奉节县",
+  "zh-Hant": "奉節縣"
+ },
+ "500237": {
+  "de": "Kreis Wushan",
+  "en": "Wushan County",
+  "zh": "巫山县",
+  "zh-Hant": "巫山縣"
+ },
+ "500238": {
+  "de": "Kreis Wuxi",
+  "en": "Wuxi County",
+  "zh": "巫溪县",
+  "zh-Hant": "巫溪縣"
+ },
+ "500240": {
+  "de": "Autonomer Kreis Shizhu der Tujia",
+  "en": "Shizhu Tujia Autonomous County",
+  "zh": "石柱土家族自治县",
+  "zh-Hant": "石柱土家族自治縣"
+ },
+ "500241": {
+  "de": "Autonomer Kreis Xiushan der Tujia und Miao",
+  "en": "Xiushan Tujia and Miao Autonomous County",
+  "zh": "秀山土家族苗族自治县",
+  "zh-Hant": "秀山土家族苗族自治縣"
+ },
+ "500242": {
+  "de": "Autonomer Kreis Youyang der Tujia und Miao",
+  "en": "Youyang Tujia and Miao Autonomous County",
+  "zh": "酉阳土家族苗族自治县",
+  "zh-Hant": "酉陽土家族苗族自治縣"
+ },
+ "500243": {
+  "de": "Autonomer Kreis Pengshui der Miao und Tujia",
+  "en": "Pengshui Miao and Tujia Autonomous County",
+  "zh": "彭水苗族土家族自治县",
+  "zh-Hant": "彭水苗族土家族自治縣"
+ },
+ "510100": {
+  "de": "Chengdu",
+  "en": "Chengdu",
+  "zh": "成都市",
+  "zh-Hant": "成都"
+ },
+ "510300": {
+  "de": "Zigong",
+  "en": "Zigong",
+  "zh": "自贡市",
+  "zh-Hant": "自貢"
+ },
+ "510400": {
+  "de": "Panzhihua",
+  "en": "Panzhihua",
+  "zh": "攀枝花市",
+  "zh-Hant": "攀枝花"
+ },
+ "510500": {
+  "de": "Luzhou",
+  "en": "Luzhou",
+  "zh": "泸州市",
+  "zh-Hant": "瀘州"
+ },
+ "510600": {
+  "de": "Deyang",
+  "en": "Deyang",
+  "zh": "德阳市",
+  "zh-Hant": "德陽"
+ },
+ "510700": {
+  "de": "Mianyang",
+  "en": "Mianyang",
+  "zh": "绵阳市",
+  "zh-Hant": "綿陽"
+ },
+ "510800": {
+  "de": "Guangyuan",
+  "en": "Guangyuan",
+  "zh": "广元市",
+  "zh-Hant": "廣元"
+ },
+ "510900": {
+  "de": "Suining",
+  "en": "Suining",
+  "zh": "遂宁市",
+  "zh-Hant": "遂寧"
+ },
+ "511000": {
+  "de": "Neijiang",
+  "en": "Neijiang",
+  "zh": "内江市",
+  "zh-Hant": "內江"
+ },
+ "511100": {
+  "de": "Leshan",
+  "en": "Leshan",
+  "zh": "乐山市",
+  "zh-Hant": "樂山"
+ },
+ "511300": {
+  "de": "Nanchong",
+  "en": "Nanchong",
+  "zh": "南充市",
+  "zh-Hant": "南充"
+ },
+ "511400": {
+  "de": "Meishan",
+  "en": "Meishan",
+  "zh": "眉山市",
+  "zh-Hant": "眉山"
+ },
+ "511500": {
+  "de": "Yibin",
+  "en": "Yibin",
+  "zh": "宜宾市",
+  "zh-Hant": "宜賓"
+ },
+ "511600": {
+  "de": "Guang'an",
+  "en": "Guang'an",
+  "zh": "广安市",
+  "zh-Hant": "廣安"
+ },
+ "511700": {
+  "de": "Dazhou",
+  "en": "Dazhou",
+  "zh": "达州市",
+  "zh-Hant": "達州"
+ },
+ "511800": {
+  "de": "Ya'an",
+  "en": "Ya'an",
+  "zh": "雅安市",
+  "zh-Hant": "雅安"
+ },
+ "511900": {
+  "de": "Bazhong",
+  "en": "Bazhong",
+  "zh": "巴中市",
+  "zh-Hant": "巴中"
+ },
+ "512000": {
+  "de": "Ziyang",
+  "en": "Ziyang",
+  "zh": "资阳市",
+  "zh-Hant": "資陽"
+ },
+ "513200": {
+  "de": "Autonomer Bezirk Ngawa der Tibeter und Qiang",
+  "en": "Ngawa Tibetan and Qiang Autonomous Prefecture",
+  "zh": "阿坝藏族羌族自治州",
+  "zh-Hant": "阿壩藏族羌族自治州"
+ },
+ "513300": {
+  "de": "Autonomer Bezirk Garzê der Tibeter",
+  "en": "Garzê Tibetan Autonomous Prefecture",
+  "zh": "甘孜藏族自治州",
+  "zh-Hant": "甘孜藏族自治州"
+ },
+ "513400": {
+  "de": "Autonomer Bezirk Liangshan der Yi",
+  "en": "Liangshan Yi Autonomous Prefecture",
+  "zh": "凉山彝族自治州",
+  "zh-Hant": "涼山彝族自治州"
+ },
+ "520100": {
+  "de": "Guiyang",
+  "en": "Guiyang",
+  "zh": "贵阳市",
+  "zh-Hant": "貴陽"
+ },
+ "520200": {
+  "de": "Liupanshui",
+  "en": "Liupanshui",
+  "zh": "六盘水市",
+  "zh-Hant": "六盤水"
+ },
+ "520300": {
+  "de": "Zunyi",
+  "en": "Zunyi",
+  "zh": "遵义市",
+  "zh-Hant": "遵義"
+ },
+ "520400": {
+  "de": "Anshun",
+  "en": "Anshun",
+  "zh": "安顺市",
+  "zh-Hant": "安順"
+ },
+ "520500": {
+  "de": "Bijie",
+  "en": "Bijie",
+  "zh": "毕节市",
+  "zh-Hant": "畢節"
+ },
+ "520600": {
+  "de": "Tongren",
+  "en": "Tongren",
+  "zh": "铜仁市",
+  "zh-Hant": "銅仁"
+ },
+ "522300": {
+  "de": "Autonomer Bezirk Qianxinan der Bouyei und Miao",
+  "en": "Qianxinan Buyei and Miao Autonomous Prefecture",
+  "zh": "黔西南布依族苗族自治州",
+  "zh-Hant": "黔西南布依族苗族自治州"
+ },
+ "522600": {
+  "de": "Autonomer Bezirk Qiandongnan der Miao und Dong",
+  "en": "Qiandongnan Miao and Dong Autonomous Prefecture",
+  "zh": "黔东南苗族侗族自治州",
+  "zh-Hant": "黔東南苗族侗族自治州"
+ },
+ "522700": {
+  "de": "Autonomer Bezirk Qiannan der Bouyei und Miao",
+  "en": "Qiannan Buyei and Miao Autonomous Prefecture",
+  "zh": "黔南布依族苗族自治州",
+  "zh-Hant": "黔南布依族苗族自治州"
+ },
+ "530100": {
+  "de": "Kunming",
+  "en": "Kunming",
+  "zh": "昆明市",
+  "zh-Hant": "昆明"
+ },
+ "530300": {
+  "de": "Qujing",
+  "en": "Qujing",
+  "zh": "曲靖市",
+  "zh-Hant": "曲靖"
+ },
+ "530400": {
+  "de": "Yuxi",
+  "en": "Yuxi",
+  "zh": "玉溪市",
+  "zh-Hant": "玉溪"
+ },
+ "530500": {
+  "de": "Baoshan",
+  "en": "Baoshan",
+  "zh": "保山市",
+  "zh-Hant": "保山"
+ },
+ "530600": {
+  "de": "Zhaotong",
+  "en": "Zhaotong",
+  "zh": "昭通市",
+  "zh-Hant": "昭通"
+ },
+ "530700": {
+  "de": "Lijiang",
+  "en": "Lijiang",
+  "zh": "丽江市",
+  "zh-Hant": "麗江"
+ },
+ "530800": {
+  "de": "Pu'er",
+  "en": "Pu'er",
+  "zh": "普洱市",
+  "zh-Hant": "普洱"
+ },
+ "530900": {
+  "de": "Lincang",
+  "en": "Lincang",
+  "zh": "临沧市",
+  "zh-Hant": "臨滄"
+ },
+ "532300": {
+  "de": "Autonomer Bezirk Chuxiong der Yi",
+  "en": "Chuxiong Yi Autonomous Prefecture",
+  "zh": "楚雄彝族自治州",
+  "zh-Hant": "楚雄彝族自治州"
+ },
+ "532500": {
+  "de": "Autonomer Bezirk Honghe der Hani und Yi",
+  "en": "Honghe Hani and Yi Autonomous Prefecture",
+  "zh": "红河哈尼族彝族自治州",
+  "zh-Hant": "紅河哈尼族彝族自治州"
+ },
+ "532600": {
+  "de": "Autonomer Bezirk Wenshan der Zhuang und Miao",
+  "en": "Wenshan Zhuang and Miao Autonomous Prefecture",
+  "zh": "文山壮族苗族自治州",
+  "zh-Hant": "文山壯族苗族自治州"
+ },
+ "532800": {
+  "de": "Autonomer Bezirk Xishuangbanna der Dai",
+  "en": "Xishuangbanna Dai Autonomous Prefecture",
+  "zh": "西双版纳傣族自治州",
+  "zh-Hant": "西雙版納傣族自治州"
+ },
+ "532900": {
+  "de": "Autonomer Bezirk Dali der Bai",
+  "en": "Dali Bai Autonomous Prefecture",
+  "zh": "大理白族自治州",
+  "zh-Hant": "大理白族自治州"
+ },
+ "533100": {
+  "de": "Autonomer Bezirk Dehong der Dai und Jingpo",
+  "en": "Dehong Dai and Jingpo Autonomous Prefecture",
+  "zh": "德宏傣族景颇族自治州",
+  "zh-Hant": "德宏傣族景頗族自治州"
+ },
+ "533300": {
+  "de": "Autonomer Bezirk Nujiang der Lisu",
+  "en": "Nujiang Lisu Autonomous Prefecture",
+  "zh": "怒江傈僳族自治州",
+  "zh-Hant": "怒江傈僳族自治州"
+ },
+ "533400": {
+  "de": "Autonomer Bezirk Dêqên der Tibeter",
+  "en": "Dêqên Tibetan Autonomous Prefecture",
+  "zh": "迪庆藏族自治州",
+  "zh-Hant": "迪慶藏族自治州"
+ },
+ "540100": {
+  "de": "Lhasa",
+  "en": "Lhasa",
+  "zh": "拉萨市",
+  "zh-Hant": "拉薩"
+ },
+ "540200": {
+  "de": "Shigatse",
+  "en": "Shigatse",
+  "zh": "日喀则市",
+  "zh-Hant": "日喀則"
+ },
+ "540300": {
+  "de": "Chamdo",
+  "en": "Chamdo",
+  "zh": "昌都市",
+  "zh-Hant": "昌都"
+ },
+ "540400": {
+  "de": "Nyingchi",
+  "en": "Nyingchi",
+  "zh": "林芝市",
+  "zh-Hant": "林芝"
+ },
+ "540500": {
+  "de": "Shannan",
+  "en": "Shannan",
+  "zh": "山南市",
+  "zh-Hant": "山南"
+ },
+ "540600": {
+  "de": "Nagqu",
+  "en": "Nagqu",
+  "zh": "那曲市",
+  "zh-Hant": "那曲"
+ },
+ "542500": {
+  "de": "Regierungsbezirk Ngari",
+  "en": "Ngari Prefecture",
+  "zh": "阿里地区",
+  "zh-Hant": "阿里地區"
+ },
+ "610100": {
+  "de": "Xi'an",
+  "en": "Xi'an",
+  "zh": "西安市",
+  "zh-Hant": "西安"
+ },
+ "610200": {
+  "de": "Tongchuan",
+  "en": "Tongchuan",
+  "zh": "铜川市",
+  "zh-Hant": "銅川"
+ },
+ "610300": {
+  "de": "Baoji",
+  "en": "Baoji",
+  "zh": "宝鸡市",
+  "zh-Hant": "寶雞"
+ },
+ "610400": {
+  "de": "Xianyang",
+  "en": "Xianyang",
+  "zh": "咸阳市",
+  "zh-Hant": "咸陽"
+ },
+ "610500": {
+  "de": "Weinan",
+  "en": "Weinan",
+  "zh": "渭南市",
+  "zh-Hant": "渭南"
+ },
+ "610600": {
+  "de": "Yan'an",
+  "en": "Yan'an",
+  "zh": "延安市",
+  "zh-Hant": "延安"
+ },
+ "610700": {
+  "de": "Hanzhong",
+  "en": "Hanzhong",
+  "zh": "汉中市",
+  "zh-Hant": "漢中"
+ },
+ "610800": {
+  "de": "Yulin",
+  "en": "Yulin",
+  "zh": "榆林市",
+  "zh-Hant": "榆林"
+ },
+ "610900": {
+  "de": "Ankang",
+  "en": "Ankang",
+  "zh": "安康市",
+  "zh-Hant": "安康"
+ },
+ "611000": {
+  "de": "Shangluo",
+  "en": "Shangluo",
+  "zh": "商洛市",
+  "zh-Hant": "商洛"
+ },
+ "620100": {
+  "de": "Lanzhou",
+  "en": "Lanzhou",
+  "zh": "兰州市",
+  "zh-Hant": "蘭州"
+ },
+ "620200": {
+  "de": "Jiayuguan",
+  "en": "Jiayuguan",
+  "zh": "嘉峪关市",
+  "zh-Hant": "嘉峪關"
+ },
+ "620300": {
+  "de": "Jinchang",
+  "en": "Jinchang",
+  "zh": "金昌市",
+  "zh-Hant": "金昌"
+ },
+ "620400": {
+  "de": "Baiyin",
+  "en": "Baiyin",
+  "zh": "白银市",
+  "zh-Hant": "白銀"
+ },
+ "620500": {
+  "de": "Tianshui",
+  "en": "Tianshui",
+  "zh": "天水市",
+  "zh-Hant": "天水"
+ },
+ "620600": {
+  "de": "Wuwei",
+  "en": "Wuwei",
+  "zh": "武威市",
+  "zh-Hant": "武威"
+ },
+ "620700": {
+  "de": "Zhangye",
+  "en": "Zhangye",
+  "zh": "张掖市",
+  "zh-Hant": "張掖"
+ },
+ "620800": {
+  "de": "Pingliang",
+  "en": "Pingliang",
+  "zh": "平凉市",
+  "zh-Hant": "平涼"
+ },
+ "620900": {
+  "de": "Jiuquan",
+  "en": "Jiuquan",
+  "zh": "酒泉市",
+  "zh-Hant": "酒泉"
+ },
+ "621000": {
+  "de": "Qingyang",
+  "en": "Qingyang",
+  "zh": "庆阳市",
+  "zh-Hant": "慶陽"
+ },
+ "621100": {
+  "de": "Dingxi",
+  "en": "Dingxi",
+  "zh": "定西市",
+  "zh-Hant": "定西"
+ },
+ "621200": {
+  "de": "Longnan",
+  "en": "Longnan",
+  "zh": "陇南市",
+  "zh-Hant": "隴南"
+ },
+ "622900": {
+  "de": "Autonomer Bezirk Linxia der Hui",
+  "en": "Linxia Hui Autonomous Prefecture",
+  "zh": "临夏回族自治州",
+  "zh-Hant": "臨夏回族自治州"
+ },
+ "623000": {
+  "de": "Autonomer Bezirk Gannan der Tibeter",
+  "en": "Gannan Tibetan Autonomous Prefecture",
+  "zh": "甘南藏族自治州",
+  "zh-Hant": "甘南藏族自治州"
+ },
+ "630100": {
+  "de": "Xining",
+  "en": "Xining",
+  "zh": "西宁市",
+  "zh-Hant": "西寧"
+ },
+ "630200": {
+  "de": "Haidong",
+  "en": "Haidong",
+  "zh": "海东市",
+  "zh-Hant": "海東"
+ },
+ "632200": {
+  "de": "Autonomer Bezirk Haibei der Tibeter",
+  "en": "Haibei Tibetan Autonomous Prefecture",
+  "zh": "海北藏族自治州",
+  "zh-Hant": "海北藏族自治州"
+ },
+ "632300": {
+  "de": "Autonomer Bezirk Huangnan der Tibeter",
+  "en": "Huangnan Tibetan Autonomous Prefecture",
+  "zh": "黄南藏族自治州",
+  "zh-Hant": "黃南藏族自治州"
+ },
+ "632500": {
+  "de": "Autonomer Bezirk Hainan der Tibeter",
+  "en": "Hainan Tibetan Autonomous Prefecture",
+  "zh": "海南藏族自治州",
+  "zh-Hant": "海南藏族自治州"
+ },
+ "632600": {
+  "de": "Autonomer Bezirk Golog der Tibeter",
+  "en": "Golog Tibetan Autonomous Prefecture",
+  "zh": "果洛藏族自治州",
+  "zh-Hant": "果洛藏族自治州"
+ },
+ "632700": {
+  "de": "Autonomer Bezirk Yushu der Tibeter",
+  "en": "Yushu Tibetan Autonomous Prefecture",
+  "zh": "玉树藏族自治州",
+  "zh-Hant": "玉樹藏族自治州"
+ },
+ "632800": {
+  "de": "Autonomer Bezirk Haixi der Mongolen und Tibeter",
+  "en": "Haixi Mongol and Tibetan Autonomous Prefecture",
+  "zh": "海西蒙古族藏族自治州",
+  "zh-Hant": "海西蒙古族藏族自治州"
+ },
+ "640100": {
+  "de": "Yinchuan",
+  "en": "Yinchuan",
+  "zh": "银川市",
+  "zh-Hant": "銀川"
+ },
+ "640200": {
+  "de": "Shizuishan",
+  "en": "Shizuishan",
+  "zh": "石嘴山市",
+  "zh-Hant": "石嘴山"
+ },
+ "640300": {
+  "de": "Wuzhong",
+  "en": "Wuzhong",
+  "zh": "吴忠市",
+  "zh-Hant": "吳忠"
+ },
+ "640400": {
+  "de": "Guyuan",
+  "en": "Guyuan",
+  "zh": "固原市",
+  "zh-Hant": "固原"
+ },
+ "640500": {
+  "de": "Zhongwei",
+  "en": "Zhongwei",
+  "zh": "中卫市",
+  "zh-Hant": "中衛"
+ },
+ "650100": {
+  "de": "Urumtschi",
+  "en": "Ürümqi",
+  "zh": "乌鲁木齐市",
+  "zh-Hant": "烏魯木齊"
+ },
+ "650200": {
+  "de": "Karamay",
+  "en": "Karamay",
+  "zh": "克拉玛依市",
+  "zh-Hant": "克拉瑪依"
+ },
+ "650400": {
+  "de": "Turfan",
+  "en": "Turpan",
+  "zh": "吐鲁番市",
+  "zh-Hant": "吐魯番"
+ },
+ "650500": {
+  "de": "Hami",
+  "en": "Hami",
+  "zh": "哈密市",
+  "zh-Hant": "哈密"
+ },
+ "652300": {
+  "de": "Autonomer Bezirk Changji der Hui",
+  "en": "Changji Hui Autonomous Prefecture",
+  "zh": "昌吉回族自治州",
+  "zh-Hant": "昌吉回族自治州"
+ },
+ "652700": {
+  "de": "Autonomer Bezirk Bortala der Mongolen",
+  "en": "Bortala Mongol Autonomous Prefecture",
+  "zh": "博尔塔拉蒙古自治州",
+  "zh-Hant": "博爾塔拉蒙古自治州"
+ },
+ "652800": {
+  "de": "Autonomer Bezirk Bayingolin der Mongolen",
+  "en": "Bayingolin Mongol Autonomous Prefecture",
+  "zh": "巴音郭楞蒙古自治州",
+  "zh-Hant": "巴音郭楞蒙古自治州"
+ },
+ "652900": {
+  "de": "Regierungsbezirk Aksu",
+  "en": "Aksu Prefecture",
+  "zh": "阿克苏地区",
+  "zh-Hant": "阿克蘇地區"
+ },
+ "653000": {
+  "de": "Autonomer Bezirk Kizilsu der Kirgisen",
+  "en": "Kizilsu Kyrgyz Autonomous Prefecture",
+  "zh": "克孜勒苏柯尔克孜自治州",
+  "zh-Hant": "克孜勒蘇柯爾克孜自治州"
+ },
+ "653100": {
+  "de": "Regierungsbezirk Kaschgar",
+  "en": "Kashgar Prefecture",
+  "zh": "喀什地区",
+  "zh-Hant": "喀什地區"
+ },
+ "653200": {
+  "de": "Regierungsbezirk Hotan",
+  "en": "Hotan Prefecture",
+  "zh": "和田地区",
+  "zh-Hant": "和田地區"
+ },
+ "654000": {
+  "de": "Autonomer Bezirk Ili der Kasachen",
+  "en": "Ili Kazakh Autonomous Prefecture",
+  "zh": "伊犁哈萨克自治州",
+  "zh-Hant": "伊犁哈薩克自治州"
+ },
+ "654200": {
+  "de": "Regierungsbezirk Tacheng",
+  "en": "Tacheng Prefecture",
+  "zh": "塔城地区",
+  "zh-Hant": "塔城地區"
+ },
+ "654300": {
+  "de": "Regierungsbezirk Altay",
+  "en": "Altay Prefecture",
+  "zh": "阿勒泰地区",
+  "zh-Hant": "阿勒泰地區"
+ },
+ "659001": {
+  "de": "Shihezi",
+  "en": "Shihezi",
+  "zh": "石河子市",
+  "zh-Hant": "石河子"
+ },
+ "659002": {
+  "de": "Aral",
+  "en": "Aral",
+  "zh": "阿拉尔市",
+  "zh-Hant": "阿拉爾"
+ },
+ "659003": {
+  "de": "Tumxuk",
+  "en": "Tumxuk",
+  "zh": "图木舒克市",
+  "zh-Hant": "圖木舒克"
+ },
+ "659004": {
+  "de": "Wujiaqu",
+  "en": "Wujiaqu",
+  "zh": "五家渠市",
+  "zh-Hant": "五家渠"
+ },
+ "659005": {
+  "de": "Beitun",
+  "en": "Beitun",
+  "zh": "北屯市",
+  "zh-Hant": "北屯"
+ },
+ "659006": {
+  "de": "Tiemenguan",
+  "en": "Tiemenguan",
+  "zh": "铁门关市",
+  "zh-Hant": "鐵門關"
+ },
+ "659007": {
+  "de": "Shuanghe",
+  "en": "Shuanghe",
+  "zh": "双河市",
+  "zh-Hant": "雙河"
+ },
+ "659008": {
+  "de": "Kokdala",
+  "en": "Kokdala",
+  "zh": "可克达拉市",
+  "zh-Hant": "可克達拉"
+ },
+ "659009": {
+  "de": "Kunyu",
+  "en": "Kunyu",
+  "zh": "昆玉市",
+  "zh-Hant": "昆玉"
+ },
+ "659010": {
+  "de": "Huyanghe",
+  "en": "Huyanghe",
+  "zh": "胡杨河市",
+  "zh-Hant": "胡楊河"
+ },
+ "810001": {
+  "de": "Central and Western",
+  "en": "Central and Western",
+  "zh": "中西区",
+  "zh-Hant": "中西區"
+ },
+ "810002": {
+  "de": "Wan Chai",
+  "en": "Wan Chai",
+  "zh": "湾仔区",
+  "zh-Hant": "灣仔區"
+ },
+ "810003": {
+  "de": "Eastern",
+  "en": "Eastern",
+  "zh": "东区",
+  "zh-Hant": "東區"
+ },
+ "810004": {
+  "de": "Southern",
+  "en": "Southern",
+  "zh": "南区",
+  "zh-Hant": "南區"
+ },
+ "810005": {
+  "de": "Yau Tsim Mong",
+  "en": "Yau Tsim Mong",
+  "zh": "油尖旺区",
+  "zh-Hant": "油尖旺區"
+ },
+ "810006": {
+  "de": "Sham Shui Po",
+  "en": "Sham Shui Po",
+  "zh": "深水埗区",
+  "zh-Hant": "深水埗區"
+ },
+ "810007": {
+  "de": "Kowloon City",
+  "en": "Kowloon City",
+  "zh": "九龙城区",
+  "zh-Hant": "九龍城區"
+ },
+ "810008": {
+  "de": "Wong Tai Sin",
+  "en": "Wong Tai Sin",
+  "zh": "黄大仙区",
+  "zh-Hant": "黃大仙區"
+ },
+ "810009": {
+  "de": "Kwun Tong",
+  "en": "Kwun Tong",
+  "zh": "观塘区",
+  "zh-Hant": "觀塘區"
+ },
+ "810010": {
+  "de": "Tsuen Wan",
+  "en": "Tsuen Wan",
+  "zh": "荃湾区",
+  "zh-Hant": "荃灣區"
+ },
+ "810011": {
+  "de": "Tuen Mun",
+  "en": "Tuen Mun",
+  "zh": "屯门区",
+  "zh-Hant": "屯門區"
+ },
+ "810012": {
+  "de": "Yuen Long",
+  "en": "Yuen Long",
+  "zh": "元朗区",
+  "zh-Hant": "元朗區"
+ },
+ "810013": {
+  "de": "North",
+  "en": "North",
+  "zh": "北区",
+  "zh-Hant": "北區"
+ },
+ "810014": {
+  "de": "Tai Po",
+  "en": "Tai Po",
+  "zh": "大埔区",
+  "zh-Hant": "大埔區"
+ },
+ "810015": {
+  "de": "Sai Kung",
+  "en": "Sai Kung",
+  "zh": "西贡区",
+  "zh-Hant": "西貢區"
+ },
+ "810016": {
+  "de": "Sha Tin",
+  "en": "Sha Tin",
+  "zh": "沙田区",
+  "zh-Hant": "沙田區"
+ },
+ "810017": {
+  "de": "Kwai Tsing",
+  "en": "Kwai Tsing",
+  "zh": "葵青区",
+  "zh-Hant": "葵青區"
+ },
+ "810018": {
+  "de": "Islands",
+  "en": "Islands",
+  "zh": "离岛区",
+  "zh-Hant": "離島區"
+ },
+ "820001": {
+  "de": "Nossa Senhora de Fátima",
+  "en": "Nossa Senhora de Fátima",
+  "zh": "花地玛堂区",
+  "zh-Hant": "花地瑪堂區"
+ },
+ "820002": {
+  "de": "Santo António",
+  "en": "Santo António",
+  "zh": "花王堂区",
+  "zh-Hant": "花王堂區"
+ },
+ "820003": {
+  "de": "São Lázaro",
+  "en": "São Lázaro",
+  "zh": "望德堂区",
+  "zh-Hant": "望德堂區"
+ },
+ "820004": {
+  "de": "Sé",
+  "en": "Sé",
+  "zh": "大堂区",
+  "zh-Hant": "大堂區"
+ },
+ "820005": {
+  "de": "São Lourenço",
+  "en": "São Lourenço",
+  "zh": "风顺堂区",
+  "zh-Hant": "風順堂區"
+ },
+ "820006": {
+  "de": "Nossa Senhora do Carmo (Taipa)",
+  "en": "Nossa Senhora do Carmo (Taipa)",
+  "zh": "嘉模堂区",
+  "zh-Hant": "嘉模堂區"
+ },
+ "820007": {
+  "de": "Cotai",
+  "en": "Cotai",
+  "zh": "路凼填海区",
+  "zh-Hant": "路氹填海區"
+ },
+ "820008": {
+  "de": "São Francisco Xavier (Coloane)",
+  "en": "São Francisco Xavier (Coloane)",
+  "zh": "圣方济各堂区",
+  "zh-Hant": "聖方濟各堂區"
+ }
+}

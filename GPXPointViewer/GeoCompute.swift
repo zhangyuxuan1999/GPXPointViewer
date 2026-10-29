@@ -180,6 +180,24 @@ enum GeoCompute {
         return out
     }
 
+    /// Gather once in path order, use the vectorized kernel, repair every segment head,
+    /// and scatter back to the global time domain. Single-segment tracks allocate nothing extra.
+    static func speedsKmh(lat: [Double], lon: [Double], time: [Double],
+                          pathOrder: [UInt32], segmentRanges: [Range<Int>]) -> [Double] {
+        guard !pathOrder.isEmpty else { return speedsKmh(lat: lat, lon: lon, time: time) }
+        let n = lat.count
+        let la = pathOrder.map { lat[Int($0)] }
+        let lo = pathOrder.map { lon[Int($0)] }
+        let t = pathOrder.map { time[Int($0)] }
+        var gathered = speedsKmh(lat: la, lon: lo, time: t)
+        for r in segmentRanges where !r.isEmpty {
+            gathered[r.lowerBound] = r.count > 1 ? gathered[r.lowerBound + 1] : 0
+        }
+        var out = [Double](repeating: 0, count: n)
+        for p in 0..<n { out[Int(pathOrder[p])] = gathered[p] }
+        return out
+    }
+
     // MARK: - 归一化与量化
 
     /// 稳健取值范围（默认 2–98 百分位），异常值不会拉爆色标。

@@ -1,0 +1,65 @@
+[
+ {
+  "table": "Localizable",
+  "key": "%@ 刚被限流，冷却中（还有 %@ s），这一路先放弃",
+  "en": "%1$@ just rate-limited us and is cooling down (%2$@ s left); this leg is abandoned",
+  "de": "%1$@ hat uns gerade limitiert und kühlt ab (noch %2$@ s); dieser Zweig wird aufgegeben",
+  "zh-Hant": "%1$@ 剛被限流，冷卻中（還有 %2$@ s），這一路先放棄"
+ },
+ {
+  "table": "Localizable",
+  "key": "OSRM 与 Valhalla 给出的是同一条路（绝大部分相距不到 10 m，只允许不超过几十米的一小段分开）。一致只说明两个服务看法相同，不等于路一定对：锚点本身漂到旁边路上时两边会一起错，这种情况会另加一条疑点",
+  "en": "OSRM and Valhalla returned the same road (almost all of it within 10 m; only a short stretch of a few dozen metres may differ). Agreement only means the two services concur, not that the road is certainly right: if an anchor itself drifted onto a neighbouring road, both get it wrong together; such cases get an extra warning",
+  "de": "OSRM und Valhalla haben dieselbe Straße geliefert (fast überall innerhalb von 10 m; nur ein kurzer Abschnitt von einigen Dutzend Metern darf abweichen). Übereinstimmung heißt nur, dass beide Dienste gleicher Meinung sind, nicht dass die Straße sicher stimmt: Ist ein Anker selbst auf eine Nachbarstraße gedriftet, irren sich beide gemeinsam; solche Fälle erhalten eine zusätzliche Warnung",
+  "zh-Hant": "OSRM 與 Valhalla 給出的是同一條路（絕大部分相距不到 10 m，只允許不超過幾十米的一小段分開）。一致只說明兩個服務看法相同，不等於路一定對：錨點本身漂到旁邊路上時兩邊會一起錯，這種情況會另加一條疑點"
+ },
+ {
+  "table": "Localizable",
+  "key": "batch.pick.straight",
+  "en": "Straight Line",
+  "de": "Gerade",
+  "zh-Hant": "直線"
+ },
+ {
+  "table": "Localizable",
+  "key": "— %@：%@",
+  "en": "— %1$@: %2$@",
+  "de": "— %1$@: %2$@",
+  "zh-Hant": "— %1$@：%2$@"
+ },
+ {
+  "table": "Localizable",
+  "key": "不补（改选…）",
+  "en": "Fill Neither (Change…)",
+  "de": "Keine (Ändern…)",
+  "zh-Hant": "不補（改選…）"
+ },
+ {
+  "table": "Localizable",
+  "key": "地图上：实线 = OSRM，虚线 = Valhalla（选中这一行时两条都加粗）。选一条就按它落地；直线 = 两点直连；都不补 = 这处留着不动（两条线还在，随时可改选）",
+  "en": "On the map: solid = OSRM, dashed = Valhalla (both drawn thicker while this row is selected). Pick one and it is applied; Straight Line = connect the two points directly; Fill Neither = leave this gap alone (both lines stay, you can change your mind anytime)",
+  "de": "Auf der Karte: durchgezogen = OSRM, gestrichelt = Valhalla (beide dicker, solange diese Zeile ausgewählt ist). Eine wählen, und sie wird übernommen; Gerade = beide Punkte direkt verbinden; Keine von beiden = diese Lücke unverändert lassen (beide Linien bleiben, jederzeit änderbar)",
+  "zh-Hant": "地圖上：實線 = OSRM，虛線 = Valhalla（選中這一列時兩條都加粗）。選一條就按它落地；直線 = 兩點直連；都不補 = 這處留著不動（兩條線還在，隨時可改選）"
+ },
+ {
+  "table": "Localizable",
+  "key": "改选…",
+  "en": "Change…",
+  "de": "Ändern…",
+  "zh-Hant": "改選…"
+ },
+ {
+  "table": "Localizable",
+  "key": "正在做什么：精确模式——每处公路断档同时发给 OSRM 和 Valhalla 两个路线服务（都用 OpenStreetMap 数据，算法不同），取回后比对几何：走的是同一条路才自动采用，不一致的、或只有一路有结果的等你在地图上选。每个服务仍是 1 秒最多 1 次，所以耗时约为普通模式的两倍。",
+  "en": "What is happening: precise mode — each road gap is sent to both routing services, OSRM and Valhalla (both use OpenStreetMap data, different algorithms), and the returned geometries are compared: only when they follow the same road is the result adopted automatically; disagreements, and gaps where only one service answered, wait for your pick on the map. Each service still allows at most 1 request per second, so this takes about twice as long as normal mode.",
+  "de": "Was gerade passiert: präziser Modus – jede Straßenlücke geht an beide Routingdienste OSRM und Valhalla (beide nutzen OpenStreetMap-Daten, unterschiedliche Algorithmen); die gelieferten Geometrien werden verglichen: Nur wenn sie derselben Straße folgen, wird das Ergebnis automatisch übernommen; bei Abweichungen, oder wenn nur ein Dienst geantwortet hat, wählen Sie auf der Karte. Jeder Dienst erlaubt weiterhin höchstens 1 Anfrage pro Sekunde, daher dauert es etwa doppelt so lang wie im normalen Modus.",
+  "zh-Hant": "正在做什麼：精確模式——每處公路斷檔同時發給 OSRM 和 Valhalla 兩個路線服務（都用 OpenStreetMap 資料，演算法不同），取回後比對幾何：走的是同一條路才自動採用，不一致的、或只有一路有結果的等你在地圖上選。每個服務仍是 1 秒最多 1 次，所以耗時約為普通模式的兩倍。"
+ },
+ {
+  "table": "Localizable",
+  "key": "选了不补 %lld",
+  "en": "Fill neither: %lld",
+  "de": "Keine von beiden: %lld",
+  "zh-Hant": "選了不補 %lld"
+ }
+]

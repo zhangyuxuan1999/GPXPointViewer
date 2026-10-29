@@ -1,0 +1,84 @@
+[
+ {
+  "table": "Localizable",
+  "key": "A 前 %lld 个点是进隧道后的外推点（航向/步长锁死），已并入替换区间",
+  "en": "The %lld points before A were extrapolated after entering the tunnel (heading/step locked) and have been added to the replaced range",
+  "de": "Die %lld Punkte vor A wurden nach der Tunneleinfahrt extrapoliert (Richtung/Schrittweite eingefroren) und in den ersetzten Bereich aufgenommen",
+  "zh-Hant": "A 前 %lld 個點是進隧道後的外推點（航向/步長鎖死），已併入替換區間",
+  "plural": {"en": {"one": "The %lld point before A was extrapolated after entering the tunnel (heading/step locked) and has been added to the replaced range", "other": "The %lld points before A were extrapolated after entering the tunnel (heading/step locked) and have been added to the replaced range"}, "de": {"one": "Der %lld Punkt vor A wurde nach der Tunneleinfahrt extrapoliert (Richtung/Schrittweite eingefroren) und in den ersetzten Bereich aufgenommen", "other": "Die %lld Punkte vor A wurden nach der Tunneleinfahrt extrapoliert (Richtung/Schrittweite eingefroren) und in den ersetzten Bereich aufgenommen"}}
+ },
+ {
+  "table": "Localizable",
+  "key": "两路一致，但补点末尾段向 B 靠拢了 %@ m、远多于 B 离路的 %@ m：末尾几何可能不是路网，请在地图上看一眼",
+  "en": "Both services agree, but the end of the filled path was pulled %1$@ m toward B, far more than B's %2$@ m off the road: the end geometry may not be road network; please check on the map",
+  "de": "Beide Dienste stimmen überein, aber das Ende der Lückenfüllung wurde %1$@ m zu B hingezogen, weit mehr als die %2$@ m, die B neben der Straße liegt: Die Endgeometrie ist womöglich kein Straßennetz. Bitte auf der Karte prüfen",
+  "zh-Hant": "兩路一致，但補點末尾段向 B 靠攏了 %1$@ m、遠多於 B 離路的 %2$@ m：末尾幾何可能不是路網，請在地圖上看一眼"
+ },
+ {
+  "table": "Localizable",
+  "key": "两路一致，但补点起始段向 A 靠拢了 %@ m、远多于 A 离路的 %@ m：起始几何可能不是路网，请在地图上看一眼",
+  "en": "Both services agree, but the start of the filled path was pulled %1$@ m toward A, far more than A's %2$@ m off the road: the start geometry may not be road network; please check on the map",
+  "de": "Beide Dienste stimmen überein, aber der Anfang der Lückenfüllung wurde %1$@ m zu A hingezogen, weit mehr als die %2$@ m, die A neben der Straße liegt: Die Anfangsgeometrie ist womöglich kein Straßennetz. Bitte auf der Karte prüfen",
+  "zh-Hant": "兩路一致，但補點起始段向 A 靠攏了 %1$@ m、遠多於 A 離路的 %2$@ m：起始幾何可能不是路網，請在地圖上看一眼"
+ },
+ {
+  "table": "Localizable",
+  "key": "其中 %lld 个点位置在路线上、只是时间滞后：「替换」会保留它们的位置，时间按出口速度回推。",
+  "en": "%lld of them lie on the route and only their timestamps lag: “Replace” keeps their positions and recomputes the times from the exit speed.",
+  "de": "%lld davon liegen auf der Route, nur ihre Zeitstempel hinken nach: „Ersetzen“ behält ihre Position und berechnet die Zeit aus der Austrittsgeschwindigkeit neu.",
+  "zh-Hant": "其中 %lld 個點位置在路線上、只是時間滯後：「替換」會保留它們的位置，時間按出口速度回推。",
+  "plural": {"en": {"one": "%lld of them lies on the route and only its timestamp lags: “Replace” keeps its position and recomputes the time from the exit speed.", "other": "%lld of them lie on the route and only their timestamps lag: “Replace” keeps their positions and recomputes the times from the exit speed."}, "de": {"one": "%lld davon liegt auf der Route, nur sein Zeitstempel hinkt nach: „Ersetzen“ behält seine Position und berechnet die Zeit aus der Austrittsgeschwindigkeit neu.", "other": "%lld davon liegen auf der Route, nur ihre Zeitstempel hinken nach: „Ersetzen“ behält ihre Position und berechnet die Zeit aus der Austrittsgeschwindigkeit neu."}}
+ },
+ {
+  "table": "Localizable",
+  "key": "区间内 %lld 个点（粉色）是设备重新定位后带着过时时间戳的出口点：位置正常，时间却比真实早约 %lld 秒。「替换」把其中位置在路线上的保留下来、只把时间按出口速度回推，离路线的删掉由合成点接上；「保留」会让时间线在出口来回跳，不推荐。",
+  "en": "The points in the range (pink, %1$lld) are exit points that kept stale timestamps after the device re-acquired its position: the location is fine, but the timestamps are about %2$lld s too early. “Replace” keeps the ones on the route and only recomputes their times from the exit speed, and deletes the ones off the route so the synthetic points take over; “Keep” makes the timeline jump back and forth at the exit (not recommended).",
+  "de": "Die Punkte im Bereich (rosa, %1$lld) sind Austrittspunkte, die nach der Neuortung des Geräts veraltete Zeitstempel tragen: Die Position stimmt, die Zeit liegt aber etwa %2$lld s zu früh. „Ersetzen“ behält die auf der Route liegenden und berechnet nur ihre Zeit aus der Austrittsgeschwindigkeit neu; die abseits der Route werden gelöscht, die synthetischen Punkte schließen an. „Behalten“ lässt die Zeitachse am Austritt hin und her springen (nicht empfohlen).",
+  "zh-Hant": "區間內 %1$lld 個點（粉紅色）是裝置重新定位後帶著過時時間戳記的出口點：位置正常，時間卻比真實早約 %2$lld 秒。「替換」把其中位置在路線上的保留下來、只把時間按出口速度回推，離路線的刪掉由合成點接上；「保留」會讓時間線在出口來回跳，不推薦。"
+ },
+ {
+  "table": "Localizable",
+  "key": "另外 %lld 个点是进隧道后设备按最后航向外推出来的（航向/步长锁死），位置不真实：「替换」一并删掉。",
+  "en": "Another %lld points were extrapolated by the device along its last heading after entering the tunnel (heading/step locked); their positions are not real: “Replace” deletes them too.",
+  "de": "Weitere %lld Punkte hat das Gerät nach der Tunneleinfahrt entlang der letzten Richtung extrapoliert (Richtung/Schrittweite eingefroren); ihre Position ist nicht echt: „Ersetzen“ löscht sie ebenfalls.",
+  "zh-Hant": "另外 %lld 個點是進隧道後裝置按最後航向外推出來的（航向/步長鎖死），位置不真實：「替換」一併刪掉。",
+  "plural": {"en": {"one": "Another %lld point was extrapolated by the device along its last heading after entering the tunnel (heading/step locked); its position is not real: “Replace” deletes it too.", "other": "Another %lld points were extrapolated by the device along its last heading after entering the tunnel (heading/step locked); their positions are not real: “Replace” deletes them too."}, "de": {"one": "Einen weiteren %lld Punkt hat das Gerät nach der Tunneleinfahrt entlang der letzten Richtung extrapoliert (Richtung/Schrittweite eingefroren); seine Position ist nicht echt: „Ersetzen“ löscht ihn ebenfalls.", "other": "Weitere %lld Punkte hat das Gerät nach der Tunneleinfahrt entlang der letzten Richtung extrapoliert (Richtung/Schrittweite eingefroren); ihre Position ist nicht echt: „Ersetzen“ löscht sie ebenfalls."}}
+ },
+ {
+  "table": "Localizable",
+  "key": "改时间 %lld 个点…",
+  "en": "Retiming %lld points…",
+  "de": "%lld Punkte werden umdatiert…",
+  "zh-Hant": "改時間 %lld 個點…",
+  "plural": {"en": {"one": "Retiming %lld point…", "other": "Retiming %lld points…"}, "de": {"one": "%lld Punkt wird umdatiert…", "other": "%lld Punkte werden umdatiert…"}}
+ },
+ {
+  "table": "Localizable",
+  "key": "改时间 %lld 点",
+  "en": "retimed %lld points",
+  "de": "%lld Punkte umdatiert",
+  "zh-Hant": "改時間 %lld 點",
+  "plural": {"en": {"one": "retimed %lld point", "other": "retimed %lld points"}, "de": {"one": "%lld Punkt umdatiert", "other": "%lld Punkte umdatiert"}}
+ },
+ {
+  "table": "Localizable",
+  "key": "改时间的点（位置是真实观测，时间按出口速度回推）",
+  "en": "Retimed points (real observed position, time recomputed from the exit speed)",
+  "de": "Umdatierte Punkte (echte beobachtete Position, Zeit aus der Austrittsgeschwindigkeit neu berechnet)",
+  "zh-Hant": "改時間的點（位置是真實觀測，時間按出口速度回推）"
+ },
+ {
+  "table": "Localizable",
+  "key": "补点末尾段不是路网几何（最后一个路网点离 B %@ m / 方向差 %@°），请在地图上看一眼",
+  "en": "The end of the filled path is not road-network geometry (last route vertex %1$@ m from B / heading differs by %2$@°); please check on the map",
+  "de": "Das Ende der Lückenfüllung ist keine Straßennetz-Geometrie (letzter Routenpunkt %1$@ m von B entfernt / Richtung weicht um %2$@° ab). Bitte auf der Karte prüfen",
+  "zh-Hant": "補點末尾段不是路網幾何（最後一個路網點離 B %1$@ m / 方向差 %2$@°），請在地圖上看一眼"
+ },
+ {
+  "table": "Localizable",
+  "key": "补点起始段不是路网几何（首个路网点离 A %@ m / 方向差 %@°），请在地图上看一眼",
+  "en": "The start of the filled path is not road-network geometry (first route vertex %1$@ m from A / heading differs by %2$@°); please check on the map",
+  "de": "Der Anfang der Lückenfüllung ist keine Straßennetz-Geometrie (erster Routenpunkt %1$@ m von A entfernt / Richtung weicht um %2$@° ab). Bitte auf der Karte prüfen",
+  "zh-Hant": "補點起始段不是路網幾何（首個路網點離 A %1$@ m / 方向差 %2$@°），請在地圖上看一眼"
+ }
+]

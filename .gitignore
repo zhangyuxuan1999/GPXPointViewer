@@ -1,2 +1,19 @@
 data
 .claude
+# 测试副本 / 截图 / 行政区边界原始数据（下载件）
+Tests/ui/app.noindex/
+Tests/ui/perf/
+data/regions-src/
+Tools/agents/sdkenv/
+Tools/agents/runs/
+
+# DeepSeek 2026-10-29：建立版本基线时补充的排除项
+.DS_Store
+__pycache__/
+*.pyc
+*.lock
+# 代理运行证据（约 1 GB，保留在磁盘，不进版本库）
+Tools/agents/records/
+# 构建产物（各测试目录还有自己的 .gitignore）
+.build/
+DerivedData/

@@ -1,0 +1,13 @@
+# Explicit segment core regression
+
+Run from the project copy: `python3 Tests/segments/core/run.py /private/tmp/gpxpv-segment-core-check`. The script compiles the production GPXParser, TrackData, GeoCompute, GPXWriter and QuickLook TrackShape Swift files with optimization, records build/test stdout/stderr and actual exit codes, then returns the test exit code.
+
+The only substituted work is GPU buffer publication (returns nil, so no app or GPU is started). The GPX synthetic point key is declared with the production time/latitude/longitude bit values and source-segment identity (default segment0), avoiding unrelated routing/edit machinery. The actual production GPXWriter runs: two source segments with identical time/lat/lon and only one synthetic key must emit exactly one `<src>GPXPointViewer-fill</src>` in the correct segment; a filtered real twin must remain unmarked. The full routing/landing key construction is outside this core suite. Metal rendering is tested by the renderer suite.
+
+Assertions cover genuine Swift XML parsing, fake tags in comments/CDATA/quoted attributes, chunk ownership and invalid-point compaction, per-file source namespaces, slice/merge/sort metadata, stable duplicate/absent times, interleaved path helpers, independent speed/distance/fog truth from separately built segments, GPX export/reload, clipped LOD tails/singletons/soft breaks, the 16-byte GPU descriptor ABI, and QuickLook shape stroke counts.
+
+`benchmark/run.py RUN_DIR [artifact-subdirectory]` compares one million points against the owned-file before snapshots in the supplied run. It also asserts the current single-segment identity storage and one-run LOD plan. This is a CPU/parse diagnostic, not an app/GPU performance claim.
+
+The core entry point also compiles/runs `preview/run.py`: headless NSBitmapImageRep/NSGraphicsContext pixel checks prove retained isolated dots are visible and never joined. It covers1/2/3-point shapes, original endpoint marker positions after source grouping, hard and original soft breaks (including a soft break skipped by LOD), true retained endpoints, and the global6000 output budget for10000 two-point sources/10000 waypoints/uneven/interleaved sources. No NSApplication or window is created. PNGs and actual exit codes are saved under the chosen output directory.
+
+Preview-only sampling has at most6000 candidate source summaries and at most6000 retained indices. A single implicit source uses arithmetic ranks plus an original-edge scan, with no input-sized index array. The32MB QuickLook branch and parser sampling policy are unchanged. RSS is diagnostic evidence, not a fixed test expectation.

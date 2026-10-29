@@ -26,10 +26,29 @@
 		BB0000000000000000000011 /* moon_texture.png in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000012 /* moon_texture.png */; };
 		BB0000000000000000000012 /* PixelGlobe.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000013 /* PixelGlobe.swift */; };
 		BB0000000000000000000013 /* land_mask.bin in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000014 /* land_mask.bin */; };
+		BB0000000000000000000041 /* FogArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000041 /* FogArchive.swift */; };		BB0000000000000000000044 /* Heat3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000044 /* Heat3D.swift */; };		BB0000000000000000000047 /* GapFill.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000047 /* GapFill.swift */; };		BB0000000000000000000048 /* UITestHook.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000048 /* UITestHook.swift */; };		BB0000000000000000000049 /* RoadNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000049 /* RoadNetwork.swift */; };		BB0000000000000000000050 /* BatchFill.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000050 /* BatchFill.swift */; };		BB0000000000000000000051 /* BatchFillWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000051 /* BatchFillWindow.swift */; };		BB0000000000000000000052 /* ChangeLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000052 /* ChangeLog.swift */; };		BB0000000000000000000053 /* ChangeReviewWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000053 /* ChangeReviewWindow.swift */; };		BB0000000000000000000016 /* RouteReplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000016 /* RouteReplay.swift */; };		BB0000000000000000000015 /* FillPlausibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000015 /* FillPlausibility.swift */; };		BB0000000000000000000046 /* DiffWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000046 /* DiffWindow.swift */; };		BB0000000000000000000045 /* DiffCompare.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000045 /* DiffCompare.swift */; };		BB0000000000000000000043 /* VideoExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000043 /* VideoExport.swift */; };		BB0000000000000000000042 /* Playback.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000042 /* Playback.swift */; };
+		BB000000000000000000005A /* RegionIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000067 /* RegionIndex.swift */; };
+		BB000000000000000000005B /* RegionStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000068 /* RegionStats.swift */; };
+		BB000000000000000000005C /* RegionsWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000069 /* RegionsWindow.swift */; };
+		BB0000000000000000000070 /* MapSources.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000070 /* MapSources.swift */; };
+		BB0000000000000000000071 /* TunnelOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000071 /* TunnelOverlay.swift */; };
+		BB000000000000000000005D /* Regions.bin in Resources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000006A /* Regions.bin */; };
 		BB0000000000000000000020 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000020 /* PreviewViewController.swift */; };
 		BB0000000000000000000021 /* GPXParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000005 /* GPXParser.swift */; };
 		BB0000000000000000000022 /* GeoCompute.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000006 /* GeoCompute.swift */; };
 		BB0000000000000000000023 /* GPXQuickLook.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000065 /* GPXQuickLook.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		BB0000000000000000000024 /* TrackShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000024 /* TrackShape.swift */; };
+		BB0000000000000000000030 /* ThumbnailProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000030 /* ThumbnailProvider.swift */; };
+		BB0000000000000000000031 /* TrackShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000024 /* TrackShape.swift */; };
+		BB0000000000000000000032 /* GPXParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000005 /* GPXParser.swift */; };
+		BB0000000000000000000033 /* GeoCompute.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000006 /* GeoCompute.swift */; };
+		BB0000000000000000000035 /* GPXThumbnail.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000066 /* GPXThumbnail.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		BB0000000000000000000054 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000054 /* Localizable.xcstrings */; };
+		BB0000000000000000000055 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000055 /* InfoPlist.xcstrings */; };
+		BB0000000000000000000056 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000056 /* Localizable.xcstrings */; };
+		BB0000000000000000000057 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000057 /* InfoPlist.xcstrings */; };
+		BB0000000000000000000058 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000058 /* InfoPlist.xcstrings */; };
+		BB0000000000000000000059 /* L10nSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000059 /* L10nSupport.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,12 +72,30 @@
 		AA0000000000000000000012 /* moon_texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moon_texture.png; sourceTree = "<group>"; };
 		AA0000000000000000000013 /* PixelGlobe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelGlobe.swift; sourceTree = "<group>"; };
 		AA0000000000000000000014 /* land_mask.bin */ = {isa = PBXFileReference; lastKnownFileType = file; path = land_mask.bin; sourceTree = "<group>"; };
+		AA0000000000000000000041 /* FogArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FogArchive.swift; sourceTree = "<group>"; };		AA0000000000000000000044 /* Heat3D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heat3D.swift; sourceTree = "<group>"; };		AA0000000000000000000047 /* GapFill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GapFill.swift; sourceTree = "<group>"; };		AA0000000000000000000048 /* UITestHook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestHook.swift; sourceTree = "<group>"; };		AA0000000000000000000049 /* RoadNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadNetwork.swift; sourceTree = "<group>"; };		AA0000000000000000000050 /* BatchFill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchFill.swift; sourceTree = "<group>"; };		AA0000000000000000000051 /* BatchFillWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchFillWindow.swift; sourceTree = "<group>"; };		AA0000000000000000000052 /* ChangeLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeLog.swift; sourceTree = "<group>"; };		AA0000000000000000000053 /* ChangeReviewWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeReviewWindow.swift; sourceTree = "<group>"; };		AA0000000000000000000016 /* RouteReplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteReplay.swift; sourceTree = "<group>"; };		AA0000000000000000000015 /* FillPlausibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillPlausibility.swift; sourceTree = "<group>"; };		AA0000000000000000000046 /* DiffWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffWindow.swift; sourceTree = "<group>"; };		AA0000000000000000000045 /* DiffCompare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffCompare.swift; sourceTree = "<group>"; };		AA0000000000000000000043 /* VideoExport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoExport.swift; sourceTree = "<group>"; };		AA0000000000000000000042 /* Playback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playback.swift; sourceTree = "<group>"; };
+		AA0000000000000000000067 /* RegionIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionIndex.swift; sourceTree = "<group>"; };
+		AA0000000000000000000068 /* RegionStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionStats.swift; sourceTree = "<group>"; };
+		AA0000000000000000000069 /* RegionsWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionsWindow.swift; sourceTree = "<group>"; };
+		AA0000000000000000000070 /* MapSources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSources.swift; sourceTree = "<group>"; };
+		AA0000000000000000000071 /* TunnelOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunnelOverlay.swift; sourceTree = "<group>"; };
+		AA000000000000000000006A /* Regions.bin */ = {isa = PBXFileReference; lastKnownFileType = file; path = Regions.bin; sourceTree = "<group>"; };
 		AA0000000000000000000064 /* GPXPointViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPXPointViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA0000000000000000000020 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		AA0000000000000000000021 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA0000000000000000000022 /* GPXQuickLook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GPXQuickLook.entitlements; sourceTree = "<group>"; };
 		AA0000000000000000000023 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA0000000000000000000065 /* GPXQuickLook.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GPXQuickLook.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA0000000000000000000024 /* TrackShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackShape.swift; sourceTree = "<group>"; };
+		AA0000000000000000000030 /* ThumbnailProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailProvider.swift; sourceTree = "<group>"; };
+		AA0000000000000000000031 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA0000000000000000000032 /* GPXThumbnail.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GPXThumbnail.entitlements; sourceTree = "<group>"; };
+		AA0000000000000000000066 /* GPXThumbnail.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GPXThumbnail.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA0000000000000000000054 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		AA0000000000000000000055 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
+		AA0000000000000000000056 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		AA0000000000000000000057 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
+		AA0000000000000000000058 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
+		AA0000000000000000000059 /* L10nSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10nSupport.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +113,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DD0000000000000000000009 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -86,6 +130,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				BB0000000000000000000023 /* GPXQuickLook.appex in Embed Foundation Extensions */,
+				BB0000000000000000000035 /* GPXThumbnail.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -98,6 +143,7 @@
 			children = (
 				CC0000000000000000000002 /* GPXPointViewer */,
 				CC0000000000000000000004 /* GPXQuickLook */,
+				CC0000000000000000000005 /* GPXThumbnail */,
 				CC0000000000000000000003 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -124,8 +170,18 @@
 				AA0000000000000000000011 /* earth_texture_light.png */,
 				AA0000000000000000000012 /* moon_texture.png */,
 				AA0000000000000000000013 /* PixelGlobe.swift */,
+				AA0000000000000000000041 /* FogArchive.swift */,				AA0000000000000000000044 /* Heat3D.swift */,				AA0000000000000000000047 /* GapFill.swift */,				AA0000000000000000000048 /* UITestHook.swift */,				AA0000000000000000000049 /* RoadNetwork.swift */,				AA0000000000000000000050 /* BatchFill.swift */,				AA0000000000000000000051 /* BatchFillWindow.swift */,				AA0000000000000000000052 /* ChangeLog.swift */,				AA0000000000000000000053 /* ChangeReviewWindow.swift */,				AA0000000000000000000016 /* RouteReplay.swift */,				AA0000000000000000000015 /* FillPlausibility.swift */,				AA0000000000000000000046 /* DiffWindow.swift */,				AA0000000000000000000045 /* DiffCompare.swift */,				AA0000000000000000000043 /* VideoExport.swift */,				AA0000000000000000000042 /* Playback.swift */,
+				AA0000000000000000000067 /* RegionIndex.swift */,
+				AA0000000000000000000068 /* RegionStats.swift */,
+				AA0000000000000000000069 /* RegionsWindow.swift */,
+				AA0000000000000000000070 /* MapSources.swift */,
+				AA0000000000000000000071 /* TunnelOverlay.swift */,
+				AA000000000000000000006A /* Regions.bin */,
 				AA0000000000000000000014 /* land_mask.bin */,
 				AA0000000000000000000023 /* Info.plist */,
+				AA0000000000000000000059 /* L10nSupport.swift */,
+				AA0000000000000000000054 /* Localizable.xcstrings */,
+				AA0000000000000000000055 /* InfoPlist.xcstrings */,
 			);
 			path = GPXPointViewer;
 			sourceTree = "<group>";
@@ -135,6 +191,7 @@
 			children = (
 				AA0000000000000000000064 /* GPXPointViewer.app */,
 				AA0000000000000000000065 /* GPXQuickLook.appex */,
+				AA0000000000000000000066 /* GPXThumbnail.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,10 +200,24 @@
 			isa = PBXGroup;
 			children = (
 				AA0000000000000000000020 /* PreviewViewController.swift */,
+				AA0000000000000000000024 /* TrackShape.swift */,
 				AA0000000000000000000021 /* Info.plist */,
 				AA0000000000000000000022 /* GPXQuickLook.entitlements */,
+				AA0000000000000000000056 /* Localizable.xcstrings */,
+				AA0000000000000000000057 /* InfoPlist.xcstrings */,
 			);
 			path = GPXQuickLook;
+			sourceTree = "<group>";
+		};
+		CC0000000000000000000005 /* GPXThumbnail */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000030 /* ThumbnailProvider.swift */,
+				AA0000000000000000000031 /* Info.plist */,
+				AA0000000000000000000032 /* GPXThumbnail.entitlements */,
+				AA0000000000000000000058 /* InfoPlist.xcstrings */,
+			);
+			path = GPXThumbnail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +236,7 @@
 			);
 			dependencies = (
 				GG0000000000000000000001 /* PBXTargetDependency */,
+				GG0000000000000000000003 /* PBXTargetDependency */,
 			);
 			name = GPXPointViewer;
 			productName = GPXPointViewer;
@@ -188,6 +260,23 @@
 			productReference = AA0000000000000000000065 /* GPXQuickLook.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		EE0000000000000000000007 /* GPXThumbnail */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE0000000000000000000008 /* Build configuration list for PBXNativeTarget "GPXThumbnail" */;
+			buildPhases = (
+				DD0000000000000000000008 /* Sources */,
+				DD0000000000000000000009 /* Frameworks */,
+				DD000000000000000000000A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GPXThumbnail;
+			productName = GPXThumbnail;
+			productReference = AA0000000000000000000066 /* GPXThumbnail.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -204,15 +293,21 @@
 					EE0000000000000000000005 = {
 						CreatedOnToolsVersion = 16.0;
 					};
+					EE0000000000000000000007 = {
+						CreatedOnToolsVersion = 16.0;
+					};
 				};
 			};
 			buildConfigurationList = EE0000000000000000000003 /* Build configuration list for PBXProject "GPXPointViewer" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = "zh-Hans";
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				"zh-Hans",
+				en,
+				de,
+				"zh-Hant",
 			);
 			mainGroup = CC0000000000000000000001;
 			productRefGroup = CC0000000000000000000003 /* Products */;
@@ -221,6 +316,7 @@
 			targets = (
 				EE0000000000000000000001 /* GPXPointViewer */,
 				EE0000000000000000000005 /* GPXQuickLook */,
+				EE0000000000000000000007 /* GPXThumbnail */,
 			);
 		};
 /* End PBXProject section */
@@ -235,6 +331,9 @@
 				BB0000000000000000000010 /* earth_texture_light.png in Resources */,
 				BB0000000000000000000011 /* moon_texture.png in Resources */,
 				BB0000000000000000000013 /* land_mask.bin in Resources */,
+				BB0000000000000000000054 /* Localizable.xcstrings in Resources */,
+				BB000000000000000000005D /* Regions.bin in Resources */,
+				BB0000000000000000000055 /* InfoPlist.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +341,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB0000000000000000000056 /* Localizable.xcstrings in Resources */,
+				BB0000000000000000000057 /* InfoPlist.xcstrings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD000000000000000000000A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB0000000000000000000058 /* InfoPlist.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +375,13 @@
 				BB000000000000000000000E /* ExportSheet.swift in Sources */,
 				BB000000000000000000000B /* Shaders.metal in Sources */,
 				BB0000000000000000000012 /* PixelGlobe.swift in Sources */,
+				BB0000000000000000000041 /* FogArchive.swift in Sources */,				BB0000000000000000000044 /* Heat3D.swift in Sources */,				BB0000000000000000000047 /* GapFill.swift in Sources */,				BB0000000000000000000048 /* UITestHook.swift in Sources */,				BB0000000000000000000049 /* RoadNetwork.swift in Sources */,				BB0000000000000000000050 /* BatchFill.swift in Sources */,				BB0000000000000000000051 /* BatchFillWindow.swift in Sources */,				BB0000000000000000000052 /* ChangeLog.swift in Sources */,				BB0000000000000000000053 /* ChangeReviewWindow.swift in Sources */,				BB0000000000000000000016 /* RouteReplay.swift in Sources */,				BB0000000000000000000015 /* FillPlausibility.swift in Sources */,				BB0000000000000000000046 /* DiffWindow.swift in Sources */,				BB0000000000000000000045 /* DiffCompare.swift in Sources */,				BB0000000000000000000043 /* VideoExport.swift in Sources */,				BB0000000000000000000042 /* Playback.swift in Sources */,
+				BB000000000000000000005A /* RegionIndex.swift in Sources */,
+				BB000000000000000000005B /* RegionStats.swift in Sources */,
+				BB000000000000000000005C /* RegionsWindow.swift in Sources */,
+				BB0000000000000000000070 /* MapSources.swift in Sources */,
+				BB0000000000000000000071 /* TunnelOverlay.swift in Sources */,
+				BB0000000000000000000059 /* L10nSupport.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,8 +390,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB0000000000000000000020 /* PreviewViewController.swift in Sources */,
+				BB0000000000000000000024 /* TrackShape.swift in Sources */,
 				BB0000000000000000000021 /* GPXParser.swift in Sources */,
 				BB0000000000000000000022 /* GeoCompute.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD0000000000000000000008 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB0000000000000000000030 /* ThumbnailProvider.swift in Sources */,
+				BB0000000000000000000031 /* TrackShape.swift in Sources */,
+				BB0000000000000000000032 /* GPXParser.swift in Sources */,
+				BB0000000000000000000033 /* GeoCompute.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +415,11 @@
 			target = EE0000000000000000000005 /* GPXQuickLook */;
 			targetProxy = GG0000000000000000000002 /* PBXContainerItemProxy */;
 		};
+		GG0000000000000000000003 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EE0000000000000000000007 /* GPXThumbnail */;
+			targetProxy = GG0000000000000000000004 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXContainerItemProxy section */
@@ -296,6 +429,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = EE0000000000000000000005;
 			remoteInfo = GPXQuickLook;
+		};
+		GG0000000000000000000004 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE0000000000000000000002 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EE0000000000000000000007;
+			remoteInfo = GPXThumbnail;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -523,6 +663,58 @@
 			};
 			name = Release;
 		};
+		FF0000000000000000000007 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = GPXThumbnail/GPXThumbnail.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GPXThumbnail/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "GPX 缩略图";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = de.wayne.GPXPointViewer.GPXThumbnail;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		FF0000000000000000000008 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = GPXThumbnail/GPXThumbnail.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GPXThumbnail/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "GPX 缩略图";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = de.wayne.GPXPointViewer.GPXThumbnail;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -549,6 +741,15 @@
 			buildConfigurations = (
 				FF0000000000000000000005 /* Debug */,
 				FF0000000000000000000006 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE0000000000000000000008 /* Build configuration list for PBXNativeTarget "GPXThumbnail" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF0000000000000000000007 /* Debug */,
+				FF0000000000000000000008 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -1,0 +1,522 @@
+[
+ {
+  "table": "Localizable",
+  "key": "自动判断",
+  "en": "Auto",
+  "de": "Automatisch",
+  "zh-Hant": "自動判斷"
+ },
+ {
+  "table": "Localizable",
+  "key": "自动判断不了，默认跳过；点这一行在地图上看，再选公路或铁路",
+  "en": "Couldn't decide automatically, skipped by default; click this row to view it on the map, then choose Road or Rail",
+  "de": "Nicht automatisch entscheidbar, standardmäßig übersprungen; Zeile anklicken, auf der Karte ansehen und dann Straße oder Bahn wählen",
+  "zh-Hant": "自動判斷不了，預設跳過；點這一列在地圖上看，再選公路或鐵路"
+ },
+ {
+  "table": "Localizable",
+  "key": "自动判断不了，默认跳过；看地图后选公路或铁路",
+  "en": "Couldn't decide automatically, skipped by default; check the map, then choose Road or Rail",
+  "de": "Nicht automatisch entscheidbar, standardmäßig übersprungen; Karte ansehen und dann Straße oder Bahn wählen",
+  "zh-Hant": "自動判斷不了，預設跳過；看地圖後選公路或鐵路"
+ },
+ {
+  "table": "Localizable",
+  "key": "自动降采样",
+  "en": "Auto Downsampling",
+  "de": "Auto-Downsampling",
+  "zh-Hant": "自動降採樣"
+ },
+ {
+  "table": "Localizable",
+  "key": "芝加哥",
+  "en": "Chicago",
+  "de": "Chicago",
+  "zh-Hant": "芝加哥"
+ },
+ {
+  "table": "Localizable",
+  "key": "苏州",
+  "en": "Suzhou",
+  "de": "Suzhou",
+  "zh-Hant": "蘇州"
+ },
+ {
+  "table": "Localizable",
+  "key": "苏黎世",
+  "en": "Zurich",
+  "de": "Zürich",
+  "zh-Hant": "蘇黎世"
+ },
+ {
+  "table": "Localizable",
+  "key": "范围",
+  "en": "Range",
+  "de": "Bereich",
+  "zh-Hant": "範圍"
+ },
+ {
+  "table": "Localizable",
+  "key": "莫斯科",
+  "en": "Moscow",
+  "de": "Moskau",
+  "zh-Hant": "莫斯科"
+ },
+ {
+  "table": "Localizable",
+  "key": "落地",
+  "en": "Apply",
+  "de": "Übernehmen",
+  "zh-Hant": "落地"
+ },
+ {
+  "table": "Localizable",
+  "key": "落地 %lld 处",
+  "plural": {
+   "en": {
+    "one": "Apply %lld Gap",
+    "other": "Apply %lld Gaps"
+   },
+   "de": {
+    "one": "%lld Lücke übernehmen",
+    "other": "%lld Lücken übernehmen"
+   }
+  },
+  "en": "Apply %lld Gaps",
+  "de": "%lld Lücken übernehmen",
+  "zh-Hant": "落地 %lld 處"
+ },
+ {
+  "table": "Localizable",
+  "key": "落地后可用「撤销落地」整批撤回。",
+  "en": "After applying, you can revert the whole batch with “Undo Apply”.",
+  "de": "Nach dem Übernehmen lässt sich der ganze Stapel mit „Übernahme rückgängig“ zurücknehmen.",
+  "zh-Hant": "落地後可用「撤銷落地」整批撤回。"
+ },
+ {
+  "table": "Localizable",
+  "key": "蒙特利尔",
+  "en": "Montreal",
+  "de": "Montreal",
+  "zh-Hant": "蒙特婁"
+ },
+ {
+  "table": "Localizable",
+  "key": "行进方向：%@；%@",
+  "en": "Direction of travel: %1$@; %2$@",
+  "de": "Fahrtrichtung: %1$@; %2$@",
+  "zh-Hant": "行進方向：%1$@；%2$@"
+ },
+ {
+  "table": "Localizable",
+  "key": "行进方向：%@；%@；两侧都没有方向，不发「约束」请求",
+  "en": "Direction of travel: %1$@; %2$@; neither side has a direction, so no “Constrained” request is sent",
+  "de": "Fahrtrichtung: %1$@; %2$@; keine Seite hat eine Richtung, daher wird keine „Eingeschränkt“-Anfrage gesendet",
+  "zh-Hant": "行進方向：%1$@；%2$@；兩側都沒有方向，不發「約束」請求"
+ },
+ {
+  "table": "Localizable",
+  "key": "补入 %@ 个点…",
+  "en": "Inserting %@ points…",
+  "de": "%@ Punkte werden eingefügt…",
+  "zh-Hant": "補入 %@ 個點…"
+ },
+ {
+  "table": "Localizable",
+  "key": "补点",
+  "en": "Gap Fill",
+  "de": "Lücken füllen",
+  "zh-Hant": "補點"
+ },
+ {
+  "table": "Localizable",
+  "key": "补点增量",
+  "en": "fills",
+  "de": "Lückenfüllung",
+  "zh-Hant": "補點增量"
+ },
+ {
+  "table": "Localizable",
+  "key": "补点里和点密度有关的判断按这份采样画像换算（专用记录仪与手机的点距、精度差一个量级）",
+  "en": "Gap Fill scales its point-density checks by this sampling profile (dedicated loggers and phones differ by an order of magnitude in point spacing and accuracy)",
+  "de": "Beim Lückenfüllen werden alle von der Punktdichte abhängigen Prüfungen nach diesem Abtastprofil umgerechnet (dedizierte Logger und Handys unterscheiden sich bei Punktabstand und Genauigkeit um eine Größenordnung)",
+  "zh-Hant": "補點裡和點密度有關的判斷按這份採樣畫像換算（專用記錄器與手機的點距、精度差一個數量級）"
+ },
+ {
+  "table": "Localizable",
+  "key": "表格只列有疑点的；点一行主地图飞过去，橙线就是这处的草稿",
+  "en": "The table lists only flagged gaps; click a row to fly the main map there; the orange line is that gap's draft",
+  "de": "Die Tabelle zeigt nur fragliche Lücken; Zeile anklicken, um mit der Hauptkarte hinzufliegen; die orange Linie ist der Entwurf dieser Lücke",
+  "zh-Hant": "表格只列有疑點的；點一列主地圖飛過去，橙線就是這處的草稿"
+ },
+ {
+  "table": "Localizable",
+  "key": "西宁",
+  "en": "Xining",
+  "de": "Xining",
+  "zh-Hant": "西寧"
+ },
+ {
+  "table": "Localizable",
+  "key": "西安",
+  "en": "Xi'an",
+  "de": "Xi'an",
+  "zh-Hant": "西安"
+ },
+ {
+  "table": "Localizable",
+  "key": "西雅图",
+  "en": "Seattle",
+  "de": "Seattle",
+  "zh-Hant": "西雅圖"
+ },
+ {
+  "table": "Localizable",
+  "key": "视频写入中断：%@",
+  "en": "Video writing interrupted: %@",
+  "de": "Schreiben des Videos unterbrochen: %@",
+  "zh-Hant": "影片寫入中斷：%@"
+ },
+ {
+  "table": "Localizable",
+  "key": "视频写入启动失败：%@",
+  "en": "Video writer failed to start: %@",
+  "de": "Start des Videoschreibens fehlgeschlagen: %@",
+  "zh-Hant": "影片寫入啟動失敗：%@"
+ },
+ {
+  "table": "Localizable",
+  "key": "视频写入失败",
+  "en": "Video writing failed",
+  "de": "Schreiben des Videos fehlgeschlagen",
+  "zh-Hant": "影片寫入失敗"
+ },
+ {
+  "table": "Localizable",
+  "key": "视频写入失败：%@",
+  "en": "Video writing failed: %@",
+  "de": "Schreiben des Videos fehlgeschlagen: %@",
+  "zh-Hant": "影片寫入失敗：%@"
+ },
+ {
+  "table": "Localizable",
+  "key": "视频导出失败：%@",
+  "en": "Video export failed: %@",
+  "de": "Videoexport fehlgeschlagen: %@",
+  "zh-Hant": "影片匯出失敗：%@"
+ },
+ {
+  "table": "Localizable",
+  "key": "视频编码器配置失败",
+  "en": "Video encoder configuration failed",
+  "de": "Konfiguration des Video-Encoders fehlgeschlagen",
+  "zh-Hant": "影片編碼器設定失敗"
+ },
+ {
+  "table": "Localizable",
+  "key": "解析",
+  "en": "Parsing",
+  "de": "Parsen",
+  "zh-Hant": "解析"
+ },
+ {
+  "table": "Localizable",
+  "key": "解析 %@…",
+  "en": "Parsing %@…",
+  "de": "%@ wird eingelesen…",
+  "zh-Hant": "解析 %@…"
+ },
+ {
+  "table": "Localizable",
+  "key": "解析 %lld 个文件…",
+  "plural": {
+   "en": {
+    "one": "Parsing %lld file…",
+    "other": "Parsing %lld files…"
+   },
+   "de": {
+    "one": "%lld Datei wird eingelesen…",
+    "other": "%lld Dateien werden eingelesen…"
+   }
+  },
+  "en": "Parsing %lld files…",
+  "de": "%lld Dateien werden eingelesen…",
+  "zh-Hant": "解析 %lld 個檔案…"
+ },
+ {
+  "table": "Localizable",
+  "key": "解析 %lld 个迷雾存档…",
+  "plural": {
+   "en": {
+    "one": "Parsing %lld fog archive…",
+    "other": "Parsing %lld fog archives…"
+   },
+   "de": {
+    "one": "%lld Fog-Archiv wird eingelesen…",
+    "other": "%lld Fog-Archive werden eingelesen…"
+   }
+  },
+  "en": "Parsing %lld fog archives…",
+  "de": "%lld Fog-Archive werden eingelesen…",
+  "zh-Hant": "解析 %lld 個迷霧存檔…"
+ },
+ {
+  "table": "Localizable",
+  "key": "解析迷雾存档…",
+  "en": "Parsing fog archive…",
+  "de": "Fog-Archiv wird eingelesen…",
+  "zh-Hant": "解析迷霧存檔…"
+ },
+ {
+  "table": "Localizable",
+  "key": "解锁格子",
+  "en": "Unlocked Cells",
+  "de": "Freigeschaltete Zellen",
+  "zh-Hant": "解鎖格子"
+ },
+ {
+  "table": "Localizable",
+  "key": "计算中…",
+  "en": "Calculating…",
+  "de": "Wird berechnet…",
+  "zh-Hant": "計算中…"
+ },
+ {
+  "table": "Localizable",
+  "key": "让地图判断（联网）",
+  "en": "Check with Map (Online)",
+  "de": "Per Karte prüfen (online)",
+  "zh-Hant": "讓地圖判斷（連網）"
+ },
+ {
+  "table": "Localizable",
+  "key": "设为世界迷雾原始格宽（约 %.2f 米——.fwdb 里一个小格的边长，即最细雾径）",
+  "en": "Set to Fog of World's native cell width (about %.2f m — the side length of one small cell in .fwdb, i.e. the smallest radius)",
+  "de": "Auf die native Zellbreite von Fog of World setzen (ca. %.2f m – Kantenlänge einer kleinen Zelle in .fwdb, also der kleinste Radius)",
+  "zh-Hant": "設為世界迷霧原始格寬（約 %.2f 公尺——.fwdb 裡一個小格的邊長，即最細霧徑）"
+ },
+ {
+  "table": "Localizable",
+  "key": "设置",
+  "en": "Settings",
+  "de": "Einstellungen",
+  "zh-Hant": "設定"
+ },
+ {
+  "table": "Localizable",
+  "key": "设置：外观 / 闲置展示 / 压力测试",
+  "en": "Settings: Appearance / Idle Showcase / Stress Test",
+  "de": "Einstellungen: Darstellung / Leerlauf-Präsentation / Stresstest",
+  "zh-Hant": "設定：外觀 / 閒置展示 / 壓力測試"
+ },
+ {
+  "table": "Localizable",
+  "key": "详细",
+  "en": "Details",
+  "de": "Details",
+  "zh-Hant": "詳細"
+ },
+ {
+  "table": "Localizable",
+  "key": "请求 %@ 公路…（%@，%lld/%lld）",
+  "en": "Requesting %1$@ road… (%2$@, %3$lld/%4$lld)",
+  "de": "%1$@-Straße wird angefragt… (%2$@, %3$lld/%4$lld)",
+  "zh-Hant": "請求 %1$@ 公路…（%2$@，%3$lld/%4$lld）"
+ },
+ {
+  "table": "Localizable",
+  "key": "请求 %@…",
+  "en": "Requesting %@…",
+  "de": "%@ wird angefragt…",
+  "zh-Hant": "請求 %@…"
+ },
+ {
+  "table": "Localizable",
+  "key": "请求 Overpass 铁路…（%@，%lld/%lld，公共实例常排队 30–60 秒）",
+  "en": "Requesting Overpass rail… (%1$@, %2$lld/%3$lld; public instances often queue for 30–60 s)",
+  "de": "Overpass-Bahn wird angefragt… (%1$@, %2$lld/%3$lld; öffentliche Instanzen haben oft 30–60 s Wartezeit)",
+  "zh-Hant": "請求 Overpass 鐵路…（%1$@，%2$lld/%3$lld，公共實例常排隊 30–60 秒）"
+ },
+ {
+  "table": "Localizable",
+  "key": "请求中",
+  "en": "Requesting",
+  "de": "Wird angefragt",
+  "zh-Hant": "請求中"
+ },
+ {
+  "table": "Localizable",
+  "key": "贵阳",
+  "en": "Guiyang",
+  "de": "Guiyang",
+  "zh-Hant": "貴陽"
+ },
+ {
+  "table": "Localizable",
+  "key": "赫尔辛基",
+  "en": "Helsinki",
+  "de": "Helsinki",
+  "zh-Hant": "赫爾辛基"
+ },
+ {
+  "table": "Localizable",
+  "key": "超时",
+  "en": "Timeout",
+  "de": "Zeitüberschreitung",
+  "zh-Hant": "逾時"
+ },
+ {
+  "table": "Localizable",
+  "key": "距下一级",
+  "en": "To Next Level",
+  "de": "Bis zum nächsten Level",
+  "zh-Hant": "距下一級"
+ },
+ {
+  "table": "Localizable",
+  "key": "跟随原始",
+  "en": "Match Original",
+  "de": "Wie Original",
+  "zh-Hant": "跟隨原始"
+ },
+ {
+  "table": "Localizable",
+  "key": "跟随系统",
+  "en": "System",
+  "de": "System",
+  "zh-Hant": "跟隨系統"
+ },
+ {
+  "table": "Localizable",
+  "key": "路径 %@ km 要在 %@ s 内走完（%@ km/h），公路上不可能，端点可能接错路",
+  "en": "Covering the %1$@ km route in %2$@ s (%3$@ km/h) is impossible on a road; an end may be on the wrong road",
+  "de": "%1$@ km in %2$@ s (%3$@ km/h) zurückzulegen ist auf der Straße unmöglich; ein Ende liegt evtl. an der falschen Straße",
+  "zh-Hant": "路徑 %1$@ km 要在 %2$@ s 內走完（%3$@ km/h），公路上不可能，端點可能接錯路"
+ },
+ {
+  "table": "Localizable",
+  "key": "路径 %@ km 要在 %@ s 内走完（%@ km/h），火车也不可能",
+  "en": "Covering the %1$@ km path in %2$@ s (%3$@ km/h) is impossible even by train",
+  "de": "%1$@ km in %2$@ s (%3$@ km/h) zurückzulegen ist selbst für einen Zug unmöglich",
+  "zh-Hant": "路徑 %1$@ km 要在 %2$@ s 內走完（%3$@ km/h），火車也不可能"
+ },
+ {
+  "table": "Localizable",
+  "key": "路径从 A 出发先绕了 %@ m 又回到 A 附近（%@ m）：按最后一次离开截断",
+  "en": "The route leaves A, loops %1$@ m and comes back near A (%2$@ m): cut at the last departure",
+  "de": "Die Route verlässt A, fährt eine Schleife von %1$@ m und kommt wieder nahe an A (%2$@ m): beim letzten Verlassen abgeschnitten",
+  "zh-Hant": "路徑從 A 出發先繞了 %1$@ m 又回到 A 附近（%2$@ m）：按最後一次離開截斷"
+ },
+ {
+  "table": "Localizable",
+  "key": "路径第一次到 B 附近（%@ m）后又绕了 %@ m 才回到 B：按第一次到达截断",
+  "en": "The route first gets near B (%1$@ m), then detours %2$@ m before returning to B: cut at the first arrival",
+  "de": "Die Route kommt zuerst nahe an B (%1$@ m) und macht dann %2$@ m Umweg bis B: bei der ersten Ankunft abgeschnitten",
+  "zh-Hant": "路徑第一次到 B 附近（%1$@ m）後又繞了 %2$@ m 才回到 B：按第一次到達截斷"
+ },
+ {
+  "table": "Localizable",
+  "key": "路由在锚点附近经过了不止一次（%lld/%lld 次），按沿线顺序取 A 之后第一次到 B 的那段，折返不进草稿",
+  "en": "The route passes near the anchors more than once (%1$lld/%2$lld passes); the section from A to the first arrival at B along the route is used, and the back-and-forth stays out of the draft",
+  "de": "Die Route passiert die Anker mehrmals (%1$lld/%2$lld Mal); verwendet wird der Abschnitt von A bis zur ersten Ankunft bei B entlang der Route, das Hin und Her kommt nicht in den Entwurf",
+  "zh-Hant": "路由在錨點附近經過了不止一次（%1$lld/%2$lld 次），按沿線順序取 A 之後第一次到 B 的那段，折返不進草稿"
+ },
+ {
+  "table": "Localizable",
+  "key": "路网响应无法解析：%@",
+  "en": "Couldn't parse the routing response: %@",
+  "de": "Routing-Antwort nicht lesbar: %@",
+  "zh-Hant": "路網回應無法解析：%@"
+ },
+ {
+  "table": "Localizable",
+  "key": "路网服务不可用：%@",
+  "en": "Routing service unavailable: %@",
+  "de": "Routing-Dienst nicht verfügbar: %@",
+  "zh-Hant": "路網服務無法使用：%@"
+ },
+ {
+  "table": "Localizable",
+  "key": "路网没有找到路径（%@）",
+  "en": "No route found on the road network (%@)",
+  "de": "Kein Weg im Straßennetz gefunden (%@)",
+  "zh-Hant": "路網沒有找到路徑（%@）"
+ },
+ {
+  "table": "Localizable",
+  "key": "路网草稿",
+  "en": "Road Draft",
+  "de": "Straßenentwurf",
+  "zh-Hant": "路網草稿"
+ },
+ {
+  "table": "Localizable",
+  "key": "路网草稿已取回，但锚点在请求期间变了，已丢弃；请重新取",
+  "en": "The Road Draft arrived, but the anchors changed during the request, so it was discarded; please fetch it again",
+  "de": "Der Straßenentwurf ist eingetroffen, aber die Anker haben sich während der Anfrage geändert; er wurde verworfen. Bitte erneut abrufen",
+  "zh-Hant": "路網草稿已取回，但錨點在請求期間變了，已丟棄；請重新取"
+ },
+ {
+  "table": "Localizable",
+  "key": "路网草稿已取回，但锚点在这期间变了，已丢弃；请重新取",
+  "en": "The Road Draft arrived, but the anchors changed in the meantime, so it was discarded; please fetch it again",
+  "de": "Der Straßenentwurf ist eingetroffen, aber die Anker haben sich inzwischen geändert; er wurde verworfen. Bitte erneut abrufen",
+  "zh-Hant": "路網草稿已取回，但錨點在這期間變了，已丟棄；請重新取"
+ },
+ {
+  "table": "Localizable",
+  "key": "路网草稿（OSRM / Valhalla）、铁路数据（Overpass）、地图判段、地名查询都要联网。判定依据：系统网络状态，以及最近 3 分钟内请求的失败/超时/耗时",
+  "en": "Road drafts (OSRM / Valhalla), rail data (Overpass), map-based classification and place-name lookup all need the internet. Based on: the system network status and the failures/timeouts/durations of requests in the last 3 minutes",
+  "de": "Straßenentwürfe (OSRM / Valhalla), Bahndaten (Overpass), Kartenklassifizierung und Ortsnamensuche benötigen alle Internet. Grundlage: Netzwerkstatus des Systems sowie Fehler/Zeitüberschreitungen/Dauer der Anfragen der letzten 3 Minuten",
+  "zh-Hant": "路網草稿（OSRM / Valhalla）、鐵路資料（Overpass）、地圖判段、地名查詢都要連網。判定依據：系統網路狀態，以及最近 3 分鐘內請求的失敗/逾時/耗時"
+ },
+ {
+  "table": "Localizable",
+  "key": "路网路径 %@ km 远长于直线 %@ km，可能绕路或端点接错路",
+  "en": "Road route of %1$@ km is much longer than the straight line of %2$@ km; it may detour or an end may be on the wrong road",
+  "de": "Straßenroute von %1$@ km ist viel länger als die Luftlinie von %2$@ km; evtl. Umweg oder ein Ende an der falschen Straße",
+  "zh-Hant": "路網路徑 %1$@ km 遠長於直線 %2$@ km，可能繞路或端點接錯路"
+ },
+ {
+  "table": "Localizable",
+  "key": "路网路径没有中间点（直线即可）",
+  "en": "The road route has no intermediate points (a straight line will do)",
+  "de": "Die Straßenroute hat keine Zwischenpunkte (eine Gerade genügt)",
+  "zh-Hant": "路網路徑沒有中間點（直線即可）"
+ },
+ {
+  "table": "Localizable",
+  "key": "路网：%@",
+  "en": "Routing: %@",
+  "de": "Routing: %@",
+  "zh-Hant": "路網：%@"
+ },
+ {
+  "table": "Localizable",
+  "key": "路网：未使用（纯手动描线）",
+  "en": "Routing: not used (traced by hand only)",
+  "de": "Routing: nicht verwendet (rein von Hand gezeichnet)",
+  "zh-Hant": "路網：未使用（純手動描線）"
+ },
+ {
+  "table": "Localizable",
+  "key": "跳过",
+  "en": "Skip",
+  "de": "Überspringen",
+  "zh-Hant": "跳過"
+ },
+ {
+  "table": "Localizable",
+  "key": "跳过 %lld",
+  "en": "Skipped: %lld",
+  "de": "Übersprungen: %lld",
+  "zh-Hant": "跳過 %lld"
+ },
+ {
+  "table": "Localizable",
+  "key": "车道侧校验（靠右通行）：真实点在路线 A 侧 %@、B 侧 %@",
+  "en": "Driving-side check (right-hand traffic): real points relative to the route at A: %1$@; at B: %2$@",
+  "de": "Fahrseitenprüfung (Rechtsverkehr): echte Punkte relativ zur Route bei A: %1$@; bei B: %2$@",
+  "zh-Hant": "車道側校驗（靠右通行）：真實點在路線 A 側 %1$@、B 側 %2$@"
+ }
+]

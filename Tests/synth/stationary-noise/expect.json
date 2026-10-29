@@ -1,0 +1,469 @@
+{
+ "family": "stationary-noise",
+ "files": {
+  "device_stationary_2h.gpx": {
+   "desc": "eTrex 32x lying still for 2 h at 1 Hz; slow OU wander (sigma 9 m, tau 4 min, clipped ~30 m) + 1.2 m white noise; max offset 31 m. No step reaches 150 m (no timeGap/staleClock), no 300 m departure (no replay), every step < 300 m and no 100 m chord (no jump/reversal) -> nothing at all.",
+   "points": 7200,
+   "profile": "deviceLogger",
+   "gaps": [
+    0,
+    0
+   ],
+   "replays": [
+    0,
+    0
+   ],
+   "jitter": [
+    0,
+    0
+   ],
+   "load_ok": true
+  },
+  "explore_stationary_bunched_1h.gpx": {
+   "desc": "Garmin Explore App, receiver still for 1 h; true 1 Hz positions (OU sigma 8 m) but timestamps stick for 1-4 s and then jump (up to 4 points per second-resolution stamp, 1278 distinct stamps). Same-second pairs have dt = 0 (implied speed infinite) but all are < 150 m apart, so no staleClock; jitter works on per-second medians whose steps are a few metres -> nothing.",
+   "points": 3600,
+   "profile": "deviceLogger",
+   "gaps": [
+    0,
+    0
+   ],
+   "replays": [
+    0,
+    0
+   ],
+   "jitter": [
+    0,
+    0
+   ],
+   "load_ok": true
+  },
+  "phone_cached_20s_3h.csv": {
+   "desc": "Phone indoors (background), the app re-writes the same cached fix (accuracy 65 m) every 20 s for 3 h: 540 bit-identical rows. Identical coordinates but the track never departs -> 0 replays; nothing moves -> 0 gaps, 0 jitter.",
+   "points": 540,
+   "profile": "phone",
+   "gaps": [
+    0,
+    0
+   ],
+   "replays": [
+    0,
+    0
+   ],
+   "jitter": [
+    0,
+    0
+   ],
+   "jitter_free": [
+    [
+     1781380800,
+     1781391580
+    ]
+   ],
+   "load_ok": true
+  },
+  "phone_cached_20s_excursion.csv": {
+   "desc": "As phone_cached_20s_3h but rows 270-271 (t=1781472600,1781472620) are two network fixes 600 m NE (35 m apart), then back to the cached coordinate. Every step is exactly 20 s, so the jitter detector treats every step as a hole (dt >= 20 s resets the reference) and can never open a cluster: the spec's \"exactly one cluster\" is unreachable at this cadence -> jitter [0,1] (see phone_cached_5s_excursion for the same event at 5 s). The out/back steps are 600 m / 20 s = 108 km/h, i.e. 2 timeGap candidates by the timeGap contract (a stationary false positive; if they are ever suppressed in favour of a jitter candidate, change gaps). Replays: by the literal rule only the first cached row after the excursion qualifies (the row 10 s+ before it is 600 m away); the next cached rows have a 0 m predecessor -> spec bound <= 2. Observed: 88 replays. The implementation skips already-flagged rows when looking for the \"10 s earlier\" point, so every later cached row still \"sees\" E2 600 m back and is flagged too, until the pre-excursion occurrence leaves the 30 min window (cascade).",
+   "points": 540,
+   "profile": "phone",
+   "gaps": [
+    2,
+    2
+   ],
+   "replays": [
+    0,
+    2
+   ],
+   "jitter": [
+    0,
+    1
+   ],
+   "jitter_free": [
+    [
+     1781467200,
+     1781472520.0
+    ],
+    [
+     1781472700.0,
+     1781477980
+    ]
+   ],
+   "load_ok": true
+  },
+  "phone_cached_5s_excursion.csv": {
+   "desc": "Phone in foreground on a desk, cached fix re-written every 5 s for 3 h; rows 1080-1081 (t=1781555400..1781555405) are two network fixes 600 m NE (35 m apart) followed by the cached coordinate again. Expected: exactly one jitter cluster A=1781555395 (last cached row before) .. B=1781555410 (first cached row after), chord 0 m -> delete-only. 600 m in 5 s is a JUMP against a stationary reference (threshold 300 m). Observed: 0 clusters, 176 replays. Two independent causes (confirmed with probe variants whose stationary rows carry fresh 3 m noise): (1) the return step E2->B is never tested (settled(B) is checked first), so a 35 m-wide pair has jumps=1, revs=0 (no heading while stationary) and is dropped by the \"revs>=1 or jumps>=2\" rule (a 1.3 km-wide pair IS emitted once rows are noisy); (2) with bit-identical cached rows the replay cascade flags the rows after the excursion, the jitter scan skips them, meets a >=20 s hole and abandons even an emit-worthy cluster. Replays: literal rule gives 2 (the first two cached rows after the excursion: their latest row >= 10 s earlier is E1 / E2), = spec bound <= 2; the cascade stops after 176 rows only because the strided away-check (stride = (i-j)/60 >= 3) steps over the 2-row excursion.",
+   "points": 2160,
+   "profile": "phone",
+   "gaps": [
+    0,
+    0
+   ],
+   "replays": [
+    0,
+    2
+   ],
+   "jitter": [
+    1,
+    1
+   ],
+   "jitter_cover": [
+    [
+     1781555395.0,
+     1781555410.0
+    ]
+   ],
+   "jitter_free": [
+    [
+     1781550000,
+     1781555335.0
+    ],
+    [
+     1781555470.0,
+     1781560795
+    ]
+   ],
+   "load_ok": true
+  },
+  "phone_cached_20s_6excursions.csv": {
+   "desc": "Cached fix every 20 s for 3 h with six network-location excursions 30 min apart: 2 cell fixes 600 m NE (35 m apart) at rows 45-46 (t=1781640900); 1 Wi-Fi fix 900 m ESE at rows 135-135 (t=1781642700); 3 scattered fixes 450 m / 1300 m / 700 m (mutually ~1 km apart) at rows 225-227 (t=1781644500); the same 350 m SSE fix written twice (bit-identical) at rows 315-316 (t=1781646300); 4 fixes drifting away 350 -> 650 m ENE (100 m steps), then snap back at rows 405-408 (t=1781648100); 2 cell-tower fixes 2.1 km NNW (60 m apart) at rows 495-496 (t=1781649900). All steps are 20 s, so jitter detection is structurally impossible (every step is a >=20 s hole) -> spec bound <= 6 clusters, expected 0, and no cluster may start in the quiet stretches. timeGap contract (dt>=20 s, d>=150 m, 15-350 km/h) gives exactly 12 candidates: 2 for the 600 m pair, 2 for the 900 m fix, 4 for the scattered triple (all steps ~1 km), 2 for the 350 m pair, 2 for the drift (out 350 m, back 650 m; the 100 m inner steps are < 150 m), 0 for the 2.1 km pair (378 km/h > 350). Replays: literal rule = one per excursion (first cached row after it) = 6, spec bound <= 6. Observed: 261 replays (look-back cascade through flagged rows), 12 gaps, 0 clusters.",
+   "points": 540,
+   "profile": "phone",
+   "gaps": [
+    12,
+    12
+   ],
+   "replays": [
+    0,
+    6
+   ],
+   "jitter": [
+    0,
+    6
+   ],
+   "jitter_free": [
+    [
+     1781640000,
+     1781640820.0
+    ],
+    [
+     1781641000.0,
+     1781642620.0
+    ],
+    [
+     1781642780.0,
+     1781644420.0
+    ],
+    [
+     1781644620.0,
+     1781646220.0
+    ],
+    [
+     1781646400.0,
+     1781648020.0
+    ],
+    [
+     1781648240.0,
+     1781649820.0
+    ],
+    [
+     1781650000.0,
+     1781650780.0
+    ]
+   ],
+   "load_ok": true
+  },
+  "phone_cached_5s_6excursions.csv": {
+   "desc": "Cached fix every 5 s (foreground) for 3 h with the same six excursions 30 min apart: 2 cell fixes 600 m NE (35 m apart) rows 180-181 -> cover [1781723695,1781723710]; 1 Wi-Fi fix 900 m ESE rows 540-540 -> cover [1781725495,1781725505]; 3 scattered fixes 450 m / 1300 m / 700 m (mutually ~1 km apart) rows 900-902 -> cover [1781727295,1781727315]; the same 350 m SSE fix written twice (bit-identical) rows 1260-1261 -> cover [1781729095,1781729110]; 4 fixes drifting away 350 -> 650 m ENE (100 m steps), then snap back rows 1620-1623 -> cover [1781730895,1781730920]; 2 cell-tower fixes 2.1 km NNW (60 m apart) rows 1980-1981 -> cover [1781732695,1781732710]. Each excursion starts with a >300 m step against a stationary reference (JUMP) and returns to the bit-identical cached coordinate, so each must become its own delete-only jitter cluster (A = last cached row before, B = first cached row after; 30 min apart, never merged). The spec only bounds this at <= 6; at 5 s cadence every excursion is unambiguous, so the oracle is exactly 6 with a cover per excursion. Observed: 0 clusters, 1044 replays. Only the scattered triple has >= 2 tested jumps (the return step to B is never counted, no heading while stationary), and the replay cascade after it makes the scan hit a 20 s hole and abandon even that (with noisy stationary rows the triple alone is emitted). Replays: the spec bound (<= 6, one per excursion) assumes 20 s rows; at 5 s the literal rule flags the cached rows whose latest row >= 10 s earlier is still an excursion fix: 2 after each multi-point excursion, 1 after the single fix (its first return row looks back to the pre-excursion cached row) = 11, used as the upper bound. Observed 1044 (cascade, ~175 per excursion).",
+   "points": 2160,
+   "profile": "phone",
+   "gaps": [
+    0,
+    0
+   ],
+   "replays": [
+    0,
+    11
+   ],
+   "jitter": [
+    6,
+    6
+   ],
+   "jitter_cover": [
+    [
+     1781723695.0,
+     1781723710.0
+    ],
+    [
+     1781725495.0,
+     1781725505.0
+    ],
+    [
+     1781727295.0,
+     1781727315.0
+    ],
+    [
+     1781729095.0,
+     1781729110.0
+    ],
+    [
+     1781730895.0,
+     1781730920.0
+    ],
+    [
+     1781732695.0,
+     1781732710.0
+    ]
+   ],
+   "jitter_free": [
+    [
+     1781722800,
+     1781723635.0
+    ],
+    [
+     1781723770.0,
+     1781725435.0
+    ],
+    [
+     1781725565.0,
+     1781727235.0
+    ],
+    [
+     1781727375.0,
+     1781729035.0
+    ],
+    [
+     1781729170.0,
+     1781730835.0
+    ],
+    [
+     1781730980.0,
+     1781732635.0
+    ],
+    [
+     1781732770.0,
+     1781733595.0
+    ]
+   ],
+   "load_ok": true
+  },
+  "walk_multipath_spikes.gpx": {
+   "desc": "eTrex 32x, 1 h walk at 1.4 m/s (1 Hz, OU 3 m + 1 m noise, a few light stops). Six single-point multipath spikes ~400 m off the path, 8 min apart, in different directions relative to walking (left, right, ahead, behind, 45, 135 deg) at t=[1783155900.0, 1783156380.0, 1783156860.0, 1783157340.0, 1783157820.0, 1783158300.0]; the next point is back on the path. Expected one delete-only cluster per spike (A = point before, B = point after). staleClock: the 400 m/1 s step enters the stale branch but there is no clock jump, so 0 gaps. Observed: 0 clusters, because jumps=1 (return step to B not tested) and a walker never has a reference heading (60 s chord max 498 m < 100 m), so even the \"behind\" spike gets no reversal.",
+   "points": 3600,
+   "profile": "deviceLogger",
+   "gaps": [
+    0,
+    0
+   ],
+   "replays": [
+    0,
+    0
+   ],
+   "jitter": [
+    6,
+    6
+   ],
+   "jitter_cover": [
+    [
+     1783155899.0,
+     1783155901.0
+    ],
+    [
+     1783156379.0,
+     1783156381.0
+    ],
+    [
+     1783156859.0,
+     1783156861.0
+    ],
+    [
+     1783157339.0,
+     1783157341.0
+    ],
+    [
+     1783157819.0,
+     1783157821.0
+    ],
+    [
+     1783158299.0,
+     1783158301.0
+    ]
+   ],
+   "jitter_free": [
+    [
+     1783155600,
+     1783155869.0
+    ],
+    [
+     1783155931.0,
+     1783156349.0
+    ],
+    [
+     1783156411.0,
+     1783156829.0
+    ],
+    [
+     1783156891.0,
+     1783157309.0
+    ],
+    [
+     1783157371.0,
+     1783157789.0
+    ],
+    [
+     1783157851.0,
+     1783158269.0
+    ],
+    [
+     1783158331.0,
+     1783159199.0
+    ]
+   ],
+   "load_ok": true
+  },
+  "walk_spike_clusters3.gpx": {
+   "desc": "eTrex 32x, 40 min walk at 1.4 m/s with two 3-point multipath clusters 18 min apart. Rows 600-602 (t=1783264200): scattered (420 m right, 650 m left-ahead, 380 m behind; inner steps 1045/944 m). Rows 1680-1682 (t=1783265280): coherent reflection, all three ~400 m to the right within ~20 m of each other (inner steps 22/13 m). Expected one cluster each (A = point before, B = point after). Observed: 1 cluster - the scattered one is emitted (jumps=3), the coherent one is dropped (only the entry step is a jump; return step to B not tested; no heading while walking).",
+   "points": 2400,
+   "profile": "deviceLogger",
+   "gaps": [
+    0,
+    0
+   ],
+   "replays": [
+    0,
+    0
+   ],
+   "jitter": [
+    2,
+    2
+   ],
+   "jitter_cover": [
+    [
+     1783264199.0,
+     1783264203.0
+    ],
+    [
+     1783265279.0,
+     1783265283.0
+    ]
+   ],
+   "jitter_free": [
+    [
+     1783263600,
+     1783264169.0
+    ],
+    [
+     1783264233.0,
+     1783265249.0
+    ],
+    [
+     1783265313.0,
+     1783265999.0
+    ]
+   ],
+   "load_ok": true
+  },
+  "phone_slow_drift_1h.csv": {
+   "desc": "Phone (5 s, accuracy column) drifting slowly 100 m over 1 h (e.g. a slow indoor drift / shuffling around a building) with 10-30 m OU noise and 39 isolated 50-85 m tail fixes. Largest step 97 m (< 200 m reversal floor, < 300 m jump floor), so no cluster can open; no 20 s steps -> 0 gaps; nothing leaves by 300 m -> 0 replays.",
+   "points": 720,
+   "profile": "phone",
+   "gaps": [
+    0,
+    0
+   ],
+   "replays": [
+    0,
+    0
+   ],
+   "jitter": [
+    0,
+    0
+   ],
+   "load_ok": true
+  },
+  "phone_bursty_identical.csv": {
+   "desc": "Phone that only wakes up occasionally: 29 bursts of 10 bit-identical rows sharing one dataTime, then silence for 2-10 min, for 3 h; the burst coordinate is a fresh 5-25 m fix or the previous one again. Same-second repeats (dt = 0 < 10 s) are not replays, nothing departs 300 m, inter-burst steps are < 50 m (no timeGap), every jitter step is >= 120 s (reference reset) -> 0/0/0.",
+   "points": 290,
+   "profile": "phone",
+   "gaps": [
+    0,
+    0
+   ],
+   "replays": [
+    0,
+    0
+   ],
+   "jitter": [
+    0,
+    0
+   ],
+   "load_ok": true
+  },
+  "phone_burst_only.csv": {
+   "desc": "Degenerate: the whole file is one burst of 10 identical rows at one second, then nothing. timedCount 10 >= 8 so detectJitter runs but sees a single sample; all dt = 0. Must load and report nothing. Profile: the CSV has an accuracy column (phone), but csvAccuracyMedian needs >= 20 non-zero samples and CSV has no creator, so the profile may legitimately fall back to unknown.",
+   "points": 10,
+   "profile": [
+    "phone",
+    "unknown"
+   ],
+   "gaps": [
+    0,
+    0
+   ],
+   "replays": [
+    0,
+    0
+   ],
+   "jitter": [
+    0,
+    0
+   ],
+   "load_ok": true
+  },
+  "phone_stationary_noisy_1hz_2h.csv": {
+   "desc": "Phone in foreground at 1 Hz, standing still indoors for 2 h: OU 10 m (tau 60 s) + 5 m white noise and 184 isolated 50-85 m tail fixes; largest step 96 m. 109 rows repeat an earlier coordinate exactly (6-decimal CSV), but all points stay within ~125 m of the true spot, so none departs 300 m -> 0 replays. Steps < 200 m and < 300 m -> no reversal/jump, even when a tail fix gives the 60 s reference a spurious heading -> 0 clusters.",
+   "points": 7200,
+   "profile": "phone",
+   "gaps": [
+    0,
+    0
+   ],
+   "replays": [
+    0,
+    0
+   ],
+   "jitter": [
+    0,
+    0
+   ],
+   "load_ok": true
+  },
+  "phone_flipflop_wifi_gps.csv": {
+   "desc": "[2026-10-24 调整] Phone on a desk (cached fix every 5 s, 1 h). From row 360 to 395 (t=1786041000..1786041175, 3 min) the position flip-flops in runs of 1-3 rows between the cached GPS fix and a bit-identical Wi-Fi fix 380 m WSW (20 Wi-Fi rows), then settles on the cached fix. Expected exactly one delete-only cluster covering the episode (every switch is a 380 m / 5 s JUMP, so jumps >> 2 and path >> 2 x chord 0; sub-clusters are < 90 s apart and merge). Replays: the literal rule flags 26 rows inside the episode (both sources repeat bit-identically after a >= 300 m departure while the row 10 s earlier is 380 m away), incl. the first 2 cached rows after it, whose latest row >= 10 s earlier is still Wi-Fi), so the range allows up to the episode length (they are removed with the cluster anyway); later cached rows have a 0 m predecessor and must not be flagged. Observed: 0 clusters, 273 replays (look-back cascade to row 652). The 0 is not (only) the cascade: a probe with fresh 3 m noise on every row (0 replays) still gives 0 clusters, because settled() judges a candidate run with its own statistics - in a 380 m flip-flop the run's mean step (excluding the max) is ~190 m, so 4 x mLoc ~ 760 m exceeds every 380 m step, the 25 s chord (380 m) is under the 120 km/h cap, and the second Wi-Fi row already counts as settled; the cluster closes with jumps=1 and is dropped, and the reset reference then absorbs the rest of the episode. || 调整理由：回放规则改为'前后 10/30 s 的非回放点都远'后，Wi-Fi 行（位级重复、前后都离 380 m）全部判为回放并跳过，余下的缓存行是静止的，不再构成乱跳簇；两种结果（回放清掉 / 乱跳簇）都接受。",
+   "points": 720,
+   "profile": "phone",
+   "gaps": [
+    0,
+    0
+   ],
+   "replays": [
+    0,
+    36
+   ],
+   "jitter": [
+    0,
+    1
+   ],
+   "jitter_cover": [],
+   "jitter_free": [
+    [
+     1786039200,
+     1786040935.0
+    ],
+    [
+     1786041240.0,
+     1786042795.0
+    ]
+   ],
+   "load_ok": true
+  }
+ }
+}

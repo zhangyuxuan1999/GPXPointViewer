@@ -1,0 +1,313 @@
+[
+ {
+  "table": "Localizable",
+  "key": "— %@（另一路）",
+  "en": "— %@ (other route)",
+  "de": "— %@ (andere Route)",
+  "zh-Hant": "— %@（另一路）"
+ },
+ {
+  "table": "Localizable",
+  "key": "— %@（采用）",
+  "en": "— %@ (adopted)",
+  "de": "— %@ (übernommen)",
+  "zh-Hant": "— %@（採用）"
+ },
+ {
+  "table": "Localizable",
+  "key": "← → 翻处；这里只是预览，点「落地」才写进轨迹",
+  "en": "← → to step through; this is only a preview — nothing is written until you click “Apply”",
+  "de": "← → zum Blättern; dies ist nur eine Vorschau – erst „Übernehmen“ schreibt in den Track",
+  "zh-Hant": "← → 翻處；這裡只是預覽，點「落地」才寫進軌跡"
+ },
+ {
+  "table": "Localizable",
+  "key": "⚠︎ %lld",
+  "en": "⚠︎ %lld",
+  "de": "⚠︎ %lld",
+  "zh-Hant": "⚠︎ %lld"
+ },
+ {
+  "table": "Localizable",
+  "key": "不落地",
+  "en": "Not applied",
+  "de": "Wird nicht übernommen",
+  "zh-Hant": "不落地"
+ },
+ {
+  "table": "Localizable",
+  "key": "不落地这一处",
+  "en": "Don't apply this one",
+  "de": "Diese nicht übernehmen",
+  "zh-Hant": "不落地這一處"
+ },
+ {
+  "table": "Localizable",
+  "key": "两路一致（最多相差 %lld m）",
+  "en": "Both services agree (at most %lld m apart)",
+  "de": "Beide Dienste einig (höchstens %lld m Abstand)",
+  "zh-Hant": "兩路一致（最多相差 %lld m）"
+ },
+ {
+  "table": "Localizable",
+  "key": "两路不一致（分歧段 %@ m）",
+  "en": "Services disagreed (divergent stretch %@ m)",
+  "de": "Dienste uneinig (abweichender Abschnitt %@ m)",
+  "zh-Hant": "兩路不一致（分歧段 %@ m）"
+ },
+ {
+  "table": "Localizable",
+  "key": "两路不一致，还没选用哪一路：在批量窗口「选一条…」",
+  "en": "The services disagree and no route has been picked yet: use “Pick One…” in the batch window",
+  "de": "Die Dienste sind uneinig und es wurde noch keine Route gewählt: „Eine wählen…“ im Stapelfenster",
+  "zh-Hant": "兩路不一致，還沒選用哪一路：在批量視窗「選一條…」"
+ },
+ {
+  "table": "Localizable",
+  "key": "两路不一致，还没选：去批量窗口「选一条…」",
+  "en": "Services disagree, not picked yet: go to the batch window and “Pick One…”",
+  "de": "Dienste uneinig, noch nicht gewählt: im Stapelfenster „Eine wählen…“",
+  "zh-Hant": "兩路不一致，還沒選：去批量視窗「選一條…」"
+ },
+ {
+  "table": "Localizable",
+  "key": "像修改记录那样看：总览整条轨迹上会补哪里，‹ › 逐处看将新增的点（绿）和将被替换的点（红），逐处决定落不落地，看完在那里一键落地",
+  "en": "Review like the Change Log: an overview of where the track will be filled, ‹ › through each gap showing the points to be added (green) and replaced (red), decide per gap whether to apply, then apply everything from there",
+  "de": "Wie im Änderungsprotokoll prüfen: Übersicht, wo der Track gefüllt wird, mit ‹ › durch jede Lücke mit den neuen (grün) und ersetzten (rot) Punkten, pro Lücke entscheiden, dann dort alles übernehmen",
+  "zh-Hant": "像修改記錄那樣看：總覽整條軌跡上會補哪裡，‹ › 逐處看將新增的點（綠）和將被替換的點（紅），逐處決定落不落地，看完在那裡一鍵落地"
+ },
+ {
+  "table": "Localizable",
+  "key": "关掉 = 这一处不补（= 批量窗口里取消勾选）",
+  "en": "Off = this gap is not filled (same as unticking it in the batch window)",
+  "de": "Aus = diese Lücke wird nicht gefüllt (wie Abwählen im Stapelfenster)",
+  "zh-Hant": "關掉 = 這一處不補（= 批量視窗裡取消勾選）"
+ },
+ {
+  "table": "Localizable",
+  "key": "勾上 = 落地这一处",
+  "en": "Ticked = apply this gap",
+  "de": "Markiert = diese Lücke übernehmen",
+  "zh-Hant": "勾上 = 落地這一處"
+ },
+ {
+  "table": "Localizable",
+  "key": "取回后手动调整过顶点",
+  "en": "Vertices were edited by hand after fetching",
+  "de": "Eckpunkte wurden nach dem Abruf manuell geändert",
+  "zh-Hant": "取回後手動調整過頂點"
+ },
+ {
+  "table": "Localizable",
+  "key": "在修改记录窗口里预览全部落地效果，逐处决定落不落地",
+  "en": "Preview the full result in the Change Log window and decide per gap whether to apply",
+  "de": "Gesamtergebnis im Änderungsprotokoll-Fenster vorab ansehen und pro Lücke entscheiden",
+  "zh-Hant": "在修改記錄視窗裡預覽全部落地效果，逐處決定落不落地"
+ },
+ {
+  "table": "Localizable",
+  "key": "地图上：绿细线 = 采用的那路，蓝虚线 = 另一路",
+  "en": "On the map: thin green line = adopted route, blue dashed = the other route",
+  "de": "Auf der Karte: dünne grüne Linie = übernommene Route, blau gestrichelt = die andere",
+  "zh-Hant": "地圖上：綠細線 = 採用的那路，藍虛線 = 另一路"
+ },
+ {
+  "table": "Localizable",
+  "key": "审阅…",
+  "en": "Review…",
+  "de": "Prüfen…",
+  "zh-Hant": "審閱…"
+ },
+ {
+  "table": "Localizable",
+  "key": "审阅地图的底图（与主窗口无关）。标准底图不画隧道几何，补在隧道里的点看起来会在路外；切到卫星/混合能看见隧道口",
+  "en": "Base map of the review map (independent of the main window). The standard map does not draw tunnel geometry, so points filled inside tunnels look off-road; switch to Satellite / Hybrid to see the tunnel portals",
+  "de": "Grundkarte der Prüfkarte (unabhängig vom Hauptfenster). Die Standardkarte zeichnet keine Tunnelgeometrie, daher wirken in Tunneln gefüllte Punkte abseits der Straße; mit Satellit / Hybrid sind die Portale zu sehen",
+  "zh-Hant": "審閱地圖的底圖（與主視窗無關）。標準底圖不畫隧道幾何，補在隧道裡的點看起來會在路外；切到衛星/混合能看見隧道口"
+ },
+ {
+  "table": "Localizable",
+  "key": "审阅落地效果…",
+  "en": "Review Before Applying…",
+  "de": "Vor dem Übernehmen prüfen…",
+  "zh-Hant": "審閱落地效果…"
+ },
+ {
+  "table": "Localizable",
+  "key": "将新增的点",
+  "en": "Points to be added",
+  "de": "Hinzuzufügende Punkte",
+  "zh-Hant": "將新增的點"
+ },
+ {
+  "table": "Localizable",
+  "key": "将落地",
+  "en": "Will be applied",
+  "de": "Wird übernommen",
+  "zh-Hant": "將落地"
+ },
+ {
+  "table": "Localizable",
+  "key": "将被替换的原始点",
+  "en": "Original points to be replaced",
+  "de": "Zu ersetzende Originalpunkte",
+  "zh-Hant": "將被替換的原始點"
+ },
+ {
+  "table": "Localizable",
+  "key": "已落地 %lld 处 · 新增 %lld 点 · 替换 %lld 点",
+  "en": "Gaps applied: %1$lld · points added: %2$lld · replaced: %3$lld",
+  "de": "Übernommene Lücken: %1$lld · Punkte hinzugefügt: %2$lld · ersetzt: %3$lld",
+  "zh-Hant": "已落地 %1$lld 處 · 新增 %2$lld 點 · 替換 %3$lld 點"
+ },
+ {
+  "table": "Localizable",
+  "key": "当时两路路网各自的依据、警告与全部说明",
+  "en": "Each router's basis, warnings and full notes from that run",
+  "de": "Grundlage, Warnungen und alle Hinweise beider Routingdienste aus jenem Lauf",
+  "zh-Hant": "當時兩路路網各自的依據、警告與全部說明"
+ },
+ {
+  "table": "Localizable",
+  "key": "批量里还没有可以预览的草稿：先在批量窗口取路网草稿，再回到这里看落地效果。",
+  "en": "Nothing to preview yet: fetch road drafts in the batch window first, then come back here to see the result.",
+  "de": "Noch nichts zur Vorschau: zuerst im Stapelfenster Straßenentwürfe abrufen, dann hierher zurückkehren.",
+  "zh-Hant": "批量裡還沒有可以預覽的草稿：先在批量視窗取路網草稿，再回到這裡看落地效果。"
+ },
+ {
+  "table": "Localizable",
+  "key": "把勾选的 %lld 处补进轨迹：新增 %lld 个点、替换 %lld 个原始点。落地后在「修改记录」里可逐处还原。",
+  "en": "Fill the ticked gaps into the track: gaps %1$lld · points added %2$lld · original points replaced %3$lld. Afterwards each one can be reverted in the Change Log.",
+  "de": "Markierte Lücken in den Track einfügen: Lücken %1$lld · Punkte hinzugefügt %2$lld · Originalpunkte ersetzt %3$lld. Danach lässt sich jede im Änderungsprotokoll rückgängig machen.",
+  "zh-Hant": "把勾選的 %1$lld 處補進軌跡：新增 %2$lld 個點、替換 %3$lld 個原始點。落地後在「修改記錄」裡可逐處還原。"
+ },
+ {
+  "table": "Localizable",
+  "key": "按轨迹顺序 · 点一行进详细 · 勾选 = 落地",
+  "en": "In track order · click a row for details · ticked = apply",
+  "de": "In Trackreihenfolge · Zeile anklicken für Details · markiert = übernehmen",
+  "zh-Hant": "按軌跡順序 · 點一列進詳細 · 勾選 = 落地"
+ },
+ {
+  "table": "Localizable",
+  "key": "查看修改记录",
+  "en": "Open Change Log",
+  "de": "Änderungsprotokoll öffnen",
+  "zh-Hant": "查看修改記錄"
+ },
+ {
+  "table": "Localizable",
+  "key": "没有路网信息",
+  "en": "No routing information",
+  "de": "Keine Routinginformation",
+  "zh-Hant": "沒有路網資訊"
+ },
+ {
+  "table": "Localizable",
+  "key": "浅色",
+  "en": "Light",
+  "de": "Hell",
+  "zh-Hant": "淺色"
+ },
+ {
+  "table": "Localizable",
+  "key": "浅色底图上蓝色轨迹点最清楚；关掉则跟系统深色外观",
+  "en": "Blue track points are clearest on a light map; off = follow the system's dark appearance",
+  "de": "Blaue Trackpunkte sind auf heller Karte am besten zu sehen; aus = dunkles Systemerscheinungsbild",
+  "zh-Hant": "淺色底圖上藍色軌跡點最清楚；關掉則跟系統深色外觀"
+ },
+ {
+  "table": "Localizable",
+  "key": "直线补点",
+  "en": "Filled with a straight line",
+  "de": "Mit Gerade gefüllt",
+  "zh-Hant": "直線補點"
+ },
+ {
+  "table": "Localizable",
+  "key": "等你选",
+  "en": "Awaiting your pick",
+  "de": "Wartet auf Ihre Wahl",
+  "zh-Hant": "等你選"
+ },
+ {
+  "table": "Localizable",
+  "key": "等你选 %lld",
+  "en": "Awaiting your pick: %lld",
+  "de": "Wartet auf Ihre Wahl: %lld",
+  "zh-Hant": "等你選 %lld"
+ },
+ {
+  "table": "Localizable",
+  "key": "纯手动描线",
+  "en": "Drawn by hand",
+  "de": "Von Hand gezeichnet",
+  "zh-Hant": "純手動描線"
+ },
+ {
+  "table": "Localizable",
+  "key": "落地 %lld 处…",
+  "en": "Apply %lld Gaps…",
+  "de": "Übernehmen (%lld)…",
+  "zh-Hant": "落地 %lld 處…",
+  "plural": {
+   "en": {
+    "one": "Apply %lld Gap…",
+    "other": "Apply %lld Gaps…"
+   },
+   "de": {
+    "one": "Übernehmen (%lld)…",
+    "other": "Übernehmen (%lld)…"
+   }
+  }
+ },
+ {
+  "table": "Localizable",
+  "key": "落地前审阅：%lld 处 · 勾选落地 %lld · 将新增 %lld 点 · 替换 %lld 点",
+  "en": "Review before applying: gaps %1$lld · ticked %2$lld · points to add %3$lld · to replace %4$lld",
+  "de": "Prüfung vor dem Übernehmen: Lücken %1$lld · markiert %2$lld · Punkte hinzuzufügen %3$lld · zu ersetzen %4$lld",
+  "zh-Hant": "落地前審閱：%1$lld 處 · 勾選落地 %2$lld · 將新增 %3$lld 點 · 替換 %4$lld 點"
+ },
+ {
+  "table": "Localizable",
+  "key": "落地前预览",
+  "en": "Pre-apply preview",
+  "de": "Vorschau vor dem Übernehmen",
+  "zh-Hant": "落地前預覽"
+ },
+ {
+  "table": "Localizable",
+  "key": "落地这一处",
+  "en": "Apply this one",
+  "de": "Diese übernehmen",
+  "zh-Hant": "落地這一處"
+ },
+ {
+  "table": "Localizable",
+  "key": "落地这些修改？",
+  "en": "Apply these changes?",
+  "de": "Diese Änderungen übernehmen?",
+  "zh-Hant": "落地這些修改？"
+ },
+ {
+  "table": "Localizable",
+  "key": "说明…",
+  "en": "Notes…",
+  "de": "Hinweise…",
+  "zh-Hant": "說明…"
+ },
+ {
+  "table": "Localizable",
+  "key": "贴路 %@ / %@ m",
+  "en": "snap %1$@ / %2$@ m",
+  "de": "Anbindung %1$@ / %2$@ m",
+  "zh-Hant": "貼路 %1$@ / %2$@ m"
+ },
+ {
+  "table": "Localizable",
+  "key": "返回批量窗口",
+  "en": "Back to Batch Window",
+  "de": "Zurück zum Stapel",
+  "zh-Hant": "返回批量視窗"
+ }
+]

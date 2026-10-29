@@ -1,0 +1,14 @@
+[
+  {"table": "Localizable", "key": "起始段向 A 靠拢了 %@ m，比 A 离路的 %@ m 多出 %@ m：起始几何可能不是路网",
+   "en": "The start was bent %1$@ m towards A, %3$@ m more than A's %2$@ m from the road: the start geometry may not follow the road network",
+   "de": "Der Anfang wurde %1$@ m zu A hin gebogen, %3$@ m mehr als die %2$@ m Abstand von A zur Straße: die Anfangsgeometrie folgt womöglich nicht dem Straßennetz",
+   "zh-Hant": "起始段向 A 靠攏了 %1$@ m，比 A 離路的 %2$@ m 多出 %3$@ m：起始幾何可能不是路網"},
+  {"table": "Localizable", "key": "末尾段向 B 靠拢了 %@ m，比 B 离路的 %@ m 多出 %@ m：末尾几何可能不是路网",
+   "en": "The end was bent %1$@ m towards B, %3$@ m more than B's %2$@ m from the road: the end geometry may not follow the road network",
+   "de": "Das Ende wurde %1$@ m zu B hin gebogen, %3$@ m mehr als die %2$@ m Abstand von B zur Straße: die Endgeometrie folgt womöglich nicht dem Straßennetz",
+   "zh-Hant": "末尾段向 B 靠攏了 %1$@ m，比 B 離路的 %2$@ m 多出 %3$@ m：末尾幾何可能不是路網"},
+  {"table": "Localizable", "key": "补点离路网原始折线最远 %@ m（已扣除端部允许的 %@ m；应 ≤5 m）",
+   "en": "Filled points stray up to %1$@ m from the raw road polyline (after subtracting the %2$@ m allowed near the anchor; should be ≤5 m)",
+   "de": "Die eingefügten Punkte weichen bis zu %1$@ m von der rohen Straßenlinie ab (nach Abzug der %2$@ m, die nahe dem Ankerpunkt erlaubt sind; sollte ≤5 m sein)",
+   "zh-Hant": "補點離路網原始折線最遠 %1$@ m（已扣除端部允許的 %2$@ m；應 ≤5 m）"}
+]

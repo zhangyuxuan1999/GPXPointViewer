@@ -1,0 +1,473 @@
+[
+ {
+  "table": "Localizable",
+  "key": "%@ %@（%@）",
+  "en": "%1$@ %2$@ (%3$@)",
+  "de": "%1$@ %2$@ (%3$@)",
+  "zh-Hant": "%1$@ %2$@（%3$@）"
+ },
+ {
+  "table": "Localizable",
+  "key": "%@ 连续连不上，已停用；后面只用 %@，结果标为「没比对」",
+  "en": "%1$@ was repeatedly unreachable and has been disabled; only %2$@ is used from here on and results are marked “not compared”",
+  "de": "%1$@ war wiederholt nicht erreichbar und wurde deaktiviert; ab hier wird nur %2$@ verwendet, Ergebnisse werden als „nicht verglichen“ markiert",
+  "zh-Hant": "%1$@ 連續連不上，已停用；後面只用 %2$@，結果標為「沒比對」"
+ },
+ {
+  "table": "Localizable",
+  "key": "OSRM 与 Valhalla 给出的不是同一条路。点一行，主地图上实线 = OSRM、虚线 = Valhalla（都是蓝色）；看清后点「选一条…」，不选就不落地",
+  "en": "OSRM and Valhalla returned different roads. Click a row: on the main map the solid line is OSRM and the dashed line is Valhalla (both blue); once you can tell, click “Pick One…”. Nothing is applied until you pick",
+  "de": "OSRM und Valhalla haben verschiedene Straßen geliefert. Klicken Sie eine Zeile: Auf der Hauptkarte ist die durchgezogene Linie OSRM, die gestrichelte Valhalla (beide blau); wenn Sie es erkennen, klicken Sie „Eine wählen…“. Ohne Auswahl wird nichts übernommen",
+  "zh-Hant": "OSRM 與 Valhalla 給出的不是同一條路。點一列，主地圖上實線 = OSRM、虛線 = Valhalla（都是藍色）；看清後點「選一條…」，不選就不落地"
+ },
+ {
+  "table": "Localizable",
+  "key": "OSRM 与 Valhalla 给出的是同一条路（几何相差不到 10 m）。一致只说明两个服务看法相同，不等于路一定对：锚点本身漂到旁边路上时两边会一起错，这种情况会另加一条疑点",
+  "en": "OSRM and Valhalla returned the same road (geometry within 10 m). Agreement only means the two services concur, not that the road is certainly right: if an anchor itself drifted onto a neighbouring road, both get it wrong together; such cases get an extra warning",
+  "de": "OSRM und Valhalla haben dieselbe Straße geliefert (Geometrie innerhalb von 10 m). Übereinstimmung heißt nur, dass beide Dienste gleicher Meinung sind, nicht dass die Straße sicher stimmt: Ist ein Anker selbst auf eine Nachbarstraße gedriftet, irren sich beide gemeinsam; solche Fälle erhalten eine zusätzliche Warnung",
+  "zh-Hant": "OSRM 與 Valhalla 給出的是同一條路（幾何相差不到 10 m）。一致只說明兩個服務看法相同，不等於路一定對：錨點本身漂到旁邊路上時兩邊會一起錯，這種情況會另加一條疑點"
+ },
+ {
+  "table": "Localizable",
+  "key": "下一处要选的 ›",
+  "en": "Next to Pick ›",
+  "de": "Nächste zu wählen ›",
+  "zh-Hant": "下一處要選的 ›"
+ },
+ {
+  "table": "Localizable",
+  "key": "两路一致",
+  "en": "Both services agree",
+  "de": "Beide Dienste stimmen überein",
+  "zh-Hant": "兩路一致"
+ },
+ {
+  "table": "Localizable",
+  "key": "两路一致 %lld",
+  "en": "Both agree: %lld",
+  "de": "Beide einig: %lld",
+  "zh-Hant": "兩路一致 %lld"
+ },
+ {
+  "table": "Localizable",
+  "key": "两路一致，但锚点离路 %@ / %@ m：两个服务用同一份地图和同一组锚点，锚点本身漂到旁边路上时会一起接错，请在地图上看一眼",
+  "en": "Both services agree, but the anchors are %1$@ / %2$@ m off the road: both use the same map and the same anchors, so if an anchor drifted onto a neighbouring road they are wrong together; please check on the map",
+  "de": "Beide Dienste stimmen überein, aber die Anker liegen %1$@ / %2$@ m neben der Straße: Beide nutzen dieselbe Karte und dieselben Anker; ist ein Anker auf eine Nachbarstraße gedriftet, irren sich beide gemeinsam. Bitte auf der Karte prüfen",
+  "zh-Hant": "兩路一致，但錨點離路 %1$@ / %2$@ m：兩個服務用同一份地圖和同一組錨點，錨點本身漂到旁邊路上時會一起接錯，請在地圖上看一眼"
+ },
+ {
+  "table": "Localizable",
+  "key": "两路一致：%@ %@，最多相差 %lld m；采用 %@",
+  "en": "Both agree: %1$@ %2$@, at most %3$lld m apart; using %4$@",
+  "de": "Beide einig: %1$@ %2$@, höchstens %3$lld m Abstand; verwendet wird %4$@",
+  "zh-Hant": "兩路一致：%1$@ %2$@，最多相差 %3$lld m；採用 %4$@"
+ },
+ {
+  "table": "Localizable",
+  "key": "两路不一致",
+  "en": "Services disagree",
+  "de": "Dienste uneinig",
+  "zh-Hant": "兩路不一致"
+ },
+ {
+  "table": "Localizable",
+  "key": "两路不一致 %lld",
+  "en": "Disagree: %lld",
+  "de": "Uneinig: %lld",
+  "zh-Hant": "兩路不一致 %lld"
+ },
+ {
+  "table": "Localizable",
+  "key": "两路不一致、要你选 %lld",
+  "en": "Disagree, your pick: %lld",
+  "de": "Uneinig, Ihre Wahl: %lld",
+  "zh-Hant": "兩路不一致、要你選 %lld"
+ },
+ {
+  "table": "Localizable",
+  "key": "两路不一致，请选一条：%@ / %@ · 分歧段 %@",
+  "en": "Services disagree, pick one: %1$@ / %2$@ · divergent stretch %3$@",
+  "de": "Dienste uneinig, bitte eine wählen: %1$@ / %2$@ · abweichender Abschnitt %3$@",
+  "zh-Hant": "兩路不一致，請選一條：%1$@ / %2$@ · 分歧段 %3$@"
+ },
+ {
+  "table": "Localizable",
+  "key": "两路不一致：%@。先显示 OSRM 的路径，点「换看 Valhalla」对比后再决定",
+  "en": "Services disagree: %@. OSRM's route is shown first; click “Show Valhalla” to compare before deciding",
+  "de": "Dienste uneinig: %@. Zuerst wird die OSRM-Route gezeigt; klicken Sie „Valhalla zeigen“, um vor der Entscheidung zu vergleichen",
+  "zh-Hant": "兩路不一致：%@。先顯示 OSRM 的路徑，點「換看 Valhalla」對比後再決定"
+ },
+ {
+  "table": "Localizable",
+  "key": "两路不一致：当前显示的是一路，点这里换成另一路对比（可撤销）",
+  "en": "The services disagree: one route is shown; click to switch to the other for comparison (undoable)",
+  "de": "Die Dienste sind uneinig: Eine Route wird gezeigt; hier klicken, um zum Vergleich auf die andere zu wechseln (rückgängig möglich)",
+  "zh-Hant": "兩路不一致：目前顯示的是一路，點這裡換成另一路對比（可撤銷）"
+ },
+ {
+  "table": "Localizable",
+  "key": "两路对隧道口位置判断不同：A 外推 %lld / %lld 点，B 外推 %lld / %lld 点",
+  "en": "The services place the tunnel portals differently: A moved out by %1$lld / %2$lld points, B by %3$lld / %4$lld points",
+  "de": "Die Dienste setzen die Tunnelportale unterschiedlich: A um %1$lld / %2$lld Punkte nach außen, B um %3$lld / %4$lld Punkte",
+  "zh-Hant": "兩路對隧道口位置判斷不同：A 外推 %1$lld / %2$lld 點，B 外推 %3$lld / %4$lld 點"
+ },
+ {
+  "table": "Localizable",
+  "key": "两路相隔超过 %lld m 的部分合计 %lld m（分散在多处，最大偏差 %lld m）",
+  "en": "Parts where the routes are more than %1$lld m apart add up to %2$lld m (spread over several places, max deviation %3$lld m)",
+  "de": "Die Abschnitte mit mehr als %1$lld m Abstand summieren sich auf %2$lld m (an mehreren Stellen, max. Abweichung %3$lld m)",
+  "zh-Hant": "兩路相隔超過 %1$lld m 的部分合計 %2$lld m（分散在多處，最大偏差 %3$lld m）"
+ },
+ {
+  "table": "Localizable",
+  "key": "两路路网服务都已停用（连续连不上）",
+  "en": "Both routing services are disabled (repeatedly unreachable)",
+  "de": "Beide Routingdienste sind deaktiviert (wiederholt nicht erreichbar)",
+  "zh-Hant": "兩路路網服務都已停用（連續連不上）"
+ },
+ {
+  "table": "Localizable",
+  "key": "两路路网服务都连续连不上，已停用：剩下的公路断档不再请求",
+  "en": "Both routing services were repeatedly unreachable and are disabled: the remaining road gaps are no longer requested",
+  "de": "Beide Routingdienste waren wiederholt nicht erreichbar und sind deaktiviert: Die restlichen Straßenlücken werden nicht mehr angefragt",
+  "zh-Hant": "兩路路網服務都連續連不上，已停用：剩下的公路斷檔不再請求"
+ },
+ {
+  "table": "Localizable",
+  "key": "两路都取、比对；详见展开列表里的说明",
+  "en": "Fetch from both services and compare; see the explanation in the expanded list",
+  "de": "Von beiden Diensten abrufen und vergleichen; Erklärung in der ausgeklappten Liste",
+  "zh-Hant": "兩路都取、比對；詳見展開列表裡的說明"
+ },
+ {
+  "table": "Localizable",
+  "key": "两路都没有取到路径。OSRM：%@；Valhalla：%@",
+  "en": "Neither service returned a route. OSRM: %1$@; Valhalla: %2$@",
+  "de": "Keiner der Dienste hat eine Route geliefert. OSRM: %1$@; Valhalla: %2$@",
+  "zh-Hant": "兩路都沒有取到路徑。OSRM：%1$@；Valhalla：%2$@"
+ },
+ {
+  "table": "Localizable",
+  "key": "人工审核：两路不一致，选用 %@",
+  "en": "Reviewed by you: the services disagreed, %@ chosen",
+  "de": "Von Ihnen geprüft: Die Dienste waren uneinig, %@ gewählt",
+  "zh-Hant": "人工審核：兩路不一致，選用 %@"
+ },
+ {
+  "table": "Localizable",
+  "key": "人工改用 %@",
+  "en": "Switched to %@ by you",
+  "de": "Von Ihnen auf %@ gewechselt",
+  "zh-Hant": "人工改用 %@"
+ },
+ {
+  "table": "Localizable",
+  "key": "人工采用：只有 %@ 给出结果，未交叉验证",
+  "en": "Accepted by you: only %@ returned a route, not cross-checked",
+  "de": "Von Ihnen übernommen: Nur %@ hat eine Route geliefert, nicht gegengeprüft",
+  "zh-Hant": "人工採用：只有 %@ 給出結果，未交叉驗證"
+ },
+ {
+  "table": "Localizable",
+  "key": "公路：OSRM 和 Valhalla 两个路线服务分头取（都用 OpenStreetMap 数据，每处只由其中一个算），带前后轨迹上下文；铁路：Overpass 取 OSM 铁路几何。都是公共服务，1 秒最多 1 个请求，Overpass 常排队 30–60 秒，同一条线上的断档会共用查询。",
+  "en": "Roads: the OSRM and Valhalla routing services share the work (both use OpenStreetMap data; each gap is computed by one of them), with track context before and after; rail: Overpass fetches OSM railway geometry. All are public services, at most 1 request per second; Overpass often queues 30–60 s, and gaps on the same line share one query.",
+  "de": "Straßen: Die Routingdienste OSRM und Valhalla teilen sich die Arbeit (beide nutzen OpenStreetMap-Daten; jede Lücke wird von einem der beiden berechnet), mit Track-Kontext davor und danach; Schiene: Overpass holt die OSM-Bahngeometrie. Alles öffentliche Dienste, höchstens 1 Anfrage pro Sekunde; Overpass wartet oft 30–60 s, Lücken auf derselben Strecke teilen sich eine Abfrage.",
+  "zh-Hant": "公路：OSRM 和 Valhalla 兩個路線服務分頭取（都用 OpenStreetMap 資料，每處只由其中一個算），帶前後軌跡上下文；鐵路：Overpass 取 OSM 鐵路幾何。都是公共服務，1 秒最多 1 個請求，Overpass 常排隊 30–60 秒，同一條線上的斷檔會共用查詢。"
+ },
+ {
+  "table": "Localizable",
+  "key": "去选 ›",
+  "en": "Go Pick ›",
+  "de": "Zur Auswahl ›",
+  "zh-Hant": "去選 ›"
+ },
+ {
+  "table": "Localizable",
+  "key": "另一路没给出结果、没法比对的那些处，一律采用唯一的那份（效果等于普通模式；记录里会写明未交叉验证）",
+  "en": "For gaps where the other service gave no result and no comparison was possible, accept the only route (same as normal mode; the record notes that it was not cross-checked)",
+  "de": "Für Lücken, bei denen der andere Dienst kein Ergebnis lieferte und kein Vergleich möglich war, die einzige Route übernehmen (wie im normalen Modus; im Protokoll steht, dass nicht gegengeprüft wurde)",
+  "zh-Hant": "另一路沒給出結果、沒法比對的那些處，一律採用唯一的那份（效果等於普通模式；記錄裡會寫明未交叉驗證）"
+ },
+ {
+  "table": "Localizable",
+  "key": "另一路没给出结果（连不上、没路或已停用），没法比对。可逐处采用，或在第 3 步一键全部采用（效果等于普通模式）",
+  "en": "The other service gave no result (unreachable, no route, or disabled), so no comparison was possible. Accept them one by one, or all at once in step 3 (same as normal mode)",
+  "de": "Der andere Dienst lieferte kein Ergebnis (nicht erreichbar, keine Route oder deaktiviert), daher kein Vergleich möglich. Einzeln übernehmen oder in Schritt 3 alle auf einmal (wie im normalen Modus)",
+  "zh-Hant": "另一路沒給出結果（連不上、沒路或已停用），沒法比對。可逐處採用，或在第 3 步一鍵全部採用（效果等於普通模式）"
+ },
+ {
+  "table": "Localizable",
+  "key": "只有 %@ 有结果，没比对（%@：%@）",
+  "en": "Only %1$@ has a result, not compared (%2$@: %3$@)",
+  "de": "Nur %1$@ hat ein Ergebnis, nicht verglichen (%2$@: %3$@)",
+  "zh-Hant": "只有 %1$@ 有結果，沒比對（%2$@：%3$@）"
+ },
+ {
+  "table": "Localizable",
+  "key": "只有 %@ 给出结果，无法交叉验证（另一路：%@）",
+  "en": "Only %1$@ returned a route; cross-check not possible (other service: %2$@)",
+  "de": "Nur %1$@ hat eine Route geliefert; Gegenprüfung nicht möglich (anderer Dienst: %2$@)",
+  "zh-Hant": "只有 %1$@ 給出結果，無法交叉驗證（另一路：%2$@）"
+ },
+ {
+  "table": "Localizable",
+  "key": "只有一路有结果、没比对 %lld",
+  "en": "One result only, not compared: %lld",
+  "de": "Nur ein Ergebnis, nicht verglichen: %lld",
+  "zh-Hant": "只有一路有結果、沒比對 %lld"
+ },
+ {
+  "table": "Localizable",
+  "key": "只有一路结果的 %lld 处全部采用",
+  "en": "Accept All %lld Single-Result Gaps",
+  "de": "Alle %lld Lücken mit nur einem Ergebnis übernehmen",
+  "zh-Hant": "只有一路結果的 %lld 處全部採用",
+  "plural": {
+   "en": {
+    "one": "Accept the %lld Single-Result Gap",
+    "other": "Accept All %lld Single-Result Gaps"
+   },
+   "de": {
+    "one": "Die %lld Lücke mit nur einem Ergebnis übernehmen",
+    "other": "Alle %lld Lücken mit nur einem Ergebnis übernehmen"
+   }
+  }
+ },
+ {
+  "table": "Localizable",
+  "key": "只看要你选的",
+  "en": "Only Those Awaiting Your Pick",
+  "de": "Nur die mit Ihrer Wahl",
+  "zh-Hant": "只看要你選的"
+ },
+ {
+  "table": "Localizable",
+  "key": "向公共 OpenStreetMap 服务请求 A→B 的路网路径，替换当前全部顶点作为草稿（可撤销、可继续手动调）。只在点击时联网，一次一个请求；「交叉验证」同时请求 OSRM 和 Valhalla 并比对，一致才算放心",
+  "en": "Request the A→B route from public OpenStreetMap services and replace all current vertices with it as a draft (undoable; you can keep adjusting by hand). Goes online only when clicked, one request at a time; “cross-check” requests OSRM and Valhalla together and compares them — only agreement counts as reassuring",
+  "de": "Fordert die A→B-Route von öffentlichen OpenStreetMap-Diensten an und ersetzt alle aktuellen Eckpunkte durch sie als Entwurf (rückgängig möglich; manuell weiter anpassbar). Geht nur beim Klicken online, eine Anfrage auf einmal; „Gegenprüfung“ fragt OSRM und Valhalla zusammen an und vergleicht – nur Übereinstimmung gilt als beruhigend",
+  "zh-Hant": "向公共 OpenStreetMap 服務請求 A→B 的路網路徑，取代目前全部頂點作為草稿（可撤銷、可繼續手動調）。只在點擊時連網，一次一個請求；「交叉驗證」同時請求 OSRM 和 Valhalla 並比對，一致才算放心"
+ },
+ {
+  "table": "Localizable",
+  "key": "地图上：实线 = OSRM，虚线 = Valhalla（选中这一行时两条都加粗）。选一条就按它落地；直线 = 两点直连；都不补 = 这处留着不动",
+  "en": "On the map: solid = OSRM, dashed = Valhalla (both drawn thicker while this row is selected). Pick one and it is applied; Straight Line = connect the two points directly; Fill Neither = leave this gap alone",
+  "de": "Auf der Karte: durchgezogen = OSRM, gestrichelt = Valhalla (beide dicker, solange diese Zeile ausgewählt ist). Eine wählen, und sie wird übernommen; Gerade = beide Punkte direkt verbinden; Keine von beiden = diese Lücke unverändert lassen",
+  "zh-Hant": "地圖上：實線 = OSRM，虛線 = Valhalla（選中這一列時兩條都加粗）。選一條就按它落地；直線 = 兩點直連；都不補 = 這處留著不動"
+ },
+ {
+  "table": "Localizable",
+  "key": "已停用：连续连不上",
+  "en": "Disabled: repeatedly unreachable",
+  "de": "Deaktiviert: wiederholt nicht erreichbar",
+  "zh-Hant": "已停用：連續連不上"
+ },
+ {
+  "table": "Localizable",
+  "key": "已完成 %lld/%lld · 精确模式（OSRM + Valhalla 交叉验证）· 一致 %lld · 不一致 %lld · 没比对 %lld · 正在取 %@ · %@ · %lld m",
+  "en": "Done %1$lld/%2$lld · Precise mode (OSRM + Valhalla cross-check) · agree %3$lld · disagree %4$lld · not compared %5$lld · fetching %6$@ · %7$@ · %8$lld m",
+  "de": "Erledigt %1$lld/%2$lld · Präziser Modus (Gegenprüfung OSRM + Valhalla) · einig %3$lld · uneinig %4$lld · nicht verglichen %5$lld · Abruf %6$@ · %7$@ · %8$lld m",
+  "zh-Hant": "已完成 %1$lld/%2$lld · 精確模式（OSRM + Valhalla 交叉驗證）· 一致 %3$lld · 不一致 %4$lld · 沒比對 %5$lld · 正在取 %6$@ · %7$@ · %8$lld m"
+ },
+ {
+  "table": "Localizable",
+  "key": "开始取路网草稿（%lld 处 · 精确模式）",
+  "en": "Fetch Road Drafts (%lld Gaps · Precise Mode)",
+  "de": "Straßenentwürfe abrufen (%lld Lücken · präziser Modus)",
+  "zh-Hant": "開始取路網草稿（%lld 處 · 精確模式）",
+  "plural": {
+   "en": {
+    "one": "Fetch Road Draft (%lld Gap · Precise Mode)",
+    "other": "Fetch Road Drafts (%lld Gaps · Precise Mode)"
+   },
+   "de": {
+    "one": "Straßenentwurf abrufen (%lld Lücke · präziser Modus)",
+    "other": "Straßenentwürfe abrufen (%lld Lücken · präziser Modus)"
+   }
+  }
+ },
+ {
+  "table": "Localizable",
+  "key": "换成另一路服务给出的路径（两路一致时差别很小）",
+  "en": "Switch to the route from the other service (when both agree, the difference is tiny)",
+  "de": "Auf die Route des anderen Dienstes wechseln (bei Übereinstimmung ist der Unterschied winzig)",
+  "zh-Hant": "換成另一路服務給出的路徑（兩路一致時差別很小）"
+ },
+ {
+  "table": "Localizable",
+  "key": "换看 %@",
+  "en": "Show %@",
+  "de": "%@ zeigen",
+  "zh-Hant": "換看 %@"
+ },
+ {
+  "table": "Localizable",
+  "key": "改用另一条",
+  "en": "Use the Other One",
+  "de": "Die andere verwenden",
+  "zh-Hant": "改用另一條"
+ },
+ {
+  "table": "Localizable",
+  "key": "改用另一路服务给出的路径",
+  "en": "Use the route from the other service",
+  "de": "Route des anderen Dienstes verwenden",
+  "zh-Hant": "改用另一路服務給出的路徑"
+ },
+ {
+  "table": "Localizable",
+  "key": "有一段 %lld m 两路相隔超过 %lld m（最大偏差 %lld m）",
+  "en": "Over a stretch of %1$lld m the routes are more than %2$lld m apart (max deviation %3$lld m)",
+  "de": "Auf einem Abschnitt von %1$lld m liegen die Routen mehr als %2$lld m auseinander (max. Abweichung %3$lld m)",
+  "zh-Hant": "有一段 %1$lld m 兩路相隔超過 %2$lld m（最大偏差 %3$lld m）"
+ },
+ {
+  "table": "Localizable",
+  "key": "正在做什么：精确模式——每处公路断档同时发给 OSRM 和 Valhalla 两个路线服务（都用 OpenStreetMap 数据，算法不同），取回后比对几何：走的是同一条路才自动采用，不一致的等你在地图上选。每个服务仍是 1 秒最多 1 次，所以耗时约为普通模式的两倍。",
+  "en": "What is happening: precise mode — each road gap is sent to both routing services, OSRM and Valhalla (both use OpenStreetMap data, different algorithms), and the returned geometries are compared: only when they follow the same road is the result adopted automatically; disagreements wait for your pick on the map. Each service still allows at most 1 request per second, so this takes about twice as long as normal mode.",
+  "de": "Was gerade passiert: präziser Modus – jede Straßenlücke geht an beide Routingdienste OSRM und Valhalla (beide nutzen OpenStreetMap-Daten, unterschiedliche Algorithmen); die gelieferten Geometrien werden verglichen: Nur wenn sie derselben Straße folgen, wird das Ergebnis automatisch übernommen; bei Abweichungen wählen Sie auf der Karte. Jeder Dienst erlaubt weiterhin höchstens 1 Anfrage pro Sekunde, daher dauert es etwa doppelt so lang wie im normalen Modus.",
+  "zh-Hant": "正在做什麼：精確模式——每處公路斷檔同時發給 OSRM 和 Valhalla 兩個路線服務（都用 OpenStreetMap 資料，演算法不同），取回後比對幾何：走的是同一條路才自動採用，不一致的等你在地圖上選。每個服務仍是 1 秒最多 1 次，所以耗時約為普通模式的兩倍。"
+ },
+ {
+  "table": "Localizable",
+  "key": "每处公路断档同时向 OSRM 和 Valhalla 两个路线服务请求并比对几何：是同一条路才自动采用；不一致的、或只有一路给出结果的，等你在地图上比较后选一条，不选就不落地。能查出：一路吸到匝道/辅路/对向车道、一路绕远。查不出：两个服务用同一份 OpenStreetMap 和同一组锚点，锚点本身漂到旁边路上时两边会一起错。铁路只有 Overpass 一个来源，不比对",
+  "en": "Each road gap is requested from both routing services, OSRM and Valhalla, and the geometries are compared: only the same road is adopted automatically; where they disagree, or only one returned a route, you compare on the map and pick one — nothing is applied until you do. It catches: one service snapping to a ramp, service road or opposite carriageway, or taking a detour. It cannot catch: both use the same OpenStreetMap data and the same anchors, so if an anchor itself drifted onto a neighbouring road, both are wrong together. Rail has only one source (Overpass) and is not compared",
+  "de": "Jede Straßenlücke wird bei beiden Routingdiensten OSRM und Valhalla angefragt und die Geometrien verglichen: Nur dieselbe Straße wird automatisch übernommen; bei Abweichung, oder wenn nur einer eine Route liefert, vergleichen Sie auf der Karte und wählen eine – vorher wird nichts übernommen. Erkennt: ein Dienst rastet auf Rampe, Nebenfahrbahn oder Gegenfahrbahn ein oder macht einen Umweg. Erkennt nicht: Beide nutzen dieselben OpenStreetMap-Daten und dieselben Anker; ist ein Anker selbst auf eine Nachbarstraße gedriftet, irren beide gemeinsam. Schiene hat nur eine Quelle (Overpass) und wird nicht verglichen",
+  "zh-Hant": "每處公路斷檔同時向 OSRM 和 Valhalla 兩個路線服務請求並比對幾何：是同一條路才自動採用；不一致的、或只有一路給出結果的，等你在地圖上比較後選一條，不選就不落地。能查出：一路吸到匝道/輔路/對向車道、一路繞遠。查不出：兩個服務用同一份 OpenStreetMap 和同一組錨點，錨點本身漂到旁邊路上時兩邊會一起錯。鐵路只有 Overpass 一個來源，不比對"
+ },
+ {
+  "table": "Localizable",
+  "key": "没比对",
+  "en": "Not compared",
+  "de": "Nicht verglichen",
+  "zh-Hant": "沒比對"
+ },
+ {
+  "table": "Localizable",
+  "key": "没比对 %lld",
+  "en": "Not compared: %lld",
+  "de": "Nicht verglichen: %lld",
+  "zh-Hant": "沒比對 %lld"
+ },
+ {
+  "table": "Localizable",
+  "key": "沿公路取路径并交叉验证（OSRM + Valhalla）",
+  "en": "Route Along Roads and Cross-Check (OSRM + Valhalla)",
+  "de": "Entlang Straßen routen und gegenprüfen (OSRM + Valhalla)",
+  "zh-Hant": "沿公路取路徑並交叉驗證（OSRM + Valhalla）"
+ },
+ {
+  "table": "Localizable",
+  "key": "直线（人工选择）",
+  "en": "Straight line (your choice)",
+  "de": "Gerade (Ihre Wahl)",
+  "zh-Hant": "直線（人工選擇）"
+ },
+ {
+  "table": "Localizable",
+  "key": "等你选的那些处两路都画出来（蓝色）：实线 = OSRM、虚线 = Valhalla，选中一行两条都加粗。看清哪条对，点该行的「选一条…」；不选就不落地。",
+  "en": "For gaps awaiting your pick both routes are drawn (blue): solid = OSRM, dashed = Valhalla; selecting a row thickens both. Once you can tell which is right, click that row's “Pick One…”; nothing is applied until you pick.",
+  "de": "Für Lücken, die auf Ihre Wahl warten, werden beide Routen gezeichnet (blau): durchgezogen = OSRM, gestrichelt = Valhalla; eine ausgewählte Zeile zeigt beide dicker. Wenn Sie erkennen, welche stimmt, klicken Sie in der Zeile „Eine wählen…“; ohne Auswahl wird nichts übernommen.",
+  "zh-Hant": "等你選的那些處兩路都畫出來（藍色）：實線 = OSRM、虛線 = Valhalla，選中一列兩條都加粗。看清哪條對，點該列的「選一條…」；不選就不落地。"
+ },
+ {
+  "table": "Localizable",
+  "key": "精确模式",
+  "en": "Precise Mode",
+  "de": "Präziser Modus",
+  "zh-Hant": "精確模式"
+ },
+ {
+  "table": "Localizable",
+  "key": "精确模式（两路都取、比对；预计约 %lld 分钟，普通约 %lld 分钟）",
+  "en": "Precise mode (fetch from both services and compare; about %1$lld min, normal about %2$lld min)",
+  "de": "Präziser Modus (von beiden Diensten abrufen und vergleichen; ca. %1$lld min, normal ca. %2$lld min)",
+  "zh-Hant": "精確模式（兩路都取、比對；預計約 %1$lld 分鐘，普通約 %2$lld 分鐘）"
+ },
+ {
+  "table": "Localizable",
+  "key": "精确模式：每处公路同时发给 OSRM 和 Valhalla 两个路线服务（都用 OpenStreetMap 数据，算法不同），几何是同一条路才自动采用，不一致的或只有一路有结果的等你选。两个服务用同一份地图、同一组锚点，锚点本身漂到旁边路上时两边会一起错，这种查不出来。铁路：Overpass 取 OSM 铁路几何，只有一个来源。",
+  "en": "Precise mode: each road gap is sent to both routing services, OSRM and Valhalla (both use OpenStreetMap data, different algorithms); the result is adopted automatically only if both follow the same road — disagreements and single results wait for your pick. Both use the same map and the same anchors, so if an anchor itself drifted onto a neighbouring road, both are wrong together and this is not detected. Rail: Overpass fetches OSM railway geometry, a single source.",
+  "de": "Präziser Modus: Jede Straßenlücke geht an beide Routingdienste OSRM und Valhalla (beide nutzen OpenStreetMap-Daten, unterschiedliche Algorithmen); automatisch übernommen wird nur, wenn beide derselben Straße folgen – Abweichungen und Einzelergebnisse warten auf Ihre Wahl. Beide nutzen dieselbe Karte und dieselben Anker; ist ein Anker selbst auf eine Nachbarstraße gedriftet, irren beide gemeinsam, und das wird nicht erkannt. Schiene: Overpass holt die OSM-Bahngeometrie, eine einzige Quelle.",
+  "zh-Hant": "精確模式：每處公路同時發給 OSRM 和 Valhalla 兩個路線服務（都用 OpenStreetMap 資料，演算法不同），幾何是同一條路才自動採用，不一致的或只有一路有結果的等你選。兩個服務用同一份地圖、同一組錨點，錨點本身漂到旁邊路上時兩邊會一起錯，這種查不出來。鐵路：Overpass 取 OSM 鐵路幾何，只有一個來源。"
+ },
+ {
+  "table": "Localizable",
+  "key": "蓝 = 等你选的两路（实线 OSRM、虚线 Valhalla），在批量窗口选一条",
+  "en": "Blue = both routes awaiting your pick (solid OSRM, dashed Valhalla); pick one in the batch window",
+  "de": "Blau = beide Routen, die auf Ihre Wahl warten (durchgezogen OSRM, gestrichelt Valhalla); im Stapelfenster eine wählen",
+  "zh-Hant": "藍 = 等你選的兩路（實線 OSRM、虛線 Valhalla），在批次視窗選一條"
+ },
+ {
+  "table": "Localizable",
+  "key": "请求 OSRM + Valhalla 交叉验证…",
+  "en": "Requesting OSRM + Valhalla cross-check…",
+  "de": "Gegenprüfung OSRM + Valhalla wird angefragt…",
+  "zh-Hant": "請求 OSRM + Valhalla 交叉驗證…"
+ },
+ {
+  "table": "Localizable",
+  "key": "还有 %lld 处等你选，落地后这些不补",
+  "en": "%lld gaps still await your pick; they will not be filled when you apply",
+  "de": "%lld Lücken warten noch auf Ihre Wahl; beim Übernehmen bleiben sie ungefüllt",
+  "zh-Hant": "還有 %lld 處等你選，落地後這些不補",
+  "plural": {
+   "en": {
+    "one": "%lld gap still awaits your pick; it will not be filled when you apply",
+    "other": "%lld gaps still await your pick; they will not be filled when you apply"
+   },
+   "de": {
+    "one": "%lld Lücke wartet noch auf Ihre Wahl; beim Übernehmen bleibt sie ungefüllt",
+    "other": "%lld Lücken warten noch auf Ihre Wahl; beim Übernehmen bleiben sie ungefüllt"
+   }
+  }
+ },
+ {
+  "table": "Localizable",
+  "key": "选一条…",
+  "en": "Pick One…",
+  "de": "Eine wählen…",
+  "zh-Hant": "選一條…"
+ },
+ {
+  "table": "Localizable",
+  "key": "都不补",
+  "en": "Fill Neither",
+  "de": "Keine von beiden",
+  "zh-Hant": "都不補"
+ },
+ {
+  "table": "Localizable",
+  "key": "重合 %lld%% · 最大偏差 %lld m · 相隔超过容差的部分共 %lld m",
+  "en": "Overlap %1$lld%% · max deviation %2$lld m · %3$lld m in total beyond tolerance",
+  "de": "Überlappung %1$lld%% · max. Abweichung %2$lld m · insgesamt %3$lld m außerhalb der Toleranz",
+  "zh-Hant": "重合 %1$lld%% · 最大偏差 %2$lld m · 相隔超過容差的部分共 %3$lld m"
+ },
+ {
+  "table": "Localizable",
+  "key": "铁路只有 Overpass 一个来源，未做交叉验证",
+  "en": "Rail has a single source (Overpass); no cross-check performed",
+  "de": "Schiene hat nur eine Quelle (Overpass); keine Gegenprüfung",
+  "zh-Hant": "鐵路只有 Overpass 一個來源，未做交叉驗證"
+ },
+ {
+  "table": "Localizable",
+  "key": "长度不同：%lld m 对 %lld m",
+  "en": "Different lengths: %1$lld m vs %2$lld m",
+  "de": "Unterschiedliche Längen: %1$lld m gegenüber %2$lld m",
+  "zh-Hant": "長度不同：%1$lld m 對 %2$lld m"
+ },
+ {
+  "table": "Localizable",
+  "key": "；中间路段也不一致：%@",
+  "en": "; the middle section differs too: %@",
+  "de": "; auch der mittlere Abschnitt weicht ab: %@",
+  "zh-Hant": "；中間路段也不一致：%@"
+ },
+ {
+  "table": "Localizable",
+  "key": "；中间路段几何一致",
+  "en": "; the middle section agrees",
+  "de": "; der mittlere Abschnitt stimmt überein",
+  "zh-Hant": "；中間路段幾何一致"
+ }
+]

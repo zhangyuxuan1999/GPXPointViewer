@@ -1,0 +1,44 @@
+[
+ {
+  "table": "Localizable",
+  "key": "语言",
+  "en": "Language",
+  "de": "Sprache",
+  "zh-Hant": "語言"
+ },
+ {
+  "table": "Localizable",
+  "key": "立即重启",
+  "en": "Restart Now",
+  "de": "Jetzt neu starten",
+  "zh-Hant": "立即重新啟動"
+ },
+ {
+  "table": "Localizable",
+  "key": "重启",
+  "en": "Restart",
+  "de": "Neu starten",
+  "zh-Hant": "重新啟動"
+ },
+ {
+  "table": "Localizable",
+  "key": "重启 app 后生效",
+  "en": "Takes effect after the app restarts",
+  "de": "Wird nach dem Neustart der App wirksam",
+  "zh-Hant": "重新啟動 App 後生效"
+ },
+ {
+  "table": "Localizable",
+  "key": "重启会丢失本次会话的修改记录，仍要重启？",
+  "en": "Restarting discards this session's change log. Restart anyway?",
+  "de": "Beim Neustart geht das Änderungsprotokoll dieser Sitzung verloren. Trotzdem neu starten?",
+  "zh-Hant": "重新啟動會遺失本次工作階段的修改記錄，仍要重新啟動？"
+ },
+ {
+  "table": "Localizable",
+  "key": "也可在 系统设置 › 通用 › 语言与地区 › 应用程序 里设置",
+  "en": "You can also set this in System Settings › General › Language & Region › Applications",
+  "de": "Auch einstellbar unter Systemeinstellungen › Allgemein › Sprache & Region › Apps",
+  "zh-Hant": "也可在 系統設定 › 一般 › 語言與地區 › 應用程式 中設定"
+ }
+]

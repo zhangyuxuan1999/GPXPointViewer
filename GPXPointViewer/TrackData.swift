@@ -27,6 +27,16 @@ enum ColorMode: String, CaseIterable, Identifiable {
     case single = "单色"
     var id: String { rawValue }
 
+    /// 界面显示用（rawValue 只当标识，不直接显示）
+    var title: LocalizedStringKey {
+        switch self {
+        case .speed: return "速度"
+        case .elevation: return "海拔"
+        case .time: return "时间"
+        case .single: return "单色"
+        }
+    }
+
     var colormap: Colormap {
         switch self {
         case .speed:     return .greenRed      // 慢 = 绿 → 快 = 红
@@ -41,8 +51,24 @@ enum BaseMapStyle: String, CaseIterable, Identifiable {
     case standard = "标准"
     case imagery = "卫星"
     case hybrid = "混合"
+    // 外部瓦片来源（MapSources.swift）：OSM 画隧道虚线/分向车道，是补点用的那条路；Apple 底图不画隧道
+    case osm = "OpenStreetMap"
+    case topo = "OpenTopoMap"
+    case esri = "Esri 影像"
     // 地球视角不再是独立模式：持续缩小自动无缝进入自绘地球，放大自动回平面
-    var id: String { rawValue }
+    var id: String { rawValue }   // rawValue 是 PointMapView 渲染缓存键的一部分，也是偏好/钩子的稳定标识，保持不变
+
+    /// 界面显示用（rawValue 只当标识，不直接显示）
+    var title: LocalizedStringKey {
+        switch self {
+        case .standard: return "标准"
+        case .imagery: return "卫星"
+        case .hybrid: return "混合"
+        case .osm: return "OpenStreetMap"
+        case .topo: return "OpenTopoMap"
+        case .esri: return "Esri 影像"
+        }
+    }
 }
 
 /// 地球视角的呈现风格
@@ -50,6 +76,14 @@ enum GlobeStyle: String, CaseIterable, Identifiable {
     case realistic = "写实"     // 纹理球体 + 原始点云
     case pixel = "像素"         // 点阵大陆/海洋 + 数据柱（计数→高度）+ 流星
     var id: String { rawValue }
+
+    /// 界面显示用（rawValue 只当标识，不直接显示）
+    var title: LocalizedStringKey {
+        switch self {
+        case .realistic: return "写实"
+        case .pixel: return "像素"
+        }
+    }
 }
 
 /// 应用外观（设置面板三向开关；映射 NSApp.appearance）
@@ -57,7 +91,16 @@ enum AppearanceMode: String, CaseIterable, Identifiable {
     case system = "跟随系统"
     case light = "白天"
     case dark = "夜间"
-    var id: String { rawValue }
+    var id: String { rawValue }   // rawValue 持久化在 UserDefaults 里，保持不变
+
+    /// 界面显示用（rawValue 只当标识，不直接显示）
+    var title: LocalizedStringKey {
+        switch self {
+        case .system: return "跟随系统"
+        case .light: return "白天"
+        case .dark: return "夜间"
+        }
+    }
 }
 
 struct ViewSettings: Equatable {
@@ -67,12 +110,16 @@ struct ViewSettings: Equatable {
     var opacity: Double = 0.9            // 点透明度
     var mapOpacity: Double = 1.0         // 底图不透明度（1 = 原样，越小越暗）
     var singleColor: Color = Color(red: 0.90, green: 0.16, blue: 0.16)   // 默认红色
+    // 找不同：两侧"独有点"的高亮色（对比面板与独立差异窗口共用）
+    var diffColorLeft: Color = Color(red: 1.0, green: 0.35, blue: 0.10)   // 橙
+    var diffColorRight: Color = Color(red: 0.10, green: 0.55, blue: 1.0)  // 蓝
     var showHalo: Bool = false           // 点白描边（密集点云建议关，默认关）
     var showTrackLine: Bool = false      // 需求就是"只要点"——默认关
     var lineColor: Color = Color(red: 1.0, green: 0.42, blue: 0.21)   // 轨迹线颜色（橙）
     var lineWidth: Double = 2.0          // 箭杆宽（pt）
     var lineOpacity: Double = 0.75
     var showArrows: Bool = true          // 线段渲染为方向箭头（早 → 晚）
+    var arrowEvery: Int = 1              // 箭头密度：1 = 每段，2 = 隔一段，3 = 隔两段
     var lodEnabled: Bool = true          // 视口自适应降采样（缩小时自动抽稀，放大自动全量）
     var showStats: Bool = true
     var globeStyle: GlobeStyle = .realistic   // 地球视角风格
@@ -82,6 +129,23 @@ struct ViewSettings: Equatable {
     var idleMapSeconds: Double = 5.0          // 平面地图闲置等待（秒）
     var idleDisabled: Bool = false            // 禁用闲置展示模式
     var appearance: AppearanceMode = .system  // 应用外观（白天/夜间/跟随系统）
+    var heatMap: Bool = false                 // 平面地图热力图（GPU 密度双 pass）
+    var fogMap: Bool = false                  // 迷雾模式（世界迷雾观感；与热力互斥）
+    var fogRadiusMeters: Double = 40          // 迷雾清除半径（米，滑杆可调）
+    var heat3D: Bool = false                  // 热力图的 3D 柱状模式（自绘透视场景）
+    var heat3DBlock: Int = 2                  // 3D 热力块边长（迷雾格数 k，面积 k²=1/4/9/…/36）
+    var heat3DSmooth: Bool = true             // 3D 热力：true = 与邻块平滑衔接，false = 棱角方柱
+    var fogSmooth: Bool = true                // 迷雾存档平滑边缘（对齐手机 App 扩散观感）；
+                                              // 关闭 = 精确显示 .fwdb 原始格
+}
+
+/// 《世界迷雾》口径的探索统计结果
+struct FogStats {
+    var cells: Int          // 解锁格子数（2²²×2²² 世界网格）
+    var km2: Double         // 探索面积（km²，格宽 9.5546m×cosφ 逐格累计）
+    var level: Int          // 等级 = ⌊√(面积km² × 250)⌋
+    var percent: Double     // 占地球表面（5.10072 亿 km²）百分比
+    var nextLevelKm2: Double // 距下一级还需的面积
 }
 
 // MARK: - 性能统计
@@ -96,6 +160,7 @@ struct PerfStats {
     var speedMs = 0.0
     var assembleMs = 0.0
     var colorMs = 0.0
+    var spatialMs = 0.0          // 莫顿序空间索引构建
     // 渲染期动态更新
     var encodeMs = 0.0
     var waitMs = 0.0             // nextDrawable 等待（GPU 反压指标）
@@ -120,6 +185,17 @@ struct ScaleBarInfo: Equatable {
     var label: String
 }
 
+/// 高频小状态各自成对象（见 TrackStore 顶部说明）：观察者只有对应的小视图
+@MainActor final class RenderStatsState: ObservableObject {
+    @Published var stats = PerfStats()
+}
+@MainActor final class HoverState: ObservableObject {
+    @Published var info: PointInfo?
+}
+@MainActor final class ScaleBarState: ObservableObject {
+    @Published var info: ScaleBarInfo?
+}
+
 // MARK: - 点详情（悬停/选中）
 
 struct PointInfo: Equatable {
@@ -132,12 +208,389 @@ struct PointInfo: Equatable {
     var screenPoint: CGPoint    // 视图坐标（pt，左上原点）
 }
 
+// MARK: - 空间索引（莫顿 Z 序）
+
+/// 世界墨卡托 [0,1)² 切成 2²⁴×2²⁴ 格（赤道 ≈2.4m），每点一个 48 位莫顿键。
+/// 点按键排序后，任一四叉树节点（level 级格）在序列里是一个连续区段——
+/// 视口矩形 → 若干 level 级格 → 二分出 ≤ 百来个区段，渲染只提交这些区段，
+/// 拾取只扫这些区段。另预算每一级的"格首点"表（同一级格里的第一个点），
+/// 渲染按缩放选一级、每格只画一个点：同一条路被反复经过几十次只画一遍，
+/// 路线连续性保留（格边 ≈ 0.6×目标点距）。构建在载入后台（并行取键 +
+/// LSD 基数排序 + 一趟差分扫描）
+enum SpatialIndex {
+    static let bits = 24
+    static let keyBits = 48
+    static let levels = bits + 1          // 0…24
+
+    /// 32 位以内坐标的位展开（每位之间插一个 0）：标准 5 步掩码法
+    @inline(__always)
+    static func spread(_ v: UInt64) -> UInt64 {
+        var x = v & 0xFFFF_FFFF
+        x = (x | (x << 16)) & 0x0000_FFFF_0000_FFFF
+        x = (x | (x << 8))  & 0x00FF_00FF_00FF_00FF
+        x = (x | (x << 4))  & 0x0F0F_0F0F_0F0F_0F0F
+        x = (x | (x << 2))  & 0x3333_3333_3333_3333
+        x = (x | (x << 1))  & 0x5555_5555_5555_5555
+        return x
+    }
+
+    @inline(__always)
+    static func morton(_ ix: UInt64, _ iy: UInt64) -> UInt64 {
+        spread(ix) | (spread(iy) << 1)
+    }
+
+    /// 索引产物
+    struct Built {
+        var order: [UInt32] = []          // 位置 k → 原始下标
+        var keys: [UInt64] = []           // 位置 k 的键（有序）
+        var firsts: [UInt32] = []         // 各级格首点位置表（按级拼接）
+        var firstOffsets: [Int] = []      // firsts 中各级的起点（levels+1 项）
+    }
+
+    static func build(mercX: [Double], mercY: [Double]) -> Built {
+        let n = mercX.count
+        guard n > 0 else { return Built() }
+        let scale = Double(1 << bits)
+        let maxC = Double((1 << bits) - 1)
+        var keys = [UInt64](unsafeUninitializedCapacity: n) { _, m in m = n }
+        var idx = [UInt32](unsafeUninitializedCapacity: n) { _, m in m = n }
+        keys.withUnsafeMutableBufferPointer { kb in
+        idx.withUnsafeMutableBufferPointer { ib in
+        mercX.withUnsafeBufferPointer { px in
+        mercY.withUnsafeBufferPointer { py in
+            let k = kb.baseAddress!, o = ib.baseAddress!
+            let x = px.baseAddress!, y = py.baseAddress!
+            let cores = ProcessInfo.processInfo.activeProcessorCount
+            let chunks = n > 200_000 ? max(1, min(cores, n / 100_000)) : 1
+            DispatchQueue.concurrentPerform(iterations: chunks) { ci in
+                for i in (n * ci / chunks)..<(n * (ci + 1) / chunks) {
+                    let fx = min(maxC, max(0, (x[i] - x[i].rounded(.down)) * scale))
+                    let fy = min(maxC, max(0, y[i] * scale))
+                    k[i] = morton(UInt64(fx), UInt64(fy))
+                    o[i] = UInt32(i)
+                }
+            }
+        }}}}
+        radixSort(keys: &keys, vals: &idx)
+
+        // 各级格首点：k 与前一位置的键的公共前导位数 d（48 位内）→
+        // 顶部 2L 位不同 ⇔ 2L > d ⇔ L ≥ d/2 + 1；k=0 属于所有级
+        var counts = [Int](repeating: 0, count: levels + 1)
+        var lmin = [UInt8](unsafeUninitializedCapacity: n) { _, m in m = n }
+        keys.withUnsafeBufferPointer { kb in
+            lmin[0] = 0
+            for k in 1..<n {
+                let x = kb[k] ^ kb[k - 1]
+                let d = x == 0 ? keyBits : (x.leadingZeroBitCount - (64 - keyBits))
+                lmin[k] = UInt8(min(levels, d / 2 + 1))   // == levels ⇒ 不是任何级的首点
+            }
+        }
+        for k in 0..<n where Int(lmin[k]) < levels {
+            for L in Int(lmin[k])..<levels { counts[L] += 1 }
+        }
+        var offsets = [Int](repeating: 0, count: levels + 1)
+        for L in 0..<levels { offsets[L + 1] = offsets[L] + counts[L] }
+        var firsts = [UInt32](unsafeUninitializedCapacity: offsets[levels]) { _, m in m = offsets[levels] }
+        var cursor = offsets
+        for k in 0..<n where Int(lmin[k]) < levels {
+            for L in Int(lmin[k])..<levels {
+                firsts[cursor[L]] = UInt32(k)
+                cursor[L] += 1
+            }
+        }
+        return Built(order: idx, keys: keys, firsts: firsts, firstOffsets: offsets)
+    }
+
+    /// LSD 基数排序（48 位键，3 趟 16 位），键值对同步搬运
+    static func radixSort(keys: inout [UInt64], vals: inout [UInt32]) {
+        let n = keys.count
+        guard n > 1 else { return }
+        var k2 = [UInt64](unsafeUninitializedCapacity: n) { _, m in m = n }
+        var v2 = [UInt32](unsafeUninitializedCapacity: n) { _, m in m = n }
+        var hist = [Int](repeating: 0, count: 65536)
+        for pass in 0..<3 {
+            let shift = UInt64(pass * 16)
+            for i in 0..<65536 { hist[i] = 0 }
+            keys.withUnsafeBufferPointer { kb in
+                for i in 0..<n { hist[Int((kb[i] >> shift) & 0xFFFF)] += 1 }
+            }
+            var sum = 0
+            for i in 0..<65536 { let c = hist[i]; hist[i] = sum; sum += c }
+            keys.withUnsafeBufferPointer { kb in
+            vals.withUnsafeBufferPointer { vb in
+            k2.withUnsafeMutableBufferPointer { k2b in
+            v2.withUnsafeMutableBufferPointer { v2b in
+                for i in 0..<n {
+                    let d = Int((kb[i] >> shift) & 0xFFFF)
+                    let dst = hist[d]
+                    hist[d] = dst + 1
+                    k2b[dst] = kb[i]
+                    v2b[dst] = vb[i]
+                }
+            }}}}
+            swap(&keys, &k2)
+            swap(&vals, &v2)
+        }
+        // 3 趟后结果在 keys/vals（奇数趟交换时也一致：swap 使 keys 始终指向最新）
+    }
+
+    /// 有序键数组中第一个 ≥ k 的位置
+    @inline(__always)
+    static func lowerBound(_ keys: UnsafeBufferPointer<UInt64>, _ k: UInt64) -> Int {
+        var lo = 0, hi = keys.count
+        while lo < hi {
+            let mid = (lo + hi) >> 1
+            if keys[mid] < k { lo = mid + 1 } else { hi = mid }
+        }
+        return lo
+    }
+
+    @inline(__always)
+    static func lowerBound(_ a: UnsafeBufferPointer<UInt32>, _ v: UInt32) -> Int {
+        var lo = 0, hi = a.count
+        while lo < hi {
+            let mid = (lo + hi) >> 1
+            if a[mid] < v { lo = mid + 1 } else { hi = mid }
+        }
+        return lo
+    }
+
+    /// 视口 [x0,x1]×[y0,y1]（世界墨卡托；x 可越过 0/1 经度环绕）→ 有序序列
+    /// 里的连续区段列表（相邻合并，按位置升序）
+    static func ranges(keys: [UInt64], x0: Double, y0: Double, x1: Double, y1: Double,
+                       maxCellsAcross: Int) -> [Range<Int>] {
+        merge(cellRanges(keys: keys, x0: x0, y0: y0, x1: x1, y1: y1,
+                         maxCellsAcross: maxCellsAcross).cells)
+    }
+
+    /// 相邻/重叠区段合并
+    static func merge(_ sorted: [Range<Int>]) -> [Range<Int>] {
+        var merged: [Range<Int>] = []
+        merged.reserveCapacity(sorted.count)
+        for r in sorted {
+            if let last = merged.last, r.lowerBound <= last.upperBound {
+                merged[merged.count - 1] = last.lowerBound..<max(last.upperBound, r.upperBound)
+            } else {
+                merged.append(r)
+            }
+        }
+        return merged
+    }
+
+    /// 逐格区段（未合并，按位置升序）+ 所用级别：级别取"跨视口格数 ≤
+    /// maxCellsAcross"的最细一级，每格 = 序列里一个连续区段
+    static func cellRanges(keys: [UInt64], x0: Double, y0: Double, x1: Double, y1: Double,
+                           maxCellsAcross: Int) -> (cells: [Range<Int>], level: Int) {
+        guard !keys.isEmpty, x1 > x0, y1 > y0 else { return ([], bits) }
+        let span = max(x1 - x0, y1 - y0)
+        var level = bits
+        while level > 0, span * Double(1 << level) > Double(maxCellsAcross) { level -= 1 }
+        let cells = Double(1 << level)
+        let shift = UInt64(2 * (bits - level))          // level 级格 = 键的高 2·level 位
+        let cellMax = Int(cells) - 1
+        let iy0 = max(0, min(cellMax, Int((max(0, y0) * cells).rounded(.down))))
+        let iy1 = max(0, min(cellMax, Int((min(1, y1) * cells).rounded(.down))))
+        var xSpans: [(Int, Int)] = []
+        if x1 - x0 >= 1 {
+            xSpans.append((0, cellMax))
+        } else {
+            let fx0 = x0 - x0.rounded(.down)
+            let fx1 = fx0 + (x1 - x0)
+            if fx1 <= 1 {
+                xSpans.append((Int((fx0 * cells).rounded(.down)), min(cellMax, Int((fx1 * cells).rounded(.down)))))
+            } else {
+                xSpans.append((Int((fx0 * cells).rounded(.down)), cellMax))
+                xSpans.append((0, min(cellMax, Int(((fx1 - 1) * cells).rounded(.down)))))
+            }
+        }
+        var out: [Range<Int>] = []
+        keys.withUnsafeBufferPointer { kb in
+            for (ax, bx) in xSpans {
+                for iy in iy0...iy1 {
+                    for ix in max(0, ax)...max(ax, bx) {
+                        let kLo = morton(UInt64(ix), UInt64(iy)) << shift
+                        let kHi = kLo &+ (UInt64(1) << shift)
+                        let lo = lowerBound(kb, kLo)
+                        let hi = shift >= 48 ? kb.count : lowerBound(kb, kHi)
+                        if hi > lo { out.append(lo..<hi) }
+                    }
+                }
+            }
+        }
+        out.sort { $0.lowerBound < $1.lowerBound }
+        return (out, level)
+    }
+}
+
 // MARK: - 轨迹数据
+
+/// Indices of the time-normalized path. This view shares the immutable order storage.
+struct TrackPathIndices: RandomAccessCollection {
+    typealias Index = Int
+    typealias Element = Int
+    fileprivate let order: [UInt32]
+    fileprivate let range: Range<Int>
+    var startIndex: Int { 0 }
+    var endIndex: Int { range.count }
+    subscript(position: Int) -> Int {
+        precondition(position >= 0 && position < endIndex)
+        let p = range.lowerBound + position
+        return order.isEmpty ? p : Int(order[p])
+    }
+}
+
+struct TrackSegmentRange {
+    let id: UInt32
+    let range: Range<Int>
+}
+
+/// GPU ABI: four UInt32 values, 16-byte size and stride.
+struct PathDrawRun {
+    var begin: UInt32
+    var end: UInt32
+    var firstInstance: UInt32
+    var instanceCount: UInt32
+}
+enum PathDrawKind { case line, fog }
+struct PathDrawPlan {
+    let runs: [PathDrawRun]
+    let instanceCount: Int
+    let stride: Int
+}
+
+/// A stable scatter groups the global time indices by source segment in O(n + segments).
+/// The normal single-segment track keeps identity order/rank implicit.
+struct TrackTopology {
+    let count: Int
+    let order: [UInt32]
+    let rank: [UInt32]
+    let segments: [TrackSegmentRange]
+    private let labels: [UInt32]
+    private let segmentLookup: [UInt32: Int]
+    private(set) var lineRuns: [Range<Int>]
+    private(set) var fogRuns: [Range<Int>]
+    var isIdentity: Bool { order.isEmpty }
+
+    init(segmentID: [UInt32], count: Int) {
+        precondition(segmentID.isEmpty || segmentID.count == count, "segmentID must be empty or count long")
+        precondition(count <= Int(UInt32.max))
+        self.count = count
+        labels = segmentID
+        var ids: [UInt32] = []
+        var lookup: [UInt32: Int] = [:]
+        var counts: [Int] = []
+        if segmentID.isEmpty || segmentID.dropFirst().allSatisfy({ $0 == segmentID.first }) {
+            if count > 0 {
+                let id = segmentID.first ?? 0
+                ids = [id]; lookup = [id: 0]; counts = [count]
+            }
+        } else {
+            for id in segmentID {
+                if let k = lookup[id] { counts[k] += 1 }
+                else { lookup[id] = ids.count; ids.append(id); counts.append(1) }
+            }
+        }
+        var ranges: [TrackSegmentRange] = []
+        var offset = 0
+        for k in ids.indices {
+            ranges.append(TrackSegmentRange(id: ids[k], range: offset..<(offset + counts[k])))
+            offset += counts[k]
+        }
+        segments = ranges
+        segmentLookup = lookup
+        if ids.count <= 1 { order = []; rank = [] }
+        else {
+            var o = [UInt32](repeating: 0, count: count)
+            var r = o
+            var cursors = ranges.map { $0.range.lowerBound }
+            for i in 0..<count {
+                let k = lookup[segmentID[i]]!
+                let p = cursors[k]
+                o[p] = UInt32(i); r[i] = UInt32(p); cursors[k] += 1
+            }
+            order = o; rank = r
+        }
+        lineRuns = ranges.map { $0.range }
+        fogRuns = lineRuns
+    }
+
+    func withRuns(line: [Range<Int>], fog: [Range<Int>]) -> TrackTopology {
+        var result = self
+        result.lineRuns = line; result.fogRuns = fog
+        return result
+    }
+    @inline(__always) func segment(of globalIndex: Int) -> UInt32 {
+        precondition(globalIndex >= 0 && globalIndex < count)
+        return labels.isEmpty ? 0 : labels[globalIndex]
+    }
+    @inline(__always) func pathRank(of globalIndex: Int) -> Int {
+        precondition(globalIndex >= 0 && globalIndex < count)
+        return rank.isEmpty ? globalIndex : Int(rank[globalIndex])
+    }
+    @inline(__always) func globalIndex(atPathRank pathRank: Int) -> Int {
+        precondition(pathRank >= 0 && pathRank < count)
+        return order.isEmpty ? pathRank : Int(order[pathRank])
+    }
+    func segmentRange(of globalIndex: Int) -> Range<Int> {
+        segments[segmentLookup[segment(of: globalIndex)]!].range
+    }
+    func adjacent(to globalIndex: Int, direction: Int, steps: Int = 1) -> Int? {
+        guard globalIndex >= 0, globalIndex < count, steps >= 0,
+              direction == -1 || direction == 1 else { return nil }
+        let r = segmentRange(of: globalIndex)
+        let p = pathRank(of: globalIndex)
+        guard steps <= (direction < 0 ? p - r.lowerBound : r.upperBound - 1 - p) else { return nil }
+        return self.globalIndex(atPathRank: p + direction * steps)
+    }
+    func indices(between a: Int, and b: Int, includeEnds: Bool = false) -> TrackPathIndices? {
+        guard a >= 0, b >= 0, a < count, b < count, segment(of: a) == segment(of: b) else { return nil }
+        let x = pathRank(of: a), y = pathRank(of: b)
+        guard x <= y else { return nil }
+        let lo = includeEnds ? x : min(x + 1, y)
+        let hi = includeEnds ? y + 1 : y
+        return TrackPathIndices(order: order, range: lo..<hi)
+    }
+    func innerCount(_ a: Int, _ b: Int) -> Int? {
+        indices(between: a, and: b)?.count
+    }
+    /// Each path run is monotone in global time indices, so clipping takes two binary searches.
+    func makeDrawRuns(kind: PathDrawKind, globalTimeRange: Range<Int>, stride: Int,
+                      includeSoftBreaks: Bool = true) -> PathDrawPlan {
+        let step = max(1, stride)
+        let source = includeSoftBreaks ? (kind == .line ? lineRuns : fogRuns) : segments.map { $0.range }
+        var runs: [PathDrawRun] = []
+        runs.reserveCapacity(source.count)
+        var instances = 0
+        func lowerBound(_ value: Int, in r: Range<Int>) -> Int {
+            if isIdentity { return min(r.upperBound, max(r.lowerBound, value)) }
+            var lo = r.lowerBound, hi = r.upperBound
+            while lo < hi {
+                let mid = lo + (hi - lo) / 2
+                if Int(order[mid]) < value { lo = mid + 1 } else { hi = mid }
+            }
+            return lo
+        }
+        for r in source {
+            let lo = lowerBound(globalTimeRange.lowerBound, in: r)
+            let hi = lowerBound(globalTimeRange.upperBound, in: r)
+            let length = hi - lo
+            guard length > 0 else { continue }
+            let n = length > 1 ? (length - 2) / step + 1 : (kind == .fog ? 1 : 0)
+            guard n > 0 else { continue }
+            runs.append(PathDrawRun(begin: UInt32(lo), end: UInt32(hi),
+                                    firstInstance: UInt32(instances), instanceCount: UInt32(n)))
+            instances += n
+        }
+        return PathDrawPlan(runs: runs, instanceCount: instances, stride: step)
+    }
+}
 
 final class TrackData: Identifiable {
     let id = UUID()
     let name: String
     let count: Int
+    let creator: String            // GPX creator（CSV 为空）：采样画像分辨专用记录仪/手机用
+    let gpsAccuracy: Double?       // CSV 精度列中位数（米）；无则 nil
 
     // 原始 SoA
     let lat: [Double]
@@ -145,15 +598,27 @@ final class TrackData: Identifiable {
     let ele: [Double]
     let time: [Double]
     let speedKmh: [Double]
+    let segmentID: [UInt32]
+    let topology: TrackTopology
     /// 每点所属文件下标（重叠模式按文件着色/高亮；空 = 单一来源）
     let fileID: [UInt16]
+    /// Global-indexed fog run tokens (equal only within one true connected path run).
+    let fogBreakPrefix: [UInt32]
 
     // 投影 SoA（双精度世界坐标 + RTC 单精度偏移）
     let mercX: [Double]
     let mercY: [Double]
+    /// 空间索引（莫顿序）：spatialOrder[k] = 第 k 个 Z 序位置对应的点下标，
+    /// spatialKeys[k] = 该点的 48 位莫顿键（有序）。视口剔除/拾取按键区间二分；
+    /// spatialFirsts = 各级格首点位置表（按级拼接，spatialFirstOffsets 定界）
+    let spatialOrder: [UInt32]
+    let spatialKeys: [UInt64]
+    let spatialFirsts: [UInt32]
+    let spatialFirstOffsets: [Int]
     let center: SIMD2<Double>
     let rtcX: [Float]
     let rtcY: [Float]
+    let lineBreakPrefix: [UInt32]   // Global-indexed line run tokens (>30 min / >10 km soft breaks).
 
     // 球面单位向量 SoA（自绘地球用）：Y 轴朝北极，Z 轴朝 (0°N, 0°E)
     let unitX: [Float]
@@ -195,6 +660,7 @@ final class TrackData: Identifiable {
         // 排序后时间筛选可用二分子区间，测速/箭头也回归正确时序。
         var parsed = parsed
         let timedCount = sortByTimeIfNeeded(&parsed)
+        let topology = TrackTopology(segmentID: parsed.segmentID, count: parsed.count)
 
         var stats = PerfStats()
         stats.pointCount = parsed.count
@@ -215,8 +681,8 @@ final class TrackData: Identifiable {
         let src = parsed
         DispatchQueue.concurrentPerform(iterations: 4) { stage in
             switch stage {
-            case 0:  buildStageProjection(src, into: scratch)
-            case 1:  buildStageSpeed(src, hasTime: hasTime, into: scratch)
+            case 0:  buildStageProjection(src, topology: topology, into: scratch)
+            case 1:  buildStageSpeed(src, topology: topology, hasTime: hasTime, into: scratch)
             case 2:  buildStageUnitVectors(src, into: scratch)
             default: buildStageLiftBounds(src, into: scratch)
             }
@@ -230,15 +696,28 @@ final class TrackData: Identifiable {
             ? (parsed.time[0], parsed.time[timedCount - 1])
             : nil
 
+        // 空间索引：按时间排序的数组在放大后可见点散布全数组，渲染/拾取
+        // 只能全量扫；莫顿序索引让视口剔除变成几十个连续区段
+        let tS = tick()
+        let sp = SpatialIndex.build(mercX: scratch.mx, mercY: scratch.my)
+        stats.spatialMs = Double(tick() - tS) / 1e6
+
         let track = TrackData(
-            name: parsed.name.isEmpty ? "未命名轨迹" : parsed.name,
+            name: parsed.name.isEmpty
+                ? String(localized: "未命名轨迹",
+                         comment: "Fallback track name when the file has no <name>; shown as the track title and written as the GPX <name> on export")
+                : parsed.name,
             count: n,
+            creator: parsed.creator, gpsAccuracy: parsed.accuracyMedian,
             lat: parsed.lat, lon: parsed.lon, ele: parsed.ele, time: parsed.time,
-            fileID: parsed.fileID,
+            fileID: parsed.fileID, segmentID: parsed.segmentID, topology: scratch.topology!,
+            fogBreakPrefix: scratch.fogBreakPrefix,
             speedKmh: scratch.speeds,
             mercX: scratch.mx, mercY: scratch.my,
+            spatialOrder: sp.order, spatialKeys: sp.keys,
+            spatialFirsts: sp.firsts, spatialFirstOffsets: sp.firstOffsets,
             center: SIMD2(scratch.cx, scratch.cy),
-            rtcX: scratch.rtcX, rtcY: scratch.rtcY,
+            rtcX: scratch.rtcX, rtcY: scratch.rtcY, lineBreakPrefix: scratch.lineBreakPrefix,
             unitX: scratch.unitX, unitY: scratch.unitY, unitZ: scratch.unitZ,
             liftF: scratch.liftF,
             hasEle: scratch.hasEle, hasTime: hasTime,
@@ -272,6 +751,7 @@ final class TrackData: Identifiable {
     /// 编译器无法证明，@unchecked Sendable 显式承担证明责任。
     private final class BuildScratch: @unchecked Sendable {
         // A 投影链
+        var topology: TrackTopology?
         var mx: [Double] = []; var my: [Double] = []
         var cx = 0.0, cy = 0.0
         var rtcX: [Float] = []; var rtcY: [Float] = []
@@ -279,20 +759,22 @@ final class TrackData: Identifiable {
         var totalLen = 0.0
         var medianSeg = 0.0
         var breaks = 0
+        var lineBreakPrefix: [UInt32] = []   // Indexed by global time; token identifies a true line run.
         var projectMs = 0.0
         // B 测速
         var speeds: [Double] = []
         var speedMs = 0.0
         // C 球面向量
         var unitX: [Float] = []; var unitY: [Float] = []; var unitZ: [Float] = []
-        // D 抬升 + 经纬极值
+        // D 抬升 + 经纬极值 + 迷雾断点前缀和
         var liftF: [Float] = []
         var hasEle = false
         var bbox = (minLat: 0.0, maxLat: 0.0, minLon: 0.0, maxLon: 0.0)
+        var fogBreakPrefix: [UInt32] = []
     }
 
     /// 阶段 A：墨卡托投影 → 中心/RTC → 投影界 → 段长统计 + 断点检测
-    private static func buildStageProjection(_ p: ParsedTrack, into s: BuildScratch) {
+    private static func buildStageProjection(_ p: ParsedTrack, topology: TrackTopology, into s: BuildScratch) {
         let t0 = DispatchTime.now().uptimeNanoseconds
         let n = p.count
         let (mx, my) = GeoCompute.mercator(lat: p.lat, lon: p.lon)
@@ -312,7 +794,8 @@ final class TrackData: Identifiable {
 
         // 轨迹段长统计（vDSP：相邻差分 → 逐元素 hypot）
         // 总长会被轨迹间"瞬移"段灌水，LOD 用【中位段长】——典型采样间距，离群免疫
-        if n >= 2 {
+        var identityLengths: [Double] = []
+        if n >= 2 && topology.isIdentity {
             let m2 = n - 1
             var dx = GeoCompute.uninitialized(m2)
             var dy = GeoCompute.uninitialized(m2)
@@ -328,46 +811,55 @@ final class TrackData: Identifiable {
             vDSP_sveD(seg, 1, &totalLen, vDSP_Length(m2))
             s.totalLen = totalLen
             s.medianSeg = GeoCompute.medianSampled(seg)
-            s.breaks = countBreaks(seg: seg, time: p.time)
+            identityLengths = seg
         }
+        // Real path adjacency, including interleaved source segments.
+        var lineRuns: [Range<Int>] = [], fogRuns: [Range<Int>] = []
+        var linePrefix = [UInt32](repeating: 0, count: n)
+        var fogPrefix = linePrefix
+        var lengths: [Double] = []
+        if !topology.isIdentity { lengths.reserveCapacity(n - topology.segments.count) }
+        var lineToken: UInt32 = 0, fogToken: UInt32 = 0
+        let d = Double.pi / 180
+        for segment in topology.segments {
+            let r = segment.range
+            var lineStart = r.lowerBound, fogStart = r.lowerBound
+            if r.lowerBound > 0 { lineToken &+= 1; fogToken &+= 1 }
+            for path in r {
+                let i = topology.globalIndex(atPathRank: path)
+                if path > r.lowerBound {
+                    let j = topology.globalIndex(atPathRank: path - 1)
+                    let length = topology.isIdentity ? identityLengths[path - 1] : hypot(mx[i] - mx[j], my[i] - my[j])
+                    let dt = p.time[i] - p.time[j]
+                    if !topology.isIdentity { lengths.append(length) }
+                    if (dt.isFinite && dt > 1800) || length * 40_075_000 > 10_000 {
+                        lineRuns.append(lineStart..<path); lineStart = path; lineToken &+= 1
+                    }
+                    let dy = (p.lat[i] - p.lat[j]) * 111_320
+                    let dx = (p.lon[i] - p.lon[j]) * 111_320 * cos(p.lat[j] * d)
+                    if (dt.isFinite && dt > 600) || dx * dx + dy * dy > 10_000 {
+                        fogRuns.append(fogStart..<path); fogStart = path; fogToken &+= 1
+                    }
+                }
+                linePrefix[i] = lineToken; fogPrefix[i] = fogToken
+            }
+            if !r.isEmpty { lineRuns.append(lineStart..<r.upperBound); fogRuns.append(fogStart..<r.upperBound) }
+        }
+        if !topology.isIdentity {
+            s.totalLen = lengths.reduce(0, +)
+            s.medianSeg = GeoCompute.medianSampled(lengths)
+        }
+        s.breaks = max(0, lineRuns.count - 1)
+        s.lineBreakPrefix = linePrefix; s.fogBreakPrefix = fogPrefix
+        s.topology = topology.withRuns(line: lineRuns, fog: fogRuns)
         s.mx = mx; s.my = my
     }
 
-    /// 多段检测：时间断档 > 30 分钟 或 跳距 > 10 km 视为轨迹断点。
-    /// 分块并行；只有 breaks > 20 有意义，各块数到 21 即提前停
-    private static func countBreaks(seg: [Double], time: [Double]) -> Int {
-        let m = seg.count
-        guard m > 0 else { return 0 }
-        let cores = ProcessInfo.processInfo.activeProcessorCount
-        let chunks = max(1, min(cores, m / 262_144 + 1))
-        var partial = [Int](repeating: 0, count: chunks)
-        seg.withUnsafeBufferPointer { sp in
-            time.withUnsafeBufferPointer { tp in
-                let s = sp.baseAddress!, t = tp.baseAddress!
-                partial.withUnsafeMutableBufferPointer { pb in
-                    let pc = pb
-                    DispatchQueue.concurrentPerform(iterations: chunks) { ci in
-                        var c = 0
-                        for i in (m * ci / chunks)..<(m * (ci + 1) / chunks) {
-                            let dt = t[i + 1] - t[i]
-                            if (dt.isFinite && dt > 1800) || s[i] * 40_075_000.0 > 10_000 {
-                                c += 1
-                                if c > 20 { break }
-                            }
-                        }
-                        pc[ci] = c
-                    }
-                }
-            }
-        }
-        return partial.reduce(0, +)
-    }
-
     /// 阶段 B：相邻点测速
-    private static func buildStageSpeed(_ p: ParsedTrack, hasTime: Bool, into s: BuildScratch) {
+    private static func buildStageSpeed(_ p: ParsedTrack, topology: TrackTopology, hasTime: Bool, into s: BuildScratch) {
         let t0 = DispatchTime.now().uptimeNanoseconds
         s.speeds = hasTime
-            ? GeoCompute.speedsKmh(lat: p.lat, lon: p.lon, time: p.time)
+            ? GeoCompute.speedsKmh(lat: p.lat, lon: p.lon, time: p.time, pathOrder: topology.order, segmentRanges: topology.segments.map { $0.range })
             : [Double](repeating: 0, count: p.count)
         s.speedMs = Double(DispatchTime.now().uptimeNanoseconds - t0) / 1e6
     }
@@ -435,13 +927,16 @@ final class TrackData: Identifiable {
         vDSP_minvD(p.lon, 1, &minLon, vDSP_Length(n))
         vDSP_maxvD(p.lon, 1, &maxLon, vDSP_Length(n))
         s.bbox = (minLat, maxLat, minLon, maxLon)
+        // Path break tokens are produced alongside the topology in projection stage A.
     }
 
-    private init(name: String, count: Int,
+    private init(name: String, count: Int, creator: String, gpsAccuracy: Double?,
                  lat: [Double], lon: [Double], ele: [Double], time: [Double],
-                 fileID: [UInt16],
+                 fileID: [UInt16], segmentID: [UInt32], topology: TrackTopology, fogBreakPrefix: [UInt32],
                  speedKmh: [Double], mercX: [Double], mercY: [Double],
-                 center: SIMD2<Double>, rtcX: [Float], rtcY: [Float],
+                 spatialOrder: [UInt32], spatialKeys: [UInt64],
+                 spatialFirsts: [UInt32], spatialFirstOffsets: [Int],
+                 center: SIMD2<Double>, rtcX: [Float], rtcY: [Float], lineBreakPrefix: [UInt32],
                  unitX: [Float], unitY: [Float], unitZ: [Float], liftF: [Float],
                  hasEle: Bool, hasTime: Bool,
                  bbox: (minLat: Double, maxLat: Double, minLon: Double, maxLon: Double),
@@ -453,12 +948,19 @@ final class TrackData: Identifiable {
                  timedCount: Int) {
         self.name = name
         self.count = count
+        self.creator = creator
+        self.gpsAccuracy = gpsAccuracy
         self.lat = lat; self.lon = lon; self.ele = ele; self.time = time
         self.fileID = fileID
+        self.segmentID = segmentID; self.topology = topology
+        self.fogBreakPrefix = fogBreakPrefix
         self.speedKmh = speedKmh
         self.mercX = mercX; self.mercY = mercY
+        self.spatialOrder = spatialOrder; self.spatialKeys = spatialKeys
+        self.spatialFirsts = spatialFirsts; self.spatialFirstOffsets = spatialFirstOffsets
         self.center = center
         self.rtcX = rtcX; self.rtcY = rtcY
+        self.lineBreakPrefix = lineBreakPrefix
         self.unitX = unitX; self.unitY = unitY; self.unitZ = unitZ
         self.liftF = liftF
         self.hasEle = hasEle; self.hasTime = hasTime
@@ -562,6 +1064,133 @@ final class TrackData: Identifiable {
         return Double(DispatchTime.now().uptimeNanoseconds - t0) / 1e6
     }
 
+    /// 找不同高亮：先整轨迹刷成半透明灰底，再把命中下标覆写成高亮色。
+    /// 与 recolor 系出同门（memset_pattern4 铺底 + 稀疏覆写），返回耗时 ms
+    @discardableResult
+    func recolorDiffMask(indices: [Int32], hit: SIMD4<UInt8>,
+                         dim: SIMD4<UInt8> = SIMD4(140, 140, 145, 60)) -> Double {
+        let t0 = DispatchTime.now().uptimeNanoseconds
+        guard count > 0 else { return 0 }
+        var c = [UInt8](unsafeUninitializedCapacity: count * 4) { _, m in m = count * 4 }
+        var dimPat: [UInt8] = [dim.x, dim.y, dim.z, dim.w]
+        let hitPat = UInt32(hit.x) | (UInt32(hit.y) << 8)
+            | (UInt32(hit.z) << 16) | (UInt32(hit.w) << 24)
+        c.withUnsafeMutableBytes { raw in
+            guard let base = raw.baseAddress else { return }
+            memset_pattern4(base, &dimPat, raw.count)
+            let p32 = base.assumingMemoryBound(to: UInt32.self)
+            let n = count
+            indices.withUnsafeBufferPointer { ib in
+                let ip = ib.baseAddress!
+                for k in 0..<ib.count {
+                    let i = Int(ip[k])
+                    if i >= 0, i < n { p32[i] = hitPat }
+                }
+            }
+        }
+        colors = c
+        effectiveMode = .single
+        colorRange = (0, 1)
+        colorVersion += 1
+        return Double(DispatchTime.now().uptimeNanoseconds - t0) / 1e6
+    }
+
+    // MARK: 《世界迷雾》口径的探索统计
+
+    /// 世界 = 2²²×2²² 墨卡托格；相邻样本间沿直线光栅化解锁格子
+    /// （与迷雾渲染同一套记录间隙判定：间隙处只解锁端点格）；
+    /// 每格面积 = (9.5546m × cosφ)²；等级 = √(面积km²×250)（逆向文章实测公式）。
+    /// 后台一次性计算（~百 ms 级），结果按轨迹缓存
+    func computeFogStats() -> FogStats {
+        let n = count
+        guard n > 0 else { return FogStats(cells: 0, km2: 0, level: 0, percent: 0, nextLevelKm2: 0.004) }
+        let keys = fogUnlockKeys()
+        let grid = Double(1 << 22)
+        let cellMask: UInt64 = (1 << 22) - 1
+        // 逐格面积。公式用真实存档对账校准过（data/*.fwdb + 护照截图真值）：
+        // 赤道格宽 = 2πa/2²²（WGS84 a=6378137），纬度按 64 格 tile 行中心取值
+        // ——两个存档分别只差 +69ppb / +1.1ppb，等级与占比逐位吻合
+        let baseW = 2.0 * Double.pi * 6_378_137.0 / grid
+        var m2 = 0.0
+        for k in keys {
+            let yTile = Double((k & cellMask) & ~63) + 32.0   // tile 行中心
+            let yMerc = yTile / grid
+            let cosLat = 1.0 / cosh(Double.pi * (1.0 - 2.0 * yMerc))
+            let w = baseW * cosLat
+            m2 += w * w
+        }
+        let km2 = m2 / 1e6
+        let level = Int(Double(max(0, (km2 * 250.0))).squareRoot())
+        let next = 0.004 * Double((level + 1) * (level + 1)) - km2
+        return FogStats(cells: keys.count, km2: km2, level: level,
+                        percent: km2 / 510_072_000.0 * 100.0,
+                        nextLevelKm2: max(0, next))
+    }
+
+    /// 《世界迷雾》口径的解锁格键（x<<22|y，排序去重）：每点自身格 + 连通段的直线光栅化。地区统计也用它
+    func fogUnlockKeys() -> [UInt64] {
+        let n = count
+        guard n > 0 else { return [] }
+        let grid = Double(1 << 22)
+
+        // 1) 并行收集解锁格 key（x<<22|y）：每点自身格 + 连通段的直线光栅化
+        let cores = ProcessInfo.processInfo.activeProcessorCount
+        let chunks = max(1, min(cores, n / 131_072 + 1))
+        var parts = [[UInt64]](repeating: [], count: chunks)
+        parts.withUnsafeMutableBufferPointer { pb in
+            let out = pb
+            mercX.withUnsafeBufferPointer { mxb in
+                mercY.withUnsafeBufferPointer { myb in
+                    fogBreakPrefix.withUnsafeBufferPointer { bpb in
+                        let mx = mxb.baseAddress!, my = myb.baseAddress!
+                        let bp = bpb.baseAddress!
+                        DispatchQueue.concurrentPerform(iterations: chunks) { ci in
+                            var keys = [UInt64]()
+                            keys.reserveCapacity(64_000)
+                            let cell: (Int) -> (Int, Int) = { i in
+                                let x = min(Int(mx[i] * grid), (1 << 22) - 1)
+                                let y = min(Int(my[i] * grid), (1 << 22) - 1)
+                                return (max(0, x), max(0, y))
+                            }
+                            let lo = n * ci / chunks, hi = n * (ci + 1) / chunks
+                            for path in lo..<hi {
+                                let i = self.topology.globalIndex(atPathRank: path)
+                                let (x0, y0) = cell(i)
+                                keys.append(UInt64(x0) << 22 | UInt64(y0))
+                                // 连通段：整数 DDA（主轴步进 = 逆向文章的斜向解锁语义）
+                                let next = path + 1 < n ? self.topology.globalIndex(atPathRank: path + 1) : i
+                                if path + 1 < n, bp[next] == bp[i] {
+                                    let (x1, y1) = cell(next)
+                                    let dx = x1 - x0, dy = y1 - y0
+                                    let steps = max(abs(dx), abs(dy))
+                                    if steps > 1, steps < 4096 {
+                                        let fx = Double(dx) / Double(steps)
+                                        let fy = Double(dy) / Double(steps)
+                                        for s in 1..<steps {
+                                            let xs = x0 + Int((Double(s) * fx).rounded())
+                                            let ys = y0 + Int((Double(s) * fy).rounded())
+                                            keys.append(UInt64(xs) << 22 | UInt64(ys))
+                                        }
+                                    }
+                                }
+                            }
+                            out[ci] = keys
+                        }
+                    }
+                }
+            }
+        }
+        var all = [UInt64]()
+        all.reserveCapacity(parts.reduce(0) { $0 + $1.count })
+        for p in parts { all.append(contentsOf: p) }
+        // 2) 排序去重
+        all.sort()
+        var uniq = [UInt64](); uniq.reserveCapacity(all.count)
+        var prev: UInt64 = .max
+        for k in all where k != prev { prev = k; uniq.append(k) }
+        return uniq
+    }
+
     // MARK: 时间筛选（二分求索引子区间，O(log n)）
 
     /// 第一个 time[i] >= t 的下标（在有效时间前缀 [0, timedCount) 内二分）
@@ -623,6 +1252,14 @@ final class TrackData: Identifiable {
         var perm = [vDSP_Length](repeating: 0, count: n)
         for i in 0..<n { perm[i] = vDSP_Length(i) }
         vDSP_vsortiD(keys, &perm, nil, vDSP_Length(n), 1)
+        // vDSP does not promise stability. Repair equal keys (including missing times).
+        var begin = 0
+        while begin < n {
+            var end = begin + 1
+            while end < n && keys[Int(perm[end])] == keys[Int(perm[begin])] { end += 1 }
+            if end - begin > 1 { perm[begin..<end].sort() }
+            begin = end
+        }
 
         func gathered(_ a: [Double]) -> [Double] {
             var out = GeoCompute.uninitialized(n)
@@ -645,6 +1282,10 @@ final class TrackData: Identifiable {
 
     /// fileID 与坐标数组同步搬运（重叠模式的按文件归属）
     private static func gatherFileID(_ p: inout ParsedTrack, _ src: (Int) -> vDSP_Length) {
+        if !p.segmentID.isEmpty {
+            let old = p.segmentID
+            p.segmentID = (0..<p.count).map { old[Int(src($0))] }
+        }
         guard !p.fileID.isEmpty else { return }
         let n = p.count
         var out = [UInt16](unsafeUninitializedCapacity: n) { _, c in c = n }
@@ -739,7 +1380,7 @@ final class TrackData: Identifiable {
             }
 
         var disjoint = true
-        for k in 1..<timedOrder.count where timedOrder[k].element.first < timedOrder[k - 1].element.last {
+        for k in 1..<timedOrder.count where timedOrder[k].element.first <= timedOrder[k - 1].element.last {
             disjoint = false
             break
         }
@@ -779,8 +1420,8 @@ final class TrackData: Identifiable {
                 while true {
                     let l = parent * 2 + 1, r = l + 1
                     var m = parent
-                    if l < heap.count, heap[l].t < heap[m].t { m = l }
-                    if r < heap.count, heap[r].t < heap[m].t { m = r }
+                    if l < heap.count, heap[l].t < heap[m].t || (heap[l].t == heap[m].t && heap[l].i < heap[m].i) { m = l }
+                    if r < heap.count, heap[r].t < heap[m].t || (heap[r].t == heap[m].t && heap[r].i < heap[m].i) { m = r }
                     if m == parent { return }
                     heap.swapAt(parent, m)
                     parent = m
@@ -836,6 +1477,12 @@ final class TrackData: Identifiable {
             }
         }
         p.lat = outLat; p.lon = outLon; p.ele = outEle; p.time = outTime
+        if !p.segmentID.isEmpty {
+            let old = p.segmentID
+            var out = [UInt32](repeating: 0, count: n)
+            for mv in moves { out.replaceSubrange(mv.dst..<(mv.dst + mv.src.count), with: old[mv.src]) }
+            p.segmentID = out
+        }
         if !p.fileID.isEmpty {
             var outID = [UInt16](unsafeUninitializedCapacity: n) { _, c in c = n }
             p.fileID.withUnsafeBufferPointer { sb in
@@ -919,6 +1566,36 @@ final class TrackData: Identifiable {
             }
         }
         return (min(rStart + Int(minIdx) * s, count - 1), Double(minVal.squareRoot()))
+    }
+
+    /// 空间索引拾取：只扫描光标附近格子里的点（全量 vDSP 扫 200 万点 ≈3ms/帧，
+    /// 这里通常几百点）。半径 radiusMerc 内无点返回 nil；索引缺失返回 nil 由
+    /// 调用方回退全量扫描
+    func nearestPointSpatial(mercX qx: Double, mercY qy: Double, radiusMerc r: Double,
+                             range: (start: Int, len: Int)? = nil) -> (index: Int, mercDist: Double)? {
+        guard !spatialKeys.isEmpty, count > 0, r > 0 else { return nil }
+        let rStart = max(0, min(range?.start ?? 0, count - 1))
+        let rEnd = rStart + max(0, min(range?.len ?? count, count - rStart))
+        guard rEnd > rStart else { return nil }
+        let ranges = SpatialIndex.ranges(keys: spatialKeys,
+                                         x0: qx - r, y0: qy - r, x1: qx + r, y1: qy + r,
+                                         maxCellsAcross: 4)
+        var best = -1
+        var bestD2 = r * r
+        mercX.withUnsafeBufferPointer { px in
+        mercY.withUnsafeBufferPointer { py in
+        spatialOrder.withUnsafeBufferPointer { po in
+            for rg in ranges {   // 键 48 位、格 ≈2m：光标半径内通常只有几十点
+                for k in rg {
+                    let i = Int(po[k])
+                    guard i >= rStart, i < rEnd else { continue }
+                    let dx = px[i] - qx, dy = py[i] - qy
+                    let d2 = dx * dx + dy * dy
+                    if d2 < bestD2 { bestD2 = d2; best = i }
+                }
+            }
+        }}}
+        return best >= 0 ? (best, bestD2.squareRoot()) : nil
     }
 
     /// 地球视角拾取：查询球面单位向量 q 的最近点（弦距² argmin，vDSP 跨步）。
@@ -1111,14 +1788,19 @@ final class TrackData: Identifiable {
 
     // MARK: 格式化
 
+    // 中性数字格式：固定 POSIX 区域 + 公历，任何界面语言/日历设置下输出都一样
     private static let timeFormatter: DateFormatter = {
         let f = DateFormatter()
+        f.locale = Locale(identifier: "en_US_POSIX")
+        f.calendar = Calendar(identifier: .gregorian)
         f.dateFormat = "yyyy-MM-dd HH:mm:ss"
         f.timeZone = .current
         return f
     }()
     private static let hmFormatter: DateFormatter = {
         let f = DateFormatter()
+        f.locale = Locale(identifier: "en_US_POSIX")
+        f.calendar = Calendar(identifier: .gregorian)
         f.dateFormat = "HH:mm"
         f.timeZone = .current
         return f
@@ -1149,7 +1831,9 @@ final class TrackData: Identifiable {
         case .time:
             let lo = Date(timeIntervalSince1970: colorRange.lo)
             let hi = Date(timeIntervalSince1970: colorRange.hi)
-            return (TrackData.hmFormatter.string(from: lo), TrackData.hmFormatter.string(from: hi), "时刻")
+            let unit = String(localized: "时刻",
+                              comment: "Color legend unit label in time color mode, after the HH:mm range (like km/h for speed); means time of day")
+            return (TrackData.hmFormatter.string(from: lo), TrackData.hmFormatter.string(from: hi), unit)
         }
     }
 }

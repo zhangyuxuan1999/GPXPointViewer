@@ -1,0 +1,522 @@
+[
+ {
+  "table": "Localizable",
+  "key": "探索面积",
+  "en": "Explored Area",
+  "de": "Erkundete Fläche",
+  "zh-Hant": "探索面積"
+ },
+ {
+  "table": "Localizable",
+  "key": "插入 %lld 个点",
+  "en": "Insert %lld Points",
+  "de": "%lld Punkte einfügen",
+  "zh-Hant": "插入 %lld 個點",
+  "plural": {
+   "en": {
+    "one": "Insert %lld Point",
+    "other": "Insert %lld Points"
+   },
+   "de": {
+    "one": "%lld Punkt einfügen",
+    "other": "%lld Punkte einfügen"
+   }
+  }
+ },
+ {
+  "table": "Localizable",
+  "key": "插入 %lld 个点，保留区间内 %lld 个点原样",
+  "en": "Insert %1$lld, Keep %2$lld in Range As Is",
+  "de": "%1$lld einfügen, %2$lld im Bereich behalten",
+  "zh-Hant": "插入 %1$lld 個點，保留區間內 %2$lld 個點原樣"
+ },
+ {
+  "table": "Localizable",
+  "key": "插入 %lld 个点，替换区间内 %lld 个点",
+  "en": "Insert %1$lld, Replace %2$lld in Range",
+  "de": "%1$lld einfügen, %2$lld im Bereich ersetzen",
+  "zh-Hant": "插入 %1$lld 個點，替換區間內 %2$lld 個點"
+ },
+ {
+  "table": "Localizable",
+  "key": "撤回本次会话的全部修改（补进去的点删掉、删掉的点加回来）；逐处还原请进「详细」",
+  "en": "Revert all changes made in this session (filled-in points are removed, deleted points come back); to revert them one at a time, open “Details”",
+  "de": "Alle Änderungen dieser Sitzung zurücksetzen (eingefügte Punkte werden entfernt, gelöschte wiederhergestellt); einzeln zurücksetzen unter „Details“",
+  "zh-Hant": "撤回本次工作階段的全部修改（補進去的點刪掉、刪掉的點加回來）；逐處還原請進「詳細」"
+ },
+ {
+  "table": "Localizable",
+  "key": "撤销",
+  "en": "Undo",
+  "de": "Rückgängig",
+  "zh-Hant": "撤銷"
+ },
+ {
+  "table": "Localizable",
+  "key": "撤销上一次圈选（可连续撤销，⌘Z）",
+  "en": "Undo the last lasso selection (repeatable, ⌘Z)",
+  "de": "Letzte Lasso-Auswahl rückgängig machen (mehrfach möglich, ⌘Z)",
+  "zh-Hant": "撤銷上一次圈選（可連續撤銷，⌘Z）"
+ },
+ {
+  "table": "Localizable",
+  "key": "撤销上一步编辑：插入/拖动/删除顶点、挪锚点（⌘Z）",
+  "en": "Undo the last edit: inserting/dragging/deleting a vertex, moving an anchor (⌘Z)",
+  "de": "Letzte Bearbeitung rückgängig machen: Stützpunkt einfügen/ziehen/löschen, Anker verschieben (⌘Z)",
+  "zh-Hant": "撤銷上一步編輯：插入/拖曳/刪除頂點、挪錨點（⌘Z）"
+ },
+ {
+  "table": "Localizable",
+  "key": "撤销落地",
+  "en": "Undo Apply",
+  "de": "Übernahme rückgängig",
+  "zh-Hant": "撤銷落地"
+ },
+ {
+  "table": "Localizable",
+  "key": "撤销补点…",
+  "en": "Undoing Gap Fill…",
+  "de": "Lückenfüllung wird rückgängig gemacht…",
+  "zh-Hant": "撤銷補點…"
+ },
+ {
+  "table": "Localizable",
+  "key": "操作于 %@",
+  "en": "Changed at %@",
+  "de": "Geändert um %@",
+  "zh-Hant": "操作於 %@"
+ },
+ {
+  "table": "Localizable",
+  "key": "改为只要圈外的断档",
+  "en": "List only gaps outside the loop instead",
+  "de": "Stattdessen nur Lücken außerhalb der Schleife",
+  "zh-Hant": "改為只要圈外的斷檔"
+ },
+ {
+  "table": "Localizable",
+  "key": "改回按这处断档两侧的原始点距自动取（15–60 m）",
+  "en": "Back to automatic spacing from the original point spacing on both sides of this gap (15–60 m)",
+  "de": "Zurück zum automatischen Abstand aus dem ursprünglichen Punktabstand beiderseits dieser Lücke (15–60 m)",
+  "zh-Hant": "改回按這處斷檔兩側的原始點距自動取（15–60 m）"
+ },
+ {
+  "table": "Localizable",
+  "key": "放弃",
+  "en": "Discard",
+  "de": "Verwerfen",
+  "zh-Hant": "放棄"
+ },
+ {
+  "table": "Localizable",
+  "key": "放弃删除",
+  "en": "Cancel Deletion",
+  "de": "Löschen abbrechen",
+  "zh-Hant": "放棄刪除"
+ },
+ {
+  "table": "Localizable",
+  "key": "敦煌",
+  "en": "Dunhuang",
+  "de": "Dunhuang",
+  "zh-Hant": "敦煌"
+ },
+ {
+  "table": "Localizable",
+  "key": "数据 © OpenStreetMap contributors",
+  "en": "Data © OpenStreetMap contributors",
+  "de": "Daten © OpenStreetMap contributors",
+  "zh-Hant": "資料 © OpenStreetMap contributors"
+ },
+ {
+  "table": "Localizable",
+  "key": "数据时间跨度太短，无法回放。",
+  "en": "The data's time span is too short for playback.",
+  "de": "Die Zeitspanne der Daten ist für die Wiedergabe zu kurz.",
+  "zh-Hant": "資料時間跨度太短，無法回放。"
+ },
+ {
+  "table": "Localizable",
+  "key": "整批撤回上一次落地的补点",
+  "en": "Revert the last applied gap fill as a whole batch",
+  "de": "Zuletzt übernommene Lückenfüllung als Ganzes zurücknehmen",
+  "zh-Hant": "整批撤回上一次落地的補點"
+ },
+ {
+  "table": "Localizable",
+  "key": "整条轨迹 GPX（含时间/速度/海拔）…",
+  "en": "Whole Track GPX (with Time/Speed/Elevation)…",
+  "de": "Gesamter Track als GPX (mit Zeit/Tempo/Höhe)…",
+  "zh-Hant": "整條軌跡 GPX（含時間/速度/海拔）…"
+ },
+ {
+  "table": "Localizable",
+  "key": "整条轨迹按停车切成 %lld 段（停 ≥10 分钟、或没记录 ≥10 分钟就切一刀）。一段就是一趟连续的行驶，要么全程公路、要么全程火车，所以段里的断档一起定；下面每行是一段，行末选择器整段改。",
+  "en": "The track is split at stops into %lld segments (a cut wherever it stops ≥10 min or has no records for ≥10 min). A segment is one continuous journey, either all by road or all by train, so its gaps are decided together; each row below is one segment, and the picker at the end of the row changes the whole segment.",
+  "de": "Der Track wird an Stopps in %lld Abschnitte geteilt (Schnitt bei ≥10 min Stopp oder ≥10 min ohne Aufzeichnung). Ein Abschnitt ist eine durchgehende Fahrt – entweder ganz auf der Straße oder ganz mit dem Zug –, daher werden seine Lücken gemeinsam entschieden; jede Zeile unten ist ein Abschnitt, die Auswahl am Zeilenende ändert den ganzen Abschnitt.",
+  "zh-Hant": "整條軌跡按停車切成 %lld 段（停 ≥10 分鐘、或沒記錄 ≥10 分鐘就切一刀）。一段就是一趟連續的行駛，要麼全程公路、要麼全程火車，所以段裡的斷檔一起定；下面每列是一段，列末的選擇器整段改。",
+  "plural": {
+   "en": {
+    "one": "The track is split at stops into %lld segment (a cut wherever it stops ≥10 min or has no records for ≥10 min). A segment is one continuous journey, either all by road or all by train, so its gaps are decided together; each row below is one segment, and the picker at the end of the row changes the whole segment.",
+    "other": "The track is split at stops into %lld segments (a cut wherever it stops ≥10 min or has no records for ≥10 min). A segment is one continuous journey, either all by road or all by train, so its gaps are decided together; each row below is one segment, and the picker at the end of the row changes the whole segment."
+   },
+   "de": {
+    "one": "Der Track wird an Stopps in %lld Abschnitt geteilt (Schnitt bei ≥10 min Stopp oder ≥10 min ohne Aufzeichnung). Ein Abschnitt ist eine durchgehende Fahrt – entweder ganz auf der Straße oder ganz mit dem Zug –, daher werden seine Lücken gemeinsam entschieden; jede Zeile unten ist ein Abschnitt, die Auswahl am Zeilenende ändert den ganzen Abschnitt.",
+    "other": "Der Track wird an Stopps in %lld Abschnitte geteilt (Schnitt bei ≥10 min Stopp oder ≥10 min ohne Aufzeichnung). Ein Abschnitt ist eine durchgehende Fahrt – entweder ganz auf der Straße oder ganz mit dem Zug –, daher werden seine Lücken gemeinsam entschieden; jede Zeile unten ist ein Abschnitt, die Auswahl am Zeilenende ändert den ganzen Abschnitt."
+   }
+  }
+ },
+ {
+  "table": "Localizable",
+  "key": "整条轨迹（回放点散布全程）",
+  "en": "Whole track (replay points spread throughout)",
+  "de": "Gesamter Track (Wiederholungspunkte über die ganze Strecke verteilt)",
+  "zh-Hant": "整條軌跡（回放點散布全程）"
+ },
+ {
+  "table": "Localizable",
+  "key": "整条：首次导入目标 app 用。增量：目标 app 里已有这条轨迹时只补新点；增量表达不了删除，替换掉的原始点会留在目标 app 里",
+  "en": "Whole Track: for the first import into the target app. Gap Fill Points Only: adds just the new points when the target app already has this track; an increment can't express deletions, so replaced original points stay in the target app",
+  "de": "Gesamter Track: für den ersten Import in die Ziel-App. Nur Lückenfüllungen: ergänzt nur die neuen Punkte, wenn die Ziel-App diesen Track schon hat; ein Inkrement kann keine Löschungen abbilden, ersetzte Originalpunkte bleiben in der Ziel-App",
+  "zh-Hant": "整條：首次匯入目標 app 用。增量：目標 app 裡已有這條軌跡時只補新點；增量表達不了刪除，替換掉的原始點會留在目標 app 裡"
+ },
+ {
+  "table": "Localizable",
+  "key": "整段的所有断档一起按这个类别（会覆盖逐行的选择；「自动」= 回到地图/速度的判断）",
+  "en": "Apply this category to all gaps in the segment (overrides per-row choices; “Auto” = back to the map/speed judgment)",
+  "de": "Diese Kategorie für alle Lücken des Abschnitts verwenden (überschreibt die Auswahl je Zeile; „Automatisch“ = zurück zur Einschätzung nach Karte/Tempo)",
+  "zh-Hant": "整段的所有斷檔一起按這個類別（會覆蓋逐列的選擇；「自動」= 回到地圖/速度的判斷）"
+ },
+ {
+  "table": "Localizable",
+  "key": "整段类别",
+  "en": "Segment Category",
+  "de": "Abschnittskategorie",
+  "zh-Hant": "整段類別"
+ },
+ {
+  "table": "Localizable",
+  "key": "文件为空或无法读取。",
+  "en": "The file is empty or can't be read.",
+  "de": "Die Datei ist leer oder kann nicht gelesen werden.",
+  "zh-Hant": "檔案為空或無法讀取。"
+ },
+ {
+  "table": "Localizable",
+  "key": "文件列表",
+  "en": "File List",
+  "de": "Dateiliste",
+  "zh-Hant": "檔案清單"
+ },
+ {
+  "table": "Localizable",
+  "key": "文件里没有找到任何点（<trkpt>/<rtept>/<wpt>）。",
+  "en": "No points found in the file (<trkpt>/<rtept>/<wpt>).",
+  "de": "In der Datei wurden keine Punkte gefunden (<trkpt>/<rtept>/<wpt>).",
+  "zh-Hant": "檔案裡沒有找到任何點（<trkpt>/<rtept>/<wpt>）。"
+ },
+ {
+  "table": "Localizable",
+  "key": "断档候选 %lld",
+  "en": "Gap Candidates: %lld",
+  "de": "Lückenkandidaten: %lld",
+  "zh-Hant": "斷檔候選 %lld"
+ },
+ {
+  "table": "Localizable",
+  "key": "断档候选 %lld（共 %lld）",
+  "en": "Gap Candidates: %1$lld (of %2$lld)",
+  "de": "Lückenkandidaten: %1$lld (von %2$lld)",
+  "zh-Hant": "斷檔候選 %1$lld（共 %2$lld）"
+ },
+ {
+  "table": "Localizable",
+  "key": "断档太长（直线 %@ km / %@ 分钟），分不清是隧道还是车厢屏蔽；不补",
+  "en": "Gap too long (%1$@ km straight-line / %2$@ min); can't tell a tunnel from the train car blocking the signal; not filled",
+  "de": "Lücke zu lang (Luftlinie %1$@ km / %2$@ min), Tunnel und Abschirmung durch den Wagen nicht unterscheidbar; wird nicht gefüllt",
+  "zh-Hant": "斷檔太長（直線 %1$@ km / %2$@ 分鐘），分不清是隧道還是車廂遮蔽；不補"
+ },
+ {
+  "table": "Localizable",
+  "key": "断档直线 %@ km，太长了，先用锚点分段再取路网",
+  "en": "The gap is %@ km in a straight line, too long; split it with anchors first, then fetch the road network",
+  "de": "Die Lücke ist %@ km Luftlinie lang, zu lang; erst mit Ankern aufteilen, dann das Straßennetz abrufen",
+  "zh-Hant": "斷檔直線 %@ km，太長了，先用錨點分段再取路網"
+ },
+ {
+  "table": "Localizable",
+  "key": "断档类型",
+  "en": "Gap Type",
+  "de": "Lückentyp",
+  "zh-Hant": "斷檔類型"
+ },
+ {
+  "table": "Localizable",
+  "key": "断档补点：列出隧道类断档，选一处后在地图上点出轮廓折线，按时间匀速插点；可导出给世界迷雾/一生足迹",
+  "en": "Gap Fill: lists tunnel-like gaps; pick one, click out its outline as a polyline on the map, and points are inserted at an even pace over time; exportable to Fog of World/Step of My World",
+  "de": "Lücken füllen: listet tunnelartige Lücken auf; eine auswählen, auf der Karte den Verlauf als Linienzug anklicken, Punkte werden zeitlich gleichmäßig eingefügt; Export für Fog of World/Step of My World möglich",
+  "zh-Hant": "斷檔補點：列出隧道類斷檔，選一處後在地圖上點出輪廓折線，按時間勻速插點；可匯出給世界迷霧/一生足跡"
+ },
+ {
+  "table": "Localizable",
+  "key": "斯图加特",
+  "en": "Stuttgart",
+  "de": "Stuttgart",
+  "zh-Hant": "斯圖加特"
+ },
+ {
+  "table": "Localizable",
+  "key": "斯德哥尔摩",
+  "en": "Stockholm",
+  "de": "Stockholm",
+  "zh-Hant": "斯德哥爾摩"
+ },
+ {
+  "table": "Localizable",
+  "key": "新加坡",
+  "en": "Singapore",
+  "de": "Singapur",
+  "zh-Hant": "新加坡"
+ },
+ {
+  "table": "Localizable",
+  "key": "新增的点（补点）",
+  "en": "Added points (gap fill)",
+  "de": "Hinzugefügte Punkte (Lückenfüllung)",
+  "zh-Hant": "新增的點（補點）"
+ },
+ {
+  "table": "Localizable",
+  "key": "新德里",
+  "en": "New Delhi",
+  "de": "Neu-Delhi",
+  "zh-Hant": "新德里"
+ },
+ {
+  "table": "Localizable",
+  "key": "方向弦长 25–%@ m",
+  "en": "Direction chord 25–%@ m",
+  "de": "Richtungssehne 25–%@ m",
+  "zh-Hant": "方向弦長 25–%@ m"
+ },
+ {
+  "table": "Localizable",
+  "key": "方向箭头",
+  "en": "Direction Arrows",
+  "de": "Richtungspfeile",
+  "zh-Hant": "方向箭頭"
+ },
+ {
+  "table": "Localizable",
+  "key": "无",
+  "en": "None",
+  "de": "Keine",
+  "zh-Hant": "無"
+ },
+ {
+  "table": "Localizable",
+  "key": "无可用点",
+  "en": "no usable points",
+  "de": "keine brauchbaren Punkte",
+  "zh-Hant": "無可用點"
+ },
+ {
+  "table": "Localizable",
+  "key": "无法创建视频文件",
+  "en": "Couldn't create the video file",
+  "de": "Videodatei konnte nicht erstellt werden",
+  "zh-Hant": "無法建立影片檔案"
+ },
+ {
+  "table": "Localizable",
+  "key": "无法加载",
+  "en": "Unable to Load",
+  "de": "Laden nicht möglich",
+  "zh-Hant": "無法載入"
+ },
+ {
+  "table": "Localizable",
+  "key": "无法解析迷雾存档（未找到有效的 Sync 区块文件）。",
+  "en": "Couldn't parse the fog archive (no valid Sync block files found).",
+  "de": "Das Fog-Archiv konnte nicht ausgewertet werden (keine gültigen Sync-Blockdateien gefunden).",
+  "zh-Hant": "無法解析迷霧存檔（未找到有效的 Sync 區塊檔案）。"
+ },
+ {
+  "table": "Localizable",
+  "key": "无行进方向",
+  "en": "no direction of travel",
+  "de": "ohne Fahrtrichtung",
+  "zh-Hant": "無行進方向"
+ },
+ {
+  "table": "Localizable",
+  "key": "无锡",
+  "en": "Wuxi",
+  "de": "Wuxi",
+  "zh-Hant": "無錫"
+ },
+ {
+  "table": "Localizable",
+  "key": "日",
+  "en": "day",
+  "de": "Tag",
+  "zh-Hant": "日"
+ },
+ {
+  "table": "Localizable",
+  "key": "日内瓦",
+  "en": "Geneva",
+  "de": "Genf",
+  "zh-Hant": "日內瓦"
+ },
+ {
+  "table": "Localizable",
+  "key": "日期",
+  "en": "Day",
+  "de": "Tag",
+  "zh-Hant": "日期"
+ },
+ {
+  "table": "Localizable",
+  "key": "旧金山",
+  "en": "San Francisco",
+  "de": "San Francisco",
+  "zh-Hant": "舊金山"
+ },
+ {
+  "table": "Localizable",
+  "key": "时光机",
+  "en": "Timelapse",
+  "de": "Zeitraffer",
+  "zh-Hant": "時光機"
+ },
+ {
+  "table": "Localizable",
+  "key": "时光机：按真实时间回放整段历史——轨迹/迷雾从无到有生长，相机在活跃区域间自动巡游；底部时间轴可拖动，支持导出视频",
+  "en": "Timelapse: replays the whole history by its real timestamps — tracks/fog grow from nothing while the camera tours the active areas automatically; the timeline at the bottom is draggable, and the video can be exported",
+  "de": "Zeitraffer: spielt die gesamte Historie nach echter Zeit ab – Tracks/Nebel wachsen aus dem Nichts, die Kamera wandert automatisch zwischen aktiven Gebieten; die Zeitleiste unten ist ziehbar, Videoexport möglich",
+  "zh-Hant": "時光機：按真實時間回放整段歷史——軌跡/迷霧從無到有生長，相機在活躍區域間自動巡遊；底部時間軸可拖曳，支援匯出影片"
+ },
+ {
+  "table": "Localizable",
+  "key": "时刻",
+  "en": "time of day",
+  "de": "Uhrzeit",
+  "zh-Hant": "時刻"
+ },
+ {
+  "table": "Localizable",
+  "key": "时长",
+  "en": "Duration",
+  "de": "Dauer",
+  "zh-Hant": "時長"
+ },
+ {
+  "table": "Localizable",
+  "key": "时间",
+  "en": "Time",
+  "de": "Zeit",
+  "zh-Hant": "時間"
+ },
+ {
+  "table": "Localizable",
+  "key": "时间 · 直线距离 · 时长 · 隐含速度。点一行飞过去并把两端设为锚点",
+  "en": "Time · straight-line distance · duration · implied speed. Click a row to fly there and set both ends as anchors",
+  "de": "Zeit · Luftlinie · Dauer · implizites Tempo. Zeile anklicken, um hinzufliegen und beide Enden als Anker zu setzen",
+  "zh-Hant": "時間 · 直線距離 · 時長 · 隱含速度。點一列飛過去並把兩端設為錨點"
+ },
+ {
+  "table": "Localizable",
+  "key": "时间空洞 · %@",
+  "en": "Time gap · %@",
+  "de": "Zeitlücke · %@",
+  "zh-Hant": "時間空洞 · %@"
+ },
+ {
+  "table": "Localizable",
+  "key": "时间筛选",
+  "en": "Time Filter",
+  "de": "Zeitfilter",
+  "zh-Hant": "時間篩選"
+ },
+ {
+  "table": "Localizable",
+  "key": "昆明",
+  "en": "Kunming",
+  "de": "Kunming",
+  "zh-Hant": "昆明"
+ },
+ {
+  "table": "Localizable",
+  "key": "显示模式",
+  "en": "Display Mode",
+  "de": "Anzeigemodus",
+  "zh-Hant": "顯示模式"
+ },
+ {
+  "table": "Localizable",
+  "key": "显示此存档",
+  "en": "Show This Archive",
+  "de": "Dieses Archiv anzeigen",
+  "zh-Hant": "顯示此存檔"
+ },
+ {
+  "table": "Localizable",
+  "key": "显示此文件的消雾轨迹",
+  "en": "Show This File's Fog-Clearing Track",
+  "de": "Nebelaufdeckung dieser Datei anzeigen",
+  "zh-Hant": "顯示此檔案的消霧軌跡"
+ },
+ {
+  "table": "Localizable",
+  "key": "曼谷",
+  "en": "Bangkok",
+  "de": "Bangkok",
+  "zh-Hant": "曼谷"
+ },
+ {
+  "table": "Localizable",
+  "key": "月",
+  "en": "month",
+  "de": "Monat",
+  "zh-Hant": "月"
+ },
+ {
+  "table": "Localizable",
+  "key": "月份",
+  "en": "Month",
+  "de": "Monat",
+  "zh-Hant": "月份"
+ },
+ {
+  "table": "Localizable",
+  "key": "有 %lld 处只看速度判断不了（区域列车/ICE 与高速公路速度重叠，或手机跳点让单步速度不可信），已默认跳过。点一行可在地图上看：",
+  "en": "%lld gaps can't be judged by speed alone (regional trains/ICE overlap with motorway speeds, or phone position jumps make single-step speeds unreliable) and have been skipped by default. Click a row to see it on the map:",
+  "de": "%lld Lücken lassen sich allein nach dem Tempo nicht beurteilen (Regionalzüge/ICE überschneiden sich mit Autobahntempo, oder Positionssprünge des Handys machen Einzelschritt-Tempi unzuverlässig) und wurden standardmäßig übersprungen. Zeile anklicken, um sie auf der Karte zu sehen:",
+  "zh-Hant": "有 %lld 處只看速度判斷不了（區域列車/ICE 與高速公路速度重疊，或手機跳點讓單步速度不可信），已預設跳過。點一列可在地圖上看：",
+  "plural": {
+   "en": {
+    "one": "%lld gap can't be judged by speed alone (regional trains/ICE overlap with motorway speeds, or phone position jumps make single-step speeds unreliable) and has been skipped by default. Click a row to see it on the map:",
+    "other": "%lld gaps can't be judged by speed alone (regional trains/ICE overlap with motorway speeds, or phone position jumps make single-step speeds unreliable) and have been skipped by default. Click a row to see it on the map:"
+   },
+   "de": {
+    "one": "%lld Lücke lässt sich allein nach dem Tempo nicht beurteilen (Regionalzüge/ICE überschneiden sich mit Autobahntempo, oder Positionssprünge des Handys machen Einzelschritt-Tempi unzuverlässig) und wurde standardmäßig übersprungen. Zeile anklicken, um sie auf der Karte zu sehen:",
+    "other": "%lld Lücken lassen sich allein nach dem Tempo nicht beurteilen (Regionalzüge/ICE überschneiden sich mit Autobahntempo, oder Positionssprünge des Handys machen Einzelschritt-Tempi unzuverlässig) und wurden standardmäßig übersprungen. Zeile anklicken, um sie auf der Karte zu sehen:"
+   }
+  }
+ },
+ {
+  "table": "Localizable",
+  "key": "有疑点 = 道路几何取到了，但有一条或多条异常：绕路明显、路径比直线长太多、两端离路远、按断档时长算车速不合理、没能按行进方向约束等。悬停某一行的状态看具体是哪条；落地前建议点进去在地图上看一眼",
+  "en": "With warnings = road geometry was fetched, but with one or more anomalies: an obvious detour, a path much longer than the straight line, ends far from the road, an implausible speed for the gap's duration, no constraint by direction of travel, etc. Hover over a row's status to see which one; before applying, it's worth clicking in for a look on the map",
+  "de": "Mit Warnungen = Straßengeometrie wurde abgerufen, aber mit einer oder mehreren Auffälligkeiten: deutlicher Umweg, Weg viel länger als die Luftlinie, Enden weit von der Straße, unplausibles Tempo für die Lückendauer, keine Einschränkung nach Fahrtrichtung möglich usw. Mit der Maus über den Status einer Zeile fahren, um zu sehen, welche; vor dem Übernehmen am besten anklicken und auf der Karte prüfen",
+  "zh-Hant": "有疑點 = 道路幾何取到了，但有一條或多條異常：繞路明顯、路徑比直線長太多、兩端離路遠、按斷檔時長算車速不合理、沒能按行進方向約束等。滑鼠停在某一列的狀態上可看具體是哪條；落地前建議點進去在地圖上看一眼"
+ },
+ {
+  "table": "Localizable",
+  "key": "服务器：%@",
+  "en": "Server: %@",
+  "de": "Server: %@",
+  "zh-Hant": "伺服器：%@"
+ }
+]

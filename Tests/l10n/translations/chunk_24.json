@@ -1,0 +1,14 @@
+[
+ {"table": "Localizable", "key": "单处卡片 · 点列表某一行后窗口折叠，方便看主地图",
+  "en": "Single-gap card · the window folds up after you click a row, so the main map stays visible",
+  "de": "Einzelkarte · nach Klick auf eine Zeile wird das Fenster eingeklappt, damit die Hauptkarte frei bleibt",
+  "zh-Hant": "單處卡片 · 點清單某一列後視窗摺疊，方便看主地圖"},
+ {"table": "Localizable", "key": "在主地图上看",
+  "en": "Show on Main Map",
+  "de": "Auf Hauptkarte zeigen",
+  "zh-Hant": "在主地圖上看"},
+ {"table": "Localizable", "key": "主窗口的地图飞到这一处（避开面板），主窗口置前；这个窗口仍可用 ‹ › 或方向键继续翻。不改主窗口的模式",
+  "en": "Flies the main window's map to this change (clear of the panels) and brings the main window forward; this window can still page with ‹ › or the arrow keys. The main window's mode is not changed",
+  "de": "Bewegt die Karte des Hauptfensters zu dieser Änderung (frei von den Panels) und holt das Hauptfenster nach vorn; in diesem Fenster kann weiter mit ‹ › oder den Pfeiltasten geblättert werden. Der Modus des Hauptfensters bleibt unverändert",
+  "zh-Hant": "主視窗的地圖飛到這一處（避開面板），主視窗移到最前；這個視窗仍可用 ‹ › 或方向鍵繼續翻。不改主視窗的模式"}
+]

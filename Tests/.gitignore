@@ -1,0 +1,15 @@
+# 测试副本、运行产物、生成数据（都能重建）
+ui/GPXPointViewer.app/
+ui/app.noindex/
+ui/io/
+ui/perf/
+ui/app.log
+__pycache__/
+synth/runner/synthrunner
+synth/runner/build.log
+synth/*/*.gpx
+synth/*/*.csv
+synth/*/*.pkl
+synth/*/_work/
+synth/*/tools/tmp/
+probes/**/bin/

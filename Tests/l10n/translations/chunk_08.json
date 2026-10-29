@@ -1,0 +1,502 @@
+[
+ {
+  "table": "Localizable",
+  "key": "服务连不上，已停止",
+  "en": "Services unreachable, stopped",
+  "de": "Dienste nicht erreichbar, angehalten",
+  "zh-Hant": "服務連不上，已停止"
+ },
+ {
+  "table": "Localizable",
+  "key": "未命名轨迹",
+  "en": "Untitled Track",
+  "de": "Unbenannter Track",
+  "zh-Hant": "未命名軌跡"
+ },
+ {
+  "table": "Localizable",
+  "key": "未知来源",
+  "en": "Unknown source",
+  "de": "Unbekannte Quelle",
+  "zh-Hant": "未知來源"
+ },
+ {
+  "table": "Localizable",
+  "key": "未能按行进方向约束，路径可能吸到对向车道",
+  "en": "Couldn't constrain by direction of travel; the route may snap to the opposite carriageway",
+  "de": "Keine Einschränkung nach Fahrtrichtung möglich; die Route liegt womöglich auf der Gegenfahrbahn",
+  "zh-Hant": "未能按行進方向約束，路徑可能吸到對向車道"
+ },
+ {
+  "table": "Localizable",
+  "key": "本地",
+  "en": "Local",
+  "de": "Lokal",
+  "zh-Hant": "本地"
+ },
+ {
+  "table": "Localizable",
+  "key": "本地判定：乱跳簇两锚点太近或隐含速度不合理，不取路径，只删区间内的乱跳点",
+  "en": "Decided locally: the jitter cluster's two anchors are too close or the implied speed is implausible, so no route is fetched; only the jitter points in the range are deleted",
+  "de": "Lokal entschieden: Die beiden Anker der Sprunggruppe liegen zu nah beieinander oder das implizite Tempo ist unplausibel; es wird keine Route abgerufen, nur die Sprungpunkte im Bereich werden gelöscht",
+  "zh-Hant": "本地判定：亂跳簇兩錨點太近或隱含速度不合理，不取路徑，只刪區間內的亂跳點"
+ },
+ {
+  "table": "Localizable",
+  "key": "本次会话对这条轨迹的全部修改（补点、删点）：总览看改了哪里，详细逐处校验，每一处可一键还原",
+  "en": "All changes to this track in this session (gap fills, deletions): Overview shows where it changed, Details checks each change, and each one can be reverted with one click",
+  "de": "Alle Änderungen an diesem Track in dieser Sitzung (Lückenfüllungen, Löschungen): Die Übersicht zeigt, wo geändert wurde, unter Details wird jede Stelle geprüft, und jede lässt sich mit einem Klick zurücksetzen",
+  "zh-Hant": "本次工作階段對這條軌跡的全部修改（補點、刪點）：總覽看改了哪裡，詳細逐處校驗，每一處可一鍵還原"
+ },
+ {
+  "table": "Localizable",
+  "key": "本次会话的全部修改：总览 / 逐处校验 / 一键还原某一处",
+  "en": "All changes in this session: overview / check each one / revert any single change with one click",
+  "de": "Alle Änderungen dieser Sitzung: Übersicht / einzeln prüfen / einzelne Änderung mit einem Klick zurücksetzen",
+  "zh-Hant": "本次工作階段的全部修改：總覽 / 逐處校驗 / 一鍵還原某一處"
+ },
+ {
+  "table": "Localizable",
+  "key": "本次会话还没有修改。补点落地或圈选删除后，会在这里逐条列出：总览看整条轨迹上改了哪里，详细逐处校验，每一处都能一键还原。",
+  "en": "No changes in this session yet. Once a gap fill is applied or points are deleted with the lasso, each change is listed here: Overview shows where the whole track changed, Details checks each change, and every change can be reverted with one click.",
+  "de": "In dieser Sitzung gibt es noch keine Änderungen. Sobald eine Lückenfüllung übernommen wurde oder Punkte per Lasso gelöscht wurden, erscheint hier jede Änderung einzeln: Die Übersicht zeigt, wo sich der ganze Track geändert hat, unter Details wird jede Stelle geprüft, und jede lässt sich mit einem Klick zurücksetzen.",
+  "zh-Hant": "本次工作階段還沒有修改。補點落地或圈選刪除後，會在這裡逐條列出：總覽看整條軌跡上改了哪裡，詳細逐處校驗，每一處都能一鍵還原。"
+ },
+ {
+  "table": "Localizable",
+  "key": "本段 v95 %@ km/h（v50 %@）：115–150 之间，区域列车与高速公路重叠 → 不确定，按单处速度规则",
+  "en": "Segment v95 %1$@ km/h (v50 %2$@): between 115 and 150, regional trains overlap with motorways → uncertain, the per-gap speed rule applies",
+  "de": "Abschnitt v95 %1$@ km/h (v50 %2$@): zwischen 115 und 150 überschneiden sich Regionalzüge und Autobahn → unklar, es gilt die Tempo-Regel je Lücke",
+  "zh-Hant": "本段 v95 %1$@ km/h（v50 %2$@）：115–150 之間，區域列車與高速公路重疊 → 不確定，按單處速度規則"
+ },
+ {
+  "table": "Localizable",
+  "key": "本段 v95 %@ km/h（v50 %@）：≤115 → 公路",
+  "en": "Segment v95 %1$@ km/h (v50 %2$@): ≤115 → Road",
+  "de": "Abschnitt v95 %1$@ km/h (v50 %2$@): ≤115 → Straße",
+  "zh-Hant": "本段 v95 %1$@ km/h（v50 %2$@）：≤115 → 公路"
+ },
+ {
+  "table": "Localizable",
+  "key": "本段 v95 %@ km/h（v50 %@）：≥150，大巴到不了 → 铁路（小汽车也可能，请看一眼）",
+  "en": "Segment v95 %1$@ km/h (v50 %2$@): ≥150, too fast for a bus → Rail (could also be a car, please take a look)",
+  "de": "Abschnitt v95 %1$@ km/h (v50 %2$@): ≥150, für Busse zu schnell → Bahn (könnte auch ein Pkw sein, bitte prüfen)",
+  "zh-Hant": "本段 v95 %1$@ km/h（v50 %2$@）：≥150，巴士到不了 → 鐵路（轎車也可能，請看一眼）"
+ },
+ {
+  "table": "Localizable",
+  "key": "本段全按铁路",
+  "en": "Segment as Rail",
+  "de": "Abschnitt als Bahn",
+  "zh-Hant": "本段全按鐵路"
+ },
+ {
+  "table": "Localizable",
+  "key": "札幌",
+  "en": "Sapporo",
+  "de": "Sapporo",
+  "zh-Hant": "札幌"
+ },
+ {
+  "table": "Localizable",
+  "key": "杭州",
+  "en": "Hangzhou",
+  "de": "Hangzhou",
+  "zh-Hant": "杭州"
+ },
+ {
+  "table": "Localizable",
+  "key": "构建对比视图…",
+  "en": "Building compare view…",
+  "de": "Vergleichsansicht wird erstellt…",
+  "zh-Hant": "建立對比檢視…"
+ },
+ {
+  "table": "Localizable",
+  "key": "构建轨迹…",
+  "en": "Building track…",
+  "de": "Track wird aufgebaut…",
+  "zh-Hant": "建立軌跡…"
+ },
+ {
+  "table": "Localizable",
+  "key": "柏林",
+  "en": "Berlin",
+  "de": "Berlin",
+  "zh-Hant": "柏林"
+ },
+ {
+  "table": "Localizable",
+  "key": "标准",
+  "en": "Standard",
+  "de": "Standard",
+  "zh-Hant": "標準"
+ },
+ {
+  "table": "Localizable",
+  "key": "样式",
+  "en": "Style",
+  "de": "Stil",
+  "zh-Hant": "樣式"
+ },
+ {
+  "table": "Localizable",
+  "key": "格子",
+  "en": "Cells",
+  "de": "Zellen",
+  "zh-Hant": "格子"
+ },
+ {
+  "table": "Localizable",
+  "key": "桂林",
+  "en": "Guilin",
+  "de": "Guilin",
+  "zh-Hant": "桂林"
+ },
+ {
+  "table": "Localizable",
+  "key": "棱角",
+  "en": "Blocky",
+  "de": "Kantig",
+  "zh-Hant": "稜角"
+ },
+ {
+  "table": "Localizable",
+  "key": "橙 = 草稿有警告",
+  "en": "Orange = draft has warnings",
+  "de": "Orange = Entwurf mit Warnungen",
+  "zh-Hant": "橙 = 草稿有警告"
+ },
+ {
+  "table": "Localizable",
+  "key": "橙线 = 补点走向（拖顶点调整，双击删；拖段中点加顶点）",
+  "en": "Orange line = fill path (drag a vertex to adjust, double-click to delete; drag a segment's midpoint to add a vertex)",
+  "de": "Orange Linie = Füllverlauf (Stützpunkt ziehen zum Anpassen, Doppelklick zum Löschen; Segmentmitte ziehen zum Hinzufügen eines Stützpunkts)",
+  "zh-Hant": "橙線 = 補點走向（拖頂點調整，按兩下刪；拖段中點加頂點）"
+ },
+ {
+  "table": "Localizable",
+  "key": "正在做什么：把 %lld 段里抽出的点合成 %lld 批，每批去问 Overpass（公共 OpenStreetMap 查询服务，一批要排队 30–60 秒）这些点附近有没有铁路。判完的段会出现在下面（已判 %lld/%lld 段）；等不及可以先在下面的表里逐行手选，停止也行。",
+  "en": "What's happening: points sampled from the segments (%1$lld) are grouped into query batches (%2$lld), and for each batch Overpass (the public OpenStreetMap query service; each batch waits 30–60 seconds in the queue) is asked whether there is a railway near those points. Classified segments appear below (%3$lld/%4$lld classified); if you can't wait, choose manually row by row in the table below, or stop.",
+  "de": "Was gerade passiert: Die aus den Abschnitten (%1$lld) entnommenen Punkte werden zu Abfragestapeln (%2$lld) zusammengefasst; für jeden Stapel wird Overpass (der öffentliche OpenStreetMap-Abfragedienst, pro Stapel 30–60 Sekunden Warteschlange) gefragt, ob es in der Nähe dieser Punkte eine Bahnstrecke gibt. Eingestufte Abschnitte erscheinen unten (%3$lld/%4$lld eingestuft); wenn Sie nicht warten möchten, können Sie in der Tabelle unten schon Zeile für Zeile manuell wählen oder stoppen.",
+  "zh-Hant": "正在做什麼：把 %1$lld 段裡抽出的點合成 %2$lld 批，每批去問 Overpass（公共 OpenStreetMap 查詢服務，一批要排隊 30–60 秒）這些點附近有沒有鐵路。判完的段會出現在下面（已判 %3$lld/%4$lld 段）；等不及可以先在下面的表格裡逐列手選，停止也行。"
+ },
+ {
+  "table": "Localizable",
+  "key": "正在做什么：把每处断档两端的坐标（连同前后一小段真实轨迹）发给公共路线服务，要回「车在路上会怎么走」的道路几何。OSRM 和 Valhalla 是两个都用 OpenStreetMap 数据的免费路线服务，各开一路同时取（每个服务 1 秒最多 1 次，所以快不了更多）。",
+  "en": "What's happening: the coordinates at both ends of each gap (plus a short stretch of the real track before and after) are sent to public routing services, which return the road geometry of “how a car would drive there”. OSRM and Valhalla are two free routing services that both use OpenStreetMap data; both are queried at the same time (each service allows at most 1 request per second, so it can't go any faster).",
+  "de": "Was gerade passiert: Die Koordinaten an beiden Enden jeder Lücke (samt einem kurzen Stück echten Tracks davor und danach) werden an öffentliche Routingdienste geschickt, die die Straßengeometrie zurückgeben – „wie ein Auto dort fahren würde“. OSRM und Valhalla sind zwei kostenlose Routingdienste, die beide OpenStreetMap-Daten nutzen; beide werden gleichzeitig abgefragt (jeder Dienst erlaubt höchstens 1 Anfrage pro Sekunde, schneller geht es also nicht).",
+  "zh-Hant": "正在做什麼：把每處斷檔兩端的座標（連同前後一小段真實軌跡）傳給公共路線服務，要回「車在路上會怎麼走」的道路幾何。OSRM 和 Valhalla 是兩個都用 OpenStreetMap 資料的免費路線服務，各開一路同時取（每個服務 1 秒最多 1 次，所以快不了更多）。"
+ },
+ {
+  "table": "Localizable",
+  "key": "此文件的点颜色",
+  "en": "Point color for this file",
+  "de": "Punktfarbe dieser Datei",
+  "zh-Hant": "此檔案的點顏色"
+ },
+ {
+  "table": "Localizable",
+  "key": "此设备不支持 Metal，无法渲染点云。",
+  "en": "This device doesn't support Metal, so the point cloud can't be rendered.",
+  "de": "Dieses Gerät unterstützt Metal nicht; die Punktwolke kann nicht gerendert werden.",
+  "zh-Hant": "此裝置不支援 Metal，無法渲染點雲。"
+ },
+ {
+  "table": "Localizable",
+  "key": "武汉",
+  "en": "Wuhan",
+  "de": "Wuhan",
+  "zh-Hant": "武漢"
+ },
+ {
+  "table": "Localizable",
+  "key": "段",
+  "en": "Seg.",
+  "de": "Abs.",
+  "zh-Hant": "段"
+ },
+ {
+  "table": "Localizable",
+  "key": "每两点之间都画箭头，或每隔一段/两段画一个（箭杆照常连）",
+  "en": "Draw an arrow between every two points, or only on every second/third segment (the line itself stays continuous)",
+  "de": "Zwischen je zwei Punkten einen Pfeil zeichnen oder nur auf jedem zweiten/dritten Segment (die Linie bleibt durchgehend)",
+  "zh-Hant": "每兩點之間都畫箭頭，或每隔一段/兩段畫一個（箭桿照常連）"
+ },
+ {
+  "table": "Localizable",
+  "key": "每段抽 3–8 个行驶中的点，一次 Overpass 查 150 m 内铁路，只按离铁路距离投票",
+  "en": "Samples 3–8 moving points per segment, queries Overpass once for railways within 150 m, and votes only by distance to the railway",
+  "de": "Pro Abschnitt 3–8 Punkte in Fahrt entnehmen, Overpass einmal nach Bahnstrecken im Umkreis von 150 m abfragen und nur nach dem Abstand zur Bahn abstimmen",
+  "zh-Hant": "每段抽 3–8 個行駛中的點，一次 Overpass 查 150 m 內鐵路，只按離鐵路距離投票"
+ },
+ {
+  "table": "Localizable",
+  "key": "每段都加",
+  "en": "Every Segment",
+  "de": "Jedes Segment",
+  "zh-Hant": "每段都加"
+ },
+ {
+  "table": "Localizable",
+  "key": "汉堡",
+  "en": "Hamburg",
+  "de": "Hamburg",
+  "zh-Hant": "漢堡"
+ },
+ {
+  "table": "Localizable",
+  "key": "沈阳",
+  "en": "Shenyang",
+  "de": "Shenyang",
+  "zh-Hant": "瀋陽"
+ },
+ {
+  "table": "Localizable",
+  "key": "没拿到地图数据，按速度 v95 %lld",
+  "en": "No map data, using speed v95 %lld",
+  "de": "Keine Kartendaten, nach Geschwindigkeit v95 %lld",
+  "zh-Hant": "沒拿到地圖資料，按速度 v95 %lld"
+ },
+ {
+  "table": "Localizable",
+  "key": "没有结果",
+  "en": "No result",
+  "de": "Kein Ergebnis",
+  "zh-Hant": "沒有結果"
+ },
+ {
+  "table": "Localizable",
+  "key": "没有网络",
+  "en": "No network",
+  "de": "Kein Netzwerk",
+  "zh-Hant": "沒有網路"
+ },
+ {
+  "table": "Localizable",
+  "key": "河内",
+  "en": "Hanoi",
+  "de": "Hanoi",
+  "zh-Hant": "河內"
+ },
+ {
+  "table": "Localizable",
+  "key": "沿公路取路径（OSRM · OpenStreetMap）",
+  "en": "Fetch Route Along Roads (OSRM · OpenStreetMap)",
+  "de": "Route entlang der Straßen abrufen (OSRM · OpenStreetMap)",
+  "zh-Hant": "沿公路取路徑（OSRM · OpenStreetMap）"
+ },
+ {
+  "table": "Localizable",
+  "key": "沿折线按间距插点、时间匀速插值，确认后落地",
+  "en": "Insert evenly spaced points along the polyline with times interpolated at constant speed; applied after you confirm",
+  "de": "Punkte in festem Abstand entlang der Polylinie einfügen, Zeiten mit konstanter Geschwindigkeit interpolieren; nach Bestätigung übernehmen",
+  "zh-Hant": "沿折線按間距插點、時間勻速插值，確認後落地"
+ },
+ {
+  "table": "Localizable",
+  "key": "沿铁路取路径（Overpass · OpenStreetMap）",
+  "en": "Fetch Route Along Railways (Overpass · OpenStreetMap)",
+  "de": "Route entlang der Bahnstrecken abrufen (Overpass · OpenStreetMap)",
+  "zh-Hant": "沿鐵路取路徑（Overpass · OpenStreetMap）"
+ },
+ {
+  "table": "Localizable",
+  "key": "法兰克福",
+  "en": "Frankfurt",
+  "de": "Frankfurt",
+  "zh-Hant": "法蘭克福"
+ },
+ {
+  "table": "Localizable",
+  "key": "波哥大",
+  "en": "Bogotá",
+  "de": "Bogotá",
+  "zh-Hant": "波哥大"
+ },
+ {
+  "table": "Localizable",
+  "key": "波士顿",
+  "en": "Boston",
+  "de": "Boston",
+  "zh-Hant": "波士頓"
+ },
+ {
+  "table": "Localizable",
+  "key": "洛杉矶",
+  "en": "Los Angeles",
+  "de": "Los Angeles",
+  "zh-Hant": "洛杉磯"
+ },
+ {
+  "table": "Localizable",
+  "key": "洛阳",
+  "en": "Luoyang",
+  "de": "Luoyang",
+  "zh-Hant": "洛陽"
+ },
+ {
+  "table": "Localizable",
+  "key": "测速",
+  "en": "Speed",
+  "de": "Geschwindigkeit",
+  "zh-Hant": "測速"
+ },
+ {
+  "table": "Localizable",
+  "key": "济南",
+  "en": "Jinan",
+  "de": "Jinan",
+  "zh-Hant": "濟南"
+ },
+ {
+  "table": "Localizable",
+  "key": "海口",
+  "en": "Haikou",
+  "de": "Haikou",
+  "zh-Hant": "海口"
+ },
+ {
+  "table": "Localizable",
+  "key": "海拔",
+  "en": "Elevation",
+  "de": "Höhe",
+  "zh-Hant": "海拔"
+ },
+ {
+  "table": "Localizable",
+  "key": "深圳",
+  "en": "Shenzhen",
+  "de": "Shenzhen",
+  "zh-Hant": "深圳"
+ },
+ {
+  "table": "Localizable",
+  "key": "混合",
+  "en": "Hybrid",
+  "de": "Hybrid",
+  "zh-Hant": "混合"
+ },
+ {
+  "table": "Localizable",
+  "key": "清理 %lld 个回放点？",
+  "en": "Clean up %lld replay points?",
+  "de": "%lld Wiederholungspunkte bereinigen?",
+  "zh-Hant": "清理 %lld 個回放點？",
+  "plural": {
+   "en": {
+    "one": "Clean up %lld replay point?",
+    "other": "Clean up %lld replay points?"
+   },
+   "de": {
+    "one": "%lld Wiederholungspunkt bereinigen?",
+    "other": "%lld Wiederholungspunkte bereinigen?"
+   }
+  }
+ },
+ {
+  "table": "Localizable",
+  "key": "清理回放点 %lld",
+  "en": "Clean Up Replay Points (%lld)",
+  "de": "Wiederholungspunkte bereinigen (%lld)",
+  "zh-Hant": "清理回放點 %lld"
+ },
+ {
+  "table": "Localizable",
+  "key": "清除",
+  "en": "Clear",
+  "de": "Entfernen",
+  "zh-Hant": "清除"
+ },
+ {
+  "table": "Localizable",
+  "key": "清除差异高亮",
+  "en": "Clear difference highlighting",
+  "de": "Hervorhebung der Unterschiede entfernen",
+  "zh-Hant": "清除差異醒目標示"
+ },
+ {
+  "table": "Localizable",
+  "key": "清除当前已导入的文件 / 迷雾存档",
+  "en": "Clear the currently imported files / fog archive",
+  "de": "Aktuell importierte Dateien / Fog-Archiv entfernen",
+  "zh-Hant": "清除目前已匯入的檔案 / 迷霧存檔"
+ },
+ {
+  "table": "Localizable",
+  "key": "温哥华",
+  "en": "Vancouver",
+  "de": "Vancouver",
+  "zh-Hant": "溫哥華"
+ },
+ {
+  "table": "Localizable",
+  "key": "渲染 %@ 图像…",
+  "en": "Rendering %@ image…",
+  "de": "%@-Bild wird gerendert…",
+  "zh-Hant": "渲染 %@ 影像…"
+ },
+ {
+  "table": "Localizable",
+  "key": "澳门",
+  "en": "Macau",
+  "de": "Macau",
+  "zh-Hant": "澳門"
+ },
+ {
+  "table": "Localizable",
+  "key": "灰 = 直线",
+  "en": "Gray = straight line",
+  "de": "Grau = Gerade",
+  "zh-Hant": "灰 = 直線"
+ },
+ {
+  "table": "Localizable",
+  "key": "点 #%@",
+  "en": "Point #%@",
+  "de": "Punkt #%@",
+  "zh-Hant": "點 #%@"
+ },
+ {
+  "table": "Localizable",
+  "key": "点一行：主地图飞到那处断档（两端设为锚点），自己看是公路还是铁路",
+  "en": "Click a row: the main map flies to that gap (both ends set as anchors) so you can see for yourself whether it's road or rail",
+  "de": "Zeile anklicken: Die Hauptkarte fliegt zu dieser Lücke (beide Enden als Anker gesetzt), damit Sie selbst sehen, ob Straße oder Bahn",
+  "zh-Hant": "點一列：主地圖飛到那處斷檔（兩端設為錨點），自己看是公路還是鐵路"
+ },
+ {
+  "table": "Localizable",
+  "key": "点击在地图上高亮此文件的轨迹",
+  "en": "Click to highlight this file's track on the map",
+  "de": "Klicken, um den Track dieser Datei auf der Karte hervorzuheben",
+  "zh-Hant": "按一下以在地圖上醒目標示此檔案的軌跡"
+ },
+ {
+  "table": "Localizable",
+  "key": "点击地图空白处取消固定",
+  "en": "Click an empty spot on the map to unpin",
+  "de": "Zum Lösen auf eine freie Stelle der Karte klicken",
+  "zh-Hant": "按一下地圖空白處取消固定"
+ },
+ {
+  "table": "Localizable",
+  "key": "点击文件名可在地图上高亮对应轨迹",
+  "en": "Click a file name to highlight its track on the map",
+  "de": "Auf einen Dateinamen klicken, um den zugehörigen Track auf der Karte hervorzuheben",
+  "zh-Hant": "按一下檔名可在地圖上醒目標示對應軌跡"
+ },
+ {
+  "table": "Localizable",
+  "key": "点大小",
+  "en": "Size",
+  "de": "Größe",
+  "zh-Hant": "點大小"
+ },
+ {
+  "table": "Localizable",
+  "key": "点数",
+  "en": "Points",
+  "de": "Punkte",
+  "zh-Hant": "點數"
+ }
+]

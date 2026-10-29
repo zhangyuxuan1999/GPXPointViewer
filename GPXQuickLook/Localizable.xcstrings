@@ -1,0 +1,144 @@
+{
+  "sourceLanguage": "zh-Hans",
+  "strings": {
+    "%@ ~ %@": {
+      "comment": "Quick Look preview summary line: date range of the track; first %@ = first day, second %@ = last day (both yyyy-MM-dd); en/de use an en dash: %1$@ – %2$@",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ – %2$@"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ – %2$@"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ ~ %2$@"
+          }
+        }
+      }
+    },
+    "%@ 个点": {
+      "comment": "Quick Look preview summary line: number of track points in the file; %@ = point count, already formatted with grouping (e.g. 12,345)",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ Punkte"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ points"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ 個點"
+          }
+        }
+      }
+    },
+    "抽样显示": {
+      "comment": "Quick Look preview summary line, last item: the file is very large, so only an evenly spaced sample of its points is drawn",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stichprobenansicht"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sampled view"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "抽樣顯示"
+          }
+        }
+      }
+    },
+    "文件为空或无法读取。": {
+      "comment": "Error message when opening a track file: the file is empty or cannot be read",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die Datei ist leer oder kann nicht gelesen werden."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The file is empty or can't be read."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "檔案為空或無法讀取。"
+          }
+        }
+      }
+    },
+    "文件里没有找到任何点（<trkpt>/<rtept>/<wpt>）。": {
+      "comment": "Error message when opening a track file: no points found; <trkpt>/<rtept>/<wpt> are GPX element names, keep them verbatim",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "In der Datei wurden keine Punkte gefunden (<trkpt>/<rtept>/<wpt>)."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No points found in the file (<trkpt>/<rtept>/<wpt>)."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "檔案裡沒有找到任何點（<trkpt>/<rtept>/<wpt>）。"
+          }
+        }
+      }
+    },
+    "无法解析迷雾存档（未找到有效的 Sync 区块文件）。": {
+      "comment": "Error message when opening a Fog of World archive (.fwdb): it could not be parsed; 'Sync' is a folder name inside the archive, keep it verbatim",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Das Fog-Archiv konnte nicht ausgewertet werden (keine gültigen Sync-Blockdateien gefunden)."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couldn't parse the fog archive (no valid Sync block files found)."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "無法解析迷霧存檔（未找到有效的 Sync 區塊檔案）。"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

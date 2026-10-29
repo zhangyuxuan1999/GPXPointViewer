@@ -1,0 +1,377 @@
+[
+ {
+  "key": "%lld 天",
+  "en": "%lld days",
+  "de": "%lld Tage",
+  "zh-Hant": "%lld 天",
+  "plural": {
+   "en": {
+    "one": "%lld day",
+    "other": "%lld days"
+   },
+   "de": {
+    "one": "%lld Tag",
+    "other": "%lld Tage"
+   }
+  },
+  "table": "Localizable"
+ },
+ {
+  "key": "下级行政区都没有数据",
+  "en": "No data in any sub-region",
+  "de": "Keine Daten in den untergeordneten Regionen",
+  "zh-Hant": "下級行政區都沒有資料",
+  "table": "Localizable"
+ },
+ {
+  "key": "先载入 GPX / CSV 轨迹或 .fwdb 存档",
+  "en": "Load a GPX / CSV track or a .fwdb archive first",
+  "de": "Zuerst einen GPX-/CSV-Track oder ein .fwdb-Archiv laden",
+  "zh-Hant": "先載入 GPX / CSV 軌跡或 .fwdb 存檔",
+  "table": "Localizable"
+ },
+ {
+  "key": "共 %lld 点",
+  "en": "%lld points in total",
+  "de": "%lld Punkte insgesamt",
+  "zh-Hant": "共 %lld 點",
+  "plural": {
+   "en": {
+    "one": "%lld point in total",
+    "other": "%lld points in total"
+   },
+   "de": {
+    "one": "%lld Punkt insgesamt",
+    "other": "%lld Punkte insgesamt"
+   }
+  },
+  "table": "Localizable"
+ },
+ {
+  "key": "到访国家 %lld",
+  "en": "Countries visited: %lld",
+  "de": "Besuchte Länder: %lld",
+  "zh-Hant": "到訪國家 %lld",
+  "table": "Localizable"
+ },
+ {
+  "key": "到访天数",
+  "en": "Days visited",
+  "de": "Besuchstage",
+  "zh-Hant": "到訪天數",
+  "table": "Localizable"
+ },
+ {
+  "key": "到访的下级行政区数",
+  "en": "Number of sub-regions visited",
+  "de": "Anzahl der besuchten untergeordneten Regionen",
+  "zh-Hant": "到訪的下級行政區數",
+  "table": "Localizable"
+ },
+ {
+  "key": "占上一级已探索面积的比例；点一下在地图上高亮并飞过去",
+  "en": "Share of the parent region's explored area; click to highlight it on the map and fly there",
+  "de": "Anteil an der erkundeten Fläche der übergeordneten Region; Klick hebt sie auf der Karte hervor und fliegt hin",
+  "zh-Hant": "佔上一級已探索面積的比例；點一下在地圖上高亮並飛過去",
+  "table": "Localizable"
+ },
+ {
+  "key": "占上一级点数的比例；点一下在地图上高亮并飞过去",
+  "en": "Share of the parent region's points; click to highlight it on the map and fly there",
+  "de": "Anteil an den Punkten der übergeordneten Region; Klick hebt sie auf der Karte hervor und fliegt hin",
+  "zh-Hant": "佔上一級點數的比例；點一下在地圖上高亮並飛過去",
+  "table": "Localizable"
+ },
+ {
+  "key": "占本区面积",
+  "en": "Of region area",
+  "de": "Anteil der Fläche",
+  "zh-Hant": "佔本區面積",
+  "table": "Localizable"
+ },
+ {
+  "key": "去掉主地图上的地区边界",
+  "en": "Remove the region outline from the main map",
+  "de": "Regionsumriss von der Hauptkarte entfernen",
+  "zh-Hant": "去掉主地圖上的地區邊界",
+  "table": "Localizable"
+ },
+ {
+  "key": "地区统计",
+  "en": "Region Stats",
+  "de": "Regionsstatistik",
+  "zh-Hant": "地區統計",
+  "table": "Localizable"
+ },
+ {
+  "key": "地区统计…",
+  "en": "Region Stats…",
+  "de": "Regionsstatistik…",
+  "zh-Hant": "地區統計…",
+  "table": "Localizable"
+ },
+ {
+  "key": "已探索 %@ km²",
+  "en": "Explored %@ km²",
+  "de": "Erkundet %@ km²",
+  "zh-Hant": "已探索 %@ km²",
+  "table": "Localizable"
+ },
+ {
+  "key": "已探索面积",
+  "en": "Explored area",
+  "de": "Erkundete Fläche",
+  "zh-Hant": "已探索面積",
+  "table": "Localizable"
+ },
+ {
+  "key": "按国家 / 省州（中国到地级市）统计：查看点模式按点数与到访天数，迷雾模式按解锁面积与等级（世界迷雾口径）；点一行在地图上高亮边界",
+  "en": "Statistics by country / state or province (China down to prefecture-level cities): point mode counts points and days visited, fog mode counts unlocked area and level (Fog of World method); click a row to highlight its outline on the map",
+  "de": "Statistik nach Land / Bundesland bzw. Provinz (China bis zur bezirksfreien Stadt): Punktmodus zählt Punkte und Besuchstage, Nebelmodus freigeschaltete Fläche und Level (nach Fog of World); Klick auf eine Zeile hebt den Umriss auf der Karte hervor",
+  "zh-Hant": "按國家 / 省州（中國到地級市）統計：檢視點模式按點數與到訪天數，迷霧模式按解鎖面積與等級（世界迷霧口徑）；點一行在地圖上高亮邊界",
+  "table": "Localizable"
+ },
+ {
+  "key": "未归属 %lld 格（海上 / 无边界数据）",
+  "en": "%lld cells unassigned (at sea / no boundary data)",
+  "de": "%lld Zellen nicht zugeordnet (auf See / keine Grenzdaten)",
+  "zh-Hant": "未歸屬 %lld 格（海上 / 無邊界資料）",
+  "plural": {
+   "en": {
+    "one": "%lld cell unassigned (at sea / no boundary data)",
+    "other": "%lld cells unassigned (at sea / no boundary data)"
+   },
+   "de": {
+    "one": "%lld Zelle nicht zugeordnet (auf See / keine Grenzdaten)",
+    "other": "%lld Zellen nicht zugeordnet (auf See / keine Grenzdaten)"
+   }
+  },
+  "table": "Localizable"
+ },
+ {
+  "key": "未归属 %lld 点（海上 / 无边界数据）",
+  "en": "%lld points unassigned (at sea / no boundary data)",
+  "de": "%lld Punkte nicht zugeordnet (auf See / keine Grenzdaten)",
+  "zh-Hant": "未歸屬 %lld 點（海上 / 無邊界資料）",
+  "plural": {
+   "en": {
+    "one": "%lld point unassigned (at sea / no boundary data)",
+    "other": "%lld points unassigned (at sea / no boundary data)"
+   },
+   "de": {
+    "one": "%lld Punkt nicht zugeordnet (auf See / keine Grenzdaten)",
+    "other": "%lld Punkte nicht zugeordnet (auf See / keine Grenzdaten)"
+   }
+  },
+  "table": "Localizable"
+ },
+ {
+  "key": "没有内置行政区边界数据（Regions.bin）",
+  "en": "No built-in region boundary data (Regions.bin)",
+  "de": "Keine eingebauten Regionsgrenzen (Regions.bin)",
+  "zh-Hant": "沒有內建行政區邊界資料（Regions.bin）",
+  "table": "Localizable"
+ },
+ {
+  "key": "没有点落在任何国家境内",
+  "en": "No points fall inside any country",
+  "de": "Kein Punkt liegt in einem Land",
+  "zh-Hant": "沒有點落在任何國家境內",
+  "table": "Localizable"
+ },
+ {
+  "key": "清除地区高亮",
+  "en": "Clear Region Highlight",
+  "de": "Regionshervorhebung entfernen",
+  "zh-Hant": "清除地區高亮",
+  "table": "Localizable"
+ },
+ {
+  "key": "清除高亮",
+  "en": "Clear Highlight",
+  "de": "Hervorhebung entfernen",
+  "zh-Hant": "清除高亮",
+  "table": "Localizable"
+ },
+ {
+  "key": "点",
+  "en": "Points",
+  "de": "Punkte",
+  "zh-Hant": "點",
+  "table": "Localizable"
+ },
+ {
+  "key": "点 = 落在该地区的轨迹点数与到访天数；迷雾 = 该地区内解锁的格子面积与等级（世界迷雾口径）",
+  "en": "Points = track points inside the region and days visited; Fog = unlocked cell area and level inside the region (Fog of World method)",
+  "de": "Punkte = Trackpunkte in der Region und Besuchstage; Nebel = freigeschaltete Zellenfläche und Level in der Region (nach Fog of World)",
+  "zh-Hant": "點 = 落在該地區的軌跡點數與到訪天數；迷霧 = 該地區內解鎖的格子面積與等級（世界迷霧口徑）",
+  "table": "Localizable"
+ },
+ {
+  "key": "等级 = ⌊√(已探索 km² × 250)⌋（世界迷雾口径）",
+  "en": "Level = ⌊√(explored km² × 250)⌋ (Fog of World method)",
+  "de": "Level = ⌊√(erkundete km² × 250)⌋ (nach Fog of World)",
+  "zh-Hant": "等級 = ⌊√(已探索 km² × 250)⌋（世界迷霧口徑）",
+  "table": "Localizable"
+ },
+ {
+  "key": "统计口径",
+  "en": "Metric",
+  "de": "Messgröße",
+  "zh-Hant": "統計口徑",
+  "table": "Localizable"
+ },
+ {
+  "key": "行政区",
+  "en": "Regions",
+  "de": "Regionen",
+  "zh-Hant": "行政區",
+  "table": "Localizable"
+ },
+ {
+  "key": "该地区没有更细的行政区划",
+  "en": "This region has no finer subdivisions",
+  "de": "Diese Region hat keine feinere Unterteilung",
+  "zh-Hant": "該地區沒有更細的行政區劃",
+  "table": "Localizable"
+ },
+ {
+  "key": "返回上一级",
+  "en": "Back to the parent region",
+  "de": "Zurück zur übergeordneten Region",
+  "zh-Hant": "返回上一級",
+  "table": "Localizable"
+ },
+ {
+  "key": "面积 %@ km²",
+  "en": "Area %@ km²",
+  "de": "Fläche %@ km²",
+  "zh-Hant": "面積 %@ km²",
+  "table": "Localizable"
+ },
+ {
+  "key": "首次 / 最近",
+  "en": "First / Last",
+  "de": "Erstes / Letztes",
+  "zh-Hant": "首次 / 最近",
+  "table": "Localizable"
+ },
+ {
+  "key": "其中未归属 %@ km²（%lld 格，海上 / 无边界数据）",
+  "en": "of which %@ km² unassigned (%lld cells, at sea / no boundary data)",
+  "de": "davon %@ km² nicht zugeordnet (%lld Zellen, auf See / keine Grenzdaten)",
+  "zh-Hant": "其中未歸屬 %@ km²（%lld 格，海上 / 無邊界資料）",
+  "plural": {
+   "en": {
+    "one": "of which %@ km² unassigned (%lld cell, at sea / no boundary data)",
+    "other": "of which %@ km² unassigned (%lld cells, at sea / no boundary data)"
+   },
+   "de": {
+    "one": "davon %@ km² nicht zugeordnet (%lld Zelle, auf See / keine Grenzdaten)",
+    "other": "davon %@ km² nicht zugeordnet (%lld Zellen, auf See / keine Grenzdaten)"
+   }
+  },
+  "table": "Localizable"
+ },
+ {
+  "key": "其余（未细分 / 下级边界之间）",
+  "en": "Remainder (not subdivided / between sub-region borders)",
+  "de": "Rest (nicht unterteilt / zwischen den Grenzen der Unterregionen)",
+  "zh-Hant": "其餘（未細分 / 下級邊界之間）",
+  "table": "Localizable"
+ },
+ {
+  "key": "到访的下级行政区 %lld 个",
+  "en": "%lld sub-regions visited",
+  "de": "%lld besuchte Unterregionen",
+  "zh-Hant": "到訪的下級行政區 %lld 個",
+  "plural": {
+   "en": {
+    "one": "%lld sub-region visited",
+    "other": "%lld sub-regions visited"
+   },
+   "de": {
+    "one": "%lld besuchte Unterregion",
+    "other": "%lld besuchte Unterregionen"
+   }
+  },
+  "table": "Localizable"
+ },
+ {
+  "key": "到访的下级行政区数（颜色越深 = 覆盖越全）",
+  "en": "Number of sub-regions visited (darker = more complete coverage)",
+  "de": "Anzahl der besuchten Unterregionen (dunkler = vollständiger abgedeckt)",
+  "zh-Hant": "到訪的下級行政區數（顏色越深 = 覆蓋越全）",
+  "table": "Localizable"
+ },
+ {
+  "key": "占上一级已探索面积的比例",
+  "en": "Share of the parent region's explored area",
+  "de": "Anteil an der erkundeten Fläche der übergeordneten Region",
+  "zh-Hant": "佔上一級已探索面積的比例",
+  "table": "Localizable"
+ },
+ {
+  "key": "占上一级点数的比例",
+  "en": "Share of the parent region's points",
+  "de": "Anteil an den Punkten der übergeordneten Region",
+  "zh-Hant": "佔上一級點數的比例",
+  "table": "Localizable"
+ },
+ {
+  "key": "探索占比",
+  "en": "Share explored",
+  "de": "Erkundungsanteil",
+  "zh-Hant": "探索佔比",
+  "table": "Localizable"
+ },
+ {
+  "key": "本区已探索面积按 ⌊√(km²×250)⌋ 折算的等级（与总览卡同一公式；世界迷雾分区等级的口径未公开，可能不同）",
+  "en": "Level derived from this region's explored area as ⌊√(km² × 250)⌋ (same formula as the overview card; Fog of World's per-region level method is unpublished and may differ)",
+  "de": "Level aus der erkundeten Fläche dieser Region als ⌊√(km² × 250)⌋ (gleiche Formel wie die Übersichtskarte; Fog of World veröffentlicht seine Regions-Level-Methode nicht, sie kann abweichen)",
+  "zh-Hant": "本區已探索面積按 ⌊√(km²×250)⌋ 折算的等級（與總覽卡同一公式；世界迷霧分區等級的口徑未公開，可能不同）",
+  "table": "Localizable"
+ },
+ {
+  "key": "查看下级行政区",
+  "en": "Show sub-regions",
+  "de": "Unterregionen anzeigen",
+  "zh-Hant": "檢視下級行政區",
+  "table": "Localizable"
+ },
+ {
+  "key": "次级行政区",
+  "en": "Sub-regions",
+  "de": "Unterregionen",
+  "zh-Hant": "次級行政區",
+  "table": "Localizable"
+ },
+ {
+  "key": "直接落在上一级、没归到任何下级的部分：没有更细划分的区域、下级边界之间的缝或洞",
+  "en": "The part that lands directly in the parent region without any sub-region: areas with no finer subdivision, gaps or holes between sub-region borders",
+  "de": "Der Teil, der direkt in der übergeordneten Region liegt und keiner Unterregion zugeordnet ist: Gebiete ohne feinere Unterteilung, Lücken oder Löcher zwischen den Grenzen der Unterregionen",
+  "zh-Hant": "直接落在上一級、沒歸到任何下級的部分：沒有更細劃分的區域、下級邊界之間的縫或洞",
+  "table": "Localizable"
+ },
+ {
+  "key": "等级 %lld",
+  "en": "Level %lld",
+  "de": "Level %lld",
+  "zh-Hant": "等級 %lld",
+  "table": "Localizable"
+ },
+ {
+  "key": "返回上一级（⌘[）",
+  "en": "Back to the parent region (⌘[)",
+  "de": "Zurück zur übergeordneten Region (⌘[)",
+  "zh-Hant": "返回上一級（⌘[）",
+  "table": "Localizable"
+ },
+ {
+  "key": "这个版本没有内置行政区边界数据，地区统计暂不可用",
+  "en": "This build has no built-in region boundary data, so region statistics are unavailable",
+  "de": "Diese Version enthält keine eingebauten Regionsgrenzen, die Regionsstatistik ist nicht verfügbar",
+  "zh-Hant": "這個版本沒有內建行政區邊界資料，地區統計暫不可用",
+  "table": "Localizable"
+ }
+]

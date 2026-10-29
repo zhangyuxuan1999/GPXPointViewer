@@ -10,7 +10,7 @@
 //    因此缓冲随数据在后台线程预建（buildBuffers），主线程 setData 仅领养句柄；
 //  - 点云：全部点一次实例化 drawPrimitives（1 个 draw call）；
 //  - 轨迹箭头：线段与箭头各一次实例化提交，顶点着色器按 instance_id
-//    直接读点位 SoA 缓冲（第 i 段 = 点 i → 点 i+1），方向/法线/箭头张角
+//    经紧凑段内 draw-run 读取点位 SoA，方向/法线/箭头张角
 //    在 GPU 上对全部线段并行计算 —— 零额外几何内存、零 CPU 每帧工作；
 //  - 精度方案 RTC：CPU 用 double 折算每帧常量，顶点只存 float 偏移；
 //  - presentsWithTransaction + waitUntilScheduled：与 MapKit 底图逐帧锁定。
@@ -38,6 +38,11 @@ struct PointUniforms {
     var pixelMode: UInt32
     var flashFile: Int32 = -1     // 文件高亮闪烁：目标文件下标（-1 = 无）
     var flashStrength: Float = 0  // 闪烁强度 0…1
+    // 空间剔除：useOrder=1 时实例经莫顿序置换表间接寻址，只提交视口区段
+    var useOrder: UInt32 = 0
+    var orderStart: UInt32 = 0
+    var orderLen: UInt32 = 0
+    var _pad2: UInt32 = 0
 }
 
 /// 与 Shaders.metal 中 LineUniforms 逐字段对齐（size 80，align 16）
@@ -45,7 +50,8 @@ struct LineUniforms {
     var scale: SIMD2<Float>
     var offset: SIMD2<Float>
     var viewportPx: SIMD2<Float>
-    var _pad: SIMD2<Float>
+    var useBreaks: UInt32       // 1 = 用断点前缀和缓冲剔除跨段直连（LOD 抽稀下也准确）
+    var arrowEvery: UInt32      // 箭头密度：每 N 段一个箭头
     var color: SIMD4<Float>
     var widthPx: Float
     var headLenPx: Float
@@ -55,6 +61,22 @@ struct LineUniforms {
     var count: UInt32
     var start: UInt32
     var rangeLen: UInt32
+}
+
+/// 与 Shaders.metal 中 HeatUniforms 逐字段对齐（16 B）
+struct HeatUniforms {
+    var gain: Float        // 密度→热度增益（已含 stride 归一化）
+    var opacity: Float     // 图层整体透明度
+    var pad1: Float = 0
+    var pad2: Float = 0
+}
+
+/// 与 Shaders.metal 中 FogUniforms 逐字段对齐（48 B）
+struct FogUniforms {
+    var color: SIMD4<Float>    // rgb = 雾色，a = 雾整体不透明度
+    var params: SIMD4<Float>   // x = RTC 中心墨卡托 y，y = 清除半径（米），
+                               // z = 最小半径（累积纹理像素），w = 白冲刷强度
+    var flags: SIMD4<UInt32>   // x = 文件可见位掩码（重叠模式勾选显隐），yzw 备用
 }
 
 /// 每帧渲染统计
@@ -74,6 +96,9 @@ struct LineParams {
     var headWidthPx: Float
     var color: SIMD4<Float>   // a = 线透明度
     var arrows: Bool
+    var arrowEvery: UInt32 = 1
+    var cullBreaks: Bool = true
+    var fileMask: UInt32 = 0xFFFF_FFFF
 }
 
 /// 与 Shaders.metal 中 GlobeUniforms 逐字段对齐（size 224，align 16）
@@ -96,6 +121,10 @@ struct GlobeUniforms {
     var mapDim: Float                // 底图不透明度（作用于球面，与平面压暗语义一致）
     var flashFile: Int32          // 文件高亮闪烁：目标文件下标（-1 = 无）
     var flashStrength: Float      // 闪烁强度 0…1
+    var fileMask: UInt32 = 0xFFFF_FFFF   // 迷雾模式文件显隐位掩码（仅 fogStyle 生效）
+    var pad0: UInt32 = 0
+    var pad1: UInt32 = 0
+    var pad2: UInt32 = 0
 }
 
 /// 与 Shaders.metal 中 MeteorUniforms 逐字段对齐（32 B）
@@ -124,6 +153,85 @@ struct CameraRect {
     var pxH: Double
 }
 
+/// Published color buffers are immutable. A frame holds one complete version.
+final class PointColorBuffers: @unchecked Sendable {
+    let temporal: MTLBuffer
+    let spatial: MTLBuffer?
+    let version: UInt64
+    typealias Allocator = (Int) -> MTLBuffer?
+
+    init(temporal: MTLBuffer, spatial: MTLBuffer?, version: UInt64) {
+        self.temporal = temporal; self.spatial = spatial; self.version = version
+    }
+
+    static func build(device: MTLDevice, colors: [UInt8], order: [UInt32],
+                      version: UInt64, allocate: Allocator? = nil) -> PointColorBuffers? {
+        guard !colors.isEmpty, colors.count % 4 == 0,
+              order.isEmpty || (order.count == colors.count / 4 &&
+                  order.allSatisfy({ Int($0) < colors.count / 4 })) else { return nil }
+        let make = allocate ?? { device.makeBuffer(length: $0, options: .storageModeShared) }
+        guard let temporal = make(colors.count), temporal.length >= colors.count else { return nil }
+        var spatial: MTLBuffer?
+        if !order.isEmpty {
+            guard let buffer = make(colors.count), buffer.length >= colors.count else { return nil }
+            spatial = buffer
+        }
+        colors.withUnsafeBufferPointer { source in
+            _ = memcpy(temporal.contents(), source.baseAddress!, source.count)
+            if let spatial {
+                TrackGPUBuffers.permute32(
+                    src: UnsafeRawPointer(source.baseAddress!).assumingMemoryBound(to: UInt32.self),
+                    dst: spatial.contents().assumingMemoryBound(to: UInt32.self), order: order)
+            }
+        }
+        return PointColorBuffers(temporal: temporal, spatial: spatial, version: version)
+    }
+
+    func retain(untilCompleted command: MTLCommandBuffer) {
+        command.addCompletedHandler { [self] _ in withExtendedLifetime(self) {} }
+    }
+}
+
+/// Shared Swift/Metal layout; no point indices are expanded on each frame.
+struct PathUniforms {
+    var runCount: UInt32
+    var stride: UInt32
+    var identityOrder: UInt32
+    var fileMask: UInt32 = 0xFFFF_FFFF
+}
+
+/// A draw holds both immutable topology buffers until GPU completion, just as
+/// PointColorBuffers holds one color version. Cache replacement never reuses memory.
+final class PathGPUPlan: @unchecked Sendable {
+    let plan: PathDrawPlan
+    let runs: MTLBuffer?
+    let order: MTLBuffer?
+    let identity: Bool
+    init?(device: MTLDevice, plan: PathDrawPlan, order: MTLBuffer?, identity: Bool) {
+        assert(MemoryLayout<PathDrawRun>.size == 16 && MemoryLayout<PathDrawRun>.stride == 16)
+        assert(MemoryLayout<PathUniforms>.stride == 16)
+        self.plan = plan; self.order = order; self.identity = identity
+        if plan.runs.isEmpty { runs = nil }
+        else {
+            guard let uploaded = plan.runs.withUnsafeBytes({ data in
+                device.makeBuffer(bytes: data.baseAddress!, length: data.count, options: .storageModeShared)
+            }) else { return nil }
+            runs = uploaded
+        }
+    }
+    func uniforms(fileMask: UInt32 = 0xFFFF_FFFF) -> PathUniforms {
+        PathUniforms(runCount: UInt32(plan.runs.count), stride: UInt32(clamping: max(1,plan.stride)),
+                     identityOrder: identity ? 1 : 0, fileMask: fileMask)
+    }
+    func retain(untilCompleted command: MTLCommandBuffer) {
+        command.addCompletedHandler { [self] _ in withExtendedLifetime(self) {} }
+    }
+}
+
+private struct PathDrawCacheKey: Equatable {
+    let start: Int; let length: Int; let stride: Int; let softBreaks: Bool
+}
+
 /// 后台预建的顶点缓冲组（统一内存 shared）。
 /// 在解析线程随 TrackData.build 生成，主线程 setData 直接领养——
 /// 免去导入结束时主线程 28 B/点 的 makeBuffer(bytes:) 拷贝卡顿
@@ -136,10 +244,73 @@ final class TrackGPUBuffers {
     let lift: MTLBuffer
     let color: MTLBuffer
     let fileID: MTLBuffer?    // 每点所属文件（单一来源时为 nil）
+    let breakPrefix: MTLBuffer?   // 迷雾断点前缀和（记录间隙检测）
+    let pathOrder: MTLBuffer? // normalized per-segment order, distinct from Morton order
+    let order: MTLBuffer?     // 莫顿序置换表（视口剔除：位置 k → 原始下标）
+    // 按莫顿序物理重排的位置/颜色副本：空间路径顺序读取，
+    // 不经置换表随机 gather（gather 版在城市级反而比全量慢一倍）
+    let sx: MTLBuffer?
+    let sy: MTLBuffer?
+    let scolor: MTLBuffer?
+    let firsts: MTLBuffer?    // 各级格首点位置表（去重 LOD）
+
+    /// 32 位元素按置换表重排（并行 gather），dst[k] = src[order[k]]
+    static func permute32(src: UnsafePointer<UInt32>, dst: UnsafeMutablePointer<UInt32>,
+                          order: [UInt32]) {
+        let n = order.count
+        order.withUnsafeBufferPointer { ob in
+            let o = ob.baseAddress!
+            let cores = ProcessInfo.processInfo.activeProcessorCount
+            let chunks = n > 200_000 ? max(1, min(cores, n / 100_000)) : 1
+            DispatchQueue.concurrentPerform(iterations: chunks) { ci in
+                for k in (n * ci / chunks)..<(n * (ci + 1) / chunks) {
+                    dst[k] = src[Int(o[k])]
+                }
+            }
+        }
+    }
+
+    static func permutedBuffer(device: MTLDevice, floats: [Float], order: [UInt32]) -> MTLBuffer? {
+        guard floats.count == order.count, !order.isEmpty,
+              let buf = device.makeBuffer(length: order.count * 4, options: .storageModeShared)
+        else { return nil }
+        floats.withUnsafeBufferPointer { fb in
+            permute32(src: UnsafeRawPointer(fb.baseAddress!).assumingMemoryBound(to: UInt32.self),
+                      dst: buf.contents().assumingMemoryBound(to: UInt32.self), order: order)
+        }
+        return buf
+    }
+
+    static func permutedBuffer(device: MTLDevice, colors: [UInt8], order: [UInt32]) -> MTLBuffer? {
+        guard colors.count == order.count * 4, !order.isEmpty,
+              let buf = device.makeBuffer(length: order.count * 4, options: .storageModeShared)
+        else { return nil }
+        colors.withUnsafeBufferPointer { cb in
+            permute32(src: UnsafeRawPointer(cb.baseAddress!).assumingMemoryBound(to: UInt32.self),
+                      dst: buf.contents().assumingMemoryBound(to: UInt32.self), order: order)
+        }
+        return buf
+    }
 
     init?(device: MTLDevice, track: TrackData) {
         let n = track.count
         guard n > 0 else { return nil }
+        pathOrder = track.topology.order.isEmpty ? nil : track.topology.order.withUnsafeBytes { data in
+            device.makeBuffer(bytes:data.baseAddress!,length:data.count,options:.storageModeShared)
+        }
+        order = track.spatialOrder.isEmpty ? nil : track.spatialOrder.withUnsafeBufferPointer {
+            device.makeBuffer(bytes: $0.baseAddress!,
+                              length: n * MemoryLayout<UInt32>.stride,
+                              options: .storageModeShared)
+        }
+        sx = Self.permutedBuffer(device: device, floats: track.rtcX, order: track.spatialOrder)
+        sy = Self.permutedBuffer(device: device, floats: track.rtcY, order: track.spatialOrder)
+        scolor = Self.permutedBuffer(device: device, colors: track.colors, order: track.spatialOrder)
+        firsts = track.spatialFirsts.isEmpty ? nil : track.spatialFirsts.withUnsafeBufferPointer {
+            device.makeBuffer(bytes: $0.baseAddress!,
+                              length: $0.count * MemoryLayout<UInt32>.stride,
+                              options: .storageModeShared)
+        }
         func upload(_ a: [Float]) -> MTLBuffer? {
             a.withUnsafeBufferPointer {
                 device.makeBuffer(bytes: $0.baseAddress!,
@@ -161,6 +332,12 @@ final class TrackGPUBuffers {
                               length: n * MemoryLayout<UInt16>.stride,
                               options: .storageModeShared)
         }
+        breakPrefix = track.fogBreakPrefix.isEmpty ? nil
+            : track.fogBreakPrefix.withUnsafeBufferPointer {
+                device.makeBuffer(bytes: $0.baseAddress!,
+                                  length: n * MemoryLayout<UInt32>.stride,
+                                  options: .storageModeShared)
+            }
     }
 }
 
@@ -169,10 +346,20 @@ final class MetalPointRenderer {
     private let queue: MTLCommandQueue
     private let pointPipeline: MTLRenderPipelineState
     private let linePipeline: MTLRenderPipelineState
+    private let lineIdentityPipeline: MTLRenderPipelineState
+    private let suppliedLibrary: MTLLibrary?
+    private var pathTopology: TrackTopology?
+    private var pathOrderBuffer: MTLBuffer?
+    private var linePathCache: (PathDrawCacheKey, PathGPUPlan)?
+    private var fogPathCache: (PathDrawCacheKey, PathGPUPlan)?
+    private(set) var pathPlanBuilds = 0
+    private(set) var lastLineDrawCalls = 0
+    private(set) var lastFogDrawCalls = 0
 
     private var bufX: MTLBuffer?
     private var bufY: MTLBuffer?
-    private var bufColor: MTLBuffer?
+    private var bufBreak: MTLBuffer?      // 轨迹线断点前缀和
+    private var colorBuffers: PointColorBuffers?
     private var bufUX: MTLBuffer?          // 球面单位向量 SoA（自绘地球用）
     private var bufUY: MTLBuffer?
     private var bufUZ: MTLBuffer?
@@ -195,9 +382,24 @@ final class MetalPointRenderer {
     private var sphereIndexCount = 0
     private var bufLift: MTLBuffer?                   // 海拔抬升 SoA
     private var bufFileID: MTLBuffer?                 // 每点所属文件（重叠模式闪烁用）
+    private var bufBreakPrefix: MTLBuffer?            // 迷雾断点前缀和
+    private var bufOrder: MTLBuffer?                  // 莫顿序置换表（视口剔除）
+    private var bufSX: MTLBuffer?                     // 莫顿序重排的位置/颜色副本
+    private var bufSY: MTLBuffer?
+    private var bufFirsts: MTLBuffer?                 // 各级格首点位置表
+    private var spatialKeys: [UInt64] = []            // 有序莫顿键（CPU 侧二分区段）
+    private var spatialOrder: [UInt32] = []           // 置换表（换色时同步重排副本）
+    private var spatialFirsts: [UInt32] = []          // 格首点表（CPU 侧二分子区间）
+    private var spatialFirstOffsets: [Int] = []
+    /// 置换表占位（useOrder = 0 时不会被读取）
+    private lazy var dummyOrder: MTLBuffer? =
+        device.makeBuffer(length: 4, options: .storageModeShared)
     /// fileID 缓冲的占位（着色器要求绑定存在；flashFile = -1 时不会被读取）
     private lazy var dummyFileID: MTLBuffer? =
         device.makeBuffer(length: 2, options: .storageModeShared)
+    /// 断点前缀和的占位（全零 = 永不剪断；数据缺失时的兜底）
+    private lazy var dummyBreakPrefix: MTLBuffer? =
+        device.makeBuffer(length: 4, options: .storageModeShared)
     private var bufStars: MTLBuffer?
     private var starCount = 0
     private var earthTexDark: MTLTexture?
@@ -232,21 +434,25 @@ final class MetalPointRenderer {
 
     /// 任意线程可调（MTLDevice 线程安全）：把轨迹 SoA 复制进 GPU 共享内存缓冲。
     /// 在解析线程随 TrackData.build 调用，主线程 setData 零拷贝领养
+    /// 视口剔除总开关（离线基准 A/B 对照用；关闭 = 旧的全量时间序提交）
+    nonisolated(unsafe) static var spatialCullingEnabled = true
+
     static func buildBuffers(track: TrackData) -> TrackGPUBuffers? {
         guard let dev = sharedDevice else { return nil }
         return TrackGPUBuffers(device: dev, track: track)
     }
 
-    init?() {
+    init?(library: MTLLibrary? = nil) {
         guard let dev = Self.sharedDevice,
               let q = dev.makeCommandQueue(),
-              let lib = dev.makeDefaultLibrary(),
+              let lib = library ?? dev.makeDefaultLibrary(),
               let pointV = lib.makeFunction(name: "pointVertex"),
               let pointF = lib.makeFunction(name: "pointFragment"),
               let lineV = lib.makeFunction(name: "segmentVertex"),
               let lineF = lib.makeFunction(name: "segmentFragment") else { return nil }
         device = dev
         queue = q
+        suppliedLibrary = library
 
         func makePipeline(_ v: MTLFunction, _ f: MTLFunction) -> MTLRenderPipelineState? {
             let desc = MTLRenderPipelineDescriptor()
@@ -266,6 +472,7 @@ final class MetalPointRenderer {
               let lp = makePipeline(lineV, lineF) else { return nil }
         pointPipeline = pp
         linePipeline = lp
+        lineIdentityPipeline = lib.makeFunction(name:"segmentIdentityVertex").flatMap { makePipeline($0,lineF) } ?? lp
     }
 
     // MARK: - 数据上传
@@ -275,18 +482,53 @@ final class MetalPointRenderer {
         center = track.center
         let n = track.count
         guard n > 0 else { clearData(); return }
+        pathTopology = track.topology
+        pathOrderBuffer = nil
+        linePathCache = nil; fogPathCache = nil
+        // 轨迹线断点前缀和（与点数等长；8 MB/200 万点）
+        bufBreak = track.lineBreakPrefix.count == n ? track.lineBreakPrefix.withUnsafeBufferPointer {
+            device.makeBuffer(bytes: $0.baseAddress!, length: n * MemoryLayout<UInt32>.stride, options: .storageModeShared)
+        } : nil
         if let g = track.gpuBuffers {
+            pathOrderBuffer = g.pathOrder
             // 领养后台预建缓冲：主线程零 memcpy。
             // 交接安全：setData 与 draw 全在主线程，已提交的命令缓冲
             // 持有旧 MTLBuffer 至 GPU 完成，属性交换天然原子
             bufX = g.x; bufY = g.y
             bufUX = g.ux; bufUY = g.uy; bufUZ = g.uz
             bufLift = g.lift
-            bufColor = g.color
+            colorBuffers = PointColorBuffers(temporal: g.color, spatial: g.scolor, version: 0)
             bufFileID = g.fileID
+            bufBreakPrefix = g.breakPrefix
+            bufOrder = g.order
+            bufSX = g.sx; bufSY = g.sy
+            bufFirsts = g.firsts
+            spatialKeys = track.spatialKeys
+            spatialOrder = track.spatialOrder
+            spatialFirsts = track.spatialFirsts
+            spatialFirstOffsets = track.spatialFirstOffsets
             track.gpuBuffers = nil   // 一次性交接（再次 setData 走兜底拷贝）
             return
         }
+        pathOrderBuffer = track.topology.order.isEmpty ? nil : track.topology.order.withUnsafeBytes { data in
+            device.makeBuffer(bytes:data.baseAddress!,length:data.count,options:.storageModeShared)
+        }
+        spatialKeys = track.spatialKeys
+        spatialOrder = track.spatialOrder
+        spatialFirsts = track.spatialFirsts
+        spatialFirstOffsets = track.spatialFirstOffsets
+        bufFirsts = track.spatialFirsts.isEmpty ? nil : track.spatialFirsts.withUnsafeBufferPointer {
+            device.makeBuffer(bytes: $0.baseAddress!,
+                              length: $0.count * MemoryLayout<UInt32>.stride,
+                              options: .storageModeShared)
+        }
+        bufOrder = track.spatialOrder.isEmpty ? nil : track.spatialOrder.withUnsafeBufferPointer {
+            device.makeBuffer(bytes: $0.baseAddress!,
+                              length: n * MemoryLayout<UInt32>.stride,
+                              options: .storageModeShared)
+        }
+        bufSX = TrackGPUBuffers.permutedBuffer(device: device, floats: track.rtcX, order: track.spatialOrder)
+        bufSY = TrackGPUBuffers.permutedBuffer(device: device, floats: track.rtcY, order: track.spatialOrder)
         // 兜底：无预建缓冲（无 Metal 设备构建、重复 setData 等）时当场拷贝
         func upload(_ a: [Float]) -> MTLBuffer? {
             a.withUnsafeBufferPointer {
@@ -299,28 +541,291 @@ final class MetalPointRenderer {
         bufUY = upload(track.unitY)
         bufUZ = upload(track.unitZ)
         bufLift = upload(track.liftF)
-        bufColor = track.colors.withUnsafeBufferPointer {
-            device.makeBuffer(bytes: $0.baseAddress!, length: n * 4, options: .storageModeShared)
-        }
+        colorBuffers = PointColorBuffers.build(device: device, colors: track.colors,
+                                               order: track.spatialOrder, version: 0)
         bufFileID = track.fileID.isEmpty ? nil : track.fileID.withUnsafeBufferPointer {
             device.makeBuffer(bytes: $0.baseAddress!,
                               length: n * MemoryLayout<UInt16>.stride,
                               options: .storageModeShared)
         }
+        bufBreakPrefix = track.fogBreakPrefix.isEmpty ? nil
+            : track.fogBreakPrefix.withUnsafeBufferPointer {
+                device.makeBuffer(bytes: $0.baseAddress!,
+                                  length: n * MemoryLayout<UInt32>.stride,
+                                  options: .storageModeShared)
+            }
     }
 
     func clearData() {
         pointCount = 0
-        bufX = nil; bufY = nil; bufColor = nil
+        pathTopology = nil; pathOrderBuffer = nil
+        linePathCache = nil; fogPathCache = nil
+        bufX = nil; bufY = nil; colorBuffers = nil; bufBreak = nil
         bufUX = nil; bufUY = nil; bufUZ = nil; bufLift = nil
         bufFileID = nil
+        bufBreakPrefix = nil
+        bufOrder = nil
+        bufSX = nil; bufSY = nil
+        bufFirsts = nil
+        spatialKeys = []
+        spatialOrder = []
+        spatialFirsts = []
+        spatialFirstOffsets = []
     }
 
-    func updateColors(_ colors: [UInt8]) {
-        guard let buf = bufColor, pointCount > 0, colors.count == pointCount * 4 else { return }
-        colors.withUnsafeBufferPointer { src in
-            _ = memcpy(buf.contents(), src.baseAddress!, src.count)
+    /// Build the complete next version before publishing; never mutate a
+    /// submitted frame or TrackGPUBuffers shared with another renderer.
+    func updateColors(_ colors: [UInt8], allocate: PointColorBuffers.Allocator? = nil) {
+        guard let current = colorBuffers, pointCount > 0,
+              colors.count == pointCount * 4,
+              let next = PointColorBuffers.build(device: device, colors: colors,
+                  order: spatialOrder, version: current.version &+ 1, allocate: allocate)
+        else { return }
+        colorBuffers = next
+    }
+
+    /// Lightweight cached counters for the existing diagnostic/UI hook.
+    var topologyDrawStats: [String: Int] {
+        ["segments":pathTopology?.segments.count ?? 0,
+         "lineRuns":linePathCache?.1.plan.runs.count ?? 0,
+         "linePrimitives":linePathCache?.1.plan.instanceCount ?? 0,
+         "fogRuns":fogPathCache?.1.plan.runs.count ?? 0,
+         "fogPrimitives":fogPathCache?.1.plan.instanceCount ?? 0,
+         "planBuilds":pathPlanBuilds,"lastLineDrawCalls":lastLineDrawCalls,"lastFogDrawCalls":lastFogDrawCalls]
+    }
+
+    private func pathPlan(kind: PathDrawKind, start: Int, length: Int,
+                          stride: Int, softBreaks: Bool = true) -> PathGPUPlan? {
+        guard let topology = pathTopology,
+              topology.isIdentity || pathOrderBuffer != nil else { return nil }
+        let lo = max(0,min(start,pointCount)), hi = max(lo,min(pointCount,lo + max(0,length)))
+        let key = PathDrawCacheKey(start:lo,length:hi-lo,stride:max(1,stride),softBreaks:softBreaks)
+        let previous: (PathDrawCacheKey,PathGPUPlan)?
+        switch kind { case .line: previous = linePathCache; case .fog: previous = fogPathCache }
+        if let previous, previous.0 == key { return previous.1 }
+        let cpu = topology.makeDrawRuns(kind:kind, globalTimeRange:lo..<hi,
+                                       stride:key.stride, includeSoftBreaks:softBreaks)
+        guard let next = PathGPUPlan(device:device,plan:cpu,order:pathOrderBuffer,identity:topology.isIdentity) else { return nil }
+        switch kind { case .line: linePathCache = (key,next); case .fog: fogPathCache = (key,next) }
+        pathPlanBuilds += 1
+        return next
+    }
+
+    @discardableResult
+    private func encodeLinePaths(_ encoder: MTLRenderCommandEncoder, command: MTLCommandBuffer,
+                                 x: MTLBuffer, y: MTLBuffer, scale: SIMD2<Float>, offset: SIMD2<Float>,
+                                 viewport: SIMD2<Float>, params: LineParams,
+                                 start: Int, length: Int, stride: Int) -> PathGPUPlan? {
+        lastLineDrawCalls = 0
+        guard let group = pathPlan(kind:.line,start:start,length:length,stride:stride,softBreaks:params.cullBreaks) else { return nil }
+        guard group.plan.instanceCount > 0 else { return group }
+        // Empty fileID means every point belongs to file 0; never index the
+        // two-byte placeholder when a caller supplies a partial visibility mask.
+        if bufFileID == nil && params.fileMask & 1 == 0 { return group }
+        let fileMask: UInt32 = bufFileID == nil ? UInt32.max:params.fileMask
+        group.retain(untilCompleted:command)
+        var lu = LineUniforms(scale:scale,offset:offset,viewportPx:viewport,useBreaks:0,
+            arrowEvery:max(1,params.arrowEvery),color:params.color,widthPx:params.widthPx,
+            headLenPx:params.arrows ? params.headLenPx : 0,headWidthPx:params.headWidthPx,
+            isHead:0,stride:UInt32(clamping:max(1,stride)),count:UInt32(pointCount),
+            start:UInt32(start),rangeLen:UInt32(length))
+        let identityFast = group.identity && group.plan.runs.count == 1
+        if identityFast, let run = group.plan.runs.first {
+            lu.start = run.begin; lu.rangeLen = run.end-run.begin
         }
+        var path = group.uniforms(fileMask:fileMask)
+        var mask = fileMask
+        encoder.setRenderPipelineState(identityFast ? lineIdentityPipeline:linePipeline)
+        encoder.setVertexBytes(&mask,length:MemoryLayout<UInt32>.stride,index:8)
+        encoder.setVertexBuffer(x,offset:0,index:0); encoder.setVertexBuffer(y,offset:0,index:1)
+        encoder.setVertexBuffer(bufBreak ?? dummyBreakPrefix,offset:0,index:3)
+        encoder.setVertexBuffer(bufFileID ?? dummyFileID,offset:0,index:4)
+        encoder.setVertexBuffer(group.order ?? dummyOrder,offset:0,index:5)
+        encoder.setVertexBuffer(group.runs,offset:0,index:6)
+        encoder.setVertexBytes(&path,length:MemoryLayout<PathUniforms>.stride,index:7)
+        encoder.setVertexBytes(&lu,length:MemoryLayout<LineUniforms>.stride,index:2)
+        encoder.setFragmentBytes(&lu,length:MemoryLayout<LineUniforms>.stride,index:0)
+        encoder.drawPrimitives(type:.triangleStrip,vertexStart:0,vertexCount:4,instanceCount:group.plan.instanceCount)
+        lastLineDrawCalls += 1
+        if params.arrows {
+            lu.isHead = 1
+            encoder.setVertexBytes(&lu,length:MemoryLayout<LineUniforms>.stride,index:2)
+            encoder.setFragmentBytes(&lu,length:MemoryLayout<LineUniforms>.stride,index:0)
+            encoder.drawPrimitives(type:.triangle,vertexStart:0,vertexCount:3,instanceCount:group.plan.instanceCount)
+            lastLineDrawCalls += 1
+        }
+        return group
+    }
+
+    @discardableResult
+    private func encodeFogPaths(_ encoder: MTLRenderCommandEncoder, command: MTLCommandBuffer,
+                                pipeline: MTLRenderPipelineState, x: MTLBuffer, y: MTLBuffer,
+                                uniforms: PointUniforms, fog: FogUniforms) -> PathGPUPlan? {
+        lastFogDrawCalls = 0
+        guard let group = pathPlan(kind:.fog,start:Int(uniforms.start),length:Int(uniforms.rangeLen),
+                                   stride:Int(uniforms.stride)) else { return nil }
+        guard group.plan.instanceCount > 0 else { return group }
+        if bufFileID == nil && fog.flags.x & 1 == 0 { return group }
+        group.retain(untilCompleted:command)
+        var u = uniforms, f = fog
+        if bufFileID == nil { f.flags.x = UInt32.max }
+        var path = group.uniforms(fileMask:f.flags.x)
+        encoder.setRenderPipelineState(pipeline)
+        encoder.setVertexBuffer(x,offset:0,index:0); encoder.setVertexBuffer(y,offset:0,index:1)
+        encoder.setVertexBytes(&u,length:MemoryLayout<PointUniforms>.stride,index:3)
+        encoder.setVertexBytes(&f,length:MemoryLayout<FogUniforms>.stride,index:4)
+        encoder.setVertexBuffer(bufBreakPrefix ?? dummyBreakPrefix,offset:0,index:5)
+        encoder.setVertexBuffer(bufFileID ?? dummyFileID,offset:0,index:6)
+        encoder.setVertexBuffer(group.order ?? dummyOrder,offset:0,index:7)
+        encoder.setVertexBuffer(group.runs,offset:0,index:8)
+        encoder.setVertexBytes(&path,length:MemoryLayout<PathUniforms>.stride,index:9)
+        encoder.drawPrimitives(type:.triangleStrip,vertexStart:0,vertexCount:4,instanceCount:group.plan.instanceCount)
+        lastFogDrawCalls += 1
+        return group
+    }
+
+    // MARK: - 平面热力图资产（懒加载：不开热力图零成本）
+
+    private var heatAccumPipeline: MTLRenderPipelineState?
+    private var heatColorPipeline: MTLRenderPipelineState?
+    private var fogAccumPipeline: MTLRenderPipelineState?
+    private var fogColorPipeline: MTLRenderPipelineState?
+    private var fwdbCellPipeline: MTLRenderPipelineState?
+    // .fwdb 存档的方格实例（协调器按视口缓存重建；相对批中心的墨卡托坐标）
+    private var fogArchiveBuffer: MTLBuffer?
+    private var fogArchiveCount = 0
+    private var fogArchiveCenter = (x: 0.0, y: 0.0)
+
+    /// 上传存档方格实例（[x, y, halfSize, coverage] × N）
+    func setFogArchiveInstances(_ data: [Float], center: (x: Double, y: Double)) {
+        fogArchiveCount = data.count / 4
+        fogArchiveCenter = center
+        fogArchiveBuffer = data.isEmpty ? nil : data.withUnsafeBufferPointer {
+            device.makeBuffer(bytes: $0.baseAddress!, length: data.count * 4,
+                              options: .storageModeShared)
+        }
+    }
+    private var heatTexture: MTLTexture?          // 热力/迷雾共用（两模式互斥）
+    // 需要叠放次序的帧：视口内点按时间下标排序后的"可见表"（三帧环形缓冲，
+    // 与飞行中的命令缓冲错开）。半透明点的 over 混合只能靠提交顺序还原，
+    // 深度排序对半透明不成立（点 alpha 默认 235/255）
+    private var visibleBufs: [MTLBuffer?] = [nil, nil, nil]
+    private var visibleIdx = 0
+
+    private func visibleBuffer(count: Int) -> MTLBuffer? {
+        visibleIdx = (visibleIdx + 1) % visibleBufs.count
+        let need = count * MemoryLayout<UInt32>.stride
+        if let b = visibleBufs[visibleIdx], b.length >= need { return b }
+        visibleBufs[visibleIdx] = device.makeBuffer(length: max(need * 2, 256 * 1024),
+                                                    options: .storageModeShared)
+        return visibleBufs[visibleIdx]
+    }
+
+    /// LSD 基数排序（32 位，两趟 16 位）；≤15 万元素约 0.3ms
+    static func radixSort32(_ a: inout [UInt32]) {
+        let n = a.count
+        guard n > 1 else { return }
+        var tmp = [UInt32](unsafeUninitializedCapacity: n) { _, m in m = n }
+        var hist = [Int](repeating: 0, count: 65536)
+        for pass in 0..<2 {
+            let shift = UInt32(pass * 16)
+            for i in 0..<65536 { hist[i] = 0 }
+            for v in a { hist[Int((v >> shift) & 0xFFFF)] += 1 }
+            var sum = 0
+            for i in 0..<65536 { let c = hist[i]; hist[i] = sum; sum += c }
+            a.withUnsafeBufferPointer { ab in
+                tmp.withUnsafeMutableBufferPointer { tb in
+                    for i in 0..<n {
+                        let v = ab[i]
+                        let d = Int((v >> shift) & 0xFFFF)
+                        tb[hist[d]] = v
+                        hist[d] += 1
+                    }
+                }
+            }
+            swap(&a, &tmp)
+        }
+    }
+    private var heatSetupFailed = false
+
+    /// 迷雾清除半径（米）：《世界迷雾》全球格子约 9.5m，走过的走廊取 ~4 格宽
+    static let fogRadiusMeters = 40.0
+
+    private func ensureHeatAssets() -> Bool {
+        if heatAccumPipeline != nil { return true }
+        guard !heatSetupFailed,
+              let lib = suppliedLibrary ?? device.makeDefaultLibrary(),
+              let av = lib.makeFunction(name: "heatAccumVertex"),
+              let af = lib.makeFunction(name: "heatAccumFragment"),
+              let qv = lib.makeFunction(name: "heatQuadVertex"),
+              let qf = lib.makeFunction(name: "heatColorFragment"),
+              let fav = lib.makeFunction(name: "fogSegVertex"),
+              let faf = lib.makeFunction(name: "fogSegFragment"),
+              let fcf = lib.makeFunction(name: "fogColorFragment"),
+              let cwv = lib.makeFunction(name: "fwdbCellVertex"),
+              let cwf = lib.makeFunction(name: "fwdbCellFragment") else {
+            heatSetupFailed = true
+            return false
+        }
+        // 累积：r16f + 加性混合
+        let accum = MTLRenderPipelineDescriptor()
+        accum.vertexFunction = av
+        accum.fragmentFunction = af
+        accum.colorAttachments[0].pixelFormat = .r16Float
+        accum.colorAttachments[0].isBlendingEnabled = true
+        accum.colorAttachments[0].rgbBlendOperation = .add
+        accum.colorAttachments[0].alphaBlendOperation = .add
+        accum.colorAttachments[0].sourceRGBBlendFactor = .one
+        accum.colorAttachments[0].destinationRGBBlendFactor = .one
+        accum.colorAttachments[0].sourceAlphaBlendFactor = .one
+        accum.colorAttachments[0].destinationAlphaBlendFactor = .one
+        // 合成：常规 alpha 混合到 bgra8
+        let color = MTLRenderPipelineDescriptor()
+        color.vertexFunction = qv
+        color.fragmentFunction = qf
+        color.colorAttachments[0].pixelFormat = .bgra8Unorm
+        color.colorAttachments[0].isBlendingEnabled = true
+        color.colorAttachments[0].rgbBlendOperation = .add
+        color.colorAttachments[0].alphaBlendOperation = .add
+        color.colorAttachments[0].sourceRGBBlendFactor = .sourceAlpha
+        color.colorAttachments[0].destinationRGBBlendFactor = .oneMinusSourceAlpha
+        color.colorAttachments[0].sourceAlphaBlendFactor = .one
+        color.colorAttachments[0].destinationAlphaBlendFactor = .oneMinusSourceAlpha
+        guard let ap = try? device.makeRenderPipelineState(descriptor: accum),
+              let cp = try? device.makeRenderPipelineState(descriptor: color) else {
+            heatSetupFailed = true
+            return false
+        }
+        heatAccumPipeline = ap
+        heatColorPipeline = cp
+        // 迷雾：累积管线换成"轨迹线段胶囊"顶点/片元（走廊连续不断珠），
+        // 合成管线换雾色片元；混合配置与热力一致
+        accum.vertexFunction = fav
+        accum.fragmentFunction = faf
+        color.fragmentFunction = fcf
+        guard let fap = try? device.makeRenderPipelineState(descriptor: accum),
+              let fcp = try? device.makeRenderPipelineState(descriptor: color) else {
+            heatSetupFailed = true
+            return false
+        }
+        fogAccumPipeline = fap
+        fogColorPipeline = fcp
+        // .fwdb 方格实例（同一张 r16f 遮罩纹理，加性混合）
+        accum.vertexFunction = cwv
+        accum.fragmentFunction = cwf
+        fwdbCellPipeline = try? device.makeRenderPipelineState(descriptor: accum)
+        return true
+    }
+
+    /// 半分辨率密度纹理（尺寸变化时重建）
+    private func ensureHeatTexture(w: Int, h: Int) -> MTLTexture? {
+        if let t = heatTexture, t.width == w, t.height == h { return t }
+        let d = MTLTextureDescriptor.texture2DDescriptor(
+            pixelFormat: .r16Float, width: w, height: h, mipmapped: false)
+        d.usage = [.renderTarget, .shaderRead]
+        d.storageMode = .private
+        heatTexture = device.makeTexture(descriptor: d)
+        return heatTexture
     }
 
     /// 帧率 EMA（渲染间隔 < 0.5s 视为连续交互）
@@ -340,7 +845,18 @@ final class MetalPointRenderer {
                 pointSizePx: Double, opacity: Double, halo: Bool,
                 line: LineParams?, highlight: Int?, lodStride: Int = 1,
                 range: (start: Int, len: Int)? = nil,
-                flashFile: Int32 = -1, flashStrength: Float = 0) {
+                flashFile: Int32 = -1, flashStrength: Float = 0,
+                heatMap: Bool = false, heatSegPx: Double = 0,
+                fogMap: Bool = false,
+                fogColor: SIMD4<Float> = SIMD4(0.11, 0.13, 0.12, 0.50),
+                fogWash: Float = 0.16,
+                fogRadiusMeters: Double = MetalPointRenderer.fogRadiusMeters,
+                fogFileMask: UInt32 = 0xFFFF_FFFF,
+                fogArchiveMode: Bool = false,
+                fogArchiveSmooth: Bool = false,
+                lodDedupe: Bool = false,
+                orderSensitive: Bool = false,
+                captureTo: ((MTLTexture) -> Void)? = nil) {
         guard camera.w > 0, camera.h > 0,
               layer.drawableSize.width > 1, layer.drawableSize.height > 1 else { return }
 
@@ -349,66 +865,297 @@ final class MetalPointRenderer {
         let tWait0 = DispatchTime.now().uptimeNanoseconds
         guard let drawable = layer.nextDrawable(),
               let cmd = queue.makeCommandBuffer() else { return }
+        let frameColors = colorBuffers
+        frameColors?.retain(untilCompleted: cmd)
         let t0 = DispatchTime.now().uptimeNanoseconds
         let waitMs = Double(t0 - tWait0) / 1e6   // GPU 排满时这里会被反压
-
-        let pass = MTLRenderPassDescriptor()
-        pass.colorAttachments[0].texture = drawable.texture
-        pass.colorAttachments[0].loadAction = .clear
-        pass.colorAttachments[0].storeAction = .store
-        pass.colorAttachments[0].clearColor = MTLClearColor(red: 0, green: 0, blue: 0, alpha: 0)
-
-        guard let enc = cmd.makeRenderCommandEncoder(descriptor: pass) else { return }
 
         let rStart = max(0, min(range?.start ?? 0, max(pointCount - 1, 0)))
         let rLen = max(0, min(range?.len ?? pointCount, pointCount - rStart))
         let stride = UInt32(max(1, lodStride))
         let drawnPoints = rLen > 0 ? (rLen + Int(stride) - 1) / Int(stride) : 0
 
-        if pointCount > 0, rLen > 0, let bx = bufX, let by = bufY, let bc = bufColor {
-            // 经度环绕：把 RTC 中心挪到离可见区中心最近的世界副本
-            var cx = center.x
-            let viewCx = camera.x0 + camera.w / 2
-            while cx - viewCx > 0.5 { cx -= 1.0 }
-            while viewCx - cx > 0.5 { cx += 1.0 }
+        // 视口剔除：莫顿序逐格区段。边距按本帧真正会"伸进视口"的东西取最大：
+        // 点半径（闪烁放大 1.55×）+ 描边、热力核半径、迷雾清除半径 + 锚点间距
+        //（线段从视口外锚点画进来，间距 ≈ 1.1×半径，再留余量）。时间筛选很窄时
+        // 按时间序提交更省（区段不含时间过滤，着色器逐点剔除），两条路径按实例
+        // 数取小；视口内没有点时区段为空 → 提交 0 个实例，绝不退回全量时间序
+        let pointsPass = !heatMap && !fogMap
+        var padPx = pointSizePx * 1.55 + (halo ? 1.1 : 0) + 2.0
+        if heatMap { padPx = max(padPx, max(10.0, pointSizePx * 2.5)) }
+        var fogPadMerc = 0.0
+        if fogMap, !fogArchiveMode {
+            let centerMercY = camera.y0 + camera.h / 2
+            let lat = atan(sinh(.pi * (1 - 2 * centerMercY)))
+            let fr = min(max(fogRadiusMeters, 5.0), 300.0)
+            fogPadMerc = fr / (40_075_016.7 * max(cos(lat), 0.05)) * 3.5
+        }
+        let pad = max(camera.w * 0.02, padPx * camera.w / camera.pxW, fogPadMerc)
+        var cellRanges: [Range<Int>] = []
+        var spatialTotal = 0
+        let indexReady = Self.spatialCullingEnabled && bufOrder != nil && !spatialKeys.isEmpty
+            && bufSX != nil && bufSY != nil && frameColors?.spatial != nil
+        if indexReady, rLen > 0 {
+            cellRanges = SpatialIndex.cellRanges(
+                keys: spatialKeys,
+                x0: camera.x0 - pad, y0: camera.y0 - pad,
+                x1: camera.x0 + camera.w + pad, y1: camera.y0 + camera.h + pad,
+                maxCellsAcross: 24).cells
+            spatialTotal = cellRanges.reduce(0) { $0 + $1.count }
+        }
+        let useSpatial = indexReady && rLen > 0 && spatialTotal <= rLen
+        let spatialRanges = useSpatial ? SpatialIndex.merge(cellRanges) : []
+        // 去重 LOD（点云）：按缩放选格级（格边 ≈ 0.6×目标点距），每格只画
+        // 格首点——同一条路反复经过几十次只画一遍，连续性保留。只在：全区间
+        //（格首点可能落在时间筛选/回放区间之外，那样整格会消失）、单一来源
+        //（多文件时格首点属于哪个文件是任意的，文件闪烁/按文件着色会断续）、
+        // 不要求叠放次序、点数 > 6 万、所需格不比最细级更细（街道级画全量）
+        var dedupeDraws: [(start: Int, len: Int)] = []
+        if useSpatial, pointsPass, lodDedupe, !orderSensitive, flashFile < 0,
+           bufFileID == nil, pointCount > 60_000, bufFirsts != nil,
+           rStart == 0, rLen == pointCount,
+           spatialFirstOffsets.count == SpatialIndex.levels + 1 {
+            let spacing = max(1.0, pointSizePx * 1.2)
+            let want = log2(camera.pxW / camera.w / (0.6 * spacing))
+            if want.isFinite, want <= Double(SpatialIndex.bits) + 0.5 {
+                let level = max(0, min(SpatialIndex.bits, Int(want.rounded())))
+                let off = spatialFirstOffsets[level], end = spatialFirstOffsets[level + 1]
+                spatialFirsts.withUnsafeBufferPointer { fb in
+                    let sub = UnsafeBufferPointer(rebasing: fb[off..<end])
+                    for rg in spatialRanges {
+                        let a = SpatialIndex.lowerBound(sub, UInt32(rg.lowerBound))
+                        let b = SpatialIndex.lowerBound(sub, UInt32(rg.upperBound))
+                        if b > a { dedupeDraws.append((off + a, b - a)) }
+                    }
+                }
+            }
+        }
+        let useDedupe = !dedupeDraws.isEmpty
+        let spatialInstances = spatialRanges.reduce(0) { $0 + ($1.count + Int(stride) - 1) / Int(stride) }
+        // 需要叠放次序（时间/速度/海拔着色、回放、删除灰显、重叠模式）：把视口
+        // 内的点收集起来按时间下标排序后提交（时间序抽稀子集 ∩ 视口），绑定
+        // 时间序缓冲——与旧路径逐点同序、同混合结果，只是少了视口外的。视口内
+        // 点过多时 CPU 排序不划算 → 时间序全量（永不劣于旧路径）
+        var orderedList: [UInt32]? = nil
+        if pointsPass, orderSensitive, useSpatial, spatialTotal <= 150_000 {
+            var list = [UInt32]()
+            list.reserveCapacity(spatialTotal)
+            let rEnd = rStart + rLen
+            let s = Int(stride)
+            spatialOrder.withUnsafeBufferPointer { ob in
+                for rg in spatialRanges {
+                    for k in rg {
+                        let pi = Int(ob[k])
+                        if pi >= rStart, pi < rEnd, (pi - rStart) % s == 0 {
+                            list.append(UInt32(pi))
+                        }
+                    }
+                }
+            }
+            Self.radixSort32(&list)
+            orderedList = list
+        }
+        let ordered = orderedList != nil
+        var orderedBuf: MTLBuffer?
+        if let list = orderedList, !list.isEmpty, let buf = visibleBuffer(count: list.count) {
+            list.withUnsafeBufferPointer {
+                _ = memcpy(buf.contents(), $0.baseAddress!, list.count * MemoryLayout<UInt32>.stride)
+            }
+            orderedBuf = buf
+        }
+        let pointsSpatial = useSpatial && (!orderSensitive || ordered)
+        var drawnActual: Int
+        if pointsPass {
+            drawnActual = ordered ? (orderedList?.count ?? 0)
+                : (pointsSpatial ? (useDedupe ? dedupeDraws.reduce(0) { $0 + $1.len } : spatialInstances)
+                                 : drawnPoints)
+        } else {
+            drawnActual = useSpatial ? spatialInstances : drawnPoints
+        }
 
-            let uScale = SIMD2<Float>(Float(2.0 / camera.w), Float(-2.0 / camera.h))
-            let uOffset = SIMD2<Float>(Float(2.0 * (cx - camera.x0) / camera.w - 1.0),
-                                       Float(1.0 - 2.0 * (center.y - camera.y0) / camera.h))
+        // 相机推导（热力累积 pass 与主 pass 共用）：
+        // 经度环绕——把 RTC 中心挪到离可见区中心最近的世界副本
+        var cx = center.x
+        let viewCx = camera.x0 + camera.w / 2
+        while cx - viewCx > 0.5 { cx -= 1.0 }
+        while viewCx - cx > 0.5 { cx += 1.0 }
+        let uScale = SIMD2<Float>(Float(2.0 / camera.w), Float(-2.0 / camera.h))
+        let uOffset = SIMD2<Float>(Float(2.0 * (cx - camera.x0) / camera.w - 1.0),
+                                   Float(1.0 - 2.0 * (center.y - camera.y0) / camera.h))
+
+        // --- 0) 热力累积 pass（主 pass 之前：点以高斯核加性撒入半分辨率密度纹理） ---
+        var heatReady = false
+        if heatMap, pointCount > 0, rLen > 0, ensureHeatAssets(),
+           let accumPipe = heatAccumPipeline, let bx = bufX, let by = bufY {
+            let hw = max(1, Int(camera.pxW) / 2)
+            let hh = max(1, Int(camera.pxH) / 2)
+            if let ht = ensureHeatTexture(w: hw, h: hh) {
+                let hpass = MTLRenderPassDescriptor()
+                hpass.colorAttachments[0].texture = ht
+                hpass.colorAttachments[0].loadAction = .clear
+                hpass.colorAttachments[0].storeAction = .store
+                hpass.colorAttachments[0].clearColor = MTLClearColor(red: 0, green: 0, blue: 0, alpha: 0)
+                if let henc = cmd.makeRenderCommandEncoder(descriptor: hpass) {
+                    let kernelFull = max(10.0, pointSizePx * 2.5)   // 全分辨率核半径
+                    var hu = PointUniforms(
+                        scale: uScale,
+                        offset: uOffset,
+                        ndcPerPixel: SIMD2(Float(2.0 / Double(hw)), Float(2.0 / Double(hh))),
+                        radiusPx: Float(kernelFull / 2),            // 半分辨率坐标
+                        haloPx: 0, alpha: 1, mode: 0,
+                        stride: stride,
+                        count: UInt32(pointCount),
+                        start: UInt32(rStart),
+                        rangeLen: UInt32(max(rLen, 1)),
+                        pixelMode: 0)
+                    henc.setRenderPipelineState(accumPipe)
+                    henc.setVertexBuffer(useSpatial ? bufSX! : bx, offset: 0, index: 0)
+                    henc.setVertexBuffer(useSpatial ? bufSY! : by, offset: 0, index: 1)
+                    henc.setVertexBuffer(bufOrder ?? dummyOrder, offset: 0, index: 7)
+                    henc.setVertexBuffer(bufFirsts ?? dummyOrder, offset: 0, index: 8)
+                    if useSpatial {
+                        hu.useOrder = 1
+                        for rg in spatialRanges {
+                            hu.orderStart = UInt32(rg.lowerBound)
+                            hu.orderLen = UInt32(rg.count)
+                            henc.setVertexBytes(&hu, length: MemoryLayout<PointUniforms>.stride, index: 3)
+                            henc.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 4,
+                                                instanceCount: (rg.count + Int(stride) - 1) / Int(stride))
+                        }
+                    } else {
+                        henc.setVertexBytes(&hu, length: MemoryLayout<PointUniforms>.stride, index: 3)
+                        henc.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 4,
+                                            instanceCount: drawnPoints)
+                    }
+                    henc.endEncoding()
+                    heatReady = true
+                }
+            }
+        }
+
+        // --- 0b) 迷雾累积 pass（与热力互斥；撒入同一张半分辨率遮罩纹理） ---
+        var fogReady = false
+        let fogR = min(max(fogRadiusMeters, 5.0), 300.0)
+        var fogU = FogUniforms(color: fogColor,
+                               params: SIMD4(Float(center.y), Float(fogR),
+                                             1.0, fogWash),
+                               flags: SIMD4(fogFileMask, 0, 0, 0))
+        // 0b-存档：.fwdb 方格实例直接写遮罩（一格不差；实例由协调器按视口缓存）
+        if fogMap, fogArchiveMode, !heatReady, ensureHeatAssets(),
+           let cellPipe = fwdbCellPipeline {
+            let hw = max(1, Int(camera.pxW) / 2)
+            let hh = max(1, Int(camera.pxH) / 2)
+            if let ht = ensureHeatTexture(w: hw, h: hh) {
+                var acx = fogArchiveCenter.x
+                while acx - viewCx > 0.5 { acx -= 1.0 }
+                while viewCx - acx > 0.5 { acx += 1.0 }
+                let aOffset = SIMD2<Float>(Float(2.0 * (acx - camera.x0) / camera.w - 1.0),
+                                           Float(1.0 - 2.0 * (fogArchiveCenter.y - camera.y0) / camera.h))
+                let hpass = MTLRenderPassDescriptor()
+                hpass.colorAttachments[0].texture = ht
+                hpass.colorAttachments[0].loadAction = .clear
+                hpass.colorAttachments[0].storeAction = .store
+                hpass.colorAttachments[0].clearColor = MTLClearColor(red: 0, green: 0, blue: 0, alpha: 0)
+                if let henc = cmd.makeRenderCommandEncoder(descriptor: hpass) {
+                    // 视口内没有已探索格子（实例 0）也要走完：清空遮罩 → 全幅是雾
+                    if let ab = fogArchiveBuffer, fogArchiveCount > 0 {
+                        var hu = PointUniforms(
+                            scale: uScale, offset: aOffset,
+                            ndcPerPixel: SIMD2(Float(2.0 / Double(hw)), Float(2.0 / Double(hh))),
+                            radiusPx: 0, haloPx: 0, alpha: 1,
+                            mode: fogArchiveSmooth ? 1 : 0,
+                            stride: 1, count: 1, start: 0, rangeLen: 1, pixelMode: 0)
+                        henc.setRenderPipelineState(cellPipe)
+                        henc.setVertexBuffer(ab, offset: 0, index: 0)
+                        henc.setVertexBytes(&hu, length: MemoryLayout<PointUniforms>.stride, index: 3)
+                        henc.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 4,
+                                            instanceCount: fogArchiveCount)
+                    }
+                    drawnActual = (fogArchiveBuffer != nil) ? fogArchiveCount : 0   // 存档格实例数
+                    henc.endEncoding()
+                    fogReady = true
+                }
+            }
+        }
+
+        if fogMap, !heatReady, !fogReady, pointCount > 0, rLen > 0, ensureHeatAssets(),
+           let accumPipe = fogAccumPipeline, let bx = bufX, let by = bufY {
+            let hw = max(1, Int(camera.pxW) / 2)
+            let hh = max(1, Int(camera.pxH) / 2)
+            if let ht = ensureHeatTexture(w: hw, h: hh) {
+                // 迷雾自己的抽稀：线段胶囊天然连续，步长只受"路径保真"约束——
+                // 相邻绘制点间距 ≤ 0.6×屏幕有效半径（含最小像素钳制）。
+                // 近看半径大 → 大步长省掉海量重叠；远看半径钳到 ~2px → 步长
+                // 自动放大，绝不会退回全量（旧版在这里逐帧画全量点，GPU 90ms+）
+                let centerMercY = camera.y0 + camera.h / 2
+                let lat = atan(sinh(.pi * (1 - 2 * centerMercY)))
+                let rPxFull = fogR / (40_075_016.7 * max(cos(lat), 0.05))
+                             * camera.pxW / camera.w
+                let effRadiusPx = max(2.0, rPxFull)          // 全分辨率像素
+                var fstride = 1
+                if heatSegPx > 1e-4 {
+                    // 间距 ≈ 1.1×半径：胶囊相连不会断，转角偏差被走廊宽度吞掉
+                    fstride = max(1, min(4096, Int(1.1 * effRadiusPx / heatSegPx)))
+                }
+                let hpass = MTLRenderPassDescriptor()
+                hpass.colorAttachments[0].texture = ht
+                hpass.colorAttachments[0].loadAction = .clear
+                hpass.colorAttachments[0].storeAction = .store
+                hpass.colorAttachments[0].clearColor = MTLClearColor(red: 0, green: 0, blue: 0, alpha: 0)
+                if let henc = cmd.makeRenderCommandEncoder(descriptor: hpass) {
+                    let hu = PointUniforms(
+                        scale: uScale,
+                        offset: uOffset,
+                        ndcPerPixel: SIMD2(Float(2.0 / Double(hw)), Float(2.0 / Double(hh))),
+                        radiusPx: 0, haloPx: 0, alpha: 1, mode: 0,
+                        stride: UInt32(fstride),
+                        count: UInt32(pointCount),
+                        start: UInt32(rStart),
+                        rangeLen: UInt32(max(rLen, 1)),
+                        pixelMode: 0)
+                    if let group = encodeFogPaths(henc, command:cmd, pipeline:accumPipe,
+                                                  x:bx,y:by,uniforms:hu,fog:fogU) {
+                        drawnActual = group.plan.instanceCount
+                    }
+                    henc.endEncoding()
+                    fogReady = true
+                }
+            }
+        }
+
+        let pass = MTLRenderPassDescriptor()
+        pass.colorAttachments[0].texture = drawable.texture
+        pass.colorAttachments[0].loadAction = .clear
+        pass.colorAttachments[0].storeAction = .store
+        pass.colorAttachments[0].clearColor = MTLClearColor(red: 0, green: 0, blue: 0, alpha: 0)
+        guard let enc = cmd.makeRenderCommandEncoder(descriptor: pass) else { return }
+
+        if fogReady, let colorPipe = fogColorPipeline, let ht = heatTexture {
+            // 迷雾模式：全屏合成——未探索处画雾，走过区域挖透，边缘亮晕
+            enc.setRenderPipelineState(colorPipe)
+            enc.setFragmentTexture(ht, index: 0)
+            enc.setFragmentBytes(&fogU, length: MemoryLayout<FogUniforms>.stride, index: 0)
+            enc.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: 3)
+        } else if heatReady, let colorPipe = heatColorPipeline, let ht = heatTexture {
+            // 热力模式：全屏色标合成替代点云/轨迹线。
+            // 增益按"单次经过的线密度"归一化：核直径内的抽稀后点数 ≈ 核半径/绘制间距，
+            // 让单程轨迹落在蓝绿段、反复经过的路线才升到红——语义与缩放/抽稀无关
+            let kernelFull = max(10.0, pointSizePx * 2.5)
+            let drawnSeg = max(0.25, heatSegPx * Double(stride))
+            let singlePassDensity = max(0.6, kernelFull / drawnSeg)
+            var hu = HeatUniforms(gain: Float(0.36 / singlePassDensity),
+                                  opacity: Float(min(1.0, opacity + 0.1)))
+            enc.setRenderPipelineState(colorPipe)
+            enc.setFragmentTexture(ht, index: 0)
+            enc.setFragmentBytes(&hu, length: MemoryLayout<HeatUniforms>.stride, index: 0)
+            enc.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: 3)
+        } else if pointCount > 0, rLen > 0, let bx = bufX, let by = bufY, let bc = frameColors?.temporal {
 
             // --- 1) 方向箭头轨迹线（与点云同 stride/区间） ---
-            if let lp = line, drawnPoints >= 2 {
-                var lu = LineUniforms(
-                    scale: uScale,
-                    offset: uOffset,
-                    viewportPx: SIMD2(Float(camera.pxW), Float(camera.pxH)),
-                    _pad: .zero,
-                    color: lp.color,
-                    widthPx: lp.widthPx,
-                    headLenPx: lp.arrows ? lp.headLenPx : 0,
-                    headWidthPx: lp.headWidthPx,
-                    isHead: 0,
-                    stride: stride,
-                    count: UInt32(pointCount),
-                    start: UInt32(rStart),
-                    rangeLen: UInt32(rLen))
-
-                enc.setRenderPipelineState(linePipeline)
-                enc.setVertexBuffer(bx, offset: 0, index: 0)
-                enc.setVertexBuffer(by, offset: 0, index: 1)
-                enc.setVertexBytes(&lu, length: MemoryLayout<LineUniforms>.stride, index: 2)
-                enc.setFragmentBytes(&lu, length: MemoryLayout<LineUniforms>.stride, index: 0)
-                // 箭杆：一次实例化提交
-                enc.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 4,
-                                   instanceCount: drawnPoints - 1)
-                if lp.arrows {
-                    lu.isHead = 1
-                    enc.setVertexBytes(&lu, length: MemoryLayout<LineUniforms>.stride, index: 2)
-                    enc.setFragmentBytes(&lu, length: MemoryLayout<LineUniforms>.stride, index: 0)
-                    // 箭头：一次实例化提交
-                    enc.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: 3,
-                                       instanceCount: drawnPoints - 1)
-                }
+            if let lp = line {
+                encodeLinePaths(enc,command:cmd,x:bx,y:by,scale:uScale,offset:uOffset,
+                                viewport:SIMD2(Float(camera.pxW),Float(camera.pxH)),params:lp,
+                                start:rStart,length:rLen,stride:Int(stride))
             }
 
             // --- 2) 点云（LOD 抽稀 + 时间筛选区间，一次实例化提交） ---
@@ -429,14 +1176,69 @@ final class MetalPointRenderer {
                 flashStrength: flashStrength)
 
             enc.setRenderPipelineState(pointPipeline)
-            enc.setVertexBuffer(bx, offset: 0, index: 0)
-            enc.setVertexBuffer(by, offset: 0, index: 1)
-            enc.setVertexBuffer(bc, offset: 0, index: 2)
-            enc.setVertexBytes(&u, length: MemoryLayout<PointUniforms>.stride, index: 3)
             enc.setVertexBuffer(bufFileID ?? dummyFileID, offset: 0, index: 4)
-            enc.setFragmentBytes(&u, length: MemoryLayout<PointUniforms>.stride, index: 0)
-            enc.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 4,
-                               instanceCount: drawnPoints)
+            enc.setVertexBuffer(bufOrder ?? dummyOrder, offset: 0, index: 7)
+            enc.setVertexBuffer(orderedBuf ?? bufFirsts ?? dummyOrder, offset: 0, index: 8)
+            let permutedBound = pointsSpatial && !ordered
+            if permutedBound {
+                // 空间路径：绑定莫顿序重排副本（顺序读），区段循环提交
+                enc.setVertexBuffer(bufSX!, offset: 0, index: 0)
+                enc.setVertexBuffer(bufSY!, offset: 0, index: 1)
+                enc.setVertexBuffer(frameColors?.spatial!, offset: 0, index: 2)
+                u.useOrder = 1
+            } else {
+                enc.setVertexBuffer(bx, offset: 0, index: 0)
+                enc.setVertexBuffer(by, offset: 0, index: 1)
+                enc.setVertexBuffer(bc, offset: 0, index: 2)
+            }
+            // 提交：时间序可见表（需次序）/ 去重 LOD（格首点表子区间）/
+            // 空间区段 / 时间序全量 四选一
+            do {
+                enc.setFragmentBytes(&u, length: MemoryLayout<PointUniforms>.stride, index: 0)
+                if ordered {
+                    let n = orderedList?.count ?? 0
+                    if n > 0, orderedBuf != nil {
+                        u.useOrder = 3
+                        u.stride = 1
+                        u.orderStart = 0
+                        u.orderLen = UInt32(n)
+                        enc.setVertexBytes(&u, length: MemoryLayout<PointUniforms>.stride, index: 3)
+                        enc.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 4,
+                                           instanceCount: n)
+                        u.stride = stride
+                    }
+                } else if useDedupe {
+                    u.useOrder = 2
+                    u.stride = 1
+                    for d in dedupeDraws {
+                        u.orderStart = UInt32(d.start)
+                        u.orderLen = UInt32(d.len)
+                        enc.setVertexBytes(&u, length: MemoryLayout<PointUniforms>.stride, index: 3)
+                        enc.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 4,
+                                           instanceCount: d.len)
+                    }
+                    u.useOrder = 1
+                    u.stride = stride
+                } else if pointsSpatial {
+                    for rg in spatialRanges {
+                        u.orderStart = UInt32(rg.lowerBound)
+                        u.orderLen = UInt32(rg.count)
+                        enc.setVertexBytes(&u, length: MemoryLayout<PointUniforms>.stride, index: 3)
+                        enc.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 4,
+                                           instanceCount: (rg.count + Int(stride) - 1) / Int(stride))
+                    }
+                } else {
+                    enc.setVertexBytes(&u, length: MemoryLayout<PointUniforms>.stride, index: 3)
+                    enc.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 4,
+                                       instanceCount: drawnPoints)
+                }
+            }
+            u.useOrder = 0
+            if permutedBound {
+                enc.setVertexBuffer(bx, offset: 0, index: 0)
+                enc.setVertexBuffer(by, offset: 0, index: 1)
+                enc.setVertexBuffer(bc, offset: 0, index: 2)
+            }
 
             // --- 3) 悬停/选中高亮环（start=hi + stride=1 精确定位） ---
             if let hi = highlight, hi >= 0, hi < pointCount {
@@ -459,21 +1261,58 @@ final class MetalPointRenderer {
 
         let encodeMs = Double(DispatchTime.now().uptimeNanoseconds - t0) / 1e6
         let base = FrameStats(waitMs: waitMs, encodeMs: encodeMs, gpuMs: 0,
-                              drawn: drawnPoints, stride: Int(stride), fps: fpsEMA)
+                              drawn: drawnActual, stride: Int(stride), fps: fpsEMA)
         cmd.addCompletedHandler { [weak self] cb in
             var frame = base
             frame.gpuMs = max(0, (cb.gpuEndTime - cb.gpuStartTime) * 1000)
             DispatchQueue.main.async { self?.onFrameStats?(frame) }
         }
 
-        // 与底图逐帧锁定时走事务同步呈现；否则免等待直接由命令缓冲呈现
-        if layer.presentsWithTransaction {
+        // 导出捕获：不上屏、不阻塞当前线程——GPU 完成回调（后台线程）里交出纹理；
+        // 否则与底图逐帧锁定时走事务同步呈现，其余免等待由命令缓冲呈现
+        if let captureTo {
+            cmd.addCompletedHandler { _ in captureTo(drawable.texture) }
+            cmd.commit()
+        } else if layer.presentsWithTransaction {
             cmd.commit()
             cmd.waitUntilScheduled()
             drawable.present()
         } else {
             cmd.present(drawable)
             cmd.commit()
+        }
+    }
+
+    // MARK: - 高清图片导出辅助
+
+    /// 离屏渲染目标（framebufferOnly = false 允许回读）
+    static func makeOffscreenLayer(device: MTLDevice, width: Int, height: Int) -> CAMetalLayer {
+        let layer = CAMetalLayer()
+        layer.device = device
+        layer.pixelFormat = .bgra8Unorm
+        layer.framebufferOnly = false
+        layer.presentsWithTransaction = false
+        layer.drawableSize = CGSize(width: width, height: height)
+        return layer
+    }
+
+    /// 回读 BGRA 纹理为 CGImage（sRGB，预乘 alpha）
+    static func cgImage(from tex: MTLTexture) -> CGImage? {
+        let w = tex.width, h = tex.height
+        guard w > 0, h > 0 else { return nil }
+        var bytes = [UInt8](repeating: 0, count: w * h * 4)
+        bytes.withUnsafeMutableBytes { raw in
+            tex.getBytes(raw.baseAddress!, bytesPerRow: w * 4,
+                         from: MTLRegionMake2D(0, 0, w, h), mipmapLevel: 0)
+        }
+        guard let cs = CGColorSpace(name: CGColorSpace.sRGB) else { return nil }
+        let info = CGBitmapInfo.byteOrder32Little.rawValue
+                 | CGImageAlphaInfo.premultipliedFirst.rawValue
+        return bytes.withUnsafeMutableBytes { raw -> CGImage? in
+            guard let ctx = CGContext(data: raw.baseAddress, width: w, height: h,
+                                      bitsPerComponent: 8, bytesPerRow: w * 4,
+                                      space: cs, bitmapInfo: info) else { return nil }
+            return ctx.makeImage()
         }
     }
 
@@ -485,7 +1324,7 @@ final class MetalPointRenderer {
         if globeSpherePipeline != nil { return true }
         guard !globeSetupFailed else { return false }
 
-        guard let lib = device.makeDefaultLibrary(),
+        guard let lib = suppliedLibrary ?? device.makeDefaultLibrary(),
               let sv = lib.makeFunction(name: "globeSphereVertex"),
               let sf = lib.makeFunction(name: "globeSphereFragment"),
               let pv = lib.makeFunction(name: "globePointVertex"),
@@ -858,8 +1697,10 @@ final class MetalPointRenderer {
                      lodStride: Int, range: (start: Int, len: Int)? = nil,
                      highlight: Int? = nil, darkMode: Bool = true,
                      mapDim: Double = 1.0, demoAnomalyDeg: Double = 0,
-                     pixelStyle: Bool = false,
-                     flashFile: Int32 = -1, flashStrength: Float = 0) {
+                     pixelStyle: Bool = false, fogStyle: Bool = false,
+                     flashFile: Int32 = -1, flashStrength: Float = 0,
+                     fileMask: UInt32 = 0xFFFF_FFFF,
+                     captureTo: ((MTLTexture) -> Void)? = nil) {
         let dw = Int(layer.drawableSize.width)
         let dh = Int(layer.drawableSize.height)
         guard dw > 1, dh > 1, ensureGlobeAssets(),
@@ -875,6 +1716,8 @@ final class MetalPointRenderer {
         let tWait0 = DispatchTime.now().uptimeNanoseconds
         guard let drawable = layer.nextDrawable(),
               let cmd = queue.makeCommandBuffer() else { return }
+        let frameColors = colorBuffers
+        frameColors?.retain(untilCompleted: cmd)
         let t0 = DispatchTime.now().uptimeNanoseconds
         let waitMs = Double(t0 - tWait0) / 1e6
 
@@ -921,11 +1764,12 @@ final class MetalPointRenderer {
             stride: UInt32(max(1, lodStride)),
             count: UInt32(max(pointCount, 1)),
             start: 0, rangeLen: 0,
-            flags: darkMode ? 0 : 2,
-            mapDim: Float(min(1, max(0.2, mapDim))),
-            flashFile: flashFile, flashStrength: flashStrength)
+            flags: (darkMode ? 0 : 2) | (fogStyle ? 4 : 0) | (bufFileID == nil ? 8 : 0),
+            mapDim: Float(min(1, max(0.2, mapDim * (fogStyle ? 0.5 : 1.0)))),
+            flashFile: flashFile, flashStrength: flashStrength,
+            fileMask: fileMask)
         #if DEBUG
-        assert(MemoryLayout<GlobeUniforms>.stride == 224, "GlobeUniforms 布局与 Metal 端不一致")
+        assert(MemoryLayout<GlobeUniforms>.stride == 240, "GlobeUniforms 布局与 Metal 端不一致")
         assert(MemoryLayout<MeteorUniforms>.stride == 32, "MeteorUniforms 布局与 Metal 端不一致")
         #endif
         let lightBit: UInt32 = darkMode ? 0 : 2
@@ -1016,7 +1860,7 @@ final class MetalPointRenderer {
         let rStart = max(0, min(range?.start ?? 0, max(pointCount - 1, 0)))
         let rLen = max(0, min(range?.len ?? pointCount, pointCount - rStart))
         if !pixelStyle, pointCount > 0, rLen > 0,
-           let ux = bufUX, let uy = bufUY, let uz = bufUZ, let bc = bufColor, let bl = bufLift {
+           let ux = bufUX, let uy = bufUY, let uz = bufUZ, let bc = frameColors?.temporal, let bl = bufLift {
             let stride = max(1, lodStride)
             drawnPoints = (rLen + stride - 1) / stride
             u.start = UInt32(rStart)
@@ -1047,7 +1891,7 @@ final class MetalPointRenderer {
 
         // --- 5) 悬停/选中高亮环（写实模式；start=hi + stride=1 精确定位） ---
         if !pixelStyle, pointCount > 0, let hi = highlight, hi >= 0, hi < pointCount,
-           let ux = bufUX, let uy = bufUY, let uz = bufUZ, let bc = bufColor, let bl = bufLift {
+           let ux = bufUX, let uy = bufUY, let uz = bufUZ, let bc = frameColors?.temporal, let bl = bufLift {
             u.start = UInt32(hi)
             u.stride = 1
             u.rangeLen = 1
@@ -1075,8 +1919,259 @@ final class MetalPointRenderer {
             DispatchQueue.main.async { self?.onFrameStats?(frame) }
         }
 
-        // 地球模式下地图隐藏时免事务呈现（省主线程 waitUntilScheduled）
-        if layer.presentsWithTransaction {
+        // 导出捕获：不上屏、不阻塞当前线程——GPU 完成回调（后台线程）里交出纹理；
+        // 否则地球模式下地图隐藏时免事务呈现（省主线程 waitUntilScheduled）
+        if let captureTo {
+            cmd.addCompletedHandler { _ in captureTo(drawable.texture) }
+            cmd.commit()
+        } else if layer.presentsWithTransaction {
+            cmd.commit()
+            cmd.waitUntilScheduled()
+            drawable.present()
+        } else {
+            cmd.present(drawable)
+            cmd.commit()
+        }
+    }
+
+    // MARK: - 3D 热力柱（自绘透视场景：地面贴图 + 实例化方柱，深度测试）
+
+    private var heat3DPipeline: MTLRenderPipelineState?
+    private var heat3DGroundPipeline: MTLRenderPipelineState?
+    private var heat3DDepthState: MTLDepthStencilState?
+    private var heat3DSetupFailed = false
+    private var bufHeat3D: MTLBuffer?
+    private(set) var heat3DCount = 0
+    private var heat3DGroundTex: MTLTexture?
+    private var heat3DGroundRect = SIMD4<Float>(-1.2, -1.2, 1.2, 1.2)
+
+    /// 与 Shaders.metal 中 Heat3DUniforms 逐字段对齐（96 B）
+    private struct Heat3DUniforms {
+        var mvp: simd_float4x4
+        var light: SIMD4<Float>    // xyz 方向光，w 环境
+        var params: SIMD4<Float>   // x 平滑，y 地面亮度，z 备用，w 备用
+    }
+
+    private var heat3DChunks: [Heat3DChunk] = []
+    private var heat3DBlockHalf: Float = 0
+
+    func setHeat3D(scene: Heat3DScene?) {
+        guard let sc = scene, !sc.instances.isEmpty else {
+            heat3DCount = 0
+            bufHeat3D = nil
+            heat3DChunks = []
+            return
+        }
+        heat3DCount = sc.count
+        heat3DChunks = sc.chunks
+        heat3DBlockHalf = sc.blockHalf
+        bufHeat3D = sc.instances.withUnsafeBufferPointer {
+            device.makeBuffer(bytes: $0.baseAddress!, length: sc.instances.count * 4,
+                              options: .storageModeShared)
+        }
+    }
+
+    func setHeat3DGround(texture: MTLTexture?, rect: SIMD4<Float>) {
+        heat3DGroundTex = texture
+        heat3DGroundRect = rect
+    }
+
+    // 本地高清地面层：相机贴近时对当前脚下区域单独截图（整景快照放大后会糊）
+    private var heat3DLocalTex: MTLTexture?
+    private var heat3DLocalRect = SIMD4<Float>(0, 0, 0, 0)
+
+    func setHeat3DLocalGround(texture: MTLTexture?, rect: SIMD4<Float>) {
+        heat3DLocalTex = texture
+        heat3DLocalRect = rect
+    }
+
+    /// 地面贴图未就绪时的纯色补位（跟随外观）
+    private func fallbackGround(dark: Bool) -> MTLTexture? {
+        let td = MTLTextureDescriptor.texture2DDescriptor(pixelFormat: .bgra8Unorm,
+                                                          width: 1, height: 1, mipmapped: false)
+        td.usage = .shaderRead
+        guard let t = device.makeTexture(descriptor: td) else { return nil }
+        var px: [UInt8] = dark ? [46, 40, 34, 255] : [214, 219, 222, 255]   // BGRA
+        t.replace(region: MTLRegionMake2D(0, 0, 1, 1), mipmapLevel: 0,
+                  withBytes: &px, bytesPerRow: 4)
+        return t
+    }
+    private lazy var groundFallbackDark: MTLTexture? = fallbackGround(dark: true)
+    private lazy var groundFallbackLight: MTLTexture? = fallbackGround(dark: false)
+
+    private func ensureHeat3DAssets() -> Bool {
+        if heat3DPipeline != nil { return true }
+        if heat3DSetupFailed { return false }
+        guard let lib = suppliedLibrary ?? device.makeDefaultLibrary(),
+              let bv = lib.makeFunction(name: "heat3DBlockVertex"),
+              let bf = lib.makeFunction(name: "heat3DBlockFragment"),
+              let gv = lib.makeFunction(name: "heat3DGroundVertex"),
+              let gf = lib.makeFunction(name: "heat3DGroundFragment") else {
+            heat3DSetupFailed = true
+            return false
+        }
+        func make(_ v: MTLFunction, _ f: MTLFunction) -> MTLRenderPipelineState? {
+            let d = MTLRenderPipelineDescriptor()
+            d.vertexFunction = v
+            d.fragmentFunction = f
+            d.colorAttachments[0].pixelFormat = .bgra8Unorm
+            d.depthAttachmentPixelFormat = .depth32Float
+            return try? device.makeRenderPipelineState(descriptor: d)
+        }
+        heat3DPipeline = make(bv, bf)
+        heat3DGroundPipeline = make(gv, gf)
+        let ds = MTLDepthStencilDescriptor()
+        ds.depthCompareFunction = .less
+        ds.isDepthWriteEnabled = true
+        heat3DDepthState = device.makeDepthStencilState(descriptor: ds)
+        if heat3DPipeline == nil || heat3DGroundPipeline == nil || heat3DDepthState == nil {
+            heat3DSetupFailed = true
+            return false
+        }
+        return true
+    }
+
+    /// 3D 热力柱场景：轨道相机（yaw/pitch/dist + 地面平移 target），
+    /// 地面贴图（底图截图）+ 单 draw call 实例化方柱
+    func renderHeat3D(layer: CAMetalLayer,
+                      yaw: Float, pitch: Float, dist: Float,
+                      target: SIMD2<Float>,
+                      smooth: Bool, dark: Bool,
+                      captureTo: ((MTLTexture) -> Void)? = nil) {
+        let dw = Int(layer.drawableSize.width)
+        let dh = Int(layer.drawableSize.height)
+        guard dw > 1, dh > 1, ensureHeat3DAssets(),
+              let blockPipe = heat3DPipeline, let groundPipe = heat3DGroundPipeline,
+              let ds = heat3DDepthState,
+              let depth = ensureDepth(w: dw, h: dh) else { return }
+
+        tickFPS()
+        let tWait0 = DispatchTime.now().uptimeNanoseconds
+        guard let drawable = layer.nextDrawable(),
+              let cmd = queue.makeCommandBuffer() else { return }
+        let t0 = DispatchTime.now().uptimeNanoseconds
+        let waitMs = Double(t0 - tWait0) / 1e6
+
+        let pass = MTLRenderPassDescriptor()
+        pass.colorAttachments[0].texture = drawable.texture
+        pass.colorAttachments[0].loadAction = .clear
+        pass.colorAttachments[0].storeAction = .store
+        pass.colorAttachments[0].clearColor = dark
+            ? MTLClearColor(red: 0.055, green: 0.065, blue: 0.085, alpha: 1)
+            : MTLClearColor(red: 0.88, green: 0.90, blue: 0.92, alpha: 1)
+        pass.depthAttachment.texture = depth
+        pass.depthAttachment.loadAction = .clear
+        pass.depthAttachment.clearDepth = 1.0
+        pass.depthAttachment.storeAction = .dontCare
+        guard let enc = cmd.makeRenderCommandEncoder(descriptor: pass) else { return }
+
+        let view = Self.translate(0, 0, -dist)
+                 * Self.rotX(pitch)
+                 * Self.rotY(yaw)
+                 * Self.translate(-target.x, 0, -target.y)
+        // 近/远平面随距离缩放：大洲级数据聚焦到城市时 dist 可低至 1e-4
+        let proj = Self.perspective(fovY: 0.72, aspect: Float(dw) / Float(dh),
+                                    near: max(1e-5, dist * 0.05), far: dist * 40 + 8.0)
+        var u = Heat3DUniforms(
+            mvp: proj * view,
+            light: SIMD4(0.37, 0.82, 0.44, 0.42),
+            // z = 半屏像素 × 投影 y 缩放：顶点着色器估算块的屏幕尺寸做 LOD
+            params: SIMD4(smooth ? 1 : 0, dark ? 0.92 : 1.0,
+                          proj.columns.1.y * Float(dh) * 0.5, 0))
+
+        // 兜底大地面（中性色，比主地面低半块）：拉远/平移视野里永远有地
+        var baseRect = SIMD4<Float>(-9, -9, 9, 9)
+        var bu = u
+        bu.params.w = -max(1e-6, heat3DBlockHalf * 0.5)
+        enc.setRenderPipelineState(groundPipe)
+        enc.setDepthStencilState(ds)
+        enc.setVertexBytes(&bu, length: MemoryLayout<Heat3DUniforms>.stride, index: 1)
+        enc.setVertexBytes(&baseRect, length: MemoryLayout<SIMD4<Float>>.stride, index: 2)
+        enc.setFragmentBytes(&bu, length: MemoryLayout<Heat3DUniforms>.stride, index: 1)
+        enc.setFragmentTexture(dark ? groundFallbackDark : groundFallbackLight, index: 0)
+        enc.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 4)
+
+        // 地面（深度写入，方柱贴地不穿插）；本地高清层微抬叠加
+        var rect = heat3DGroundRect
+        enc.setVertexBytes(&u, length: MemoryLayout<Heat3DUniforms>.stride, index: 1)
+        enc.setVertexBytes(&rect, length: MemoryLayout<SIMD4<Float>>.stride, index: 2)
+        enc.setFragmentBytes(&u, length: MemoryLayout<Heat3DUniforms>.stride, index: 1)
+        enc.setFragmentTexture(heat3DGroundTex
+                               ?? (dark ? groundFallbackDark : groundFallbackLight), index: 0)
+        enc.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 4)
+        if let lt = heat3DLocalTex, heat3DLocalRect.z > heat3DLocalRect.x {
+            var lu = u
+            // 抬升量随块尺度走：固定 0.0006 在大跨度场景会高过所有柱体，
+            // 深度测试把整片柱子吞进地面（最矮柱 ≈ 数倍块半宽，0.15×半宽必在其下）
+            lu.params.w = max(1e-7, heat3DBlockHalf * 0.15)
+            var lrect = heat3DLocalRect
+            enc.setVertexBytes(&lu, length: MemoryLayout<Heat3DUniforms>.stride, index: 1)
+            enc.setVertexBytes(&lrect, length: MemoryLayout<SIMD4<Float>>.stride, index: 2)
+            enc.setFragmentBytes(&lu, length: MemoryLayout<Heat3DUniforms>.stride, index: 1)
+            enc.setFragmentTexture(lt, index: 0)
+            enc.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 4)
+            enc.setVertexBytes(&u, length: MemoryLayout<Heat3DUniforms>.stride, index: 1)
+            enc.setFragmentBytes(&u, length: MemoryLayout<Heat3DUniforms>.stride, index: 1)
+        }
+
+        // 方柱：逐 chunk 视锥剔除 + 分级绘制——视锥外整块跳过；
+        // 块投影 <0.7px 的 chunk 只画顶面（6 顶点），近处画完整方柱（30 顶点）。
+        // 百万块的大数据下顶点量降一个数量级，交互不掉帧
+        var drawn = 0
+        if let bb = bufHeat3D, heat3DCount > 0 {
+            enc.setRenderPipelineState(blockPipe)
+            enc.setVertexBuffer(bb, offset: 0, index: 0)
+            enc.setVertexBytes(&u, length: MemoryLayout<Heat3DUniforms>.stride, index: 1)
+            enc.setFragmentBytes(&u, length: MemoryLayout<Heat3DUniforms>.stride, index: 1)
+            let mvp = u.mvp
+            let pxScale = u.params.z
+            // 眼睛世界坐标（view = T(0,0,-d)·rotX(p)·rotY(y)·T(-t) 的逆推）
+            let eye = SIMD3<Float>(target.x - dist * sin(yaw) * cos(pitch),
+                                   dist * sin(pitch),
+                                   target.y + dist * cos(yaw) * cos(pitch))
+            for c in heat3DChunks {
+                // AABB 8 角点裁剪空间测试（y ∈ [0, maxH]）
+                var allL = true, allR = true, allB = true, allT = true, allN = true
+                for ci in 0..<8 {
+                    let px = (ci & 1) != 0 ? c.maxX : c.minX
+                    let pz = (ci & 2) != 0 ? c.maxZ : c.minZ
+                    let py = (ci & 4) != 0 ? c.maxH : 0
+                    let cp = mvp * SIMD4<Float>(px, py, pz, 1)
+                    let w = cp.w
+                    if cp.x >= -w * 1.02 { allL = false }
+                    if cp.x <=  w * 1.02 { allR = false }
+                    if cp.y >= -w * 1.02 { allB = false }
+                    if cp.y <=  w * 1.02 { allT = false }
+                    if w > 0 { allN = false }
+                }
+                if allL || allR || allB || allT || allN { continue }
+                // 几何级别按眼睛到 chunk AABB 最近点的距离：大洲级 chunk 的
+                // 角点可能在数百 km 外，按角点算会把眼前的块也降级成悬空顶面
+                let nx = min(max(eye.x, c.minX), c.maxX)
+                let ny = min(max(eye.y, 0), c.maxH)
+                let nz = min(max(eye.z, c.minZ), c.maxZ)
+                let nearD = simd_distance(eye, SIMD3(nx, ny, nz))
+                let pxHalf = heat3DBlockHalf * pxScale / max(nearD, 1e-6)
+                let verts = pxHalf < 0.7 ? 12 : 36     // 顶面扇 12 / 全几何 36
+                enc.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: verts,
+                                   instanceCount: Int(c.count), baseInstance: Int(c.start))
+                drawn += Int(c.count)
+            }
+        }
+        enc.endEncoding()
+
+        let encodeMs = Double(DispatchTime.now().uptimeNanoseconds - t0) / 1e6
+        let base = FrameStats(waitMs: waitMs, encodeMs: encodeMs, gpuMs: 0,
+                              drawn: drawn, stride: 1, fps: fpsEMA)
+        cmd.addCompletedHandler { [weak self] cb in
+            var frame = base
+            frame.gpuMs = max(0, (cb.gpuEndTime - cb.gpuStartTime) * 1000)
+            DispatchQueue.main.async { self?.onFrameStats?(frame) }
+        }
+        if let captureTo {
+            cmd.addCompletedHandler { _ in captureTo(drawable.texture) }
+            cmd.commit()
+        } else if layer.presentsWithTransaction {
             cmd.commit()
             cmd.waitUntilScheduled()
             drawable.present()
@@ -1123,3 +2218,51 @@ final class MetalPointRenderer {
         return m
     }
 }
+
+#if GPXPV_METAL_COLOR_TESTS
+extension MetalPointRenderer {
+    var testingColors: PointColorBuffers? { colorBuffers }
+    func testingAdopt(_ group: PointColorBuffers, count: Int, order: [UInt32]) {
+        colorBuffers = group; pointCount = count; spatialOrder = order
+    }
+}
+#endif
+
+#if GPXPV_SEGMENT_RENDER_TESTS
+extension MetalPointRenderer {
+    func testingPlan(kind: PathDrawKind, start: Int, length: Int, stride: Int,
+                     softBreaks: Bool = true) -> PathGPUPlan? {
+        pathPlan(kind:kind,start:start,length:length,stride:stride,softBreaks:softBreaks)
+    }
+    func testingRenderPaths(texture: MTLTexture, kind: PathDrawKind, start: Int, length: Int,
+                            stride: Int, scale: SIMD2<Float>, offset: SIMD2<Float> = .zero,
+                            fileMask: UInt32 = 0xFFFF_FFFF, radiusMeters: Float = 5,
+                            centerMercY: Float = 0.5, softBreaks: Bool = true,
+                            waitEvent: MTLSharedEvent? = nil) -> MTLCommandBuffer? {
+        guard let command = queue.makeCommandBuffer(), let x = bufX, let y = bufY else { return nil }
+        if let waitEvent { command.encodeWaitForEvent(waitEvent,value:1) }
+        let pass = MTLRenderPassDescriptor()
+        pass.colorAttachments[0].texture = texture; pass.colorAttachments[0].loadAction = .clear
+        pass.colorAttachments[0].storeAction = .store
+        pass.colorAttachments[0].clearColor = MTLClearColorMake(0,0,0,0)
+        guard let encoder = command.makeRenderCommandEncoder(descriptor:pass) else { return nil }
+        switch kind {
+        case .line:
+            let params = LineParams(widthPx:3,headLenPx:8,headWidthPx:6,color:SIMD4(1,1,1,1),
+                                    arrows:false,cullBreaks:softBreaks,fileMask:fileMask)
+            encodeLinePaths(encoder,command:command,x:x,y:y,scale:scale,offset:offset,
+                viewport:SIMD2(Float(texture.width),Float(texture.height)),params:params,
+                start:start,length:length,stride:stride)
+        case .fog:
+            guard ensureHeatAssets(), let pipeline = fogAccumPipeline else { encoder.endEncoding(); return nil }
+            let u = PointUniforms(scale:scale,offset:offset,
+                ndcPerPixel:SIMD2(2/Float(texture.width),2/Float(texture.height)),
+                radiusPx:0,haloPx:0,alpha:1,mode:0,stride:UInt32(clamping:max(1,stride)),count:UInt32(pointCount),
+                start:UInt32(start),rangeLen:UInt32(length),pixelMode:0)
+            let f = FogUniforms(color:SIMD4(0,0,0,1),params:SIMD4(centerMercY,radiusMeters,1,0),flags:SIMD4(fileMask,0,0,0))
+            encodeFogPaths(encoder,command:command,pipeline:pipeline,x:x,y:y,uniforms:u,fog:f)
+        }
+        encoder.endEncoding(); command.commit(); return command
+    }
+}
+#endif

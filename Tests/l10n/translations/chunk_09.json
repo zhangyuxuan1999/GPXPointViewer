@@ -1,0 +1,512 @@
+[
+ {
+  "table": "Localizable",
+  "key": "点距",
+  "en": "Spacing",
+  "de": "Abstand",
+  "zh-Hant": "點距"
+ },
+ {
+  "table": "Localizable",
+  "key": "点透明",
+  "en": "Opacity",
+  "de": "Deckkraft",
+  "zh-Hant": "點透明"
+ },
+ {
+  "table": "Localizable",
+  "key": "点颜色",
+  "en": "Point Color",
+  "de": "Punktfarbe",
+  "zh-Hant": "點顏色"
+ },
+ {
+  "table": "Localizable",
+  "key": "热力图",
+  "en": "Heatmap",
+  "de": "Heatmap",
+  "zh-Hant": "熱力圖"
+ },
+ {
+  "table": "Localizable",
+  "key": "状态",
+  "en": "Status",
+  "de": "Status",
+  "zh-Hant": "狀態"
+ },
+ {
+  "table": "Localizable",
+  "key": "珀斯",
+  "en": "Perth",
+  "de": "Perth",
+  "zh-Hant": "伯斯"
+ },
+ {
+  "table": "Localizable",
+  "key": "生成 100 万点",
+  "en": "Generate 1M Points",
+  "de": "1 Mio. Punkte erzeugen",
+  "zh-Hant": "產生 100 萬點"
+ },
+ {
+  "table": "Localizable",
+  "key": "生成 500 万点",
+  "en": "Generate 5M Points",
+  "de": "5 Mio. Punkte erzeugen",
+  "zh-Hant": "產生 500 萬點"
+ },
+ {
+  "table": "Localizable",
+  "key": "生成审阅图…",
+  "en": "Building review map…",
+  "de": "Prüfkarte wird erstellt…",
+  "zh-Hant": "產生審閱圖…"
+ },
+ {
+  "table": "Localizable",
+  "key": "疑似铁路",
+  "en": "Likely Rail",
+  "de": "Vermutlich Bahn",
+  "zh-Hant": "疑似鐵路"
+ },
+ {
+  "table": "Localizable",
+  "key": "疑点",
+  "en": "Warnings",
+  "de": "Warnungen",
+  "zh-Hant": "疑點"
+ },
+ {
+  "table": "Localizable",
+  "key": "白天",
+  "en": "Light",
+  "de": "Hell",
+  "zh-Hant": "白天"
+ },
+ {
+  "table": "Localizable",
+  "key": "白描边",
+  "en": "White Outline",
+  "de": "Weiße Kontur",
+  "zh-Hant": "白描邊"
+ },
+ {
+  "table": "Localizable",
+  "key": "目标文件不可写",
+  "en": "The destination file is not writable",
+  "de": "Die Zieldatei ist nicht beschreibbar",
+  "zh-Hant": "目標檔案無法寫入"
+ },
+ {
+  "table": "Localizable",
+  "key": "直接",
+  "en": "Direct",
+  "de": "Direkt",
+  "zh-Hant": "直接"
+ },
+ {
+  "table": "Localizable",
+  "key": "直线",
+  "en": "Straight Line",
+  "de": "Luftlinie",
+  "zh-Hant": "直線"
+ },
+ {
+  "table": "Localizable",
+  "key": "相邻两处断档之间只有 ≤3 个点、≤90 秒时并成一处一次补完（隧道群之间手机常只记到一两个离路几百米的假点，并起来后这些点随区间替换）。Garmin 隧道群之间是几十个贴路的真实点，不会被并",
+  "en": "When two adjacent gaps are separated by only ≤3 points and ≤90 s, they are merged into one and filled in one go (between tunnels in a chain, phones often record only one or two fake points a few hundred meters off the road; once merged, these points are replaced along with the range). Garmin records dozens of real on-road points between tunnels, so those are not merged",
+  "de": "Liegen zwischen zwei benachbarten Lücken nur ≤3 Punkte und ≤90 s, werden sie zu einer zusammengefasst und in einem Durchgang gefüllt (zwischen den Tunneln einer Kette zeichnen Handys oft nur ein oder zwei falsche Punkte einige hundert Meter neben der Straße auf; nach dem Zusammenfassen werden diese Punkte mit dem Bereich ersetzt). Garmin zeichnet zwischen den Tunneln Dutzende echte Punkte auf der Straße auf, daher wird dort nicht zusammengefasst",
+  "zh-Hant": "相鄰兩處斷檔之間只有 ≤3 個點、≤90 秒時併成一處一次補完（隧道群之間手機常只記到一兩個離路幾百公尺的假點，併起來後這些點隨區間替換）。Garmin 隧道群之間是幾十個貼路的真實點，不會被併"
+ },
+ {
+  "table": "Localizable",
+  "key": "着色",
+  "en": "Coloring",
+  "de": "Einfärbung",
+  "zh-Hant": "著色"
+ },
+ {
+  "table": "Localizable",
+  "key": "石家庄",
+  "en": "Shijiazhuang",
+  "de": "Shijiazhuang",
+  "zh-Hant": "石家莊"
+ },
+ {
+  "table": "Localizable",
+  "key": "确认删除 %lld 个点？",
+  "en": "Delete %lld points?",
+  "de": "%lld Punkte löschen?",
+  "zh-Hant": "確認刪除 %lld 個點？",
+  "plural": {
+   "en": {
+    "one": "Delete %lld point?",
+    "other": "Delete %lld points?"
+   },
+   "de": {
+    "one": "%lld Punkt löschen?",
+    "other": "%lld Punkte löschen?"
+   }
+  }
+ },
+ {
+  "table": "Localizable",
+  "key": "磁盘或编码错误",
+  "en": "Disk or encoding error",
+  "de": "Datenträger- oder Kodierungsfehler",
+  "zh-Hant": "磁碟或編碼錯誤"
+ },
+ {
+  "table": "Localizable",
+  "key": "禁用闲置展示模式",
+  "en": "Disable Idle Showcase",
+  "de": "Leerlauf-Präsentation deaktivieren",
+  "zh-Hant": "停用閒置展示模式"
+ },
+ {
+  "table": "Localizable",
+  "key": "福州",
+  "en": "Fuzhou",
+  "de": "Fuzhou",
+  "zh-Hant": "福州"
+ },
+ {
+  "table": "Localizable",
+  "key": "科隆",
+  "en": "Cologne",
+  "de": "Köln",
+  "zh-Hant": "科隆"
+ },
+ {
+  "table": "Localizable",
+  "key": "移除此存档",
+  "en": "Remove this archive",
+  "de": "Dieses Archiv entfernen",
+  "zh-Hant": "移除此存檔"
+ },
+ {
+  "table": "Localizable",
+  "key": "第 %lld / %lld 处",
+  "en": "Change %1$lld / %2$lld",
+  "de": "Änderung %1$lld / %2$lld",
+  "zh-Hant": "第 %1$lld / %2$lld 處"
+ },
+ {
+  "table": "Localizable",
+  "key": "第 %lld 段 · %@ → %@ · %lld km · %lld 处断档 · 判定 %@（%@）",
+  "en": "Segment %1$lld · %2$@ → %3$@ · %4$lld km · gaps: %5$lld · classified as %6$@ (%7$@)",
+  "de": "Abschnitt %1$lld · %2$@ → %3$@ · %4$lld km · Lücken: %5$lld · eingestuft als %6$@ (%7$@)",
+  "zh-Hant": "第 %1$lld 段 · %2$@ → %3$@ · %4$lld km · %5$lld 處斷檔 · 判定 %6$@（%7$@）"
+ },
+ {
+  "table": "Localizable",
+  "key": "第 %lld 段：%@",
+  "en": "Segment %1$lld: %2$@",
+  "de": "Abschnitt %1$lld: %2$@",
+  "zh-Hant": "第 %1$lld 段：%2$@"
+ },
+ {
+  "table": "Localizable",
+  "key": "第 %lld 段：%@\n单处：%@",
+  "en": "Segment %1$lld: %2$@\nThis gap: %3$@",
+  "de": "Abschnitt %1$lld: %2$@\nDiese Lücke: %3$@",
+  "zh-Hant": "第 %1$lld 段：%2$@\n單處：%3$@"
+ },
+ {
+  "table": "Localizable",
+  "key": "第 %lld 段：%@–%@ · %lld km → %@（%@）",
+  "en": "Segment %1$lld: %2$@–%3$@ · %4$lld km → %5$@ (%6$@)",
+  "de": "Abschnitt %1$lld: %2$@–%3$@ · %4$lld km → %5$@ (%6$@)",
+  "zh-Hant": "第 %1$lld 段：%2$@–%3$@ · %4$lld km → %5$@（%6$@）"
+ },
+ {
+  "table": "Localizable",
+  "key": "第 %lld/%lld 处",
+  "en": "Gap %1$lld/%2$lld",
+  "de": "Lücke %1$lld/%2$lld",
+  "zh-Hant": "第 %1$lld/%2$lld 處"
+ },
+ {
+  "table": "Localizable",
+  "key": "第 %lld/%lld 批：问 Overpass 这 %lld 个点 150 m 内有没有铁路（公共服务排队 30–60 秒）…",
+  "en": "Batch %1$lld/%2$lld: asking Overpass whether these points (%3$lld) are within 150 m of a railway (public instance, 30–60 s queue)…",
+  "de": "Stapel %1$lld/%2$lld: Overpass wird gefragt, ob diese Punkte (%3$lld) höchstens 150 m von einer Bahn entfernt sind (öffentliche Instanz, 30–60 s Wartezeit)…",
+  "zh-Hant": "第 %1$lld/%2$lld 批：問 Overpass 這 %3$lld 個點 150 m 內有沒有鐵路（公共服務排隊 30–60 秒）…"
+ },
+ {
+  "table": "Localizable",
+  "key": "第 1 步 · 每处断档走公路还是铁路",
+  "en": "Step 1 · Road or Rail for Each Gap",
+  "de": "Schritt 1 · Straße oder Bahn für jede Lücke",
+  "zh-Hant": "第 1 步 · 每處斷檔走公路還是鐵路"
+ },
+ {
+  "table": "Localizable",
+  "key": "第 1/%lld 批：问 Overpass 这 %lld 个点 150 m 内有没有铁路（公共服务排队 30–60 秒）…",
+  "en": "Batch 1/%1$lld: asking Overpass whether these points (%2$lld) are within 150 m of a railway (public instance, 30–60 s queue)…",
+  "de": "Stapel 1/%1$lld: Overpass wird gefragt, ob diese Punkte (%2$lld) höchstens 150 m von einer Bahn entfernt sind (öffentliche Instanz, 30–60 s Wartezeit)…",
+  "zh-Hant": "第 1/%1$lld 批：問 Overpass 這 %2$lld 個點 150 m 內有沒有鐵路（公共服務排隊 30–60 秒）…"
+ },
+ {
+  "table": "Localizable",
+  "key": "第 2 步 · 正在取路网草稿",
+  "en": "Step 2 · Fetching Road Drafts",
+  "de": "Schritt 2 · Straßenentwürfe werden abgerufen",
+  "zh-Hant": "第 2 步 · 正在取路網草稿"
+ },
+ {
+  "table": "Localizable",
+  "key": "第 3 步 · 预览",
+  "en": "Step 3 · Preview",
+  "de": "Schritt 3 · Vorschau",
+  "zh-Hant": "第 3 步 · 預覽"
+ },
+ {
+  "table": "Localizable",
+  "key": "第一个离 %@ ≥25 m 的点在 %@ 外（弦长上限 %@ m）",
+  "en": "The first point ≥25 m from %1$@ is already %2$@ away (chord limit %3$@ m)",
+  "de": "Der erste Punkt ≥25 m von %1$@ liegt bereits %2$@ entfernt (Sehnengrenze %3$@ m)",
+  "zh-Hant": "第一個離 %1$@ ≥25 m 的點在 %2$@ 外（弦長上限 %3$@ m）"
+ },
+ {
+  "table": "Localizable",
+  "key": "等待",
+  "en": "Waiting",
+  "de": "Warten",
+  "zh-Hant": "等待"
+ },
+ {
+  "table": "Localizable",
+  "key": "等级",
+  "en": "Level",
+  "de": "Level",
+  "zh-Hant": "等級"
+ },
+ {
+  "table": "Localizable",
+  "key": "等级 / 探索面积 / 地球占比，算法与《世界迷雾》一致（2²²×2²² 格网 + 逐格纬度面积 + 等级=√(面积×250)）",
+  "en": "Level / Explored Area / Earth Coverage, computed the same way as Fog of World (2²²×2²² grid + per-cell latitude-dependent area + level = √(area×250))",
+  "de": "Level / Erkundete Fläche / Erdanteil, berechnet wie in Fog of World (2²²×2²²-Raster + breitenabhängige Fläche je Zelle + Level = √(Fläche×250))",
+  "zh-Hant": "等級 / 探索面積 / 地球佔比，演算法與《世界迷霧》一致（2²²×2²² 格網 + 逐格緯度面積 + 等級=√(面積×250)）"
+ },
+ {
+  "table": "Localizable",
+  "key": "箭头密度",
+  "en": "Density",
+  "de": "Dichte",
+  "zh-Hant": "箭頭密度"
+ },
+ {
+  "table": "Localizable",
+  "key": "米兰",
+  "en": "Milan",
+  "de": "Mailand",
+  "zh-Hant": "米蘭"
+ },
+ {
+  "table": "Localizable",
+  "key": "类型",
+  "en": "Type",
+  "de": "Typ",
+  "zh-Hant": "類型"
+ },
+ {
+  "table": "Localizable",
+  "key": "粉 × = 区间内原始点",
+  "en": "Pink × = original points in range",
+  "de": "Rosa × = Originalpunkte im Bereich",
+  "zh-Hant": "粉 × = 區間內原始點"
+ },
+ {
+  "table": "Localizable",
+  "key": "精度 %@ m",
+  "en": "Accuracy %@ m",
+  "de": "Genauigkeit %@ m",
+  "zh-Hant": "精度 %@ m"
+ },
+ {
+  "table": "Localizable",
+  "key": "红圈 = 断档两端 A/B（沿轨迹拖动可换）",
+  "en": "Red circles = gap ends A/B (drag along the track to move)",
+  "de": "Rote Kreise = Lückenenden A/B (entlang des Tracks ziehbar)",
+  "zh-Hant": "紅圈 = 斷檔兩端 A/B（沿軌跡拖曳可換）"
+ },
+ {
+  "table": "Localizable",
+  "key": "红虚线 = 失败/不落地",
+  "en": "Red dashed = failed / not applied",
+  "de": "Rot gestrichelt = fehlgeschlagen / nicht übernommen",
+  "zh-Hant": "紅虛線 = 失敗/不落地"
+ },
+ {
+  "table": "Localizable",
+  "key": "约束",
+  "en": "Constrained",
+  "de": "Eingeschränkt",
+  "zh-Hant": "約束"
+ },
+ {
+  "table": "Localizable",
+  "key": "约翰内斯堡",
+  "en": "Johannesburg",
+  "de": "Johannesburg",
+  "zh-Hant": "約翰尼斯堡"
+ },
+ {
+  "table": "Localizable",
+  "key": "纬度",
+  "en": "Latitude",
+  "de": "Breitengrad",
+  "zh-Hant": "緯度"
+ },
+ {
+  "table": "Localizable",
+  "key": "纽约",
+  "en": "New York",
+  "de": "New York",
+  "zh-Hant": "紐約"
+ },
+ {
+  "table": "Localizable",
+  "key": "线宽",
+  "en": "Width",
+  "de": "Stärke",
+  "zh-Hant": "線寬"
+ },
+ {
+  "table": "Localizable",
+  "key": "线段渲染为方向箭头（时间早 → 晚）；超过 10 km 的跨段直连不画；地球视角只显示点云",
+  "en": "Line segments are drawn as direction arrows (earlier → later); straight links over 10 km between segments are not drawn; the globe view shows only the point cloud",
+  "de": "Linienstücke werden als Richtungspfeile gezeichnet (früher → später); Direktverbindungen über 10 km zwischen Segmenten werden nicht gezeichnet; die Globusansicht zeigt nur die Punktwolke",
+  "zh-Hant": "線段繪製為方向箭頭（時間早 → 晚）；超過 10 km 的跨段直連不畫；地球視角只顯示點雲"
+ },
+ {
+  "table": "Localizable",
+  "key": "线透明",
+  "en": "Opacity",
+  "de": "Deckkraft",
+  "zh-Hant": "線透明"
+ },
+ {
+  "table": "Localizable",
+  "key": "线颜色",
+  "en": "Line Color",
+  "de": "Linienfarbe",
+  "zh-Hant": "線顏色"
+ },
+ {
+  "table": "Localizable",
+  "key": "经度",
+  "en": "Longitude",
+  "de": "Längengrad",
+  "zh-Hant": "經度"
+ },
+ {
+  "table": "Localizable",
+  "key": "结束回放",
+  "en": "End playback",
+  "de": "Wiedergabe beenden",
+  "zh-Hant": "結束回放"
+ },
+ {
+  "table": "Localizable",
+  "key": "绘制比例尺",
+  "en": "Draw Scale Bar",
+  "de": "Maßstab einzeichnen",
+  "zh-Hant": "繪製比例尺"
+ },
+ {
+  "table": "Localizable",
+  "key": "维也纳",
+  "en": "Vienna",
+  "de": "Wien",
+  "zh-Hant": "維也納"
+ },
+ {
+  "table": "Localizable",
+  "key": "绿 = 路网草稿",
+  "en": "Green = road draft",
+  "de": "Grün = Straßenentwurf",
+  "zh-Hant": "綠 = 路網草稿"
+ },
+ {
+  "table": "Localizable",
+  "key": "缓存",
+  "en": "Cache",
+  "de": "Cache",
+  "zh-Hant": "快取"
+ },
+ {
+  "table": "Localizable",
+  "key": "编码",
+  "en": "Encoding",
+  "de": "Kodierung",
+  "zh-Hant": "編碼"
+ },
+ {
+  "table": "Localizable",
+  "key": "编码器停止",
+  "en": "Encoder stopped",
+  "de": "Encoder angehalten",
+  "zh-Hant": "編碼器停止"
+ },
+ {
+  "table": "Localizable",
+  "key": "网络不好：最近 %lld 次请求 %lld 次失败（%@）；联网的功能可能取不到结果，可稍后重试",
+  "en": "Poor network: %2$lld of the last %1$lld requests failed (%3$@); online features may not return results, try again later",
+  "de": "Schlechtes Netzwerk: %2$lld der letzten %1$lld Anfragen fehlgeschlagen (%3$@); Online-Funktionen liefern eventuell keine Ergebnisse, später erneut versuchen",
+  "zh-Hant": "網路不好：最近 %1$lld 次請求 %2$lld 次失敗（%3$@）；連網的功能可能取不到結果，可稍後重試"
+ },
+ {
+  "table": "Localizable",
+  "key": "网络慢：最近请求要 %@ 秒才有回应（正常 1 秒内），联网的功能会很慢",
+  "en": "Slow network: recent requests took %@ s to respond (normally under 1 s); online features will be slow",
+  "de": "Langsames Netzwerk: Die letzten Anfragen brauchten %@ s bis zur Antwort (normalerweise unter 1 s); Online-Funktionen werden langsam sein",
+  "zh-Hant": "網路慢：最近請求要 %@ 秒才有回應（正常 1 秒內），連網的功能會很慢"
+ },
+ {
+  "table": "Localizable",
+  "key": "罗马",
+  "en": "Rome",
+  "de": "Rom",
+  "zh-Hant": "羅馬"
+ },
+ {
+  "table": "Localizable",
+  "key": "群×%lld %@",
+  "en": "Group×%1$lld %2$@",
+  "de": "Gruppe×%1$lld %2$@",
+  "zh-Hant": "群×%1$lld %2$@"
+ },
+ {
+  "table": "Localizable",
+  "key": "联网：轨迹按停车切成 %lld 段，每段抽 3–8 个行驶中的点问 OpenStreetMap 附近有没有铁路，整段定公路还是铁路（「疑似铁路」筛选与批量分类都按它）",
+  "en": "Online: the track is split at stops into %lld segments; in each, 3–8 points recorded while moving are checked against OpenStreetMap for nearby railways, and the whole segment is classified as road or rail (the “Likely Rail” filter and batch classification both rely on this)",
+  "de": "Online: Der Track wird an Stopps in %lld Abschnitte geteilt; pro Abschnitt werden 3–8 Punkte in Fahrt bei OpenStreetMap auf nahe Bahnstrecken geprüft und der ganze Abschnitt als Straße oder Bahn eingestuft (der Filter „Vermutlich Bahn“ und die Stapeleinstufung richten sich danach)",
+  "zh-Hant": "連網：軌跡按停車切成 %lld 段，每段抽 3–8 個行駛中的點問 OpenStreetMap 附近有沒有鐵路，整段定公路還是鐵路（「疑似鐵路」篩選與批量分類都按它）",
+  "plural": {
+   "en": {
+    "one": "Online: the track is split at stops into %lld segment; in each, 3–8 points recorded while moving are checked against OpenStreetMap for nearby railways, and the whole segment is classified as road or rail (the “Likely Rail” filter and batch classification both rely on this)",
+    "other": "Online: the track is split at stops into %lld segments; in each, 3–8 points recorded while moving are checked against OpenStreetMap for nearby railways, and the whole segment is classified as road or rail (the “Likely Rail” filter and batch classification both rely on this)"
+   },
+   "de": {
+    "one": "Online: Der Track wird an Stopps in %lld Abschnitt geteilt; pro Abschnitt werden 3–8 Punkte in Fahrt bei OpenStreetMap auf nahe Bahnstrecken geprüft und der ganze Abschnitt als Straße oder Bahn eingestuft (der Filter „Vermutlich Bahn“ und die Stapeleinstufung richten sich danach)",
+    "other": "Online: Der Track wird an Stopps in %lld Abschnitte geteilt; pro Abschnitt werden 3–8 Punkte in Fahrt bei OpenStreetMap auf nahe Bahnstrecken geprüft und der ganze Abschnitt als Straße oder Bahn eingestuft (der Filter „Vermutlich Bahn“ und die Stapeleinstufung richten sich danach)"
+   }
+  }
+ },
+ {
+  "table": "Localizable",
+  "key": "聚合块面积（世界迷雾格 ≈9.55m 的倍数）：1 格最细（≈9.55m），90000 格最粗（≈2.9km）",
+  "en": "Block area (in Fog of World cells of ≈9.55m): 1 cell is the finest (≈9.55m), 90000 cells the coarsest (≈2.9km)",
+  "de": "Blockfläche (Vielfaches einer Fog-of-World-Zelle ≈9,55m): 1 Zelle am feinsten (≈9,55m), 90000 Zellen am gröbsten (≈2,9km)",
+  "zh-Hant": "聚合塊面積（世界迷霧格 ≈9.55m 的倍數）：1 格最細（≈9.55m），90000 格最粗（≈2.9km）"
+ },
+ {
+  "table": "Localizable",
+  "key": "自动",
+  "en": "Auto",
+  "de": "Automatisch",
+  "zh-Hant": "自動"
+ }
+]

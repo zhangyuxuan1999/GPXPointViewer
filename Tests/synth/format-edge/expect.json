@@ -1,0 +1,1836 @@
+{
+  "family": "format-edge",
+  "seed": 20261023,
+  "generator": "gen.py",
+  "files": {
+    "c01_phone_standard.csv": {
+      "desc": "Baseline 一生足迹 export (11 columns): city walk, foreground ~3 s, background 20-30 s stretches, ~50% accuracy = 0, rest 5-65 m (median 15 m). Accuracy column -> phone. Gaps counted by the timeGap rule on the exact written coordinates.",
+      "points": 252,
+      "profile": "phone",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        252,
+        252
+      ]
+    },
+    "c02_reordered_cols.csv": {
+      "desc": "Columns reordered and capitalised (Latitude,Longitude,Altitude,Accuracy,dataTime,...) in Santiago: every data line starts with '-' (negative latitude). 3 rows have an empty dataTime -> kept as untimed points (lat/lon valid). Accuracy column -> phone.",
+      "points": 232,
+      "profile": "phone",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        229,
+        229
+      ]
+    },
+    "c03_no_accuracy.csv": {
+      "desc": "一生足迹-style CSV without the accuracy column: no creator, no accuracy -> profile decided by sampling regularity; ~3 s foreground + 20-30 s background is not 'steady' (median dt 3 > 2) -> phone.",
+      "points": 284,
+      "profile": "phone",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        284,
+        284
+      ]
+    },
+    "c04_quoted_emptylines.csv": {
+      "desc": "Every field double-quoted (header too), an extra trailing \"address\" column containing a comma, and 8 junk lines (empty, blanks only, commas only) plus trailing empty lines. All 255 data rows must load; accuracy -> phone.",
+      "points": 255,
+      "profile": "phone",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        255,
+        255
+      ]
+    },
+    "c05_loctype_variants.csv": {
+      "desc": "Standard columns, but locType cycles 0/1/2/3/5/6/-1, isBackForeground 0/1/2/empty/true/false, stepType 0/1/2/-1/empty, heading and speed -1, distance sometimes empty. None of these columns is read; every row must load. Accuracy -> phone.",
+      "points": 215,
+      "profile": "phone",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        215,
+        215
+      ]
+    },
+    "c06_all_acc_zero.csv": {
+      "desc": "Standard 一生足迹 columns but accuracy = 0 (unknown) on every row: the accuracy median ignores zeros -> nil, so the profile falls back to sampling regularity -> phone (median dt 3 s, 20-30 s background steps).",
+      "points": 236,
+      "profile": "phone",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        236,
+        236
+      ]
+    },
+    "c07_crlf_bom.csv": {
+      "desc": "UTF-8 BOM + CRLF line endings (Excel re-save). Header must still be recognised (BOM and \\r trimmed), altitude field ends in \\r. Accuracy -> phone.",
+      "points": 196,
+      "profile": "phone",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        196,
+        196
+      ]
+    },
+    "c08_headerless.csv": {
+      "desc": "No header line: numeric first character -> fixed 一生足迹 layout (0=time, 2=lon, 3=lat, 5=accuracy, 10=altitude). Accuracy -> phone.",
+      "points": 172,
+      "profile": "phone",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        172,
+        172
+      ]
+    },
+    "c09_millis_minimal.csv": {
+      "desc": "Minimal 4 columns (no altitude) with millisecond epoch times (1.7e12 > 4e10 -> divided by 1000). Accuracy -> phone.",
+      "points": 147,
+      "profile": "phone",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        147,
+        147
+      ]
+    },
+    "c10_iso_time.csv": {
+      "desc": "dataTime as ISO 8601 strings instead of epoch: every 3rd row local '+08:00', others 'Z' with or without '.000'. Same instants as a normal export; accuracy -> phone.",
+      "points": 163,
+      "profile": "phone",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        163,
+        163
+      ]
+    },
+    "c11_semicolon.csv": {
+      "desc": "European-locale export: ';' delimiter and decimal commas. Header has no commas -> not sniffed as CSV -> .noPoints is the expected outcome (loading with decimal-comma truncation would be wrong data). Must not crash.",
+      "points": [
+        0,
+        null
+      ],
+      "profile": "any",
+      "gaps": [
+        0,
+        null
+      ],
+      "replays": [
+        0,
+        null
+      ],
+      "jitter": [
+        0,
+        null
+      ],
+      "load_ok": false
+    },
+    "c12_header_only.csv": {
+      "desc": "Header line only, no data rows: CSV layout found, 0 rows -> .noPoints.",
+      "points": [
+        0,
+        null
+      ],
+      "profile": "any",
+      "gaps": [
+        0,
+        null
+      ],
+      "replays": [
+        0,
+        null
+      ],
+      "jitter": [
+        0,
+        null
+      ],
+      "load_ok": false
+    },
+    "c13_bad_rows.csv": {
+      "desc": "400 good rows plus 12 junk rows: lat 95, lon 200, NaN, null, empty lat/lon, an error message, a '#' comment, a truncated row, swapped lat/lon (lat 126.5), a repeated header (concatenated exports), a row with empty dataTime and one with dataTime 'abc'. Junk with invalid coordinates must be dropped; the last two have valid coordinates and may be kept as untimed points or skipped (points 400-402, timed 400).",
+      "points": [
+        400,
+        402
+      ],
+      "profile": "phone",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        400,
+        400
+      ]
+    },
+    "c14_random_numeric.csv": {
+      "desc": "Chaos: 2000 headerless numeric rows (fixed 一生足迹 layout) - times clustered in 50 min with many per-second collisions plus 0, -1, 1e308, NaN, inf, 4e10+1 (ms branch), 99999999999 (> 1e11 -> NaN); coordinates in a 10 km box, a 60-point exact-repeat pool, global random, poles/antimeridian, out-of-range; short rows, inserted columns, garbage first fields. Purely a no-crash / no-hang / invariant test: accept or reject, any counts.",
+      "points": [
+        0,
+        2000
+      ],
+      "profile": "any",
+      "gaps": [
+        0,
+        null
+      ],
+      "replays": [
+        0,
+        null
+      ],
+      "jitter": [
+        0,
+        null
+      ],
+      "load_ok": false,
+      "max_total_seconds": 10
+    },
+    "c15_single_row.csv": {
+      "desc": "Header + exactly one data row: 1 point; accuracy median needs >= 20 samples -> nil, no timed steps -> profile unknown. All detectors empty.",
+      "points": 1,
+      "profile": "unknown",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        1,
+        1
+      ],
+      "trips": [
+        0,
+        0
+      ]
+    },
+    "g01_empty_0byte.gpx": {
+      "desc": "0-byte file: GPXParser.parse throws .empty (n <= 8). Must not crash.",
+      "points": [
+        0,
+        null
+      ],
+      "profile": "any",
+      "gaps": [
+        0,
+        null
+      ],
+      "replays": [
+        0,
+        null
+      ],
+      "jitter": [
+        0,
+        null
+      ],
+      "load_ok": false
+    },
+    "g02_tiny_8byte.gpx": {
+      "desc": "8-byte '<gpx/>' + CRLF: exactly at the n > 8 guard -> .empty. Must not crash.",
+      "points": [
+        0,
+        null
+      ],
+      "profile": "any",
+      "gaps": [
+        0,
+        null
+      ],
+      "replays": [
+        0,
+        null
+      ],
+      "jitter": [
+        0,
+        null
+      ],
+      "load_ok": false
+    },
+    "g03_header_only.gpx": {
+      "desc": "Valid GPX with metadata (incl. a metadata <time>) but no trk/rte/wpt: parser throws .noPoints.",
+      "points": [
+        0,
+        null
+      ],
+      "profile": "any",
+      "gaps": [
+        0,
+        null
+      ],
+      "replays": [
+        0,
+        null
+      ],
+      "jitter": [
+        0,
+        null
+      ],
+      "load_ok": false
+    },
+    "g04_no_trkpt.gpx": {
+      "desc": "trk with two empty trkseg (one self-closing), no trkpt: .noPoints expected.",
+      "points": [
+        0,
+        null
+      ],
+      "profile": "any",
+      "gaps": [
+        0,
+        null
+      ],
+      "replays": [
+        0,
+        null
+      ],
+      "jitter": [
+        0,
+        null
+      ],
+      "load_ok": false
+    },
+    "g05_one_point.gpx": {
+      "desc": "Single trkpt (eTrex creator -> deviceLogger by creator). timedCount 1: detect/replay/jitter guards (n<2, n<3, n<8) must return empty; trips 0.",
+      "points": 1,
+      "profile": "deviceLogger",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        1,
+        1
+      ],
+      "trips": [
+        0,
+        0
+      ]
+    },
+    "g06_two_points.gpx": {
+      "desc": "Two fixes 30 s / ~600 m apart (72 km/h): the minimal timeGap -> exactly 1 gap. Profile from 1 step is meaningless (any).",
+      "points": 2,
+      "profile": "any",
+      "gaps": [
+        1,
+        1
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        2,
+        2
+      ],
+      "trips": [
+        1,
+        1
+      ]
+    },
+    "g07_no_time.gpx": {
+      "desc": "240 trkpt with ele but no <time>: timedCount 0, all detectors return empty. Creator matches no rule and there are no timed steps -> unknown.",
+      "points": 240,
+      "profile": "unknown",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        0,
+        0
+      ],
+      "trips": [
+        0,
+        0
+      ]
+    },
+    "g08_half_time.gpx": {
+      "desc": "300 trkpt, odd ones without <time> (interleaved): load must stable-sort the 150 timed points first (2 s steps, cycling). Creator contains 'android' -> phone.",
+      "points": 300,
+      "profile": "phone",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        150,
+        150
+      ],
+      "trips": [
+        1,
+        1
+      ]
+    },
+    "g09_out_of_order.gpx": {
+      "desc": "600 s car drive at 1 Hz written as 12 shuffled 50-point blocks (one block reversed). After the load-time sort it is one clean drive: 0 gaps/jitter; any missed sort would show up as 5-30 km jumps. Times are unique, so the unstable vDSP sort is irrelevant.",
+      "points": 600,
+      "profile": "deviceLogger",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        600,
+        600
+      ],
+      "trips": [
+        1,
+        1
+      ]
+    },
+    "g10_dup_timestamps_50.gpx": {
+      "desc": "Walk at 1 Hz; fixes 150-199 all carry the same timestamp while the position keeps advancing (70 m), then the clock resumes (+50 s). dt=0 steps (infinite speed) must not crash speed/profile code; per-second jitter sample = median of 50 points, ~35 m steps: no jump, no gap (steps < 150 m).",
+      "points": 400,
+      "profile": "deviceLogger",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        400,
+        400
+      ],
+      "trips": [
+        1,
+        1
+      ]
+    },
+    "g11_dup_points.gpx": {
+      "desc": "300 cycling fixes, each written twice (every 15th three times) with identical lat/lon/time - a double import. dt=0 duplicates are not replays (replay needs >= 10 s), no gaps, no jitter. Creator 'android' -> phone.",
+      "points": 620,
+      "profile": "phone",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        620,
+        620
+      ],
+      "trips": [
+        1,
+        1
+      ]
+    },
+    "g12_missing_ele.gpx": {
+      "desc": "500 s cycling at 1 Hz with no <ele> at all (ele = NaN everywhere). Wahoo creator -> deviceLogger. Clean track: 0 gaps / replays / jitter.",
+      "points": 500,
+      "profile": "deviceLogger",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        500,
+        500
+      ],
+      "trips": [
+        1,
+        1
+      ]
+    },
+    "g13_multi_trk_seg.gpx": {
+      "desc": "[2026-10-29 调整] Two tracks in reverse chronological order, 2 + 3 explicit hard source segments. Each segment is internally continuous; the 120 s / ~1.5 km transition is a source boundary. Therefore 0 gaps and 5 trips. 调整理由：旧扁平期待gap1/trips4会跨源段连接；独立逐段旧算法与生成器真值确认五段各自连续，改为gap0/trips5。",
+      "points": 3305,
+      "profile": "deviceLogger",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        3305,
+        3305
+      ],
+      "trips": [
+        5,
+        5
+      ]
+    },
+    "g14_waypoints_only.gpx": {
+      "desc": "30 <wpt> POIs only (10 self-closing, entities and CJK in <name>), 6 with <time> 3-15 h apart: the parser keeps wpt as points; timed 6, spacing > 3600 s -> 0 gaps; jitter needs >= 8 timed points -> 0. Garmin creator -> deviceLogger.",
+      "points": 30,
+      "profile": "deviceLogger",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        6,
+        6
+      ],
+      "trips": [
+        0,
+        0
+      ]
+    },
+    "g15_route_only.gpx": {
+      "desc": "Route only: 150 <rtept> (no time, one line each). Parser keeps rtept as points; timed 0 -> nothing to detect; BRouter creator -> unknown.",
+      "points": 150,
+      "profile": "unknown",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        0,
+        0
+      ],
+      "trips": [
+        0,
+        0
+      ]
+    },
+    "g16_mixed_wpt_rte_trk.gpx": {
+      "desc": "5 untimed <wpt> + 40 untimed self-closing <rtept> before a 400-point timed <trk>: timed points come after NaN times, so the load sort must move them to [0, 400). 445 points, 400 timed, clean ride.",
+      "points": 445,
+      "profile": "deviceLogger",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        400,
+        400
+      ],
+      "trips": [
+        1,
+        1
+      ]
+    },
+    "g17_dateline.gpx": {
+      "desc": "Ferry at ~9 m/s, 1 Hz, lat -16.75, lon 179.875 -> -179.9: crosses the antimeridian at t=1716040703. Haversine steps are <= 12 m everywhere, so truth is 0 gaps and 0 jitter. jitter_free guards the crossing: detectJitter's planar frame uses an unwrapped lon2-lon1, which turns the 8 m crossing step into a ~38,000 km westward step (counted as a reversal); any jitter here is that bug.",
+      "points": 2501,
+      "profile": "deviceLogger",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        2501,
+        2501
+      ],
+      "trips": [
+        1,
+        1
+      ],
+      "jitter_free": [
+        [
+          1716040583,
+          1716040823
+        ]
+      ]
+    },
+    "g18_near_pole.gpx": {
+      "desc": "Snowmobile 8 m/s, 1 Hz, from lat 89.9 (lon 20) over the pole (closest fix 43 m) to lat ~89.9 on lon -160: longitude sweeps 180 deg in ~1 min and passes the antimeridian ~100 m from the pole at t=1716060605. Real steps are <= 12 m, so truth is 0 gaps / 0 jitter. Any jitter is a detector artefact (unwrapped lon2-lon1 in the planar lon*cos(lat) frame: the 8 m step 179.75 -> -178.90 becomes dx = -680 m). Mercator clamp at 85.05 must not crash.",
+      "points": 2781,
+      "profile": "deviceLogger",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        2781,
+        2781
+      ],
+      "trips": [
+        1,
+        1
+      ],
+      "jitter_free": [
+        [
+          1716060485,
+          1716060725
+        ]
+      ]
+    },
+    "g19_southern_western.gpx": {
+      "desc": "900 s car drive at 1 Hz in Buenos Aires: negative lat AND lon everywhere. Clean track: 0 gaps / replays / jitter.",
+      "points": 901,
+      "profile": "deviceLogger",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        901,
+        901
+      ],
+      "trips": [
+        1,
+        1
+      ]
+    },
+    "g20_equator_greenwich.gpx": {
+      "desc": "Ship at 8 m/s crossing the equator and the prime meridian; the fix nearest (0,0) (4 m off) is written as exactly lat=\"0.0000000\" lon=\"0.0000000\" - must stay a normal point (not treated as 'no fix'). 0 gaps / jitter.",
+      "points": 1151,
+      "profile": "deviceLogger",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        1151,
+        1151
+      ],
+      "trips": [
+        1,
+        1
+      ]
+    },
+    "g21_invalid_coords.gpx": {
+      "desc": "300 valid cycling fixes (some written as 5.25e+01 exponent, '+13.4', leading blanks, newline/tab between attributes) plus 13 invalid trkpt: lat 95, lon 200, lat -90.0000001, lon -180.0000001, NaN, nan, empty, missing lat, 1e999, abc, --5, upper-case LAT/LON. All invalid ones must be dropped. One extra trkpt uses single-quoted attributes (valid XML; this parser only matches lat=\"); points 300-301 either way.",
+      "points": [
+        300,
+        301
+      ],
+      "profile": "any",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        300,
+        301
+      ],
+      "trips": [
+        1,
+        1
+      ]
+    },
+    "g22_crlf.gpx": {
+      "desc": "300 s cycling, 1 Hz, every line ends in CRLF (Windows export). Clean: 0 gaps / jitter.",
+      "points": 300,
+      "profile": "deviceLogger",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        300,
+        300
+      ],
+      "trips": [
+        1,
+        1
+      ]
+    },
+    "g23_bom.gpx": {
+      "desc": "UTF-8 BOM before <?xml ...?>, 300 s walk at 1 Hz. The BOM must not break format sniffing (first line has '<' -> GPX) nor creator lookup (Suunto -> deviceLogger).",
+      "points": 300,
+      "profile": "deviceLogger",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        300,
+        300
+      ],
+      "trips": [
+        1,
+        1
+      ]
+    },
+    "g24_garmin_ext_ns.gpx": {
+      "desc": "Garmin Connect style: XML comments (before root, between laps, after root), 5 namespaces, metadata/track <extensions>, TrackPointExtension (hr/cad/atemp) inside every trkpt, lon-before-lat attributes split over lines, 5 fixes with the 9.999999562023526e+24 'no elevation' sentinel. A comment contains a commented-out untimed <trkpt> at fix 0's position: a byte-scanning parser counts it, so points 600-601; timed is 600 either way. 0 gaps / jitter.",
+      "points": [
+        600,
+        601
+      ],
+      "profile": "deviceLogger",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        600,
+        600
+      ],
+      "trips": [
+        1,
+        1
+      ]
+    },
+    "g25_ns_prefixed.gpx": {
+      "desc": "Namespace-qualified GPX (<gpx:trkpt>, prefix bound to the GPX 1.1 namespace) - valid XML but the byte scanner matches only unprefixed '<trkpt '. Rejection (.noPoints) is acceptable; a namespace-aware parser would load 200 points, 0 gaps.",
+      "points": [
+        0,
+        200
+      ],
+      "profile": "any",
+      "gaps": [
+        0,
+        null
+      ],
+      "replays": [
+        0,
+        null
+      ],
+      "jitter": [
+        0,
+        null
+      ],
+      "load_ok": false
+    },
+    "g26_fractional_offsets.gpx": {
+      "desc": "900 s cycling, fixes at whole seconds +-0.2 s written with millisecond fractions; first 300 as local +02:00, next 300 as Z, last 300 as -03:30 - one continuous UTC timeline. Wrong offset handling would create 2 h / 3.5 h holes and reorderings: trips 1 and 0 gaps only if offsets are applied.",
+      "points": 900,
+      "profile": "deviceLogger",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        900,
+        900
+      ],
+      "trips": [
+        1,
+        1
+      ]
+    },
+    "g27_time_1970.gpx": {
+      "desc": "600 s walk at Greenwich from 1969-12-31T23:58:00Z to 1970-01-01T00:07:59Z: unix times -120..479 including exactly 0. Negative and zero times are valid ISO 8601 and must not be treated as 'no time': timed 600, trips 1, 0 gaps.",
+      "points": 600,
+      "profile": "deviceLogger",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        600,
+        600
+      ],
+      "trips": [
+        1,
+        1
+      ]
+    },
+    "g28_time_2100.gpx": {
+      "desc": "1800 s ride from 2100-02-28T23:45:00Z across midnight into 2100-03-01 (2100 is NOT a leap year; times ~4.1e9). A wrong leap rule would open a 24 h hole -> trips 2. Expect trips 1, 0 gaps, timed 1800.",
+      "points": 1800,
+      "profile": "deviceLogger",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        1800,
+        1800
+      ],
+      "trips": [
+        1,
+        1
+      ]
+    },
+    "g29_minified_oneline.gpx": {
+      "desc": "Whole document on one line, no trailing newline: attribute order varies, tab between attributes, <time> before <ele> on half the fixes, whitespace inside <time> on every 5th fix (XML-valid for xs:dateTime). 400 s ride, 0 gaps / jitter.",
+      "points": 400,
+      "profile": "deviceLogger",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        400,
+        400
+      ],
+      "trips": [
+        1,
+        1
+      ]
+    },
+    "g30_truncated.gpx": {
+      "desc": "Recording cut off mid-file (battery): 500 complete fixes, the 501st ends inside '<time>2024-05-19' with no closing tags. Keeping the partial fix untimed or dropping it are both fine (points 500-501, timed 500). No crash, 0 gaps.",
+      "points": [
+        500,
+        501
+      ],
+      "profile": "deviceLogger",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        500,
+        500
+      ],
+      "trips": [
+        1,
+        1
+      ]
+    },
+    "g31_bad_time_formats.gpx": {
+      "desc": "240 s walk; 9 fixes carry unparsable times ('2024/05/19 ...', bare epoch digits, empty <time></time>) -> untimed; one carries '2024-13-45T25:61:61Z', which this parser does not range-check and turns into a finite time ~9 months later (2025-02-15) -> it sorts last, separated by > 3600 s: no gap, a lone 1-point tail is not a trip. timed 230-231 (231 if the month-13 time is accepted).",
+      "points": 240,
+      "profile": "deviceLogger",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        230,
+        231
+      ],
+      "trips": [
+        1,
+        1
+      ]
+    },
+    "g32_fit_binary.gpx": {
+      "desc": "A Garmin .FIT binary (14-byte header + 4 KB random records) saved with a .gpx extension. Expect .noPoints (or any rejection); must not crash or hang.",
+      "points": [
+        0,
+        null
+      ],
+      "profile": "any",
+      "gaps": [
+        0,
+        null
+      ],
+      "replays": [
+        0,
+        null
+      ],
+      "jitter": [
+        0,
+        null
+      ],
+      "load_ok": false
+    },
+    "g33_html_error.gpx": {
+      "desc": "An HTML 404 page saved as .gpx (failed download); contains <tr>/<td>/<title> that share prefixes with <trkpt>/<time>. Expect .noPoints; must not crash.",
+      "points": [
+        0,
+        null
+      ],
+      "profile": "any",
+      "gaps": [
+        0,
+        null
+      ],
+      "replays": [
+        0,
+        null
+      ],
+      "jitter": [
+        0,
+        null
+      ],
+      "load_ok": false
+    },
+    "g34_gpx10_speed_course.gpx": {
+      "desc": "GPX 1.0 (GPSBabel, ISO-8859-1 declaration): top-level <time> and <bounds/>, per-point <time> before <ele>, plus <course>/<speed>/<sat>/<hdop>/<fix>. 300 s ride; 0 gaps / jitter. No creator signal; steady 1 Hz sampling -> deviceLogger by the regularity rule.",
+      "points": 300,
+      "profile": "deviceLogger",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "timed": [
+        300,
+        300
+      ],
+      "trips": [
+        1,
+        1
+      ]
+    },
+    "g35_boundary_coords.gpx": {
+      "desc": "40 timed fixes hopping between coordinates exactly ON the valid limits (lat +-90, lon +-180, -0.0, 0, 89.9999999/179.9999999) at 1 s and 30 s steps; (0,180)/(0,-180) and (90,0)/(90,180) are the same physical point. All 40 must be kept (|lat| <= 90 and |lon| <= 180 are inclusive). Not a real track: a no-crash test for haversine/heading/mercator at the limits with exact coordinate repeats; detector counts are unconstrained.",
+      "points": 40,
+      "profile": "any",
+      "gaps": [
+        0,
+        null
+      ],
+      "replays": [
+        0,
+        null
+      ],
+      "jitter": [
+        0,
+        null
+      ],
+      "load_ok": true,
+      "timed": [
+        40,
+        40
+      ]
+    }
+  },
+  "_port": {
+    "c01_phone_standard.csv": {
+      "profile": "phone",
+      "profile_detail": {
+        "mdt": 3,
+        "q90dt": 24,
+        "mst": 10.6,
+        "q90st": 37.4,
+        "n": 231
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 1,
+      "timed": 252
+    },
+    "c02_reordered_cols.csv": {
+      "profile": "phone",
+      "profile_detail": {
+        "mdt": 3,
+        "q90dt": 23,
+        "mst": 10.3,
+        "q90st": 35.3,
+        "n": 204
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 1,
+      "timed": 229
+    },
+    "c03_no_accuracy.csv": {
+      "profile": "phone",
+      "profile_detail": {
+        "mdt": 3,
+        "q90dt": 20,
+        "mst": 10.4,
+        "q90st": 34.3,
+        "n": 256
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 1,
+      "timed": 284
+    },
+    "c04_quoted_emptylines.csv": {
+      "profile": "phone",
+      "profile_detail": {
+        "mdt": 3,
+        "q90dt": 5,
+        "mst": 10.7,
+        "q90st": 25.7,
+        "n": 238
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 1,
+      "timed": 255
+    },
+    "c05_loctype_variants.csv": {
+      "profile": "phone",
+      "profile_detail": {
+        "mdt": 4,
+        "q90dt": 25,
+        "mst": 10.7,
+        "q90st": 42.3,
+        "n": 194
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 1,
+      "timed": 215
+    },
+    "c06_all_acc_zero.csv": {
+      "profile": "phone",
+      "profile_detail": {
+        "mdt": 3,
+        "q90dt": 23,
+        "mst": 11.1,
+        "q90st": 32.5,
+        "n": 222
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 1,
+      "timed": 236
+    },
+    "c07_crlf_bom.csv": {
+      "profile": "phone",
+      "profile_detail": {
+        "mdt": 3,
+        "q90dt": 24,
+        "mst": 11.9,
+        "q90st": 37.7,
+        "n": 174
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 1,
+      "timed": 196
+    },
+    "c08_headerless.csv": {
+      "profile": "phone",
+      "profile_detail": {
+        "mdt": 3,
+        "q90dt": 23,
+        "mst": 10.5,
+        "q90st": 40.7,
+        "n": 155
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 1,
+      "timed": 172
+    },
+    "c09_millis_minimal.csv": {
+      "profile": "phone",
+      "profile_detail": {
+        "mdt": 3.309000015258789,
+        "q90dt": 22.617000102996826,
+        "mst": 10.0,
+        "q90st": 37.2,
+        "n": 132
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 1,
+      "timed": 147
+    },
+    "c10_iso_time.csv": {
+      "profile": "phone",
+      "profile_detail": {
+        "mdt": 3,
+        "q90dt": 23,
+        "mst": 10.3,
+        "q90st": 39.7,
+        "n": 142
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 1,
+      "timed": 163
+    },
+    "c13_bad_rows.csv": {
+      "profile": "phone",
+      "profile_detail": {
+        "mdt": 3,
+        "q90dt": 23,
+        "mst": 10.4,
+        "q90st": 38.5,
+        "n": 363
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 1,
+      "timed": 400
+    },
+    "c15_single_row.csv": {
+      "profile": "unknown",
+      "profile_detail": {
+        "mdt": 1,
+        "q90dt": 1,
+        "mst": 30,
+        "q90st": 30,
+        "n": 0
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 0,
+      "timed": 1
+    },
+    "g05_one_point.gpx": {
+      "profile": "deviceLogger",
+      "profile_detail": {
+        "mdt": 1,
+        "q90dt": 1,
+        "mst": 30,
+        "q90st": 30,
+        "n": 0
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 0,
+      "timed": 1
+    },
+    "g06_two_points.gpx": {
+      "profile": "phone",
+      "profile_detail": {
+        "mdt": 30,
+        "q90dt": 30,
+        "mst": 600.0,
+        "q90st": 600.0,
+        "n": 1
+      },
+      "timegap": 1,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 1,
+      "timed": 2
+    },
+    "g07_no_time.gpx": {
+      "profile": "unknown",
+      "profile_detail": {
+        "mdt": 1,
+        "q90dt": 1,
+        "mst": 30,
+        "q90st": 30,
+        "n": 0
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 0,
+      "timed": 0
+    },
+    "g08_half_time.gpx": {
+      "profile": "phone",
+      "profile_detail": {
+        "mdt": 2,
+        "q90dt": 2,
+        "mst": 12.0,
+        "q90st": 14.7,
+        "n": 149
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 1,
+      "timed": 150
+    },
+    "g09_out_of_order.gpx": {
+      "profile": "deviceLogger",
+      "profile_detail": {
+        "mdt": 1,
+        "q90dt": 1,
+        "mst": 20.1,
+        "q90st": 22.7,
+        "n": 599
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 1,
+      "timed": 600
+    },
+    "g10_dup_timestamps_50.gpx": {
+      "profile": "deviceLogger",
+      "profile_detail": {
+        "mdt": 1,
+        "q90dt": 1,
+        "mst": 1.8,
+        "q90st": 2.6,
+        "n": 276
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 1,
+      "timed": 400
+    },
+    "g11_dup_points.gpx": {
+      "profile": "phone",
+      "profile_detail": {
+        "mdt": 1,
+        "q90dt": 1,
+        "mst": 5.9,
+        "q90st": 7.2,
+        "n": 299
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 1,
+      "timed": 620
+    },
+    "g12_missing_ele.gpx": {
+      "profile": "deviceLogger",
+      "profile_detail": {
+        "mdt": 1,
+        "q90dt": 1,
+        "mst": 6.3,
+        "q90st": 7.6,
+        "n": 499
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 1,
+      "timed": 500
+    },
+    "g13_multi_trk_seg.gpx": {
+      "profile": "deviceLogger",
+      "profile_detail": {
+        "mdt": 1,
+        "q90dt": 1,
+        "mst": 3.9,
+        "q90st": 6.9,
+        "n": 2938
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 5,
+      "timed": 3305
+    },
+    "g14_waypoints_only.gpx": {
+      "profile": "deviceLogger",
+      "profile_detail": {
+        "mdt": 1,
+        "q90dt": 1,
+        "mst": 30,
+        "q90st": 30,
+        "n": 0
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 0,
+      "timed": 6
+    },
+    "g15_route_only.gpx": {
+      "profile": "unknown",
+      "profile_detail": {
+        "mdt": 1,
+        "q90dt": 1,
+        "mst": 30,
+        "q90st": 30,
+        "n": 0
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 0,
+      "timed": 0
+    },
+    "g16_mixed_wpt_rte_trk.gpx": {
+      "profile": "deviceLogger",
+      "profile_detail": {
+        "mdt": 1,
+        "q90dt": 1,
+        "mst": 6.0,
+        "q90st": 7.5,
+        "n": 399
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 1,
+      "timed": 400
+    },
+    "g17_dateline.gpx": {
+      "profile": "deviceLogger",
+      "profile_detail": {
+        "mdt": 1,
+        "q90dt": 1,
+        "mst": 9.0,
+        "q90st": 9.8,
+        "n": 2500
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 1,
+      "timed": 2501
+    },
+    "g18_near_pole.gpx": {
+      "profile": "deviceLogger",
+      "profile_detail": {
+        "mdt": 1,
+        "q90dt": 1,
+        "mst": 8.1,
+        "q90st": 9.2,
+        "n": 2780
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 1,
+      "timed": 2781
+    },
+    "g19_southern_western.gpx": {
+      "profile": "deviceLogger",
+      "profile_detail": {
+        "mdt": 1,
+        "q90dt": 1,
+        "mst": 19.9,
+        "q90st": 22.2,
+        "n": 900
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 1,
+      "timed": 901
+    },
+    "g20_equator_greenwich.gpx": {
+      "profile": "deviceLogger",
+      "profile_detail": {
+        "mdt": 1,
+        "q90dt": 1,
+        "mst": 8.0,
+        "q90st": 8.8,
+        "n": 1150
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 1,
+      "timed": 1151
+    },
+    "g21_invalid_coords.gpx": {
+      "profile": "deviceLogger",
+      "profile_detail": {
+        "mdt": 1,
+        "q90dt": 1,
+        "mst": 6.1,
+        "q90st": 7.4,
+        "n": 299
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 1,
+      "timed": 300
+    },
+    "g22_crlf.gpx": {
+      "profile": "deviceLogger",
+      "profile_detail": {
+        "mdt": 1,
+        "q90dt": 1,
+        "mst": 5.9,
+        "q90st": 7.1,
+        "n": 299
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 1,
+      "timed": 300
+    },
+    "g23_bom.gpx": {
+      "profile": "deviceLogger",
+      "profile_detail": {
+        "mdt": 1,
+        "q90dt": 1,
+        "mst": 1.9,
+        "q90st": 2.8,
+        "n": 240
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 1,
+      "timed": 300
+    },
+    "g24_garmin_ext_ns.gpx": {
+      "profile": "deviceLogger",
+      "profile_detail": {
+        "mdt": 1,
+        "q90dt": 1,
+        "mst": 6.1,
+        "q90st": 7.5,
+        "n": 599
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 1,
+      "timed": 600
+    },
+    "g26_fractional_offsets.gpx": {
+      "profile": "deviceLogger",
+      "profile_detail": {
+        "mdt": 1.00600004196167,
+        "q90dt": 1.2230000495910645,
+        "mst": 6.0,
+        "q90st": 7.3,
+        "n": 899
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 1,
+      "timed": 900
+    },
+    "g27_time_1970.gpx": {
+      "profile": "deviceLogger",
+      "profile_detail": {
+        "mdt": 1,
+        "q90dt": 1,
+        "mst": 1.8,
+        "q90st": 2.7,
+        "n": 471
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 1,
+      "timed": 600
+    },
+    "g28_time_2100.gpx": {
+      "profile": "deviceLogger",
+      "profile_detail": {
+        "mdt": 1,
+        "q90dt": 1,
+        "mst": 6.0,
+        "q90st": 7.3,
+        "n": 1799
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 1,
+      "timed": 1800
+    },
+    "g29_minified_oneline.gpx": {
+      "profile": "deviceLogger",
+      "profile_detail": {
+        "mdt": 1,
+        "q90dt": 1,
+        "mst": 5.9,
+        "q90st": 7.4,
+        "n": 399
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 1,
+      "timed": 400
+    },
+    "g30_truncated.gpx": {
+      "profile": "deviceLogger",
+      "profile_detail": {
+        "mdt": 1,
+        "q90dt": 1,
+        "mst": 1.8,
+        "q90st": 2.7,
+        "n": 402
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 1,
+      "timed": 500
+    },
+    "g31_bad_time_formats.gpx": {
+      "profile": "deviceLogger",
+      "profile_detail": {
+        "mdt": 1,
+        "q90dt": 1,
+        "mst": 1.8,
+        "q90st": 2.8,
+        "n": 183
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 1,
+      "timed": 231
+    },
+    "g34_gpx10_speed_course.gpx": {
+      "profile": "deviceLogger",
+      "profile_detail": {
+        "mdt": 1,
+        "q90dt": 1,
+        "mst": 5.8,
+        "q90st": 7.2,
+        "n": 299
+      },
+      "timegap": 0,
+      "stale_triggers": 0,
+      "replays": 0,
+      "trips": 1,
+      "timed": 300
+    },
+    "g35_boundary_coords.gpx": {
+      "profile": "phone",
+      "profile_detail": {
+        "mdt": 1,
+        "q90dt": 30,
+        "mst": 10007543.4,
+        "q90st": 20015086.8,
+        "n": 31
+      },
+      "timegap": 0,
+      "stale_triggers": 22,
+      "replays": 21,
+      "trips": 1,
+      "timed": 40
+    }
+  }
+}

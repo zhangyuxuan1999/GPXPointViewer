@@ -1,0 +1,553 @@
+[
+ {
+  "table": "GPXQuickLook/Localizable",
+  "key": "%@ ~ %@",
+  "en": "%1$@ – %2$@",
+  "de": "%1$@ – %2$@",
+  "zh-Hant": "%1$@ ~ %2$@"
+ },
+ {
+  "table": "GPXQuickLook/Localizable",
+  "key": "%@ 个点",
+  "en": "%@ points",
+  "de": "%@ Punkte",
+  "zh-Hant": "%@ 個點"
+ },
+ {
+  "table": "GPXQuickLook/Localizable",
+  "key": "抽样显示",
+  "en": "Sampled view",
+  "de": "Stichprobenansicht",
+  "zh-Hant": "抽樣顯示"
+ },
+ {
+  "table": "GPXQuickLook/Localizable",
+  "key": "文件为空或无法读取。",
+  "en": "The file is empty or can't be read.",
+  "de": "Die Datei ist leer oder kann nicht gelesen werden.",
+  "zh-Hant": "檔案為空或無法讀取。"
+ },
+ {
+  "table": "GPXQuickLook/Localizable",
+  "key": "文件里没有找到任何点（<trkpt>/<rtept>/<wpt>）。",
+  "en": "No points found in the file (<trkpt>/<rtept>/<wpt>).",
+  "de": "In der Datei wurden keine Punkte gefunden (<trkpt>/<rtept>/<wpt>).",
+  "zh-Hant": "檔案裡沒有找到任何點（<trkpt>/<rtept>/<wpt>）。"
+ },
+ {
+  "table": "GPXQuickLook/Localizable",
+  "key": "无法解析迷雾存档（未找到有效的 Sync 区块文件）。",
+  "en": "Couldn't parse the fog archive (no valid Sync block files found).",
+  "de": "Das Fog-Archiv konnte nicht ausgewertet werden (keine gültigen Sync-Blockdateien gefunden).",
+  "zh-Hant": "無法解析迷霧存檔（未找到有效的 Sync 區塊檔案）。"
+ },
+ {
+  "table": "Localizable",
+  "key": "",
+  "en": "",
+  "de": "",
+  "zh-Hant": "",
+  "noTranslate": true
+ },
+ {
+  "table": "Localizable",
+  "key": "%@\n换算的门槛：%@\n画像决定匹配半径与过时时钟检测开关；上下文取点上限 600 m / 600 s，方向取点 25–300 m / 600 s，匹配取点上限 5 km / 180 s（都是绝对量）；点距按断档两侧原始步长（15–60 m）",
+  "en": "%1$@\nDerived thresholds: %2$@\nThe profile sets the match radius and whether stale-clock detection is on; context points up to 600 m / 600 s, direction points 25–300 m / 600 s, match points up to 5 km / 180 s (all absolute); point spacing follows the original step on both sides of the gap (15–60 m)",
+  "de": "%1$@\nAbgeleitete Schwellen: %2$@\nDas Profil bestimmt den Abgleichsradius und ob die Erkennung veralteter Uhrzeit aktiv ist; Kontextpunkte bis 600 m / 600 s, Richtungspunkte 25–300 m / 600 s, Abgleichspunkte bis 5 km / 180 s (alles absolute Werte); der Punktabstand richtet sich nach der ursprünglichen Schrittweite beiderseits der Lücke (15–60 m)",
+  "zh-Hant": "%1$@\n換算的門檻：%2$@\n畫像決定匹配半徑與過時時鐘偵測開關；上下文取點上限 600 m / 600 s，方向取點 25–300 m / 600 s，匹配取點上限 5 km / 180 s（都是絕對量）；點距按斷檔兩側原始步長（15–60 m）"
+ },
+ {
+  "table": "Localizable",
+  "key": "%@ ms · %lld 块 · %@ MB/s",
+  "en": "%1$@ ms · chunks: %2$lld · %3$@ MB/s",
+  "de": "%1$@ ms · Blöcke: %2$lld · %3$@ MB/s",
+  "zh-Hant": "%1$@ ms · %2$lld 塊 · %3$@ MB/s"
+ },
+ {
+  "table": "Localizable",
+  "key": "%@ ms · %lld 块并行",
+  "en": "%1$@ ms · %2$lld-way parallel",
+  "de": "%1$@ ms · %2$lld-fach parallel",
+  "zh-Hant": "%1$@ ms · %2$lld 塊平行"
+ },
+ {
+  "table": "Localizable",
+  "key": "%@ ~ %@",
+  "en": "%1$@ – %2$@",
+  "de": "%1$@ – %2$@",
+  "zh-Hant": "%1$@ ~ %2$@"
+ },
+ {
+  "table": "Localizable",
+  "key": "%@ · 直线 %@ · %@ · 隐含 %lld km/h",
+  "en": "%1$@ · straight-line %2$@ · %3$@ · implied %4$lld km/h",
+  "de": "%1$@ · Luftlinie %2$@ · %3$@ · implizit %4$lld km/h",
+  "zh-Hant": "%1$@ · 直線 %2$@ · %3$@ · 隱含 %4$lld km/h"
+ },
+ {
+  "table": "Localizable",
+  "key": "%@ 个点",
+  "en": "%@ points",
+  "de": "%@ Punkte",
+  "zh-Hant": "%@ 個點"
+ },
+ {
+  "table": "Localizable",
+  "key": "%@ 侧 %lld°（%@ / %@ s 外的点）",
+  "en": "Side %1$@: %2$lld° (point beyond %3$@ / %4$@ s)",
+  "de": "Seite %1$@: %2$lld° (Punkt jenseits von %3$@ / %4$@ s)",
+  "zh-Hant": "%1$@ 側 %2$lld°（%3$@ / %4$@ s 外的點）"
+ },
+ {
+  "table": "Localizable",
+  "key": "%@ 侧上下文：%@ 外的真实点（距 %@ %@ s，%@）",
+  "en": "Side %@ context: real point beyond %@ (from %@: %@ s, %@)",
+  "de": "Kontext auf Seite %@: echter Punkt jenseits von %@ (Abstand zu %@: %@ s, %@)",
+  "zh-Hant": "%@ 側上下文：%@ 外的真實點（距 %@ %@ s，%@）"
+ },
+ {
+  "table": "Localizable",
+  "key": "%@ 侧上下文：%@ 外的真实点（距 %@ %@ s，%@；150 m 档没走到：%@，退到 %@ m 档）",
+  "en": "Side %@ context: real point beyond %@ (from %@: %@ s, %@; 150 m tier not reached: %@, fell back to the %@ m tier)",
+  "de": "Kontext auf Seite %@: echter Punkt jenseits von %@ (Abstand zu %@: %@ s, %@; 150-m-Stufe nicht erreicht: %@, Rückfall auf die %@-m-Stufe)",
+  "zh-Hant": "%@ 側上下文：%@ 外的真實點（距 %@ %@ s，%@；150 m 檔沒走到：%@，退到 %@ m 檔）"
+ },
+ {
+  "table": "Localizable",
+  "key": "%@ 侧偏到对向那一边、另一侧正常，单侧不作判定",
+  "en": "Side %@ is off toward the opposite carriageway while the other side is normal; one side alone is not conclusive",
+  "de": "Seite %@ weicht zur Gegenfahrbahn ab, die andere Seite ist normal; eine Seite allein ist nicht aussagekräftig",
+  "zh-Hant": "%@ 側偏到對向那一邊、另一側正常，單側不作判定"
+ },
+ {
+  "table": "Localizable",
+  "key": "%@ 侧未用上下文：%@",
+  "en": "No context on side %1$@: %2$@",
+  "de": "Kein Kontext auf Seite %1$@: %2$@",
+  "zh-Hant": "%1$@ 側未用上下文：%2$@"
+ },
+ {
+  "table": "Localizable",
+  "key": "%@ 侧未用上下文：%@，交给地图匹配",
+  "en": "No context on side %1$@: %2$@; left to map matching",
+  "de": "Kein Kontext auf Seite %1$@: %2$@; dem Kartenabgleich überlassen",
+  "zh-Hant": "%1$@ 側未用上下文：%2$@，交給地圖匹配"
+ },
+ {
+  "table": "Localizable",
+  "key": "%@ 侧未约束（%@）",
+  "en": "Side %1$@ unconstrained (%2$@)",
+  "de": "Seite %1$@ nicht eingeschränkt (%2$@)",
+  "zh-Hant": "%1$@ 側未約束（%2$@）"
+ },
+ {
+  "table": "Localizable",
+  "key": "%@ 年",
+  "en": "%@ year",
+  "de": "%@ Jahr",
+  "zh-Hant": "%@ 年"
+ },
+ {
+  "table": "Localizable",
+  "key": "%@ 格",
+  "en": "%@ cells",
+  "de": "%@ Zellen",
+  "zh-Hant": "%@ 格"
+ },
+ {
+  "table": "Localizable",
+  "key": "%@ 点",
+  "en": "%@ points",
+  "de": "%@ Punkte",
+  "zh-Hant": "%@ 點"
+ },
+ {
+  "table": "Localizable",
+  "key": "%@ 离路 %@ m、再往外 %lld 个点离路 %@ m，第 %lld 个点回到路上（%@ m）→ 隧道口定位漂移：%@ 前移 %lld 点，跳过的点随区间一起替换",
+  "en": "%@ is %@ m off the road, the next %lld point(s) out are %@ m off, point %lld is back on the road (%@ m) → tunnel-portal drift: %@ moved %lld point(s) earlier; skipped points are replaced along with the range",
+  "de": "%@ liegt %@ m abseits der Straße, die nächsten %lld Punkt(e) weiter außen liegen %@ m abseits, der %lld. Punkt ist wieder auf der Straße (%@ m) → Drift am Tunnelportal: %@ um %lld Punkt(e) früher gesetzt; übersprungene Punkte werden mit dem Bereich ersetzt",
+  "zh-Hant": "%@ 離路 %@ m、再往外 %lld 個點離路 %@ m，第 %lld 個點回到路上（%@ m）→ 隧道口定位漂移：%@ 前移 %lld 點，跳過的點隨區間一起替換"
+ },
+ {
+  "table": "Localizable",
+  "key": "%@ 离路 %@ m、再往外 %lld 个点离路 %@ m，第 %lld 个点回到路上（%@ m）→ 隧道口定位漂移：%@ 后移 %lld 点，跳过的点随区间一起替换",
+  "en": "%@ is %@ m off the road, the next %lld point(s) out are %@ m off, point %lld is back on the road (%@ m) → tunnel-portal drift: %@ moved %lld point(s) later; skipped points are replaced along with the range",
+  "de": "%@ liegt %@ m abseits der Straße, die nächsten %lld Punkt(e) weiter außen liegen %@ m abseits, der %lld. Punkt ist wieder auf der Straße (%@ m) → Drift am Tunnelportal: %@ um %lld Punkt(e) später gesetzt; übersprungene Punkte werden mit dem Bereich ersetzt",
+  "zh-Hant": "%@ 離路 %@ m、再往外 %lld 個點離路 %@ m，第 %lld 個點回到路上（%@ m）→ 隧道口定位漂移：%@ 後移 %lld 點，跳過的點隨區間一起替換"
+ },
+ {
+  "table": "Localizable",
+  "key": "%@ 离路 %@ m，但往外第 %lld 个点处停了车，不再外推；末端渐进靠拢",
+  "en": "%1$@ is %2$@ m off the road, but the vehicle stopped at point %3$lld further out, so no further shift; route end tapered toward the anchor",
+  "de": "%1$@ liegt %2$@ m abseits der Straße, aber am %3$lld. Punkt weiter außen hat das Fahrzeug angehalten, daher keine weitere Verschiebung; Routenende allmählich an den Anker herangeführt",
+  "zh-Hant": "%1$@ 離路 %2$@ m，但往外第 %3$lld 個點處停了車，不再外推；末端漸進靠攏"
+ },
+ {
+  "table": "Localizable",
+  "key": "%@ 离路 %@ m，但这一侧没有可用的上下文点，判断不了是不是隧道口漂移；末端渐进靠拢",
+  "en": "%1$@ is %2$@ m off the road, but this side has no usable context points, so tunnel-portal drift cannot be judged; route end tapered toward the anchor",
+  "de": "%1$@ liegt %2$@ m abseits der Straße, aber auf dieser Seite gibt es keine brauchbaren Kontextpunkte, daher ist Drift am Tunnelportal nicht beurteilbar; Routenende allmählich an den Anker herangeführt",
+  "zh-Hant": "%1$@ 離路 %2$@ m，但這一側沒有可用的上下文點，判斷不了是不是隧道口漂移；末端漸進靠攏"
+ },
+ {
+  "table": "Localizable",
+  "key": "%@ 离路 %@ m，往外 %lld 个点（%@ m 内）离路 %@–%@ m 都没回到路上：不像隧道口漂移（像整体偏移或对向车道），不挪锚点，末端渐进靠拢",
+  "en": "%@ is %@ m off the road; the %lld point(s) further out (within %@ m) are %@–%@ m off and none returns to the road: not tunnel-portal drift (looks like an overall offset or the opposite carriageway); anchor not moved, route end tapered toward it",
+  "de": "%@ liegt %@ m abseits der Straße; die %lld Punkt(e) weiter außen (innerhalb von %@ m) liegen %@–%@ m abseits, keiner kehrt zur Straße zurück: keine Drift am Tunnelportal (eher Gesamtversatz oder Gegenfahrbahn); Anker nicht verschoben, Routenende allmählich herangeführt",
+  "zh-Hant": "%@ 離路 %@ m，往外 %lld 個點（%@ m 內）離路 %@–%@ m 都沒回到路上：不像隧道口漂移（像整體偏移或對向車道），不挪錨點，末端漸進靠攏"
+ },
+ {
+  "table": "Localizable",
+  "key": "%@ 离路 %@ m，第 %lld 个点回到路上（%@ m）→ 隧道口定位漂移：%@ 前移 %lld 点，跳过的点随区间一起替换",
+  "en": "%@ is %@ m off the road, point %lld is back on the road (%@ m) → tunnel-portal drift: %@ moved %lld point(s) earlier; skipped points are replaced along with the range",
+  "de": "%@ liegt %@ m abseits der Straße, der %lld. Punkt ist wieder auf der Straße (%@ m) → Drift am Tunnelportal: %@ um %lld Punkt(e) früher gesetzt; übersprungene Punkte werden mit dem Bereich ersetzt",
+  "zh-Hant": "%@ 離路 %@ m，第 %lld 個點回到路上（%@ m）→ 隧道口定位漂移：%@ 前移 %lld 點，跳過的點隨區間一起替換"
+ },
+ {
+  "table": "Localizable",
+  "key": "%@ 离路 %@ m，第 %lld 个点回到路上（%@ m）→ 隧道口定位漂移：%@ 后移 %lld 点，跳过的点随区间一起替换",
+  "en": "%@ is %@ m off the road, point %lld is back on the road (%@ m) → tunnel-portal drift: %@ moved %lld point(s) later; skipped points are replaced along with the range",
+  "de": "%@ liegt %@ m abseits der Straße, der %lld. Punkt ist wieder auf der Straße (%@ m) → Drift am Tunnelportal: %@ um %lld Punkt(e) später gesetzt; übersprungene Punkte werden mit dem Bereich ersetzt",
+  "zh-Hant": "%@ 離路 %@ m，第 %lld 個點回到路上（%@ m）→ 隧道口定位漂移：%@ 後移 %lld 點，跳過的點隨區間一起替換"
+ },
+ {
+  "table": "Localizable",
+  "key": "%@ 补点增量",
+  "en": "%@ gap fills",
+  "de": "%@ Lückenfüllung",
+  "zh-Hant": "%@ 補點增量"
+ },
+ {
+  "table": "Localizable",
+  "key": "%@ 非 JSON",
+  "en": "%@: not JSON",
+  "de": "%@: kein JSON",
+  "zh-Hant": "%@ 非 JSON"
+ },
+ {
+  "table": "Localizable",
+  "key": "%@；退回速度：%@",
+  "en": "%1$@; falling back to speed: %2$@",
+  "de": "%1$@; Rückfall auf Geschwindigkeit: %2$@",
+  "zh-Hant": "%1$@；退回速度：%2$@"
+ },
+ {
+  "table": "Localizable",
+  "key": "%lld 个迷雾存档",
+  "en": "%lld fog archives",
+  "de": "%lld Fog-Archive",
+  "zh-Hant": "%lld 個迷霧存檔",
+  "plural": {
+   "en": {
+    "one": "%lld fog archive",
+    "other": "%lld fog archives"
+   },
+   "de": {
+    "one": "%lld Fog-Archiv",
+    "other": "%lld Fog-Archive"
+   }
+  }
+ },
+ {
+  "table": "Localizable",
+  "key": "%lld 处修改（补点 %lld · 删除 %lld）· 新增 %lld 点 · 删掉 %lld 点",
+  "en": "Changes: %lld (gap fills: %lld · deletions: %lld) · points added: %lld · points removed: %lld",
+  "de": "Änderungen: %lld (Lückenfüllungen: %lld · Löschungen: %lld) · Punkte hinzugefügt: %lld · Punkte entfernt: %lld",
+  "zh-Hant": "%lld 處修改（補點 %lld · 刪除 %lld）· 新增 %lld 點 · 刪掉 %lld 點"
+ },
+ {
+  "table": "Localizable",
+  "key": "%lld 月",
+  "en": "%lld month",
+  "de": "%lld Monat",
+  "zh-Hant": "%lld 月"
+ },
+ {
+  "table": "Localizable",
+  "key": "%lld 条：%@",
+  "en": "%1$lld warnings: %2$@",
+  "de": "%1$lld Warnungen: %2$@",
+  "zh-Hant": "%1$lld 條：%2$@"
+ },
+ {
+  "table": "Localizable",
+  "key": "%lld 点",
+  "en": "%lld points",
+  "de": "%lld Punkte",
+  "zh-Hant": "%lld 點",
+  "plural": {
+   "en": {
+    "one": "%lld point",
+    "other": "%lld points"
+   },
+   "de": {
+    "one": "%lld Punkt",
+    "other": "%lld Punkte"
+   }
+  }
+ },
+ {
+  "table": "Localizable",
+  "key": "%lld 秒",
+  "en": "%lld s",
+  "de": "%lld s",
+  "zh-Hant": "%lld 秒"
+ },
+ {
+  "table": "Localizable",
+  "key": "%lld 顶点",
+  "en": "%lld vertices",
+  "de": "%lld Stützpunkte",
+  "zh-Hant": "%lld 頂點",
+  "plural": {
+   "en": {
+    "one": "%lld vertex",
+    "other": "%lld vertices"
+   },
+   "de": {
+    "one": "%lld Stützpunkt",
+    "other": "%lld Stützpunkte"
+   }
+  }
+ },
+ {
+  "table": "Localizable",
+  "key": "+%lld 点",
+  "en": "+%lld points",
+  "de": "+%lld Punkte",
+  "zh-Hant": "+%lld 點",
+  "plural": {
+   "en": {
+    "one": "+%lld point",
+    "other": "+%lld points"
+   },
+   "de": {
+    "one": "+%lld Punkt",
+    "other": "+%lld Punkte"
+   }
+  }
+ },
+ {
+  "table": "Localizable",
+  "key": "1/%lld · %@ 点",
+  "en": "1/%1$lld · %2$@ points",
+  "de": "1/%1$lld · %2$@ Punkte",
+  "zh-Hant": "1/%1$lld · %2$@ 點"
+ },
+ {
+  "table": "Localizable",
+  "key": "1080p（1920×1080）",
+  "en": "1080p (1920×1080)",
+  "de": "1080p (1920×1080)",
+  "zh-Hant": "1080p（1920×1080）"
+ },
+ {
+  "table": "Localizable",
+  "key": "150 m 内无",
+  "en": "none within 150 m",
+  "de": "keine innerhalb von 150 m",
+  "zh-Hant": "150 m 內無"
+ },
+ {
+  "table": "Localizable",
+  "key": "3D 热力柱",
+  "en": "3D Heat Columns",
+  "de": "3D-Heatmap-Säulen",
+  "zh-Hant": "3D 熱力柱"
+ },
+ {
+  "table": "Localizable",
+  "key": "4K（3840 宽）",
+  "en": "4K (3840 wide)",
+  "de": "4K (3840 breit)",
+  "zh-Hant": "4K（3840 寬）"
+ },
+ {
+  "table": "Localizable",
+  "key": "4K（3840×2160）",
+  "en": "4K (3840×2160)",
+  "de": "4K (3840×2160)",
+  "zh-Hant": "4K（3840×2160）"
+ },
+ {
+  "table": "Localizable",
+  "key": "8K（7680 宽）",
+  "en": "8K (7680 wide)",
+  "de": "8K (7680 breit)",
+  "zh-Hant": "8K（7680 寬）"
+ },
+ {
+  "table": "Localizable",
+  "key": "A 侧未用上下文：%@，更早的点不当上下文",
+  "en": "No context on side A: %@; earlier points not used as context",
+  "de": "Kein Kontext auf Seite A: %@; frühere Punkte werden nicht als Kontext verwendet",
+  "zh-Hant": "A 側未用上下文：%@，更早的點不當上下文"
+ },
+ {
+  "table": "Localizable",
+  "key": "A 入口",
+  "en": "A Entry",
+  "de": "A Eintritt",
+  "zh-Hant": "A 入口"
+ },
+ {
+  "table": "Localizable",
+  "key": "A 入口 %@",
+  "en": "A Entry %@",
+  "de": "A Eintritt %@",
+  "zh-Hant": "A 入口 %@"
+ },
+ {
+  "table": "Localizable",
+  "key": "A 前 %@ s 内都没离开 A %@ m（停车或下车）",
+  "en": "In the %1$@ s before A, the track stayed within %2$@ m of A (parked or got out)",
+  "de": "In den %1$@ s vor A blieb der Track innerhalb von %2$@ m um A (geparkt oder ausgestiegen)",
+  "zh-Hant": "A 前 %1$@ s 內都沒離開 A %2$@ m（停車或下車）"
+ },
+ {
+  "table": "Localizable",
+  "key": "A 前 %@ s 内都没离开 A 60 m（停车），25–60 m 的挪动不算行进方向",
+  "en": "In the %@ s before A, the track stayed within 60 m of A (parked); moves of 25–60 m don't count as direction of travel",
+  "de": "In den %@ s vor A blieb der Track innerhalb von 60 m um A (geparkt); Bewegungen von 25–60 m zählen nicht als Fahrtrichtung",
+  "zh-Hant": "A 前 %@ s 內都沒離開 A 60 m（停車），25–60 m 的挪動不算行進方向"
+ },
+ {
+  "table": "Localizable",
+  "key": "A 前 %lld m",
+  "en": "%lld m before A",
+  "de": "%lld m vor A",
+  "zh-Hant": "A 前 %lld m"
+ },
+ {
+  "table": "Localizable",
+  "key": "A 前移 %lld 点",
+  "en": "A moved %lld points earlier",
+  "de": "A um %lld Punkte früher gesetzt",
+  "zh-Hant": "A 前移 %lld 點",
+  "plural": {
+   "en": {
+    "one": "A moved %lld point earlier",
+    "other": "A moved %lld points earlier"
+   },
+   "de": {
+    "one": "A um %lld Punkt früher gesetzt",
+    "other": "A um %lld Punkte früher gesetzt"
+   }
+  }
+ },
+ {
+  "table": "Localizable",
+  "key": "A 离路 %@ m：补点起始 %@ m 内渐进靠到 A（不画垂直于路的急拐）",
+  "en": "A is %1$@ m off the road: the filled path eases toward A over its first %2$@ m (no sharp kink perpendicular to the road)",
+  "de": "A liegt %1$@ m abseits der Straße: die Lückenfüllung nähert sich auf den ersten %2$@ m allmählich an A an (kein scharfer Knick quer zur Straße)",
+  "zh-Hant": "A 離路 %1$@ m：補點起始 %2$@ m 內漸進靠到 A（不畫垂直於路的急拐）"
+ },
+ {
+  "table": "Localizable",
+  "key": "B 侧未用上下文：%@，更晚的点不当上下文",
+  "en": "No context on side B: %@; later points not used as context",
+  "de": "Kein Kontext auf Seite B: %@; spätere Punkte werden nicht als Kontext verwendet",
+  "zh-Hant": "B 側未用上下文：%@，更晚的點不當上下文"
+ },
+ {
+  "table": "Localizable",
+  "key": "B 出口",
+  "en": "B Exit",
+  "de": "B Austritt",
+  "zh-Hant": "B 出口"
+ },
+ {
+  "table": "Localizable",
+  "key": "B 出口 %@",
+  "en": "B Exit %@",
+  "de": "B Austritt %@",
+  "zh-Hant": "B 出口 %@"
+ },
+ {
+  "table": "Localizable",
+  "key": "B 后 %@ s 内都没离开 B %@ m（停车或下车）",
+  "en": "In the %1$@ s after B, the track stayed within %2$@ m of B (parked or got out)",
+  "de": "In den %1$@ s nach B blieb der Track innerhalb von %2$@ m um B (geparkt oder ausgestiegen)",
+  "zh-Hant": "B 後 %1$@ s 內都沒離開 B %2$@ m（停車或下車）"
+ },
+ {
+  "table": "Localizable",
+  "key": "B 后 %@ s 内都没离开 B 60 m（停车），25–60 m 的挪动不算行进方向",
+  "en": "In the %@ s after B, the track stayed within 60 m of B (parked); moves of 25–60 m don't count as direction of travel",
+  "de": "In den %@ s nach B blieb der Track innerhalb von 60 m um B (geparkt); Bewegungen von 25–60 m zählen nicht als Fahrtrichtung",
+  "zh-Hant": "B 後 %@ s 內都沒離開 B 60 m（停車），25–60 m 的挪動不算行進方向"
+ },
+ {
+  "table": "Localizable",
+  "key": "B 后 %lld m",
+  "en": "%lld m after B",
+  "de": "%lld m nach B",
+  "zh-Hant": "B 後 %lld m"
+ },
+ {
+  "table": "Localizable",
+  "key": "B 后移 %lld 点",
+  "en": "B moved %lld points later",
+  "de": "B um %lld Punkte später gesetzt",
+  "zh-Hant": "B 後移 %lld 點",
+  "plural": {
+   "en": {
+    "one": "B moved %lld point later",
+    "other": "B moved %lld points later"
+   },
+   "de": {
+    "one": "B um %lld Punkt später gesetzt",
+    "other": "B um %lld Punkte später gesetzt"
+   }
+  }
+ },
+ {
+  "table": "Localizable",
+  "key": "B 离路 %@ m：补点末尾 %@ m 内渐进靠到 B",
+  "en": "B is %1$@ m off the road: the filled path eases toward B over its last %2$@ m",
+  "de": "B liegt %1$@ m abseits der Straße: die Lückenfüllung nähert sich auf den letzten %2$@ m allmählich an B an",
+  "zh-Hant": "B 離路 %1$@ m：補點末尾 %2$@ m 內漸進靠到 B"
+ },
+ {
+  "table": "Localizable",
+  "key": "GPU 帧渲染超时",
+  "en": "GPU frame rendering timed out",
+  "de": "Zeitüberschreitung beim Rendern eines GPU-Frames",
+  "zh-Hant": "GPU 影格渲染逾時"
+ },
+ {
+  "table": "Localizable",
+  "key": "GPX 点位查看器",
+  "en": "GPX Point Viewer",
+  "de": "GPX-Punktbetrachter",
+  "zh-Hant": "GPX 點位檢視器"
+ },
+ {
+  "table": "Localizable",
+  "key": "HTTP %lld（服务端限流/过载）",
+  "en": "HTTP %lld (server rate-limited/overloaded)",
+  "de": "HTTP %lld (Server gedrosselt/überlastet)",
+  "zh-Hant": "HTTP %lld（伺服器限流/過載）"
+ },
+ {
+  "table": "Localizable",
+  "key": "HTTP 429 限流",
+  "en": "HTTP 429 rate limited",
+  "de": "HTTP 429 – gedrosselt",
+  "zh-Hant": "HTTP 429 限流"
+ },
+ {
+  "table": "Localizable",
+  "key": "Metal 渲染器初始化失败",
+  "en": "Metal renderer failed to initialize",
+  "de": "Metal-Renderer konnte nicht initialisiert werden",
+  "zh-Hant": "Metal 渲染器初始化失敗"
+ },
+ {
+  "table": "Localizable",
+  "key": "OSRM 公路",
+  "en": "OSRM Road",
+  "de": "OSRM-Straße",
+  "zh-Hant": "OSRM 公路"
+ }
+]

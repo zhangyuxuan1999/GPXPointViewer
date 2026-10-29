@@ -1,0 +1,512 @@
+[
+  {
+    "table": "Localizable",
+    "key": "只看有疑点的 %lld 处",
+    "en": "Only %lld Flagged Gaps",
+    "de": "Nur %lld fragliche Lücken",
+    "zh-Hant": "只看有疑點的 %lld 處",
+    "plural": {
+      "en": {
+        "one": "Only %lld Flagged Gap",
+        "other": "Only %lld Flagged Gaps"
+      },
+      "de": {
+        "one": "Nur %lld fragliche Lücke",
+        "other": "Nur %lld fragliche Lücken"
+      }
+    }
+  },
+  {
+    "table": "Localizable",
+    "key": "只补公路",
+    "en": "Fill Roads Only",
+    "de": "Nur Straßen füllen",
+    "zh-Hant": "只補公路"
+  },
+  {
+    "table": "Localizable",
+    "key": "只补公路（跳过铁路）",
+    "en": "Fill Roads Only (Skip Rail)",
+    "de": "Nur Straßen füllen (Bahn überspringen)",
+    "zh-Hant": "只補公路（跳過鐵路）"
+  },
+  {
+    "table": "Localizable",
+    "key": "台北",
+    "en": "Taipei",
+    "de": "Taipeh",
+    "zh-Hant": "臺北"
+  },
+  {
+    "table": "Localizable",
+    "key": "右侧 %@ m（%lld 点）",
+    "en": "right %1$@ m (%2$lld pts)",
+    "de": "rechts %1$@ m (%2$lld Pkt.)",
+    "zh-Hant": "右側 %1$@ m（%2$lld 點）"
+  },
+  {
+    "table": "Localizable",
+    "key": "右独有 %@",
+    "en": "Right only %@",
+    "de": "Nur rechts %@",
+    "zh-Hant": "右獨有 %@"
+  },
+  {
+    "table": "Localizable",
+    "key": "右色",
+    "en": "Right Color",
+    "de": "Farbe rechts",
+    "zh-Hant": "右色"
+  },
+  {
+    "table": "Localizable",
+    "key": "各处怎么取到的：匹配 %lld · 上下文 %lld · 约束 %lld · 直接 %lld · 铁路 %lld",
+    "en": "How each draft was obtained: Match %lld · Context %lld · Constrained %lld · Direct %lld · Rail %lld",
+    "de": "So wurden die Entwürfe ermittelt: Abgleich %lld · Kontext %lld · Eingeschränkt %lld · Direkt %lld · Bahn %lld",
+    "zh-Hant": "各處怎麼取到的：匹配 %lld · 上下文 %lld · 約束 %lld · 直接 %lld · 鐵路 %lld"
+  },
+  {
+    "table": "Localizable",
+    "key": "合并隧道群",
+    "en": "Merge Tunnel Chains",
+    "de": "Tunnelketten zusammenfassen",
+    "zh-Hant": "合併隧道群"
+  },
+  {
+    "table": "Localizable",
+    "key": "合成点沿折线按弧长等距、时间在两端锚点之间匀速插值（方向 A → B）。",
+    "en": "Synthetic points are spaced evenly along the polyline by arc length, and their times are interpolated at constant speed between the two anchors (direction A → B).",
+    "de": "Synthetische Punkte werden entlang der Polylinie in gleichen Bogenlängen-Abständen verteilt, ihre Zeiten zwischen den beiden Ankern mit konstanter Geschwindigkeit interpoliert (Richtung A → B).",
+    "zh-Hant": "合成點沿折線按弧長等距、時間在兩端錨點之間勻速插值（方向 A → B）。"
+  },
+  {
+    "table": "Localizable",
+    "key": "合成点间距。没拖过滑块时按断档两侧的原始点距自动取（15–60 m，再大会切弯）；世界迷雾按相邻点连线解锁，一生足迹按点显示",
+    "en": "Spacing of synthetic points. Until you move the slider, it is taken from the original point spacing on both sides of the gap (15–60 m; larger values cut corners); Fog of World unlocks along lines between adjacent points, Step of My World shows individual points",
+    "de": "Abstand der synthetischen Punkte. Solange der Regler nicht bewegt wurde, wird er aus dem ursprünglichen Punktabstand beiderseits der Lücke abgeleitet (15–60 m, größere Werte schneiden Kurven ab); Fog of World schaltet entlang der Verbindungslinien benachbarter Punkte frei, Step of My World zeigt einzelne Punkte",
+    "zh-Hant": "合成點間距。沒拖過滑桿時按斷檔兩側的原始點距自動取（15–60 m，再大會切彎）；世界迷霧按相鄰點連線解鎖，一生足跡按點顯示"
+  },
+  {
+    "table": "Localizable",
+    "key": "合肥",
+    "en": "Hefei",
+    "de": "Hefei",
+    "zh-Hant": "合肥"
+  },
+  {
+    "table": "Localizable",
+    "key": "吉隆坡",
+    "en": "Kuala Lumpur",
+    "de": "Kuala Lumpur",
+    "zh-Hant": "吉隆坡"
+  },
+  {
+    "table": "Localizable",
+    "key": "向公共 OpenStreetMap 服务请求 A→B 的路网路径，替换当前全部顶点作为草稿（可撤销、可继续手动调）。只在点击时联网，一次一个请求",
+    "en": "Requests an A→B road-network route from a public OpenStreetMap service and replaces all current vertices with it as a draft (undoable; you can keep adjusting it by hand). Goes online only when clicked, one request at a time",
+    "de": "Fragt bei einem öffentlichen OpenStreetMap-Dienst eine Straßennetz-Route A→B an und ersetzt damit alle aktuellen Stützpunkte als Entwurf (rückgängig machbar, weiter manuell anpassbar). Geht nur beim Klicken online, jeweils eine Anfrage",
+    "zh-Hant": "向公共 OpenStreetMap 服務請求 A→B 的路網路徑，替換目前全部頂點作為草稿（可撤銷、可繼續手動調）。只在點擊時連網，一次一個請求"
+  },
+  {
+    "table": "Localizable",
+    "key": "含时间",
+    "en": "Include Time",
+    "de": "Mit Zeit",
+    "zh-Hant": "含時間"
+  },
+  {
+    "table": "Localizable",
+    "key": "含首尾两天整天",
+    "en": "Both end days fully included",
+    "de": "Start- und Endtag vollständig enthalten",
+    "zh-Hant": "含首尾兩天整天"
+  },
+  {
+    "table": "Localizable",
+    "key": "呼和浩特",
+    "en": "Hohhot",
+    "de": "Hohhot",
+    "zh-Hant": "呼和浩特"
+  },
+  {
+    "table": "Localizable",
+    "key": "哈密",
+    "en": "Hami",
+    "de": "Hami",
+    "zh-Hant": "哈密"
+  },
+  {
+    "table": "Localizable",
+    "key": "哈尔滨",
+    "en": "Harbin",
+    "de": "Harbin",
+    "zh-Hant": "哈爾濱"
+  },
+  {
+    "table": "Localizable",
+    "key": "响应缺 routes/geometry",
+    "en": "Response lacks routes/geometry",
+    "de": "Antwort ohne routes/geometry",
+    "zh-Hant": "回應缺 routes/geometry"
+  },
+  {
+    "table": "Localizable",
+    "key": "哥本哈根",
+    "en": "Copenhagen",
+    "de": "Kopenhagen",
+    "zh-Hant": "哥本哈根"
+  },
+  {
+    "table": "Localizable",
+    "key": "回到完整表格（会再挡住地图；点任一行又会折叠）",
+    "en": "Back to the full table (covers the map again; clicking any row collapses it again)",
+    "de": "Zurück zur vollständigen Tabelle (verdeckt die Karte wieder; ein Klick auf eine Zeile klappt sie erneut ein)",
+    "zh-Hant": "回到完整表格（會再擋住地圖；點任一列又會摺疊）"
+  },
+  {
+    "table": "Localizable",
+    "key": "回总览",
+    "en": "Back to Overview",
+    "de": "Zur Übersicht",
+    "zh-Hant": "回總覽"
+  },
+  {
+    "table": "Localizable",
+    "key": "回放总时长",
+    "en": "Total playback duration",
+    "de": "Gesamtdauer der Wiedergabe",
+    "zh-Hant": "回放總時長"
+  },
+  {
+    "table": "Localizable",
+    "key": "回放点清理",
+    "en": "Replay Cleanup",
+    "de": "Bereinigung der Wiederholungspunkte",
+    "zh-Hant": "回放點清理"
+  },
+  {
+    "table": "Localizable",
+    "key": "回放点：坐标与几分钟前某个点一字不差、期间轨迹已离开几百米、而且这个点是在移动中记下的——真 GPS 移动中不会这样，是设备没信号时在回放存过的旧位置（手机、Garmin Explore 在车厢里常见）。删掉它们几何不变（首次出现的那个点留着），乱跳候选也会清爽很多。可在「修改记录」里一键还原",
+    "en": "Replay points: coordinates identical to a point from a few minutes earlier, although the track has meanwhile moved a few hundred meters away, and recorded while moving. Real GPS never does this in motion; it is an old position the device replays when it has no signal (common with phones and Garmin Explore inside train cars). Deleting them leaves the geometry unchanged (the first occurrence is kept) and makes the jitter candidates much cleaner. Can be restored with one click in “Change Log”",
+    "de": "Wiederholungspunkte: Koordinaten exakt gleich einem Punkt von vor wenigen Minuten, obwohl sich der Track inzwischen einige hundert Meter entfernt hat, und in Bewegung aufgezeichnet. Echtes GPS tut das in Bewegung nie – es sind alte Positionen, die das Gerät ohne Signal erneut ausgibt (häufig bei Handys und Garmin Explore im Zug). Das Löschen ändert die Geometrie nicht (das erste Vorkommen bleibt erhalten) und macht die Kandidaten für Sprünge deutlich übersichtlicher. Lässt sich im „Änderungsprotokoll“ mit einem Klick wiederherstellen",
+    "zh-Hant": "回放點：座標與幾分鐘前某個點一字不差、期間軌跡已離開幾百公尺、而且這個點是在移動中記下的——真 GPS 移動中不會這樣，是裝置沒訊號時在回放存過的舊位置（手機、Garmin Explore 在車廂裡常見）。刪掉它們幾何不變（首次出現的那個點留著），亂跳候選也會清爽很多。可在「修改記錄」裡一鍵還原"
+  },
+  {
+    "table": "Localizable",
+    "key": "国家 - 州/省 - 城市（Apple 地图逆地理编码，按这处修改的中心点）",
+    "en": "Country - State/Province - City (Apple Maps reverse geocoding at the center of this change)",
+    "de": "Land - Bundesland/Provinz - Stadt (umgekehrte Geokodierung mit Apple Karten, am Mittelpunkt dieser Änderung)",
+    "zh-Hant": "國家 - 州/省 - 城市（Apple 地圖反向地理編碼，按這處修改的中心點）"
+  },
+  {
+    "table": "Localizable",
+    "key": "图片",
+    "en": "Image",
+    "de": "Bild",
+    "zh-Hant": "圖片"
+  },
+  {
+    "table": "Localizable",
+    "key": "图片导出失败（无法写入文件）。",
+    "en": "Image export failed (the file could not be written).",
+    "de": "Bildexport fehlgeschlagen (Datei konnte nicht geschrieben werden).",
+    "zh-Hant": "圖片匯出失敗（無法寫入檔案）。"
+  },
+  {
+    "table": "Localizable",
+    "key": "图片导出失败（渲染或合成出错）。",
+    "en": "Image export failed (rendering or compositing error).",
+    "de": "Bildexport fehlgeschlagen (Fehler beim Rendern oder Zusammensetzen).",
+    "zh-Hant": "圖片匯出失敗（算繪或合成出錯）。"
+  },
+  {
+    "table": "Localizable",
+    "key": "圈选中…（拖拽画）",
+    "en": "Lassoing… (Drag to Draw)",
+    "de": "Einkreisen… (zum Zeichnen ziehen)",
+    "zh-Hant": "圈選中…（拖曳畫）"
+  },
+  {
+    "table": "Localizable",
+    "key": "圈选范围",
+    "en": "Lasso Region",
+    "de": "Bereich einkreisen",
+    "zh-Hant": "圈選範圍"
+  },
+  {
+    "table": "Localizable",
+    "key": "圣保罗",
+    "en": "São Paulo",
+    "de": "São Paulo",
+    "zh-Hant": "聖保羅"
+  },
+  {
+    "table": "Localizable",
+    "key": "圣地亚哥",
+    "en": "Santiago",
+    "de": "Santiago",
+    "zh-Hant": "聖地牙哥"
+  },
+  {
+    "table": "Localizable",
+    "key": "圣彼得堡",
+    "en": "Saint Petersburg",
+    "de": "Sankt Petersburg",
+    "zh-Hant": "聖彼得堡"
+  },
+  {
+    "table": "Localizable",
+    "key": "在主窗口以单文件模式打开一条轨迹后，这里会列出本次会话对它的全部修改。",
+    "en": "After you open a track in Single File mode in the main window, all changes made to it in this session are listed here.",
+    "de": "Nachdem Sie im Hauptfenster einen Track im Einzeldateimodus geöffnet haben, werden hier alle Änderungen dieser Sitzung daran aufgelistet.",
+    "zh-Hant": "在主視窗以單檔案模式開啟一條軌跡後，這裡會列出本次工作階段對它的全部修改。"
+  },
+  {
+    "table": "Localizable",
+    "key": "在主窗口进入「补点」模式后，点操作条上的「一键补全部…」开始",
+    "en": "In the main window, enter “Gap Fill” mode, then click “Fill All…” in the action bar to start",
+    "de": "Wechseln Sie im Hauptfenster in den Modus „Lücken füllen“ und klicken Sie in der Aktionsleiste auf „Alle füllen…“, um zu beginnen",
+    "zh-Hant": "在主視窗進入「補點」模式後，點操作列上的「一鍵補全部…」開始"
+  },
+  {
+    "table": "Localizable",
+    "key": "在右侧列表选一处断档；然后拖橙线中点的小空心圆加顶点、拖顶点把线塑成隧道的形状",
+    "en": "Pick a gap in the list on the right; then drag the small hollow circle at a midpoint of the orange line to add a vertex, and drag vertices to shape the line like the tunnel",
+    "de": "Wählen Sie rechts in der Liste eine Lücke; ziehen Sie dann den kleinen hohlen Kreis in der Mitte der orangefarbenen Linie, um Stützpunkte hinzuzufügen, und ziehen Sie Stützpunkte, um die Linie dem Tunnelverlauf anzupassen",
+    "zh-Hant": "在右側清單選一處斷檔；然後拖橘線中點的小空心圓加頂點、拖頂點把線塑成隧道的形狀"
+  },
+  {
+    "table": "Localizable",
+    "key": "在地图上按住左键拖拽画一个圈（松手自动闭合），之后只列出、只补两端都在圈里的断档；右键拖拽平移地图",
+    "en": "Hold the left mouse button and drag on the map to draw a loop (it closes automatically on release); after that only gaps with both ends inside the loop are listed and filled; right-drag pans the map",
+    "de": "Halten Sie die linke Maustaste gedrückt und zeichnen Sie durch Ziehen eine Schleife auf der Karte (schließt sich beim Loslassen automatisch); danach werden nur Lücken aufgelistet und gefüllt, deren beide Enden darin liegen; Ziehen mit der rechten Maustaste verschiebt die Karte",
+    "zh-Hant": "在地圖上按住左鍵拖曳畫一個圈（放開自動閉合），之後只列出、只補兩端都在圈裡的斷檔；右鍵拖曳平移地圖"
+  },
+  {
+    "table": "Localizable",
+    "key": "在对比模式点击「找不同」计算差异",
+    "en": "In compare mode, click “Find Differences” to compute the differences",
+    "de": "Klicken Sie im Vergleichsmodus auf „Unterschiede finden“, um die Unterschiede zu berechnen",
+    "zh-Hant": "在對比模式點擊「找不同」計算差異"
+  },
+  {
+    "table": "Localizable",
+    "key": "在独立窗口展示差异点（两色可选）",
+    "en": "Show the differing points in a separate window (two colors to choose)",
+    "de": "Unterschiedliche Punkte in einem eigenen Fenster anzeigen (zwei Farben wählbar)",
+    "zh-Hant": "在獨立視窗展示差異點（兩色可選）"
+  },
+  {
+    "table": "Localizable",
+    "key": "地名",
+    "en": "Place Names",
+    "de": "Ortsnamen",
+    "zh-Hant": "地名"
+  },
+  {
+    "table": "Localizable",
+    "key": "地名服务没有网络",
+    "en": "No network for the place-name service",
+    "de": "Kein Netzwerk für den Ortsnamendienst",
+    "zh-Hant": "地名服務沒有網路"
+  },
+  {
+    "table": "Localizable",
+    "key": "地名查询中…",
+    "en": "Looking up place name…",
+    "de": "Ortsname wird gesucht…",
+    "zh-Hant": "地名查詢中…"
+  },
+  {
+    "table": "Localizable",
+    "key": "地图",
+    "en": "Map",
+    "de": "Karte",
+    "zh-Hant": "地圖"
+  },
+  {
+    "table": "Localizable",
+    "key": "地图判断 %lld/%lld",
+    "en": "Map Check %1$lld/%2$lld",
+    "de": "Kartenprüfung %1$lld/%2$lld",
+    "zh-Hant": "地圖判斷 %1$lld/%2$lld"
+  },
+  {
+    "table": "Localizable",
+    "key": "地图判断 第 %lld/%lld 处 · %@ · %lld m（查两端离最近公路、最近铁路的距离：OSRM 2 次 + Overpass 2 次）",
+    "en": "Map check: gap %1$lld/%2$lld · %3$@ · %4$lld m (distance from both ends to the nearest road and railway: 2× OSRM + 2× Overpass)",
+    "de": "Kartenprüfung: Lücke %1$lld/%2$lld · %3$@ · %4$lld m (Abstand beider Enden zur nächsten Straße und Bahn: 2× OSRM + 2× Overpass)",
+    "zh-Hant": "地圖判斷 第 %1$lld/%2$lld 處 · %3$@ · %4$lld m（查兩端離最近公路、最近鐵路的距離：OSRM 2 次 + Overpass 2 次）"
+  },
+  {
+    "table": "Localizable",
+    "key": "地图判断中…",
+    "en": "Checking map…",
+    "de": "Kartenprüfung läuft…",
+    "zh-Hant": "地圖判斷中…"
+  },
+  {
+    "table": "Localizable",
+    "key": "地图判断还在进行，先等它结束或停止",
+    "en": "The map check is still running; wait for it to finish or stop it first",
+    "de": "Die Kartenprüfung läuft noch – warten Sie, bis sie fertig ist, oder stoppen Sie sie zuerst",
+    "zh-Hant": "地圖判斷還在進行，先等它結束或停止"
+  },
+  {
+    "table": "Localizable",
+    "key": "地图判断：离公路 %@ / %@，离铁路 %@ / %@ → %@",
+    "en": "Map check: distance to road %@ / %@, to railway %@ / %@ → %@",
+    "de": "Kartenprüfung: Abstand zur Straße %@ / %@, zur Bahn %@ / %@ → %@",
+    "zh-Hant": "地圖判斷：離公路 %@ / %@，離鐵路 %@ / %@ → %@"
+  },
+  {
+    "table": "Localizable",
+    "key": "地图判段",
+    "en": "Classify by Map",
+    "de": "Per Karte einordnen",
+    "zh-Hant": "地圖判段"
+  },
+  {
+    "table": "Localizable",
+    "key": "地图判段 第 %lld/%lld 批",
+    "en": "Classifying by map: batch %1$lld/%2$lld",
+    "de": "Einordnung per Karte: Stapel %1$lld/%2$lld",
+    "zh-Hant": "地圖判段 第 %1$lld/%2$lld 批"
+  },
+  {
+    "table": "Localizable",
+    "key": "地图拿不准（%lld/%lld 贴铁路），按速度 v95 %lld",
+    "en": "Map inconclusive (%1$lld/%2$lld on rail), using speed v95 %3$lld",
+    "de": "Karte unklar (%1$lld/%2$lld an der Bahn), nach Geschwindigkeit v95 %3$lld",
+    "zh-Hant": "地圖拿不準（%1$lld/%2$lld 貼鐵路），按速度 v95 %3$lld"
+  },
+  {
+    "table": "Localizable",
+    "key": "地图：%lld 个点里 %lld 个贴铁路",
+    "en": "Map: %2$lld of %1$lld points on rail",
+    "de": "Karte: %2$lld von %1$lld Punkten an der Bahn",
+    "zh-Hant": "地圖：%1$lld 個點裡 %2$lld 個貼鐵路"
+  },
+  {
+    "table": "Localizable",
+    "key": "地图：这段抽了 %lld 个点，贴着铁路（≤30 m）的 %lld 个、离铁路远（≥80 m 或 150 m 内没有）的 %lld 个（离铁路中位 %@）→ %@",
+    "en": "Map: %lld points sampled in this section; on a railway (≤30 m): %lld; far from railways (≥80 m or none within 150 m): %lld (median distance to railway %@) → %@",
+    "de": "Karte: %lld Punkte in diesem Abschnitt geprüft; an der Bahn (≤30 m): %lld; fern der Bahn (≥80 m oder keine innerhalb von 150 m): %lld (Median-Abstand zur Bahn %@) → %@",
+    "zh-Hant": "地圖：這段抽了 %lld 個點，貼著鐵路（≤30 m）的 %lld 個、離鐵路遠（≥80 m 或 150 m 內沒有）的 %lld 個（離鐵路中位 %@）→ %@"
+  },
+  {
+    "table": "Localizable",
+    "key": "地图：铁路数据没拿到（Overpass 超时/排队），没法判；可点「重新用地图判断」再试，或手选本段",
+    "en": "Map: no railway data received (Overpass timeout/queue), can't decide; click “Re-check with Map” to try again, or choose this section manually",
+    "de": "Karte: Keine Bahndaten erhalten (Overpass-Zeitüberschreitung/Warteschlange), keine Entscheidung möglich; zum erneuten Versuch auf „Erneut per Karte prüfen“ klicken oder den Abschnitt manuell wählen",
+    "zh-Hant": "地圖：鐵路資料沒拿到（Overpass 逾時/排隊），沒法判；可點「重新用地圖判斷」再試，或手選本段"
+  },
+  {
+    "table": "Localizable",
+    "key": "地球占比",
+    "en": "Earth Coverage",
+    "de": "Erdanteil",
+    "zh-Hant": "地球佔比"
+  },
+  {
+    "table": "Localizable",
+    "key": "地球视角",
+    "en": "Globe",
+    "de": "Globus",
+    "zh-Hant": "地球視角"
+  },
+  {
+    "table": "Localizable",
+    "key": "地球视角下无操作多少秒后进入星球展示动画",
+    "en": "Seconds of inactivity in globe view before the planet showcase animation starts",
+    "de": "Sekunden ohne Bedienung in der Globusansicht, bis die Planeten-Präsentation startet",
+    "zh-Hant": "地球視角下無操作多少秒後進入星球展示動畫"
+  },
+  {
+    "table": "Localizable",
+    "key": "地球风格",
+    "en": "Globe Style",
+    "de": "Globusstil",
+    "zh-Hant": "地球風格"
+  },
+  {
+    "table": "Localizable",
+    "key": "块大小",
+    "en": "Block",
+    "de": "Block",
+    "zh-Hant": "塊大小"
+  },
+  {
+    "table": "Localizable",
+    "key": "增量已导出，但有 %lld 个合成点在后来的补点中又被替换掉，未包含在内",
+    "en": "Gap fills exported, but %lld synthetic points were replaced by later fills and are not included",
+    "de": "Lückenfüllungen exportiert, aber %lld synthetische Punkte wurden durch spätere Füllungen ersetzt und sind nicht enthalten",
+    "zh-Hant": "增量已匯出，但有 %lld 個合成點在後來的補點中又被替換掉，未包含在內",
+    "plural": {
+      "en": {
+        "one": "Gap fills exported, but %lld synthetic point was replaced by a later fill and is not included",
+        "other": "Gap fills exported, but %lld synthetic points were replaced by later fills and are not included"
+      },
+      "de": {
+        "one": "Lückenfüllungen exportiert, aber %lld synthetischer Punkt wurde durch eine spätere Füllung ersetzt und ist nicht enthalten",
+        "other": "Lückenfüllungen exportiert, aber %lld synthetische Punkte wurden durch spätere Füllungen ersetzt und sind nicht enthalten"
+      }
+    }
+  },
+  {
+    "table": "Localizable",
+    "key": "墨尔本",
+    "en": "Melbourne",
+    "de": "Melbourne",
+    "zh-Hant": "墨爾本"
+  },
+  {
+    "table": "Localizable",
+    "key": "墨西哥城",
+    "en": "Mexico City",
+    "de": "Mexiko-Stadt",
+    "zh-Hant": "墨西哥市"
+  },
+  {
+    "table": "Localizable",
+    "key": "外观",
+    "en": "Appearance",
+    "de": "Darstellung",
+    "zh-Hant": "外觀"
+  },
+  {
+    "table": "Localizable",
+    "key": "多伦多",
+    "en": "Toronto",
+    "de": "Toronto",
+    "zh-Hant": "多倫多"
+  },
+  {
+    "table": "Localizable",
+    "key": "多日轨迹在「全部」时禁用轨迹线：跨天连线无意义且耗性能。选年/月/日或自定义区间后可用",
+    "en": "Track lines are disabled for multi-day tracks under “All”: lines across days are meaningless and cost performance. Available after choosing a year/month/day or a custom range",
+    "de": "Bei mehrtägigen Tracks ist die Tracklinie unter „Alle“ deaktiviert: Verbindungen über Tage hinweg sind sinnlos und kosten Leistung. Verfügbar nach Auswahl von Jahr/Monat/Tag oder eines eigenen Zeitraums",
+    "zh-Hant": "多日軌跡在「全部」時停用軌跡線：跨天連線無意義且耗效能。選年/月/日或自訂區間後可用"
+  },
+  {
+    "table": "Localizable",
+    "key": "夜间",
+    "en": "Dark",
+    "de": "Dunkel",
+    "zh-Hant": "夜間"
+  },
+  {
+    "table": "Localizable",
+    "key": "大文件：正在后台找断档、回放点和乱跳段…",
+    "en": "Large file: finding gaps, replay points and jitter stretches in the background…",
+    "de": "Große Datei: Lücken, Wiederholungspunkte und Sprungabschnitte werden im Hintergrund gesucht…",
+    "zh-Hant": "大檔案：正在背景找斷檔、回放點和亂跳段…"
+  },
+  {
+    "table": "Localizable",
+    "key": "大连",
+    "en": "Dalian",
+    "de": "Dalian",
+    "zh-Hant": "大連"
+  }
+]

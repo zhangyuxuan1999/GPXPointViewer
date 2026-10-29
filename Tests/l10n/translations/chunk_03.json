@@ -1,0 +1,552 @@
+[
+  {
+    "table": "Localizable",
+    "key": "删点",
+    "en": "Delete Only",
+    "de": "Nur löschen",
+    "zh-Hant": "刪點"
+  },
+  {
+    "table": "Localizable",
+    "key": "删除",
+    "en": "Delete",
+    "de": "Löschen",
+    "zh-Hant": "刪除"
+  },
+  {
+    "table": "Localizable",
+    "key": "删除 %@ 个点…",
+    "en": "Deleting points: %@…",
+    "de": "Punkte werden gelöscht: %@…",
+    "zh-Hant": "刪除 %@ 個點…"
+  },
+  {
+    "table": "Localizable",
+    "key": "删除 %lld 个回放点",
+    "en": "Delete %lld Replay Points",
+    "de": "%lld Wiederholungspunkte löschen",
+    "zh-Hant": "刪除 %lld 個回放點",
+    "plural": {
+      "en": {
+        "one": "Delete %lld Replay Point",
+        "other": "Delete %lld Replay Points"
+      },
+      "de": {
+        "one": "%lld Wiederholungspunkt löschen",
+        "other": "%lld Wiederholungspunkte löschen"
+      }
+    }
+  },
+  {
+    "table": "Localizable",
+    "key": "删除 %lld 处的乱跳点…",
+    "en": "Deleting jitter points at %lld places…",
+    "de": "Sprungpunkte an %lld Stellen werden gelöscht…",
+    "zh-Hant": "刪除 %lld 處的亂跳點…",
+    "plural": {
+      "en": {
+        "one": "Deleting jitter points at %lld place…",
+        "other": "Deleting jitter points at %lld places…"
+      },
+      "de": {
+        "one": "Sprungpunkte an %lld Stelle werden gelöscht…",
+        "other": "Sprungpunkte an %lld Stellen werden gelöscht…"
+      }
+    }
+  },
+  {
+    "table": "Localizable",
+    "key": "删除点",
+    "en": "Delete Points",
+    "de": "Punkte löschen",
+    "zh-Hant": "刪除點"
+  },
+  {
+    "table": "Localizable",
+    "key": "判法：每段抽 3–8 个行驶中的点（车速 ≥30 km/h），问 OpenStreetMap 这些点 150 m 内有没有铁路——贴着铁路（≤30 m）的点占三分之二以上判铁路，离铁路远（≥80 m 或没有）的占三分之二以上判公路，两边都不到就拿不准、退回看整段速度（v95 ≥150 铁路、≤115 公路）。你手选的优先。",
+    "en": "How it decides: each segment samples 3–8 moving points (speed ≥30 km/h) and asks OpenStreetMap whether there is a railway within 150 m of them. If over two thirds hug a railway (≤30 m), it is rail; if over two thirds are far from any railway (≥80 m or none), it is road; otherwise it is uncertain and falls back to the speed of the whole segment (v95 ≥150 rail, ≤115 road). Your manual choice takes precedence.",
+    "de": "Entscheidung: Pro Abschnitt werden 3–8 Punkte in Fahrt (Tempo ≥30 km/h) gewählt und OpenStreetMap wird gefragt, ob im Umkreis von 150 m eine Bahnstrecke liegt. Liegen über zwei Drittel direkt an der Bahn (≤30 m), gilt Bahn; liegen über zwei Drittel weit entfernt (≥80 m oder keine), gilt Straße; sonst ist es unsicher und das Tempo des ganzen Abschnitts entscheidet (v95 ≥150 Bahn, ≤115 Straße). Ihre manuelle Wahl hat Vorrang.",
+    "zh-Hant": "判法：每段抽 3–8 個行駛中的點（車速 ≥30 km/h），問 OpenStreetMap 這些點 150 m 內有沒有鐵路——貼著鐵路（≤30 m）的點佔三分之二以上判鐵路，離鐵路遠（≥80 m 或沒有）的佔三分之二以上判公路，兩邊都不到就拿不準、退回看整段速度（v95 ≥150 鐵路、≤115 公路）。你手選的優先。"
+  },
+  {
+    "table": "Localizable",
+    "key": "利雅得",
+    "en": "Riyadh",
+    "de": "Riad",
+    "zh-Hant": "利雅德"
+  },
+  {
+    "table": "Localizable",
+    "key": "利马",
+    "en": "Lima",
+    "de": "Lima",
+    "zh-Hant": "利馬"
+  },
+  {
+    "table": "Localizable",
+    "key": "到",
+    "en": "to",
+    "de": "bis",
+    "zh-Hant": "到"
+  },
+  {
+    "table": "Localizable",
+    "key": "前/后速度 单步 %.0f/%.0f · 窗口 %@/%@ km/h · 自动判断：%@ · 成因：%@",
+    "en": "Speed in/out: step %1$.0f/%2$.0f · window %3$@/%4$@ km/h · Auto: %5$@ · Cause: %6$@",
+    "de": "Tempo vor/nach: Schritt %1$.0f/%2$.0f · Fenster %3$@/%4$@ km/h · Automatisch: %5$@ · Ursache: %6$@",
+    "zh-Hant": "前/後速度 單步 %1$.0f/%2$.0f · 視窗 %3$@/%4$@ km/h · 自動判斷：%5$@ · 成因：%6$@"
+  },
+  {
+    "table": "Localizable",
+    "key": "前/后速度（单步 · 窗口）",
+    "en": "Speed In/Out (Step · Window)",
+    "de": "Tempo vor/nach (Schritt · Fenster)",
+    "zh-Hant": "前/後速度（單步 · 視窗）"
+  },
+  {
+    "table": "Localizable",
+    "key": "加德满都",
+    "en": "Kathmandu",
+    "de": "Kathmandu",
+    "zh-Hant": "加德滿都"
+  },
+  {
+    "table": "Localizable",
+    "key": "勾上则批量里疑似铁路的一律跳过。不勾时铁路也补，但只补判定为隧道的断档（OSM 铁路 tunnel 标签占 ≥50%、直线 ≤60 km、≤25 分钟），车厢里没信号造成的长空洞标「不补」；单处补点不受影响",
+    "en": "When checked, every likely rail gap in the batch is skipped. When unchecked, rail is filled too, but only gaps judged to be tunnels (OSM railway tunnel tags ≥50%, straight line ≤60 km, ≤25 min); long holes caused by no signal inside the train are marked “Don't Fill”. Single gap fills are not affected",
+    "de": "Wenn aktiviert, werden im Stapel alle vermutlichen Bahnlücken übersprungen. Sonst wird auch Bahn gefüllt, aber nur als Tunnel erkannte Lücken (OSM-Bahn-Tags tunnel ≥50%, Luftlinie ≤60 km, ≤25 min); lange Löcher durch fehlendes Signal im Zug werden mit „Nicht füllen“ markiert. Einzelne Lückenfüllungen sind nicht betroffen",
+    "zh-Hant": "勾上則批量裡疑似鐵路的一律跳過。不勾時鐵路也補，但只補判定為隧道的斷檔（OSM 鐵路 tunnel 標籤佔 ≥50%、直線 ≤60 km、≤25 分鐘），車廂裡沒訊號造成的長空洞標「不補」；單處補點不受影響"
+  },
+  {
+    "table": "Localizable",
+    "key": "勾上则铁路一律跳过。不勾时铁路也补，但只补判定为隧道的断档（OSM 铁路 tunnel 标签占 ≥50%、直线 ≤60 km、≤25 分钟），车厢屏蔽的长空洞标「不补」。改动只影响之后的分类，已列出的行用下面按钮或逐行改",
+    "en": "When checked, all rail is skipped. When unchecked, rail is filled too, but only gaps judged to be tunnels (OSM railway tunnel tags ≥50%, straight line ≤60 km, ≤25 min); long holes where the train blocks the signal are marked “Don't Fill”. Changes only affect later classification; for rows already listed, use the buttons below or change them row by row",
+    "de": "Wenn aktiviert, wird Bahn immer übersprungen. Sonst wird auch Bahn gefüllt, aber nur als Tunnel erkannte Lücken (OSM-Bahn-Tags tunnel ≥50%, Luftlinie ≤60 km, ≤25 min); lange Löcher durch Abschirmung im Zug werden mit „Nicht füllen“ markiert. Änderungen wirken nur auf spätere Einstufungen; bereits gelistete Zeilen über die Schaltflächen unten oder zeilenweise ändern",
+    "zh-Hant": "勾上則鐵路一律跳過。不勾時鐵路也補，但只補判定為隧道的斷檔（OSM 鐵路 tunnel 標籤佔 ≥50%、直線 ≤60 km、≤25 分鐘），車廂屏蔽的長空洞標「不補」。改動只影響之後的分類，已列出的項目用下面按鈕或逐項改"
+  },
+  {
+    "table": "Localizable",
+    "key": "勾选 = 坐标+时间都相同才算同一个点；取消 = 只比坐标",
+    "en": "Checked = a point counts as the same only if coordinates and time both match; unchecked = compare coordinates only",
+    "de": "Aktiviert = nur bei gleichen Koordinaten und gleicher Zeit gilt ein Punkt als derselbe; deaktiviert = nur Koordinaten vergleichen",
+    "zh-Hant": "勾選 = 座標+時間都相同才算同一個點；取消 = 只比座標"
+  },
+  {
+    "table": "Localizable",
+    "key": "勾选 = 格子边缘扩散圆滑（手机版世界迷雾观感）；取消 = 精确显示 .fwdb 存档的原始小格（约 9.55 米，一格不差）",
+    "en": "Checked = soft, smoothed cell edges (the look of the Fog of World mobile app); unchecked = show the original small cells of the .fwdb archive exactly (about 9.55 m, cell-accurate)",
+    "de": "Aktiviert = weich auslaufende, geglättete Zellränder (Optik der Mobil-App von Fog of World); deaktiviert = die Originalzellen des .fwdb-Archivs exakt anzeigen (ca. 9,55 m, zellgenau)",
+    "zh-Hant": "勾選 = 格子邊緣擴散圓滑（手機版世界迷霧觀感）；取消 = 精確顯示 .fwdb 存檔的原始小格（約 9.55 公尺，一格不差）"
+  },
+  {
+    "table": "Localizable",
+    "key": "勾选后不再自动进入星球展示动画",
+    "en": "When checked, the globe showcase animation no longer starts automatically",
+    "de": "Wenn aktiviert, startet die Globus-Präsentation nicht mehr automatisch",
+    "zh-Hant": "勾選後不再自動進入星球展示動畫"
+  },
+  {
+    "table": "Localizable",
+    "key": "勾选控制各文件的消雾轨迹显隐",
+    "en": "Check to show or hide each file's fog-clearing track",
+    "de": "Häkchen blendet die Nebelaufdeckung der jeweiligen Datei ein oder aus",
+    "zh-Hant": "勾選控制各檔案的消霧軌跡顯隱"
+  },
+  {
+    "table": "Localizable",
+    "key": "勾选显示 / 取消隐藏该存档（统计取勾选存档的并集，重叠格只算一次）",
+    "en": "Check to show / uncheck to hide this archive (stats use the union of checked archives; overlapping cells count once)",
+    "de": "Aktivieren zum Anzeigen / Deaktivieren zum Ausblenden dieses Archivs (die Statistik nutzt die Vereinigung der aktivierten Archive, überlappende Zellen zählen einmal)",
+    "zh-Hant": "勾選顯示 / 取消隱藏該存檔（統計取勾選存檔的聯集，重疊格只算一次）"
+  },
+  {
+    "table": "Localizable",
+    "key": "勾选显示 / 取消隐藏该文件的消雾轨迹",
+    "en": "Check to show / uncheck to hide this file's fog-clearing track",
+    "de": "Aktivieren zum Anzeigen / Deaktivieren zum Ausblenden der Nebelaufdeckung dieser Datei",
+    "zh-Hant": "勾選顯示 / 取消隱藏該檔案的消霧軌跡"
+  },
+  {
+    "table": "Localizable",
+    "key": "勾选落地 %lld",
+    "en": "Checked to apply: %lld",
+    "de": "Zum Übernehmen markiert: %lld",
+    "zh-Hant": "勾選落地 %lld"
+  },
+  {
+    "table": "Localizable",
+    "key": "包围盒内的铁路连不通两端（可能缺数据或要绕出包围盒）",
+    "en": "The railways inside the bounding box don't connect both ends (data may be missing, or the path leaves the box)",
+    "de": "Die Bahnstrecken im Begrenzungsrahmen verbinden die beiden Enden nicht (Daten fehlen evtl. oder der Weg führt aus dem Rahmen)",
+    "zh-Hant": "邊界框內的鐵路連不通兩端（可能缺資料或要繞出邊界框）"
+  },
+  {
+    "table": "Localizable",
+    "key": "北京",
+    "en": "Beijing",
+    "de": "Peking",
+    "zh-Hant": "北京"
+  },
+  {
+    "table": "Localizable",
+    "key": "匹配",
+    "en": "Match",
+    "de": "Abgleich",
+    "zh-Hant": "匹配"
+  },
+  {
+    "table": "Localizable",
+    "key": "匹配 = OSRM 按前后真实轨迹点做地图匹配；上下文 = 从 A 前/B 后的真实点路由再裁到 A–B；约束 = 带两端行进方向的路由；直接 = 两点最短路（没有用到前后轨迹，最容易绕路或接错路）；铁路 = Overpass 铁路几何",
+    "en": "Match = OSRM map matching on the real track points before and after; Context = route from real points before A / after B, then trimmed to A–B; Constrained = route with the travel direction at both ends; Direct = shortest path between the two points (ignores the surrounding track, most likely to detour or take the wrong road); Rail = Overpass railway geometry",
+    "de": "Abgleich = OSRM-Map-Matching mit den echten Trackpunkten davor und danach; Kontext = Route ab echten Punkten vor A / nach B, dann auf A–B zugeschnitten; Eingeschränkt = Route mit Fahrtrichtung an beiden Enden; Direkt = kürzester Weg zwischen beiden Punkten (ohne den Track davor und danach, führt am ehesten zu Umwegen oder falschen Straßen); Bahn = Bahngeometrie von Overpass",
+    "zh-Hant": "匹配 = OSRM 按前後真實軌跡點做地圖匹配；上下文 = 從 A 前/B 後的真實點路由再裁到 A–B；約束 = 帶兩端行進方向的路由；直接 = 兩點最短路（沒有用到前後軌跡，最容易繞路或接錯路）；鐵路 = Overpass 鐵路幾何"
+  },
+  {
+    "table": "Localizable",
+    "key": "匹配前后点最远 %@ km / 180 s",
+    "en": "Match points within %@ km / 180 s",
+    "de": "Abgleichpunkte max. %@ km / 180 s entfernt",
+    "zh-Hant": "匹配前後點最遠 %@ km / 180 s"
+  },
+  {
+    "table": "Localizable",
+    "key": "匹配半径 %@ m",
+    "en": "Match radius %@ m",
+    "de": "Abgleichradius %@ m",
+    "zh-Hant": "匹配半徑 %@ m"
+  },
+  {
+    "table": "Localizable",
+    "key": "匹配未发：两侧 5 km / 180 s 内没有可用的真实点",
+    "en": "Match not sent: no usable real points within 5 km / 180 s on either side",
+    "de": "Abgleich nicht gesendet: keine brauchbaren echten Punkte innerhalb von 5 km / 180 s auf beiden Seiten",
+    "zh-Hant": "匹配未發：兩側 5 km / 180 s 內沒有可用的真實點"
+  },
+  {
+    "table": "Localizable",
+    "key": "匹配轨迹：A 前 %lld 点 + B 后 %lld 点，半径 %@ m",
+    "en": "Match trace: %1$lld pts before A + %2$lld pts after B, radius %3$@ m",
+    "de": "Abgleich-Track: %1$lld Pkt. vor A + %2$lld Pkt. nach B, Radius %3$@ m",
+    "zh-Hant": "匹配軌跡：A 前 %1$lld 點 + B 後 %2$lld 點，半徑 %3$@ m"
+  },
+  {
+    "table": "Localizable",
+    "key": "区间内 %lld",
+    "en": "In range: %lld",
+    "de": "Im Bereich: %lld",
+    "zh-Hant": "區間內 %lld"
+  },
+  {
+    "table": "Localizable",
+    "key": "区间内 %lld 个点（粉色）是乱跳点：在相隔几百米到几公里的位置之间来回跳（大跳 %lld 步、倒退 %lld 步，最大一步 %lld m）——车厢里没信号时设备回放旧位置或两路定位交替。「替换」把它们删掉，「保留」则与合成点按时间混排（不推荐）。",
+    "en": "The points in the range (pink, %1$lld) are jitter points: they jump back and forth between positions a few hundred meters to several kilometers apart (big jumps: %2$lld, reversals: %3$lld, largest step %4$lld m) — with no signal inside the train, the device replays old positions or alternates between two location sources. “Replace” deletes them; “Keep” interleaves them with the synthetic points by time (not recommended).",
+    "de": "Die Punkte im Bereich (rosa, %1$lld) sind Sprungpunkte: Sie springen zwischen Positionen hin und her, die einige hundert Meter bis mehrere Kilometer auseinanderliegen (große Sprünge: %2$lld, Rückschritte: %3$lld, größter Schritt %4$lld m) – ohne Signal im Zug spielt das Gerät alte Positionen ab oder wechselt zwischen zwei Ortungsquellen. „Ersetzen“ löscht sie, „Behalten“ mischt sie zeitlich mit den synthetischen Punkten (nicht empfohlen).",
+    "zh-Hant": "區間內 %1$lld 個點（粉紅色）是亂跳點：在相隔幾百公尺到幾公里的位置之間來回跳（大跳 %2$lld 步、倒退 %3$lld 步，最大一步 %4$lld m）——車廂裡沒訊號時裝置回放舊位置或兩路定位交替。「替換」把它們刪掉，「保留」則與合成點按時間混排（不推薦）。"
+  },
+  {
+    "table": "Localizable",
+    "key": "区间内 %lld 个点（粉色）是夹在两锚点之间的现有点（挪锚点后夹进来的，通常是隧道里的基站漂移点或钟慢的点）：「替换」把它们删掉，「保留」则与合成点按时间混排。",
+    "en": "%lld points (pink) in the range are existing points caught between the two anchors (pulled in after moving an anchor; usually cell-tower drift points in a tunnel or points with a slow clock): “Replace” deletes them; “Keep” interleaves them with the synthetic points by time.",
+    "de": "%lld Punkte (rosa) im Bereich sind vorhandene Punkte zwischen den beiden Ankern (nach dem Verschieben eines Ankers hineingeraten, meist Funkzellen-Driftpunkte im Tunnel oder Punkte mit nachgehender Uhr): „Ersetzen“ löscht sie, „Behalten“ mischt sie zeitlich mit den synthetischen Punkten.",
+    "zh-Hant": "區間內 %lld 個點（粉紅色）是夾在兩錨點之間的現有點（挪錨點後夾進來的，通常是隧道裡的基地台漂移點或鐘慢的點）：「替換」把它們刪掉，「保留」則與合成點按時間混排。",
+    "plural": {
+      "en": {
+        "one": "%lld point (pink) in the range is an existing point caught between the two anchors (pulled in after moving an anchor; usually a cell-tower drift point in a tunnel or a point with a slow clock): “Replace” deletes it; “Keep” interleaves it with the synthetic points by time.",
+        "other": "%lld points (pink) in the range are existing points caught between the two anchors (pulled in after moving an anchor; usually cell-tower drift points in a tunnel or points with a slow clock): “Replace” deletes them; “Keep” interleaves them with the synthetic points by time."
+      },
+      "de": {
+        "one": "%lld Punkt (rosa) im Bereich ist ein vorhandener Punkt zwischen den beiden Ankern (nach dem Verschieben eines Ankers hineingeraten, meist ein Funkzellen-Driftpunkt im Tunnel oder ein Punkt mit nachgehender Uhr): „Ersetzen“ löscht ihn, „Behalten“ mischt ihn zeitlich mit den synthetischen Punkten.",
+        "other": "%lld Punkte (rosa) im Bereich sind vorhandene Punkte zwischen den beiden Ankern (nach dem Verschieben eines Ankers hineingeraten, meist Funkzellen-Driftpunkte im Tunnel oder Punkte mit nachgehender Uhr): „Ersetzen“ löscht sie, „Behalten“ mischt sie zeitlich mit den synthetischen Punkten."
+      }
+    }
+  },
+  {
+    "table": "Localizable",
+    "key": "区间内 %lld 个点（粉色）是设备重新定位后带着过时时间戳的出口点：位置正常，时间却比真实早约 %lld 秒。「替换」把它们删掉，由折线上的合成点接上；「保留」会让时间线在出口来回跳，不推荐。",
+    "en": "The points in the range (pink, %1$lld) are exit points that kept stale timestamps after the device re-acquired its position: the location is fine, but the timestamps are about %2$lld s too early. “Replace” deletes them and the synthetic points on the polyline take over; “Keep” makes the timeline jump back and forth at the exit (not recommended).",
+    "de": "Die Punkte im Bereich (rosa, %1$lld) sind Austrittspunkte, die nach der Neuortung des Geräts veraltete Zeitstempel tragen: Die Position stimmt, die Zeit liegt aber etwa %2$lld s zu früh. „Ersetzen“ löscht sie, die synthetischen Punkte auf der Polylinie schließen an; „Behalten“ lässt die Zeitachse am Austritt hin und her springen (nicht empfohlen).",
+    "zh-Hant": "區間內 %1$lld 個點（粉紅色）是裝置重新定位後帶著過時時間戳記的出口點：位置正常，時間卻比真實早約 %2$lld 秒。「替換」把它們刪掉，由折線上的合成點接上；「保留」會讓時間線在出口來回跳，不推薦。"
+  },
+  {
+    "table": "Localizable",
+    "key": "区间内 %lld 个点（粉色）是设备重新定位后带着过时时间戳的出口点：位置正常，时间却比真实早约 %lld 秒。它们的位置已作为折线顶点保留——「替换」沿同一路径生成时间正确的点；「保留」会让时间线在出口来回跳，不推荐。",
+    "en": "The points in the range (pink, %1$lld) are exit points that kept stale timestamps after the device re-acquired its position: the location is fine, but the timestamps are about %2$lld s too early. Their positions are already kept as polyline vertices — “Replace” generates correctly timed points along the same path; “Keep” makes the timeline jump back and forth at the exit (not recommended).",
+    "de": "Die Punkte im Bereich (rosa, %1$lld) sind Austrittspunkte, die nach der Neuortung des Geräts veraltete Zeitstempel tragen: Die Position stimmt, die Zeit liegt aber etwa %2$lld s zu früh. Ihre Positionen sind bereits als Stützpunkte der Polylinie erhalten – „Ersetzen“ erzeugt entlang desselben Wegs Punkte mit korrekter Zeit; „Behalten“ lässt die Zeitachse am Austritt hin und her springen (nicht empfohlen).",
+    "zh-Hant": "區間內 %1$lld 個點（粉紅色）是裝置重新定位後帶著過時時間戳記的出口點：位置正常，時間卻比真實早約 %2$lld 秒。它們的位置已作為折線頂點保留——「替換」沿同一路徑生成時間正確的點；「保留」會讓時間線在出口來回跳，不推薦。"
+  },
+  {
+    "table": "Localizable",
+    "key": "华沙",
+    "en": "Warsaw",
+    "de": "Warschau",
+    "zh-Hant": "華沙"
+  },
+  {
+    "table": "Localizable",
+    "key": "华盛顿",
+    "en": "Washington",
+    "de": "Washington",
+    "zh-Hant": "華盛頓"
+  },
+  {
+    "table": "Localizable",
+    "key": "单文件",
+    "en": "Single File",
+    "de": "Einzeldatei",
+    "zh-Hant": "單檔案"
+  },
+  {
+    "table": "Localizable",
+    "key": "单文件：新文件替换当前｜重叠：分批拖入合并显示｜对比：两文件左右分屏",
+    "en": "Single File: a new file replaces the current one | Overlay: files dropped in batches are shown together | Compare: two files side by side",
+    "de": "Einzeldatei: Neue Datei ersetzt die aktuelle | Überlagerung: nacheinander hineingezogene Dateien gemeinsam anzeigen | Vergleich: zwei Dateien nebeneinander",
+    "zh-Hant": "單檔案：新檔案替換目前檔案｜重疊：分批拖入合併顯示｜對比：兩檔案左右分割畫面"
+  },
+  {
+    "table": "Localizable",
+    "key": "单步 = 断档前一步/后一步的速度；窗口 = 从锚点往外第一个 ≥10 s 或 ≥100 m 的点算的平均速度（跨断档或 60 s 内取不到记 —）。判铁路要求单步和窗口都 >170 km/h",
+    "en": "Step = speed of the single step before/after the gap; Window = average speed out to the first point ≥10 s or ≥100 m from the anchor (— if that crosses a gap or nothing is found within 60 s). Rail requires both step and window >170 km/h",
+    "de": "Schritt = Tempo des einzelnen Schritts vor/nach der Lücke; Fenster = Durchschnittstempo bis zum ersten Punkt ≥10 s oder ≥100 m vom Anker entfernt (— wenn dabei eine Lücke überquert wird oder innerhalb von 60 s keiner zu finden ist). Für Bahn müssen Schritt und Fenster beide >170 km/h sein",
+    "zh-Hant": "單步 = 斷檔前一步/後一步的速度；視窗 = 從錨點往外第一個 ≥10 s 或 ≥100 m 的點算的平均速度（跨斷檔或 60 s 內取不到記 —）。判鐵路要求單步和視窗都 >170 km/h"
+  },
+  {
+    "table": "Localizable",
+    "key": "单色",
+    "en": "Single Color",
+    "de": "Einfarbig",
+    "zh-Hant": "單色"
+  },
+  {
+    "table": "Localizable",
+    "key": "南京",
+    "en": "Nanjing",
+    "de": "Nanjing",
+    "zh-Hant": "南京"
+  },
+  {
+    "table": "Localizable",
+    "key": "南宁",
+    "en": "Nanning",
+    "de": "Nanning",
+    "zh-Hant": "南寧"
+  },
+  {
+    "table": "Localizable",
+    "key": "南昌",
+    "en": "Nanchang",
+    "de": "Nanchang",
+    "zh-Hant": "南昌"
+  },
+  {
+    "table": "Localizable",
+    "key": "卡萨布兰卡",
+    "en": "Casablanca",
+    "de": "Casablanca",
+    "zh-Hant": "卡薩布蘭卡"
+  },
+  {
+    "table": "Localizable",
+    "key": "卢森堡",
+    "en": "Luxembourg",
+    "de": "Luxemburg",
+    "zh-Hant": "盧森堡"
+  },
+  {
+    "table": "Localizable",
+    "key": "卫星",
+    "en": "Satellite",
+    "de": "Satellit",
+    "zh-Hant": "衛星"
+  },
+  {
+    "table": "Localizable",
+    "key": "压力测试",
+    "en": "Stress Test",
+    "de": "Stresstest",
+    "zh-Hant": "壓力測試"
+  },
+  {
+    "table": "Localizable",
+    "key": "压力测试 · %@ 点",
+    "en": "Stress Test · %@ points",
+    "de": "Stresstest · %@ Punkte",
+    "zh-Hant": "壓力測試 · %@ 點"
+  },
+  {
+    "table": "Localizable",
+    "key": "原始点距 ≈%.0f m / %.0f s（手动）",
+    "en": "Original spacing ≈%1$.0f m / %2$.0f s (manual)",
+    "de": "Originalpunktabstand ≈%1$.0f m / %2$.0f s (manuell)",
+    "zh-Hant": "原始點距 ≈%1$.0f m / %2$.0f s（手動）"
+  },
+  {
+    "table": "Localizable",
+    "key": "原始点距 ≈%.0f m / %.0f s（自动跟随）",
+    "en": "Original spacing ≈%1$.0f m / %2$.0f s (auto)",
+    "de": "Originalpunktabstand ≈%1$.0f m / %2$.0f s (automatisch)",
+    "zh-Hant": "原始點距 ≈%1$.0f m / %2$.0f s（自動跟隨）"
+  },
+  {
+    "table": "Localizable",
+    "key": "厦门",
+    "en": "Xiamen",
+    "de": "Xiamen",
+    "zh-Hant": "廈門"
+  },
+  {
+    "table": "Localizable",
+    "key": "反选",
+    "en": "Invert",
+    "de": "Umkehren",
+    "zh-Hant": "反選"
+  },
+  {
+    "table": "Localizable",
+    "key": "取不到路径：勾上则只删两锚点之间的乱跳点、不插点（最多 %lld 个；沿 A→B 单调推进、车速合理的那一路保留）",
+    "en": "No route available: when checked, only the jitter points between the two anchors are deleted and nothing is inserted (at most %lld; the series that advances steadily along A→B at a plausible speed is kept)",
+    "de": "Keine Route verfügbar: Wenn aktiviert, werden nur die Sprungpunkte zwischen den beiden Ankern gelöscht, ohne Punkte einzufügen (höchstens %lld; die Reihe, die stetig entlang A→B mit plausiblem Tempo vorankommt, bleibt erhalten)",
+    "zh-Hant": "取不到路徑：勾上則只刪兩錨點之間的亂跳點、不插點（最多 %lld 個；沿 A→B 單調推進、車速合理的那一路保留）"
+  },
+  {
+    "table": "Localizable",
+    "key": "取不到路径：勾上则落地时只删两锚点之间的乱跳点、不插点（最多 %lld 个；沿 A→B 单调推进、车速合理的那一路保留）；两锚点之间只剩保留的那一路，需要的话从 gpx.studio 导",
+    "en": "No route available: when checked, applying only deletes the jitter points between the two anchors and inserts nothing (at most %lld; the series that advances steadily along A→B at a plausible speed is kept); only that kept series remains between the anchors, so get a route from gpx.studio if needed",
+    "de": "Keine Route verfügbar: Wenn aktiviert, werden beim Übernehmen nur die Sprungpunkte zwischen den beiden Ankern gelöscht, ohne Punkte einzufügen (höchstens %lld; die Reihe, die stetig entlang A→B mit plausiblem Tempo vorankommt, bleibt erhalten); zwischen den Ankern bleibt nur diese Reihe, bei Bedarf eine Route aus gpx.studio übernehmen",
+    "zh-Hant": "取不到路徑：勾上則落地時只刪兩錨點之間的亂跳點、不插點（最多 %lld 個；沿 A→B 單調推進、車速合理的那一路保留）；兩錨點之間只剩保留的那一路，需要的話從 gpx.studio 匯出"
+  },
+  {
+    "table": "Localizable",
+    "key": "取到、有疑点 %lld",
+    "en": "Fetched, with warnings: %lld",
+    "de": "Erhalten, mit Warnungen: %lld",
+    "zh-Hant": "取到、有疑點 %lld"
+  },
+  {
+    "table": "Localizable",
+    "key": "取到、没疑点 %lld",
+    "en": "Fetched, no warnings: %lld",
+    "de": "Erhalten, ohne Warnungen: %lld",
+    "zh-Hant": "取到、沒疑點 %lld"
+  },
+  {
+    "table": "Localizable",
+    "key": "取消",
+    "en": "Cancel",
+    "de": "Abbrechen",
+    "zh-Hant": "取消"
+  },
+  {
+    "table": "Localizable",
+    "key": "取消勾选「直接」的 %lld 处",
+    "en": "Uncheck %lld “Direct” Gaps",
+    "de": "%lld „Direkt“-Lücken abwählen",
+    "zh-Hant": "取消勾選「直接」的 %lld 處",
+    "plural": {
+      "en": {
+        "one": "Uncheck %lld “Direct” Gap",
+        "other": "Uncheck %lld “Direct” Gaps"
+      },
+      "de": {
+        "one": "%lld „Direkt“-Lücke abwählen",
+        "other": "%lld „Direkt“-Lücken abwählen"
+      }
+    }
+  },
+  {
+    "table": "Localizable",
+    "key": "取消（什么都不删）",
+    "en": "Cancel (Delete Nothing)",
+    "de": "Abbrechen (nichts löschen)",
+    "zh-Hant": "取消（什麼都不刪）"
+  },
+  {
+    "table": "Localizable",
+    "key": "只删乱跳点",
+    "en": "Delete Jitter Points Only",
+    "de": "Nur Sprungpunkte löschen",
+    "zh-Hant": "只刪亂跳點"
+  },
+  {
+    "table": "Localizable",
+    "key": "只删点",
+    "en": "Delete Only",
+    "de": "Nur löschen",
+    "zh-Hant": "只刪點"
+  },
+  {
+    "table": "Localizable",
+    "key": "只删点 · 区间内 %lld 个乱跳点",
+    "en": "Delete Only · %lld jitter points in range",
+    "de": "Nur löschen · %lld Sprungpunkte im Bereich",
+    "zh-Hant": "只刪點 · 區間內 %lld 個亂跳點",
+    "plural": {
+      "en": {
+        "one": "Delete Only · %lld jitter point in range",
+        "other": "Delete Only · %lld jitter points in range"
+      },
+      "de": {
+        "one": "Nur löschen · %lld Sprungpunkt im Bereich",
+        "other": "Nur löschen · %lld Sprungpunkte im Bereich"
+      }
+    }
+  },
+  {
+    "table": "Localizable",
+    "key": "只删点不是路网来源",
+    "en": "“Delete Only” is not a road network source",
+    "de": "„Nur löschen“ ist keine Straßennetzquelle",
+    "zh-Hant": "只刪點不是路網來源"
+  },
+  {
+    "table": "Localizable",
+    "key": "只删点：%@",
+    "en": "Delete Only: %@",
+    "de": "Nur löschen: %@",
+    "zh-Hant": "只刪點：%@"
+  },
+  {
+    "table": "Localizable",
+    "key": "只含本会话新增的 %lld 个点（每处补点一段）。注意：补点时替换掉了 %lld 个原始点，增量文件无法表达删除——如果目标 app 里已有这些点，请改用「整条轨迹」导出",
+    "en": "Contains only the points added in this session (%1$lld; one segment per fill). Note: filling replaced original points (%2$lld), and an increment file cannot express deletions — if the target app already has those points, export with “Whole Track” instead",
+    "de": "Enthält nur die in dieser Sitzung hinzugefügten Punkte (%1$lld; ein Segment pro Füllung). Achtung: Beim Füllen wurden Originalpunkte ersetzt (%2$lld), und eine Inkrementdatei kann keine Löschungen abbilden – wenn die Ziel-App diese Punkte schon hat, verwenden Sie stattdessen den Export „Gesamter Track“",
+    "zh-Hant": "只含本工作階段新增的 %1$lld 個點（每處補點一段）。注意：補點時替換掉了 %2$lld 個原始點，增量檔案無法表達刪除——如果目標 app 裡已有這些點，請改用「整條軌跡」匯出"
+  },
+  {
+    "table": "Localizable",
+    "key": "只含本会话新增的 %lld 个点（每处补点一段），导入已有该轨迹的 app",
+    "en": "Contains only the %lld points added in this session (one segment per fill), for importing into an app that already has this track",
+    "de": "Enthält nur die %lld in dieser Sitzung hinzugefügten Punkte (ein Segment pro Füllung), zum Import in eine App, die diesen Track schon hat",
+    "zh-Hant": "只含本工作階段新增的 %lld 個點（每處補點一段），匯入已有該軌跡的 app",
+    "plural": {
+      "en": {
+        "one": "Contains only the %lld point added in this session (one segment per fill), for importing into an app that already has this track",
+        "other": "Contains only the %lld points added in this session (one segment per fill), for importing into an app that already has this track"
+      },
+      "de": {
+        "one": "Enthält nur den %lld in dieser Sitzung hinzugefügten Punkt (ein Segment pro Füllung), zum Import in eine App, die diesen Track schon hat",
+        "other": "Enthält nur die %lld in dieser Sitzung hinzugefügten Punkte (ein Segment pro Füllung), zum Import in eine App, die diesen Track schon hat"
+      }
+    }
+  },
+  {
+    "table": "Localizable",
+    "key": "只对公路：铁路断档不给直线兜底（隧道判定不通过的就不补）",
+    "en": "Road only: rail gaps get no straight-line fallback (gaps that fail the tunnel check are not filled)",
+    "de": "Nur für Straßen: Bahnlücken erhalten keine gerade Linie als Ersatz (Lücken, die die Tunnelprüfung nicht bestehen, werden nicht gefüllt)",
+    "zh-Hant": "只對公路：鐵路斷檔不給直線兜底（隧道判定不通過的就不補）"
+  },
+  {
+    "table": "Localizable",
+    "key": "只把成因是「采样稀疏」的设为跳过，可逐行改回；省下的是这些处的路网请求",
+    "en": "Sets only gaps whose cause is “sparse sampling” to Skip; you can change rows back one by one. This saves the road network requests for those gaps",
+    "de": "Setzt nur Lücken mit der Ursache „spärliche Abtastung“ auf Überspringen; zeilenweise wieder änderbar. Spart die Straßennetz-Anfragen für diese Stellen",
+    "zh-Hant": "只把成因是「採樣稀疏」的設為跳過，可逐項改回；省下的是這些處的路網請求"
+  },
+  {
+    "table": "Localizable",
+    "key": "只看时间筛选内",
+    "en": "Within Time Filter Only",
+    "de": "Nur im Zeitfilter",
+    "zh-Hant": "只看時間篩選內"
+  }
+]

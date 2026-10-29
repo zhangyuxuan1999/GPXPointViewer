@@ -1,0 +1,145 @@
+[
+ {
+  "table": "Localizable",
+  "key": "— %@（未采用）",
+  "en": "— %@ (not adopted)",
+  "de": "— %@ (nicht übernommen)",
+  "zh-Hant": "— %@（未採用）"
+ },
+ {
+  "table": "Localizable",
+  "key": "不补（已选都不补）",
+  "en": "Not filled (you chose neither)",
+  "de": "Nicht gefüllt (keine von beiden gewählt)",
+  "zh-Hant": "不補（已選都不補）"
+ },
+ {
+  "table": "Localizable",
+  "key": "两路不一致，还没选",
+  "en": "Services disagree, not picked yet",
+  "de": "Dienste uneinig, noch nicht gewählt",
+  "zh-Hant": "兩路不一致，還沒選"
+ },
+ {
+  "table": "Localizable",
+  "key": "两路都取到了，还没选用",
+  "en": "Both routes were fetched, none adopted yet",
+  "de": "Beide Routen abgerufen, noch keine übernommen",
+  "zh-Hant": "兩路都取到了，還沒選用"
+ },
+ {
+  "table": "Localizable",
+  "key": "切回本次会话已落地的修改记录（批次仍在，随时可再回到预览）",
+  "en": "Switch back to this session's applied changes (the batch stays; you can return to the preview any time)",
+  "de": "Zurück zu den übernommenen Änderungen dieser Sitzung (der Stapel bleibt; die Vorschau ist jederzeit wieder erreichbar)",
+  "zh-Hant": "切回本次工作階段已落地的修改記錄（批量仍在，隨時可再回到預覽）"
+ },
+ {
+  "table": "Localizable",
+  "key": "取到的 %lld 份路网草稿未采用",
+  "en": "%lld fetched routing drafts not adopted",
+  "de": "%lld abgerufene Routingentwürfe nicht übernommen",
+  "zh-Hant": "取到的 %lld 份路網草稿未採用",
+  "plural": {
+   "en": {
+    "one": "%lld fetched routing draft not adopted",
+    "other": "%lld fetched routing drafts not adopted"
+   },
+   "de": {
+    "one": "%lld abgerufener Routingentwurf nicht übernommen",
+    "other": "%lld abgerufene Routingentwürfe nicht übernommen"
+   }
+  }
+ },
+ {
+  "table": "Localizable",
+  "key": "只有一路有结果，没比对",
+  "en": "Only one service answered, not compared",
+  "de": "Nur ein Dienst hat geantwortet, nicht verglichen",
+  "zh-Hant": "只有一路有結果，沒比對"
+ },
+ {
+  "table": "Localizable",
+  "key": "回到当前批次的落地前预览",
+  "en": "Back to the pre-apply preview of the current batch",
+  "de": "Zurück zur Vorschau des aktuellen Stapels",
+  "zh-Hant": "回到目前批量的落地前預覽"
+ },
+ {
+  "table": "Localizable",
+  "key": "地图上：蓝实线 = OSRM，蓝虚线 = Valhalla（都未采用）",
+  "en": "On the map: blue solid = OSRM, blue dashed = Valhalla (neither adopted)",
+  "de": "Auf der Karte: blau durchgezogen = OSRM, blau gestrichelt = Valhalla (keine übernommen)",
+  "zh-Hant": "地圖上：藍實線 = OSRM，藍虛線 = Valhalla（都未採用）"
+ },
+ {
+  "table": "Localizable",
+  "key": "套用同路段的折线",
+  "en": "Polyline reused from a similar gap",
+  "de": "Linienzug von einer ähnlichen Lücke übernommen",
+  "zh-Hant": "套用同路段的折線"
+ },
+ {
+  "table": "Localizable",
+  "key": "已选都不补",
+  "en": "You chose to fill neither",
+  "de": "Keine von beiden gewählt",
+  "zh-Hant": "已選都不補"
+ },
+ {
+  "table": "Localizable",
+  "key": "当时取到的路网草稿（精确模式为两路）各自的依据、警告与全部说明",
+  "en": "Basis, warnings and full notes of the routing drafts fetched at the time (both services in precise mode)",
+  "de": "Grundlage, Warnungen und alle Hinweise der damals abgerufenen Routingentwürfe (im präzisen Modus beide Dienste)",
+  "zh-Hant": "當時取到的路網草稿（精確模式為兩路）各自的依據、警告與全部說明"
+ },
+ {
+  "table": "Localizable",
+  "key": "标准底图不画隧道：补在隧道里的点看着在路外，切卫星/混合可见洞口",
+  "en": "The standard map does not draw tunnels: points filled inside a tunnel look off-road; switch to Satellite / Hybrid to see the portals",
+  "de": "Die Standardkarte zeichnet keine Tunnel: in Tunneln gefüllte Punkte wirken abseits der Straße; mit Satellit / Hybrid sind die Portale zu sehen",
+  "zh-Hant": "標準底圖不畫隧道：補在隧道裡的點看著在路外，切衛星/混合可見洞口"
+ },
+ {
+  "table": "Localizable",
+  "key": "正在落地，稍等…落地完成后这里列出每一处修改。",
+  "en": "Applying, one moment… once done, every change is listed here.",
+  "de": "Wird übernommen, einen Moment… danach erscheint hier jede Änderung.",
+  "zh-Hant": "正在落地，稍等…落地完成後這裡列出每一處修改。"
+ },
+ {
+  "table": "Localizable",
+  "key": "沿用同路段那处的路网折线（套用相似）",
+  "en": "Reuses the routing polyline of the similar gap (Apply Similar)",
+  "de": "Übernimmt den Routing-Linienzug der ähnlichen Lücke (Ähnliche anwenden)",
+  "zh-Hant": "沿用同路段那處的路網折線（套用相似）"
+ },
+ {
+  "table": "Localizable",
+  "key": "看已落地的记录",
+  "en": "Show Applied Changes",
+  "de": "Übernommenes zeigen",
+  "zh-Hant": "看已落地的記錄"
+ },
+ {
+  "table": "Localizable",
+  "key": "看落地前预览",
+  "en": "Show Pre-apply Preview",
+  "de": "Vorschau zeigen",
+  "zh-Hant": "看落地前預覽"
+ },
+ {
+  "table": "Localizable",
+  "key": "等你选（只有一路有结果）",
+  "en": "Awaiting your pick (only one service answered)",
+  "de": "Wartet auf Ihre Wahl (nur ein Dienst hat geantwortet)",
+  "zh-Hant": "等你選（只有一路有結果）"
+ },
+ {
+  "table": "Localizable",
+  "key": "还没选用哪一路：用详细页或批量窗口的「选一条…」",
+  "en": "No route picked yet: use “Pick One…” on the detail page or in the batch window",
+  "de": "Noch keine Route gewählt: „Eine wählen…“ auf der Detailseite oder im Stapelfenster",
+  "zh-Hant": "還沒選用哪一路：用詳細頁或批量視窗的「選一條…」"
+ }
+]

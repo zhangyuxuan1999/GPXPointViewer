@@ -1,0 +1,79 @@
+[
+ {
+  "table": "Localizable",
+  "key": "两路一致：切换着看两份草稿（差别很小，可撤销）",
+  "en": "Both services agree: switch between the two drafts (the difference is tiny; undoable)",
+  "de": "Beide Dienste einig: zwischen den beiden Entwürfen umschalten (der Unterschied ist winzig; rückgängig möglich)",
+  "zh-Hant": "兩路一致：切換著看兩份草稿（差別很小，可撤銷）"
+ },
+ {
+  "table": "Localizable",
+  "key": "两路不一致：切换着对比两份草稿，看准了再「应用」（可撤销）",
+  "en": "The services disagree: switch between the two drafts to compare, then “Apply” once you are sure (undoable)",
+  "de": "Die Dienste sind uneinig: zum Vergleich zwischen den beiden Entwürfen umschalten, dann „Anwenden“, wenn Sie sicher sind (rückgängig möglich)",
+  "zh-Hant": "兩路不一致：切換著對比兩份草稿，看準了再「套用」（可撤銷）"
+ },
+ {
+  "table": "Localizable",
+  "key": "停止，按表里的判断",
+  "en": "Stop, Use the Table's Decisions",
+  "de": "Stopp, Entscheidungen der Tabelle verwenden",
+  "zh-Hant": "停止，按表裡的判斷"
+ },
+ {
+  "table": "Localizable",
+  "key": "合成点间距。没拖过滑块时按断档两侧的原始点距自动取（原始点距本身，5–100 m）；世界迷雾按相邻点连线解锁，一生足迹按点显示",
+  "en": "Spacing of the synthesized points. Until you drag the slider it follows the original point spacing on both sides of the gap (the spacing itself, 5–100 m); Fog of World unlocks along the line between neighbouring points, Life Footprints shows the points",
+  "de": "Abstand der erzeugten Punkte. Solange Sie den Regler nicht ziehen, folgt er dem ursprünglichen Punktabstand beiderseits der Lücke (dem Abstand selbst, 5–100 m); Fog of World schaltet entlang der Linie zwischen Nachbarpunkten frei, Life Footprints zeigt die Punkte",
+  "zh-Hant": "合成點間距。沒拖過滑桿時按斷檔兩側的原始點距自動取（原始點距本身，5–100 m）；世界迷霧按相鄰點連線解鎖，一生足跡按點顯示"
+ },
+ {
+  "table": "Localizable",
+  "key": "把按当前点距要插进去的合成点画出来（橙点），折线照旧；落地的就是这些点",
+  "en": "Draw the synthesized points that will be inserted at the current spacing (orange dots); the line stays. These are exactly the points that get applied",
+  "de": "Zeigt die erzeugten Punkte, die beim aktuellen Abstand eingefügt werden (orange Punkte); die Linie bleibt. Genau diese Punkte werden übernommen",
+  "zh-Hant": "把按目前點距要插進去的合成點畫出來（橙點），折線照舊；落地的就是這些點"
+ },
+ {
+  "table": "Localizable",
+  "key": "改回按这处断档两侧的原始点距自动取（原始点距本身，5–100 m）",
+  "en": "Go back to following the original point spacing on both sides of this gap (the spacing itself, 5–100 m)",
+  "de": "Wieder dem ursprünglichen Punktabstand beiderseits dieser Lücke folgen (dem Abstand selbst, 5–100 m)",
+  "zh-Hant": "改回按這處斷檔兩側的原始點距自動取（原始點距本身，5–100 m）"
+ },
+ {
+  "table": "Localizable",
+  "key": "放弃地图判断；每处仍按下表里现在的判断（速度规则 / 你手选的）走，不影响后面取草稿",
+  "en": "Give up the map check; every gap keeps the decision currently shown in the table (speed rule / your choice). Fetching drafts afterwards is unaffected",
+  "de": "Kartenprüfung abbrechen; jede Lücke behält die in der Tabelle gezeigte Entscheidung (Geschwindigkeitsregel / Ihre Wahl). Das anschließende Abrufen der Entwürfe ist davon unberührt",
+  "zh-Hant": "放棄地圖判斷；每處仍按下表裡現在的判斷（速度規則 / 你手選的）走，不影響後面取草稿"
+ },
+ {
+  "table": "Localizable",
+  "key": "显示",
+  "en": "Show",
+  "de": "Anzeigen",
+  "zh-Hant": "顯示"
+ },
+ {
+  "table": "Localizable",
+  "key": "显示补的点",
+  "en": "Show Points to Fill",
+  "de": "Punkte anzeigen",
+  "zh-Hant": "顯示補的點"
+ },
+ {
+  "table": "Localizable",
+  "key": "橙点 = 要补的点",
+  "en": "Orange dots = points to fill",
+  "de": "Orange Punkte = einzufügende Punkte",
+  "zh-Hant": "橙點 = 要補的點"
+ },
+ {
+  "table": "Localizable",
+  "key": "知道每处是公路还是铁路就不用等这一步：用行末的选择器或「全部公路」「全部铁路」直接定，然后点「开始取路网草稿」——开始按钮不受这里影响；Overpass 慢是常事，点「停止」也不影响后面的步骤。",
+  "en": "If you already know whether each gap is road or rail, there is no need to wait for this step: set it with the selector at the end of each row or “All Road” / “All Rail”, then click “Fetch Road Drafts” — the start button is not affected by this. Overpass being slow is common; clicking “Stop” does not affect the later steps either.",
+  "de": "Wenn Sie schon wissen, ob eine Lücke Straße oder Schiene ist, müssen Sie hier nicht warten: Legen Sie es mit dem Wahlschalter am Zeilenende oder mit „Alle Straße“ / „Alle Schiene“ fest und klicken Sie dann „Straßenentwürfe abrufen“ – der Startknopf hängt nicht davon ab. Overpass ist oft langsam; „Stopp“ beeinträchtigt die späteren Schritte ebenfalls nicht.",
+  "zh-Hant": "知道每處是公路還是鐵路就不用等這一步：用列末的選擇器或「全部公路」「全部鐵路」直接定，然後點「開始取路網草稿」——開始按鈕不受這裡影響；Overpass 慢是常事，點「停止」也不影響後面的步驟。"
+ }
+]

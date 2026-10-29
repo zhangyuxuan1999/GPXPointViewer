@@ -1,0 +1,6 @@
+#!/bin/sh
+# Offline guard. Any accidental keychain invocation is recorded and denied.
+if [ -n "$SDK_KEYCHAIN_MARKER" ]; then
+    printf 'unexpected keychain request\n' > "$SDK_KEYCHAIN_MARKER"
+fi
+exit 99

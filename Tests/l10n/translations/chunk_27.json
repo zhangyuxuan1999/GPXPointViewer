@@ -1,0 +1,10 @@
+[
+ {"table": "Localizable", "key": "%@ 取路中…", "en": "%@ fetching…", "de": "%@ wird abgerufen…", "zh-Hant": "%@ 取路中…"},
+ {"table": "Localizable", "key": "%@ 没有结果", "en": "%@ no result", "de": "%@ kein Ergebnis", "zh-Hant": "%@ 沒有結果"},
+ {"table": "Localizable", "key": "全部重新比对 %lld 处", "en": "Compare All %lld Again", "de": "Alle %lld erneut vergleichen", "zh-Hant": "全部重新比對 %lld 處",
+  "plural": {"en": {"one": "Compare %lld Again", "other": "Compare All %lld Again"}, "de": {"one": "%lld erneut vergleichen", "other": "Alle %lld erneut vergleichen"}}},
+ {"table": "Localizable", "key": "对「只有一路有结果」的这些处两路都重取（忽略缓存）再比对；其它处不动", "en": "Fetch both routers again (ignoring the cache) for the gaps with only one result and compare them; other gaps are left alone", "de": "Für die Lücken mit nur einem Ergebnis beide Dienste erneut abrufen (Cache ignorieren) und vergleichen; andere Lücken bleiben unverändert", "zh-Hant": "對「只有一路有結果」的這些處兩路都重取（忽略快取）再比對；其他處不動"},
+ {"table": "Localizable", "key": "重新比对这 %lld 处（两路重取）", "en": "Compare These %lld Gaps Again (fetch both)", "de": "Diese %lld Lücken erneut vergleichen (beide abrufen)", "zh-Hant": "重新比對這 %lld 處（兩路重取）",
+  "plural": {"en": {"one": "Compare This %lld Gap Again (fetch both)", "other": "Compare These %lld Gaps Again (fetch both)"}, "de": {"one": "Diese %lld Lücke erneut vergleichen (beide abrufen)", "other": "Diese %lld Lücken erneut vergleichen (beide abrufen)"}}},
+ {"table": "Localizable", "key": "重新比对这一处（两路重取）", "en": "Compare This Gap Again (fetch both)", "de": "Diese Lücke erneut vergleichen (beide abrufen)", "zh-Hant": "重新比對這一處（兩路重取）"}
+]

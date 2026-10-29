@@ -1,0 +1,7 @@
+# DeepSeek 2026-10-29：二进制资源不做文本 diff / 换行转换
+*.bin binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.pdf binary
+*.PNG binary

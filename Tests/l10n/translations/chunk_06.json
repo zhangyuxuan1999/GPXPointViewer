@@ -1,0 +1,562 @@
+[
+ {
+  "table": "Localizable",
+  "key": "并行生成 %@ 个点…",
+  "en": "Generating %@ points in parallel…",
+  "de": "%@ Punkte werden parallel erzeugt…",
+  "zh-Hant": "並行產生 %@ 個點…"
+ },
+ {
+  "table": "Localizable",
+  "key": "广州",
+  "en": "Guangzhou",
+  "de": "Guangzhou",
+  "zh-Hant": "廣州"
+ },
+ {
+  "table": "Localizable",
+  "key": "应用…",
+  "en": "Apply…",
+  "de": "Anwenden…",
+  "zh-Hant": "套用…"
+ },
+ {
+  "table": "Localizable",
+  "key": "应用补点？",
+  "en": "Apply Gap Fill?",
+  "de": "Lückenfüllung anwenden?",
+  "zh-Hant": "套用補點？"
+ },
+ {
+  "table": "Localizable",
+  "key": "底图",
+  "en": "Basemap",
+  "de": "Karte",
+  "zh-Hant": "底圖"
+ },
+ {
+  "table": "Localizable",
+  "key": "开始取路网草稿（%lld 处）",
+  "en": "Fetch Road Drafts (%lld Gaps)",
+  "de": "Straßenentwürfe abrufen (%lld Lücken)",
+  "zh-Hant": "開始取路網草稿（%lld 處）",
+  "plural": {
+   "en": {
+    "one": "Fetch Road Draft (%lld Gap)",
+    "other": "Fetch Road Drafts (%lld Gaps)"
+   },
+   "de": {
+    "one": "Straßenentwurf abrufen (%lld Lücke)",
+    "other": "Straßenentwürfe abrufen (%lld Lücken)"
+   }
+  }
+ },
+ {
+  "table": "Localizable",
+  "key": "开始：对当前 %lld 处断档分类",
+  "en": "Start: Classify %lld Gaps",
+  "de": "Start: %lld Lücken klassifizieren",
+  "zh-Hant": "開始：對目前 %lld 處斷檔分類",
+  "plural": {
+   "en": {
+    "one": "Start: Classify %lld Gap",
+    "other": "Start: Classify %lld Gaps"
+   },
+   "de": {
+    "one": "Start: %lld Lücke klassifizieren",
+    "other": "Start: %lld Lücken klassifizieren"
+   }
+  }
+ },
+ {
+  "table": "Localizable",
+  "key": "开普敦",
+  "en": "Cape Town",
+  "de": "Kapstadt",
+  "zh-Hant": "開普敦"
+ },
+ {
+  "table": "Localizable",
+  "key": "开罗",
+  "en": "Cairo",
+  "de": "Kairo",
+  "zh-Hant": "開羅"
+ },
+ {
+  "table": "Localizable",
+  "key": "当前是受限网络（低数据模式 / 热点），联网的功能可能很慢",
+  "en": "Constrained network (Low Data Mode / hotspot): online features may be slow",
+  "de": "Eingeschränktes Netzwerk (Modus für geringes Datenvolumen / Hotspot): Online-Funktionen können langsam sein",
+  "zh-Hant": "目前是受限網路（低數據模式 / 熱點），連網的功能可能很慢"
+ },
+ {
+  "table": "Localizable",
+  "key": "当前离线：取路网草稿、地图判段、地名查询都需要联网",
+  "en": "Offline: road drafts, map-based classification and place-name lookup need the internet",
+  "de": "Offline: Straßenentwürfe, Kartenklassifizierung und Ortsnamensuche benötigen eine Internetverbindung",
+  "zh-Hant": "目前離線：取路網草稿、地圖判段、地名查詢都需要連網"
+ },
+ {
+  "table": "Localizable",
+  "key": "当前离线：取路网草稿需要联网",
+  "en": "Offline: fetching road drafts needs the internet",
+  "de": "Offline: Zum Abrufen von Straßenentwürfen wird eine Internetverbindung benötigt",
+  "zh-Hant": "目前離線：取路網草稿需要連網"
+ },
+ {
+  "table": "Localizable",
+  "key": "往外 %lld 个点都没离开 %@ %@ m",
+  "en": "None of the %1$lld points outward moved %3$@ m away from %2$@",
+  "de": "Keiner der %1$lld Punkte nach außen hat sich %3$@ m von %2$@ entfernt",
+  "zh-Hant": "往外 %lld 個點都沒離開 %@ %@ m",
+  "plural": {
+   "en": {
+    "one": "The %1$lld point outward did not move %3$@ m away from %2$@",
+    "other": "None of the %1$lld points outward moved %3$@ m away from %2$@"
+   },
+   "de": {
+    "one": "%1$lld Punkt nach außen hat sich nicht %3$@ m von %2$@ entfernt",
+    "other": "Keiner der %1$lld Punkte nach außen hat sich %3$@ m von %2$@ entfernt"
+   }
+  }
+ },
+ {
+  "table": "Localizable",
+  "key": "往外走到的点已在 %@ 外（上限 %@ m）",
+  "en": "The point reached outward is already %1$@ away (limit %2$@ m)",
+  "de": "Der nach außen erreichte Punkt ist bereits %1$@ entfernt (Grenze %2$@ m)",
+  "zh-Hant": "往外走到的點已在 %@ 外（上限 %@ m）"
+ },
+ {
+  "table": "Localizable",
+  "key": "德黑兰",
+  "en": "Tehran",
+  "de": "Teheran",
+  "zh-Hant": "德黑蘭"
+ },
+ {
+  "table": "Localizable",
+  "key": "怎么分：看断档前后本来多久记一个点（各取 ≤12 个移动点算中位数）。这段空白不到它的 3 倍，就是「采样稀疏」——设备本来就隔这么久记一个点，不是信号问题（手机后台常常 7–28 秒才记一个点、前一个点在 0.5–2 公里外）；超过 3 倍，就是「信号中断」——这段时间设备没记到点（隧道、失去定位）。两种都照常列为候选：补上路网可以让世界迷雾沿路解锁；批量窗口里可以一键跳过采样稀疏的那些。",
+  "en": "How it's classified: by how often a point was normally recorded before and after the gap (median over ≤12 moving points on each side). If the gap is under 3 times that, it's “sparse sampling”: the device just records a point that rarely, not a signal problem (phones in the background often record only every 7–28 seconds, with the previous point 0.5–2 km away). If it's over 3 times, it's “signal loss”: the device recorded no points during that time (tunnel, lost fix). Both are listed as candidates as usual: filling them along the road network lets Fog of World unlock along the road; in the batch window you can skip all sparse-sampling gaps with one click.",
+  "de": "So wird unterschieden: Wie oft wurde vor und nach der Lücke normalerweise ein Punkt aufgezeichnet (Median aus je ≤12 Bewegungspunkten)? Ist die Lücke kürzer als das 3-Fache, ist es „spärliche Abtastung“ – das Gerät zeichnet ohnehin so selten auf, kein Signalproblem (Smartphones im Hintergrund zeichnen oft nur alle 7–28 Sekunden einen Punkt auf, der vorige liegt 0,5–2 km entfernt). Ist sie länger als das 3-Fache, ist es „Signalverlust“ – das Gerät hat in dieser Zeit keine Punkte aufgezeichnet (Tunnel, Ortung verloren). Beide werden wie gewohnt als Kandidaten aufgeführt: Mit gefülltem Straßennetz wird der Nebel in Fog of World entlang der Straße aufgedeckt; im Stapelfenster lassen sich alle Lücken mit spärlicher Abtastung mit einem Klick überspringen.",
+  "zh-Hant": "怎麼分：看斷檔前後原本多久記一個點（各取 ≤12 個移動點算中位數）。這段空白不到它的 3 倍，就是「採樣稀疏」——裝置本來就隔這麼久記一個點，不是訊號問題（手機在背景時常常 7–28 秒才記一個點、前一個點在 0.5–2 km 外）；超過 3 倍，就是「訊號中斷」——這段時間裝置沒記到點（隧道、失去定位）。兩種都照常列為候選：補上路網可以讓世界迷霧沿路解鎖；批量視窗裡可以一鍵跳過採樣稀疏的那些。"
+ },
+ {
+  "table": "Localizable",
+  "key": "性能 · %lld 核 / Metal · %@",
+  "en": "Performance · %1$lld cores / Metal · %2$@",
+  "de": "Leistung · %1$lld Kerne / Metal · %2$@",
+  "zh-Hant": "效能 · %lld 核 / Metal · %@",
+  "plural": {
+   "en": {
+    "one": "Performance · %1$lld core / Metal · %2$@",
+    "other": "Performance · %1$lld cores / Metal · %2$@"
+   },
+   "de": {
+    "one": "Leistung · %1$lld Kern / Metal · %2$@",
+    "other": "Leistung · %1$lld Kerne / Metal · %2$@"
+   }
+  }
+ },
+ {
+  "table": "Localizable",
+  "key": "性能面板",
+  "en": "Performance Panel",
+  "de": "Leistungsanzeige",
+  "zh-Hant": "效能面板"
+ },
+ {
+  "table": "Localizable",
+  "key": "总时长已到 150 s，放弃",
+  "en": "Total time reached 150 s, giving up",
+  "de": "Gesamtzeit von 150 s erreicht, Abbruch",
+  "zh-Hant": "總時長已到 150 s，放棄"
+ },
+ {
+  "table": "Localizable",
+  "key": "总览",
+  "en": "Overview",
+  "de": "Übersicht",
+  "zh-Hant": "總覽"
+ },
+ {
+  "table": "Localizable",
+  "key": "总览 / 详细",
+  "en": "Overview / Details",
+  "de": "Übersicht / Details",
+  "zh-Hant": "總覽 / 詳細"
+ },
+ {
+  "table": "Localizable",
+  "key": "悉尼",
+  "en": "Sydney",
+  "de": "Sydney",
+  "zh-Hant": "雪梨"
+ },
+ {
+  "table": "Localizable",
+  "key": "慕尼黑",
+  "en": "Munich",
+  "de": "München",
+  "zh-Hant": "慕尼黑"
+ },
+ {
+  "table": "Localizable",
+  "key": "成功 %lld",
+  "en": "Succeeded: %lld",
+  "de": "Erfolgreich: %lld",
+  "zh-Hant": "成功 %lld"
+ },
+ {
+  "table": "Localizable",
+  "key": "成因",
+  "en": "Cause",
+  "de": "Ursache",
+  "zh-Hant": "成因"
+ },
+ {
+  "table": "Localizable",
+  "key": "成因未知",
+  "en": "Cause unknown",
+  "de": "Ursache unbekannt",
+  "zh-Hant": "成因未知"
+ },
+ {
+  "table": "Localizable",
+  "key": "成因：%@ · 两侧步数不足，按画像中位 %@ s",
+  "en": "Cause: %1$@ · too few steps on both sides, using profile median %2$@ s",
+  "de": "Ursache: %1$@ · zu wenige Schritte auf beiden Seiten, Profil-Median %2$@ s",
+  "zh-Hant": "成因：%@ · 兩側步數不足，按畫像中位 %@ s"
+ },
+ {
+  "table": "Localizable",
+  "key": "成因：%@（两侧可用步数只有 %lld 步，按整条轨迹画像中位 %@ s 判断）",
+  "en": "Cause: %1$@ (only %2$lld usable steps on both sides; judged by the whole-track profile median of %3$@ s)",
+  "de": "Ursache: %1$@ (beidseitig nur %2$lld nutzbare Schritte; beurteilt nach dem Profil-Median des gesamten Tracks von %3$@ s)",
+  "zh-Hant": "成因：%@（兩側可用步數只有 %lld 步，按整條軌跡畫像中位 %@ s 判斷）",
+  "plural": {
+   "en": {
+    "one": "Cause: %1$@ (only %2$lld usable step on both sides; judged by the whole-track profile median of %3$@ s)",
+    "other": "Cause: %1$@ (only %2$lld usable steps on both sides; judged by the whole-track profile median of %3$@ s)"
+   },
+   "de": {
+    "one": "Ursache: %1$@ (beidseitig nur %2$lld nutzbarer Schritt; beurteilt nach dem Profil-Median des gesamten Tracks von %3$@ s)",
+    "other": "Ursache: %1$@ (beidseitig nur %2$lld nutzbare Schritte; beurteilt nach dem Profil-Median des gesamten Tracks von %3$@ s)"
+   }
+  }
+ },
+ {
+  "table": "Localizable",
+  "key": "成因：信号中断 · 这段 %@ s 没有记录，前后每 %@ s 一个点（%@ 倍）",
+  "en": "Cause: signal loss · nothing recorded for %1$@ s, normally one point every %2$@ s (%3$@×)",
+  "de": "Ursache: Signalverlust · %1$@ s ohne Aufzeichnung, sonst alle %2$@ s ein Punkt (%3$@-fach)",
+  "zh-Hant": "成因：訊號中斷 · 這段 %@ s 沒有記錄，前後每 %@ s 一個點（%@ 倍）"
+ },
+ {
+  "table": "Localizable",
+  "key": "成因：信号中断（这段 %@ s 没有记录，约为前后采样间隔 %@ s 的 %@ 倍）",
+  "en": "Cause: signal loss (nothing recorded for %1$@ s, about %3$@× the surrounding sampling interval of %2$@ s)",
+  "de": "Ursache: Signalverlust (%1$@ s ohne Aufzeichnung, etwa das %3$@-Fache des umgebenden Abtastintervalls von %2$@ s)",
+  "zh-Hant": "成因：訊號中斷（這段 %@ s 沒有記錄，約為前後採樣間隔 %@ s 的 %@ 倍）"
+ },
+ {
+  "table": "Localizable",
+  "key": "成因：采样稀疏 · 这段 %@ s，前后本来就每 %@ s 记一个点（%@ 倍，正常跳步）",
+  "en": "Cause: sparse sampling · gap of %1$@ s, normally one point every %2$@ s anyway (%3$@×, a normal skipped step)",
+  "de": "Ursache: spärliche Abtastung · Lücke von %1$@ s, ohnehin nur alle %2$@ s ein Punkt (%3$@-fach, normal übersprungener Schritt)",
+  "zh-Hant": "成因：採樣稀疏 · 這段 %@ s，前後本來就每 %@ s 記一個點（%@ 倍，正常跳步）"
+ },
+ {
+  "table": "Localizable",
+  "key": "成因：采样稀疏（这段 %@ s，前后本来就每 %@ s 记一个点，按 %lld 步算）",
+  "en": "Cause: sparse sampling (gap of %1$@ s; normally one point every %2$@ s anyway, based on %3$lld steps)",
+  "de": "Ursache: spärliche Abtastung (Lücke von %1$@ s; ohnehin nur alle %2$@ s ein Punkt, berechnet aus %3$lld Schritten)",
+  "zh-Hant": "成因：採樣稀疏（這段 %@ s，前後本來就每 %@ s 記一個點，按 %lld 步算）",
+  "plural": {
+   "en": {
+    "one": "Cause: sparse sampling (gap of %1$@ s; normally one point every %2$@ s anyway, based on %3$lld step)",
+    "other": "Cause: sparse sampling (gap of %1$@ s; normally one point every %2$@ s anyway, based on %3$lld steps)"
+   },
+   "de": {
+    "one": "Ursache: spärliche Abtastung (Lücke von %1$@ s; ohnehin nur alle %2$@ s ein Punkt, berechnet aus %3$lld Schritt)",
+    "other": "Ursache: spärliche Abtastung (Lücke von %1$@ s; ohnehin nur alle %2$@ s ein Punkt, berechnet aus %3$lld Schritten)"
+   }
+  }
+ },
+ {
+  "table": "Localizable",
+  "key": "成都",
+  "en": "Chengdu",
+  "de": "Chengdu",
+  "zh-Hant": "成都"
+ },
+ {
+  "table": "Localizable",
+  "key": "所选范围内没有点可导出。",
+  "en": "There are no points to export in the selected range.",
+  "de": "Im ausgewählten Bereich gibt es keine Punkte zum Exportieren.",
+  "zh-Hant": "所選範圍內沒有點可匯出。"
+ },
+ {
+  "table": "Localizable",
+  "key": "手机",
+  "en": "Phone",
+  "de": "Smartphone",
+  "zh-Hant": "手機"
+ },
+ {
+  "table": "Localizable",
+  "key": "手绘圈选暂存待删点；地球视角下同样可用（右键拖拽旋转地球）",
+  "en": "Lasso points by hand to stage them for deletion; also works in globe view (right-drag to rotate the globe)",
+  "de": "Punkte per Lasso zum Löschen vormerken; funktioniert auch in der Globusansicht (Rechtsziehen dreht den Globus)",
+  "zh-Hant": "手繪圈選暫存待刪點；地球視角下同樣可用（右鍵拖曳旋轉地球）"
+ },
+ {
+  "table": "Localizable",
+  "key": "手选",
+  "en": "Manual",
+  "de": "Manuell",
+  "zh-Hant": "手選"
+ },
+ {
+  "table": "Localizable",
+  "key": "打开 GPX",
+  "en": "Open GPX",
+  "de": "GPX öffnen",
+  "zh-Hant": "打開 GPX"
+ },
+ {
+  "table": "Localizable",
+  "key": "执行删除…",
+  "en": "Delete…",
+  "de": "Löschen…",
+  "zh-Hant": "執行刪除…"
+ },
+ {
+  "table": "Localizable",
+  "key": "批量补点",
+  "en": "Batch Gap Fill",
+  "de": "Stapel-Lückenfüllung",
+  "zh-Hant": "批量補點"
+ },
+ {
+  "table": "Localizable",
+  "key": "批量补点窗口",
+  "en": "Batch Window",
+  "de": "Stapelfenster",
+  "zh-Hant": "批量補點視窗"
+ },
+ {
+  "table": "Localizable",
+  "key": "批量补点进行中：请在批量窗口里落地或放弃",
+  "en": "Batch Gap Fill in progress: apply or discard it in the batch window",
+  "de": "Stapel-Lückenfüllung läuft: bitte im Stapelfenster übernehmen oder verwerfen",
+  "zh-Hant": "批量補點進行中：請在批量視窗裡落地或放棄"
+ },
+ {
+  "table": "Localizable",
+  "key": "找不到服务器",
+  "en": "Server not found",
+  "de": "Server nicht gefunden",
+  "zh-Hant": "找不到伺服器"
+ },
+ {
+  "table": "Localizable",
+  "key": "找不同",
+  "en": "Find Differences",
+  "de": "Unterschiede finden",
+  "zh-Hant": "找不同"
+ },
+ {
+  "table": "Localizable",
+  "key": "找乱跳",
+  "en": "Find Jitter",
+  "de": "Sprünge suchen",
+  "zh-Hant": "找亂跳"
+ },
+ {
+  "table": "Localizable",
+  "key": "把当前列表里的断档一次取路网草稿：先确认每处走公路还是铁路，取完在主地图预览，再一次落地",
+  "en": "Fetch road drafts for all gaps in the current list at once: first confirm road or rail for each, preview them on the main map, then apply them all at once",
+  "de": "Straßenentwürfe für alle Lücken der aktuellen Liste auf einmal abrufen: zuerst für jede Lücke Straße oder Bahn festlegen, dann in der Hauptkarte prüfen und gesammelt übernehmen",
+  "zh-Hant": "把目前清單裡的斷檔一次取路網草稿：先確認每處走公路還是鐵路，取完在主地圖預覽，再一次落地"
+ },
+ {
+  "table": "Localizable",
+  "key": "把当前视图（平面地图或地球）导出为 4K/8K PNG",
+  "en": "Export the current view (flat map or globe) as a 4K/8K PNG",
+  "de": "Aktuelle Ansicht (flache Karte oder Globus) als 4K/8K-PNG exportieren",
+  "zh-Hant": "把目前的檢視（平面地圖或地球）匯出為 4K/8K PNG"
+ },
+ {
+  "table": "Localizable",
+  "key": "把整段回放导出为视频（离屏渲染，含底图与时间轴）",
+  "en": "Export the whole playback as a video (offscreen rendering, with basemap and timeline)",
+  "de": "Gesamte Wiedergabe als Video exportieren (Offscreen-Rendering, mit Basiskarte und Zeitleiste)",
+  "zh-Hant": "把整段回放匯出為影片（離屏渲染，含底圖與時間軸）"
+ },
+ {
+  "table": "Localizable",
+  "key": "把整段时光机回放离屏渲染为 H.264 视频（含底图、生长中的轨迹/迷雾与时间轴）。时长 = 当前回放时长，可先在时间轴调整。",
+  "en": "Render the whole Timelapse playback offscreen to an H.264 video (with basemap, growing track/fog and timeline). Duration = current playback duration; adjust it on the timeline first if needed.",
+  "de": "Gesamte Zeitraffer-Wiedergabe offscreen als H.264-Video rendern (mit Basiskarte, wachsendem Track/Nebel und Zeitleiste). Dauer = aktuelle Wiedergabedauer; lässt sich vorher in der Zeitleiste anpassen.",
+  "zh-Hant": "把整段時光機回放離屏渲染為 H.264 影片（含底圖、生長中的軌跡/迷霧與時間軸）。時長 = 目前回放時長，可先在時間軸調整。"
+ },
+ {
+  "table": "Localizable",
+  "key": "把这 %lld 处修改全部撤回：删掉补进去的 %lld 个点，加回删掉的 %lld 个点。还原本身不能再撤销。",
+  "en": "Revert all changes (%1$lld): remove the filled-in points (%2$lld) and restore the deleted points (%3$lld). The revert itself cannot be undone.",
+  "de": "Alle Änderungen (%1$lld) zurücknehmen: eingefügte Punkte (%2$lld) werden gelöscht, gelöschte Punkte (%3$lld) wiederhergestellt. Das Zurücksetzen selbst kann nicht rückgängig gemacht werden.",
+  "zh-Hant": "把這 %lld 處修改全部撤回：刪掉補進去的 %lld 個點，加回刪掉的 %lld 個點。還原本身不能再撤銷。"
+ },
+ {
+  "table": "Localizable",
+  "key": "把这次删掉的 %lld 个点加回轨迹",
+  "en": "Add %lld deleted points back to the track",
+  "de": "%lld gelöschte Punkte wieder zum Track hinzufügen",
+  "zh-Hant": "把這次刪掉的 %lld 個點加回軌跡",
+  "plural": {
+   "en": {
+    "one": "Add %lld deleted point back to the track",
+    "other": "Add %lld deleted points back to the track"
+   },
+   "de": {
+    "one": "%lld gelöschten Punkt wieder zum Track hinzufügen",
+    "other": "%lld gelöschte Punkte wieder zum Track hinzufügen"
+   }
+  }
+ },
+ {
+  "table": "Localizable",
+  "key": "投影",
+  "en": "Projection",
+  "de": "Projektion",
+  "zh-Hant": "投影"
+ },
+ {
+  "table": "Localizable",
+  "key": "折叠面板",
+  "en": "Collapse panel",
+  "de": "Bereich einklappen",
+  "zh-Hant": "收合面板"
+ },
+ {
+  "table": "Localizable",
+  "key": "折线太短，按当前点距插不出合成点：「替换」只删掉区间内飘了的点；「保留」则什么都不改。",
+  "en": "The polyline is too short to insert any synthetic points at the current spacing: “Replace” only deletes the drifted points within the range; “Keep” changes nothing.",
+  "de": "Die Polylinie ist zu kurz, um mit dem aktuellen Punktabstand synthetische Punkte einzufügen: „Ersetzen“ löscht nur die abgedrifteten Punkte im Bereich; „Behalten“ ändert nichts.",
+  "zh-Hant": "折線太短，按目前點距插不出合成點：「替換」只刪掉區間內飄了的點；「保留」則什麼都不改。"
+ },
+ {
+  "table": "Localizable",
+  "key": "拉斯维加斯",
+  "en": "Las Vegas",
+  "de": "Las Vegas",
+  "zh-Hant": "拉斯維加斯"
+ },
+ {
+  "table": "Localizable",
+  "key": "拉萨",
+  "en": "Lhasa",
+  "de": "Lhasa",
+  "zh-Hant": "拉薩"
+ },
+ {
+  "table": "Localizable",
+  "key": "拖入 GPX 文件或 .fwdb 迷雾存档，或按 ⌘O 打开",
+  "en": "Drop GPX files or .fwdb fog archives here, or press ⌘O to open",
+  "de": "GPX-Dateien oder .fwdb-Fog-Archive hierher ziehen oder mit ⌘O öffnen",
+  "zh-Hant": "拖入 GPX 檔案或 .fwdb 迷霧存檔，或按 ⌘O 打開"
+ },
+ {
+  "table": "Localizable",
+  "key": "拖动线段中点的小空心圆 = 在这段上加顶点；拖动顶点调整；双击或右键顶点删除；⌘Z 撤销上一步",
+  "en": "Drag the small hollow circle at a segment's midpoint = add a vertex on that segment; drag a vertex to adjust it; double-click or right-click a vertex to delete it; ⌘Z undoes the last step",
+  "de": "Kleinen Hohlkreis in der Segmentmitte ziehen = Stützpunkt auf diesem Segment hinzufügen; Stützpunkt ziehen zum Anpassen; Doppel- oder Rechtsklick auf einen Stützpunkt löscht ihn; ⌘Z macht den letzten Schritt rückgängig",
+  "zh-Hant": "拖曳線段中點的小空心圓 = 在這段上加頂點；拖曳頂點調整；按兩下或右鍵點頂點刪除；⌘Z 撤銷上一步"
+ },
+ {
+  "table": "Localizable",
+  "key": "拖拽旋转 · 滚轮缩放 · 右键拖拽平移 · 罗盘回北",
+  "en": "Drag to rotate · Scroll to zoom · Right-drag to pan · Compass resets north",
+  "de": "Ziehen zum Drehen · Scrollen zum Zoomen · Rechtsziehen zum Verschieben · Kompass richtet nach Norden aus",
+  "zh-Hant": "拖曳旋轉 · 滾輪縮放 · 右鍵拖曳平移 · 羅盤回北"
+ },
+ {
+  "table": "Localizable",
+  "key": "拾取",
+  "en": "Picking",
+  "de": "Treffertest",
+  "zh-Hant": "拾取"
+ },
+ {
+  "table": "Localizable",
+  "key": "拿不准",
+  "en": "Unsure",
+  "de": "Unsicher",
+  "zh-Hant": "拿不準"
+ },
+ {
+  "table": "Localizable",
+  "key": "拿不准（两边都没到三分之二）",
+  "en": "Unsure (neither side reached two thirds)",
+  "de": "Unsicher (keine Seite erreicht zwei Drittel)",
+  "zh-Hant": "拿不準（兩邊都沒到三分之二）"
+ },
+ {
+  "table": "Localizable",
+  "key": "拿不准，不补：%@",
+  "en": "Unsure, not filled: %@",
+  "de": "Unsicher, nicht gefüllt: %@",
+  "zh-Hant": "拿不準，不補：%@"
+ },
+ {
+  "table": "Localizable",
+  "key": "持续缩小地图会无缝进入地球视角，放大自动返回",
+  "en": "Keep zooming out to switch seamlessly to globe view; zoom in to return automatically",
+  "de": "Weiteres Herauszoomen wechselt nahtlos in die Globusansicht, Hineinzoomen kehrt automatisch zurück",
+  "zh-Hant": "持續縮小地圖會無縫進入地球視角，放大自動返回"
+ },
+ {
+  "table": "Localizable",
+  "key": "指北针：红色箭头指向北；点击平滑转回北向上",
+  "en": "Compass: the red arrow points north; click to smoothly rotate back to north-up",
+  "de": "Kompass: Der rote Pfeil zeigt nach Norden; klicken, um sanft wieder nach Norden auszurichten",
+  "zh-Hant": "指北針：紅色箭頭指向北；按一下平滑轉回北向上"
+ },
+ {
+  "table": "Localizable",
+  "key": "按世界迷雾格网聚合成方块的 3D 透视场景：块内点数越多柱越高越红。拖拽旋转 · 滚轮缩放 · 右键拖拽平移",
+  "en": "3D perspective scene aggregated into blocks on the Fog of World grid: the more points in a block, the taller and redder its column. Drag to rotate · Scroll to zoom · Right-drag to pan",
+  "de": "3D-Perspektivszene, nach dem Fog-of-World-Raster zu Blöcken zusammengefasst: Je mehr Punkte ein Block enthält, desto höher und röter die Säule. Ziehen zum Drehen · Scrollen zum Zoomen · Rechtsziehen zum Verschieben",
+  "zh-Hant": "按世界迷霧格網聚合成方塊的 3D 透視場景：塊內點數越多柱越高越紅。拖曳旋轉 · 滾輪縮放 · 右鍵拖曳平移"
+ },
+ {
+  "table": "Localizable",
+  "key": "按时长算只有 %@ km/h（%@ m / %@ s），更像停站/停车时没信号，不是隧道",
+  "en": "Only %1$@ km/h by duration (%2$@ m / %3$@ s): more like no signal while stopped at a station, not a tunnel",
+  "de": "Nach Dauer nur %1$@ km/h (%2$@ m / %3$@ s): eher kein Signal während eines Halts als ein Tunnel",
+  "zh-Hant": "按時長算只有 %@ km/h（%@ m / %@ s），更像停站/停車時沒訊號，不是隧道"
+ },
+ {
+  "table": "Localizable",
+  "key": "按时长算只有 %@ km/h，更像停站/停车时没信号，不是隧道",
+  "en": "Only %@ km/h by duration: more like no signal while stopped at a station, not a tunnel",
+  "de": "Nach Dauer nur %@ km/h: eher kein Signal während eines Halts als ein Tunnel",
+  "zh-Hant": "按時長算只有 %@ km/h，更像停站/停車時沒訊號，不是隧道"
+ },
+ {
+  "table": "Localizable",
+  "key": "按轨迹顺序 · 点一行进详细",
+  "en": "In track order · Click a row for details",
+  "de": "In Track-Reihenfolge · Zeile anklicken für Details",
+  "zh-Hant": "按軌跡順序 · 按一下某列進入詳細"
+ },
+ {
+  "table": "Localizable",
+  "key": "按通行侧校验，两端真实点落在路线的错误一侧：路线可能吸到了对向车道，请在地图上看一眼",
+  "en": "Driving-side check: real points at both ends lie on the wrong side of the route. It may have snapped to the opposite carriageway; please check on the map",
+  "de": "Fahrseitenprüfung: Die echten Punkte an beiden Enden liegen auf der falschen Seite der Route. Die Route liegt womöglich auf der Gegenfahrbahn; bitte auf der Karte prüfen",
+  "zh-Hant": "按通行側校驗，兩端真實點落在路線的錯誤一側：路線可能吸到了對向車道，請在地圖上看一眼"
+ }
+]

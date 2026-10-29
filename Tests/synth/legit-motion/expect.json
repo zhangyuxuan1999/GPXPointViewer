@@ -1,0 +1,426 @@
+{
+  "family": "legit-motion",
+  "about": "Clean, artefact-free recordings of legitimate motion (U-turns, hairpins, roundabouts, cloverleaf, holding circles, dead-end reversals, Garmin timestamp bunching, sparse phone sampling, 1-s dropouts, cold start). Replays and jitter must be 0 everywhere; gaps are 0 except for the sparse phone file.",
+  "files": {
+    "walk_loop_pauses.gpx": {
+      "desc": "Walking loop in Zurich, Garmin eTrex 1 Hz, 41 min, three pauses (95 s, 185 s, 240 s) with stationary GPS wander (AR noise sigma 3.2 m/axis), ends near the start. 1.45 m/s, corners r=10-40 m. [port: timeGap 0 (borderline 0), staleClock-branch entries 0, dt values [1]]",
+      "points": 2459,
+      "profile": "deviceLogger",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "max_load_seconds": 5,
+      "trips": [
+        1,
+        1
+      ]
+    },
+    "hike_switchbacks.gpx": {
+      "desc": "Hike with 12 switchbacks (legs 150-300 m at +-70 deg from the fall line, 140-deg hairpins r=4 m at 0.55 m/s), Garmin 1 Hz, 71 min, summit rest 150 s. Walking pace 0.85-1.25 m/s, slow hairpins. [port: timeGap 0 (borderline 0), staleClock-branch entries 0, dt values [1], trips (port, not asserted) 1]",
+      "points": 4253,
+      "profile": "deviceLogger",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "max_load_seconds": 5
+    },
+    "cycle_uturn_roundabout.gpx": {
+      "desc": "Cycling in Amsterdam, Garmin Edge 1 Hz, 29 min at ~6 m/s; U-turn (180 deg, r=3 m, 1.8 m/s) at t=1778090047-1778090053, roundabout (veer 30, circle 300 deg r=14 m, veer 30) at t=1778090304-1778090324, two light stops. [port: timeGap 0 (borderline 0), staleClock-branch entries 0, dt values [1]]",
+      "points": 1758,
+      "profile": "deviceLogger",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "max_load_seconds": 5,
+      "jitter_free": [
+        [
+          1778090017,
+          1778090113
+        ],
+        [
+          1778090274,
+          1778090384
+        ]
+      ],
+      "trips": [
+        1,
+        1
+      ]
+    },
+    "car_city_1hz_uturns.gpx": {
+      "desc": "City drive in Munich, Garmin 1 Hz, 18 min at <=50 km/h; 90-deg turns r=10 m, two U-turns (r=6 m, 2.6 m/s) at t~[1778345526, 1778345908], 8 stops at lights 25-90 s with stationary GPS wander (~5 m). [port: timeGap 0 (borderline 0), staleClock-branch entries 0, dt values [1]]",
+      "points": 1094,
+      "profile": "deviceLogger",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "max_load_seconds": 5,
+      "jitter_free": [
+        [
+          1778345496,
+          1778345586
+        ],
+        [
+          1778345878,
+          1778345968
+        ]
+      ],
+      "trips": [
+        1,
+        1
+      ]
+    },
+    "highway_cloverleaf.gpx": {
+      "desc": "Motorway near Nuremberg, Garmin 1 Hz, 15 min at 130 km/h (36 m/s); cloverleaf left turn = 270-deg loop ramp r=55 m at 40 km/h between t=1778496795-1778496848, gentle r=1.2-2 km curves. [port: timeGap 0 (borderline 0), staleClock-branch entries 0, dt values [1]]",
+      "points": 902,
+      "profile": "deviceLogger",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "max_load_seconds": 5,
+      "jitter_free": [
+        [
+          1778496735,
+          1778496908
+        ]
+      ],
+      "trips": [
+        1,
+        1
+      ]
+    },
+    "car_phone_3s.csv": {
+      "desc": "Car in Shanghai, phone CSV (one-life-footprint layout) foreground ~3 s sampling (2/3/4 s), 16 min, phone noise 9 m/axis + 3% outliers 45-110 m (never >= 300 m step); U-turn r=7 m at t=1778673117-1778673125, 3 light stops. [port: timeGap 0 (borderline 0), staleClock-branch entries 0, dt values [2, 3, 4]]",
+      "points": 326,
+      "profile": "phone",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "max_load_seconds": 5,
+      "jitter_free": [
+        [
+          1778673087,
+          1778673185
+        ]
+      ],
+      "trips": [
+        1,
+        1
+      ]
+    },
+    "bus_phone.csv": {
+      "desc": "City bus in Beijing, phone CSV 1-3 s sampling, 29 min, <=43 km/h, 12 bus stops + 4 lights; while stationary the phone repeats the same cached fix bit-identically (static repeats are not replays: no movement in between). [port: timeGap 0 (borderline 0), staleClock-branch entries 1, dt values [1, 2, 3]]",
+      "points": 1087,
+      "profile": "phone",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "max_load_seconds": 5,
+      "trips": [
+        1,
+        1
+      ]
+    },
+    "train_regional_1hz.gpx": {
+      "desc": "Regional train along the Moselle, Garmin 1 Hz, 29 min, 120 km/h (33.3 m/s), accel 0.7 / brake 0.8 m/s^2, 3 intermediate stops 55-80 s, curves r=0.7-1.5 km. [port: timeGap 0 (borderline 0), staleClock-branch entries 0, dt values [1]]",
+      "points": 1753,
+      "profile": "deviceLogger",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "max_load_seconds": 5,
+      "trips": [
+        1,
+        1
+      ]
+    },
+    "hsr_garmin_bunching.gpx": {
+      "desc": "High-speed rail Frankfurt area, 29 min, cruise 300-342 km/h (83-95 m/s), one 2-min station stop; Garmin bunching: true 1 Hz positions advance ~90 m per point but written timestamps stick for 1-4 points then jump (same-second groups of up to 4 points). Max speed 342 km/h. Consecutive points stay < 150 m apart, so neither the staleClock branch nor timeGap can fire. [port: timeGap 0 (borderline 0), staleClock-branch entries 0, dt values [0, 1, 2, 3, 4]]",
+      "points": 1768,
+      "profile": "deviceLogger",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "max_load_seconds": 5,
+      "trips": [
+        1,
+        1
+      ]
+    },
+    "aircraft_holding.gpx": {
+      "desc": "Aircraft from FRA, Garmin 1 Hz, 26 min: 60 s lined up, takeoff roll, climb 150 m/s, cruise 240-250 m/s (up to 900 km/h), then two 4-min holding circles (r=8.8 km, 230 m/s) t=1779627703-1779628183, exit. Every 1-s step (>= 150 m at >350 km/h) enters the staleClock branch, but there is no time jump so it must find nothing; 60-s heading chord in the circle is 45 deg off the step, never a reversal. [port: timeGap 0 (borderline 0), staleClock-branch entries 1365, dt values [1]]",
+      "points": 1581,
+      "profile": "deviceLogger",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "max_load_seconds": 5,
+      "jitter_free": [
+        [
+          1779627703,
+          1779628303
+        ]
+      ],
+      "trips": [
+        1,
+        1
+      ]
+    },
+    "boat_ferry_phone.gpx": {
+      "desc": "Lake Geneva passenger boat, phone GPX (GPSLogger for Android, ~2 s), 23 min: 2 min at the pier, backs out 60 m astern, stops, turns 110 deg and cruises at 30 km/h, docks. Open-water phone noise 5 m/axis, 1% outliers. [port: timeGap 0 (borderline 0), staleClock-branch entries 0, dt values [1, 2, 3]]",
+      "points": 689,
+      "profile": "phone",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "max_load_seconds": 5,
+      "trips": [
+        1,
+        1
+      ]
+    },
+    "phone_sparse_mountain.csv": {
+      "desc": "Mountain road in Yunnan, phone CSV in background: 20-30 s steps (15% 8-19 s), 22 min, 100 km/h valley sections and 9 hairpins (160 deg, r=12 m, 25 km/h) t=1780120490-1780120764. Every step with dt >= 20 s, >= 150 m, 15-350 km/h is a legitimate timeGap candidate by definition (expected count from a port of the rule; range widened by the number of steps within 3 m / 0.5 km/h of a threshold). No replays, no jitter. [port: timeGap 47 (borderline 0), staleClock-branch entries 0, dt values [9, 14, 15, 19, 20, 21, '...', 28, 29, 30]]",
+      "points": 57,
+      "profile": "phone",
+      "gaps": [
+        47,
+        47
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "max_load_seconds": 5,
+      "jitter_free": [
+        [
+          1780120490,
+          1780120764
+        ]
+      ],
+      "trips": [
+        1,
+        1
+      ]
+    },
+    "train_reverse_deadend.gpx": {
+      "desc": "Train into a dead-end terminus (Lindau-type), Garmin 1 Hz, 20 min: brakes to a stop at t=1780390504, waits 3 min, departs back along the same track (heading flips 180 deg) and branches off at the junction. Reversal happens at 0 speed after the 60-s heading window has gone stale, never as a >= 200 m backward step. [port: timeGap 0 (borderline 0), staleClock-branch entries 0, dt values [1]]",
+      "points": 1230,
+      "profile": "deviceLogger",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "max_load_seconds": 5,
+      "jitter_free": [
+        [
+          1780390384,
+          1780390904
+        ]
+      ],
+      "trips": [
+        1,
+        1
+      ]
+    },
+    "train_reverse_deadend_phone.csv": {
+      "desc": "Train into a terminus station (Frankfurt Hbf-type), phone CSV 1-3 s, 20 min: stops at t=1780563304, 3 min dwell, departs the same way back (180 deg heading flip), phone noise + outliers. [port: timeGap 0 (borderline 0), staleClock-branch entries 0, dt values [1, 2, 3]]",
+      "points": 795,
+      "profile": "phone",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "max_load_seconds": 5,
+      "jitter_free": [
+        [
+          1780563184,
+          1780563704
+        ]
+      ],
+      "trips": [
+        1,
+        1
+      ]
+    },
+    "cold_start_5h.gpx": {
+      "desc": "Two drives (Garmin 1 Hz) separated by a 5-h power-off: last fix at t=1780739665, first (accurate) fix after the cold start 92.5 km away at t=1780757665. Implied 5-h speed 18.5 km/h is inside 15-350, so only the dt <= 3600 s limit keeps it from being a timeGap. Two trips (blank >= 10 min). [port: timeGap 0 (borderline 0), staleClock-branch entries 0, dt values [1, 18000]]",
+      "points": 943,
+      "profile": "deviceLogger",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "max_load_seconds": 5,
+      "trips": [
+        2,
+        2
+      ]
+    },
+    "car_dropouts_1hz.gpx": {
+      "desc": "Country-road drive, Garmin 1 Hz, 21 min at up to 100 km/h with 39 dropouts of 1-4 missing fixes (dt 2-5 s, up to ~140 m per step). dt < 20 s and implied speed < 350 km/h, so neither timeGap nor staleClock may fire; no jitter. [port: timeGap 0 (borderline 0), staleClock-branch entries 0, dt values [1, 2, 3, 4, 5]]",
+      "points": 1176,
+      "profile": "deviceLogger",
+      "gaps": [
+        0,
+        0
+      ],
+      "replays": [
+        0,
+        0
+      ],
+      "jitter": [
+        0,
+        0
+      ],
+      "load_ok": true,
+      "max_load_seconds": 5,
+      "trips": [
+        1,
+        1
+      ]
+    }
+  }
+}

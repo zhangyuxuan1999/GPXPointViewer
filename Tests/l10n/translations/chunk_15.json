@@ -1,0 +1,22 @@
+[
+ {"table": "Localizable", "key": "切换后 app 会立刻重新打开，并记住这个选择",
+  "en": "After switching, the app reopens immediately and remembers this choice",
+  "de": "Nach dem Wechsel öffnet sich die App sofort neu und merkt sich diese Auswahl",
+  "zh-Hant": "切換後 app 會立刻重新開啟，並記住這個選擇"},
+ {"table": "Localizable", "key": "切换并重启",
+  "en": "Switch and Restart",
+  "de": "Wechseln und neu starten",
+  "zh-Hant": "切換並重新啟動"},
+ {"table": "Localizable", "key": "切换语言要重新打开 app，本次会话的修改记录会丢失，仍要切换？",
+  "en": "Switching the language reopens the app and discards this session's change log. Switch anyway?",
+  "de": "Der Sprachwechsel öffnet die App neu; das Änderungsprotokoll dieser Sitzung geht verloren. Trotzdem wechseln?",
+  "zh-Hant": "切換語言要重新開啟 app，本次工作階段的修改記錄會遺失，仍要切換？"},
+ {"table": "Localizable", "key": "按国家 / 省州（中国到地级市）统计：查看点模式按点数与到访天数，迷雾模式按解锁面积（世界迷雾口径）与按同一公式折算的等级；点一行在地图上高亮边界",
+  "en": "Statistics by country / state or province (down to prefecture-level cities in China): point mode counts points and days visited, fog mode uses unlocked area (Fog of World method) and a level converted with the same formula; click a row to highlight its boundary on the map",
+  "de": "Statistik nach Land / Bundesland bzw. Provinz (in China bis zur bezirksfreien Stadt): im Punktmodus nach Punktzahl und Besuchstagen, im Nebelmodus nach freigeschalteter Fläche (nach Fog of World) und einem nach derselben Formel umgerechneten Level; eine Zeile anklicken hebt die Grenze auf der Karte hervor",
+  "zh-Hant": "按國家 / 省州（中國到地級市）統計：檢視點模式按點數與到訪天數，迷霧模式按解鎖面積（世界迷霧口徑）與按同一公式折算的等級；點一列在地圖上醒目標示邊界"},
+ {"table": "Localizable", "key": "点 = 落在该地区的轨迹点数与到访天数；迷雾 = 该地区内解锁的格子面积（世界迷雾口径）与按同一公式折算的等级",
+  "en": "Points = track points inside the region and days visited; Fog = unlocked cell area inside the region (Fog of World method) and a level converted with the same formula",
+  "de": "Punkte = Trackpunkte in der Region und Besuchstage; Nebel = freigeschaltete Zellenfläche in der Region (nach Fog of World) und ein nach derselben Formel umgerechnetes Level",
+  "zh-Hant": "點 = 落在該地區的軌跡點數與到訪天數；迷霧 = 該地區內解鎖的格子面積（世界迷霧口徑）與按同一公式折算的等級"}
+]

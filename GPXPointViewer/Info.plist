@@ -2,6 +2,9 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<!-- 显示名已本地化（InfoPlist.xcstrings → 各 lproj/InfoPlist.strings 的 CFBundleDisplayName），让 Finder 用本地化名 -->
+	<key>LSHasLocalizedDisplayName</key>
+	<true/>
 	<!-- 导入 GPX 的 UTI：让系统把 .gpx 映射到 com.topografix.gpx，
 	     Quick Look 预览扩展据此匹配（仅类型导入，不声称本 App 打开该类型） -->
 	<key>UTImportedTypeDeclarations</key>

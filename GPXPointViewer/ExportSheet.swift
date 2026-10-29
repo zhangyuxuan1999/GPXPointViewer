@@ -18,6 +18,29 @@ enum ExportMode: String, CaseIterable, Identifiable {
     case day = "日"
     case custom = "自定义"
     var id: String { rawValue }
+
+    /// 界面显示用（rawValue 只当标识，不直接显示）。
+    /// 语义键：分段选择器里的「年/月/日」（按年/按月/按日）与日期行后缀「年/月/日」同字不同义，
+    /// 中文显示仍取 defaultValue，其它语言分别翻译
+    var title: LocalizedStringResource {
+        switch self {
+        case .all:
+            return LocalizedStringResource("exportMode.all", defaultValue: "全部",
+                comment: "Segmented range mode (Export GPX sheet and time filter): the whole data set")
+        case .year:
+            return LocalizedStringResource("exportMode.year", defaultValue: "年",
+                comment: "Segmented range mode (Export GPX sheet and time filter): one calendar year")
+        case .month:
+            return LocalizedStringResource("exportMode.month", defaultValue: "月",
+                comment: "Segmented range mode (Export GPX sheet and time filter): one calendar month")
+        case .day:
+            return LocalizedStringResource("exportMode.day", defaultValue: "日",
+                comment: "Segmented range mode (Export GPX sheet and time filter): one single day")
+        case .custom:
+            return LocalizedStringResource("exportMode.custom", defaultValue: "自定义",
+                comment: "Segmented range mode (Export GPX sheet and time filter): custom from/to date range")
+        }
+    }
 }
 
 /// 查看筛选的"形状"（粒度 + 各粒度的具体取值）。
@@ -123,7 +146,7 @@ struct ExportSheet: View {
             if modes.count > 1 {
                 Picker("范围", selection: $mode) {
                     ForEach(modes) { m in
-                        Text(m.rawValue).tag(m)
+                        Text(m.title).tag(m)
                     }
                 }
                 .pickerStyle(.segmented)
@@ -139,29 +162,29 @@ struct ExportSheet: View {
                 case .year:
                     HStack(spacing: 6) {
                         yearPicker($year)
-                        Text("年")
+                        Text("年", comment: "Date row: unit suffix after the year picker (zh reads like 2024 年 5 月 3 日)")
                     }
                 case .month:
                     HStack(spacing: 6) {
                         if multiYear {
                             yearPicker($year)
-                            Text("年")
+                            Text("年", comment: "Date row: unit suffix after the year picker (zh reads like 2024 年 5 月 3 日)")
                         } else {
-                            Text("\(String(y0)) 年")
+                            Text("\(String(y0)) 年", comment: "Date row: the data covers a single year, shown as text instead of a picker; %@ = year number")
                         }
-                        numberPicker($month, monthLow(year)...monthHigh(year), width: 60)
-                        Text("月")
+                        numberPicker("月份", $month, monthLow(year)...monthHigh(year), width: 60)
+                        Text("月", comment: "Date row: unit suffix after the month picker (zh reads like 2024 年 5 月 3 日)")
                     }
                 case .day:
                     ymdRow(y: $dayY, m: $dayM, d: $dayD)
                 case .custom:
                     VStack(alignment: .leading, spacing: 8) {
                         HStack(spacing: 6) {
-                            Text("从").frame(width: 20, alignment: .leading)
+                            Text("从", comment: "Custom date range: label in front of the start date row (column only about 20 pt wide)").frame(width: 20, alignment: .leading)
                             ymdRow(y: $startY, m: $startM, d: $startD)
                         }
                         HStack(spacing: 6) {
-                            Text("到").frame(width: 20, alignment: .leading)
+                            Text("到", comment: "Custom date range: label in front of the end date row (column only about 20 pt wide)").frame(width: 20, alignment: .leading)
                             ymdRow(y: $endY, m: $endM, d: $endD)
                         }
                         Text("含首尾两天整天")
@@ -221,7 +244,7 @@ struct ExportSheet: View {
     // MARK: - 明确的年/月/日控件（自适应：单一取值时显示为文字）
 
     private func yearPicker(_ sel: Binding<Int>) -> some View {
-        Picker("", selection: sel) {
+        Picker("年份", selection: sel) {
             ForEach(Array(y0...max(y0, y1)), id: \.self) { y in
                 Text(String(y)).tag(y)
             }
@@ -230,8 +253,8 @@ struct ExportSheet: View {
         .frame(width: 84)
     }
 
-    private func numberPicker(_ sel: Binding<Int>, _ bounds: ClosedRange<Int>, width: CGFloat) -> some View {
-        Picker("", selection: sel) {
+    private func numberPicker(_ label: LocalizedStringKey, _ sel: Binding<Int>, _ bounds: ClosedRange<Int>, width: CGFloat) -> some View {
+        Picker(label, selection: sel) {
             ForEach(Array(bounds), id: \.self) { v in
                 Text(String(v)).tag(v)
             }
@@ -245,18 +268,18 @@ struct ExportSheet: View {
         HStack(spacing: 6) {
             if multiYear {
                 yearPicker(y)
-                Text("年")
+                Text("年", comment: "Date row: unit suffix after the year picker (zh reads like 2024 年 5 月 3 日)")
             } else {
-                Text("\(String(y0)) 年")
+                Text("\(String(y0)) 年", comment: "Date row: the data covers a single year, shown as text instead of a picker; %@ = year number")
             }
             if multiMonth {
-                numberPicker(m, monthLow(y.wrappedValue)...monthHigh(y.wrappedValue), width: 60)
-                Text("月")
+                numberPicker("月份", m, monthLow(y.wrappedValue)...monthHigh(y.wrappedValue), width: 60)
+                Text("月", comment: "Date row: unit suffix after the month picker (zh reads like 2024 年 5 月 3 日)")
             } else {
-                Text("\(m0) 月")
+                Text("\(m0) 月", comment: "Date row: the data covers a single month, shown as text instead of a picker; %lld = month number 1-12")
             }
-            numberPicker(d, dayLow(y.wrappedValue, m.wrappedValue)...dayHigh(y.wrappedValue, m.wrappedValue), width: 60)
-            Text("日")
+            numberPicker("日期", d, dayLow(y.wrappedValue, m.wrappedValue)...dayHigh(y.wrappedValue, m.wrappedValue), width: 60)
+            Text("日", comment: "Date row: unit suffix after the day picker (zh reads like 2024 年 5 月 3 日)")
         }
     }
 
@@ -361,9 +384,9 @@ struct TimeFilterSection: View {
     }
 
     private var modePicker: some View {
-        Picker("", selection: $mode) {
+        Picker("范围", selection: $mode) {
             ForEach(modes) { m in
-                Text(m.rawValue).tag(m)
+                Text(m.title).tag(m)
             }
         }
         .pickerStyle(.segmented)
@@ -378,7 +401,7 @@ struct TimeFilterSection: View {
         case .year:
             HStack(spacing: 6) {
                 yearPicker($year)
-                Text("年")
+                Text("年", comment: "Date row: unit suffix after the year picker (zh reads like 2024 年 5 月 3 日)")
             }
         case .month:
             monthRow
@@ -393,23 +416,23 @@ struct TimeFilterSection: View {
         HStack(spacing: 6) {
             if multiYear {
                 yearPicker($year)
-                Text("年")
+                Text("年", comment: "Date row: unit suffix after the year picker (zh reads like 2024 年 5 月 3 日)")
             } else {
-                Text("\(String(y0)) 年")
+                Text("\(String(y0)) 年", comment: "Date row: the data covers a single year, shown as text instead of a picker; %@ = year number")
             }
-            numberPicker($month, monthLow(year)...monthHigh(year), width: 56)
-            Text("月")
+            numberPicker("月份", $month, monthLow(year)...monthHigh(year), width: 56)
+            Text("月", comment: "Date row: unit suffix after the month picker (zh reads like 2024 年 5 月 3 日)")
         }
     }
 
     private var customRows: some View {
         VStack(alignment: .leading, spacing: 6) {
             HStack(spacing: 6) {
-                Text("从").frame(width: 18, alignment: .leading)
+                Text("从", comment: "Custom date range: label in front of the start date row (column only about 20 pt wide)").frame(width: 18, alignment: .leading)
                 ymdRow($rangeStart)
             }
             HStack(spacing: 6) {
-                Text("到").frame(width: 18, alignment: .leading)
+                Text("到", comment: "Custom date range: label in front of the end date row (column only about 20 pt wide)").frame(width: 18, alignment: .leading)
                 ymdRow($rangeEnd)
             }
         }
@@ -421,23 +444,23 @@ struct TimeFilterSection: View {
         HStack(spacing: 6) {
             if multiYear {
                 yearPicker(v.y)
-                Text("年")
+                Text("年", comment: "Date row: unit suffix after the year picker (zh reads like 2024 年 5 月 3 日)")
             } else {
-                Text("\(String(y0)) 年")
+                Text("\(String(y0)) 年", comment: "Date row: the data covers a single year, shown as text instead of a picker; %@ = year number")
             }
             if multiMonth {
-                numberPicker(v.m, monthLow(cur.y)...monthHigh(cur.y), width: 56)
-                Text("月")
+                numberPicker("月份", v.m, monthLow(cur.y)...monthHigh(cur.y), width: 56)
+                Text("月", comment: "Date row: unit suffix after the month picker (zh reads like 2024 年 5 月 3 日)")
             } else {
-                Text("\(m0) 月")
+                Text("\(m0) 月", comment: "Date row: the data covers a single month, shown as text instead of a picker; %lld = month number 1-12")
             }
-            numberPicker(v.d, dayLow(cur.y, cur.m)...dayHigh(cur.y, cur.m), width: 56)
-            Text("日")
+            numberPicker("日期", v.d, dayLow(cur.y, cur.m)...dayHigh(cur.y, cur.m), width: 56)
+            Text("日", comment: "Date row: unit suffix after the day picker (zh reads like 2024 年 5 月 3 日)")
         }
     }
 
     private func yearPicker(_ sel: Binding<Int>) -> some View {
-        Picker("", selection: sel) {
+        Picker("年份", selection: sel) {
             ForEach(Array(y0...max(y0, y1)), id: \.self) { y in
                 Text(String(y)).tag(y)
             }
@@ -446,8 +469,8 @@ struct TimeFilterSection: View {
         .frame(width: 78)
     }
 
-    private func numberPicker(_ sel: Binding<Int>, _ bounds: ClosedRange<Int>, width: CGFloat) -> some View {
-        Picker("", selection: sel) {
+    private func numberPicker(_ label: LocalizedStringKey, _ sel: Binding<Int>, _ bounds: ClosedRange<Int>, width: CGFloat) -> some View {
+        Picker(label, selection: sel) {
             ForEach(Array(bounds), id: \.self) { v in
                 Text(String(v)).tag(v)
             }

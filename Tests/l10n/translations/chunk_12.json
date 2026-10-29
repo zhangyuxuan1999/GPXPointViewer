@@ -1,0 +1,261 @@
+[
+ {
+  "table": "Localizable",
+  "key": "铁路路径 %@ km 远长于直线 %@ km，可能绕路或接错线",
+  "en": "The rail path (%1$@ km) is much longer than the straight line (%2$@ km); it may detour or follow the wrong line",
+  "de": "Der Bahnweg (%1$@ km) ist viel länger als die Luftlinie (%2$@ km); evtl. Umweg oder falsche Strecke",
+  "zh-Hant": "鐵路路徑 %1$@ km 遠長於直線 %2$@ km，可能繞路或接錯線"
+ },
+ {
+  "table": "Localizable",
+  "key": "铁路路径 %@ km（OSM railway，隧道标签逐段）：隧道占 %@%%（%@ km），不到 50%%",
+  "en": "Rail path %1$@ km (OSM railway, tunnel tags per segment): tunnel share %2$@%% (%3$@ km), below 50%%",
+  "de": "Bahnweg %1$@ km (OSM railway, Tunnel-Tags je Abschnitt): Tunnelanteil %2$@%% (%3$@ km), unter 50%%",
+  "zh-Hant": "鐵路路徑 %1$@ km（OSM railway，隧道標籤逐段）：隧道佔 %2$@%%（%3$@ km），不到 50%%"
+ },
+ {
+  "table": "Localizable",
+  "key": "铁路路径 %@ km（OSM railway，隧道标签逐段）：隧道占 %@%%（%@ km），达到 50%%",
+  "en": "Rail path %1$@ km (OSM railway, tunnel tags per segment): tunnel share %2$@%% (%3$@ km), at least 50%%",
+  "de": "Bahnweg %1$@ km (OSM railway, Tunnel-Tags je Abschnitt): Tunnelanteil %2$@%% (%3$@ km), mindestens 50%%",
+  "zh-Hant": "鐵路路徑 %1$@ km（OSM railway，隧道標籤逐段）：隧道佔 %2$@%%（%3$@ km），達到 50%%"
+ },
+ {
+  "table": "Localizable",
+  "key": "铁路：进/出单步速度 %@/%@、10 s / 100 m 窗口速度 %@/%@ km/h，都 > 170",
+  "en": "Rail: single-step speed in/out %1$@/%2$@, 10 s / 100 m window speed %3$@/%4$@ km/h, all > 170",
+  "de": "Bahn: Einzelschritt-Tempo rein/raus %1$@/%2$@, Tempo im 10-s-/100-m-Fenster %3$@/%4$@ km/h, alle > 170",
+  "zh-Hant": "鐵路：進/出單步速度 %1$@/%2$@、10 s / 100 m 視窗速度 %3$@/%4$@ km/h，都 > 170"
+ },
+ {
+  "table": "Localizable",
+  "key": "铁路：隐含速度 %@ km/h > 200（公路上到不了），前后记录速度 %@/%@ 也支持",
+  "en": "Rail: implied speed %1$@ km/h > 200 (impossible by road); the recorded speeds before/after (%2$@/%3$@) agree",
+  "de": "Bahn: implizites Tempo %1$@ km/h > 200 (auf der Straße unerreichbar); das aufgezeichnete Tempo davor/danach (%2$@/%3$@) bestätigt das",
+  "zh-Hant": "鐵路：隱含速度 %1$@ km/h > 200（公路上到不了），前後記錄速度 %2$@/%3$@ 也支持"
+ },
+ {
+  "table": "Localizable",
+  "key": "银川",
+  "en": "Yinchuan",
+  "de": "Yinchuan",
+  "zh-Hant": "銀川"
+ },
+ {
+  "table": "Localizable",
+  "key": "锚点本身吸到了别的路（直接路由 %@ km），已按前后轨迹走向纠正",
+  "en": "The anchor itself snapped to another road (direct route %@ km); corrected using the direction of the track before and after",
+  "de": "Der Anker selbst ist an einer anderen Straße eingerastet (direkte Route %@ km); anhand des Trackverlaufs davor und danach korrigiert",
+  "zh-Hant": "錨點本身吸到了別的路（直接路由 %@ km），已按前後軌跡走向糾正"
+ },
+ {
+  "table": "Localizable",
+  "key": "锚点离路网 %@ m / %@ m，端点可能接错路",
+  "en": "Anchors are %1$@ m / %2$@ m from the road network; an end may join the wrong road",
+  "de": "Anker %1$@ m / %2$@ m vom Straßennetz entfernt; ein Ende hängt evtl. an der falschen Straße",
+  "zh-Hant": "錨點離路網 %1$@ m / %2$@ m，端點可能接錯路"
+ },
+ {
+  "table": "Localizable",
+  "key": "锚点离铁路 %@ m / %@ m",
+  "en": "Anchors are %1$@ m / %2$@ m from the railway",
+  "de": "Anker %1$@ m / %2$@ m von der Bahnstrecke entfernt",
+  "zh-Hant": "錨點離鐵路 %1$@ m / %2$@ m"
+ },
+ {
+  "table": "Localizable",
+  "key": "锚点离铁路 %@ m / %@ m，端点可能接错线",
+  "en": "Anchors are %1$@ m / %2$@ m from the railway; an end may be on the wrong line",
+  "de": "Anker %1$@ m / %2$@ m von der Bahnstrecke entfernt; ein Ende liegt evtl. auf der falschen Strecke",
+  "zh-Hant": "錨點離鐵路 %1$@ m / %2$@ m，端點可能接錯線"
+ },
+ {
+  "table": "Localizable",
+  "key": "锚点逐点前后挪（隧道里常有漂移点，真实两端未必相邻）；⌥点击轨迹点也可直接设锚点",
+  "en": "Move the anchors point by point (tunnels often contain drift points, so the true ends may not be adjacent); you can also ⌥-click a track point to set an anchor directly",
+  "de": "Anker punktweise vor- und zurückschieben (in Tunneln gibt es oft Driftpunkte, die echten Enden liegen nicht unbedingt nebeneinander); per ⌥-Klick auf einen Trackpunkt lässt sich ein Anker auch direkt setzen",
+  "zh-Hant": "錨點逐點前後挪（隧道裡常有漂移點，真實兩端未必相鄰）；⌥點擊軌跡點也可直接設錨點"
+ },
+ {
+  "table": "Localizable",
+  "key": "锚点附近没有可行驶道路",
+  "en": "No drivable road near the anchor",
+  "de": "Keine befahrbare Straße in der Nähe des Ankers",
+  "zh-Hant": "錨點附近沒有可行駛道路"
+ },
+ {
+  "table": "Localizable",
+  "key": "长春",
+  "en": "Changchun",
+  "de": "Changchun",
+  "zh-Hant": "長春"
+ },
+ {
+  "table": "Localizable",
+  "key": "长沙",
+  "en": "Changsha",
+  "de": "Changsha",
+  "zh-Hant": "長沙"
+ },
+ {
+  "table": "Localizable",
+  "key": "闲置展示",
+  "en": "Idle Showcase",
+  "de": "Leerlauf-Präsentation",
+  "zh-Hant": "閒置展示"
+ },
+ {
+  "table": "Localizable",
+  "key": "阿姆斯特丹",
+  "en": "Amsterdam",
+  "de": "Amsterdam",
+  "zh-Hant": "阿姆斯特丹"
+ },
+ {
+  "table": "Localizable",
+  "key": "隐含速度",
+  "en": "Implied Speed",
+  "de": "Impl. Tempo",
+  "zh-Hant": "隱含速度"
+ },
+ {
+  "table": "Localizable",
+  "key": "隔一段",
+  "en": "Every 2nd",
+  "de": "Jedes zweite",
+  "zh-Hant": "隔一段"
+ },
+ {
+  "table": "Localizable",
+  "key": "隔两段",
+  "en": "Every 3rd",
+  "de": "Jedes dritte",
+  "zh-Hant": "隔兩段"
+ },
+ {
+  "table": "Localizable",
+  "key": "隧道之间有 %@ km 露天线路一个点都没有（隧道占 %@%%），更像车厢里没信号",
+  "en": "%1$@ km of open-air track between tunnels has no points at all (tunnel share %2$@%%); more like no signal inside the train",
+  "de": "%1$@ km offene Strecke zwischen Tunneln ganz ohne Punkte (Tunnelanteil %2$@%%); eher kein Signal im Zug",
+  "zh-Hant": "隧道之間有 %1$@ km 露天線路一個點都沒有（隧道佔 %2$@%%），更像車廂裡沒訊號"
+ },
+ {
+  "table": "Localizable",
+  "key": "隧道口外 %@ km 露天线路没有点（出隧道后重新定位不该这么久），更像车厢里没信号",
+  "en": "No points on %@ km of open-air track outside the tunnel portal (regaining a fix after a tunnel shouldn't take that long); more like no signal inside the train",
+  "de": "Keine Punkte auf %@ km offener Strecke außerhalb des Tunnelportals (die Neuortung nach einem Tunnel sollte nicht so lange dauern); eher kein Signal im Zug",
+  "zh-Hant": "隧道口外 %@ km 露天線路沒有點（出隧道後重新定位不該這麼久），更像車廂裡沒訊號"
+ },
+ {
+  "table": "Localizable",
+  "key": "隧道群：由 %lld 处相邻断档并成，中间夹的 %lld 个点随区间替换",
+  "en": "Tunnel chain: merged from adjacent gaps (%1$lld); the points between them (%2$lld) are replaced along with the range",
+  "de": "Tunnelkette: aus benachbarten Lücken (%1$lld) zusammengefasst; die Punkte dazwischen (%2$lld) werden mit dem Bereich ersetzt",
+  "zh-Hant": "隧道群：由 %1$lld 處相鄰斷檔併成，中間夾的 %2$lld 個點隨區間替換"
+ },
+ {
+  "table": "Localizable",
+  "key": "雅典",
+  "en": "Athens",
+  "de": "Athen",
+  "zh-Hant": "雅典"
+ },
+ {
+  "table": "Localizable",
+  "key": "雅加达",
+  "en": "Jakarta",
+  "de": "Jakarta",
+  "zh-Hant": "雅加達"
+ },
+ {
+  "table": "Localizable",
+  "key": "雾径",
+  "en": "Radius",
+  "de": "Radius",
+  "zh-Hant": "霧徑"
+ },
+ {
+  "table": "Localizable",
+  "key": "露天段：隧道之间最长 %@ m，两端最长 %@ m，当作隧道断档补",
+  "en": "Open-air sections: longest between tunnels %1$@ m, longest at the ends %2$@ m; filled as a tunnel gap",
+  "de": "Offene Abschnitte: zwischen Tunneln max. %1$@ m, an den Enden max. %2$@ m; als Tunnellücke gefüllt",
+  "zh-Hant": "露天段：隧道之間最長 %1$@ m，兩端最長 %2$@ m，當作隧道斷檔補"
+ },
+ {
+  "table": "Localizable",
+  "key": "青岛",
+  "en": "Qingdao",
+  "de": "Qingdao",
+  "zh-Hant": "青島"
+ },
+ {
+  "table": "Localizable",
+  "key": "非 JSON（HTTP %lld）",
+  "en": "Not JSON (HTTP %lld)",
+  "de": "Kein JSON (HTTP %lld)",
+  "zh-Hant": "非 JSON（HTTP %lld）"
+ },
+ {
+  "table": "Localizable",
+  "key": "顶点 %lld",
+  "en": "Vertices: %lld",
+  "de": "Stützpunkte: %lld",
+  "zh-Hant": "頂點 %lld"
+ },
+ {
+  "table": "Localizable",
+  "key": "预删除：按住拖拽手绘圈选（松手自动首尾连线）· 右键拖拽平移",
+  "en": "Stage for deletion: hold and drag to draw a lasso (it closes automatically on release) · Right-drag to pan",
+  "de": "Zum Löschen vormerken: gedrückt ziehen, um ein Lasso zu zeichnen (schließt sich beim Loslassen) · Rechtsziehen zum Verschieben",
+  "zh-Hant": "預刪除：按住拖曳手繪圈選（放開自動首尾連線）· 右鍵拖曳平移"
+ },
+ {
+  "table": "Localizable",
+  "key": "首尔",
+  "en": "Seoul",
+  "de": "Seoul",
+  "zh-Hant": "首爾"
+ },
+ {
+  "table": "Localizable",
+  "key": "香港",
+  "en": "Hong Kong",
+  "de": "Hongkong",
+  "zh-Hant": "香港"
+ },
+ {
+  "table": "Localizable",
+  "key": "马尼拉",
+  "en": "Manila",
+  "de": "Manila",
+  "zh-Hant": "馬尼拉"
+ },
+ {
+  "table": "Localizable",
+  "key": "马德里",
+  "en": "Madrid",
+  "de": "Madrid",
+  "zh-Hant": "馬德里"
+ },
+ {
+  "table": "Localizable",
+  "key": "（地名查询失败：%@，可稍后再点进来重试）",
+  "en": "(Place-name lookup failed: %@; open this again later to retry)",
+  "de": "(Ortsnamensuche fehlgeschlagen: %@; zum erneuten Versuch später noch einmal öffnen)",
+  "zh-Hant": "（地名查詢失敗：%@，可稍後再點進來重試）"
+ },
+ {
+  "table": "Localizable",
+  "key": "（无时间）",
+  "en": "(no timestamp)",
+  "de": "(ohne Zeitstempel)",
+  "zh-Hant": "（無時間）"
+ },
+ {
+  "table": "Localizable",
+  "key": "（没有地名）",
+  "en": "(no place name)",
+  "de": "(kein Ortsname)",
+  "zh-Hant": "（沒有地名）"
+ }
+]

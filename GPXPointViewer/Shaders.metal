@@ -28,7 +28,48 @@ struct PointUniforms {
     uint   pixelMode;    // 保留占位（与 Swift 端布局对齐）
     int    flashFile;    // 文件高亮闪烁：目标文件下标（-1 = 无）
     float  flashStrength;// 闪烁强度 0…1（淡入/淡出）
+    uint   useOrder;     // 空间剔除：1 = 实例经莫顿序置换表间接寻址
+    uint   orderStart;   // 置换表区段起点
+    uint   orderLen;     // 置换表区段长度
+    uint   _pad2;
 };
+
+// 空间剔除下的下标解析：pi = 原始（时间序）下标，用于时间区间检查/文件 ID；
+// di = 数据下标——时间序路径等于 pi，空间路径是置换表位置（位置/颜色缓冲
+// 绑定的是按莫顿序物理重排的副本，顺序读，无随机 gather）。
+// useOrder：0 时间序；1 置换表区段；2 去重（aux = 格首点表）；
+// 3 时间序可见表（aux = 视口内点按时间排好的原始下标，读时间序缓冲）。
+// 落在时间筛选区间外的点剔除（区段不含时间过滤）。返回 false = 本实例剔除
+static inline bool resolvePointIndex(uint iid, constant PointUniforms& u,
+                                     const device uint* order,
+                                     const device uint* aux,
+                                     thread uint& pi, thread uint& di)
+{
+    uint hi = min(u.start + u.rangeLen - 1, u.count - 1);
+    if (u.useOrder == 0u) {
+        pi = min(u.start + iid * u.stride, hi);
+        di = pi;
+        return true;
+    }
+    if (u.useOrder == 3u) {
+        if (iid >= u.orderLen) { pi = hi; di = hi; return false; }
+        pi = aux[u.orderStart + iid];
+        di = pi;
+        return pi >= u.start && pi <= hi;
+    }
+    if (u.useOrder == 2u) {
+        // 去重 LOD：实例 = 格首点表子区间的一项 → 莫顿序位置 → 原始下标
+        if (iid >= u.orderLen) { pi = hi; di = hi; return false; }
+        di = aux[u.orderStart + iid];
+        pi = order[di];
+        return pi >= u.start && pi <= hi;
+    }
+    uint k = iid * u.stride;
+    if (k >= u.orderLen) { pi = hi; di = hi; return false; }
+    di = u.orderStart + k;
+    pi = order[di];
+    return pi >= u.start && pi <= hi;
+}
 
 struct VOut {
     float4 position [[position]];
@@ -47,17 +88,26 @@ vertex VOut pointVertex(uint vid [[vertex_id]],
                         const device float*  posY   [[buffer(1)]],
                         const device uchar4* colors [[buffer(2)]],
                         constant PointUniforms& u   [[buffer(3)]],
-                        const device ushort* fileID [[buffer(4)]])
+                        const device ushort* fileID [[buffer(4)]],
+                        const device uint*   order  [[buffer(7)]],
+                        const device uint*   aux    [[buffer(8)]])
 {
-    // LOD 抽稀 + 时间筛选区间：pi = start + iid·stride，双重钳制
-    uint hi = min(u.start + u.rangeLen - 1, u.count - 1);
-    uint pi = min(u.start + iid * u.stride, hi);
+    // LOD 抽稀 + 时间筛选区间（时间序）或 置换表区段（空间剔除）
+    uint pi, di;
+    if (!resolvePointIndex(iid, u, order, aux, pi, di)) {
+        VOut cull;
+        cull.position = float4(0.0, 0.0, -2.0, 1.0);   // 近平面之外 → 裁掉
+        cull.pxOffset = float2(0.0);
+        cull.color = float4(0.0);
+        cull.radiusPx = 0.0;
+        return cull;
+    }
 
-    float2 center = float2(posX[pi], posY[pi]) * u.scale + u.offset;
+    float2 center = float2(posX[di], posY[di]) * u.scale + u.offset;
 
     // 文件闪烁：目标文件透明度拉满 + 放大，其余保色降透明（不全透明）
     float radius = u.radiusPx;
-    float4 c = float4(colors[pi]) / 255.0;
+    float4 c = float4(colors[di]) / 255.0;
     float a = c.a * u.alpha;
     if (u.flashFile >= 0) {
         if (int(fileID[pi]) == u.flashFile) {
@@ -105,19 +155,53 @@ fragment float4 pointFragment(VOut in [[stage_in]],
 // ============================================================================
 // 方向箭头轨迹线（GPU 实例化）
 //
-// 第 i 个实例 = 第 i 条线段，顶点着色器直接读 posX/posY[iid] 与 [iid+1]
-// —— 与点渲染共用同一对 SoA 缓冲，零额外几何内存、零 CPU 预计算。
+// 每个实例经紧凑 draw-run 找到同段内两个规范化时间下标。
+// 与点渲染共用位置 SoA；只上传 run 描述符，不展开每条边的坐标。
 // 方向归一化、法线、箭头张角全部在 GPU 上对全部线段并行完成。
-// 箭头语义：从时间早的点（iid）指向时间晚的点（iid+1）。
+// 箭头语义：从本段内规范化时间早的点指向晚的点。
 //
 // 每条线段两次实例化提交：4 顶点三角带 = 箭杆，3 顶点三角形 = 箭头。
 // ============================================================================
+
+// Compact normalized segment topology. One descriptor per soft-broken run;
+// iid locates a run, then samples its path ranks. Never joins two runs.
+struct PathDrawRun { uint begin; uint end; uint firstInstance; uint instanceCount; };
+struct PathUniforms { uint runCount; uint stride; uint identityOrder; uint fileMask; };
+struct PathEdge { uint i0; uint i1; uint localInstance; bool valid; };
+static inline PathEdge pathEdge(uint iid, const device uint* order,
+                                const device PathDrawRun* runs,
+                                constant PathUniforms& p) {
+    PathEdge e = { 0u, 0u, 0u, false };
+    uint lo = 0u, hi = p.runCount;
+    while (p.runCount > 1u && lo < hi) {
+        uint mid = lo + (hi - lo) / 2u;
+        PathDrawRun r = runs[mid];
+        if (iid >= r.firstInstance + r.instanceCount) lo = mid + 1u;
+        else hi = mid;
+    }
+    if (lo >= p.runCount) return e;
+    PathDrawRun r = runs[lo];
+    if (iid < r.firstInstance || r.end <= r.begin) return e;
+    uint j = iid - r.firstInstance;
+    uint a = r.begin + min(j * p.stride, r.end - r.begin - 1u);
+    uint b = a + min(p.stride, r.end - 1u - a); // saturates without uint multiplication overflow
+    e.i0 = p.identityOrder != 0u ? a : order[a];
+    e.i1 = p.identityOrder != 0u ? b : order[b];
+    e.localInstance = j; e.valid = true;
+    return e;
+}
+static inline bool pathFileHidden(uint i, uint mask, const device ushort* ids) {
+    if (mask == 0xFFFFFFFFu) return false; // dummy file buffer is only two bytes
+    uint file = uint(ids[i]);
+    return file < 32u && ((mask >> file) & 1u) == 0u;
+}
 
 struct LineUniforms {
     float2 scale;        // RTC 墨卡托 → NDC
     float2 offset;
     float2 viewportPx;   // 物理像素
-    float2 _pad;
+    uint   useBreaks;    // 1 = 按断点前缀和剔除跨段直连（buffer 3）
+    uint   arrowEvery;   // 箭头密度：每 N 段一个箭头（箭杆照常）
     float4 color;        // 线颜色（a = 线透明度）
     float  widthPx;      // 箭杆宽（像素）
     float  headLenPx;    // 箭头长（0 = 不画箭头，箭杆通到底）
@@ -145,30 +229,40 @@ static inline float4 linePixelToClip(float2 p, constant LineUniforms& u) {
                   1.0 - p.y / u.viewportPx.y * 2.0, 0.0, 1.0);
 }
 
-vertex LineVOut segmentVertex(uint vid [[vertex_id]],
-                              uint iid [[instance_id]],
-                              const device float* posX [[buffer(0)]],
-                              const device float* posY [[buffer(1)]],
-                              constant LineUniforms& u [[buffer(2)]])
-{
+static inline LineVOut culledLine() {
+    LineVOut o; o.position=float4(0.0,0.0,-2.0,1.0);o.edgePx=0.0;return o;
+}
+static inline LineVOut lineGeometry(uint vid, uint localInstance, uint i0, uint i1,
+                                    const device float* posX, const device float* posY,
+                                    constant LineUniforms& u, bool cullAABB) {
     LineVOut o;
-    // LOD 抽稀 + 时间筛选区间：第 iid 段连接抽稀后的相邻两点
-    uint hiIdx = min(u.start + u.rangeLen - 1, u.count - 1);
-    uint i0 = min(u.start + iid * u.stride, hiIdx > 0 ? hiIdx - 1 : 0);
-    uint i1 = min(i0 + u.stride, hiIdx);
     float2 a = lineMercToPixel(posX[i0], posY[i0], u);   // 时间早
     float2 b = lineMercToPixel(posX[i1], posY[i1], u);   // 时间晚
     float2 d = b - a;
     float len = length(d);
-    if (len < 0.75) {
-        // 亚像素线段：裁掉（z 超出 [0,w] 被剔除），远缩放时自动降密
+    // 跨段/跨天的超长直连不画（世界墨卡托单位，由 CPU 按纬度换算自 10 km）；
+    // 亚像素线段裁掉（远缩放自动降密）；箭头按密度隔段画
+    // 这一段有没有箭头：按密度隔段画；没箭头的段箭杆通到底（否则看起来像虚线）
+    bool hasHead = u.headLenPx > 0.0 && (u.arrowEvery <= 1 || (localInstance % u.arrowEvery) == 0);
+    bool skipHead = u.isHead == 1 && !hasHead;
+    // 跨段/跨天直连不画：两点之间（含 LOD 抽稀跨过的点）有任何断点（>30 min 或 >10 km 的步）
+    // Runs already enforce both hard and requested soft breaks. Cull the edge
+    // AABB, not its endpoints: a crossing edge can have both endpoints outside.
+    bool outside = false;
+    if (cullAABB) {
+        float pad = max(u.widthPx, u.headWidthPx) * 0.5 + u.headLenPx + 1.0;
+        float2 low = min(a,b), high = max(a,b);
+        outside = high.x < -pad || high.y < -pad ||
+                  low.x > u.viewportPx.x + pad || low.y > u.viewportPx.y + pad;
+    }
+    if (len < 0.75 || skipHead || outside) {
         o.position = float4(0.0, 0.0, -2.0, 1.0);
         o.edgePx = 0.0;
         return o;
     }
     float2 dir = d / len;
     float2 nrm = float2(-dir.y, dir.x);
-    float head = min(u.headLenPx, len * 0.5);
+    float head = hasHead ? min(u.headLenPx, len * 0.5) : 0.0;
 
     if (u.isHead == 1) {
         float halfW = u.headWidthPx * 0.5;
@@ -188,6 +282,41 @@ vertex LineVOut segmentVertex(uint vid [[vertex_id]],
         o.edgePx = sv * halfW;
     }
     return o;
+}
+
+vertex LineVOut segmentVertex(uint vid [[vertex_id]],
+                              uint iid [[instance_id]],
+                              const device float* posX [[buffer(0)]],
+                              const device float* posY [[buffer(1)]],
+                              constant LineUniforms& u [[buffer(2)]],
+                              const device uint* brk [[buffer(3)]],
+                              const device ushort* fileID [[buffer(4)]],
+                              const device uint* pathOrder [[buffer(5)]],
+                              const device PathDrawRun* pathRuns [[buffer(6)]],
+                              constant PathUniforms& path [[buffer(7)]])
+{
+    PathEdge edge=pathEdge(iid,pathOrder,pathRuns,path);
+    if (!edge.valid || edge.i0>=u.count || edge.i1>=u.count ||
+        pathFileHidden(edge.i0,path.fileMask,fileID) || pathFileHidden(edge.i1,path.fileMask,fileID))
+        return culledLine();
+    return lineGeometry(vid,edge.localInstance,edge.i0,edge.i1,posX,posY,u,true);
+}
+
+// Ordinary identity single-run path stays independent of descriptor lookup.
+// CPU supplies this run's clipped begin/end; ceil((L-1)/stride) keeps its tail.
+vertex LineVOut segmentIdentityVertex(uint vid [[vertex_id]], uint iid [[instance_id]],
+                                      const device float* posX [[buffer(0)]],
+                                      const device float* posY [[buffer(1)]],
+                                      constant LineUniforms& u [[buffer(2)]],
+                                      const device ushort* fileID [[buffer(4)]],
+                                      constant uint& fileMask [[buffer(8)]]) {
+    uint hi=min(u.start+u.rangeLen-1u,u.count-1u);
+    uint i0=u.start+iid*u.stride;
+    if (i0>=hi) return culledLine();
+    uint i1=i0+min(u.stride,hi-i0);
+    if (pathFileHidden(i0,fileMask,fileID) || pathFileHidden(i1,fileMask,fileID)) return culledLine();
+    // Native clip-space clipping is sufficient for this linear fast path.
+    return lineGeometry(vid,iid,i0,i1,posX,posY,u,false);
 }
 
 fragment float4 segmentFragment(LineVOut in [[stage_in]],
@@ -232,6 +361,10 @@ struct GlobeUniforms {
     float    mapDim;       // 底图不透明度（与平面地图的压暗语义一致，只作用于球面）
     int      flashFile;    // 文件高亮闪烁：目标文件下标（-1 = 无）
     float    flashStrength;// 闪烁强度 0…1
+    uint     fileMask;     // 迷雾模式文件显隐位掩码（仅 fogStyle 下生效）
+    uint     pad0;
+    uint     pad1;
+    uint     pad2;
 };
 
 // 视图空间固定灯位（略偏右上，随相机走 —— 可见半球恒亮）
@@ -303,12 +436,24 @@ vertex GlobePointVOut globePointVertex(uint vid [[vertex_id]],
     // 基础抬升 + 海拔抬升：地面轨迹略离球面，飞行轨迹拱出立体弧线
     float4 clip = u.mvp * float4(unit * (1.0 + u.pointLift + lift[pi]), 1.0);
 
+    // 迷雾风格（flags bit2）：点云统一为白亮轨迹（配合暗化球面，
+    // 与平面迷雾的"暗雾 + 亮走廊"观感在过渡时连续）
+    bool fogStyle = (u.flags & 4u) != 0u;
+    // 迷雾模式的文件显隐（与平面掩码语义一致；掩码全 1 时不读 fileID，
+    // 避免占位缓冲越界；≥32 号文件恒可见）
+    if (fogStyle && u.fileMask != 0xFFFFFFFFu) {
+        uint fid = (u.flags & 8u) != 0u ? 0u:uint(fileID[pi]);
+        if (fid < 32u && ((u.fileMask >> fid) & 1u) == 0u) {
+            clip = float4(0.0, 0.0, -2.0, 1.0);   // 裁掉
+        }
+    }
     // 文件闪烁（与平面路径同语义）
     float radius = u.radiusPx;
     float4 c = float4(colors[pi]) / 255.0;
+    if (fogStyle) { c = float4(0.97, 0.97, 0.94, 0.92); }
     float a = c.a * u.alpha;
     if (u.flashFile >= 0 && !ring) {
-        if (int(fileID[pi]) == u.flashFile) {
+        if (((u.flags & 8u) != 0u ? 0:int(fileID[pi])) == u.flashFile) {
             radius = u.radiusPx * (1.0 + 0.55 * u.flashStrength);
             a = mix(a, 1.0, u.flashStrength);
         } else {
@@ -636,4 +781,421 @@ fragment float4 meteorFragment(MeteorVOut in [[stage_in]])
     float a = tail * across;                                        // 进出都在画面外，无需包络
     float3 col = mix(float3(1.0, 0.98, 0.92), float3(1.0, 0.62, 0.30), in.along * 1.15);
     return float4(col, a * 0.9);
+}
+
+// ============================================================================
+// 平面热力图（两趟）：
+// 1) heatAccum*：全部可见点以高斯核加性混合累积到半分辨率 r16f 密度纹理；
+// 2) heatColor*：全屏三角形采样密度，1-exp(-v·gain) 压缩后过蓝→红色标。
+// LOD 抽稀的密度损失由 gain×stride 归一化补偿。
+// ============================================================================
+
+struct HeatUniforms {
+    float gain;        // 密度→热度增益（已含 stride 归一化）
+    float opacity;     // 图层整体透明度
+    float pad1;
+    float pad2;
+};
+
+vertex VOut heatAccumVertex(uint vid [[vertex_id]],
+                            uint iid [[instance_id]],
+                            const device float* posX [[buffer(0)]],
+                            const device float* posY [[buffer(1)]],
+                            constant PointUniforms& u [[buffer(3)]],
+                            const device uint* order [[buffer(7)]],
+                            const device uint* aux [[buffer(8)]])
+{
+    uint pi, di;
+    if (!resolvePointIndex(iid, u, order, aux, pi, di)) {
+        VOut cull;
+        cull.position = float4(0.0, 0.0, -2.0, 1.0);
+        cull.pxOffset = float2(0.0);
+        cull.color = float4(0.0);
+        cull.radiusPx = 0.0;
+        return cull;
+    }
+    float2 center = float2(posX[di], posY[di]) * u.scale + u.offset;
+    float2 corner = quadCorners[vid];
+    VOut o;
+    o.position = float4(center + corner * u.radiusPx * u.ndcPerPixel, 0.0, 1.0);
+    o.pxOffset = corner * u.radiusPx;
+    o.color = float4(1.0);
+    o.radiusPx = u.radiusPx;
+    return o;
+}
+
+fragment float4 heatAccumFragment(VOut in [[stage_in]])
+{
+    float d = length(in.pxOffset) / max(in.radiusPx, 0.001);
+    float w = exp(-d * d * 3.0) * step(d, 1.0);   // 高斯核，核外为零
+    return float4(w, 0.0, 0.0, 0.0);
+}
+
+struct HeatQuadVOut {
+    float4 position [[position]];
+    float2 uv;
+};
+
+vertex HeatQuadVOut heatQuadVertex(uint vid [[vertex_id]])
+{
+    float2 pos[3] = { float2(-1.0, -1.0), float2(3.0, -1.0), float2(-1.0, 3.0) };
+    HeatQuadVOut o;
+    o.position = float4(pos[vid], 0.0, 1.0);
+    o.uv = float2((pos[vid].x + 1.0) * 0.5, (1.0 - pos[vid].y) * 0.5);
+    return o;
+}
+
+fragment float4 heatColorFragment(HeatQuadVOut in [[stage_in]],
+                                  texture2d<float> density [[texture(0)]],
+                                  constant HeatUniforms& hu [[buffer(0)]])
+{
+    constexpr sampler smp(mag_filter::linear, min_filter::linear);
+    float v = density.sample(smp, in.uv).r;
+    float t = 1.0 - exp(-v * hu.gain);            // 软压缩到 0..1
+    if (t < 0.02) { discard_fragment(); }
+    float3 c;
+    if (t < 0.25)      c = mix(float3(0.10, 0.25, 0.85), float3(0.05, 0.75, 0.90), t / 0.25);
+    else if (t < 0.50) c = mix(float3(0.05, 0.75, 0.90), float3(0.15, 0.85, 0.25), (t - 0.25) / 0.25);
+    else if (t < 0.75) c = mix(float3(0.15, 0.85, 0.25), float3(0.98, 0.85, 0.15), (t - 0.50) / 0.25);
+    else               c = mix(float3(0.98, 0.85, 0.15), float3(0.95, 0.15, 0.10), (t - 0.75) / 0.25);
+    float a = min(1.0, t * 1.6) * hu.opacity;
+    return float4(c, a);
+}
+
+// ============================================================================
+// 迷雾模式（世界迷雾同款观感）：两趟——
+// 1) fogSeg*：沿轨迹相邻点的"线段"撒胶囊形清除区（走廊连续，不会断珠），
+//    清除半径按真实米制（随纬度校正），缩小时钳制最小像素宽度；
+//    相邻点距离过大（轨迹间瞬移）自动剪断，只清端点；
+// 2) fogColor*：全屏合成——未探索处画深色雾，走过区域挖透并叠加
+//    白色冲刷 + 边缘亮晕（与手机版世界迷雾的明暗对比一致）。
+// ============================================================================
+
+struct FogUniforms {
+    float4 color;    // rgb = 雾色，a = 雾整体不透明度
+    float4 params;   // x = RTC 中心的墨卡托 y，y = 清除半径（米），
+                     // z = 最小半径（累积纹理像素），w = 清除区白冲刷强度
+    uint4  flags;    // x = 文件可见位掩码（重叠模式勾选显隐），yzw 备用
+};
+
+struct FogSegVOut {
+    float4 position [[position]];
+    float2 local;      // 胶囊局部坐标（像素）：x 沿线段，y 横向
+    float  segLen;     // 线段长（像素）
+    float  radius;     // 清除半径（像素）
+};
+
+vertex FogSegVOut fogSegVertex(uint vid [[vertex_id]],
+                               uint iid [[instance_id]],
+                               const device float* posX [[buffer(0)]],
+                               const device float* posY [[buffer(1)]],
+                               constant PointUniforms& u [[buffer(3)]],
+                               constant FogUniforms& f [[buffer(4)]],
+                               const device uint* brk [[buffer(5)]],
+                               const device ushort* fileID [[buffer(6)]],
+                               const device uint* pathOrder [[buffer(7)]],
+                               const device PathDrawRun* pathRuns [[buffer(8)]],
+                               constant PathUniforms& path [[buffer(9)]])
+{
+    PathEdge edge = pathEdge(iid, pathOrder, pathRuns, path);
+    if (!edge.valid || edge.i0 >= u.count || edge.i1 >= u.count) {
+        FogSegVOut cull;
+        cull.position = float4(0.0,0.0,-2.0,1.0); cull.local = float2(0.0);
+        cull.segLen = 0.0; cull.radius = 1.0; return cull;
+    }
+    uint i0 = edge.i0, i1 = edge.i1;
+    float2 aN = float2(posX[i0], posY[i0]) * u.scale + u.offset;
+    float2 bN = float2(posX[i1], posY[i1]) * u.scale + u.offset;
+
+    FogSegVOut o;
+    // 文件显隐（重叠模式勾选）：掩码全 1 时跳过 fileID 读取——单文件/压测/
+    // 删点重建等路径绑定的是 2 字节占位缓冲，读了就是越界。
+    // i0 端隐藏 → 整段剔除；仅 i1 端隐藏 → 按断点处理（只清 i0 端点）。
+    // ≥32 号文件超出掩码位宽，恒可见（UI 侧同样只给前 32 个勾选框）
+    bool hideSeg = false;
+    bool cutSeg = false;
+    if (f.flags.x != 0xFFFFFFFFu) {
+        uint f0 = uint(fileID[i0]);
+        uint f1 = uint(fileID[i1]);
+        hideSeg = (f0 < 32u) && (((f.flags.x >> f0) & 1u) == 0u);
+        cutSeg  = (f1 < 32u) && (((f.flags.x >> f1) & 1u) == 0u);
+    }
+    if (hideSeg) {
+        o.position = float4(0.0, 0.0, -2.0, 1.0);
+        o.local = float2(0.0);
+        o.segLen = 0.0;
+        o.radius = 1.0;
+        return o;
+    }
+
+    // 米 → 墨卡托（i0 纬度）：cos(lat) = 1/cosh(π(1−2y))
+    float mercY = posY[i0] + f.params.x;
+    float cosLat = 1.0 / cosh(3.14159265f * (1.0f - 2.0f * mercY));
+    float rMerc = f.params.y / (40075016.7f * max(cosLat, 0.05f));
+    float rPx = clamp(rMerc * u.scale.x / u.ndcPerPixel.x, f.params.z, 4096.0f);
+
+    // CPU fog-runs already split hard boundaries and every original soft gap.
+    // LOD is confined to one run; a singleton run clears its own endpoint.
+    if (cutSeg) { bN = aN; }
+    float2 pad = abs(u.ndcPerPixel) * rPx;
+    if (any(max(aN,bN) < -1.0f - pad) || any(min(aN,bN) > 1.0f + pad)) {
+        o.position = float4(0.0,0.0,-2.0,1.0); o.local = float2(0.0);
+        o.segLen = 0.0; o.radius = 1.0; return o;
+    }
+
+    // 像素空间展开胶囊四边形（中心原点，y 方向翻转与否不影响等距展开）
+    float2 A = aN / u.ndcPerPixel;
+    float2 B = bN / u.ndcPerPixel;
+    float2 d = B - A;
+    float L = length(d);
+    float2 dir = (L > 1e-4f) ? d / L : float2(1.0, 0.0);
+    float2 nrm = float2(-dir.y, dir.x);
+    float su = (vid < 2) ? 0.0f : 1.0f;
+    float sv = (vid % 2 == 0) ? -1.0f : 1.0f;
+    float ax = su * (L + 2.0f * rPx) - rPx;       // 沿轴 [-r, L+r]
+    float2 P = A + dir * ax + nrm * (sv * rPx);
+
+    o.position = float4(P * u.ndcPerPixel, 0.0, 1.0);
+    o.local = float2(ax, sv * rPx);
+    o.segLen = L;
+    o.radius = rPx;
+    return o;
+}
+
+fragment float4 fogSegFragment(FogSegVOut in [[stage_in]])
+{
+    // 胶囊 SDF：到线段的距离 → 高斯衰减
+    float dx = clamp(in.local.x, 0.0, in.segLen);
+    float d = length(float2(in.local.x - dx, in.local.y)) / max(in.radius, 0.001);
+    float w = exp(-d * d * 3.0) * step(d, 1.0);
+    return float4(w, 0.0, 0.0, 0.0);
+}
+
+struct HeatQuadVOut2 { float4 position [[position]]; float2 uv; };
+
+fragment float4 fogColorFragment(HeatQuadVOut in [[stage_in]],
+                                 texture2d<float> mask [[texture(0)]],
+                                 constant FogUniforms& f [[buffer(0)]])
+{
+    constexpr sampler smp(mag_filter::linear, min_filter::linear);
+    float v = mask.sample(smp, in.uv).r;
+    float explored = smoothstep(0.16, 0.50, v);
+    // 未探索：深色雾；已探索：白色冲刷把走廊提亮（世界迷雾同款对比）
+    float fogA = f.color.a * (1.0 - explored);
+    float rim = smoothstep(0.05, 0.20, v) * (1.0 - smoothstep(0.45, 1.05, v));
+    float whiteA = min(1.0, f.params.w * explored + rim * 0.38);
+    // 两层预合成为单输出：先雾后白
+    float outA = fogA + whiteA * (1.0 - fogA);
+    float3 rgb = (f.color.rgb * fogA + float3(1.0) * whiteA * (1.0 - fogA))
+               / max(outA, 0.003);
+    return float4(rgb, outA);
+}
+
+// ============================================================================
+// 迷雾存档（.fwdb）方格实例：每实例 [x, y, halfSize, coverage]
+// （墨卡托，相对批中心），写覆盖率进遮罩纹理，合成 pass 复用 fogColor*。
+// 聚合级别的部分覆盖块以 coverage < 1 呈现半清除。
+// ============================================================================
+
+struct FwdbCellVOut {
+    float4 position [[position]];
+    float2 localPx;                    // 距块中心的偏移（遮罩像素）
+    float2 halfPx [[flat]];            // 块真实半宽/半高（遮罩像素）
+    float  feather [[flat]];           // 羽边半宽（像素）：0.5 = 精确格，随格宽扩散 = 平滑
+    float  coverage [[flat]];
+};
+
+// 方格向外扩 0.5px 画，片元里按"1px 盒滤波"算解析式覆盖率：
+// 近看（块几十像素）边缘只有半像素羽化，仍是锐利的格子；
+// 远看（块 ≈1px）自然融成平滑细线——对齐手机版世界迷雾的观感，
+// 而且扩边后亚像素块也必然覆盖到像素中心，不会漏画成虚线
+vertex FwdbCellVOut fwdbCellVertex(uint vid [[vertex_id]],
+                                   uint iid [[instance_id]],
+                                   const device float4* cells [[buffer(0)]],
+                                   constant PointUniforms& u [[buffer(3)]])
+{
+    float4 c = cells[iid];
+    float2 corner = quadCorners[vid];
+    // 块半宽换算到遮罩像素（scale.y 为负取绝对值）
+    float2 halfPx = abs(c.z * u.scale / u.ndcPerPixel);
+    // 平滑模式（mode==1）：每格换成径向高斯溅斑（σ≈0.95×半宽），相邻格的场
+    // 相加后阈值取等值线——阶梯边融成圆滑连续的轮廓（类金属球，即手机版
+    // 世界迷雾的扩散观感）；精确模式恒 0.5px 盒滤波，近看是锐利的原始格
+    float fe = (u.mode == 1u) ? max(0.5, 0.95 * min(halfPx.x, halfPx.y)) : 0.5;
+    float2 quadPx = halfPx + ((u.mode == 1u) ? 3.0 * fe : fe);
+    float2 center = c.xy * u.scale + u.offset;
+    // corner 直接在像素空间外扩，再换回 NDC（y 轴方向由 ndcPerPixel 恒正、
+    // NDC 上下对称，方向翻转对对称四边形无影响）
+    float2 pos = center + corner * quadPx * u.ndcPerPixel;
+    FwdbCellVOut o;
+    o.position = float4(pos, 0.0, 1.0);
+    o.localPx = corner * quadPx;
+    o.halfPx = halfPx;
+    o.feather = fe;
+    o.coverage = c.w;
+    return o;
+}
+
+fragment float4 fwdbCellFragment(FwdbCellVOut in [[stage_in]])
+{
+    // feather>0.5 = 平滑模式：径向高斯溅斑；否则精确模式：1px 盒滤波抗锯齿
+    float v;
+    if (in.feather > 0.5001) {
+        float r2 = dot(in.localPx, in.localPx) / (in.feather * in.feather);
+        v = exp(-0.5 * r2);
+    } else {
+        float2 w = clamp(in.halfPx - abs(in.localPx) + 0.5, 0.0, 1.0);
+        v = w.x * w.y;
+    }
+    // 亚像素块饱和增益：块 <1.1px 时线心峰值被抬回 ≥1，
+    // 级别切换前后合成端的 rim/explored 项都在饱和区 → 无亮度跳变、
+    // 细线沿线亮度均匀（大块 boost=1，近看观感不变）
+    float boost = clamp(0.55 / max(min(in.halfPx.x, in.halfPx.y), 0.18), 1.0, 3.0);
+    return float4(in.coverage * boost * v, 0.0, 0.0, 0.0);
+}
+
+// ============================================================================
+// 3D 热力柱：自绘透视场景。方块按世界迷雾格网聚合（边长 k 格），
+// 点数 → 高度（对数归一）+ 颜色（绿→黄→红）。两种样式共用一套实例：
+//   棱角 = 平顶方柱（顶面用块自身高度）；
+//   平滑 = 顶面四角取相邻块平均高度的双线性面片，块间自然衔接成地形。
+// 每实例 30 顶点（顶面 2 三角 + 四面墙各 2），无索引实例化单 draw call。
+// ============================================================================
+
+struct Heat3DUniforms {
+    float4x4 mvp;
+    float4   light;    // xyz = 方向光（单位向量），w = 环境光
+    float4   params;   // x = 平滑(0/1)，y = 地面亮度，z = 块透明度，w 备用
+};
+
+struct H3DVOut {
+    float4 position [[position]];
+    float3 color;
+    float  shade;
+};
+
+constant float2 h3dCorner[4] = { float2(-1,-1), float2(1,-1), float2(1,1), float2(-1,1) };
+
+static inline float3 h3dHeatColor(float t) {
+    float3 g = float3(0.13, 0.52, 0.29);
+    float3 y = float3(0.95, 0.83, 0.20);
+    float3 r = float3(0.90, 0.16, 0.09);
+    return (t < 0.5) ? mix(g, y, t * 2.0) : mix(y, r, t * 2.0 - 1.0);
+}
+
+vertex H3DVOut heat3DBlockVertex(uint vid [[vertex_id]],
+                                 uint iid [[instance_id]],
+                                 const device float4* blocks [[buffer(0)]],   // 3×float4/实例
+                                 constant Heat3DUniforms& u [[buffer(1)]])
+{
+    float4 a = blocks[iid * 3 + 0];       // cx, cz, half, hOwn
+    float4 hc = blocks[iid * 3 + 1];      // 角高 h00, h10, h11, h01（网格节点共享均值）
+    float4 c2 = blocks[iid * 3 + 2];      // heat, …
+    bool smoothMode = u.params.x > 0.5;
+
+    // 顶点布局：0–11 顶面（中心扇 4 三角），12–35 四面墙（各 6）
+    // —— 顶点级 LOD/剔除（百万块场景的性能关键）——
+    float4 cc = u.mvp * float4(a.x, 0.0, a.y, 1.0);
+    float pxHalf = a.z * u.params.z / max(cc.w, 1e-7);
+    // 阈值一律相对 w（场景尺度从大洲到街区跨 4 个数量级，绝对值必错）
+    if (cc.w <= 0.0
+        || abs(cc.x) > cc.w * 1.6
+        || cc.y > cc.w * 1.6 || cc.y < -cc.w * 2.6
+        || (vid >= 12 && pxHalf < 0.6)) {
+        H3DVOut o;
+        o.position = float4(0.0, 0.0, -2.0, 1.0);
+        o.color = float3(0.0);
+        o.shade = 0.0;
+        return o;
+    }
+
+    float3 pos;
+    float3 nrm;
+    float dim = 1.0;                      // 墙脚渐暗（伪 AO）
+
+    if (vid < 12) {
+        // 顶面：中心扇。平滑 = 角高双线性 + 每顶点法线（Gouraud，光滑曲面感）；
+        // 棱角 = 平顶 + 恒定法线
+        uint t = vid / 3;                 // 三角 0..3
+        uint v = vid % 3;                 // 0 = 中心，1 = 角 t，2 = 角 t+1
+        float hC = smoothMode ? (hc[0] + hc[1] + hc[2] + hc[3]) * 0.25 : a.w;
+        uint ci = (v == 1) ? t : (t + 1) & 3;
+        float2 c = h3dCorner[ci];
+        float h = smoothMode ? hc[ci] : a.w;
+        if (v == 0) {
+            pos = float3(a.x, hC, a.y);
+        } else {
+            pos = float3(a.x + c.x * a.z, h, a.y + c.y * a.z);
+        }
+        if (smoothMode) {
+            // 每顶点坡度法线（相邻角高差 → 光照连续过渡）
+            float dx, dz;
+            if (v == 0) {
+                dx = (hc[1] + hc[2] - hc[0] - hc[3]) * 0.5;
+                dz = (hc[2] + hc[3] - hc[0] - hc[1]) * 0.5;
+            } else if (ci == 0) { dx = hc[1] - hc[0]; dz = hc[3] - hc[0]; }
+            else if (ci == 1)   { dx = hc[1] - hc[0]; dz = hc[2] - hc[1]; }
+            else if (ci == 2)   { dx = hc[2] - hc[3]; dz = hc[2] - hc[1]; }
+            else                { dx = hc[2] - hc[3]; dz = hc[3] - hc[0]; }
+            nrm = normalize(float3(-dx, 2.0 * a.z, -dz));
+        } else {
+            nrm = float3(0.0, 1.0, 0.0);
+        }
+    } else {
+        uint w = (vid - 12) / 6;
+        uint v = (vid - 12) % 6;
+        float2 cA = h3dCorner[w];
+        float2 cB = h3dCorner[(w + 1) & 3];
+        float hA = smoothMode ? hc[w] : a.w;
+        float hB = smoothMode ? hc[(w + 1) & 3] : a.w;
+        // 0: A顶, 1: A底, 2: B顶, 3: B顶, 4: A底, 5: B底
+        bool isB = (v == 2 || v == 3 || v == 5);
+        bool isTop = (v == 0 || v == 2 || v == 3);
+        float2 c = isB ? cB : cA;
+        float h = isTop ? (isB ? hB : hA) : 0.0;
+        pos = float3(a.x + c.x * a.z, h, a.y + c.y * a.z);
+        float2 d = cB - cA;
+        nrm = normalize(float3(d.y, 0.0, -d.x));
+        dim = isTop ? 1.0 : 0.62;         // 墙脚压暗，柱体立体感
+    }
+
+    H3DVOut o;
+    o.position = u.mvp * float4(pos, 1.0);
+    o.color = h3dHeatColor(c2.x);
+    o.shade = (u.light.w + (1.0 - u.light.w) * abs(dot(nrm, u.light.xyz))) * dim;
+    return o;
+}
+
+fragment float4 heat3DBlockFragment(H3DVOut in [[stage_in]],
+                                    constant Heat3DUniforms& u [[buffer(1)]])
+{
+    return float4(in.color * in.shade, 1.0);
+}
+
+// 地面：数据范围的底图截图贴在 y=0 平面（未就绪时纯色）
+struct H3DGroundVOut {
+    float4 position [[position]];
+    float2 uv;
+};
+
+vertex H3DGroundVOut heat3DGroundVertex(uint vid [[vertex_id]],
+                                        constant Heat3DUniforms& u [[buffer(1)]],
+                                        constant float4& rect [[buffer(2)]])
+{
+    float2 p = float2((vid & 1) ? rect.z : rect.x,
+                      (vid & 2) ? rect.w : rect.y);
+    H3DGroundVOut o;
+    o.position = u.mvp * float4(p.x, u.params.w, p.y, 1.0);
+    o.uv = float2((vid & 1) ? 1.0 : 0.0, (vid & 2) ? 1.0 : 0.0);
+    return o;
+}
+
+fragment float4 heat3DGroundFragment(H3DGroundVOut in [[stage_in]],
+                                     constant Heat3DUniforms& u [[buffer(1)]],
+                                     texture2d<float> tex [[texture(0)]])
+{
+    constexpr sampler smp(mag_filter::linear, min_filter::linear,
+                          address::clamp_to_edge);
+    float4 c = tex.sample(smp, in.uv);
+    return float4(c.rgb * u.params.y, 1.0);
 }

@@ -1,0 +1,532 @@
+[
+ {
+  "table": "Localizable",
+  "key": "大阪",
+  "en": "Osaka",
+  "de": "Osaka",
+  "zh-Hant": "大阪"
+ },
+ {
+  "table": "Localizable",
+  "key": "天津",
+  "en": "Tianjin",
+  "de": "Tianjin",
+  "zh-Hant": "天津"
+ },
+ {
+  "table": "Localizable",
+  "key": "太原",
+  "en": "Taiyuan",
+  "de": "Taiyuan",
+  "zh-Hant": "太原"
+ },
+ {
+  "table": "Localizable",
+  "key": "失败 %lld",
+  "en": "Failed: %lld",
+  "de": "Fehlgeschlagen: %lld",
+  "zh-Hant": "失敗 %lld"
+ },
+ {
+  "table": "Localizable",
+  "key": "失败 · 将只删乱跳点：%@",
+  "en": "Failed · only jitter points will be deleted: %@",
+  "de": "Fehlgeschlagen · nur Sprungpunkte werden gelöscht: %@",
+  "zh-Hant": "失敗 · 將只刪亂跳點：%@"
+ },
+ {
+  "table": "Localizable",
+  "key": "失败的公路全用直线",
+  "en": "Use Straight Lines for Failed Roads",
+  "de": "Fehlgeschlagene Straßen mit Geraden füllen",
+  "zh-Hant": "失敗的公路全用直線"
+ },
+ {
+  "table": "Localizable",
+  "key": "失败，只删乱跳点：%@",
+  "en": "Failed, deleting jitter points only: %@",
+  "de": "Fehlgeschlagen, nur Sprungpunkte werden gelöscht: %@",
+  "zh-Hant": "失敗，只刪亂跳點：%@"
+ },
+ {
+  "table": "Localizable",
+  "key": "失败：%@",
+  "en": "Failed: %@",
+  "de": "Fehlgeschlagen: %@",
+  "zh-Hant": "失敗：%@"
+ },
+ {
+  "table": "Localizable",
+  "key": "套用",
+  "en": "Apply",
+  "de": "Anwenden",
+  "zh-Hant": "套用"
+ },
+ {
+  "table": "Localizable",
+  "key": "套用到 %lld 处相似断档？",
+  "en": "Apply to %lld similar gaps?",
+  "de": "Auf %lld ähnliche Lücken anwenden?",
+  "zh-Hant": "套用到 %lld 處相似斷檔？",
+  "plural": {
+   "en": {
+    "one": "Apply to %lld similar gap?",
+    "other": "Apply to %lld similar gaps?"
+   },
+   "de": {
+    "one": "Auf %lld ähnliche Lücke anwenden?",
+    "other": "Auf %lld ähnliche Lücken anwenden?"
+   }
+  }
+ },
+ {
+  "table": "Localizable",
+  "key": "套用相似…",
+  "en": "Apply to Similar…",
+  "de": "Auf ähnliche anwenden…",
+  "zh-Hant": "套用相似…"
+ },
+ {
+  "table": "Localizable",
+  "key": "奥克兰",
+  "en": "Auckland",
+  "de": "Auckland",
+  "zh-Hant": "奧克蘭"
+ },
+ {
+  "table": "Localizable",
+  "key": "奥斯陆",
+  "en": "Oslo",
+  "de": "Oslo",
+  "zh-Hant": "奧斯陸"
+ },
+ {
+  "table": "Localizable",
+  "key": "好",
+  "en": "OK",
+  "de": "OK",
+  "zh-Hant": "好"
+ },
+ {
+  "table": "Localizable",
+  "key": "威尼斯",
+  "en": "Venice",
+  "de": "Venedig",
+  "zh-Hant": "威尼斯"
+ },
+ {
+  "table": "Localizable",
+  "key": "孟买",
+  "en": "Mumbai",
+  "de": "Mumbai",
+  "zh-Hant": "孟買"
+ },
+ {
+  "table": "Localizable",
+  "key": "宁波",
+  "en": "Ningbo",
+  "de": "Ningbo",
+  "zh-Hant": "寧波"
+ },
+ {
+  "table": "Localizable",
+  "key": "安全连接失败",
+  "en": "Secure connection failed",
+  "de": "Sichere Verbindung fehlgeschlagen",
+  "zh-Hant": "安全連線失敗"
+ },
+ {
+  "table": "Localizable",
+  "key": "完成",
+  "en": "Done",
+  "de": "Fertig",
+  "zh-Hant": "完成"
+ },
+ {
+  "table": "Localizable",
+  "key": "定位到轨迹起点（地球视角同样可用）",
+  "en": "Jump to the start of the track (also works in globe view)",
+  "de": "Zum Trackanfang springen (funktioniert auch in der Globusansicht)",
+  "zh-Hant": "定位到軌跡起點（地球視角同樣可用）"
+ },
+ {
+  "table": "Localizable",
+  "key": "对比",
+  "en": "Compare",
+  "de": "Vergleich",
+  "zh-Hant": "對比"
+ },
+ {
+  "table": "Localizable",
+  "key": "导出",
+  "en": "Export",
+  "de": "Exportieren",
+  "zh-Hant": "匯出"
+ },
+ {
+  "table": "Localizable",
+  "key": "导出 GPX",
+  "en": "Export GPX",
+  "de": "GPX exportieren",
+  "zh-Hant": "匯出 GPX"
+ },
+ {
+  "table": "Localizable",
+  "key": "导出…",
+  "en": "Export…",
+  "de": "Exportieren…",
+  "zh-Hant": "匯出…"
+ },
+ {
+  "table": "Localizable",
+  "key": "导出回放视频",
+  "en": "Export Playback Video",
+  "de": "Wiedergabevideo exportieren",
+  "zh-Hant": "匯出回放影片"
+ },
+ {
+  "table": "Localizable",
+  "key": "导出图片",
+  "en": "Export Image",
+  "de": "Bild exportieren",
+  "zh-Hant": "匯出圖片"
+ },
+ {
+  "table": "Localizable",
+  "key": "导出当前地球视角（含点云/像素柱）",
+  "en": "Exports the current globe view (incl. point cloud/pixel columns)",
+  "de": "Exportiert die aktuelle Globusansicht (inkl. Punktwolke/Pixelsäulen)",
+  "zh-Hant": "匯出目前地球視角（含點雲/像素柱）"
+ },
+ {
+  "table": "Localizable",
+  "key": "导出当前平面视图（底图 + 点云，所见即所得）",
+  "en": "Exports the current flat map view (basemap + point cloud, exactly as shown)",
+  "de": "Exportiert die aktuelle 2D-Kartenansicht (Basiskarte + Punktwolke, genau wie angezeigt)",
+  "zh-Hant": "匯出目前平面視圖（底圖 + 點雲，所見即所得）"
+ },
+ {
+  "table": "Localizable",
+  "key": "导出当前数据的全部点（删除操作之后剩下的点）。",
+  "en": "Exports all points of the current data (the points left after deletions).",
+  "de": "Exportiert alle Punkte der aktuellen Daten (die nach dem Löschen verbliebenen Punkte).",
+  "zh-Hant": "匯出目前資料的全部點（刪除操作之後剩下的點）。"
+ },
+ {
+  "table": "Localizable",
+  "key": "导出视频…",
+  "en": "Exporting video…",
+  "de": "Video wird exportiert…",
+  "zh-Hant": "匯出影片…"
+ },
+ {
+  "table": "Localizable",
+  "key": "将导出 %@ 个点",
+  "en": "Points to export: %@",
+  "de": "Zu exportierende Punkte: %@",
+  "zh-Hant": "將匯出 %@ 個點"
+ },
+ {
+  "table": "Localizable",
+  "key": "展开列表",
+  "en": "Expand List",
+  "de": "Liste ausklappen",
+  "zh-Hant": "展開清單"
+ },
+ {
+  "table": "Localizable",
+  "key": "展开面板",
+  "en": "Expand panel",
+  "de": "Bereich ausklappen",
+  "zh-Hant": "展開面板"
+ },
+ {
+  "table": "Localizable",
+  "key": "左侧 %@ m（%lld 点）",
+  "en": "left %1$@ m (%2$lld pts)",
+  "de": "links %1$@ m (%2$lld Pkt.)",
+  "zh-Hant": "左側 %1$@ m（%2$lld 點）"
+ },
+ {
+  "table": "Localizable",
+  "key": "左侧「时间筛选」选了日/自定义时，只列那段时间里的断档",
+  "en": "When “Time Filter” on the left is set to Day or Custom, only gaps in that period are listed",
+  "de": "Ist links im „Zeitfilter“ Tag oder Zeitraum gewählt, werden nur Lücken aus dieser Zeit aufgeführt",
+  "zh-Hant": "左側「時間篩選」選了日/自訂時，只列那段時間裡的斷檔"
+ },
+ {
+  "table": "Localizable",
+  "key": "左独有 %@",
+  "en": "Left only %@",
+  "de": "Nur links %@",
+  "zh-Hant": "左獨有 %@"
+ },
+ {
+  "table": "Localizable",
+  "key": "左独有 %@ · 右独有 %@",
+  "en": "Left only %1$@ · Right only %2$@",
+  "de": "Nur links %1$@ · Nur rechts %2$@",
+  "zh-Hant": "左獨有 %1$@ · 右獨有 %2$@"
+ },
+ {
+  "table": "Localizable",
+  "key": "左色",
+  "en": "Left Color",
+  "de": "Farbe links",
+  "zh-Hant": "左色"
+ },
+ {
+  "table": "Localizable",
+  "key": "已判 %lld/%lld 段",
+  "en": "Segments classified: %1$lld/%2$lld",
+  "de": "Abschnitte eingestuft: %1$lld/%2$lld",
+  "zh-Hant": "已判 %1$lld/%2$lld 段"
+ },
+ {
+  "table": "Localizable",
+  "key": "已判 %lld/%lld 段（没判出来的按整段速度兜底，拿不准的默认跳过）",
+  "en": "Segments classified: %1$lld/%2$lld (unclassified ones fall back to the whole segment's speed; uncertain ones are skipped by default)",
+  "de": "Abschnitte eingestuft: %1$lld/%2$lld (nicht eingestufte werden nach der Geschwindigkeit des ganzen Abschnitts beurteilt, unsichere standardmäßig übersprungen)",
+  "zh-Hant": "已判 %1$lld/%2$lld 段（沒判出來的按整段速度兜底，拿不準的預設跳過）"
+ },
+ {
+  "table": "Localizable",
+  "key": "已到轨迹端点",
+  "en": "Reached the end of the track",
+  "de": "Trackende erreicht",
+  "zh-Hant": "已到軌跡端點"
+ },
+ {
+  "table": "Localizable",
+  "key": "已取消",
+  "en": "Canceled",
+  "de": "Abgebrochen",
+  "zh-Hant": "已取消"
+ },
+ {
+  "table": "Localizable",
+  "key": "已完成 %lld/%lld · 两路并行（OSRM + Valhalla）· 正在取 %@ · %@ · %lld m",
+  "en": "Done %1$lld/%2$lld · 2 services in parallel (OSRM + Valhalla) · fetching %3$@ · %4$@ · %5$lld m",
+  "de": "Erledigt %1$lld/%2$lld · 2 Dienste parallel (OSRM + Valhalla) · Abruf %3$@ · %4$@ · %5$lld m",
+  "zh-Hant": "已完成 %1$lld/%2$lld · 兩路並行（OSRM + Valhalla）· 正在取 %3$@ · %4$@ · %5$lld m"
+ },
+ {
+  "table": "Localizable",
+  "key": "已手动调整",
+  "en": "Manually adjusted",
+  "de": "Manuell angepasst",
+  "zh-Hant": "已手動調整"
+ },
+ {
+  "table": "Localizable",
+  "key": "已找到",
+  "en": "Found",
+  "de": "Gefunden",
+  "zh-Hant": "已找到"
+ },
+ {
+  "table": "Localizable",
+  "key": "已用 %lld s · 请求 %lld",
+  "en": "Elapsed %1$lld s · Requests %2$lld",
+  "de": "Dauer %1$lld s · Anfragen %2$lld",
+  "zh-Hant": "已用 %1$lld s · 請求 %2$lld"
+ },
+ {
+  "table": "Localizable",
+  "key": "已等 %lld s",
+  "en": "Waited %lld s",
+  "de": "Wartezeit %lld s",
+  "zh-Hant": "已等 %lld s"
+ },
+ {
+  "table": "Localizable",
+  "key": "已跳过 %lld 个无法解析的文件：\n%@",
+  "en": "Skipped %1$lld files that could not be parsed:\n%2$@",
+  "de": "%1$lld nicht lesbare Dateien übersprungen:\n%2$@",
+  "zh-Hant": "已跳過 %1$lld 個無法解析的檔案：\n%2$@",
+  "plural": {
+   "en": {
+    "one": "Skipped %1$lld file that could not be parsed:\n%2$@",
+    "other": "Skipped %1$lld files that could not be parsed:\n%2$@"
+   },
+   "de": {
+    "one": "%1$lld nicht lesbare Datei übersprungen:\n%2$@",
+    "other": "%1$lld nicht lesbare Dateien übersprungen:\n%2$@"
+   }
+  }
+ },
+ {
+  "table": "Localizable",
+  "key": "已跳过 %lld 个无法解析的迷雾存档。",
+  "en": "Skipped %lld fog archives that could not be parsed.",
+  "de": "%lld nicht lesbare Fog-Archive übersprungen.",
+  "zh-Hant": "已跳過 %lld 個無法解析的迷霧存檔。",
+  "plural": {
+   "en": {
+    "one": "Skipped %lld fog archive that could not be parsed.",
+    "other": "Skipped %lld fog archives that could not be parsed."
+   },
+   "de": {
+    "one": "%lld nicht lesbares Fog-Archiv übersprungen.",
+    "other": "%lld nicht lesbare Fog-Archive übersprungen."
+   }
+  }
+ },
+ {
+  "table": "Localizable",
+  "key": "已还原",
+  "en": "Reverted",
+  "de": "Zurückgesetzt",
+  "zh-Hant": "已還原"
+ },
+ {
+  "table": "Localizable",
+  "key": "已还原 %lld 处",
+  "en": "%lld changes reverted",
+  "de": "%lld Änderungen zurückgesetzt",
+  "zh-Hant": "已還原 %lld 處",
+  "plural": {
+   "en": {
+    "one": "%lld change reverted",
+    "other": "%lld changes reverted"
+   },
+   "de": {
+    "one": "%lld Änderung zurückgesetzt",
+    "other": "%lld Änderungen zurückgesetzt"
+   }
+  }
+ },
+ {
+  "table": "Localizable",
+  "key": "已选 %@",
+  "en": "Selected: %@",
+  "de": "Ausgewählt: %@",
+  "zh-Hant": "已選 %@"
+ },
+ {
+  "table": "Localizable",
+  "key": "巴塞罗那",
+  "en": "Barcelona",
+  "de": "Barcelona",
+  "zh-Hant": "巴塞隆納"
+ },
+ {
+  "table": "Localizable",
+  "key": "巴黎",
+  "en": "Paris",
+  "de": "Paris",
+  "zh-Hant": "巴黎"
+ },
+ {
+  "table": "Localizable",
+  "key": "布宜诺斯艾利斯",
+  "en": "Buenos Aires",
+  "de": "Buenos Aires",
+  "zh-Hant": "布宜諾斯艾利斯"
+ },
+ {
+  "table": "Localizable",
+  "key": "布拉格",
+  "en": "Prague",
+  "de": "Prag",
+  "zh-Hant": "布拉格"
+ },
+ {
+  "table": "Localizable",
+  "key": "布达佩斯",
+  "en": "Budapest",
+  "de": "Budapest",
+  "zh-Hant": "布達佩斯"
+ },
+ {
+  "table": "Localizable",
+  "key": "布里斯班",
+  "en": "Brisbane",
+  "de": "Brisbane",
+  "zh-Hant": "布里斯本"
+ },
+ {
+  "table": "Localizable",
+  "key": "布鲁塞尔",
+  "en": "Brussels",
+  "de": "Brüssel",
+  "zh-Hant": "布魯塞爾"
+ },
+ {
+  "table": "Localizable",
+  "key": "带行进方向",
+  "en": "with direction of travel",
+  "de": "mit Fahrtrichtung",
+  "zh-Hant": "帶行進方向"
+ },
+ {
+  "table": "Localizable",
+  "key": "帧率",
+  "en": "Frame Rate",
+  "de": "Bildrate",
+  "zh-Hant": "影格速率"
+ },
+ {
+  "table": "Localizable",
+  "key": "平滑",
+  "en": "Smooth",
+  "de": "Glatt",
+  "zh-Hant": "平滑"
+ },
+ {
+  "table": "Localizable",
+  "key": "平滑 = 与相邻块衔接成连续地形；棱角 = 独立平顶方柱",
+  "en": "Smooth = blends with neighboring blocks into continuous terrain; Blocky = separate flat-topped square columns",
+  "de": "Glatt = fließender Übergang zu Nachbarblöcken, durchgehendes Gelände; Kantig = einzelne quadratische Säulen mit flacher Oberseite",
+  "zh-Hant": "平滑 = 與相鄰塊銜接成連續地形；稜角 = 獨立平頂方柱"
+ },
+ {
+  "table": "Localizable",
+  "key": "平滑迷雾边缘",
+  "en": "Smooth Fog Edges",
+  "de": "Nebelränder glätten",
+  "zh-Hant": "平滑迷霧邊緣"
+ },
+ {
+  "table": "Localizable",
+  "key": "平面地图",
+  "en": "Flat Map",
+  "de": "2D-Karte",
+  "zh-Hant": "平面地圖"
+ },
+ {
+  "table": "Localizable",
+  "key": "平面地图下无操作多少秒后进入星球展示动画",
+  "en": "Seconds of inactivity on the flat map before the globe showcase animation starts",
+  "de": "Sekunden ohne Bedienung in der 2D-Karte, bevor die Globus-Präsentation startet",
+  "zh-Hant": "平面地圖下無操作多少秒後進入星球展示動畫"
+ },
+ {
+  "table": "Localizable",
+  "key": "平面地图按点密度渲染热力图（GPU 实时聚合，多年轨迹一眼看出常去区域；删除模式下自动回点显示）",
+  "en": "Renders a point-density heatmap on the flat map (aggregated live on the GPU, so years of tracks reveal your frequent areas at a glance; switches back to points in delete mode)",
+  "de": "Zeigt auf der 2D-Karte eine Heatmap der Punktdichte (Echtzeit-Aggregation auf der GPU, mehrjährige Tracks zeigen häufig besuchte Gebiete auf einen Blick; im Löschmodus automatisch wieder Punktanzeige)",
+  "zh-Hant": "平面地圖按點密度繪製熱力圖（GPU 即時聚合，多年軌跡一眼看出常去區域；刪除模式下自動改回點顯示）"
+ },
+ {
+  "table": "Localizable",
+  "key": "年",
+  "en": "year",
+  "de": "Jahr",
+  "zh-Hant": "年"
+ },
+ {
+  "table": "Localizable",
+  "key": "年份",
+  "en": "Year",
+  "de": "Jahr",
+  "zh-Hant": "年份"
+ },
+ {
+  "table": "Localizable",
+  "key": "并行导出 GPX…",
+  "en": "Exporting GPX in parallel…",
+  "de": "GPX wird parallel exportiert…",
+  "zh-Hant": "並行匯出 GPX…"
+ }
+]

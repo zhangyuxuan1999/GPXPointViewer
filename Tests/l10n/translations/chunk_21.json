@@ -1,0 +1,158 @@
+[
+ {
+  "table": "Localizable",
+  "key": "%@（显示中，未采用）",
+  "en": "%@ (shown, not adopted)",
+  "de": "%@ (angezeigt, nicht übernommen)",
+  "zh-Hant": "%@（顯示中，未採用）"
+ },
+ {
+  "table": "Localizable",
+  "key": "%@：这些处用的是本文件打开以来取过的路网结果，没有再请求；要重新向路网取请用「重新获取全部…」或右键某一行",
+  "en": "%@: these gaps reuse road-network results fetched since this file was opened, with no new request; to fetch from the road network again use “Fetch All Again…” or right-click a row",
+  "de": "%@: Diese Lücken verwenden Straßennetz-Ergebnisse, die seit dem Öffnen dieser Datei abgerufen wurden, ohne neue Anfrage; zum erneuten Abrufen „Alle erneut abrufen …“ verwenden oder eine Zeile rechtsklicken",
+  "zh-Hant": "%@：這些處用的是本檔案開啟以來取過的路網結果，沒有再請求；要重新向路網取得請用「重新取得全部…」或右鍵某一列"
+ },
+ {
+  "table": "Localizable",
+  "key": "不用本文件打开以来取过的结果，所有公路/铁路断档重新向路网请求一遍（有确认）；只重取某一处请右键那一行",
+  "en": "Ignore the results fetched since this file was opened and request every road/rail gap from the road network again (asks for confirmation); to fetch just one gap again, right-click its row",
+  "de": "Die seit dem Öffnen dieser Datei abgerufenen Ergebnisse ignorieren und alle Straßen-/Bahn-Lücken erneut beim Straßennetz anfragen (mit Bestätigung); um nur eine Lücke erneut abzurufen, deren Zeile rechtsklicken",
+  "zh-Hant": "不用本檔案開啟以來取過的結果，所有公路/鐵路斷檔重新向路網請求一遍（有確認）；只重新取得某一處請右鍵那一列"
+ },
+ {
+  "table": "Localizable",
+  "key": "不用缓存，按当前草稿的来源向路网再请求一次（交叉验证的两份都重取），新结果覆盖缓存",
+  "en": "Skip the cache and request the road network again from the current draft's source (both cross-check drafts are fetched again); the new result replaces the cached one",
+  "de": "Den Cache überspringen und das Straßennetz für die Quelle des aktuellen Entwurfs erneut anfragen (beide Gegenprüfungs-Entwürfe werden erneut abgerufen); das neue Ergebnis ersetzt das im Cache",
+  "zh-Hant": "不用快取，按目前草稿的來源向路網再請求一次（交叉驗證的兩份都重新取得），新結果覆蓋快取"
+ },
+ {
+  "table": "Localizable",
+  "key": "两个服务给出的坐标逐点相同（都用同一份 OpenStreetMap 数据），切换看不出差别是正常的",
+  "en": "Both services returned point-for-point identical coordinates (they use the same OpenStreetMap data), so switching shows no difference — that is expected",
+  "de": "Beide Dienste haben Punkt für Punkt identische Koordinaten geliefert (sie nutzen dieselben OpenStreetMap-Daten); dass beim Umschalten kein Unterschied zu sehen ist, ist normal",
+  "zh-Hant": "兩個服務給出的座標逐點相同（都用同一份 OpenStreetMap 資料），切換看不出差別是正常的"
+ },
+ {
+  "table": "Localizable",
+  "key": "两路几何完全相同",
+  "en": "Both routes are geometrically identical",
+  "de": "Beide Routen sind geometrisch identisch",
+  "zh-Hant": "兩路幾何完全相同"
+ },
+ {
+  "table": "Localizable",
+  "key": "主地图上画出了每处草稿：绿 = 取到路网，橙 = 取到但有警告，灰 = 用直线补，红虚线 = 失败/不落地（淡色 = 没勾选）。点一行飞过去查看；不满意的取消勾选，落地后可在补点模式里单独改。右键一行可只重新获取那一处。",
+  "en": "Every draft is drawn on the main map: green = road network fetched, orange = fetched with warnings, grey = straight line, red dashed = failed / not applied (faded = not ticked). Click a row to fly there; untick the ones you don't like — after applying you can still fix them one by one in Gap Fill mode. Right-click a row to fetch just that gap again.",
+  "de": "Jeder Entwurf ist auf der Hauptkarte eingezeichnet: grün = Straßennetz abgerufen, orange = abgerufen mit Hinweisen, grau = gerade Linie, rot gestrichelt = fehlgeschlagen / nicht übernommen (blass = nicht angehakt). Eine Zeile anklicken, um hinzufliegen; bei unpassenden das Häkchen entfernen — nach dem Übernehmen lassen sie sich im Modus „Lücken füllen“ einzeln nachbessern. Eine Zeile rechtsklicken, um nur diese Lücke erneut abzurufen.",
+  "zh-Hant": "主地圖上畫出了每處草稿：綠 = 取到路網，橙 = 取到但有警告，灰 = 用直線補，紅虛線 = 失敗/不落地（淡色 = 沒勾選）。點一列飛過去查看；不滿意的取消勾選，落地後可在補點模式裡單獨改。右鍵一列可只重新取得那一處。"
+ },
+ {
+  "table": "Localizable",
+  "key": "会忽略缓存，向路网重新请求 %lld 处断档（公路 %lld · 铁路 %lld），预计约 %lld 分钟。等同于重新跑第 2 步：勾选与手选会重置。",
+  "en": "This ignores the cache and requests %lld gaps from the road network again (road %lld · rail %lld), estimated about %lld minutes. It is the same as running step 2 again: ticks and manual picks are reset.",
+  "de": "Dabei wird der Cache ignoriert und %lld Lücken werden erneut beim Straßennetz angefragt (Straße %lld · Bahn %lld), geschätzt etwa %lld Minuten. Das entspricht einem erneuten Schritt 2: Häkchen und manuelle Auswahlen werden zurückgesetzt.",
+  "zh-Hant": "會忽略快取，向路網重新請求 %lld 處斷檔（公路 %lld · 鐵路 %lld），預計約 %lld 分鐘。等同於重新跑第 2 步：勾選與手選會重設。"
+ },
+ {
+  "table": "Localizable",
+  "key": "切换看 OSRM 和 Valhalla 各自给的路径：地图上显示的那份画成粗实线（绿 = 采用的，蓝 = 未采用），另一份细虚线；依据行与「说明…」也跟着换。✓ = 这处采用的那路。只是看，不改采用",
+  "en": "Switch between the routes OSRM and Valhalla returned: the one shown is drawn as a thick solid line on the map (green = adopted, blue = not adopted), the other as a thin dashed line; the evidence row and “Notes…” follow. ✓ = the route adopted for this gap. Viewing only — it does not change which one is adopted",
+  "de": "Zwischen den Routen von OSRM und Valhalla umschalten: Die angezeigte wird auf der Karte als dicke durchgezogene Linie gezeichnet (grün = übernommen, blau = nicht übernommen), die andere dünn gestrichelt; Belegzeile und „Hinweise…“ folgen. ✓ = die für diese Lücke übernommene Route. Nur zur Ansicht – ändert nicht, welche übernommen ist",
+  "zh-Hant": "切換看 OSRM 和 Valhalla 各自給的路徑：地圖上顯示的那份畫成粗實線（綠 = 採用的，藍 = 未採用），另一份細虛線；依據列與「說明…」也跟著換。✓ = 這處採用的那路。只是看，不改採用"
+ },
+ {
+  "table": "Localizable",
+  "key": "向公共 OpenStreetMap 服务请求 A→B 的路网路径，替换当前全部顶点作为草稿（可撤销、可继续手动调）。只在点击时联网，一次一个请求；「交叉验证」同时请求 OSRM 和 Valhalla 并比对，一致才算放心。同一处同样输入第二次直接用本文件打开以来取过的结果（缓存）",
+  "en": "Ask the public OpenStreetMap services for the road-network path A→B and replace all current vertices with it as a draft (undoable, can still be adjusted by hand). Goes online only when clicked, one request at a time; “Cross-check” asks OSRM and Valhalla together and compares them — only agreement is reassuring. The same gap with the same inputs reuses the result fetched since this file was opened (cache)",
+  "de": "Bei den öffentlichen OpenStreetMap-Diensten den Straßennetz-Pfad A→B anfragen und alle aktuellen Eckpunkte durch ihn als Entwurf ersetzen (rückgängig machbar, weiter von Hand anpassbar). Geht nur beim Klick online, eine Anfrage nach der anderen; „Gegenprüfung“ fragt OSRM und Valhalla zugleich an und vergleicht – nur Übereinstimmung ist beruhigend. Dieselbe Lücke mit denselben Eingaben verwendet das seit dem Öffnen dieser Datei abgerufene Ergebnis wieder (Cache)",
+  "zh-Hant": "向公共 OpenStreetMap 服務請求 A→B 的路網路徑，取代目前全部頂點作為草稿（可復原、可繼續手動調）。只在點擊時連網，一次一個請求；「交叉驗證」同時請求 OSRM 和 Valhalla 並比對，一致才算放心。同一處同樣輸入第二次直接用本檔案開啟以來取過的結果（快取）"
+ },
+ {
+  "table": "Localizable",
+  "key": "命中缓存 %lld 处",
+  "en": "%lld from cache",
+  "de": "%lld aus dem Cache",
+  "zh-Hant": "命中快取 %lld 處",
+  "plural": {"en": {"one": "%lld from cache", "other": "%lld from cache"}, "de": {"one": "%lld aus dem Cache", "other": "%lld aus dem Cache"}}
+ },
+ {
+  "table": "Localizable",
+  "key": "当前显示的那份路网草稿的依据、警告与全部说明（两路时用左边的切换看另一份）",
+  "en": "Basis, warnings and all notes of the road-network draft currently shown (with two routes, use the switch on the left to see the other one)",
+  "de": "Grundlage, Warnungen und alle Hinweise des gerade angezeigten Straßennetz-Entwurfs (bei zwei Routen mit dem Umschalter links die andere ansehen)",
+  "zh-Hant": "目前顯示的那份路網草稿的依據、警告與全部說明（兩路時用左邊的切換看另一份）"
+ },
+ {
+  "table": "Localizable",
+  "key": "显示哪一路",
+  "en": "Route to show",
+  "de": "Anzuzeigende Route",
+  "zh-Hant": "顯示哪一路"
+ },
+ {
+  "table": "Localizable",
+  "key": "路网结果来自缓存（本文件打开以来取过）",
+  "en": "Road-network result from cache (fetched since this file was opened)",
+  "de": "Straßennetz-Ergebnis aus dem Cache (seit dem Öffnen dieser Datei abgerufen)",
+  "zh-Hant": "路網結果來自快取（本檔案開啟以來取過）"
+ },
+ {
+  "table": "Localizable",
+  "key": "重新取（忽略缓存）",
+  "en": "Fetch Again (ignore cache)",
+  "de": "Erneut abrufen (Cache ignorieren)",
+  "zh-Hant": "重新取得（忽略快取）"
+ },
+ {
+  "table": "Localizable",
+  "key": "重新获取",
+  "en": "Fetch Again",
+  "de": "Erneut abrufen",
+  "zh-Hant": "重新取得"
+ },
+ {
+  "table": "Localizable",
+  "key": "重新获取全部…",
+  "en": "Fetch All Again…",
+  "de": "Alle erneut abrufen …",
+  "zh-Hant": "重新取得全部…"
+ },
+ {
+  "table": "Localizable",
+  "key": "重新获取全部？",
+  "en": "Fetch all again?",
+  "de": "Alle erneut abrufen?",
+  "zh-Hant": "重新取得全部？"
+ },
+ {
+  "table": "Localizable",
+  "key": "重新获取这 %lld 处（忽略缓存）",
+  "en": "Fetch These %lld Gaps Again (ignore cache)",
+  "de": "Diese %lld Lücken erneut abrufen (Cache ignorieren)",
+  "zh-Hant": "重新取得這 %lld 處（忽略快取）",
+  "plural": {"en": {"one": "Fetch This %lld Gap Again (ignore cache)", "other": "Fetch These %lld Gaps Again (ignore cache)"}, "de": {"one": "Diese %lld Lücke erneut abrufen (Cache ignorieren)", "other": "Diese %lld Lücken erneut abrufen (Cache ignorieren)"}}
+ },
+ {
+  "table": "Localizable",
+  "key": "重新获取这一处（忽略缓存）",
+  "en": "Fetch This Gap Again (ignore cache)",
+  "de": "Diese Lücke erneut abrufen (Cache ignorieren)",
+  "zh-Hant": "重新取得這一處（忽略快取）"
+ },
+ {
+  "table": "Localizable",
+  "key": "重新获取这一处（忽略缓存，只重取这一处；其它处不动）",
+  "en": "Fetch this gap again (ignores the cache, fetches only this gap; the others are left alone)",
+  "de": "Diese Lücke erneut abrufen (ignoriert den Cache, ruft nur diese Lücke ab; die anderen bleiben unverändert)",
+  "zh-Hant": "重新取得這一處（忽略快取，只重新取得這一處；其它處不動）"
+ },
+ {
+  "table": "Localizable",
+  "key": "有一处正在重新获取，等它取回再落地",
+  "en": "One gap is being fetched again; apply once it has returned",
+  "de": "Eine Lücke wird gerade erneut abgerufen; erst nach dem Abruf übernehmen",
+  "zh-Hant": "有一處正在重新取得，等它取回再落地"
+ }
+]
