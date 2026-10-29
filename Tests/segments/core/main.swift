@@ -162,6 +162,35 @@ do {
     let singleton = build(raw([1], [99]))
     check(singleton.speedKmh == [0] && singleton.totalMercLength == 0, "singleton kinematics")
     check(edges(singleton.topology, .fog, 0..<1, 1) == [[0, 0]], "singleton fog")
+
+    // MARK: N-19 回归（DeepSeek 2026-10-29 添加）
+    // 部分点缺时间/海拔时，时间/海拔着色曾因 Int(NaN) 崩溃；真实文件
+    // data/Garmin_Roma_Da1_GPVexported.gpx（49672 点、5 点缺 <ele>）可复现。
+    // 这里覆盖三层：归一化、查表、以及「解析 → 建轨迹 → 四种着色」的完整路径。
+    let partialXML = "<gpx><trk><trkseg>"
+        + "<trkpt lat=\"50\" lon=\"7\"><ele>100</ele><time>2026-01-01T00:00:00Z</time></trkpt>"
+        + "<trkpt lat=\"50.0004\" lon=\"7.0004\"></trkpt>"                    // 既无 <ele> 也无 <time>
+        + "<trkpt lat=\"50.0008\" lon=\"7.0008\"><ele>120</ele><time>2026-01-01T00:00:10Z</time></trkpt>"
+        + "</trkseg></trk></gpx>"
+    let partial = try parsed(partialXML)
+    let partialTrack = build(partial)
+    check(partial.ele.filter { !$0.isFinite }.count == 1 && partial.time.filter { !$0.isFinite }.count == 1,
+          "N-19 fixture keeps exactly one missing ele and time")
+    check(partialTrack.hasEle && partialTrack.hasTime, "N-19 partial columns stay enabled (not degraded to single)")
+    for mode in ColorMode.allCases {
+        // 修复前：.time / .elevation 在这里 SIGTRAP，整个测试进程直接死掉。
+        _ = partialTrack.recolor(preferred: mode)
+        check(partialTrack.colors.count == partialTrack.count * 4, "N-19 \(mode.rawValue) keeps full RGBA")
+    }
+    let sanitized = GeoCompute.normalized01([0, .nan, 1, .infinity], lo: 0, hi: 1)
+    check(sanitized.allSatisfy { $0.isFinite }, "N-19 normalized01 output is finite")
+    check(sanitized == [0, 0, 1, 1], "N-19 NaN falls to low end, +inf still clamps to 1")
+    let swatch = Colormap.colorize([.nan, 0, 1], map: .greenRed)
+    check(swatch.count == 12, "N-19 colorize keeps RGBA stride")
+    check(Array(swatch[0..<4]) == Array(swatch[4..<8]), "N-19 NaN uses the lowest LUT step")
+    let nanRGB = Colormap.greenRed.rgb(.nan)
+    let zeroRGB = Colormap.greenRed.rgb(0)
+    check(nanRGB == zeroRGB, "N-19 rgb(NaN) equals the lowest step")
 } catch { failed.append("unexpected error \(error)") }
 let report: [String: Any] = ["passed": passed, "failed": failed, "gpuPublication": "stubbed (no GPU submitted)", "productSources": ["GPXParser", "TrackData", "GeoCompute", "GPXWriter", "TrackShape"]]
 let json = try! JSONSerialization.data(withJSONObject: report, options: [.prettyPrinted, .sortedKeys])

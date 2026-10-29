@@ -243,6 +243,10 @@ enum GeoCompute {
     }
 
     /// (v - lo)/(hi - lo)，限幅 [0,1]，输出 Float
+    ///
+    /// DeepSeek 2026-10-29（N-19 修复）：输入可能含 NaN（时间/海拔缺失点），而
+    /// `vDSP_vclipD` 对 NaN 不做任何处理（实测 NaN 原样传出）。下游 `Int(Float)` 是受检转换，
+    /// NaN 会 trap，所以这里显式把非有限值压到 0（最低档），保证输出全部有限。
     static func normalized01(_ values: [Double], lo: Double, hi: Double) -> [Float] {
         let n = values.count
         guard n > 0 else { return [] }
@@ -253,6 +257,7 @@ enum GeoCompute {
         vDSP_vclipD(scaled, 1, &zero, &one, &clipped, 1, vDSP_Length(n))
         var out = uninitializedF(n)
         vDSP_vdpsp(clipped, 1, &out, 1, vDSP_Length(n))
+        for i in 0..<n where !out[i].isFinite { out[i] = 0 }   // DeepSeek N-19：NaN/Inf → 最低档
         return out
     }
 

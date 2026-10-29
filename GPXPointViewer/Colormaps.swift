@@ -23,10 +23,15 @@ enum Colormap: String {
     }
 
     /// t ∈ [0,1] → RGB
+    ///
+    /// DeepSeek 2026-10-29（N-19 修复）：`t` 可能不是有限值——时间/海拔列里的缺失值是 NaN，
+    /// 而 Swift 的 `Float → Int` 是受检转换，`Int(NaN)` 会直接 trap（应用崩溃）。
+    /// 缺失值统一按最低档配色，与 `colorize` 同一口径。
     @inline(__always)
     func rgb(_ t: Float) -> (UInt8, UInt8, UInt8) {
         let lut = self.lut
-        let idx = max(0, min(255, Int(t * 255.0 + 0.5))) * 3
+        let safe = t.isFinite ? min(1, max(0, t)) : 0
+        let idx = max(0, min(255, Int(safe * 255.0 + 0.5))) * 3
         return (lut[idx], lut[idx + 1], lut[idx + 2])
     }
 
@@ -48,7 +53,10 @@ enum Colormap: String {
                         let a = ci * n / chunks
                         let b = (ci + 1) * n / chunks
                         for i in a..<b {
-                            let raw = Int(tBase[i] * 255.0 + 0.5)
+                            // DeepSeek 2026-10-29（N-19 修复）：`vDSP_vclipD` 不会清掉 NaN（实测原样传出），
+                            // 而这里 `Int(tBase[i] * 255.0 + 0.5)` 遇到 NaN 会 trap。非有限值一律落到最低档。
+                            let value = tBase[i]
+                            let raw = value.isFinite ? Int(value * 255.0 + 0.5) : 0
                             let idx = (raw < 0 ? 0 : (raw > 255 ? 255 : raw)) * 3
                             let o = i * 4
                             outBase[o]     = lutBase[idx]
