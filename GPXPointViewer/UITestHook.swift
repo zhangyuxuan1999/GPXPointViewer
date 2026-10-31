@@ -83,6 +83,9 @@ final class UITestHook {
     var openBatchWindow: (() -> Void)?            // ContentView 挂上来的 openWindow(id: SceneID.batchFill)（测试用，合成点击会误拖窗口）
     var openReviewWindow: (() -> Void)?           // 同上：修改记录窗口
     var openRegionsWindow: (() -> Void)?          // 同上：地区统计窗口
+    var openSummaryWindow: (() -> Void)?
+    var summaryScroll: ((Bool) -> Void)?
+    var summaryFilterFrame: CGRect?
     var regionOverlayCount = 0                    // 地图上当前的地区边界多边形数（协调器写）
     weak var surface: NSView?                     // 地图容器（覆盖层投影的坐标系；窗口是 fullSizeContentView，contentView 含标题栏）
 
@@ -273,6 +276,129 @@ final class UITestHook {
             for _ in 0..<n { NetworkHealth.shared.inject(host: "routing.openstreetmap.de", ok: true, seconds: 0.6) }
             return "netok \(n)"
         // —— 地区统计 ——
+        case "summary":
+            store.openSummaryFromMainFilter(); openSummaryWindow?()
+            return "summary \(openSummaryWindow != nil)"
+        case "summarymaindate":
+            // Production semantic snapshot, not an interval-duration heuristic.
+            guard p.count == 5, let y = Int(p[1]), let m = Int(p[2]), let d = Int(p[3]),
+                  let zone = TimeZone(identifier: p[4]) else { return "summarymaindate: year month day IANA" }
+            var calendar = Calendar(identifier: .gregorian); calendar.timeZone = zone
+            let spec = ViewFilterSpec(mode: .day, dayY: y, dayM: m, dayD: d, calendar: calendar)
+            guard let range = spec.summaryRange() else { return "summarymaindate: invalid date" }
+            store.viewFilter = range; store.viewFilterSpec = spec
+            return "summarymaindate"
+        case "summarymainall":
+            store.viewFilter = nil; store.viewFilterSpec = nil; return "summarymainall"
+        case "summarydatefocus", "summarydatecontrol":
+            guard let window = NSApp.window(scene: SceneID.journeySummary),
+                  let picker = Self.findDatePicker(in: window.contentView) else { return "summarydatecontrol: no native date field" }
+            NSApp.activate(ignoringOtherApps: true)
+            window.makeKeyAndOrderFront(nil); window.makeFirstResponder(picker)
+            if c == "summarydatecontrol" {
+                guard p.count == 4, let y = Int(p[1]), let m = Int(p[2]), let d = Int(p[3]),
+                      let date = SummaryCalendarDay(year: y, month: m, day: d).interval(in: "UTC")?.start else {
+                    return "summarydatecontrol: year month day"
+                }
+                picker.dateValue = date
+                picker.sendAction(picker.action, to: picker.target)
+            }
+            return "\(c)"
+        case "summarykey":
+            guard p.count > 1, let window = NSApp.window(scene: SceneID.journeySummary) else { return "summarykey: no window" }
+            let value = p[1]
+            let code: UInt16 = value == "return" ? 36 : (value == "tab" ? 48 : (value == "left" ? 123 : (value == "right" ? 124 : 0)))
+            let chars = value == "return" ? "\r" : (value == "tab" ? "\t" : value)
+            let flags: NSEvent.ModifierFlags = p.contains("cmd") ? [.command] : []
+            NSApp.activate(ignoringOtherApps: true)
+            window.makeKeyAndOrderFront(nil)
+            for type in [NSEvent.EventType.keyDown, .keyUp] {
+                if let event = NSEvent.keyEvent(with: type, location: .zero, modifierFlags: flags,
+                    timestamp: ProcessInfo.processInfo.systemUptime, windowNumber: window.windowNumber,
+                    context: nil, characters: chars, charactersIgnoringModifiers: chars, isARepeat: false, keyCode: code) {
+                    NSApp.postEvent(event, atStart: false); pump(50)
+                }
+            }
+            return "summarykey"
+        case "testquit":
+            DispatchQueue.main.async { NSApp.terminate(nil) }; return "testquit"
+        case "summarydraft", "summarydate":
+            guard p.count == 4, let y = Int(p[1]), let m = Int(p[2]), let d = Int(p[3]) else {
+                return "summarydate: year month day"
+            }
+            let day = SummaryCalendarDay(year: y, month: m, day: d)
+            if p[0] == "summarydraft" { store.editSummaryDateDraft(day) }
+            else { store.selectSummaryDate(day) }
+            return "\(p[0])"
+        case "summaryjourney":
+            let index = Int(num(p, 1)), rows = store.currentSummaryDayJourneys
+            guard rows.indices.contains(index) else { return "summaryjourney: bad current-day index" }
+            store.selectSummaryJourney(rows[index].id); return "summaryjourney"
+        case "persistsettings":
+            guard let id = Bundle.main.bundleIdentifier, id.hasPrefix("de.wayne.GPXPointViewer.test."),
+                  ProcessInfo.processInfo.environment["GPXPV_TEST_BUNDLE_ID"] == id,
+                  NSHomeDirectory().contains("/Containers/\(id)/Data") else {
+                return "persistsettings: isolated test bundle and sandbox required"
+            }
+            guard p.count == 5, let language = AppLanguage(rawValue: p[1] == "system" ? "" : p[1]),
+                  p[2] == "0" || p[2] == "1", let globe = Double(p[3]), let map = Double(p[4]),
+                  (1...60).contains(globe), (1...60).contains(map) else {
+                return "persistsettings: system|zh-Hans|zh-Hant|en|de 0|1 globeSeconds mapSeconds"
+            }
+            // This switch is reachable only in explicitly enabled UITestHook mode.
+            AppLanguage.apply(language)
+            store.updateSetting(\.idleDisabled, to: p[2] == "1")
+            store.updateSetting(\.idleGlobeSeconds, to: globe)
+            store.updateSetting(\.idleMapSeconds, to: map)
+            return settingsJSON(store)
+        case "settingsstate": return settingsJSON(store)
+        case "summaryclose":
+            store.summaryWindowOpen = false
+            NSApp.window(scene: SceneID.journeySummary)?.close()
+            return "summaryclose"
+        case "summarytab":
+            store.summaryShowsJourneys = p.count > 1 && p[1] == "journey"
+            return "summarytab \(store.summaryShowsJourneys ? "journey" : "day")"
+        case "summarydisplay":
+            guard p.count > 1 else { return "summarydisplay: single|overlay|compare" }
+            let mode: DisplayMode = p[1] == "compare" ? .compare : (p[1] == "overlay" ? .overlay : .single)
+            store.switchDisplayMode(to: mode); return "summarydisplay \(p[1])"
+        case "summaryclear": store.clearTrack(); return "summaryclear"
+        case "summarysize":
+            guard p.count > 2, let window = NSApp.window(scene: SceneID.journeySummary) else { return "summarysize: no window" }
+            window.setContentSize(NSSize(width: max(780, num(p, 1)), height: max(560, num(p, 2))))
+            return "summarysize"
+        case "summaryshot":
+            guard p.count > 1, let window = NSApp.window(scene: SceneID.journeySummary) else { return "summaryshot: no window" }
+            return run("shotwin", ["shotwin", window.title, p.dropFirst().joined(separator: " ")])
+        case "summaryscroll":
+            summaryScroll?(p.count > 1 && p[1] == "lower")
+            return "summaryscroll \(summaryScroll != nil)"
+        case "summarystate": return summaryJSON(store)
+        case "summarysource":
+            let index = Int(num(p, 1))
+            guard store.summarySources.indices.contains(index) else { return "summarysource: bad index" }
+            store.pickSummarySource(store.summarySources[index].id); return "summarysource \(index)"
+        case "summaryzone":
+            guard p.count > 1 else { return "summaryzone: system|UTC|IANA" }
+            store.pickSummaryTimeZone(p[1] == "system" ? .system : (p[1] == "UTC" ? .utc : .named(p[1])))
+            return "summaryzone \(p[1])"
+        case "summarymode":
+            let index = Int(num(p, 1))
+            guard p.count > 2, let report = store.summaryReport,
+                  report.journeys.indices.contains(index),
+                  p[2] == "auto" || SummaryTransportMode(rawValue: p[2]) != nil else { return "summarymode: index auto|mode" }
+            store.setSummaryTransport(p[2] == "auto" ? nil : SummaryTransportMode(rawValue: p[2]),
+                                      journeyID: report.journeys[index].id)
+            return "summarymode \(index) \(p[2])"
+        case "summarymap":
+            guard p.count > 2, let report = store.summaryReport else { return "summarymap: day|journey index" }
+            let rows = p[1] == "journey" ? report.journeys : report.days
+            let index = Int(num(p, 2))
+            guard rows.indices.contains(index) else { return "summarymap: bad index" }
+            store.showSummaryOnMainMap(rows[index].id); return "summarymap \(store.summaryFilterSelection != nil)"
+        case "summaryfilter":
+            store.clearSummaryMapFilter(); return "summaryfilter off"
         case "regions": openRegionsWindow?(); store.ensureRegionReport(); return "regions \(openRegionsWindow != nil)"
         case "regionsmode":
             guard p.count > 1, let m = RegionReport.Mode(rawValue: p[1]) else { return "regionsmode: points|fog" }
@@ -659,8 +785,6 @@ final class UITestHook {
             window?.orderFrontRegardless()
             window?.makeKey()
             return "front key=\(window?.isKeyWindow ?? false) occluded=\(!(window?.occlusionState.contains(.visible) ?? false))"
-        case "screens":
-            return NSScreen.screens.enumerated().map { "\($0.offset): \($0.element.frame) visible \($0.element.visibleFrame)" }.joined(separator: " | ")
         case "place":
             // 放到第 i 块屏幕的可见区域中央并置前（被遮挡的窗口 MapKit 不动画也不重绘）
             guard let w = window else { return "place: no window" }
@@ -693,6 +817,69 @@ final class UITestHook {
     }
 
     /// 地区统计：索引是否就位、报告（国家 → 下级嵌套，按指标降序）、选中与高亮多边形数
+    private func summaryJSON(_ store: TrackStore) -> String {
+        func row(_ r: SummaryRow) -> [String: Any] {
+            ["id": r.id, "start": r.startTime, "end": r.endTime,
+             "points": r.metrics.pointCount, "synthetic": r.metrics.syntheticPointCount,
+             "retimed": r.metrics.retimedPointCount, "recordedMeters": r.metrics.recordedMeters,
+             "estimatedMeters": r.metrics.estimatedMeters, "excludedEdges": r.metrics.excludedEdgeCount,
+             "observedSeconds": r.metrics.observedSeconds, "unknownSeconds": r.metrics.unknownSeconds,
+             "regionsAvailable": r.geography.available,
+             "candidates": r.transport.candidates.map(\.rawValue),
+             "manual": store.summaryTransportOverrides[r.id]?.rawValue ?? "auto"]
+        }
+        var data: [String: Any] = [
+            "open": store.summaryWindowOpen, "busy": store.summaryBusy,
+            "ready": store.summaryReport != nil, "error": store.summaryError ?? "",
+            "builds": store.summaryBuildCount, "fwdb": store.fwdbActive,
+            "source": store.summarySourceID?.uuidString ?? "",
+            "sources": store.summarySources.map { ["id": $0.id.uuidString, "name": $0.name] },
+            "mapDisabled": store.summaryMapUnavailableReason ?? "",
+            "filterChip": store.summaryFilterSelection != nil
+        ]
+        data["list"] = store.summaryShowsJourneys ? "journey" : "day"
+        data["selectedDay"] = store.summaryDateNavigation.selectedDay?.isoDescription ?? ""
+        data["draftDay"] = store.summaryDateNavigation.draftDay.isoDescription
+        data["draftEdited"] = store.summaryDateNavigation.draftEdited
+        data["navigationRevision"] = store.summaryDateNavigation.revision
+        data["dateHint"] = store.summaryDateNavigation.hint?.rawValue ?? ""
+        data["fromMainRange"] = store.summaryDateNavigation.fromMainRange
+        data["currentDay"] = store.currentSummaryDayRow.map(row) ?? [:]
+        data["currentDayJourneys"] = store.currentSummaryDayJourneys.map(row)
+        data["currentJourney"] = store.currentSummaryJourney.map(row) ?? [:]
+        if let frame = summaryFilterFrame, let size = surface?.window?.contentView?.bounds.size {
+            data["filterChipRendered"] = frame.width > 0 && frame.height > 0
+                && frame.intersects(CGRect(origin: .zero, size: size))
+        } else { data["filterChipRendered"] = false }
+        if let r = store.summaryReport {
+            data["track"] = r.trackID.uuidString; data["reportSource"] = r.sourceID.uuidString
+            data["zone"] = r.timeZoneIdentifier; data["totalPoints"] = r.totalPointCount
+            data["undatedPoints"] = r.undatedPointCount
+            data["days"] = r.days.map(row); data["journeys"] = r.journeys.map(row)
+        }
+        if let f = store.viewFilter { data["filterStart"] = f.start; data["filterEnd"] = f.end }
+        data["filterPoints"] = store.visibleIndexRange().len
+        guard let bytes = try? JSONSerialization.data(withJSONObject: data, options: [.sortedKeys]) else { return "{}" }
+        return String(decoding: bytes, as: UTF8.self)
+    }
+
+    private func settingsJSON(_ store: TrackStore) -> String {
+        let id = Bundle.main.bundleIdentifier ?? ""
+        let domain = UserDefaults.standard.persistentDomain(forName: id) ?? [:]
+        // Deliberately limited to the relevant language/idle preference keys.
+        let keys = ["AppleLanguages", "idleDisabled", "idleGlobeSeconds", "idleMapSeconds"]
+        var values: [String: Any] = [:]
+        for key in keys { values[key] = domain[key] ?? NSNull() }
+        let data: [String: Any] = ["bundleID": id, "home": NSHomeDirectory(), "temporaryDirectory": NSTemporaryDirectory(),
+            "storedLanguage": AppLanguage.stored.rawValue, "launchLanguage": AppLanguage.launchSnapshot.rawValue,
+            "locale": Locale.current.identifier, "preferredLocalizations": Bundle.main.preferredLocalizations,
+            "idleDisabled": store.settings.idleDisabled, "idleGlobeSeconds": store.settings.idleGlobeSeconds,
+            "idleMapSeconds": store.settings.idleMapSeconds, "persistent": values,
+            "argumentLanguages": UserDefaults.standard.volatileDomain(forName: UserDefaults.argumentDomain)["AppleLanguages"] ?? NSNull()]
+        guard let bytes = try? JSONSerialization.data(withJSONObject: data, options: [.sortedKeys]) else { return "{}" }
+        return String(decoding: bytes, as: UTF8.self)
+    }
+
     private func regionsJSON(_ store: TrackStore) -> String {
         guard let idx = RegionIndex.shared else { return "{\"index\":false}" }
         func esc(_ s: String) -> String { s.replacingOccurrences(of: "\\", with: "/").replacingOccurrences(of: "\"", with: "'") }
@@ -885,6 +1072,13 @@ final class UITestHook {
         guard let view else { return nil }
         if let b = view as? NSButton, b.title.contains(text) { return b }
         for sub in view.subviews { if let b = findButton(in: sub, titleContains: text) { return b } }
+        return nil
+    }
+
+    private static func findDatePicker(in view: NSView?) -> NSDatePicker? {
+        guard let view else { return nil }
+        if let picker = view as? NSDatePicker { return picker }
+        for child in view.subviews { if let picker = findDatePicker(in: child) { return picker } }
         return nil
     }
 

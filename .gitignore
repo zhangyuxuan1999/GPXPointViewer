@@ -17,3 +17,7 @@ Tools/agents/records/
 # 构建产物（各测试目录还有自己的 .gitignore）
 .build/
 DerivedData/
+Builds/
+
+# DeepSeek 2026-10-31：草稿样片（黑底、无底图），留在本地不提交
+DeepSeek/*.mp4

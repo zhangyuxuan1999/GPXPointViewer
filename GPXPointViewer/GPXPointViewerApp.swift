@@ -8,7 +8,7 @@ import AppKit
 
 /// 各 Window 场景的 id：openWindow(id:) 与按场景找 NSWindow 都用它（窗口标题会被本地化，不能拿来当标识）
 enum SceneID {
-    static let diff = "diff", batchFill = "batchFill", changeReview = "changeReview", regions = "regions"
+    static let diff = "diff", batchFill = "batchFill", changeReview = "changeReview", regions = "regions", journeySummary = "journeySummary"
 }
 
 extension NSApplication {
@@ -131,6 +131,7 @@ struct GPXPointViewerApp: App {
                 .onAppear { UITestHook.shared.start(store: store) }   // 仅 GPXPV_UITEST_DIR 环境变量存在时生效
         }
         .defaultSize(width: 1320, height: 860)
+        .commands { JourneySummaryCommands(store: store) }
 
         Window("找不同", id: SceneID.diff) {
             DiffWindowView(store: store)
@@ -152,5 +153,10 @@ struct GPXPointViewerApp: App {
             RegionsWindowView(store: store)
         }
         .defaultSize(width: 720, height: 640)
+
+        Window("每日与行程摘要", id: SceneID.journeySummary) {
+            JourneySummaryWindowView(store: store)
+        }
+        .defaultSize(width: 1000, height: 700)
     }
 }

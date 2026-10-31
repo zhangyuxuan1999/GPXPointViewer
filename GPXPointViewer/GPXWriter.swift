@@ -13,9 +13,16 @@ import Foundation
 
 enum GPXWriteError: LocalizedError {
     case noPoints
+    case invalidSelection
     var errorDescription: String? {
-        String(localized: "所选范围内没有点可导出。",
-               comment: "Error message when exporting GPX: the selected time range contains no points")
+        switch self {
+        case .noPoints:
+            return String(localized: "所选范围内没有点可导出。",
+                          comment: "Error message when exporting GPX: the selected time range contains no points")
+        case .invalidSelection:
+            return String(localized: "导出范围包含无效的点索引。",
+                          comment: "Error message when exporting GPX: the selected point indices are invalid")
+        }
     }
 }
 
@@ -38,7 +45,10 @@ enum GPXWriter {
         for selection in segments {
             var groups: [[Int32]] = []
             var slots: [UInt32: Int] = [:]
-            for index in selection where index >= 0 && Int(index) < track.count {
+            for index in selection {
+                // Never turn an invalid export request into a partial file.
+                // Both callers already surface LocalizedError to the user.
+                guard index >= 0, Int(index) < track.count else { throw GPXWriteError.invalidSelection }
                 let id = track.topology.segment(of: Int(index))
                 if slots[id] == nil { slots[id] = groups.count; groups.append([]) }
                 groups[slots[id]!].append(index)

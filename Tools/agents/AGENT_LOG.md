@@ -271,3 +271,223 @@
 ## 2026-10-29 R4最终验收
 
 2026-10-29T13:44:19.116804+00:00：用户要求的剩余复测、工具/产品修复及清理已完成。11组UI未重跑；114/114、51/51、125题121/125既有基线保持，三语/标签像素通过。Astra设计、Sol实现审查、DeepSeek Flash/max执行。原错误/失败保留，所有API与原生任务见[关闭索引](records/2026-10-28-remediation/coordinator/closeout-run-index.md)和[最终验收](records/2026-10-28-remediation/coordinator/completion-report.md)。
+
+- 2026-10-29T20:48:16.700974+00:00 planned `20261029T204816.698428Z_deepseek-architecture-review_9ec4d98d` · codex-native · gpt-6-astra/ultra · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204816.698428Z_deepseek-architecture-review_9ec4d98d
+
+- 2026-10-29T20:48:16.858551+00:00 planned `20261029T204816.855795Z_deepseek-core-fixes_69813bdb` · codex-native · gpt-6.1-sol/ultra · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204816.855795Z_deepseek-core-fixes_69813bdb
+
+- 2026-10-29T20:48:17.037502+00:00 planned `20261029T204817.033883Z_deepseek-harness-renderer_f132cc89` · codex-native · gpt-6.1-sol/ultra · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204817.033883Z_deepseek-harness-renderer_f132cc89
+
+- 2026-10-29T20:57:53.322379+00:00 planned `20261029T205753.317876Z_deepseek-bounded-fixes_3c79b2ac` · deepseek-cli · deepseek-flash/max · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/deepseek/20261029T205753.317876Z_deepseek-bounded-fixes_3c79b2ac
+
+- 2026-10-29T21:00:35.270177+00:00 planned `20261029T210035.267457Z_coordinator-integration_6bebdbd0` · coordinator-local · unknown/unknown · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/coordinator-runs/20261029T210035.267457Z_coordinator-integration_6bebdbd0
+
+- 2026-10-29T21:06:24.050778+00:00 planned `20261029T210624.045916Z_deepseek-bounded-finish_ecbb20c9` · deepseek-cli · deepseek-flash/max · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/deepseek/20261029T210624.045916Z_deepseek-bounded-finish_ecbb20c9
+
+- 2026-10-29T21:09:12.203631+00:00 planned `20261029T210912.200676Z_n05-display-acceptance_4d8e6033` · codex-native · gpt-6.1-sol/ultra · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/native/20261029T210912.200676Z_n05-display-acceptance_4d8e6033
+
+- 2026-10-29T21:10:57.196490+00:00 planned `20261029T211057.193397Z_release-build-diagnosis_47e230d2` · codex-native · gpt-6.1-sol/ultra · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/native/20261029T211057.193397Z_release-build-diagnosis_47e230d2
+
+- 2026-10-29T21:24:31.030625+00:00 planned `20261029T212431.026419Z_release-build-unblock_a6a4c8be` · codex-native · gpt-6.1-sol/ultra · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/native/20261029T212431.026419Z_release-build-unblock_a6a4c8be
+
+- 2026-10-29T21:24:31.162741+00:00 planned `20261029T212431.155785Z_deepseek-probe-maintenance_7cc0567b` · codex-native · gpt-6.1-sol/ultra · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/native/20261029T212431.155785Z_deepseek-probe-maintenance_7cc0567b
+
+## 2026-10-29T23:06:31.767490+00:00 — DeepSeek N01–N31 收尾
+
+- 本批次 `Tools/agents/records/2026-10-29-deepseek-response/`；31条均有决定，确认修复与定向证据验收通过。原中断/失败和重复执行偏差保留，非全套UI重新执行。
+- Release `Builds/20261029T225455Z_release_73e5627c/archive/GPXPointViewer.app`，exit0，输入前后SHA一致；未安装/commit/push。
+- 回复 `DeepSeek/2026-10-29-codex-response.md`，功能建议 `DeepSeek/2026-10-29-feature-directions.md`，完整验收 `coordinator/acceptance.json`。
+- Astra ultra架构；Sol ultra核心/渲染/工具/审查；DeepSeek Flash max小修和定向目标；主代理证据验收和最小补证。缺少服务端回执或实际账单仍unknown/null。
+
+## 2026-10-30T04:08:11.697004+00:00 — 行程／每日摘要计划
+
+用户授权实现按天与行程的里程、时长、爬升、国家地区、交通方式。Astra ultra先设计；Sol ultra独立源码调查、核心/界面实现及审查；DeepSeek Flash max处理冻结范围内简单任务。旧工作区变更保留；只执行新增/受影响验证，任务/过程/结果完整留档。本批次 `Tools/agents/records/2026-10-30-journey-summary/`。
+
+- 2026-10-30T04:08:11.738551+00:00 planned `20261030T040811.736006Z_journey-summary-architecture_e91ecc6f` · codex-native · gpt-6-astra/ultra · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/native/20261030T040811.736006Z_journey-summary-architecture_e91ecc6f
+
+- 2026-10-30T04:08:11.833670+00:00 planned `20261030T040811.831198Z_journey-summary-integration-audit_68fdadc0` · codex-native · gpt-6.1-sol/ultra · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/native/20261030T040811.831198Z_journey-summary-integration-audit_68fdadc0
+
+- 2026-10-30T04:14:18.730007+00:00 planned `20261030T041418.727483Z_journey-summary-integration_ed826abe` · coordinator-local · unknown/unknown · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/coordinator-runs/20261030T041418.727483Z_journey-summary-integration_ed826abe
+
+- 2026-10-30T04:26:12.160412+00:00 planned `20261030T042612.157547Z_journey-summary-engine_262efea5` · codex-native · gpt-6.1-sol/ultra · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/native/20261030T042612.157547Z_journey-summary-engine_262efea5
+
+- 2026-10-30T04:26:12.254766+00:00 planned `20261030T042612.249638Z_journey-summary-store-ui_4746c6f6` · codex-native · gpt-6.1-sol/ultra · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/native/20261030T042612.249638Z_journey-summary-store-ui_4746c6f6
+
+## 2026-10-30T04:51:24.000689+00:00 — DeepSeek 摘要说明计划
+
+派发deepseek-flash/max，仅基于Astra已批准设计新增用户指南、更新设计Status一行。允许读取本任务必需项目文档，不接触真实轨迹/凭据；不执行测试或构建。max-turns35，timeout900；完整task在2026-10-30-journey-summary/coordinator/guide-task.md，运行器保存实际参数和事件。
+
+- 2026-10-30T04:51:32.977611+00:00 planned `20261030T045132.974899Z_journey-summary-guide_b6c3432a` · deepseek-cli · deepseek-flash/max · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/deepseek/20261030T045132.974899Z_journey-summary-guide_b6c3432a
+
+- 2026-10-30T04:52:38.787603+00:00 planned `20261030T045238.784817Z_journey-summary-core-review_56c20eab` · codex-native · gpt-6.1-sol/ultra · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/native/20261030T045238.784817Z_journey-summary-core-review_56c20eab
+
+### 2026-10-30 summary translation/docs dispatch plan
+- DeepSeek deepseek-flash / max; frozen 76 compiler keys; owned new chunk31 and README/TestsREADME/guide only; no tests/build. Task: /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/coordinator/translation-task.md
+
+- 2026-10-30T05:00:21.743482+00:00 planned `20261030T050021.740364Z_journey-summary-translations_0e6bbebf` · deepseek-cli · deepseek-flash/max · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/deepseek/20261030T050021.740364Z_journey-summary-translations_0e6bbebf
+
+### 2026-10-30 summary Store/UI independent review plan
+- Sol ultra, read-only, inherits author 53 checks; no rerun, actual source/code/evidence review. Task: /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/coordinator/store-review-task.md
+
+- 2026-10-30T05:02:27.094869+00:00 planned `20261030T050227.092173Z_journey-summary-store-review_aec610ee` · codex-native · gpt-6.1-sol/ultra · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/native/20261030T050227.092173Z_journey-summary-store-review_aec610ee
+
+### 2026-10-30 summary docs recovery plan
+- Prior DeepSeek run hit40turns; chunk76 and README retained. New DeepSeek Flash max only two remaining docs, prior failure not overwritten. Task: /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/coordinator/docs-resume-task.md
+
+- 2026-10-30T05:06:11.828564+00:00 planned `20261030T050611.824162Z_journey-summary-docs-r2_a0bdf505` · deepseek-cli · deepseek-flash/max · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/deepseek/20261030T050611.824162Z_journey-summary-docs-r2_a0bdf505
+
+### 2026-10-30 first summary UI dispatch plan
+- DeepSeek Flash max; actual frozen Release; zh functional once, en/de visual-only; all old core/Store evidence inherited. Task: /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/coordinator/ui-execution-task.md
+
+- 2026-10-30T05:29:58.537575+00:00 planned `20261030T052958.534107Z_journey-summary-ui_1d914c2b` · deepseek-cli · deepseek-flash/max · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/deepseek/20261030T052958.534107Z_journey-summary-ui_1d914c2b
+
+### 2026-10-30 visual-only recovery preparation
+- Sol ultra prepare minimal screenshot-only extras; blackimages/loginwindow, userunlockpending; keep zh12passed untouched; task /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/coordinator/visual-recovery-prep-task.md
+
+- 2026-10-30T05:36:25.787969+00:00 planned `20261030T053625.785305Z_journey-summary-visual-recovery-prep_7b305f24` · codex-native · gpt-6.1-sol/ultra · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/native/20261030T053625.785305Z_journey-summary-visual-recovery-prep_7b305f24
+
+### 2026-10-30 coordinator documentation integration addendum
+- Tests/README.md current summary section aligned to accepted evidence and actual named groups; no tests run. before/after /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/coordinator/doc-finalization
+
+### 2026-10-30 unlocked visual closeout dispatch plan
+- User confirmed unlocked. New coordinator recovery owns acceptance/TestsREADMEstatus. DeepSeek Flash max only14screenshots,allthreevisual-only0functionalchecks; samebuild,oldpassedchecks inherited. Task /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/coordinator/visual-closeout-task.md
+
+- 2026-10-30T05:57:55.833397+00:00 planned `20261030T055755.830831Z_journey-summary-visual-closeout_0d90bdf1` · coordinator-local · unknown/unknown · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/coordinator-runs/20261030T055755.830831Z_journey-summary-visual-closeout_0d90bdf1
+
+- 2026-10-30T05:57:59.272564+00:00 planned `20261030T055759.267763Z_journey-summary-visual-r2_7be8ceab` · deepseek-cli · deepseek-flash/max · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/deepseek/20261030T055759.267763Z_journey-summary-visual-r2_7be8ceab
+
+### 2026-10-30 confirmed UI-L1 header layout remediation
+- Sol ultra minimalviewmodifier + screenshotselectionflag; evidence en3line/de6linelabel. No numerical/Store retest; later6affectedpixels only. Task /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/coordinator/header-layout-fix-task.md
+
+- 2026-10-30T06:02:00.219556+00:00 planned `20261030T060200.215494Z_journey-summary-header-layout-fix_50b77c73` · codex-native · gpt-6.1-sol/ultra · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/native/20261030T060200.215494Z_journey-summary-header-layout-fix_50b77c73
+
+## 2026-10-30T06:10Z planned journey-summary-header-layout-visual
+Requested DeepSeek deepseek-flash/max; task coordinator/header-layout-visual-task.md, recovery coordinator/header-layout-visual-recovery-plan.md in 2026-10-30-journey-summary. Execute only new hash-locked wrapper once for six UI-L1 affected pixels; zero functional tests; old passing evidence inherited. Actual API model/cost unknown until receipt. Source writes prohibited; own records only.
+
+- 2026-10-30T06:10:54.918956+00:00 planned `20261030T061054.914921Z_journey-summary-header-layout-visual_d936180c` · deepseek-cli · deepseek-flash/max · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/deepseek/20261030T061054.914921Z_journey-summary-header-layout-visual_d936180c
+
+## 2026-10-30T06:15Z planned journey-summary-header-layout-visual-r2
+User confirmed unlocked again; requested DeepSeek deepseek-flash/max. Only four missing en/de pixels; inherit accepted new-build zh images and all functional/core/Store checks. New task/recovery/wrapper in 2026-10-30-journey-summary/coordinator. Temporary display assertion only during owned bounded driver. No source writes. Previous incomplete run preserved.
+
+- 2026-10-30T06:15:50.892088+00:00 planned `20261030T061550.887672Z_journey-summary-header-layout-visual-r2_586345c3` · deepseek-cli · deepseek-flash/max · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/deepseek/20261030T061550.887672Z_journey-summary-header-layout-visual-r2_586345c3
+
+## 2026-10-30T06:21Z journey-summary FINAL ACCEPTED
+- Architecture Astra ultra; important implementation/reviews Sol ultra; docs/translations/bounded UI DeepSeek Flash max as recorded. Provider model proof and actual cost unknown/null when unavailable.
+- Final source/build/UI evidence: docs/journey-summary-acceptance.md; Builds/20261030T060514Z_release_4bd65c63/archive; coordinator/header-layout-final-review.md in batch2026-10-30-journey-summary.
+- Native header fix 20261030T060200.215494Z_journey-summary-header-layout-fix_50b77c73: provider succeeded, independent verify passed.
+- DeepSeek 20261030T061054.914921Z_journey-summary-header-layout-visual_d936180c: provider succeeded reporting partial capture, verify incomplete preserved (zh2 accepted, en preflight loginwindow, de not run).
+- DeepSeek 20261030T061550.887672Z_journey-summary-header-layout-visual-r2_586345c3: provider succeeded, independent verify passed; only4 missing en/de images,0functionalchecks; preference/ownedprocess cleanup passed.
+- Root 20261030T055755.830831Z_journey-summary-visual-closeout_0d90bdf1: provider succeeded, independent verify passed. Prior root interrupted/partial and other old failures retained.
+- Functional12/core22/Store70 including readiness inherited; no old11/full suite rerun. All6 newbuild affected images accepted; onlyWindow source changed relative to functional build. All70 current product inputs match finalmanifest. Noinstall/formalAppkill/globalprefschange.
+
+## 2026-10-31 install plan
+User explicitly authorized current/future accepted GPXPointViewer installation to /Applications. Root handles reversible staged replacement+backup+hash verification; DeepSeek Flash max handles AGENTS-only persistent rule. Batch /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-install/20261031T010133.762744Z . No product tests repeated, no source changes, no other applications.
+
+- 2026-10-31T01:01:45.135004+00:00 planned `20261031T010145.132413Z_install-accepted-summary_c763e487` · coordinator-local · unknown/unknown · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-install/20261031T010133.762744Z/root/20261031T010145.132413Z_install-accepted-summary_c763e487
+
+- 2026-10-31T01:01:47.920266+00:00 planned `20261031T010147.917692Z_persistent-install-policy_9bc490f9` · deepseek-cli · deepseek-flash/max · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-install/20261031T010133.762744Z/deepseek/20261031T010147.917692Z_persistent-install-policy_9bc490f9
+
+## 2026-10-31 installed accepted summary — COMPLETE
+Batch /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-install/20261031T010133.762744Z . Root install-accepted-summary and DeepSeek persistent-install-policy independently verified passed. /Applications/GPXPointViewer.app now matches accepted executable64d5101be7c3239d10e0cfd01109b3220899f992f9865d1eda0dc2b606b5e883 and59bundleentries; old app backed up at batch/backup/GPXPointViewer.app. Restarted installed path; summary entry visible. AGENTS.md line53 records persistent authorization, user memory note saved. No passed tests rerun; actual server model/cost unknownnull where unavailable. Full provider events/snapshots and install logs retained.
+
+## 2026-10-31 summary date and preferences plan
+User rejects all-date list; requires explicit day handoff/date picker and persistence restoration. Astra ultra date architecture; Sol ultra settings root cause first, then important implementation/review. Root coordinates minimal targeted evidence and accepted build installation under standing authorization. Batch /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence .
+
+- 2026-10-31T01:16:12.684826+00:00 planned `20261031T011612.682340Z_summary-date-architecture_9cf88876` · codex-native · gpt-6-astra/ultra · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T011612.682340Z_summary-date-architecture_9cf88876
+
+- 2026-10-31T01:16:12.886586+00:00 planned `20261031T011612.884046Z_settings-persistence-audit_060da613` · codex-native · gpt-6.1-sol/ultra · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T011612.884046Z_settings-persistence-audit_060da613
+
+- 2026-10-31T01:16:13.475946+00:00 planned `20261031T011613.473146Z_summary-date-settings-integration_7b953147` · coordinator-local · unknown/unknown · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/root/20261031T011613.473146Z_summary-date-settings-integration_7b953147
+
+## signing persistence fix planned
+Sol ultra: restore project existing local sandbox signing and reject unsafe installation inputs; allow Tools/build_release.py/archive_build.py/newinstall_release.py plus related offline tool tests and one design note only. Root handles final actual installation; no userprefs writes. Task /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/coordinator/signing-fix-task.md .
+
+- 2026-10-31T01:20:23.805828+00:00 planned `20261031T012023.801942Z_signing-install-persistence-fix_6b832b3d` · codex-native · gpt-6.1-sol/ultra · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T012023.801942Z_signing-install-persistence-fix_6b832b3d
+
+## date navigation implementation planned
+Sol ultra task /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/coordinator/date-implementation-task.md . Astra ADR accepted by root; own date UI/Store/semantic filter/test hooks and new navigation tests only. No core statistical changes, no real prefs/App UI/build/install. Existing evidence inherited; new production navigation assertions and isolated UI/persistence preparation required.
+
+- 2026-10-31T01:25:43.661056+00:00 planned `20261031T012543.656242Z_summary-date-navigation-implementation_a203875d` · codex-native · gpt-6.1-sol/ultra · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T012543.656242Z_summary-date-navigation-implementation_a203875d
+
+## signing tools independent review planned
+Requested Sol ultra; read frozen Tools/build_release.py, archive_build.py, install_release.py and Tests/agents/test_release_install.py plus existing16fixture evidence; no reruns/App/install/prefs. Task /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/coordinator/signing-review-task.md.
+
+- 2026-10-31T01:33:19.029908+00:00 planned `20261031T013319.027045Z_signing-install-independent-review_db34a088` · codex-native · gpt-6.1-sol/ultra · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T013319.027045Z_signing-install-independent-review_db34a088
+
+## date docs/translations planned
+DeepSeek Flash max, no-session-persistence,12newkeys+5named doc/chunk paths only, one pure validation helper. No App/build/product tests/catalog/true prefs. Task /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/coordinator/date-docs-l10n-task.md .
+
+- 2026-10-31T01:35:00.242049+00:00 planned `20261031T013500.238773Z_summary-date-docs-translations_ae8df14d` · deepseek-cli · deepseek-flash/max · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/deepseek/20261031T013500.238773Z_summary-date-docs-translations_ae8df14d
+
+## signing review findings remediation planned
+Sol ultra NEW run for executable derivation binding, atomic install replacement, receipt path guards; exact task coordinator/signing-review-fix-task.md. No product App/prefs/install, only targeted offline new evidence.
+
+- 2026-10-31T01:38:30.334500+00:00 planned `20261031T013830.330949Z_signing-review-fixes_cb1bcb2b` · codex-native · gpt-6.1-sol/ultra · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T013830.330949Z_signing-review-fixes_cb1bcb2b
+
+- 2026-10-31T01:39:21.129995+00:00 planned `20261031T013921.126628Z_date-navigation-independent-review_2e7f0998` · codex-native · gpt-6.1-sol/ultra · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T013921.126628Z_date-navigation-independent-review_2e7f0998
+
+## DeepSeek date docs closeout recovery planned
+Original50turn run interrupted after5file edits; snapshots/changes kept. NewFlashmax context recovery ONLY missingvalidation+output, no sourcewrites or repeatedchecks.
+
+- 2026-10-31T01:39:48.934883+00:00 planned `20261031T013948.929896Z_summary-date-docs-closeout_0fc562f5` · deepseek-cli · deepseek-flash/max · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/deepseek/20261031T013948.929896Z_summary-date-docs-closeout_0fc562f5
+
+## incremental catalog integration planned
+Coordinator deterministic assembler for12newkeys only, preserves1255oldentries; no product test or extraction compile.
+
+- 2026-10-31T01:40:21.792897+00:00 planned `20261031T014021.787340Z_date-catalog-integration_4d57e2b0` · coordinator-local · unknown/unknown · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/root/20261031T014021.787340Z_date-catalog-integration_4d57e2b0
+
+## F1–F3 targeted independent re-review planned
+Solultra exactnewdiff+9fixture logs, no rerun. Inparallelroot buildsone necessary real signed Release onfrozenproduct/toolsource.
+
+- 2026-10-31T01:45:35.225722+00:00 planned `20261031T014535.222654Z_signing-review-fixes-independent_d374598d` · codex-native · gpt-6.1-sol/ultra · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T014535.222654Z_signing-review-fixes-independent_d374598d
+
+## signed build staging fix planned
+Solultra newrun: actualReleasefailedrc65 CodeSign forbiddenFinderInfo atThumbnail; correct localDerivedData location without unsigned fallback or source/oldbundle xattrwrites. Onlybuild_release/test/doc scope. Priorfailurekept, rootnextrealbuildnecessarychangedpath.
+
+- 2026-10-31T01:47:14.250539+00:00 planned `20261031T014714.247531Z_signed-build-local-staging_eeebe2fe` · codex-native · gpt-6.1-sol/ultra · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T014714.247531Z_signed-build-local-staging_eeebe2fe
+
+## exact Release entitlement fix planned
+SecondXcoderc0;archiveguardcaughtunexpectedget-task-allow; noacceptedartifactyet. NewSolultra boundedflagfix, no looseningguard/sourceentitlements. Readonlyfollowupwasqueuedimmediatelybeforeinit; preservebootstrapdispatch.
+
+- 2026-10-31T01:51:59.383164+00:00 planned `20261031T015159.380224Z_release-no-debug-entitlement_d5fd4ffc` · codex-native · gpt-6.1-sol/ultra · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T015159.380224Z_release-no-debug-entitlement_d5fd4ffc
+
+## actual signed date/settings acceptance planned
+DeepSeekFlashmax singlewrapperrun, exactfinalBuilds/20261031T015341Z_release_e8e131ea signed3targets/sourceSHA ad6b4f54. Onlysyntheticisolatedtestprofiles: settings3process, newdate6checkszh, en/devisualonly. No oldsuite. Detailscoordinator/ui-acceptance-task.md + final-date-acceptance-config.json, completecmds/results/pixelsawaitroot.
+
+- 2026-10-31T01:55:26.149853+00:00 planned `20261031T015526.147252Z_summary-date-settings-actual_aa02ac4f` · deepseek-cli · deepseek-flash/max · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/deepseek/20261031T015526.147252Z_summary-date-settings-actual_aa02ac4f
+
+## actual UI dispatch recovery planned
+FirstDeepSeekwrappernotexecutedbecauseagentprependedenvassignment; preserve2denials. NewFlashmaxcontexttaskexplicitexactcommand/noenvprefix/noDisableSandbox. No passedchecks torepeat.
+
+- 2026-10-31T01:56:41.723045+00:00 planned `20261031T015641.718099Z_summary-date-settings-exact-command_31038c63` · deepseek-cli · deepseek-flash/max · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/deepseek/20261031T015641.718099Z_summary-date-settings-exact-command_31038c63
+
+## stable signed artifact fix planned
+Afterbuildstrictpass,iCloudreaddedFinderInfo toprojectarchive; firstactualpreparefailedbeforeApp. NewSolultra keepsrunnablebundlesoutsideiCloud+durablezip/projectevidence, isolatedtestcopyalsooutside. NO recompilation; originalcompiledsignedproductinlocalDDreused, allfailedrecordskept.
+
+- 2026-10-31T01:58:19.002207+00:00 planned `20261031T015818.998235Z_stable-signed-artifacts_e0f96732` · codex-native · gpt-6.1-sol/ultra · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T015818.998235Z_stable-signed-artifacts_e0f96732
+
+## stable artifact docs planned
+DeepSeekFlashmax mechanicalcurrentpathdocs inREADME+TestsREADMEonly, no tests/Bash, reflectprintedlocalapp/manifest anddurableprojectZIP; historicalactualevidencepathsunchanged.
+
+- 2026-10-31T02:02:17.646245+00:00 planned `20261031T020217.643180Z_stable-artifact-path-docs_bf25ac7c` · deepseek-cli · deepseek-flash/max · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/deepseek/20261031T020217.643180Z_stable-artifact-path-docs_bf25ac7c
+
+## actual acceptance on stable signed copy planned
+DeepSeekFlashmaxnewcontextrecovery. SAMEe8e131eacompiledexe76578, sourcead6b, norecompile. Recoveryreceiptstable_signed_b3251cb3; 4actualphasesstillunexecuted. Drivercopydestinationonlychanged; exactwrappernoenvprefix.
+
+- 2026-10-31T02:05:52.684970+00:00 planned `20261031T020552.680246Z_summary-date-settings-stable_97f68227` · deepseek-cli · deepseek-flash/max · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/deepseek/20261031T020552.680246Z_summary-date-settings-stable_97f68227
+
+## actual native Return fix planned
+Solultra: actualCUAtyping+Viewworks, singleReturncommitsDatePickeronlyanddoesnotsubmit. First3nav+settings4passedinherit; fixWindow/narrowhook ifnecessary andremaining-onlydriver. RootmanualnormalUIactionscoordinator/native-keyboard-first.json.
+
+- 2026-10-31T02:14:07.739869+00:00 planned `20261031T021407.735687Z_date-native-return-submit_207886b8` · codex-native · gpt-6.1-sol/ultra · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T021407.735687Z_date-native-return-submit_207886b8
+
+## native Return independent review planned
+Solultra newbridge/focus/flush/lifetime/remainingdriverdiff only, no tests rerun. Rootsingle necessarynewproductbuild.
+
+- 2026-10-31T02:20:14.762043+00:00 planned `20261031T022014.757742Z_native-date-return-review_55cf5876` · codex-native · gpt-6.1-sol/ultra · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T022014.757742Z_native-date-return-review_55cf5876
+
+- 2026-10-31T02:25:43.796043+00:00 planned `20261031T022543.791110Z_summary-date-return-remaining_89a17b6d` · deepseek-cli · deepseek-flash/max · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/deepseek/20261031T022543.791110Z_summary-date-return-remaining_89a17b6d
+
+- 2026-10-31T02:27:33.937464+00:00 planned `20261031T022733.933418Z_visual-only-ready-fix_a86ebc07` · codex-native · gpt-6.1-sol/ultra · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T022733.933418Z_visual-only-ready-fix_a86ebc07
+
+- 2026-10-31T02:50:04.730957+00:00 planned `20261031T025004.726652Z_date-visual-en-de-remaining_165fded7` · deepseek-cli · deepseek-flash/max · /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/deepseek/20261031T025004.726652Z_date-visual-en-de-remaining_165fded7

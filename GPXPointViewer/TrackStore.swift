@@ -89,7 +89,9 @@ final class TrackStore: ObservableObject {
         set { if hoverState.info != newValue { hoverState.info = newValue } }
     }
     @Published var selected: PointInfo?
-    @Published var isLoading = false
+    @Published var isLoading = false {
+        didSet { if oldValue && !isLoading { scheduleSummaryRefresh() } }
+    }
     @Published var loadingLabel = ""
     @Published var loadingProgress: Double?          // 确定进度 0…1；nil = 不确定（转圈）
     @Published var errorMessage: String?
@@ -100,7 +102,14 @@ final class TrackStore: ObservableObject {
     @Published var showExportSheet = false
     @Published var showSettingsSheet = false
     /// 查看时间筛选：[start, end) Unix 秒；nil = 全部（要求数据时间有序）
-    @Published var viewFilter: (start: Double, end: Double)?
+    @Published var viewFilter: (start: Double, end: Double)? {
+        didSet {
+            if let s = summaryFilterSelection,
+               viewFilter?.start != s.start || viewFilter?.end != s.end {
+                summaryFilterSelection = nil
+            }
+        }
+    }
     /// 查看筛选的形状（粒度+取值），导出面板预设"查哪段导哪段"用
     var viewFilterSpec: ViewFilterSpec?
     // 删除模式（预删除事务：套索圈选只暂存，执行删除时一次性落地）
@@ -124,6 +133,37 @@ final class TrackStore: ObservableObject {
     /// 删除后保持相机不动（协调器消费一次）
     var preserveNextCamera = false
 
+    @Published var summaryWindowOpen = false {
+        didSet {
+            guard oldValue != summaryWindowOpen else { return }
+            if summaryWindowOpen { ensureSummaryReport() }
+            else { cancelSummaryWork(); summaryPendingSeed = nil }
+        }
+    }
+    @Published private(set) var summarySourceID: UUID?
+    @Published private(set) var summaryTimeZoneChoice: SummaryTimeZoneChoice = .system
+    @Published private(set) var summaryReport: SummaryReport?
+    @Published private(set) var summaryBusy = false
+    @Published private(set) var summaryError: String?
+    @Published private(set) var summaryTransportOverrides: [String: SummaryTransportMode] = [:]
+    @Published private(set) var summaryFilterSelection: SummaryFilterSelection?
+    @Published var summaryShowsJourneys = false {
+        didSet { if summaryShowsJourneys { reconcileSummaryJourney() } }
+    }
+    @Published private(set) var summaryDateNavigation = SummaryDateNavigation()
+    private var summaryNavigationIndex: SummaryNavigationIndex?
+    private var summaryPendingSeed: (revision: UInt64, sourceID: UUID?, zone: String?)?
+    private var summaryDraftContext: (sourceID: UUID?, zone: String?)?
+    private var summaryTask: Task<Void, Never>?
+    private var summaryRequest = UUID()
+    private var summaryCacheKey: SummaryCacheKey?
+    private var summaryProvenanceRevision: UInt64 = 0
+    private var summaryOverridesTrackID: UUID?
+    private(set) var summaryBuildCount = 0
+    /// Nil in production. Directed ownership tests may inject a failing worker;
+    /// successful reports always use the real builder in those tests.
+    var summaryBuilderOverride: (@Sendable (SummaryInput, RegionIndex?) throws -> SummaryReport)?
+
     private var publicationClock = DataPublicationClock()
     private var editBaseline: ParsedTrack?
     /// Offline regression seam: delay publication without sleeping or changing workers.
@@ -132,6 +172,7 @@ final class TrackStore: ObservableObject {
 
     private func invalidateDataOperations() {
         publicationClock.invalidate()
+        invalidateSummaryReport()
         isLoading = false; loadingLabel = ""; loadingProgress = nil
         reviewBuilding = false; reviewRebuildPending = false
         diffBusy = false
@@ -141,6 +182,7 @@ final class TrackStore: ObservableObject {
         cancelRouteDraft()
         cancelTripMap()
         invalidateBatch()
+        scheduleSummaryRefresh()
     }
     private func beginDataOperation(source: TrackData? = nil) -> DataPublicationToken {
         invalidateDataOperations()
@@ -200,7 +242,9 @@ final class TrackStore: ObservableObject {
     @Published private(set) var fogArchiveFiles: [LoadedArchive] = []
     /// 勾选中存档的并集（渲染与统计对象；全部取消勾选时为 nil = 全幅是雾）
     @Published private(set) var fogArchive: FogArchive?
-    @Published private(set) var fwdbVersion = 0       // 数据/勾选换代（协调器清实例缓存）
+    @Published private(set) var fwdbVersion = 0 {     // 数据/勾选换代（协调器清实例缓存）
+        didSet { invalidateSummaryReport(); scheduleSummaryRefresh() }
+    }
     @Published private(set) var fwdbZoomVersion = 0   // 仅导入时飞到存档范围
     private var fwdbMergeGen = 0                      // 合并任务代号（丢弃过期结果）
     private var fwdbZoomPending = false               // 导入后等新并集落地再飞相机
@@ -623,7 +667,13 @@ final class TrackStore: ObservableObject {
     }
 
     /// 对比模式：两文件各自独立构建的轨迹（下标随 files 顺序；nil = 构建中）
-    @Published var compareTracks: [TrackData]?
+    @Published var compareTracks: [TrackData]? {
+        didSet {
+            if oldValue?.map(\.id) != compareTracks?.map(\.id) {
+                invalidateSummaryReport(); scheduleSummaryRefresh()
+            }
+        }
+    }
     /// 对比模式左右互换（false：files[0] 在左）
     @Published var compareSwap = false
 
@@ -1671,7 +1721,12 @@ final class TrackStore: ObservableObject {
     @Published private(set) var fillVertices: [CLLocationCoordinate2D] = []   // 数据坐标（WGS-84）
     @Published var fillPrompt: FillPrompt? { didSet { if fillPrompt == nil { applyPendingRouteDraftIfPossible() } } }
     @Published var fillSimilarPrompt: [GapCandidate]? { didSet { if fillSimilarPrompt == nil { applyPendingRouteDraftIfPossible() } } }
-    @Published private(set) var fills: [GapFill] = []        // 本会话已落地的补点
+    @Published private(set) var fills: [GapFill] = [] {      // 本会话已落地的补点
+        didSet {
+            summaryProvenanceRevision &+= 1
+            invalidateSummaryReport(); scheduleSummaryRefresh()
+        }
+    }
     @Published private(set) var fillVersion = 0              // 锚点/顶点变化 → 重投影、重上色
     /// 只在区间内待删点的高亮颜色变化时递增（顶点拖动等只动覆盖层的变化不再让渲染器重传整条轨迹的颜色）
     @Published private(set) var fillColorVersion = 0
@@ -4545,3 +4600,327 @@ final class TrackStore: ObservableObject {
         }
     }
 }
+
+
+// MARK: - Daily / journey report ownership (all publication stays in this file)
+extension TrackStore {
+    /// All explicit UI entries share this path, including an already-open window.
+    func openSummaryFromMainFilter() {
+        if let chip = summaryFilterSelection, let report = summaryReport,
+           chip.trackID == report.trackID, chip.sourceID == report.sourceID,
+           chip.sourceID == summarySourceID, viewFilter?.start == chip.start, viewFilter?.end == chip.end,
+           let row = report.days.first(where: { $0.id == chip.rowID }),
+           row.dayStart == chip.start, row.dayEnd == chip.end,
+           let zone = TimeZone(identifier: chip.timeZoneIdentifier) {
+            applySummaryEntry(.day(SummaryCalendarDay(date: Date(timeIntervalSince1970: chip.start), timeZone: zone),
+                                   timeZoneIdentifier: chip.timeZoneIdentifier))
+        } else {
+            applySummaryEntry(SummaryEntryRequest.mainFilter(spec: viewFilterSpec, range: viewFilter))
+        }
+    }
+
+    func applySummaryEntry(_ request: SummaryEntryRequest) {
+        let sources = summarySources
+        if !sources.contains(where: { $0.id == summarySourceID }) { summarySourceID = sources.first?.id }
+        let previousDraft = summaryDateNavigation.draftDay
+        let canKeepDraft = summaryPendingSeed == nil && summaryDateNavigation.revision > 0
+            && summaryDraftContext?.sourceID == summarySourceID
+            && summaryDraftContext?.zone == summaryTimeZoneChoice.identifier
+        summaryPendingSeed = nil
+        summaryDateNavigation.revision &+= 1
+        summaryDateNavigation.selectedJourneyID = nil
+        summaryDateNavigation.draftEdited = false
+        summaryDateNavigation.fromMainRange = false
+        summaryShowsJourneys = false
+        switch request {
+        case .day(let day, let zone):
+            // Set the captured zone before opening can trigger any worker.
+            summaryTimeZoneChoice = .named(zone)
+            summaryDateNavigation.draftDay = day
+            summaryDateNavigation.selectedDay = day.interval(in: zone) == nil ? nil : day
+            summaryDateNavigation.hint = summaryDateNavigation.selectedDay == nil ? .invalidDay : nil
+            summaryDateNavigation.fromMainRange = summaryDateNavigation.selectedDay != nil
+        case .chooseDate(let seed, _, let hint):
+            summaryDateNavigation.selectedDay = nil
+            summaryDateNavigation.hint = hint
+            if let seed { summaryDateNavigation.draftDay = seed }
+            else if canKeepDraft { summaryDateNavigation.draftDay = previousDraft }
+            else if let report = summaryReport, report.sourceID == summarySourceID,
+                    report.timeZoneIdentifier == summaryTimeZoneChoice.identifier,
+                    let last = report.days.last?.dayStart, let zone = TimeZone(identifier: report.timeZoneIdentifier) {
+                summaryDateNavigation.draftDay = SummaryCalendarDay(date: Date(timeIntervalSince1970: last), timeZone: zone)
+            } else {
+                let zone = summaryTimeZoneChoice.identifier.flatMap(TimeZone.init(identifier:)) ?? .current
+                summaryDateNavigation.draftDay = SummaryCalendarDay(date: Date(), timeZone: zone)
+                summaryPendingSeed = (summaryDateNavigation.revision, summarySourceID, summaryTimeZoneChoice.identifier)
+            }
+        }
+        summaryDraftContext = (summarySourceID, summaryTimeZoneChoice.identifier)
+        if sources.isEmpty { resetSummaryDateNavigation() }
+        if summaryWindowOpen { ensureSummaryReport() }
+        else { summaryWindowOpen = true }
+    }
+
+    func editSummaryDateDraft(_ day: SummaryCalendarDay) {
+        summaryDateNavigation.draftDay = day; summaryDateNavigation.draftEdited = true
+        summaryDraftContext = (summarySourceID, summaryTimeZoneChoice.identifier)
+        summaryPendingSeed = nil
+        if summaryDateNavigation.hint == .invalidDay { summaryDateNavigation.hint = .chooseDate }
+    }
+
+    func selectSummaryDate(_ day: SummaryCalendarDay) {
+        editSummaryDateDraft(day)
+        guard let zone = summaryTimeZoneChoice.identifier, day.interval(in: zone) != nil else {
+            summaryDateNavigation.hint = .invalidDay; return
+        }
+        summaryDateNavigation.selectedDay = day; summaryDateNavigation.hint = nil
+        summaryDateNavigation.selectedJourneyID = nil; summaryDateNavigation.fromMainRange = false
+        reconcileSummaryJourney()
+    }
+
+    func selectSummaryJourney(_ id: String) {
+        guard currentSummaryDayJourneys.contains(where: { $0.id == id }) else { return }
+        summaryDateNavigation.selectedJourneyID = id
+    }
+
+    private var currentSummaryDayStart: Double? {
+        guard let report = summaryReport, let index = summaryNavigationIndex, index.belongs(to: report),
+              let day = summaryDateNavigation.selectedDay else { return nil }
+        return day.interval(in: report.timeZoneIdentifier)?.start.timeIntervalSince1970
+    }
+    var currentSummaryDayRow: SummaryRow? {
+        guard let start = currentSummaryDayStart, let report = summaryReport,
+              let i = summaryNavigationIndex?.dayRowByStart[start], report.days.indices.contains(i) else { return nil }
+        return report.days[i]
+    }
+    var currentSummaryDayJourneys: [SummaryRow] {
+        guard let start = currentSummaryDayStart, let report = summaryReport,
+              let indexes = summaryNavigationIndex?.journeyRowsByDayStart[start] else { return [] }
+        return indexes.map { report.journeys[$0] }
+    }
+    var currentSummaryJourney: SummaryRow? {
+        currentSummaryDayJourneys.first { $0.id == summaryDateNavigation.selectedJourneyID }
+    }
+    private func reconcileSummaryJourney() {
+        guard summaryShowsJourneys else { return }
+        let rows = currentSummaryDayJourneys
+        if !rows.contains(where: { $0.id == summaryDateNavigation.selectedJourneyID }) {
+            summaryDateNavigation.selectedJourneyID = rows.first?.id
+        }
+    }
+    private func resetSummaryDateNavigation() {
+        summaryPendingSeed = nil
+        summaryDraftContext = nil
+        summaryDateNavigation.revision &+= 1
+        summaryDateNavigation.selectedDay = nil; summaryDateNavigation.selectedJourneyID = nil
+        summaryDateNavigation.hint = .chooseDate; summaryDateNavigation.fromMainRange = false
+    }
+
+    var summarySources: [SummarySourceOption] {
+        guard !fwdbActive else { return [] }
+        if !files.isEmpty {
+            let counts = Dictionary(grouping: files, by: \.name).mapValues(\.count)
+            return files.enumerated().map { index, file in
+                SummarySourceOption(id: file.id, name: counts[file.name, default: 0] > 1
+                                    ? "\(file.name) (\(index + 1))" : file.name)
+            }
+        }
+        return track.map { [SummarySourceOption(id: $0.id, name: $0.name)] } ?? []
+    }
+
+    private func summaryInputTrack() -> (track: TrackData, fileIndex: UInt16?)? {
+        guard !fwdbActive, !isLoading else { return nil }
+        if files.isEmpty {
+            guard let track, summarySourceID == track.id else { return nil }
+            return (track, nil)
+        }
+        guard let index = files.firstIndex(where: { $0.id == summarySourceID }) else { return nil }
+        if displayMode == .compare {
+            guard let panes = compareTracks, panes.indices.contains(index) else { return nil }
+            return (panes[index], nil)
+        }
+        guard let track, index <= Int(UInt16.max) else { return nil }
+        return (track, UInt16(index))
+    }
+
+    private func currentSummaryKey(index: RegionIndex?) -> SummaryCacheKey? {
+        guard let input = summaryInputTrack(), let sourceID = summarySourceID,
+              let zone = summaryTimeZoneChoice.identifier else { return nil }
+        return SummaryCacheKey(revision: publicationClock.revision, mode: displayMode.rawValue,
+                               sourceID: sourceID, trackID: input.track.id, timeZone: zone,
+                               provenanceRevision: summaryProvenanceRevision,
+                               regionIdentity: index.map(ObjectIdentifier.init))
+    }
+
+    private func cancelSummaryWork() {
+        publicationClock.cancel(.summary)
+        summaryRequest = UUID()
+        summaryTask?.cancel(); summaryTask = nil
+        summaryBusy = false
+    }
+
+    private func invalidateSummaryReport() {
+        cancelSummaryWork()
+        summaryCacheKey = nil; summaryNavigationIndex = nil; summaryReport = nil; summaryError = nil
+        summaryDateNavigation.selectedJourneyID = nil
+        if fwdbActive || (track == nil && compareTracks == nil) { resetSummaryDateNavigation() }
+        clearSummaryMapFilter()
+        if let id = summaryOverridesTrackID,
+           summaryInputTrack()?.track.id != id {
+            summaryTransportOverrides = [:]; summaryOverridesTrackID = nil
+        }
+    }
+
+    /// Defer until the entire edit commit (including fills and changes) finishes.
+    private func scheduleSummaryRefresh() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self, self.summaryWindowOpen else { return }
+            self.ensureSummaryReport()
+        }
+    }
+
+    func ensureSummaryReport() {
+        guard summaryWindowOpen else { return }
+        let sources = summarySources
+        if !sources.contains(where: { $0.id == summarySourceID }) {
+            summarySourceID = sources.first?.id
+            summaryTransportOverrides = [:]; summaryOverridesTrackID = nil
+        }
+        guard !fwdbActive, !isLoading, let selected = summaryInputTrack(),
+              let sourceID = summarySourceID else {
+            if fwdbActive || sources.isEmpty { invalidateSummaryReport() }
+            return
+        }
+        guard let zone = summaryTimeZoneChoice.identifier else {
+            invalidateSummaryReport()
+            summaryError = String(localized: "无法识别指定时区，请输入有效的 IANA 时区。", comment: "Summary invalid named timezone")
+            return
+        }
+        if summaryDateNavigation.draftDay.interval(in: zone) == nil
+            || (summaryDateNavigation.selectedDay.map { $0.interval(in: zone) == nil } ?? false) {
+            summaryDateNavigation.hint = .invalidDay
+        } else if summaryDateNavigation.hint == .invalidDay {
+            summaryDateNavigation.hint = summaryDateNavigation.selectedDay == nil ? .chooseDate : nil
+        }
+        let index = RegionIndex.shared
+        guard let key = currentSummaryKey(index: index) else { return }
+        if summaryCacheKey == key, summaryReport != nil || summaryBusy { return }
+        clearSummaryMapFilter()
+        cancelSummaryWork()
+        summaryCacheKey = key; summaryNavigationIndex = nil; summaryReport = nil; summaryError = nil
+        summaryDateNavigation.selectedJourneyID = nil
+        if summaryOverridesTrackID != selected.track.id {
+            summaryTransportOverrides = [:]; summaryOverridesTrackID = selected.track.id
+        }
+        let snapshot = SummaryWorkSnapshot(track: selected.track, sourceID: sourceID,
+                                           name: sources.first(where: { $0.id == sourceID })?.name ?? selected.track.name,
+                                           zone: zone, selectedFileID: selected.fileIndex,
+                                           fills: displayMode == .single ? fills : [])
+        let request = UUID(); summaryRequest = request
+        let token = publicationClock.begin(.summary, fileIDs: files.map(\.id), sourceID: track?.id)
+        let override = summaryBuilderOverride
+        summaryBusy = true; summaryBuildCount += 1
+        summaryTask = Task.detached(priority: .utility) { [weak self] in
+            let result: Result<SummaryNavigationPublication, Error>
+            do {
+                let input = try snapshot.input()
+                let report = try override?(input, index)
+                    ?? JourneySummaryBuilder.build(input, regionIndex: index, isCancelled: { Task.isCancelled })
+                if Task.isCancelled { throw SummaryBuildError.cancelled }
+                let navigation = try SummaryNavigationIndex(report: report)
+                result = .success(SummaryNavigationPublication(report: report, index: navigation))
+            } catch { result = .failure(error) }
+            guard let self else { return }
+            await self.publishData(token) {
+                guard self.summaryWindowOpen, self.summaryRequest == request,
+                      self.summaryCacheKey == key, self.currentSummaryKey(index: index) == key else { return }
+                self.summaryTask = nil; self.summaryBusy = false
+                switch result {
+                case .success(let publication):
+                    let report = publication.report
+                    self.summaryNavigationIndex = publication.index
+                    self.summaryReport = report
+                    if let seed = self.summaryPendingSeed,
+                       seed.revision == self.summaryDateNavigation.revision,
+                       seed.sourceID == report.sourceID, seed.zone == report.timeZoneIdentifier,
+                       !self.summaryDateNavigation.draftEdited, self.summaryDateNavigation.selectedDay == nil,
+                       let last = report.days.last?.dayStart, let zone = TimeZone(identifier: report.timeZoneIdentifier) {
+                        self.summaryDateNavigation.draftDay = SummaryCalendarDay(date: Date(timeIntervalSince1970: last), timeZone: zone)
+                    }
+                    self.summaryPendingSeed = nil
+                    self.reconcileSummaryJourney()
+                    let ids = Set(report.journeys.map(\.id))
+                    self.summaryTransportOverrides = self.summaryTransportOverrides.filter { ids.contains($0.key) }
+                case .failure(let error):
+                    self.summaryCacheKey = nil
+                    if case SummaryBuildError.cancelled = error { return }
+                    self.summaryError = String(localized: "摘要计算失败：\(error.localizedDescription)", comment: "Summary computation error; %@ is the failure detail")
+                }
+            }
+        }
+    }
+
+    func pickSummarySource(_ id: UUID) {
+        guard summarySources.contains(where: { $0.id == id }), id != summarySourceID else { return }
+        summaryPendingSeed = nil
+        invalidateSummaryReport(); summarySourceID = id
+        summaryTransportOverrides = [:]; summaryOverridesTrackID = nil
+        ensureSummaryReport()
+    }
+
+    func pickSummaryTimeZone(_ choice: SummaryTimeZoneChoice) {
+        guard choice != summaryTimeZoneChoice else { ensureSummaryReport(); return }
+        cancelSummaryWork(); summaryCacheKey = nil; summaryNavigationIndex = nil; summaryReport = nil; summaryError = nil
+        summaryPendingSeed = nil; summaryDateNavigation.selectedJourneyID = nil
+        summaryDateNavigation.fromMainRange = false
+        clearSummaryMapFilter()
+        summaryTimeZoneChoice = choice
+        ensureSummaryReport()
+    }
+
+    func setSummaryTransport(_ mode: SummaryTransportMode?, journeyID: String) {
+        guard summaryReport?.journeys.contains(where: { $0.id == journeyID }) == true else { return }
+        summaryTransportOverrides[journeyID] = mode
+    }
+
+    var summaryMapUnavailableReason: String? {
+        guard let report = summaryReport else { return String(localized: "摘要尚未就绪") }
+        guard displayMode == .single, track?.id == report.trackID,
+              report.sourceID == summarySourceID else {
+            return String(localized: "仅当前单文件可在主地图上筛选；重叠与对比模式可继续浏览摘要。")
+        }
+        guard !isLoading, !deleteMode, stagedCount == 0, !fillMode, batch == nil,
+              !reviewPreview, playback == nil else {
+            return String(localized: "请先结束删除、补点、预览或回放，再在主地图上查看。")
+        }
+        return nil
+    }
+
+    func showSummaryOnMainMap(_ rowID: String) {
+        guard summaryMapUnavailableReason == nil, let report = summaryReport,
+              let row = (report.days + report.journeys).first(where: { $0.id == rowID }) else { return }
+        let start = row.kind == .day ? row.dayStart ?? row.startTime : row.startTime
+        let end = row.kind == .day ? row.dayEnd ?? row.endTime.nextUp : row.endTime.nextUp
+        guard start.isFinite, end.isFinite, start < end else { return }
+        noteUserActivity()
+        viewFilter = (start, end); viewFilterSpec = nil
+        summaryFilterSelection = SummaryFilterSelection(trackID: report.trackID, sourceID: report.sourceID,
+                                                        rowID: row.id, start: start, end: end,
+                                                        timeZoneIdentifier: report.timeZoneIdentifier)
+        if let b = row.bounds, [b.minLat, b.maxLat, b.minLon, b.maxLon].allSatisfy(\.isFinite),
+           b.minLat <= b.maxLat, b.minLon <= b.maxLon, b.maxLon - b.minLon <= 180 {
+            mapFocusRequest = MapFocusRequest(minLat: b.minLat, maxLat: b.maxLat, minLon: b.minLon, maxLon: b.maxLon,
+                                              minSpanMeters: 800, keepKey: NSApp?.window(scene: SceneID.journeySummary))
+            mapFocusVersion &+= 1
+        }
+    }
+
+    func clearSummaryMapFilter() {
+        guard let selection = summaryFilterSelection else { return }
+        summaryFilterSelection = nil
+        if viewFilter?.start == selection.start, viewFilter?.end == selection.end {
+            viewFilter = nil; viewFilterSpec = nil
+        }
+    }
+}
+

@@ -24,10 +24,10 @@ final class FogArchive: @unchecked Sendable {
     let levelKeys: [[UInt64]]
     let levelCounts: [[UInt32]]
     /// 与 levelKeys 平行：块的"出现代序"（区块文件 mtime 升序的秩；父块取子块最小值）。
-    /// 时光机回放按 gen ≤ 当前代过滤——.fwdb 无逐格时间戳，区块同步时间是
-    /// 数据里唯一的真实时间线（近似：一个区块的格子同代出现）
+    /// 时光机回放按 gen ≤ 当前代过滤——.fwdb 无逐格时间戳，采用区块文件的
+    /// 修改时间近似排序；同区块格子同代出现，不代表实际探索日期，复制/同步也可能改变它。
     let levelGens: [[UInt16]]
-    /// 代序 → 真实时间（升序）；count ≤ 1 时无时间线（时光机不可用）
+    /// 代序 → 区块文件修改时间（升序）；count ≤ 1 时无时间线（时光机不可用）
     let genTimes: [Double]
     /// 每代：外接框（归一化墨卡托）+ 格数（时光机的相机规划输入）
     struct GenInfo {
@@ -281,8 +281,12 @@ final class FogArchive: @unchecked Sendable {
         guard name.count >= 7 else { return [] }
         let core = String(name.dropFirst(4).dropLast(2))
         var num: UInt64 = 0
+        let maxRegion: UInt64 = 512 * 512 - 1
         for ch in core {
             guard let d = cipher[ch] else { return [] }
+            // Check before multiplying: reject invalid block numbers without
+            // overflowing, while accepting any number of leading zeroes.
+            guard num <= (maxRegion - d) / 10 else { return [] }
             num = num * 10 + d
         }
         let regionX = num % 512, regionY = num / 512

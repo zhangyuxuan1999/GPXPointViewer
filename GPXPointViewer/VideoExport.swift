@@ -367,10 +367,11 @@ enum VideoExportEngine {
             if let ov = cap.img {
                 ctx.draw(ov, in: CGRect(x: 0, y: 0, width: cfg.outW, height: cfg.outH))
             }
-            // 时间轴丝带
+            // 时间轴丝带（.fwdb 档案日期只来自区块修改时间，成片同样标近似；GPX 真实记录时间不加）
+            let ribbonDate = dayFmt.string(from: Date(timeIntervalSince1970: dt))
             drawRibbon(ctx, w: cfg.outW, h: cfg.outH,
                        frac: cfg.plan.duration > 0 ? p / cfg.plan.duration : 1,
-                       date: dayFmt.string(from: Date(timeIntervalSince1970: dt)))
+                       date: cfg.archive != nil ? "≈ " + ribbonDate : ribbonDate)
             CVPixelBufferUnlockBaseAddress(pixelBuffer, [])
 
             while !input.isReadyForMoreMediaData {

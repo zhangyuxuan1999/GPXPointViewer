@@ -294,7 +294,7 @@ enum ChangeRevert {
 
 /// One document revision, separate owners for derived views. TrackStore owns
 /// this value on MainActor; pure deterministic tests can complete tokens in any order.
-enum PublicationLane: Hashable, Sendable { case data, compareDiff, review, fogStats, playback, fogArchive, regions, candidates, tripMap, batchResolve, batchRouting
+enum PublicationLane: Hashable, Sendable { case data, compareDiff, review, fogStats, playback, fogArchive, regions, summary, candidates, tripMap, batchResolve, batchRouting
     case batchRefetch(GapID)
 }
 struct DataPublicationToken: Equatable, Sendable {

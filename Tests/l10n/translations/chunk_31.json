@@ -1,0 +1,613 @@
+[
+  {
+    "table": "Localizable",
+    "key": "IANA 时区",
+    "comment": "",
+    "en": "IANA Time Zone",
+    "de": "IANA-Zeitzone",
+    "zh-Hant": "IANA 時區"
+  },
+  {
+    "table": "Localizable",
+    "key": "UTC",
+    "comment": "",
+    "en": "UTC",
+    "de": "UTC",
+    "zh-Hant": "UTC"
+  },
+  {
+    "table": "Localizable",
+    "key": "下降（滤波估算）",
+    "comment": "",
+    "en": "Descent (filtered estimate)",
+    "de": "Abstieg (gefilterte Schätzung)",
+    "zh-Hant": "下降（濾波估算）"
+  },
+  {
+    "table": "Localizable",
+    "key": "交通方式",
+    "comment": "",
+    "en": "Transport Mode",
+    "de": "Verkehrsmittel",
+    "zh-Hant": "交通方式"
+  },
+  {
+    "table": "Localizable",
+    "key": "交通方式未知：观测证据不足。",
+    "comment": "",
+    "en": "Transport mode unknown: insufficient observed evidence.",
+    "de": "Verkehrsmittel unbekannt: unzureichende Beobachtungsdaten.",
+    "zh-Hant": "交通方式未知：觀測證據不足。"
+  },
+  {
+    "table": "Localizable",
+    "key": "仅一个记录点",
+    "comment": "",
+    "en": "Only one recorded point",
+    "de": "Nur ein aufgezeichneter Punkt",
+    "zh-Hant": "僅一個記錄點"
+  },
+  {
+    "table": "Localizable",
+    "key": "仅当前单文件可在主地图上筛选；重叠与对比模式可继续浏览摘要。",
+    "comment": "",
+    "en": "Only the current single file can be filtered on the main map; Overlay and Compare modes can still browse the summary.",
+    "de": "Nur die aktuelle Einzeldatei kann auf der Hauptkarte gefiltert werden; im Überlagerungs- und Vergleichsmodus kann die Übersicht weiter durchsucht werden.",
+    "zh-Hant": "僅目前單一檔案可在主地圖上篩選；重疊與對比模式仍可繼續瀏覽摘要。"
+  },
+  {
+    "table": "Localizable",
+    "key": "仅按落点归属，不推断越境时刻、地区内里程或停留时长。",
+    "comment": "",
+    "en": "Assignment is by point location only; no border-crossing times, in-region distance, or dwell duration is inferred.",
+    "de": "Die Zuordnung erfolgt nur anhand der Punktlage; Grenzübertrittszeiten, Strecken innerhalb einer Region und Aufenthaltsdauern werden nicht abgeleitet.",
+    "zh-Hant": "僅按落點歸屬，不推斷越境時刻、地區內里程或停留時長。"
+  },
+  {
+    "table": "Localizable",
+    "key": "仅统计本行首末记录之间；低速和空白不代表确定停留。",
+    "comment": "",
+    "en": "Counts only between the first and last records in this row; low speed and gaps do not indicate a confirmed stop.",
+    "de": "Wird nur zwischen der ersten und letzten Aufzeichnung dieser Zeile gezählt; niedrige Geschwindigkeit und Lücken belegen keinen bestätigten Aufenthalt.",
+    "zh-Hant": "僅統計本列首末記錄之間；低速和空白不代表確定停留。"
+  },
+  {
+    "table": "Localizable",
+    "key": "估算时间",
+    "comment": "",
+    "en": "Estimated time",
+    "de": "Geschätzte Zeit",
+    "zh-Hant": "估算時間"
+  },
+  {
+    "table": "Localizable",
+    "key": "低速间隔",
+    "comment": "",
+    "en": "Low-speed intervals",
+    "de": "Langsamintervalle",
+    "zh-Hant": "低速間隔"
+  },
+  {
+    "table": "Localizable",
+    "key": "候选：%@（仅按速度，未确认）",
+    "comment": "Summary speed-only candidate list, never a confirmed mode",
+    "en": "Candidates: %@ (speed only, unconfirmed)",
+    "de": "Kandidaten: %@ (nur nach Geschwindigkeit, unbestätigt)",
+    "zh-Hant": "候選：%@（僅按速度，未確認）"
+  },
+  {
+    "table": "Localizable",
+    "key": "包含 %lld 个改时观察点，日期与时间含估算。",
+    "comment": "",
+    "en": "Includes %lld retimed observation points; dates and times include estimates.",
+    "de": "Enthält %lld umdatierte Beobachtungspunkte; Datum und Zeit enthalten Schätzungen.",
+    "zh-Hant": "包含 %lld 個改時觀察點，日期與時間含估算。",
+    "plural": {"en": {"one": "Includes %lld retimed observation point; dates and times include estimates.", "other": "Includes %lld retimed observation points; dates and times include estimates."}, "de": {"one": "Enthält %lld umdatierten Beobachtungspunkt; Datum und Zeit enthalten Schätzungen.", "other": "Enthält %lld umdatierte Beobachtungspunkte; Datum und Zeit enthalten Schätzungen."}}
+  },
+  {
+    "table": "Localizable",
+    "key": "合格边：%lld；排除边：%lld",
+    "comment": "",
+    "en": "Accepted edges: %lld; excluded edges: %lld",
+    "de": "Gültige Kanten: %lld; ausgeschlossene Kanten: %lld",
+    "zh-Hant": "合格邊：%lld；排除邊：%lld"
+  },
+  {
+    "table": "Localizable",
+    "key": "国家与地区",
+    "comment": "",
+    "en": "Countries & Regions",
+    "de": "Länder und Regionen",
+    "zh-Hant": "國家與地區"
+  },
+  {
+    "table": "Localizable",
+    "key": "在主地图上查看",
+    "comment": "",
+    "en": "View on Main Map",
+    "de": "Auf Hauptkarte anzeigen",
+    "zh-Hant": "在主地圖上查看"
+  },
+  {
+    "table": "Localizable",
+    "key": "存储点的折线长度；稀疏记录可能漏掉弯道，定位抖动可能增大长度。",
+    "comment": "",
+    "en": "Polyline length through the stored points; sparse recording may miss curves, and location jitter may increase the length.",
+    "de": "Polylinienlänge durch die gespeicherten Punkte; spärliche Aufzeichnung kann Kurven verfehlen, und Positionsrauschen kann die Länge vergrößern.",
+    "zh-Hant": "儲存點的折線長度；稀疏記錄可能漏掉彎道，定位抖動可能增大長度。"
+  },
+  {
+    "table": "Localizable",
+    "key": "存档没有逐点真实时间和连续路线，无法计算每日／行程摘要。",
+    "comment": "",
+    "en": "The archive has no per-point real timestamps or continuous route, so daily/journey summaries cannot be computed.",
+    "de": "Das Archiv enthält keine echten Zeitstempel pro Punkt und keine zusammenhängende Route; Tages- und Fahrtübersichten können nicht berechnet werden.",
+    "zh-Hant": "存檔沒有逐點真實時間和連續路線，無法計算每日／行程摘要。"
+  },
+  {
+    "table": "Localizable",
+    "key": "应用时区",
+    "comment": "",
+    "en": "Apply Time Zone",
+    "de": "Zeitzone anwenden",
+    "zh-Hant": "套用時區"
+  },
+  {
+    "table": "Localizable",
+    "key": "当前文件的全部记录；不随主地图时间筛选改变。",
+    "comment": "",
+    "en": "All records in the current file; does not follow the main map time filter.",
+    "de": "Alle Aufzeichnungen der aktuellen Datei; folgt nicht dem Zeitfilter der Hauptkarte.",
+    "zh-Hant": "目前檔案的全部記錄；不隨主地圖時間篩選改變。"
+  },
+  {
+    "table": "Localizable",
+    "key": "当前来源没有可用于摘要的记录。",
+    "comment": "",
+    "en": "The current source has no records usable for a summary.",
+    "de": "Die aktuelle Quelle enthält keine für eine Übersicht nutzbaren Aufzeichnungen.",
+    "zh-Hant": "目前來源沒有可用於摘要的記錄。"
+  },
+  {
+    "table": "Localizable",
+    "key": "恢复自动候选",
+    "comment": "",
+    "en": "Restore Automatic Candidates",
+    "de": "Automatische Kandidaten wiederherstellen",
+    "zh-Hant": "恢復自動候選"
+  },
+  {
+    "table": "Localizable",
+    "key": "手动指定：%@",
+    "comment": "",
+    "en": "Manually set: %@",
+    "de": "Manuell festgelegt: %@",
+    "zh-Hant": "手動指定：%@"
+  },
+  {
+    "table": "Localizable",
+    "key": "指定时区",
+    "comment": "",
+    "en": "Named Time Zone",
+    "de": "Benannte Zeitzone",
+    "zh-Hant": "指定時區"
+  },
+  {
+    "table": "Localizable",
+    "key": "摘要列表",
+    "comment": "",
+    "en": "Summary List",
+    "de": "Zusammenfassungsliste",
+    "zh-Hant": "摘要列表"
+  },
+  {
+    "table": "Localizable",
+    "key": "摘要尚未就绪",
+    "comment": "",
+    "en": "Summary not ready yet",
+    "de": "Übersicht noch nicht bereit",
+    "zh-Hant": "摘要尚未就緒"
+  },
+  {
+    "table": "Localizable",
+    "key": "摘要时间筛选",
+    "comment": "",
+    "en": "Summary Time Filter",
+    "de": "Übersichts-Zeitfilter",
+    "zh-Hant": "摘要時間篩選"
+  },
+  {
+    "table": "Localizable",
+    "key": "摘要计算失败：%@",
+    "comment": "Summary computation error; %@ is the failure detail",
+    "en": "Summary calculation failed: %@",
+    "de": "Berechnung der Übersicht fehlgeschlagen: %@",
+    "zh-Hant": "摘要計算失敗：%@"
+  },
+  {
+    "table": "Localizable",
+    "key": "无效坐标：%lld 点",
+    "comment": "",
+    "en": "Invalid coordinates: %lld points",
+    "de": "Ungültige Koordinaten: %lld Punkte",
+    "zh-Hant": "無效座標：%lld 點",
+    "plural": {"en": {"one": "Invalid coordinates: %lld point", "other": "Invalid coordinates: %lld points"}, "de": {"one": "Ungültige Koordinaten: %lld Punkt", "other": "Ungültige Koordinaten: %lld Punkte"}}
+  },
+  {
+    "table": "Localizable",
+    "key": "无法识别指定时区，请输入有效的 IANA 时区。",
+    "comment": "Summary invalid named timezone",
+    "en": "Unrecognized named time zone. Enter a valid IANA time zone.",
+    "de": "Unbekannte benannte Zeitzone. Geben Sie eine gültige IANA-Zeitzone ein.",
+    "zh-Hant": "無法辨識指定時區，請輸入有效的 IANA 時區。"
+  },
+  {
+    "table": "Localizable",
+    "key": "日期按所选时区划分：%@",
+    "comment": "",
+    "en": "Dates are divided by the selected time zone: %@",
+    "de": "Datum wird nach der gewählten Zeitzone aufgeteilt: %@",
+    "zh-Hant": "日期按所選時區劃分：%@"
+  },
+  {
+    "table": "Localizable",
+    "key": "日期时区",
+    "comment": "",
+    "en": "Date Time Zone",
+    "de": "Datumszeitzone",
+    "zh-Hant": "日期時區"
+  },
+  {
+    "table": "Localizable",
+    "key": "日期未知：%lld 点",
+    "comment": "",
+    "en": "Date unknown: %lld points",
+    "de": "Datum unbekannt: %lld Punkte",
+    "zh-Hant": "日期未知：%lld 點",
+    "plural": {"en": {"one": "Date unknown: %lld point", "other": "Date unknown: %lld points"}, "de": {"one": "Datum unbekannt: %lld Punkt", "other": "Datum unbekannt: %lld Punkte"}}
+  },
+  {
+    "table": "Localizable",
+    "key": "时间覆盖",
+    "comment": "",
+    "en": "Time coverage",
+    "de": "Zeitabdeckung",
+    "zh-Hant": "時間覆蓋"
+  },
+  {
+    "table": "Localizable",
+    "key": "未归属：记录 %lld 点，补点 %lld 点",
+    "comment": "",
+    "en": "Unassigned: %lld recorded points, %lld Gap Fill points",
+    "de": "Nicht zugeordnet: %lld aufgezeichnete Punkte, %lld Lückenfüll-Punkte",
+    "zh-Hant": "未歸屬：記錄 %lld 點，補點 %lld 點"
+  },
+  {
+    "table": "Localizable",
+    "key": "未知",
+    "comment": "Summary transport mode",
+    "en": "Unknown",
+    "de": "Unbekannt",
+    "zh-Hant": "未知"
+  },
+  {
+    "table": "Localizable",
+    "key": "未覆盖时间",
+    "comment": "",
+    "en": "Uncovered time",
+    "de": "Nicht abgedeckte Zeit",
+    "zh-Hant": "未覆蓋時間"
+  },
+  {
+    "table": "Localizable",
+    "key": "本机时区",
+    "comment": "",
+    "en": "Local Time Zone",
+    "de": "Lokale Zeitzone",
+    "zh-Hant": "本機時區"
+  },
+  {
+    "table": "Localizable",
+    "key": "本行程模式",
+    "comment": "",
+    "en": "Journey Mode",
+    "de": "Fahrtmodus",
+    "zh-Hant": "本行程模式"
+  },
+  {
+    "table": "Localizable",
+    "key": "来源",
+    "comment": "",
+    "en": "Source",
+    "de": "Quelle",
+    "zh-Hant": "來源"
+  },
+  {
+    "table": "Localizable",
+    "key": "正在计算摘要…",
+    "comment": "",
+    "en": "Calculating summary…",
+    "de": "Übersicht wird berechnet…",
+    "zh-Hant": "正在計算摘要…"
+  },
+  {
+    "table": "Localizable",
+    "key": "正在载入轨迹…",
+    "comment": "",
+    "en": "Loading track…",
+    "de": "Track wird geladen…",
+    "zh-Hant": "正在載入軌跡…"
+  },
+  {
+    "table": "Localizable",
+    "key": "步行",
+    "comment": "Summary transport mode",
+    "en": "Walking",
+    "de": "Zu Fuß",
+    "zh-Hant": "步行"
+  },
+  {
+    "table": "Localizable",
+    "key": "每日",
+    "comment": "",
+    "en": "Daily",
+    "de": "Täglich",
+    "zh-Hant": "每日"
+  },
+  {
+    "table": "Localizable",
+    "key": "每日与行程摘要",
+    "comment": "",
+    "en": "Daily & Journey Summary",
+    "de": "Tages- und Fahrtübersicht",
+    "zh-Hant": "每日與行程摘要"
+  },
+  {
+    "table": "Localizable",
+    "key": "每日与行程摘要…",
+    "comment": "",
+    "en": "Daily & Journey Summary…",
+    "de": "Tages- und Fahrtübersicht…",
+    "zh-Hant": "每日與行程摘要…"
+  },
+  {
+    "table": "Localizable",
+    "key": "每日显示相关行程的模式与候选，不生成唯一的全天交通方式。",
+    "comment": "",
+    "en": "Shows the modes and candidates of related journeys for each day; does not produce a single all-day transport mode.",
+    "de": "Zeigt die Modi und Kandidaten der zugehörigen Fahrten pro Tag; es wird kein einziges Verkehrsmittel für den ganzen Tag erzeugt.",
+    "zh-Hant": "每日顯示相關行程的模式與候選，不產生唯一的全天交通方式。"
+  },
+  {
+    "table": "Localizable",
+    "key": "水路",
+    "comment": "Summary transport mode",
+    "en": "Water",
+    "de": "Schiff",
+    "zh-Hant": "水路"
+  },
+  {
+    "table": "Localizable",
+    "key": "没有地区落点",
+    "comment": "",
+    "en": "No region match",
+    "de": "Keine Regionszuordnung",
+    "zh-Hant": "沒有地區落點"
+  },
+  {
+    "table": "Localizable",
+    "key": "海拔覆盖不足，爬升／下降不可用。",
+    "comment": "",
+    "en": "Insufficient elevation coverage; ascent/descent unavailable.",
+    "de": "Unzureichende Höhenabdeckung; Anstieg/Abstieg nicht verfügbar.",
+    "zh-Hant": "海拔覆蓋不足，爬升／下降不可用。"
+  },
+  {
+    "table": "Localizable",
+    "key": "海拔边覆盖率：%lld / %lld",
+    "comment": "",
+    "en": "Elevation edge coverage: %lld / %lld",
+    "de": "Höhenkanten-Abdeckung: %lld / %lld",
+    "zh-Hant": "海拔邊覆蓋率：%lld / %lld"
+  },
+  {
+    "table": "Localizable",
+    "key": "清除摘要筛选",
+    "comment": "",
+    "en": "Clear Summary Filter",
+    "de": "Übersichtsfilter löschen",
+    "zh-Hant": "清除摘要篩選"
+  },
+  {
+    "table": "Localizable",
+    "key": "源段时间重叠，距离可能含重复记录。",
+    "comment": "",
+    "en": "Source segment times overlap; distance may include duplicate records.",
+    "de": "Die Zeiten der Quellabschnitte überschneiden sich; die Entfernung kann doppelte Aufzeichnungen enthalten.",
+    "zh-Hant": "來源區段時間重疊，距離可能含重複記錄。"
+  },
+  {
+    "table": "Localizable",
+    "key": "爬升与下降",
+    "comment": "",
+    "en": "Ascent & Descent",
+    "de": "Anstieg und Abstieg",
+    "zh-Hant": "爬升與下降"
+  },
+  {
+    "table": "Localizable",
+    "key": "爬升（滤波估算）",
+    "comment": "",
+    "en": "Ascent (filtered estimate)",
+    "de": "Anstieg (gefilterte Schätzung)",
+    "zh-Hant": "爬升（濾波估算）"
+  },
+  {
+    "table": "Localizable",
+    "key": "移动估计",
+    "comment": "",
+    "en": "Moving estimate",
+    "de": "Bewegungsschätzung",
+    "zh-Hant": "移動估計"
+  },
+  {
+    "table": "Localizable",
+    "key": "结束（不含）：%@",
+    "comment": "",
+    "en": "End (exclusive): %@",
+    "de": "Ende (exklusiv): %@",
+    "zh-Hant": "結束（不含）：%@"
+  },
+  {
+    "table": "Localizable",
+    "key": "至 %@（包含最后记录点）",
+    "comment": "",
+    "en": "to %@ (includes the last recorded point)",
+    "de": "bis %@ (einschließlich des letzten aufgezeichneten Punkts)",
+    "zh-Hant": "至 %@（包含最後記錄點）"
+  },
+  {
+    "table": "Localizable",
+    "key": "航空",
+    "comment": "Summary transport mode",
+    "en": "Air",
+    "de": "Flugzeug",
+    "zh-Hant": "航空"
+  },
+  {
+    "table": "Localizable",
+    "key": "行政区边界数据不可用。",
+    "comment": "",
+    "en": "Administrative boundary data is unavailable.",
+    "de": "Verwaltungsgrenzendaten sind nicht verfügbar.",
+    "zh-Hant": "行政區邊界資料不可用。"
+  },
+  {
+    "table": "Localizable",
+    "key": "行程",
+    "comment": "",
+    "en": "Journeys",
+    "de": "Fahrten",
+    "zh-Hant": "行程"
+  },
+  {
+    "table": "Localizable",
+    "key": "行程按源轨迹段和 30 分钟记录空白分段，不按午夜拆分。",
+    "comment": "",
+    "en": "Journeys are split by source track segments and 30-minute recording gaps; they are not split at midnight.",
+    "de": "Fahrten werden nach Quell-Trackabschnitten und 30-minütigen Aufzeichnungslücken getrennt; um Mitternacht wird nicht getrennt.",
+    "zh-Hant": "行程按來源軌跡區段和 30 分鐘記錄空白分段，不按午夜拆分。"
+  },
+  {
+    "table": "Localizable",
+    "key": "补点估算",
+    "comment": "",
+    "en": "Gap Fill estimate",
+    "de": "Lückenfüll-Schätzung",
+    "zh-Hant": "補點估算"
+  },
+  {
+    "table": "Localizable",
+    "key": "补点来源仅在本次编辑会话可识别。",
+    "comment": "",
+    "en": "Gap Fill provenance can only be identified in this editing session.",
+    "de": "Die Herkunft der Lückenfüllung ist nur in dieser Bearbeitungssitzung erkennbar.",
+    "zh-Hant": "補點來源僅在本次編輯工作階段可辨識。"
+  },
+  {
+    "table": "Localizable",
+    "key": "补点经过（估算）",
+    "comment": "",
+    "en": "Gap Fill pass-through (estimated)",
+    "de": "Lückenfüll-Passage (geschätzt)",
+    "zh-Hant": "補點經過（估算）"
+  },
+  {
+    "table": "Localizable",
+    "key": "观测间隔",
+    "comment": "",
+    "en": "Observed intervals",
+    "de": "Beobachtete Intervalle",
+    "zh-Hant": "觀測間隔"
+  },
+  {
+    "table": "Localizable",
+    "key": "记录位置到访",
+    "comment": "",
+    "en": "Recorded position visits",
+    "de": "Besuche an aufgezeichneten Positionen",
+    "zh-Hant": "記錄位置到訪"
+  },
+  {
+    "table": "Localizable",
+    "key": "记录折线",
+    "comment": "",
+    "en": "Recorded polyline",
+    "de": "Aufgezeichnete Polylinie",
+    "zh-Hant": "記錄折線"
+  },
+  {
+    "table": "Localizable",
+    "key": "记录跨度",
+    "comment": "",
+    "en": "Recorded span",
+    "de": "Aufgezeichnete Spanne",
+    "zh-Hant": "記錄跨度"
+  },
+  {
+    "table": "Localizable",
+    "key": "请先导入 GPX 或 CSV 轨迹。",
+    "comment": "",
+    "en": "Import a GPX or CSV track first.",
+    "de": "Importieren Sie zuerst einen GPX- oder CSV-Track.",
+    "zh-Hant": "請先匯入 GPX 或 CSV 軌跡。"
+  },
+  {
+    "table": "Localizable",
+    "key": "请先结束删除、补点、预览或回放，再在主地图上查看。",
+    "comment": "",
+    "en": "Finish deleting, Gap Fill, preview, or playback first, then view on the main map.",
+    "de": "Beenden Sie zuerst Löschen, Lückenfüllung, Vorschau oder Wiedergabe; zeigen Sie dann auf der Hauptkarte an.",
+    "zh-Hant": "請先結束刪除、補點、預覽或回放，再在主地圖上查看。"
+  },
+  {
+    "table": "Localizable",
+    "key": "距离",
+    "comment": "",
+    "en": "Distance",
+    "de": "Entfernung",
+    "zh-Hant": "距離"
+  },
+  {
+    "table": "Localizable",
+    "key": "距离不可计算",
+    "comment": "",
+    "en": "Distance unavailable",
+    "de": "Entfernung nicht berechenbar",
+    "zh-Hant": "距離無法計算"
+  },
+  {
+    "table": "Localizable",
+    "key": "轨迹没有可用于日期摘要的时间。",
+    "comment": "",
+    "en": "The track has no timestamps usable for a daily summary.",
+    "de": "Der Track enthält keine für eine Tagesübersicht nutzbaren Zeitstempel.",
+    "zh-Hant": "軌跡沒有可用於日期摘要的時間。"
+  },
+  {
+    "table": "Localizable",
+    "key": "重新计算",
+    "comment": "",
+    "en": "Recalculate",
+    "de": "Neu berechnen",
+    "zh-Hant": "重新計算"
+  },
+  {
+    "table": "Localizable",
+    "key": "骑行",
+    "comment": "Summary transport mode",
+    "en": "Cycling",
+    "de": "Fahrrad",
+    "zh-Hant": "騎乘"
+  }
+]

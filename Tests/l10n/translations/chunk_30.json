@@ -1,0 +1,18 @@
+[
+  {
+    "table": "Localizable",
+    "key": "导出范围包含无效的点索引。",
+    "comment": "Error message when exporting GPX: the selected point indices are invalid",
+    "en": "The export selection contains invalid point indices.",
+    "de": "Die Exportauswahl enthält ungültige Punktindizes.",
+    "zh-Hant": "匯出範圍包含無效的點索引。"
+  },
+  {
+    "table": "Localizable",
+    "key": "归档回放日期取自区块文件修改时间，不代表实际探索时间。",
+    "comment": ".fwdb archives have no per-cell date: archive playback dates come from block file modification times and do not represent actual exploration dates",
+    "en": "Archive playback dates come from block file modification times, not the actual exploration dates.",
+    "de": "Das Datum der Archivwiedergabe stammt aus der Änderungszeit der Blockdateien und entspricht nicht dem tatsächlichen Erkundungsdatum.",
+    "zh-Hant": "存檔回放日期取自區塊檔案修改時間，不代表實際探索時間。"
+  }
+]

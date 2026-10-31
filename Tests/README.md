@@ -11,16 +11,16 @@
 ```sh
 cd /Users/zyx/Documents/GPXPointViewer
 
-# 构建（UI 测试优先用这份）
-xcodebuild -project GPXPointViewer.xcodeproj -scheme GPXPointViewer -configuration Release build
+# 构建并归档（UI 测试用脚本打印的 app；项目 Builds/<RUN>/archive/ 存 durable ZIP 与记录；保留工程签名）
+python3 Tools/build_release.py --arch arm64
 
 # 合成数据回归（第一次要加 REGEN=1 生成数据）
 REGEN=1 Tests/synth/runner/run_all.sh      # 生成约 140 MB 数据 + 检查
 Tests/synth/runner/run_all.sh              # 以后：复用数据，只编译 + 检查（约 40 秒）
 
-# UI 回归
+# UI 回归（显式指定归档；不要依赖 DerivedData 自动回退）
 Tests/ui/setup_data.sh                     # 只需一次：把测试轨迹拷进 app 沙盒（另有 3 个文件它不拷，见 2.3）
-Tests/ui/run_suite.sh                      # 全套，约 40 分钟，会占用屏幕
+GPXPV_APP=/ABS/APP_FROM_BUILD/GPXPointViewer.app Tests/ui/run_suite.sh   # 全套，约 40 分钟，会占用屏幕
 ```
 
 ## 必读规则
@@ -31,7 +31,7 @@ Tests/ui/run_suite.sh                      # 全套，约 40 分钟，会占用�
    - 不要同时开两个测试副本，也别在测试时用正式 app 跑批量补点。
 2. **不要为了让测试变绿去改期望值。** `synth/*/expect.json` 是"标准答案"，改它要按第 4 节的流程走，并写明理由。
 3. **抽键结果不要输出到 `l10n/translations/`**，那里是已翻译好的块，会被空壳覆盖（见第 6 节）。
-4. **装到 `/Applications` 之前先问用户。**
+4. **验收通过后按 AGENTS.md 的持续授权覆盖安装；先保存编辑并正常退出所有实例，签名与可安装性验证见 2.2 和第 7 节。**
 5. UI 测试会把测试窗口拉到最前面、抢键盘焦点。全套约 40 分钟，期间这台 Mac 最好别干别的。
 
 ---
@@ -69,26 +69,31 @@ Tests/
 
 - Xcode 命令行工具（`xcodebuild`、`swiftc`）和系统自带的 `python3`。**不需要装任何 pip 包**，所有 Python 脚本只用标准库。
 
-### 2.2 构建 Release
+### 2.2 构建 Release 并归档
+
+UI 测试必须测一份**带构建归属**的归档，不再从 DerivedData 或 `/Applications` 自动挑 app。
 
 ```sh
-xcodebuild -project GPXPointViewer.xcodeproj -scheme GPXPointViewer -configuration Release build
+# 构建 Release；保留工程签名；保存完整命令/退出码/build.log/构建前后输入 SHA manifest。
+# 正常构建把可运行 app 与相邻 build-manifest 留在 iCloud 外的唯一本地暂存目录；durable ZIP 与记录在项目 Builds/<RUN>/archive/。
+python3 Tools/build_release.py --arch arm64
+
+# 验证构建打印的 app 与构建清单
+python3 Tools/archive_build.py /ABS/APP_FROM_BUILD/GPXPointViewer.app --validate
 ```
 
-看到 `** BUILD SUCCEEDED **` 才算成功。
+失败产物保留、不安装、不启动、不删除。`Tools/build_release.py` 正常构建会把可运行的已签名 app 与相邻的 `build-manifest.json` 留在 iCloud 之外的唯一本地暂存目录，并在项目 `Builds/<RUN>/archive/` 保存 durable ZIP、manifest、proof 与 paths 记录；脚本会打印实际的 `app`、`manifest`、`durable_zip`、`durable_manifest` 路径，下文 `/ABS/APP_FROM_BUILD/…` 都应替换为打印值，UI 测试、验证与安装使用打印的 app/manifest，不要假设项目内存在 `archive/GPXPointViewer.app`。历史 bundle 用 `python3 Tools/archive_build.py /ABS/OLD/GPXPointViewer.app` 归档到新的 `Builds/TIME_historical_UUID/`；它不冒称匹配当前源码。签名、安装与回滚见 [docs/local-install-signing.md](../docs/local-install-signing.md)。
 
-**UI 测试测的是哪份 app？** 由 `Tests/ui/ui.py` 里的 `app_source()` 决定：
+构建默认保留工程三个 target 的签名配置（主 App、Quick Look、Thumbnail 各自的 entitlement，本地 ad-hoc）。`--no-sign` 只用于明确的研发／诊断；该 manifest 标记 `installable=false`，不能作为正式安装包，也不能作为默认正式安装示例。是否可安装由 `python3 Tools/archive_build.py /ABS/APP_FROM_BUILD/GPXPointViewer.app --validate --for-install` 与安装器对三个 bundle 的 `codesign --verify --strict`、bundle ID、实际 entitlement、CDHash 校验共同决定。验收后的已授权安装命令见第 7 节；完整签名、备份与回滚说明见 [docs/local-install-signing.md](../docs/local-install-signing.md)。
 
-1. 如果设置了环境变量 `GPXPV_APP=/某处/GPXPointViewer.app`，就测它；
-2. 否则如果 `~/Library/Developer/Xcode/DerivedData/GPXPointViewer-*/Build/Products/Release/GPXPointViewer.app` 存在（取最新的那个），就测它（"安装前先测"）；
-3. 都没有的话，测 `/Applications/GPXPointViewer.app`（已安装的那份）；
-4. 三处都没有，就报错退出。
+**UI 测试测的是哪份 app？**
 
-> ⚠️ 陷阱：如果构建产物不在 DerivedData 的默认位置（比如用了 `-derivedDataPath`），测试会**悄悄测成 /Applications 里的旧版本**。`run_suite.sh` 第一行会打印 `testing <路径>`，测新代码时这里必须是刚构建的那份。不对的话用 `GPXPV_APP=<那份 app 的路径> Tests/ui/run_suite.sh` 指定，或用下面的命令查构建到了哪里：
->
-> ```sh
-> xcodebuild -project GPXPointViewer.xcodeproj -scheme GPXPointViewer -configuration Release -showBuildSettings 2>/dev/null | grep -m1 ' BUILT_PRODUCTS_DIR'
-> ```
+1. 必须显式设置 `GPXPV_APP=/ABS/APP_FROM_BUILD/GPXPointViewer.app`（单脚本或 `run_suite.sh` 都一样）；
+2. 需要时再设 `GPXPV_BUILD_MANIFEST=/ABS/APP_FROM_BUILD/build-manifest.json`；
+3. `ui.app_source()` / `run_suite.sh` 会先校验完整 bundle 与当前源码/资源/工程输入 SHA，**通过后才**停止或覆盖测试副本；没有 manifest、源码变化或 bundle 变化都会拒绝；
+4. 诊断旧版本只能显式 `GPXPV_ALLOW_UNVERIFIED_BUILD=1 GPXPV_APP=/ABS/OLD/GPXPointViewer.app ...`，会打印 `UNVERIFIED_EXPLICIT_OVERRIDE` 和 binary SHA，结果不得归属当前源码。
+
+没有自动回退 DerivedData 或 `/Applications` 的路径，也不以文件 mtime 证明源码归属。脚本第一行仍会打印 `testing <路径>` 和 `BUILD_PROVENANCE`，测新代码时必须是刚验证过的归档。
 
 ### 2.3 把测试轨迹拷进 app 沙盒（只需一次）
 
@@ -129,7 +134,7 @@ Tests/ui/setup_data.sh
 
 UI 测试不碰你平时用的那份 app。它会：
 
-1. 把 `app_source()` 选出的 app 复制到 `Tests/ui/GPXPointViewer.app`；
+1. 把已通过 manifest/输入 SHA 校验的 `GPXPV_APP` 归档复制到 `Tests/ui/app.noindex/GPXPointViewer.app`；
 2. 用 `open -n --env GPXPV_UITEST_DIR=<容器通信目录> … --args -AppleLanguages '(zh-Hans)'` 启动这份副本。
 
 几点说明：
@@ -138,7 +143,7 @@ UI 测试不碰你平时用的那份 app。它会：
 - **和正式版共用设置**：测试副本和 /Applications 那份 bundle id 相同，所以共用同一个沙盒容器和偏好设置。
 - **只开一个**：同一时间只能有一个测试副本，因为大家共用同一个通信目录。
 
-> 小提示：`Tests/ui/GPXPointViewer.app` 在「文稿」目录里，Spotlight 可能把它当成第二个同名 app。测完不需要了可以 `rm -rf Tests/ui/GPXPointViewer.app`，下次跑全套会重新拷。
+> 小提示：`Tests/ui/app.noindex/GPXPointViewer.app` 在「文稿」目录里，Spotlight 可能把它当成第二个同名 app。测完不需要了可以 `rm -rf Tests/ui/app.noindex/GPXPointViewer.app`，下次跑全套会重新拷。
 
 ---
 
@@ -168,21 +173,24 @@ app 端的日志在通信目录里的 `log.txt`。
 ### 3.2 跑全套
 
 ```sh
-Tests/ui/run_suite.sh
+GPXPV_APP=/ABS/APP_FROM_BUILD/GPXPointViewer.app Tests/ui/run_suite.sh
+# 可选：GPXPV_BUILD_MANIFEST=/ABS/APP_FROM_BUILD/build-manifest.json
 ```
 
 它做的事：
 
-1. 关掉旧的测试副本（只关 `Tests/ui/GPXPointViewer.app`，不碰正式版）；
-2. 重新复制、以中文启动测试副本，最多等 60 秒，等到会打印 `app up`。60 秒还没起来也会继续往下跑，结果就是后面一片 Traceback；
-3. **按固定顺序一个接一个**跑下表 25 个脚本（联网的不会并行），每个最多 40 分钟，超时记 `TIMEOUT`；
-4. 全部输出追加到 `Tests/ui/perf/suite_HHMM.log`，最后打印 `===== SUMMARY`。
+1. 先校验显式指定的归档（完整 bundle + 当前源码/资源/工程输入 SHA），**通过后才**关掉旧测试副本（只关 `Tests/ui/app.noindex/GPXPointViewer.app`，不碰正式版）；
+2. 重新复制、以中文启动测试副本，最多等 60 秒，等到会打印 `app up`；启动失败也会保留日志和 JSON；
+3. **按固定顺序一个接一个**跑 25 个 suite 脚本（联网的不会并行），每个最多 40 分钟，超时记 `TIMEOUT`；`run_regions_stats_tests.py` 不在 suite 内，见 3.6；
+4. 输出写入唯一目录 `Tests/ui/perf/suite_YYYYMMDDTHHMMSSZ_RANDOM/suite.log`，旁边 `suite.json` 保存启动归属、每脚本真实 `exit_code`、`FAILS` 汇总与状态；最后打印 `SUITE_RESULT` / `===== SUMMARY`。
+
+**非零规则**：任一脚本非零退出、任一非 `none` 的 `FAILS`、或非诊断脚本缺少 `FAILS` 行，都会使 suite 非零；`run_drift_tests.py` 明确记为 diagnostic，不冒充通过。失败/启动错误日志只追加到新目录，旧失败不会被覆盖。旧记录没有完整锁定构建归属时，不能追认成当前源码的结果。
 
 全套约 **35–40 分钟**，大头是 run_rail_tests（约 16–18 分钟）和 run_jitter_tests（约 10–11 分钟）。中途有脚本失败也会继续往下跑。
 
 ### 3.3 跑单个脚本
 
-大多数脚本**假设测试副本已经在运行**，自己不会启动 app。所以先启动测试副本，再跑脚本。下面这段和 `run_suite.sh` 开头的启动代码完全一样：
+大多数脚本**假设测试副本已经在运行**，自己不会启动 app。所以先启动测试副本，再跑脚本。启动前必须先按 2.2 设置 `GPXPV_APP`（可选 `GPXPV_BUILD_MANIFEST`）；`ui.app_source()` 会校验归档归属，不再自动回退。下面这段和 `run_suite.sh` 开头的启动代码同一思路：
 
 ```sh
 cd /Users/zyx/Documents/GPXPointViewer/Tests/ui
@@ -220,7 +228,7 @@ python3 run_fill_tests.py          # 换成你要跑的脚本
 - `FAILS: none`：全部通过；
 - `FAILS: ['T7 拖锚点 B …', …]`：列出失败的检查项。
 
-全套的 SUMMARY 会列出每个脚本的 `#####` 开头行、`FAILS:` 行、`exit=` 行和 `Traceback`。
+全套的 SUMMARY 会列出每个脚本的 `#####` 开头行、`FAILS:` 行、`exit=` 行和 `Traceback`；同一目录的 `suite.json` 是机器可读结果（启动归属、每脚本真实 `exit_code`、`FAILS` 汇总、整体状态）。
 
 - **以 `FAILS:` 行为准，不要只看 exit 码。** 有 8 个脚本失败时也是 exit 0：dock、trip、region、profile、nature、route_notes、parallel、tripmap。
 - **没有 `FAILS:` 行、却有 `Traceback`**：脚本中途崩了。最常见的原因是 app 没在跑，`state` 返回 TIMEOUT，然后取字段时报 KeyError。
@@ -230,7 +238,7 @@ python3 run_fill_tests.py          # 换成你要跑的脚本
 **联网测试失败 ≠ 代码回归。** 公共服务限流、排队都会让联网测试失败（2026-10-24 的两次全量里，run_route_tests 的 R8c、run_rail_tests 的 R2、run_network_tests 的 N1/N2 都出现过）。判断方法：
 
 1. 单独再跑一次；
-2. 还不行就做 A/B：用同样的命令启动 `/Applications` 里的旧版（同一时间只开一个），跑同一个脚本。旧版也失败，就不是这次改坏的。
+2. 还不行就做 A/B：显式 `GPXPV_ALLOW_UNVERIFIED_BUILD=1 GPXPV_APP=/Applications/GPXPointViewer.app` 启动旧版（同一时间只开一个），跑同一个脚本；结果不归属当前源码。旧版也失败，就不是这次改坏的。
 
 ### 3.5 联网纪律（再强调一次）
 
@@ -249,11 +257,13 @@ python3 run_fill_tests.py          # 换成你要跑的脚本
   **隧道补点修正（2026-10-26）**：`pointat <i>`（第 i 个点的 `{index,time,lat,lon}`，time = Unix 秒）、`pointfind <lat> <lon>`（最近点的 `index/time/dist`）；`state` 多了 `promptInsert`（确认框「替换」插入的合成点数）/ `promptRetimed`（改时点数）；`reviewstate` 的 `changes[]` 多了 `retimed`，且 `added`/`removed` 改为净值（不含改时点的新/旧点）。候选数因「短断档门槛 V1」变化：Muenchen_Roma_Garmin 44→50、Garmin_Roma_Da 97→100（run_profile_tests P2 已改）；staleClock 候选的 A 可能因「冻结外推链」前移（`state.anchorA` 比老值小 3–6）。`relaunch` 钩子重开的实例通过容器 tmp 的交接文件拿到钩子目录（环境变量和 `-AppleLanguages` 等启动参数会被系统剥掉，存储的语言偏好仍生效）。
   **多来源底图 / OSM 隧道叠加层（2026-10-26，`docs/map-sources.md`）**：`set mapStyle 标准|卫星|混合|OpenStreetMap|OpenTopoMap|Esri 影像`（也认 standard/imagery/hybrid/osm/topo/esri）；`reviewmap standard|imagery|hybrid|osm|topo|esri [light 0|1]`；`faketiles 0|1`（瓦片不出网、返回画着 z/x/y 的假 PNG，开时清零 `tileRequests`；**自测副本启动即为 1**）；`tunnels 0|1`（偏好 `tunnelOverlay`）；`faketunnels <n>`（注入 n 条视野内合成隧道，0 关）；`tunnelrefresh`；`mapgoto <lat> <lon> <km>`（主地图视野置中）；`mapnotice [0|1]`（读/写「一次性说明已弹过」偏好，脚本结束要还原）；`tunnelnet 0|1`（**自测副本默认不让隧道层出网**：没有 faketunnels 时状态为 failed + "network disabled"；只在人工验证时 `tunnelnet 1`，一次一个客户端）。`state` 多了 `baseMap`（rawValue）、`tileRequests`、`fakeTiles`、`attribution`（外部来源的署名，Apple 为 null）、`tunnelOverlay{on,ways,state,lastError}`（state ∈ off/idle/tooFar/fetching/ready/cooling/failed）；`reviewstate` 多了 `baseMap`、`attribution`、`tunnelOverlay`（审阅地图没显示时 state 为 `noMap`）。**第一次切到外部底图会弹一次性说明**（偏好 `externalMapNoticeShown`）：钩子 `set mapStyle` 直接写设置不弹，`reviewmap osm` 走界面会弹，脚本里跟一句 `dismiss`。离线脚本 `run_map_sources_tests.py`（自己起副本，约 1 分钟）。测完复位：`set mapStyle 标准`、`reviewmap standard light 1`、`tunnels 0`、`faketunnels 0`、`faketiles 0`。
 
-### 3.6 全套里的 25 个脚本（按 run_suite.sh 的顺序）
+### 3.6 全套里的 25 个脚本 + 地区统计独立脚本（按 run_suite.sh 的顺序）
+
+`run_suite.sh` 只跑 25 个 suite 脚本；`run_regions_stats_tests.py` **不在其中**，需按 3.3 单独运行（它会自己起两次测试副本）。下表保留该独立脚本作索引，不表示 suite 已覆盖它。
 
 2026-10-28 补齐：run_tunnel_fix / run_crosscheck / run_batch_review / run_batch_card / run_route_cache / run_map_sources 排在 run_plausibility 之后（都会自己重启测试副本）。run_map_sources_tests 的 M1c 在锁屏时会假失败：先 `ioreg -n Root -d1 -a | grep -A1 CGSSessionScreenIsLocked`，锁着就不判。
 
-数据文件都在容器通信目录里（见 2.3）。耗时取自 2026-10-24 的全量日志。
+数据文件都在容器通信目录里（见 2.3）。耗时取自 2026-10-24 的全量日志（历史观察，不是当前版本的实时测量）。
 
 | 脚本 | 测什么 | 数据文件 | 联网 | 约耗时 |
 |---|---|---|---|---|
@@ -267,7 +277,7 @@ python3 run_fill_tests.py          # 换成你要跑的脚本
 | run_dock_tests.py | 批量窗口紧凑卡片停靠在固定位置；飞到断档时 A/B 两端不被卡片挡住。需要窗口完整在 1440×932 屏幕内 | Garmin_Roma_Da.gpx | 后台 | 20 s |
 | run_trip_tests.py | 行程切分与按速度判公路/铁路；「只补公路」时铁路行程的断档默认跳过；`trip k road/auto` 切换 | Garmin_Roma_Da_copy.gpx | 后台（脚本注释写"离线"，但 batchplan 会触发） | 5 s |
 | run_region_tests.py | 范围圈选/反选/清除、只补公路时疑似铁路默认跳过、批量 3 处公路 <15 s | Garmin_Roma_Da.gpx | 是（最后一步批量取草稿） | 10 s |
-| run_regions_stats_tests.py | 地区统计（国家/省州/地级市）：合成边界（`Tests/synth/regions_synthetic.bin`，经 `GPXPV_REGIONS_BIN` 注入）下 13 个点归属探针（含边界、洞、海上）、点口径点数/天数/排序、迷雾口径格数层级求和/等级公式/每格面积、选中高亮多边形数、.fwdb 只有迷雾口径且全部未归属、内置 Regions.bin 路径 | 自己生成；data/2026.fwdb | 否 | 3 min（起两次副本） |
+| run_regions_stats_tests.py（独立，不在 suite） | 地区统计（国家/省州/地级市）：合成边界（`Tests/synth/regions_synthetic.bin`，经 `GPXPV_REGIONS_BIN` 注入）下 13 个点归属探针（含边界、洞、海上）、点口径点数/天数/排序、迷雾口径格数层级求和/等级公式/每格面积、选中高亮多边形数、.fwdb 只有迷雾口径且全部未归属、内置 Regions.bin 路径 | 自己生成；data/2026.fwdb | 否 | 3 min（起两次副本） |
 | run_profile_tests.py | 采样画像：Garmin = 专用记录仪、1 s / 27 m、半径 15、候选 97；一生足迹 = 手机、半径 20–50、有候选；选断档后点距自动跟随 | Garmin_Roma_Da.gpx + stepLife.csv（171 MB） | 否 | 10 s |
 | run_nature_tests.py | 断档成因标签（失锁 / 采样稀疏）、`routeinputs` 导出、notes 内容、批量「跳过稀疏」 | Garmin_Roma_Da.gpx + stepLife2026.csv | 后台 | 12 s |
 | run_route_notes_tests.py | 单处公路草稿带判断依据：notes 里有上下文/匹配/采样说明；手机数据匹配半径 ≥20 m | Garmin_Roma_Da.gpx + stepLife2026.csv | 是（OSRM） | 20 s |
@@ -303,10 +313,17 @@ python3 run_fill_tests.py          # 换成你要跑的脚本
 |---|---|
 | 每个脚本都 Traceback / KeyError，或 `ui.py state` 打印 TIMEOUT | 测试副本没在跑，或通信目录不存在。先 `setup_data.sh`，再按 3.3 启动 |
 | `FileNotFoundError: …/uitest/cmd.tmp` | 通信目录不存在，跑 `Tests/ui/setup_data.sh` |
-| 第一行是 `testing /Applications/…`，但你想测新代码 | 没构建，或 DerivedData 路径不对（见 2.2） |
+| 第一行是 `testing /Applications/…`（或不是你要的构建），但你想测新代码 | 没设 `GPXPV_APP` 或指向了旧归档；测试不再自动回退 DerivedData/`/Applications`（见 2.2），先运行 `Tools/build_release.py` 并显式指定归档 |
 | `confirm: button not found` | 测试副本不是简体中文（比如刚跑过 run_lang_smoke），重新启动中文副本 |
 | 拖动/右键类检查失败、截图全白 | 屏幕锁了或窗口被挡住了 |
 | 只有联网的检查失败 | 公共服务限流或排队，见 3.4 的判断方法 |
+
+### 3.9 临时产物与清理策略
+
+- `/private/tmp/gpxpv-*` 的「245 个目录、3.4 GB」是 2026-10-29 的一次历史观察，不是实时测量；其中不少目录被本仓库报告/记录追溯引用，**本任务不删除任何旧 tmp 目录**。
+- 未来清理只允许处理同时满足以下条件的临时产物：属于当前任务自己创建；相关进程已结束；原始证据与构建已完整归档并验证；确认没有路径引用依赖。任一条件不满足就保留。
+- **禁止** `rm -rf /private/tmp/gpxpv-*` 之类的全局通配删除；清理前必须先列出候选并留档。
+- 失败证据（日志、截图、临时数据、失败构建）必须保留，不得以「清理」为名覆盖或删除。
 
 ---
 
@@ -399,6 +416,8 @@ Tests/exam/run_exam.sh --record --max-requests 700   # 唯一联网的一步：�
 ## 5. 离线探针（`Tests/probes/`）
 
 这些是以前排查具体问题时写的一次性工具，**属于历史工具，不随产品维护**。引擎代码改了以后，它们可能要小改才能编译；2026-10-24 编译时 `railgraph` 和 `routeprobe2` 就因 API 变化编不过——要用得先修编译。它们不判通过/失败，只打印数字，供人看。
+
+维护中的小型定向探针放在 `Tests/probes/deepseek-small/`（有自己的 README 与 `run.py`，从产品源码抽取被验证表达式后编译运行）；它不属于上面的历史探针表。
 
 **编译**（在项目根目录执行，把 `<dir>` 换成目录名、`<name>` 随便起，单个约 30 秒）：
 
@@ -510,27 +529,22 @@ rm -rf ~/Library/Developer/Xcode/DerivedData/GPXPointViewer-fyolojbthtxcykfqygpx
 ```sh
 cd /Users/zyx/Documents/GPXPointViewer
 
-# 1) 构建 Release，确认 ** BUILD SUCCEEDED **
-xcodebuild -project GPXPointViewer.xcodeproj -scheme GPXPointViewer -configuration Release build
+# 1) 构建并归档 Release（保留工程签名；使用脚本打印的 app/manifest，项目 Builds/<RUN>/archive/ 保存 durable ZIP 与记录）
+python3 Tools/build_release.py --arch arm64
+python3 Tools/archive_build.py /ABS/APP_FROM_BUILD/GPXPointViewer.app --validate
 
 # 2) 合成数据回归（约 40 秒；第一次或改了 gen.py 用 REGEN=1）
 Tests/synth/runner/run_all.sh
 
 # 3) 改了界面文案的话：走第 6 节的本地化流程，再回到 1)
 
-# 4) UI 回归：先跑和改动相关的单个脚本（3.3），最后跑全套（约 40 分钟）
-Tests/ui/run_suite.sh          # 确认第一行是 testing …/DerivedData/…/Release/GPXPointViewer.app
+# 4) UI 验证按实际影响选择目标（3.3）；默认复用已有日志/截图，不因“最后确认”强跑全套
+# 只有影响范围确需全套时才运行下面示例；通常执行对应单脚本。
+GPXPV_APP=/ABS/APP_FROM_BUILD/GPXPointViewer.app Tests/ui/run_suite.sh
+# 确认 testing / BUILD_PROVENANCE 指向这份已验证归档，而不是 DerivedData 或 /Applications
 ```
 
-**5) 安装：先测、再装，而且要先问用户。** 安装步骤会删掉 DerivedData 里的 Release 副本（免得 Spotlight 里出现两个同名 app），所以要先测完再装。这样测出问题时，`/Applications` 里还是上一个好版本。装完以后 `app_source()` 会改测 `/Applications` 那份。
-
-```sh
-killall GPXPointViewer; rm -rf /Applications/GPXPointViewer.app \
-  && cp -R ~/Library/Developer/Xcode/DerivedData/GPXPointViewer-fyolojbthtxcykfqygpxnxpflbft/Build/Products/Release/GPXPointViewer.app /Applications/ \
-  && /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -f /Applications/GPXPointViewer.app \
-  && open /Applications/GPXPointViewer.app
-rm -rf ~/Library/Developer/Xcode/DerivedData/GPXPointViewer-fyolojbthtxcykfqygpxnxpflbft/Build/Products/Release/GPXPointViewer.app
-```
+**5) 安装：验收通过后按 AGENTS.md 的持续授权覆盖安装，先保存编辑并正常退出所有实例。** 只安装通过 manifest 与签名／权限验证的、`build_release.py` 打印的 app（下文 `/ABS/APP_FROM_BUILD/GPXPointViewer.app` 为占位），不要从 DerivedData、`--no-sign` 产物或未经验证的 bundle 安装。先运行 `python3 Tools/archive_build.py /ABS/APP_FROM_BUILD/GPXPointViewer.app --validate --for-install`，再运行 `python3 Tools/install_release.py /ABS/APP_FROM_BUILD/GPXPointViewer.app --execute --authorized-target /Applications/GPXPointViewer.app`；安装器会独立校验三个 target 的严格签名、bundle ID、实际 entitlement 与 CDHash，运行中拒绝安装，并把旧安装保留为同目录备份。完整流程见 [docs/local-install-signing.md](../docs/local-install-signing.md)。安装后可显式设置 `GPXPV_APP=/Applications/GPXPointViewer.app GPXPV_BUILD_MANIFEST=/ABS/APP_FROM_BUILD/build-manifest.json` 校验该副本；内容与当前源码均匹配时保留归属。只有有意对照无法归属的历史版本才用 `GPXPV_ALLOW_UNVERIFIED_BUILD=1`。
 
 只改了引擎的检测逻辑（GapFill / GPXParser / TrackData 等）时，第 2 步最快能发现问题；只改了界面交互时，重点看第 4 步里对应的脚本（补点交互 → run_fill_tests*，修改记录 → run_review_tests，批量窗口 → run_dock_tests / run_parallel_tests）。
 
@@ -550,3 +564,26 @@ core 包含实际解析、TrackTopology、同段测速、GPX 分段写出及预�
 原114门中四项多段期待已按独立真值迁移：g13 gap0/trips5，s1 trips61，s3 timegap150/stale0/trips2，s4 gaps[51311,51313]。它们经过旧单段算法逐源执行和生成器 written-value 规则核定，另外110项原期待不变，125考卷评分与baseline不变。s3包含146个正常稀疏采样候选，不表示150次失锁；s4保留原浮点容差。新JSON通过实际段号、path rank与nextInSegment证明相邻，不能用全局数组相邻或任意非相邻代替。证据与原110/114失败均保存在 [独立真值报告](../Tools/agents/records/2026-10-28-remediation/native/20261029T002806.674537Z_synth-multisegment-truth_15b1a189/output.md)。
 
 模型调用入口、预算和留档说明见 [Tools/agents/README.md](../Tools/agents/README.md)。Tests/agents 使用本地模拟CLI/SDK及受控子进程，不读取供应商凭据；模拟费用不是真实账单。真实模型任务必须另记唯一run并独立验收，不能以离线fixture通过代替连通性。
+
+### 2026-10-29 构建环境与证据复用补充
+
+若本机采样确认 Xcode 在 `NSFileCoordinator` 等待工程协调读取，可显式运行 `python3 Tools/build_release.py --arch arm64 --no-icloud-coordination`；该开关只给本次 xcodebuild 传 `-SynchronizeWithICloud=NO`，不写全局 defaults，也不替代下载真实源码。历史上该段曾带 `--no-sign` 仅作诊断证据，不可安装；当前正式构建保留工程签名。源码为 iCloud 占位文件时先完成下载。只有具体矛盾、缺证或修复影响才定向复测；汇总脚本错误只修汇总并复用原始执行日志，不重跑已经通过的产品目标。
+
+### 每日／行程摘要专项验证（2026-10-30）
+
+本节仅说明摘要功能的定向验证。当前逻辑、构建、实际应用功能及中英德三语布局验收通过；精确源码／构建归属和证据继承见 [验收记录](../docs/journey-summary-acceptance.md)，不据此宣称全项目发布通过。
+
+以下是发生相应修复或证据缺失时的具体命令示例，不要求每次重跑：
+
+```sh
+python3 Tests/summary/core/run.py --output-root /tmp/gpx-summary-core elevation-midnight-proportions
+python3 Tests/summary/store/run.py --evidence /tmp/gpx-summary-store --group modeentry
+```
+
+核心 case 名称见 [核心验证说明](summary/core/README.md)。Store 支持 `cache`、`sources`、`ownership`、`map`、`provenance`、`lifecycle`、`modeentry`，可重复传入 `--group` 选择受影响组。输出使用新目录，失败和旧结果保留；执行前写明具体重测原因。
+
+本轮核心22个不同用例、Store原53项加新增12＋5项、中文实际应用12项检查均已有证据。后续默认继承，不无差别重跑。窗口截图使用明确的 `GPXPV_APP` 和 `GPXPV_BUILD_MANIFEST` 指向同一冻结归档；`Tests/ui/run_summary_tests.py --visual-only` 仅补指定语言的视觉证据，不重复功能检查。完整功能流程只在具体新缺口或受影响修复确有需要时执行。实际截图仍需逐图判断；锁屏黑图不得当作布局通过或产品缺陷。
+
+仅顶部／下半区布局受影响时，使用 `--visual-only --layout-only`，每种语言仅拍 daily-top 与 journey-lower 两图、0功能检查；不能与 `--visual-extras` 同用。2026-10-30 的 UI-L1 修复按此范围验收，中文两图与随后恢复的英德四图都保留，无需再拍。
+
+日期导航与持久化的最终真实构建、实际 UI 和跨进程验收不由本节宣称通过，待 [docs/journey-summary-date-persistence-acceptance.md](../docs/journey-summary-date-persistence-acceptance.md) 给出；旧的 core22、Store70 与中文实际功能 12 项证据继续按原记录继承，不要求无差别重跑。

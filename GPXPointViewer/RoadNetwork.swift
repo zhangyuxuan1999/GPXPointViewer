@@ -539,7 +539,7 @@ enum RoadNetwork {
         }
         if let err = json["error"] as? String {
             let ec = (json["error_code"] as? NSNumber)?.intValue ?? 0
-            return .status(ec == 442 || ec == 171 ? "NoRoute" : (ec == 170 || ec == 442 ? "NoSegment" : "Valhalla \(ec) \(err.prefix(60))"))
+            return .status(ec == 442 || ec == 170 ? "NoRoute" : (ec == 171 ? "NoSegment" : "Valhalla \(ec) \(err.prefix(60))"))
         }
         guard let trip = json["trip"] as? [String: Any], let legs = trip["legs"] as? [[String: Any]], let shape = legs.first?["shape"] as? String,
               let km = ((trip["summary"] as? [String: Any])?["length"] as? NSNumber)?.doubleValue else { return .status(String(localized: "Valhalla 无路线", comment: "Routing status: Valhalla returned no route (keep Valhalla untranslated)")) }
@@ -1385,6 +1385,7 @@ enum RoadNetwork {
         while true { ids.append(cur); guard let p = prevNode[cur] else { break }; cur = p }
         ids.reverse()
         let path = ids.compactMap { coord[$0] }
+        guard path.count == ids.count, path.count >= 2 else { throw RouteError.noRailPath }
         var segTunnel: [Bool] = [], acc = [0.0]
         for k in 1..<path.count {
             segTunnel.append(pairTunnel[Pair(ids[k - 1], ids[k])] ?? false)

@@ -53,6 +53,31 @@ struct ViewFilterSpec: Equatable {
     var dayY = 2026, dayM = 1, dayD = 1
     var startY = 2026, startM = 1, startD = 1
     var endY = 2026, endM = 1, endD = 1
+    var calendar: Calendar = .current
+
+    /// Also used by the summary entry; captures exactly the calendar used by push.
+    func summaryRange() -> (start: Double, end: Double)? {
+        func date(_ y: Int, _ m: Int, _ d: Int) -> Date? {
+            guard let value = calendar.date(from: DateComponents(year: y, month: m, day: d)) else { return nil }
+            let c = calendar.dateComponents([.year, .month, .day], from: value)
+            return c.year == y && c.month == m && c.day == d ? value : nil
+        }
+        let start: Date?, end: Date?
+        switch mode {
+        case .all: return nil
+        case .year:
+            start = date(year, 1, 1); end = start.flatMap { calendar.date(byAdding: .year, value: 1, to: $0) }
+        case .month:
+            start = date(year, month, 1); end = start.flatMap { calendar.date(byAdding: .month, value: 1, to: $0) }
+        case .day:
+            start = date(dayY, dayM, dayD); end = start.flatMap { calendar.date(byAdding: .day, value: 1, to: $0) }
+        case .custom:
+            guard let a = date(startY, startM, startD), let b = date(endY, endM, endD) else { return nil }
+            start = min(a, b); end = calendar.date(byAdding: .day, value: 1, to: max(a, b))
+        }
+        guard let start, let end, start < end else { return nil }
+        return (start.timeIntervalSince1970, end.timeIntervalSince1970)
+    }
 }
 
 struct ExportSheet: View {
@@ -376,7 +401,34 @@ struct TimeFilterSection: View {
     @ViewBuilder
     private var content: some View {
         VStack(alignment: .leading, spacing: 8) {
-            if modes.count > 1 {
+            if let selection = store.summaryFilterSelection {
+                VStack(alignment: .leading, spacing: 5) {
+                    Text("摘要时间筛选").font(.caption.bold())
+                    Text(store.summarySources.first(where: { $0.id == selection.sourceID })?.name ?? "")
+                    Text(SummaryDisplay.time(selection.start, zone: selection.timeZoneIdentifier))
+                    if let row = store.summaryReport?.journeys.first(where: { $0.id == selection.rowID }) {
+                        Text("至 \(SummaryDisplay.time(row.endTime, zone: selection.timeZoneIdentifier))（包含最后记录点）")
+                    } else {
+                        Text("结束（不含）：\(SummaryDisplay.time(selection.end, zone: selection.timeZoneIdentifier))")
+                    }
+                    Text(selection.timeZoneIdentifier).foregroundStyle(.secondary)
+                    Button("清除摘要筛选") { store.clearSummaryMapFilter(); initSpan() }
+                }
+                .fixedSize(horizontal: false, vertical: true)
+                .accessibilityIdentifier("summaryTimeFilter")
+                .background {
+                    if UITestHook.enabled {
+                        GeometryReader { geo in
+                            Color.clear
+                                .onAppear { UITestHook.shared.summaryFilterFrame = geo.frame(in: .named("root")) }
+                                .onChange(of: geo.frame(in: .named("root"))) {
+                                    UITestHook.shared.summaryFilterFrame = geo.frame(in: .named("root"))
+                                }
+                                .onDisappear { UITestHook.shared.summaryFilterFrame = nil }
+                        }
+                    }
+                }
+            } else if modes.count > 1 {
                 modePicker
                 modeContent
             }
@@ -539,20 +591,24 @@ struct TimeFilterSection: View {
     }
 
     private func push() {
+        guard store.summaryFilterSelection == nil else { return }
         if mode == .all {
             store.viewFilter = nil
             store.viewFilterSpec = nil
-        } else if let r = currentRange() {
-            store.viewFilter = (start: r.0, end: r.1)
-            store.viewFilterSpec = ViewFilterSpec(
+        } else {
+            let spec = ViewFilterSpec(
                 mode: mode, year: year, month: month,
                 dayY: day.y, dayM: day.m, dayD: day.d,
                 startY: rangeStart.y, startM: rangeStart.m, startD: rangeStart.d,
-                endY: rangeEnd.y, endM: rangeEnd.m, endD: rangeEnd.d)
+                endY: rangeEnd.y, endM: rangeEnd.m, endD: rangeEnd.d, calendar: Calendar.current)
+            guard let r = spec.summaryRange() else { return }
+            store.viewFilter = (start: r.start, end: r.end)
+            store.viewFilterSpec = spec
         }
     }
 
     private func initSpan() {
+        guard store.summaryFilterSelection == nil else { return }
         guard let track = store.track, let tr = track.timeRange else {
             modes = [.all]
             mode = .all

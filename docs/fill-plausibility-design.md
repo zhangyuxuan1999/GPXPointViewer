@@ -28,7 +28,7 @@
 | `legs`, `roadBeforeA`, `roadAfterB` | 路线沿途道路编号/名称（含长度）；A 侧 / B 侧所在道路（上下文路由 A–B 之外那一步） | `RouteDraft.legs / roadBeforeA / roadAfterB`（新字段） |
 | `crossMaxDev` | 精确模式两路最大偏差（nil = 没比） | `RouteCrossCheck.Result.maxDev` |
 | `innerMaxOff` | 区间内被保留/改时的真实点到 P 的最大距离（nil = 没有） | keptInnerPoints / StaleRetime.plan |
-| `tunnelShare` | 隧道占比（nil = 未知，不扣分） | 本期恒 nil（公路引擎不带 tunnel 属性） |
+| `tunnelShare` | 隧道占比（OSRM 解析 intersections.classes 估算：有值时为占比；有 intersections 无 classes = 0；nil = 未知，不扣分） | 按 §7：OSRM 有值；Valhalla、铁路、旧录音无 intersections 时为 nil |
 | `matchRadius` | 匹配半径（容差基准） | 采样画像 |
 | `stepA`, `stepB` | 锚点外侧局部步长 | portal 样本 |
 
@@ -48,7 +48,7 @@
 | `crossMaxDev` | 原样 | 两路不一致程度 |
 | `uTurnCount` | R 相邻两段（各 ≥10 m）方向翻转 >150° 的次数 | 折返 |
 | `innerMaxOff` | 原样 | 保留的真实点离路线远 |
-| `tunnelShare` | nil = 未知 | 本期不扣分 |
+| `tunnelShare` | 原样（nil = 未知；有 intersections 无 classes = 0） | §7：达到占比阈值且补点贴路时免锚点扣分；公共端点 classes 的在线表现仍未验证 |
 
 ### 1.3 阈值与打分（`FillPlausibility.Thresholds.current`，可整体替换，考卷调参改这里）
 

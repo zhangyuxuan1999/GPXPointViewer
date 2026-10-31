@@ -1,0 +1,98 @@
+[
+  {
+    "table": "Localizable",
+    "key": "已选择年份，请选择具体日期。",
+    "comment": "Journey summary hint when the main filter selects only a year",
+    "en": "A year is selected. Select a specific date.",
+    "de": "Ein Jahr ist ausgewählt. Wählen Sie ein konkretes Datum.",
+    "zh-Hant": "已選擇年份，請選擇具體日期。"
+  },
+  {
+    "table": "Localizable",
+    "key": "已选择月份，请选择具体日期。",
+    "comment": "Journey summary hint when the main filter selects only a month",
+    "en": "A month is selected. Select a specific date.",
+    "de": "Ein Monat ist ausgewählt. Wählen Sie ein konkretes Datum.",
+    "zh-Hant": "已選擇月份，請選擇具體日期。"
+  },
+  {
+    "table": "Localizable",
+    "key": "当前范围包含多日，请选择其中一天。",
+    "comment": "Journey summary hint when the main filter spans multiple days",
+    "en": "The current range includes multiple days. Select one day.",
+    "de": "Der aktuelle Bereich umfasst mehrere Tage. Wählen Sie einen Tag.",
+    "zh-Hant": "目前範圍包含多日，請選擇其中一天。"
+  },
+  {
+    "table": "Localizable",
+    "key": "当前摘要日期：%@",
+    "comment": "Journey summary header; %@ is the selected calendar date",
+    "en": "Current summary date: %@",
+    "de": "Aktuelles Übersichtsdatum: %@",
+    "zh-Hant": "目前摘要日期：%@"
+  },
+  {
+    "table": "Localizable",
+    "key": "按所选日期浏览；统计基于所选文件的全部记录。查看摘要不会改变主地图筛选。",
+    "comment": "Journey summary footer: browsing by selected date vs. all-record statistics",
+    "en": "Browse by the selected date; statistics are based on all records in the selected file. Viewing the summary does not change the main map filter.",
+    "de": "Nach dem gewählten Datum browsen; die Statistik basiert auf allen Aufzeichnungen der gewählten Datei. Das Anzeigen der Übersicht ändert den Filter der Hauptkarte nicht.",
+    "zh-Hant": "按所選日期瀏覽；統計基於所選檔案的全部記錄。查看摘要不會改變主地圖篩選。"
+  },
+  {
+    "table": "Localizable",
+    "key": "日期与主面板所选自然日一致。",
+    "comment": "Journey summary: date came from the main panel's selected day",
+    "en": "The date matches the calendar day selected in the main panel.",
+    "de": "Das Datum entspricht dem im Hauptfenster gewählten Kalendertag.",
+    "zh-Hant": "日期與主面板所選自然日一致。"
+  },
+  {
+    "table": "Localizable",
+    "key": "查看",
+    "comment": "Journey summary: submit the fixed date picker",
+    "en": "View",
+    "de": "Anzeigen",
+    "zh-Hant": "查看"
+  },
+  {
+    "table": "Localizable",
+    "key": "查看日期",
+    "comment": "Journey summary: label of the fixed date picker",
+    "en": "View Date",
+    "de": "Datum anzeigen",
+    "zh-Hant": "查看日期"
+  },
+  {
+    "table": "Localizable",
+    "key": "该年月日在所选时区中不可用，请输入有效日期。",
+    "comment": "Journey summary: entered calendar day does not exist in the actual time zone",
+    "en": "The selected year, month, and day do not exist in the selected time zone. Enter a valid date.",
+    "de": "Das gewählte Jahr, der gewählte Monat und der gewählte Tag existieren in der gewählten Zeitzone nicht. Geben Sie ein gültiges Datum ein.",
+    "zh-Hant": "該年月日在所選時區中不可用，請輸入有效日期。"
+  },
+  {
+    "table": "Localizable",
+    "key": "该日期没有记录。",
+    "comment": "Journey summary: empty state for the selected day",
+    "en": "No records on this date.",
+    "de": "Für dieses Datum sind keine Aufzeichnungen vorhanden.",
+    "zh-Hant": "該日期沒有記錄。"
+  },
+  {
+    "table": "Localizable",
+    "key": "请选择日期后查看摘要。",
+    "comment": "Journey summary: no date has been submitted yet",
+    "en": "Select a date to view the summary.",
+    "de": "Wählen Sie ein Datum, um die Übersicht anzuzeigen.",
+    "zh-Hant": "請選擇日期後查看摘要。"
+  },
+  {
+    "table": "Localizable",
+    "key": "跨日行程；以下为完整行程统计。",
+    "comment": "Journey summary: cross-midnight journey keeps full statistics",
+    "en": "Cross-day journey; the following are complete journey statistics.",
+    "de": "Tagesübergreifende Fahrt; die folgenden Werte sind vollständige Fahrtstatistiken.",
+    "zh-Hant": "跨日行程；以下為完整行程統計。"
+  }
+]

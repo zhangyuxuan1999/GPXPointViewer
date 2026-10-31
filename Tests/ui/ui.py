@@ -1,28 +1,41 @@
 #!/usr/bin/env python3
 """把命令写进 io/cmd，等 io/out.txt，打印结果。用法：ui.py "cmd1" "cmd2" ...（每个参数一行命令）"""
-import sys, os, time, json, glob
+import sys, os, time, json, importlib.util
+from pathlib import Path
 # 钩子通信目录：默认容器 tmp/uitest；GPXPV_UITEST_IO 可指定另一个（同时跑第二个测试副本做诊断时用，副本启动的 GPXPV_UITEST_DIR 要给同一目录）
 IO = os.environ.get("GPXPV_UITEST_IO") or os.path.expanduser("~/Library/Containers/de.wayne.GPXPointViewer/Data/tmp/uitest")
 PROJ = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # Tests/ui → 项目根
-# Xcode 默认 DerivedData 目录名带一个随机器/项目路径变化的哈希，用通配符找；有多份时取可执行文件最新的那份
-DERIVED_GLOB = os.path.expanduser("~/Library/Developer/Xcode/DerivedData/GPXPointViewer-*/Build/Products/Release/GPXPointViewer.app")
-def _derived_release():
-    def mtime(app):
-        exe = os.path.join(app, "Contents/MacOS/GPXPointViewer")
-        return os.path.getmtime(exe if os.path.exists(exe) else app)
-    apps = [p for p in glob.glob(DERIVED_GLOB) if os.path.isdir(p)]
-    return max(apps, key=mtime) if apps else None
+_archive_spec = importlib.util.spec_from_file_location("gpxpv_archive_build", Path(PROJ) / "Tools/archive_build.py")
+_archive = importlib.util.module_from_spec(_archive_spec)
+_archive_spec.loader.exec_module(_archive)
+
+
+def build_provenance(app):
+    """Check content hashes, not filesystem dates, before touching a test copy."""
+    app = Path(app).expanduser().resolve()
+    executable = app / "Contents/MacOS/GPXPointViewer"
+    if not executable.is_file():
+        raise ValueError("GPXPV_APP 不是可用的 GPXPointViewer.app：" + str(app))
+    try:
+        return _archive.validate_bundle(app, os.environ.get("GPXPV_BUILD_MANIFEST"))
+    except (OSError, ValueError, KeyError, TypeError) as error:
+        if os.environ.get("GPXPV_ALLOW_UNVERIFIED_BUILD") != "1":
+            raise ValueError(str(error) + "；先运行 Tools/build_release.py。历史对照可显式设 GPXPV_ALLOW_UNVERIFIED_BUILD=1，结果不得归属当前源码。") from error
+        return {"app": str(app), "executable_sha256": _archive.sha256(executable),
+                "source_association": "UNVERIFIED_EXPLICIT_OVERRIDE", "reason": str(error)}
+
+
 def app_source():
-    """测试用哪份 app：环境变量 GPXPV_APP 指定的优先（例如 -derivedDataPath 构建到别处时）；
-    其次刚构建的 Release（安装前测）；没有就测 /Applications 里已安装的那份"""
+    """Explicit target only; a verified build manifest binds it to current inputs."""
     env = os.environ.get("GPXPV_APP")
-    if env:
-        if os.path.isdir(env): return env
-        raise SystemExit("GPXPV_APP 指向的 app 不存在：" + env)
-    derived = _derived_release()
-    if derived: return derived
-    if os.path.isdir("/Applications/GPXPointViewer.app"): return "/Applications/GPXPointViewer.app"
-    raise SystemExit("找不到可测的 app：先 xcodebuild Release 构建，或先安装到 /Applications")
+    if not env:
+        raise SystemExit("必须显式设置 GPXPV_APP；用 Tools/build_release.py 生成带源码/构建归属的稳定归档。")
+    try:
+        provenance = build_provenance(env)
+    except (OSError, ValueError) as error:
+        raise SystemExit(str(error)) from error
+    print("BUILD_PROVENANCE " + json.dumps(provenance, ensure_ascii=False), file=sys.stderr, flush=True)
+    return provenance["app"]
 def send(lines, timeout=20):
     out = os.path.join(IO, "out.txt"); cmd = os.path.join(IO, "cmd")
     if os.path.exists(out): os.remove(out)

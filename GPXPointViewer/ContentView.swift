@@ -10,6 +10,10 @@
 import SwiftUI
 import UniformTypeIdentifiers
 
+/// `.fwdb` 没有逐格日期：归档回放日期只来自区块文件的修改时间，必须明确标注为近似。
+private let fwdbArchiveDateNote = String(localized: "归档回放日期取自区块文件修改时间，不代表实际探索时间。",
+                                         comment: ".fwdb archives have no per-cell date: archive playback dates come from block file modification times and do not represent actual exploration dates")
+
 struct ContentView: View {
     @ObservedObject var store: TrackStore
     // 本窗口的补点覆盖层投影（多窗口各自一份）。@State 只保证实例稳定、不订阅它：
@@ -209,6 +213,7 @@ struct ContentView: View {
                 UITestHook.shared.openBatchWindow = { openWindow(id: SceneID.batchFill) }
                 UITestHook.shared.openReviewWindow = { openWindow(id: SceneID.changeReview) }
                 UITestHook.shared.openRegionsWindow = { openWindow(id: SceneID.regions) }
+                UITestHook.shared.openSummaryWindow = { openWindow(id: SceneID.journeySummary) }
             }
         }
         .coordinateSpace(name: "root")
@@ -334,6 +339,12 @@ struct ContentView: View {
                 .font(.caption)
                 .foregroundStyle(.secondary)
                 .fixedSize(horizontal: false, vertical: true)
+            if fwdbMode {
+                Text(fwdbArchiveDateNote)
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
             HStack(spacing: 8) {
                 Text("分辨率").font(.callout).frame(width: 60, alignment: .leading)
                 Picker("分辨率", selection: $vidExportWidth) {
@@ -1335,7 +1346,10 @@ struct ContentView: View {
                     } label: {
                         Image(systemName: "clock.arrow.circlepath")
                     }
-                    .help("时光机：按真实时间回放整段历史——轨迹/迷雾从无到有生长，相机在活跃区域间自动巡游；底部时间轴可拖动，支持导出视频")
+                    .help(store.fwdbActive
+                          ? fwdbArchiveDateNote
+                          : String(localized: "时光机：按真实时间回放整段历史——轨迹/迷雾从无到有生长，相机在活跃区域间自动巡游；底部时间轴可拖动，支持导出视频",
+                                   comment: "Timelapse button help for GPX tracks: replays the whole history by recorded time. Keep the existing full-track explanation; .fwdb archives use a different approximate-date note."))
                 }
 
                 Spacer(minLength: 0)
@@ -1481,7 +1495,7 @@ struct ContentView: View {
             }
 
             if let track = store.track, track.isTimeSorted, let tr = track.timeRange,
-               !Calendar.current.isDate(Date(timeIntervalSince1970: tr.min),
+               store.summaryFilterSelection != nil || !Calendar.current.isDate(Date(timeIntervalSince1970: tr.min),
                                         inSameDayAs: Date(timeIntervalSince1970: tr.max)) {
                 Divider()
                 HStack {
@@ -1572,6 +1586,10 @@ struct ContentView: View {
                     .help("等级 / 探索面积 / 地球占比，算法与《世界迷雾》一致（2²²×2²² 格网 + 逐格纬度面积 + 等级=√(面积×250)）")
             }
             HStack(spacing: 8) {
+                Button("每日与行程摘要…") {
+                    store.openSummaryFromMainFilter()
+                    openWindow(id: SceneID.journeySummary)
+                }
                 if !store.settings.heatMap {
                     Button("地区统计…") { openWindow(id: SceneID.regions) }
                         .disabled((store.track == nil && !fwdbMode) || !RegionIndex.hasData)
@@ -2507,10 +2525,21 @@ struct PlaybackBarView: View {
             }
             .buttonStyle(.plain)
 
-            Text(Self.dayFmt.string(from: Date(
-                timeIntervalSince1970: session.plan.dataTime(at: clock.head))))
+            if store.fwdbActive {
+                HStack(spacing: 2) {
+                    Text(verbatim: "≈")
+                    Text(Self.dayFmt.string(from: Date(
+                        timeIntervalSince1970: session.plan.dataTime(at: clock.head))))
+                        .frame(width: 108, alignment: .leading)
+                }
                 .font(.caption.monospacedDigit().bold())
-                .frame(width: 108, alignment: .leading)
+                .help(fwdbArchiveDateNote)
+            } else {
+                Text(Self.dayFmt.string(from: Date(
+                    timeIntervalSince1970: session.plan.dataTime(at: clock.head))))
+                    .font(.caption.monospacedDigit().bold())
+                    .frame(width: 108, alignment: .leading)
+            }
 
             Slider(value: Binding(
                 get: { clock.head },

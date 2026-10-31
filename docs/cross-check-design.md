@@ -91,7 +91,7 @@
   `batchstraightall`、`batchuncheck`、`batchacceptunverified`、`routecross`、`routeswap`；状态 JSON 每项 `source/cross/routes/picked/coverage/maxDev/diverge/lenO/lenV`，
   batch 层 `crossCheck/engineDisabled/counts/requestsByHost`。离线自测：`synthrunner --crosscheck-selftest`、`--ratelimit-selftest`。
   **纪律**：DeepSeek 只跑假引擎（不联网）；在线验证只由 Claude 跑一次、限制约 15–20 处公路；测试结束 `crosscheck 0`（设置与 /Applications 共用）。
-- 未做（记录）：待选项「对这 N 处重新交叉验证」；单处模式两路进度合成一行；选中待选项时在两线相距最远处贴引擎名标签。
+- 未做（记录，2026-10-25 当时状态）：待选项「对这 N 处重新交叉验证」；单处模式两路进度合成一行；选中待选项时在两线相距最远处贴引擎名标签。**历史说明：这三项已于 2026-10-28 实现，见下节；引擎名标签实际放在每条线的屏幕弧长中点，不是「两线相距最远处」。**
 
 ## 2026-10-25 实现后的对抗复审修订（verify-cross-check wf_7a0181ca-ce2：34 条确认，全部已修）
 - **限流礼仪**：`carRoute(failFast:)` 现在一路贯穿到 `fetchOSRM/fetchValhalla/fetchMatch(failFast:)`——精确模式下 429/5xx 不重发；

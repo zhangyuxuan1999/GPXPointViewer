@@ -1838,6 +1838,28 @@
         }
       }
     },
+    "IANA 时区": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "IANA-Zeitzone"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "IANA Time Zone"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "IANA 時區"
+          }
+        }
+      }
+    },
     "Metal 渲染器初始化失败": {
       "comment": "Video export error detail, shown after 视频导出失败：: the offscreen Metal renderer could not be created",
       "localizations": {
@@ -2069,6 +2091,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "URL 無效"
+          }
+        }
+      }
+    },
+    "UTC": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "UTC"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "UTC"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "UTC"
           }
         }
       }
@@ -3237,6 +3281,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "下級行政區都沒有資料"
+          }
+        }
+      }
+    },
+    "下降（滤波估算）": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abstieg (gefilterte Schätzung)"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descent (filtered estimate)"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "下降（濾波估算）"
           }
         }
       }
@@ -5210,6 +5276,50 @@
         }
       }
     },
+    "交通方式": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verkehrsmittel"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Transport Mode"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "交通方式"
+          }
+        }
+      }
+    },
+    "交通方式未知：观测证据不足。": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verkehrsmittel unbekannt: unzureichende Beobachtungsdaten."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Transport mode unknown: insufficient observed evidence."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "交通方式未知：觀測證據不足。"
+          }
+        }
+      }
+    },
     "京都": {
       "comment": "City label: Kyoto (35.01,135.77)",
       "localizations": {
@@ -5298,6 +5408,94 @@
           "stringUnit": {
             "state": "translated",
             "value": "人工採用：只有 %@ 給出結果，未交叉驗證"
+          }
+        }
+      }
+    },
+    "仅一个记录点": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nur ein aufgezeichneter Punkt"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Only one recorded point"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "僅一個記錄點"
+          }
+        }
+      }
+    },
+    "仅当前单文件可在主地图上筛选；重叠与对比模式可继续浏览摘要。": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nur die aktuelle Einzeldatei kann auf der Hauptkarte gefiltert werden; im Überlagerungs- und Vergleichsmodus kann die Übersicht weiter durchsucht werden."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Only the current single file can be filtered on the main map; Overlay and Compare modes can still browse the summary."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "僅目前單一檔案可在主地圖上篩選；重疊與對比模式仍可繼續瀏覽摘要。"
+          }
+        }
+      }
+    },
+    "仅按落点归属，不推断越境时刻、地区内里程或停留时长。": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die Zuordnung erfolgt nur anhand der Punktlage; Grenzübertrittszeiten, Strecken innerhalb einer Region und Aufenthaltsdauern werden nicht abgeleitet."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Assignment is by point location only; no border-crossing times, in-region distance, or dwell duration is inferred."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "僅按落點歸屬，不推斷越境時刻、地區內里程或停留時長。"
+          }
+        }
+      }
+    },
+    "仅统计本行首末记录之间；低速和空白不代表确定停留。": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wird nur zwischen der ersten und letzten Aufzeichnung dieser Zeile gezählt; niedrige Geschwindigkeit und Lücken belegen keinen bestätigten Aufenthalt."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Counts only between the first and last records in this row; low speed and gaps do not indicate a confirmed stop."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "僅統計本列首末記錄之間；低速和空白不代表確定停留。"
           }
         }
       }
@@ -5506,6 +5704,50 @@
         }
       }
     },
+    "估算时间": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geschätzte Zeit"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estimated time"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "估算時間"
+          }
+        }
+      }
+    },
+    "低速间隔": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Langsamintervalle"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Low-speed intervals"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "低速間隔"
+          }
+        }
+      }
+    },
     "你手选为%@": {
       "comment": "Batch Gap Fill trip reason (tooltip); %@ = category the user picked (Road / Rail / Skip)",
       "localizations": {
@@ -5706,6 +5948,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "候選（繞路比 = 路網長 / 直線，長度不含兩端貼路）：%@；相差 ≤%@ m（直線的 5%%，至少 40 m）算平手，按 匹配 > 上下文 > 約束 > 直接 取；貼路超過 %@ m 的匹配/上下文不參選"
+          }
+        }
+      }
+    },
+    "候选：%@（仅按速度，未确认）": {
+      "comment": "Summary speed-only candidate list, never a confirmed mode",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kandidaten: %@ (nur nach Geschwindigkeit, unbestätigt)"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Candidates: %@ (speed only, unconfirmed)"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "候選：%@（僅按速度，未確認）"
           }
         }
       }
@@ -7762,6 +8027,52 @@
         }
       }
     },
+    "包含 %lld 个改时观察点，日期与时间含估算。": {
+      "localizations": {
+        "de": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Enthält %lld umdatierten Beobachtungspunkt; Datum und Zeit enthalten Schätzungen."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Enthält %lld umdatierte Beobachtungspunkte; Datum und Zeit enthalten Schätzungen."
+                }
+              }
+            }
+          }
+        },
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Includes %lld retimed observation point; dates and times include estimates."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Includes %lld retimed observation points; dates and times include estimates."
+                }
+              }
+            }
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "包含 %lld 個改時觀察點，日期與時間含估算。"
+          }
+        }
+      }
+    },
     "包围盒内的铁路连不通两端（可能缺数据或要绕出包围盒）": {
       "comment": "Rail routing error: the railways inside the bounding box do not connect both ends (missing data, or the path leaves the box)",
       "localizations": {
@@ -9799,6 +10110,28 @@
         }
       }
     },
+    "合格边：%lld；排除边：%lld": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gültige Kanten: %lld; ausgeschlossene Kanten: %lld"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Accepted edges: %lld; excluded edges: %lld"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "合格邊：%lld；排除邊：%lld"
+          }
+        }
+      }
+    },
     "合肥": {
       "comment": "City label: Hefei (31.82,117.23)",
       "localizations": {
@@ -10273,6 +10606,28 @@
         }
       }
     },
+    "国家与地区": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Länder und Regionen"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Countries & Regions"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "國家與地區"
+          }
+        }
+      }
+    },
     "图片": {
       "localizations": {
         "de": {
@@ -10450,6 +10805,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "聖彼得堡"
+          }
+        }
+      }
+    },
+    "在主地图上查看": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Auf Hauptkarte anzeigen"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "View on Main Map"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在主地圖上查看"
           }
         }
       }
@@ -11828,6 +12205,50 @@
         }
       }
     },
+    "存储点的折线长度；稀疏记录可能漏掉弯道，定位抖动可能增大长度。": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Polylinienlänge durch die gespeicherten Punkte; spärliche Aufzeichnung kann Kurven verfehlen, und Positionsrauschen kann die Länge vergrößern."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Polyline length through the stored points; sparse recording may miss curves, and location jitter may increase the length."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "儲存點的折線長度；稀疏記錄可能漏掉彎道，定位抖動可能增大長度。"
+          }
+        }
+      }
+    },
+    "存档没有逐点真实时间和连续路线，无法计算每日／行程摘要。": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Das Archiv enthält keine echten Zeitstempel pro Punkt und keine zusammenhängende Route; Tages- und Fahrtübersichten können nicht berechnet werden."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The archive has no per-point real timestamps or continuous route, so daily/journey summaries cannot be computed."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "存檔沒有逐點真實時間和連續路線，無法計算每日／行程摘要。"
+          }
+        }
+      }
+    },
     "孟买": {
       "comment": "City label: Mumbai (19.08,72.88)",
       "localizations": {
@@ -12246,6 +12667,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "匯出目前資料的全部點（刪除操作之後剩下的點）。"
+          }
+        }
+      }
+    },
+    "导出范围包含无效的点索引。": {
+      "comment": "Error message when exporting GPX: the selected point indices are invalid",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die Exportauswahl enthält ungültige Punktindizes."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The export selection contains invalid point indices."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "匯出範圍包含無效的點索引。"
           }
         }
       }
@@ -13042,6 +13486,52 @@
         }
       }
     },
+    "已选择年份，请选择具体日期。": {
+      "comment": "Journey summary hint when the main filter selects only a year",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ein Jahr ist ausgewählt. Wählen Sie ein konkretes Datum."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A year is selected. Select a specific date."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已選擇年份，請選擇具體日期。"
+          }
+        }
+      }
+    },
+    "已选择月份，请选择具体日期。": {
+      "comment": "Journey summary hint when the main filter selects only a month",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ein Monat ist ausgewählt. Wählen Sie ein konkretes Datum."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A month is selected. Select a specific date."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已選擇月份，請選擇具體日期。"
+          }
+        }
+      }
+    },
     "已选都不补": {
       "localizations": {
         "de": {
@@ -13538,6 +14028,28 @@
         }
       }
     },
+    "应用时区": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zeitzone anwenden"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apply Time Zone"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "套用時區"
+          }
+        }
+      }
+    },
     "应用补点？": {
       "localizations": {
         "de": {
@@ -13836,6 +14348,29 @@
         }
       }
     },
+    "归档回放日期取自区块文件修改时间，不代表实际探索时间。": {
+      "comment": "Fog archive playback: filesystem block modification times are approximate, not actual exploration dates",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Das Datum der Archivwiedergabe stammt aus der Änderungszeit der Blockdateien und entspricht nicht dem tatsächlichen Erkundungsdatum."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Archive playback dates come from block file modification times, not the actual exploration dates."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "存檔回放日期取自區塊檔案修改時間，不代表實際探索時間。"
+          }
+        }
+      }
+    },
     "当前占用 %@": {
       "comment": "Settings › Map: current size of the external tile cache; %@ = formatted byte count",
       "localizations": {
@@ -13855,6 +14390,51 @@
           "stringUnit": {
             "state": "translated",
             "value": "目前佔用 %@"
+          }
+        }
+      }
+    },
+    "当前摘要日期：%@": {
+      "comment": "Journey summary header; %@ is the selected calendar date",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktuelles Übersichtsdatum: %@"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Current summary date: %@"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目前摘要日期：%@"
+          }
+        }
+      }
+    },
+    "当前文件的全部记录；不随主地图时间筛选改变。": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alle Aufzeichnungen der aktuellen Datei; folgt nicht dem Zeitfilter der Hauptkarte."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All records in the current file; does not follow the main map time filter."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目前檔案的全部記錄；不隨主地圖時間篩選改變。"
           }
         }
       }
@@ -13904,6 +14484,28 @@
         }
       }
     },
+    "当前来源没有可用于摘要的记录。": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die aktuelle Quelle enthält keine für eine Übersicht nutzbaren Aufzeichnungen."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The current source has no records usable for a summary."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目前來源沒有可用於摘要的記錄。"
+          }
+        }
+      }
+    },
     "当前离线：取路网草稿、地图判段、地名查询都需要联网": {
       "comment": "Network banner: the Mac is offline; lists the features that need the internet (road draft, map-based gap classification, place-name lookup)",
       "localizations": {
@@ -13945,6 +14547,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "目前離線：取路網草稿需要連網"
+          }
+        }
+      }
+    },
+    "当前范围包含多日，请选择其中一天。": {
+      "comment": "Journey summary hint when the main filter spans multiple days",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Der aktuelle Bereich umfasst mehrere Tage. Wählen Sie einen Tag."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The current range includes multiple days. Select one day."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目前範圍包含多日，請選擇其中一天。"
           }
         }
       }
@@ -14240,6 +14865,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "總覽 / 詳細"
+          }
+        }
+      }
+    },
+    "恢复自动候选": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Automatische Kandidaten wiederherstellen"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restore Automatic Candidates"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "恢復自動候選"
           }
         }
       }
@@ -14586,6 +15233,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "所選範圍內沒有點可匯出。"
+          }
+        }
+      }
+    },
+    "手动指定：%@": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Manuell festgelegt: %@"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Manually set: %@"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "手動指定：%@"
           }
         }
       }
@@ -15375,6 +16044,28 @@
         }
       }
     },
+    "指定时区": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Benannte Zeitzone"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Named Time Zone"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "指定時區"
+          }
+        }
+      }
+    },
     "按世界迷雾格网聚合成方块的 3D 透视场景：块内点数越多柱越高越红。拖拽旋转 · 滚轮缩放 · 右键拖拽平移": {
       "localizations": {
         "de": {
@@ -15437,6 +16128,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "按國家 / 省州（中國到地級市）統計：檢視點模式按點數與到訪天數，迷霧模式按解鎖面積（世界迷霧口徑）與按同一公式折算的等級；點一列在地圖上醒目標示邊界"
+          }
+        }
+      }
+    },
+    "按所选日期浏览；统计基于所选文件的全部记录。查看摘要不会改变主地图筛选。": {
+      "comment": "Journey summary footer: browsing by selected date vs. all-record statistics",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nach dem gewählten Datum browsen; die Statistik basiert auf allen Aufzeichnungen der gewählten Datei. Das Anzeigen der Übersicht ändert den Filter der Hauptkarte nicht."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Browse by the selected date; statistics are based on all records in the selected file. Viewing the summary does not change the main map filter."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "按所選日期瀏覽；統計基於所選檔案的全部記錄。查看摘要不會改變主地圖篩選。"
           }
         }
       }
@@ -15775,6 +16489,95 @@
           "stringUnit": {
             "state": "translated",
             "value": "插入 %1$lld 個點，替換區間內 %2$lld 個點"
+          }
+        }
+      }
+    },
+    "摘要列表": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zusammenfassungsliste"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Summary List"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "摘要列表"
+          }
+        }
+      }
+    },
+    "摘要尚未就绪": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Übersicht noch nicht bereit"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Summary not ready yet"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "摘要尚未就緒"
+          }
+        }
+      }
+    },
+    "摘要时间筛选": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Übersichts-Zeitfilter"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Summary Time Filter"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "摘要時間篩選"
+          }
+        }
+      }
+    },
+    "摘要计算失败：%@": {
+      "comment": "Summary computation error; %@ is the failure detail",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Berechnung der Übersicht fehlgeschlagen: %@"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Summary calculation failed: %@"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "摘要計算失敗：%@"
           }
         }
       }
@@ -16930,6 +17733,52 @@
         }
       }
     },
+    "无效坐标：%lld 点": {
+      "localizations": {
+        "de": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Ungültige Koordinaten: %lld Punkt"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Ungültige Koordinaten: %lld Punkte"
+                }
+              }
+            }
+          }
+        },
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Invalid coordinates: %lld point"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Invalid coordinates: %lld points"
+                }
+              }
+            }
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "無效座標：%lld 點"
+          }
+        }
+      }
+    },
     "无法创建视频文件": {
       "comment": "Video export error detail, shown after 视频导出失败：: the MP4 file could not be created",
       "localizations": {
@@ -17044,6 +17893,29 @@
         }
       }
     },
+    "无法识别指定时区，请输入有效的 IANA 时区。": {
+      "comment": "Summary invalid named timezone",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unbekannte benannte Zeitzone. Geben Sie eine gültige IANA-Zeitzone ein."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unrecognized named time zone. Enter a valid IANA time zone."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "無法辨識指定時區，請輸入有效的 IANA 時區。"
+          }
+        }
+      }
+    },
     "无行进方向": {
       "comment": "Route draft notes: the context point has no direction of travel (inserted into the context line)",
       "localizations": {
@@ -17154,6 +18026,119 @@
           "stringUnit": {
             "state": "translated",
             "value": "日期"
+          }
+        }
+      }
+    },
+    "日期与主面板所选自然日一致。": {
+      "comment": "Journey summary: date came from the main panel's selected day",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Das Datum entspricht dem im Hauptfenster gewählten Kalendertag."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The date matches the calendar day selected in the main panel."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "日期與主面板所選自然日一致。"
+          }
+        }
+      }
+    },
+    "日期按所选时区划分：%@": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Datum wird nach der gewählten Zeitzone aufgeteilt: %@"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dates are divided by the selected time zone: %@"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "日期按所選時區劃分：%@"
+          }
+        }
+      }
+    },
+    "日期时区": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Datumszeitzone"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Date Time Zone"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "日期時區"
+          }
+        }
+      }
+    },
+    "日期未知：%lld 点": {
+      "localizations": {
+        "de": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Datum unbekannt: %lld Punkt"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Datum unbekannt: %lld Punkte"
+                }
+              }
+            }
+          }
+        },
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Date unknown: %lld point"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Date unknown: %lld points"
+                }
+              }
+            }
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "日期未知：%lld 點"
           }
         }
       }
@@ -17356,6 +18341,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "時間篩選"
+          }
+        }
+      }
+    },
+    "时间覆盖": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zeitabdeckung"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Time coverage"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "時間覆蓋"
           }
         }
       }
@@ -17857,6 +18864,51 @@
         }
       }
     },
+    "未归属：记录 %lld 点，补点 %lld 点": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nicht zugeordnet: %lld aufgezeichnete Punkte, %lld Lückenfüll-Punkte"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unassigned: %lld recorded points, %lld Gap Fill points"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未歸屬：記錄 %lld 點，補點 %lld 點"
+          }
+        }
+      }
+    },
+    "未知": {
+      "comment": "Summary transport mode",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unbekannt"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unknown"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未知"
+          }
+        }
+      }
+    },
     "未知来源": {
       "comment": "Sampling profile source kind: unknown source. Shown inside the sampling summary line",
       "localizations": {
@@ -17899,6 +18951,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "未能按行進方向約束，路徑可能吸到對向車道"
+          }
+        }
+      }
+    },
+    "未覆盖时间": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nicht abgedeckte Zeit"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uncovered time"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未覆蓋時間"
           }
         }
       }
@@ -18013,6 +19087,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "本地判定：亂跳簇兩錨點太近或隱含速度不合理，不取路徑，只刪區間內的亂跳點"
+          }
+        }
+      }
+    },
+    "本机时区": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lokale Zeitzone"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Local Time Zone"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本機時區"
           }
         }
       }
@@ -18174,6 +19270,28 @@
         }
       }
     },
+    "本行程模式": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fahrtmodus"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Journey Mode"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本行程模式"
+          }
+        }
+      }
+    },
     "札幌": {
       "comment": "City label: Sapporo (43.06,141.35)",
       "localizations": {
@@ -18193,6 +19311,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "札幌"
+          }
+        }
+      }
+    },
+    "来源": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quelle"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Source"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "來源"
           }
         }
       }
@@ -18289,6 +19429,29 @@
         }
       }
     },
+    "查看": {
+      "comment": "Journey summary: submit the fixed date picker",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anzeigen"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "View"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "查看"
+          }
+        }
+      }
+    },
     "查看下级行政区": {
       "localizations": {
         "de": {
@@ -18330,6 +19493,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "查看修改記錄"
+          }
+        }
+      }
+    },
+    "查看日期": {
+      "comment": "Journey summary: label of the fixed date picker",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Datum anzeigen"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "View Date"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "查看日期"
           }
         }
       }
@@ -18666,6 +19852,50 @@
         }
       }
     },
+    "正在计算摘要…": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Übersicht wird berechnet…"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calculating summary…"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在計算摘要…"
+          }
+        }
+      }
+    },
+    "正在载入轨迹…": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Track wird geladen…"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Loading track…"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在載入軌跡…"
+          }
+        }
+      }
+    },
     "此文件的点颜色": {
       "localizations": {
         "de": {
@@ -18707,6 +19937,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "此裝置不支援 Metal，無法渲染點雲。"
+          }
+        }
+      }
+    },
+    "步行": {
+      "comment": "Summary transport mode",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zu Fuß"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Walking"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "步行"
           }
         }
       }
@@ -18802,6 +20055,94 @@
         }
       }
     },
+    "每日": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Täglich"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Daily"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "每日"
+          }
+        }
+      }
+    },
+    "每日与行程摘要": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tages- und Fahrtübersicht"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Daily & Journey Summary"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "每日與行程摘要"
+          }
+        }
+      }
+    },
+    "每日与行程摘要…": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tages- und Fahrtübersicht…"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Daily & Journey Summary…"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "每日與行程摘要…"
+          }
+        }
+      }
+    },
+    "每日显示相关行程的模式与候选，不生成唯一的全天交通方式。": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zeigt die Modi und Kandidaten der zugehörigen Fahrten pro Tag; es wird kein einziges Verkehrsmittel für den ganzen Tag erzeugt."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Shows the modes and candidates of related journeys for each day; does not produce a single all-day transport mode."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "每日顯示相關行程的模式與候選，不產生唯一的全天交通方式。"
+          }
+        }
+      }
+    },
     "每段抽 3–8 个行驶中的点，一次 Overpass 查 150 m 内铁路，只按离铁路距离投票": {
       "localizations": {
         "de": {
@@ -18842,6 +20183,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "每段都加"
+          }
+        }
+      }
+    },
+    "水路": {
+      "comment": "Summary transport mode",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schiff"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Water"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "水路"
           }
         }
       }
@@ -18933,6 +20297,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "沒有內建行政區邊界資料（Regions.bin）"
+          }
+        }
+      }
+    },
+    "没有地区落点": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keine Regionszuordnung"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No region match"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "沒有地區落點"
           }
         }
       }
@@ -19479,6 +20865,50 @@
         }
       }
     },
+    "海拔覆盖不足，爬升／下降不可用。": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unzureichende Höhenabdeckung; Anstieg/Abstieg nicht verfügbar."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Insufficient elevation coverage; ascent/descent unavailable."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "海拔覆蓋不足，爬升／下降不可用。"
+          }
+        }
+      }
+    },
+    "海拔边覆盖率：%lld / %lld": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Höhenkanten-Abdeckung: %lld / %lld"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elevation edge coverage: %lld / %lld"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "海拔邊覆蓋率：%lld / %lld"
+          }
+        }
+      }
+    },
     "深圳": {
       "comment": "City label: Shenzhen (22.54,114.06)",
       "localizations": {
@@ -19702,6 +21132,28 @@
         }
       }
     },
+    "清除摘要筛选": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Übersichtsfilter löschen"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clear Summary Filter"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "清除摘要篩選"
+          }
+        }
+      }
+    },
     "清除高亮": {
       "localizations": {
         "de": {
@@ -19766,6 +21218,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "渲染 %@ 影像…"
+          }
+        }
+      }
+    },
+    "源段时间重叠，距离可能含重复记录。": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die Zeiten der Quellabschnitte überschneiden sich; die Entfernung kann doppelte Aufzeichnungen enthalten."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Source segment times overlap; distance may include duplicate records."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "來源區段時間重疊，距離可能含重複記錄。"
           }
         }
       }
@@ -20119,6 +21593,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "熱力圖"
+          }
+        }
+      }
+    },
+    "爬升与下降": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anstieg und Abstieg"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ascent & Descent"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "爬升與下降"
+          }
+        }
+      }
+    },
+    "爬升（滤波估算）": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anstieg (gefilterte Schätzung)"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ascent (filtered estimate)"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "爬升（濾波估算）"
           }
         }
       }
@@ -20769,6 +22287,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "科隆"
+          }
+        }
+      }
+    },
+    "移动估计": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bewegungsschätzung"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Moving estimate"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "移動估計"
           }
         }
       }
@@ -21737,6 +23277,28 @@
         }
       }
     },
+    "结束（不含）：%@": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ende (exklusiv): %@"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "End (exclusive): %@"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "結束（不含）：%@"
+          }
+        }
+      }
+    },
     "绘制比例尺": {
       "localizations": {
         "de": {
@@ -22161,6 +23723,51 @@
           "stringUnit": {
             "state": "translated",
             "value": "自動降採樣"
+          }
+        }
+      }
+    },
+    "至 %@（包含最后记录点）": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "bis %@ (einschließlich des letzten aufgezeichneten Punkts)"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "to %@ (includes the last recorded point)"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "至 %@（包含最後記錄點）"
+          }
+        }
+      }
+    },
+    "航空": {
+      "comment": "Summary transport mode",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Flugzeug"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Air"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "航空"
           }
         }
       }
@@ -22711,6 +24318,72 @@
         }
       }
     },
+    "行政区边界数据不可用。": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verwaltungsgrenzendaten sind nicht verfügbar."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Administrative boundary data is unavailable."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "行政區邊界資料不可用。"
+          }
+        }
+      }
+    },
+    "行程": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fahrten"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Journeys"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "行程"
+          }
+        }
+      }
+    },
+    "行程按源轨迹段和 30 分钟记录空白分段，不按午夜拆分。": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fahrten werden nach Quell-Trackabschnitten und 30-minütigen Aufzeichnungslücken getrennt; um Mitternacht wird nicht getrennt."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Journeys are split by source track segments and 30-minute recording gaps; they are not split at midnight."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "行程按來源軌跡區段和 30 分鐘記錄空白分段，不按午夜拆分。"
+          }
+        }
+      }
+    },
     "行进方向：%@；%@": {
       "comment": "Route draft notes: direction of travel. 1 side A text, 2 side B text",
       "localizations": {
@@ -22803,6 +24476,28 @@
         }
       }
     },
+    "补点估算": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lückenfüll-Schätzung"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gap Fill estimate"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "補點估算"
+          }
+        }
+      }
+    },
     "补点增量": {
       "comment": "filename fragment: no / or : (default file name of the gap-fill increment export: <track>_<this>.gpx)",
       "localizations": {
@@ -22845,6 +24540,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "補點末尾段不是路網幾何（最後一個路網點離 B %1$@ m / 方向差 %2$@°），請在地圖上看一眼"
+          }
+        }
+      }
+    },
+    "补点来源仅在本次编辑会话可识别。": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die Herkunft der Lückenfüllung ist nur in dieser Bearbeitungssitzung erkennbar."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gap Fill provenance can only be identified in this editing session."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "補點來源僅在本次編輯工作階段可辨識。"
           }
         }
       }
@@ -22914,6 +24631,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "補點離路網原始折線最遠 %@ m（應 ≤5 m）"
+          }
+        }
+      }
+    },
+    "补点经过（估算）": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lückenfüll-Passage (geschätzt)"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gap Fill pass-through (estimated)"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "補點經過（估算）"
           }
         }
       }
@@ -23119,6 +24858,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "要看一眼 %1$lld · 留意 %2$lld"
+          }
+        }
+      }
+    },
+    "观测间隔": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Beobachtete Intervalle"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Observed intervals"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "觀測間隔"
           }
         }
       }
@@ -23489,6 +25250,72 @@
         }
       }
     },
+    "记录位置到访": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Besuche an aufgezeichneten Positionen"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recorded position visits"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "記錄位置到訪"
+          }
+        }
+      }
+    },
+    "记录折线": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aufgezeichnete Polylinie"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recorded polyline"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "記錄折線"
+          }
+        }
+      }
+    },
+    "记录跨度": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aufgezeichnete Spanne"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recorded span"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "記錄跨度"
+          }
+        }
+      }
+    },
     "设为世界迷雾原始格宽（约 %.2f 米——.fwdb 里一个小格的边长，即最细雾径）": {
       "localizations": {
         "de": {
@@ -23599,6 +25426,52 @@
         }
       }
     },
+    "该年月日在所选时区中不可用，请输入有效日期。": {
+      "comment": "Journey summary: entered calendar day does not exist in the actual time zone",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Das gewählte Jahr, der gewählte Monat und der gewählte Tag existieren in der gewählten Zeitzone nicht. Geben Sie ein gültiges Datum ein."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The selected year, month, and day do not exist in the selected time zone. Enter a valid date."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "該年月日在所選時區中不可用，請輸入有效日期。"
+          }
+        }
+      }
+    },
+    "该日期没有记录。": {
+      "comment": "Journey summary: empty state for the selected day",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Für dieses Datum sind keine Aufzeichnungen vorhanden."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No records on this date."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "該日期沒有記錄。"
+          }
+        }
+      }
+    },
     "详细": {
       "localizations": {
         "de": {
@@ -23661,6 +25534,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "說明…"
+          }
+        }
+      }
+    },
+    "请先导入 GPX 或 CSV 轨迹。": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Importieren Sie zuerst einen GPX- oder CSV-Track."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Import a GPX or CSV track first."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "請先匯入 GPX 或 CSV 軌跡。"
+          }
+        }
+      }
+    },
+    "请先结束删除、补点、预览或回放，再在主地图上查看。": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Beenden Sie zuerst Löschen, Lückenfüllung, Vorschau oder Wiedergabe; zeigen Sie dann auf der Hauptkarte an."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Finish deleting, Gap Fill, preview, or playback first, then view on the main map."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "請先結束刪除、補點、預覽或回放，再在主地圖上查看。"
           }
         }
       }
@@ -23776,6 +25693,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "請求中"
+          }
+        }
+      }
+    },
+    "请选择日期后查看摘要。": {
+      "comment": "Journey summary: no date has been submitted yet",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wählen Sie ein Datum, um die Übersicht anzuzeigen."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Select a date to view the summary."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "請選擇日期後查看摘要。"
           }
         }
       }
@@ -23940,6 +25880,50 @@
         }
       }
     },
+    "距离": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Entfernung"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Distance"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "距離"
+          }
+        }
+      }
+    },
+    "距离不可计算": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Entfernung nicht berechenbar"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Distance unavailable"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "距離無法計算"
+          }
+        }
+      }
+    },
     "跟随原始": {
       "localizations": {
         "de": {
@@ -23980,6 +25964,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "跟隨系統"
+          }
+        }
+      }
+    },
+    "跨日行程；以下为完整行程统计。": {
+      "comment": "Journey summary: cross-midnight journey keeps full statistics",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tagesübergreifende Fahrt; die folgenden Werte sind vollständige Fahrtstatistiken."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cross-day journey; the following are complete journey statistics."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "跨日行程；以下為完整行程統計。"
           }
         }
       }
@@ -24782,6 +26789,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "軌跡"
+          }
+        }
+      }
+    },
+    "轨迹没有可用于日期摘要的时间。": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Der Track enthält keine für eine Tagesübersicht nutzbaren Zeitstempel."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The track has no timestamps usable for a daily summary."
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "軌跡沒有可用於日期摘要的時間。"
           }
         }
       }
@@ -26750,6 +28779,28 @@
         }
       }
     },
+    "重新计算": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Neu berechnen"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recalculate"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "重新計算"
+          }
+        }
+      }
+    },
     "釜山": {
       "comment": "City label: Busan (35.18,129.08)",
       "localizations": {
@@ -28023,6 +30074,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "馬德里"
+          }
+        }
+      }
+    },
+    "骑行": {
+      "comment": "Summary transport mode",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fahrrad"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cycling"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "騎乘"
           }
         }
       }

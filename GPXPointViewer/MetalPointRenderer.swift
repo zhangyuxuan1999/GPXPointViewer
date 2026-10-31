@@ -254,6 +254,43 @@ final class TrackGPUBuffers {
     let scolor: MTLBuffer?
     let firsts: MTLBuffer?    // 各级格首点位置表（去重 LOD）
 
+    /// Draw uniforms retain track.count. A shorter upload would merely move an
+    /// out-of-bounds read from the CPU to the shader, so reject the whole input.
+    /// Kept independent of MTLDevice so malformed-column probes need no GPU.
+    static func validationIssue(for track: TrackData) -> String? {
+        let n = track.count
+        guard n > 0, n <= Int(UInt32.max), n <= Int.max / 4 else {
+            return "point count \(n) cannot be represented by GPU buffers"
+        }
+        let required = [("rtcX", track.rtcX.count), ("rtcY", track.rtcY.count),
+                        ("unitX", track.unitX.count), ("unitY", track.unitY.count),
+                        ("unitZ", track.unitZ.count), ("liftF", track.liftF.count)]
+        for (name, count) in required where count != n {
+            return "\(name).count=\(count), expected \(n)"
+        }
+        guard track.colors.count == n * 4 else {
+            return "colors.count=\(track.colors.count), expected \(n * 4)"
+        }
+        let optional = [("fileID", track.fileID.count), ("lineBreakPrefix", track.lineBreakPrefix.count),
+                        ("fogBreakPrefix", track.fogBreakPrefix.count)]
+        for (name, count) in optional where count != 0 && count != n {
+            return "\(name).count=\(count), expected 0 or \(n)"
+        }
+        guard track.topology.count == n else { return "topology.count differs from point count" }
+        for (name, order) in [("pathOrder", track.topology.order), ("spatialOrder", track.spatialOrder)] {
+            if !order.isEmpty && (order.count != n || order.contains(where: { Int($0) >= n })) {
+                return "\(name) must contain \(n) indices in 0..<\(n)"
+            }
+        }
+        if !track.spatialOrder.isEmpty && track.spatialKeys.count != n {
+            return "spatialKeys.count differs from point count"
+        }
+        if track.spatialFirsts.contains(where: { Int($0) >= n }) {
+            return "spatialFirsts contains an out-of-range point index"
+        }
+        return nil
+    }
+
     /// 32 位元素按置换表重排（并行 gather），dst[k] = src[order[k]]
     static func permute32(src: UnsafePointer<UInt32>, dst: UnsafeMutablePointer<UInt32>,
                           order: [UInt32]) {
@@ -272,6 +309,7 @@ final class TrackGPUBuffers {
 
     static func permutedBuffer(device: MTLDevice, floats: [Float], order: [UInt32]) -> MTLBuffer? {
         guard floats.count == order.count, !order.isEmpty,
+              order.allSatisfy({ Int($0) < floats.count }),
               let buf = device.makeBuffer(length: order.count * 4, options: .storageModeShared)
         else { return nil }
         floats.withUnsafeBufferPointer { fb in
@@ -283,6 +321,7 @@ final class TrackGPUBuffers {
 
     static func permutedBuffer(device: MTLDevice, colors: [UInt8], order: [UInt32]) -> MTLBuffer? {
         guard colors.count == order.count * 4, !order.isEmpty,
+              order.allSatisfy({ Int($0) < order.count }),
               let buf = device.makeBuffer(length: order.count * 4, options: .storageModeShared)
         else { return nil }
         colors.withUnsafeBufferPointer { cb in
@@ -295,6 +334,10 @@ final class TrackGPUBuffers {
     init?(device: MTLDevice, track: TrackData) {
         let n = track.count
         guard n > 0 else { return nil }
+        if let issue = Self.validationIssue(for: track) {
+            NSLog("GPXPointViewer: GPU buffer build rejected: %@", issue)
+            return nil
+        }
         pathOrder = track.topology.order.isEmpty ? nil : track.topology.order.withUnsafeBytes { data in
             device.makeBuffer(bytes:data.baseAddress!,length:data.count,options:.storageModeShared)
         }
@@ -312,10 +355,11 @@ final class TrackGPUBuffers {
                               options: .storageModeShared)
         }
         func upload(_ a: [Float]) -> MTLBuffer? {
-            a.withUnsafeBufferPointer {
-                device.makeBuffer(bytes: $0.baseAddress!,
-                                  length: n * MemoryLayout<Float>.stride,
-                                  options: .storageModeShared)
+            guard a.count == n else { return nil }
+            return a.withUnsafeBufferPointer {
+                guard let base = $0.baseAddress else { return nil }
+                return device.makeBuffer(bytes: base, length: $0.count * MemoryLayout<Float>.stride,
+                                         options: .storageModeShared)
             }
         }
         guard let bx = upload(track.rtcX), let by = upload(track.rtcY),
@@ -478,10 +522,15 @@ final class MetalPointRenderer {
     // MARK: - 数据上传
 
     func setData(track: TrackData) {
-        pointCount = track.count
-        center = track.center
         let n = track.count
         guard n > 0 else { clearData(); return }
+        if let issue = TrackGPUBuffers.validationIssue(for: track) {
+            NSLog("GPXPointViewer: renderer data rejected: %@", issue)
+            clearData()
+            return
+        }
+        pointCount = n
+        center = track.center
         pathTopology = track.topology
         pathOrderBuffer = nil
         linePathCache = nil; fogPathCache = nil
@@ -531,8 +580,10 @@ final class MetalPointRenderer {
         bufSY = TrackGPUBuffers.permutedBuffer(device: device, floats: track.rtcY, order: track.spatialOrder)
         // 兜底：无预建缓冲（无 Metal 设备构建、重复 setData 等）时当场拷贝
         func upload(_ a: [Float]) -> MTLBuffer? {
-            a.withUnsafeBufferPointer {
-                device.makeBuffer(bytes: $0.baseAddress!, length: n * MemoryLayout<Float>.stride, options: .storageModeShared)
+            guard a.count == n else { return nil }
+            return a.withUnsafeBufferPointer {
+                guard let base = $0.baseAddress else { return nil }
+                return device.makeBuffer(bytes: base, length: $0.count * MemoryLayout<Float>.stride, options: .storageModeShared)
             }
         }
         bufX = upload(track.rtcX)

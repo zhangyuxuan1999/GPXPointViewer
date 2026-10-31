@@ -30,6 +30,9 @@
 		BB000000000000000000005A /* RegionIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000067 /* RegionIndex.swift */; };
 		BB000000000000000000005B /* RegionStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000068 /* RegionStats.swift */; };
 		BB000000000000000000005C /* RegionsWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000069 /* RegionsWindow.swift */; };
+		BB00000000000000000000A3 /* JourneySummaryWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000000A3 /* JourneySummaryWindow.swift */; };
+		BB00000000000000000000A2 /* JourneySummaryState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000000A2 /* JourneySummaryState.swift */; };
+		BB00000000000000000000A1 /* JourneySummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000000A1 /* JourneySummary.swift */; };
 		BB0000000000000000000070 /* MapSources.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000070 /* MapSources.swift */; };
 		BB0000000000000000000071 /* TunnelOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000071 /* TunnelOverlay.swift */; };
 		BB000000000000000000005D /* Regions.bin in Resources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000006A /* Regions.bin */; };
@@ -76,6 +79,9 @@
 		AA0000000000000000000067 /* RegionIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionIndex.swift; sourceTree = "<group>"; };
 		AA0000000000000000000068 /* RegionStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionStats.swift; sourceTree = "<group>"; };
 		AA0000000000000000000069 /* RegionsWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionsWindow.swift; sourceTree = "<group>"; };
+		AA00000000000000000000A3 /* JourneySummaryWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneySummaryWindow.swift; sourceTree = "<group>"; };
+		AA00000000000000000000A2 /* JourneySummaryState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneySummaryState.swift; sourceTree = "<group>"; };
+		AA00000000000000000000A1 /* JourneySummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneySummary.swift; sourceTree = "<group>"; };
 		AA0000000000000000000070 /* MapSources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSources.swift; sourceTree = "<group>"; };
 		AA0000000000000000000071 /* TunnelOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunnelOverlay.swift; sourceTree = "<group>"; };
 		AA000000000000000000006A /* Regions.bin */ = {isa = PBXFileReference; lastKnownFileType = file; path = Regions.bin; sourceTree = "<group>"; };
@@ -174,6 +180,9 @@
 				AA0000000000000000000067 /* RegionIndex.swift */,
 				AA0000000000000000000068 /* RegionStats.swift */,
 				AA0000000000000000000069 /* RegionsWindow.swift */,
+				AA00000000000000000000A3 /* JourneySummaryWindow.swift */,
+				AA00000000000000000000A2 /* JourneySummaryState.swift */,
+				AA00000000000000000000A1 /* JourneySummary.swift */,
 				AA0000000000000000000070 /* MapSources.swift */,
 				AA0000000000000000000071 /* TunnelOverlay.swift */,
 				AA000000000000000000006A /* Regions.bin */,
@@ -379,6 +388,9 @@
 				BB000000000000000000005A /* RegionIndex.swift in Sources */,
 				BB000000000000000000005B /* RegionStats.swift in Sources */,
 				BB000000000000000000005C /* RegionsWindow.swift in Sources */,
+				BB00000000000000000000A3 /* JourneySummaryWindow.swift in Sources */,
+				BB00000000000000000000A2 /* JourneySummaryState.swift in Sources */,
+				BB00000000000000000000A1 /* JourneySummary.swift in Sources */,
 				BB0000000000000000000070 /* MapSources.swift in Sources */,
 				BB0000000000000000000071 /* TunnelOverlay.swift in Sources */,
 				BB0000000000000000000059 /* L10nSupport.swift in Sources */,
