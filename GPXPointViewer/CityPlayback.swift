@@ -125,8 +125,8 @@ struct CityPlan {
         let camB = camera(box: (b.x0, b.y0, b.x1, b.y1), margin: 1.35, wide: false, aspect: aspect)
         let camR = camera(box: (ch.x0, ch.y0, ch.x1, ch.y1), margin: ch.margin,
                           wide: ch.wide, aspect: aspect)
-        if u < 0.22 { return blend(camA, camR, u / 0.22) }
-        if u > 0.78 { return blend(camR, camB, (u - 0.78) / 0.22) }
+        if u < 0.15 { return blend(camA, camR, u / 0.15) }
+        if u > 0.85 { return blend(camR, camB, (u - 0.85) / 0.15) }
         return camR
     }
 
@@ -302,20 +302,21 @@ enum CityPlaybackPlanner {
         }
         let shortIdx = ss.indices.filter { ss[$0].span <= 0.002 }
         let byWeight = shortIdx.sorted { ss[$0].w > ss[$1].w }
-        var seeds: [(x: Double, y: Double)] = []
-        var sep = 0.003                      // 约 160km
-        for _ in 0..<3 {
-            seeds.removeAll()
+        func pickSeeds(_ sep: Double) -> [(x: Double, y: Double)] {
+            var out: [(x: Double, y: Double)] = []
             for i in byWeight {
-                let d = seeds.map { dist(ss[i].cx, ss[i].cy, $0.x, $0.y) }.min() ?? .infinity
+                let d = out.map { dist(ss[i].cx, ss[i].cy, $0.x, $0.y) }.min() ?? .infinity
                 if d > sep {
-                    seeds.append((ss[i].cx, ss[i].cy))
-                    if seeds.count >= 14 { break }
+                    out.append((ss[i].cx, ss[i].cy))
+                    if out.count >= 14 { break }
                 }
             }
-            if seeds.count >= 6 { break }
-            sep *= 0.6                       // 数据集中在同一城市时收紧
+            return out
         }
+        // 默认 ~90km 间距：北京/西安的区县归到同一个种子。只有整份数据几乎
+        // 集中在一个城市（种子 ≤1 个）时才收紧，避免把大城市拆成多章。
+        var seeds = pickSeeds(0.003)
+        if seeds.count < 2 { seeds = pickSeeds(0.0015) }
         guard !seeds.isEmpty else { return nil }
 
         // 2) 会话 → 最近种子（约 280km 外算城际；长会话直接算城际）
@@ -330,7 +331,7 @@ enum CityPlaybackPlanner {
                 let d = dist(s.cx, s.cy, seed.x, seed.y)
                 if d < bestD { bestD = d; best = k }
             }
-            guard best >= 0, bestD <= 0.005 else { continue }
+            guard best >= 0, bestD <= 0.0016 else { continue }   // ~85km：更远的算城际，城市镜头不会被撑大
             accOfSession[i] = best
             var a = accs[best]
             a.sessions.append(i)
@@ -352,14 +353,14 @@ enum CityPlaybackPlanner {
         var ranked = accs.enumerated().filter { $0.element.w > 0 }
             .sorted { $0.element.w > $1.element.w }
         if ranked.count > 4 {
-            ranked = ranked.filter { $0.element.w >= totalW * 0.003 }
+            ranked = ranked.filter { $0.element.w >= totalW * 0.005 }
         }
         let finaleDur = min(5.0, max(2.5, duration * 0.1))
-        let maxK = min(12, max(4, Int((duration - finaleDur) / 3.4) + 1))
+        let maxK = min(12, max(4, Int((duration - finaleDur) / 3.7) + 1))
         if ranked.count > maxK { ranked = Array(ranked.prefix(maxK)) }
         while ranked.count > 4 {
             let k = ranked.count
-            let need = finaleDur + Double(k - 1) * 2.0 + Double(k) * 1.4
+            let need = finaleDur + Double(k - 1) * 2.2 + Double(k) * 1.5
             if need <= duration { break }
             ranked.removeLast()
         }
@@ -396,7 +397,7 @@ enum CityPlaybackPlanner {
                 let d = dist(s.cx, s.cy, c.cx, c.cy)
                 if d < bestD { bestD = d; best = ci }
             }
-            if best >= 0, bestD <= 0.003 {
+            if best >= 0, bestD <= 0.0016 {
                 cityOfSession[i] = best
                 cities[best].x0 = min(cities[best].x0, s.x0)
                 cities[best].x1 = max(cities[best].x1, s.x1)
@@ -408,6 +409,34 @@ enum CityPlaybackPlanner {
                 cities[best].sessions.append(i)
             } else {
                 cityOfSession[i] = -1
+            }
+        }
+
+        // 5b) 收尾合并：吸收周边小城后，两个同城种子的包围盒可能靠得很近
+        //     （北京被拆成两三章）。中心相距 <~40km 的城市合并，会话归属同步改写。
+        var mergedAny = true
+        while mergedAny {
+            mergedAny = false
+            var i = 0
+            while i < cities.count {
+                var j = i + 1
+                while j < cities.count {
+                    let d = dist(cities[i].cx, cities[i].cy, cities[j].cx, cities[j].cy)
+                    guard d < 0.0015 else { j += 1; continue }
+                    cities[i].x0 = min(cities[i].x0, cities[j].x0)
+                    cities[i].x1 = max(cities[i].x1, cities[j].x1)
+                    cities[i].y0 = min(cities[i].y0, cities[j].y0)
+                    cities[i].y1 = max(cities[i].y1, cities[j].y1)
+                    cities[i].t0 = min(cities[i].t0, cities[j].t0)
+                    cities[i].t1 = max(cities[i].t1, cities[j].t1)
+                    cities[i].weight += cities[j].weight
+                    cities[i].sessions += cities[j].sessions
+                    for k in cityOfSession.indices where cityOfSession[k] == j { cityOfSession[k] = i }
+                    for k in cityOfSession.indices where cityOfSession[k] > j { cityOfSession[k] -= 1 }
+                    cities.remove(at: j)
+                    mergedAny = true
+                }
+                i += 1
             }
         }
 
@@ -433,7 +462,7 @@ enum CityPlaybackPlanner {
 
         // 7) 时长：驻留按权重、过渡按是否有城际段
         let n = cities.count
-        var transDurs = [Double](repeating: 1.1, count: max(0, n - 1))
+        var transDurs = [Double](repeating: 1.2, count: max(0, n - 1))
         var pairTransit = [[Int]](repeating: [], count: max(0, n - 1))
         // 过渡段展示“离开这座城市”的城际段（出发或返回都算）。这样北京→西安
         // 在离开北京时画出来；西安落地时城市是空的，正好从零开始生长。
@@ -443,12 +472,13 @@ enum CityPlaybackPlanner {
             if tr.b >= 0, tr.b < n - 1, tr.b != tr.a { touched.insert(tr.b) }
             for c in touched { pairTransit[c].append(k) }
         }
-        for c in 0..<max(0, n - 1) where !pairTransit[c].isEmpty { transDurs[c] = 2.0 }
-        let holdTotal = max(Double(n) * 1.2, duration - finaleDur - transDurs.reduce(0, +))
+        for c in 0..<max(0, n - 1) where !pairTransit[c].isEmpty { transDurs[c] = 2.2 }
+        let holdTotal = max(Double(n) * 1.5, duration - finaleDur - transDurs.reduce(0, +))
         let wSum = max(1e-9, cities.reduce(0.0) { $0 + $1.weight })
-        var holds = cities.map { max(1.2, holdTotal * $0.weight / wSum) }
-        let hSum = holds.reduce(0, +)
-        if hSum > 0 { holds = holds.map { $0 * holdTotal / hSum } }
+        let floorHold = 1.5
+        var holds = [Double](repeating: floorHold, count: n)
+        let extra = max(0, holdTotal - floorHold * Double(n))
+        for i in cities.indices { holds[i] += extra * cities[i].weight / wSum }
 
         // 8) 章节 + 相机范围
         var chapters: [PlaybackChapter] = []
