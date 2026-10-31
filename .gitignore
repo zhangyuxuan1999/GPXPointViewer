@@ -21,3 +21,6 @@ Builds/
 
 # DeepSeek 2026-10-31：草稿样片（黑底、无底图），留在本地不提交
 DeepSeek/*.mp4
+
+# 回放预览 app（人工审核用，44 MB，不入库）
+DeepSeek/review/
