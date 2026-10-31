@@ -24,3 +24,6 @@ DeepSeek/*.mp4
 
 # 回放预览 app（人工审核用，44 MB，不入库）
 DeepSeek/review/
+
+# 回放预览 app（项目根，人工审核用）
+/GPXPlaybackPreview.app/
