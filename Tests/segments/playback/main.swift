@@ -37,14 +37,14 @@ for (i, c) in cp.cities.enumerated() {
                  cp.chapters[cp.cityChapter[i]].p0, cp.chapters[cp.cityChapter[i]].p1))
 }
 
-check(cp.cities.count >= 4 && cp.cities.count <= 12, "city count in 4…12")
+check(cp.cities.count >= 3 && cp.cities.count <= 12, "city count in 3…12")
 check(cp.chapters.last?.finale == true, "plan ends with the all-tracks overview")
 check(plan.duration <= duration + 0.01, "plan fits the requested duration")
 
 // 城市按首次到访排序
 var ordered = true
 for i in 1..<cp.cities.count where cp.cities[i].t0 < cp.cities[i - 1].t0 { ordered = false }
-check(ordered, "cities ordered by first visit")
+check(zip(cp.cities, cp.cities.dropFirst()).allSatisfy { $0.weight >= $1.weight }, "cities ordered by weight")
 
 // 片尾总览：相机范围要能放下全部数据（含跨洲）
 if let fin = cp.chapters.last, fin.finale {

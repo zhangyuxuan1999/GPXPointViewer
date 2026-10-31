@@ -36,6 +36,7 @@ struct PlaybackTransit {
     var t1: Double = -.infinity
     var x0: Double = .infinity, y0: Double = .infinity
     var x1: Double = -.infinity, y1: Double = -.infinity
+    var weight: Double = 0
     var a: Int = -1          // 出发城市（最近的城市，-1 = 未知）
     var b: Int = -1          // 到达城市
 }
@@ -53,6 +54,7 @@ struct PlaybackChapter {
     var margin: Double = 1.2
     var wide: Bool = false
     var finale: Bool = false
+    var trip: Bool = false        // 长途专题章节
 }
 
 /// 一个点的区域归属（城市或城际段），以及按时间排序的会话表。
@@ -64,6 +66,7 @@ struct CityPlan {
     var timeline: [(t0: Double, t1: Double, area: Int)] = []
     var cityChapter: [Int] = []
     var transitChapter: [Int] = []
+    var cityTimeAt: [[Double]] = []
     var dataStart: Double = 0
     var dataEnd: Double = 0
     var finaleRange: (Double, Double) = (0, 0)
@@ -113,7 +116,7 @@ struct CityPlan {
             return camera(box: (last.x0, last.y0, last.x1, last.y1), margin: last.margin,
                           wide: last.wide, aspect: aspect)
         }
-        if ch.city >= 0 || ch.finale {
+        if ch.city >= 0 || ch.finale || ch.trip {
             return camera(box: (ch.x0, ch.y0, ch.x1, ch.y1), margin: ch.margin,
                           wide: ch.wide, aspect: aspect)
         }
@@ -125,8 +128,8 @@ struct CityPlan {
         let camB = camera(box: (b.x0, b.y0, b.x1, b.y1), margin: 1.35, wide: false, aspect: aspect)
         let camR = camera(box: (ch.x0, ch.y0, ch.x1, ch.y1), margin: ch.margin,
                           wide: ch.wide, aspect: aspect)
-        if u < 0.15 { return blend(camA, camR, u / 0.15) }
-        if u > 0.85 { return blend(camR, camB, (u - 0.85) / 0.15) }
+        if u < 0.12 { return blend(camA, camR, u / 0.12) }
+        if u > 0.88 { return blend(camR, camB, (u - 0.88) / 0.12) }
         return camR
     }
 
@@ -153,7 +156,14 @@ struct CityPlan {
             let ch = chapters[ci]
             if p < ch.p0 { return -.infinity }
             if p >= ch.p1 { return cities[area].t1 }
-            return ch.d0 + (ch.d1 - ch.d0) * progress(ch, p)
+            let u = progress(ch, p)
+            let q = cityTimeAt.indices.contains(area) ? cityTimeAt[area] : []
+            if q.count >= 2 {
+                let x = min(1, max(0, u)) * Double(q.count - 1)
+                let i = Int(x), f = x - Double(i)
+                return q[i] + ((i + 1 < q.count ? q[i + 1] : q[i]) - q[i]) * f
+            }
+            return ch.d0 + (ch.d1 - ch.d0) * u
         }
         let ti = area - cities.count
         guard ti >= 0, ti < transit.count else { return -.infinity }
@@ -353,14 +363,21 @@ enum CityPlaybackPlanner {
         var ranked = accs.enumerated().filter { $0.element.w > 0 }
             .sorted { $0.element.w > $1.element.w }
         if ranked.count > 4 {
-            ranked = ranked.filter { $0.element.w >= totalW * 0.005 }
+            let base = ranked
+            ranked = ranked.filter { item in
+                let a = item.element
+                let span = max(a.x1 - a.x0, a.y1 - a.y0)
+                let days = (a.t1 - a.t0) / 86400
+                return a.w >= totalW * 0.02 && span <= 0.0045 && days >= 30
+            }
+            if ranked.count < 2 { ranked = base.filter { $0.element.w >= totalW * 0.005 } }
         }
-        let finaleDur = min(5.0, max(2.5, duration * 0.1))
-        let maxK = min(12, max(4, Int((duration - finaleDur) / 3.7) + 1))
+        let finaleDur = min(8.0, max(4.0, duration * 0.13))
+        let maxK = min(8, max(4, Int((duration - finaleDur) / 3.7) + 1))
         if ranked.count > maxK { ranked = Array(ranked.prefix(maxK)) }
         while ranked.count > 4 {
             let k = ranked.count
-            let need = finaleDur + Double(k - 1) * 2.2 + Double(k) * 1.5
+            let need = finaleDur + Double(k - 1) * 1.5 + Double(k) * 3.0
             if need <= duration { break }
             ranked.removeLast()
         }
@@ -369,7 +386,7 @@ enum CityPlaybackPlanner {
         // 4) 建立城市（按首次到访时间排序）
         var cities: [PlaybackCity] = []
         var oldToNew: [Int: Int] = [:]
-        let ordered = ranked.map { $0.offset }.sorted { accs[$0].t0 < accs[$1].t0 }
+        let ordered = ranked.map { $0.offset }.sorted { accs[$0].w > accs[$1].w }
         for (newID, oldID) in ordered.enumerated() {
             oldToNew[oldID] = newID
             let a = accs[oldID]
@@ -440,6 +457,35 @@ enum CityPlaybackPlanner {
             }
         }
 
+        // 3b) 每城“累计点数 → 时间”分位：揭示按点数走，不按时间线性走
+        var cityTimeAt = [[Double]](repeating: [], count: cities.count)
+        for i in cities.indices {
+            var entries: [(t0: Double, t1: Double, w: Double)] = []
+            for si in cities[i].sessions {
+                let s = ss[si]
+                entries.append((s.t0, s.t1, max(1.0, s.w)))
+            }
+            entries.sort { $0.t0 < $1.t0 }
+            let total = entries.reduce(0.0) { $0 + $1.w }
+            guard total > 0 else { continue }
+            var samples: [Double] = []
+            var idx = 0
+            var cum = 0.0
+            for k in 0...64 {
+                let target = total * Double(k) / 64
+                while idx < entries.count && cum + entries[idx].w < target {
+                    cum += entries[idx].w; idx += 1
+                }
+                if idx >= entries.count { samples.append(entries.last!.t1) }
+                else {
+                    let e = entries[idx]
+                    let f = e.w > 0 ? min(1, max(0, (target - cum) / e.w)) : 0
+                    samples.append(e.t0 + (e.t1 - e.t0) * f)
+                }
+            }
+            cityTimeAt[i] = samples
+        }
+
         func nearestCity(_ x: Double, _ y: Double) -> Int {
             var best = -1
             var bestD = Double.infinity
@@ -457,12 +503,18 @@ enum CityPlaybackPlanner {
                                      x0: s.x0, y0: s.y0, x1: s.x1, y1: s.y1)
             tr.a = nearestCity(s.sx, s.sy)
             tr.b = nearestCity(s.ex, s.ey)
+            tr.weight = s.w
             transit.append(tr)
         }
 
         // 7) 时长：驻留按权重、过渡按是否有城际段
         let n = cities.count
-        var transDurs = [Double](repeating: 1.2, count: max(0, n - 1))
+        var transDurs = [Double](repeating: 1.0, count: max(0, n - 1))
+        // 5c) 长途专题：权重最大的几条跨区域行程，单独成章
+        let tripPicked = transit.enumerated().filter { _, t in
+            max(t.x1 - t.x0, t.y1 - t.y0) >= 0.008 && t.weight >= 3000
+        }.sorted { $0.element.weight > $1.element.weight }.prefix(4)
+        let tripSet = Set(tripPicked.map { $0.offset })
         var pairTransit = [[Int]](repeating: [], count: max(0, n - 1))
         // 过渡段展示“离开这座城市”的城际段（出发或返回都算）。这样北京→西安
         // 在离开北京时画出来；西安落地时城市是空的，正好从零开始生长。
@@ -470,10 +522,12 @@ enum CityPlaybackPlanner {
             var touched = Set<Int>()
             if tr.a >= 0, tr.a < n - 1 { touched.insert(tr.a) }
             if tr.b >= 0, tr.b < n - 1, tr.b != tr.a { touched.insert(tr.b) }
+            if tripSet.contains(k) { continue }
             for c in touched { pairTransit[c].append(k) }
         }
-        for c in 0..<max(0, n - 1) where !pairTransit[c].isEmpty { transDurs[c] = 2.2 }
-        let holdTotal = max(Double(n) * 1.5, duration - finaleDur - transDurs.reduce(0, +))
+        for c in 0..<max(0, n - 1) where !pairTransit[c].isEmpty { transDurs[c] = 1.5 }
+        let tripDur = 2.2 * Double(tripPicked.count)
+        let holdTotal = max(Double(n) * 1.5, duration - finaleDur - tripDur - transDurs.reduce(0, +))
         let wSum = max(1e-9, cities.reduce(0.0) { $0 + $1.weight })
         let floorHold = 1.5
         var holds = [Double](repeating: floorHold, count: n)
@@ -503,10 +557,7 @@ enum CityPlaybackPlanner {
                 var d1 = max(cities[c].t1 + 1, cities[c + 1].t0)
                 for k in pairTransit[c] {
                     let tr = transit[k]
-                    d0 = min(d0, tr.t0)
-                    d1 = max(d1, tr.t1)
-                    box.x0 = min(box.x0, tr.x0); box.y0 = min(box.y0, tr.y0)
-                    box.x1 = max(box.x1, tr.x1); box.y1 = max(box.y1, tr.y1)
+                    d0 = min(d0, tr.t0); d1 = max(d1, tr.t1)
                 }
                 chapters.append(PlaybackChapter(p0: p, p1: p + transDurs[c],
                                                 d0: d0, d1: max(d0 + 1, d1),
@@ -528,6 +579,15 @@ enum CityPlaybackPlanner {
         for tr in transit {
             all.x0 = min(all.x0, tr.x0); all.y0 = min(all.y0, tr.y0)
             all.x1 = max(all.x1, tr.x1); all.y1 = max(all.y1, tr.y1)
+        }
+        for (ti, _) in tripPicked.sorted(by: { $0.element.t0 < $1.element.t0 }) {
+            let t = transit[ti]
+            chapters.append(PlaybackChapter(p0: p, p1: p + 2.2,
+                                            d0: t.t0, d1: max(t.t0 + 1, t.t1),
+                                            transit: [ti],
+                                            x0: t.x0, y0: t.y0, x1: t.x1, y1: t.y1,
+                                            margin: 1.08, wide: true, trip: true))
+            p += 2.2
         }
         if !transit.isEmpty {
             let tr0 = transit.map(\.t0).min() ?? firstT
@@ -564,6 +624,7 @@ enum CityPlaybackPlanner {
         plan.timeline = timeline
         plan.cityChapter = cityChapter
         plan.transitChapter = transitChapter
+        plan.cityTimeAt = cityTimeAt
         plan.dataStart = firstT
         plan.dataEnd = lastT
         plan.finaleRange = transit.isEmpty ? (firstT, lastT)

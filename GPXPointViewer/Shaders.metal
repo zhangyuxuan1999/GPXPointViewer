@@ -76,6 +76,7 @@ struct VOut {
     float2 pxOffset;     // 相对圆心的像素偏移（插值）
     float4 color;
     float  radiusPx;     // 本实例半径（文件闪烁时目标文件放大）
+    float  glow;         // DeepSeek 2026-10-31：新揭示的点短暂提亮（0…1）
 };
 
 constant float2 quadCorners[4] = {
@@ -103,17 +104,26 @@ vertex VOut pointVertex(uint vid [[vertex_id]],
         cull.pxOffset = float2(0.0);
         cull.color = float4(0.0);
         cull.radiusPx = 0.0;
+        cull.glow = 0.0;
         return cull;
     }
     // DeepSeek 2026-10-31：城市章节回放的按区域揭示。每帧 CPU 只更新几十个
     // 区域的游标；点的“区域 + 相对时间”是载入时一次上传的静态缓冲。
-    if (u.pixelMode != 0u && revealTime[pi] > revealCursor[revealArea[pi]]) {
-        VOut cull;
-        cull.position = float4(0.0, 0.0, -2.0, 1.0);
-        cull.pxOffset = float2(0.0);
-        cull.color = float4(0.0);
-        cull.radiusPx = 0.0;
-        return cull;
+    // 新揭示的点在 2.5s 内提亮，避免“同一条街第二次经过”看不出生长。
+    float revealGlow = 0.0;
+    if (u.pixelMode != 0u) {
+        uint cur = revealCursor[revealArea[pi]];
+        uint rt = revealTime[pi];
+        if (rt > cur) {
+            VOut cull;
+            cull.position = float4(0.0, 0.0, -2.0, 1.0);
+            cull.pxOffset = float2(0.0);
+            cull.color = float4(0.0);
+            cull.radiusPx = 0.0;
+            cull.glow = 0.0;
+            return cull;
+        }
+        revealGlow = clamp(1.0 - float(cur - rt) / 2.5, 0.0, 1.0);
     }
 
     float2 center = float2(posX[di], posY[di]) * u.scale + u.offset;
@@ -141,6 +151,7 @@ vertex VOut pointVertex(uint vid [[vertex_id]],
     o.pxOffset = corner * ext;
     o.color = float4(c.rgb, a);
     o.radiusPx = radius;
+    o.glow = revealGlow;
     return o;
 }
 
@@ -162,6 +173,7 @@ fragment float4 pointFragment(VOut in [[stage_in]],
     float outer = 1.0 - smoothstep(haloR - 0.8, haloR + 0.8, d);   // 整体覆盖
     float core  = 1.0 - smoothstep(coreR - 0.8, coreR + 0.8, d);   // 彩色芯
     float3 rgb  = mix(float3(1.0), in.color.rgb, core);            // 芯外一圈白描边
+    rgb = mix(rgb, float3(1.0), in.glow * 0.85);                   // 新揭示的点提亮
     return float4(rgb, outer * in.color.a);
 }
 
