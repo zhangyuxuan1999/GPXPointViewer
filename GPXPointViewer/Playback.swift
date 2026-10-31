@@ -62,13 +62,15 @@ final class PlaybackPlan: @unchecked Sendable {
     let dataStart: Double
     let dataEnd: Double
     let holdDurs: [Double]     // 每簇驻留段回放时长（飞行端点与子相机衔接用）
+    let cityPlan: CityPlan?    // 非 nil = 城市章节规划（GPX）；nil = 旧簇规划（.fwdb）
 
     private init(clusters: [Cluster], segments: [Segment], duration: Double,
-                 holdDurs: [Double]) {
+                 holdDurs: [Double], cityPlan: CityPlan? = nil) {
         self.clusters = clusters
         self.segments = segments
         self.duration = duration
         self.holdDurs = holdDurs
+        self.cityPlan = cityPlan
         self.dataStart = segments.first?.d0 ?? 0
         self.dataEnd = segments.last?.d1 ?? 0
     }
@@ -91,6 +93,7 @@ final class PlaybackPlan: @unchecked Sendable {
     // MARK: 查询（纯函数，逐帧调用）
 
     func dataTime(at p: Double) -> Double {
+        if let cp = cityPlan { return cp.displayTime(at: p) }
         guard let seg = segment(at: p) else { return dataEnd }
         let u = seg.p1 > seg.p0 ? min(1, max(0, (p - seg.p0) / (seg.p1 - seg.p0))) : 1
         // 驻留段带子相机：平台期内铺本区数据（相机就位后才画），
@@ -152,6 +155,7 @@ final class PlaybackPlan: @unchecked Sendable {
     }
 
     func camera(at p: Double, aspect: Double = 9.0 / 16.0) -> PlaybackCamera {
+        if let cp = cityPlan { return cp.camera(at: p, aspect: aspect) }
         guard let seg = segment(at: p) else {
             return exitCamera(clusters.count - 1, aspect: aspect)
         }
@@ -628,6 +632,35 @@ final class PlaybackPlan: @unchecked Sendable {
                             holdDurs: holds)
     }
 
+    /// 城市章节：逐区域揭示游标（相对 dataStart 的秒 +1；0 = 未开始）。
+    /// nil = 旧规划（.fwdb），不做区域揭示。
+    func cursors(at p: Double) -> [UInt32]? {
+        guard let cp = cityPlan else { return nil }
+        return cp.relativeCursors(at: p, epoch: dataStart.rounded(.down))
+    }
+
+    /// 城市章节规划（GPX 时光机）：每城一次、城际区域视角、片尾总览。
+    static func buildCities(events: [PlaybackEvent], duration: Double) -> PlaybackPlan? {
+        guard let cp = CityPlaybackPlanner.build(events: events, duration: duration) else { return nil }
+        let clusters = cp.cities.map { c in
+            Cluster(t0: c.t0, t1: c.t1, cx: c.cx, cy: c.cy,
+                    spanX: max(0, c.x1 - c.x0), spanY: max(0, c.y1 - c.y0),
+                    weight: c.weight)
+        }
+        var segs: [Segment] = []
+        var holds: [Double] = []
+        for ch in cp.chapters {
+            let from = ch.city >= 0 ? ch.city : max(0, ch.fromCity)
+            let to = ch.city >= 0 ? ch.city : max(0, ch.toCity)
+            segs.append(Segment(p0: ch.p0, p1: ch.p1, d0: ch.d0, d1: ch.d1, from: from, to: to))
+            if ch.city >= 0 { holds.append(ch.p1 - ch.p0) }
+        }
+        return PlaybackPlan(clusters: clusters, segments: segs,
+                            duration: cp.chapters.last?.p1 ?? duration,
+                            holdDurs: holds.isEmpty ? [0] : holds,
+                            cityPlan: cp)
+    }
+
     // MARK: 事件提取
 
     /// GPX：时间有序段抽稀成 ≤15 万事件
@@ -674,10 +707,16 @@ final class PlaybackSession: ObservableObject {
     let clock = PlaybackClock()
     let events: [PlaybackEvent]     // 时长调整时重建 plan 用
     let isArchive: Bool
+    /// 城市章节的逐点区域数据（旧 .fwdb 规划为 nil）
+    var reveal: PlaybackRevealData?
+    /// 规划重建（改时长）后递增；视图据此重绑渲染器的逐点数据
+    var revealVersion = 1
 
-    init(plan: PlaybackPlan, events: [PlaybackEvent], isArchive: Bool) {
+    init(plan: PlaybackPlan, events: [PlaybackEvent], isArchive: Bool,
+         reveal: PlaybackRevealData? = nil) {
         self.plan = plan
         self.events = events
         self.isArchive = isArchive
+        self.reveal = reveal
     }
 }

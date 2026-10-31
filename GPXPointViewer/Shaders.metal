@@ -25,7 +25,7 @@ struct PointUniforms {
     uint   count;        // 总点数（越界钳制）
     uint   start;        // 时间筛选：可见区间起始下标
     uint   rangeLen;     // 时间筛选：可见区间长度
-    uint   pixelMode;    // 保留占位（与 Swift 端布局对齐）
+    uint   pixelMode;    // 城市章节回放：1 = 启用按区域揭示（见 buffer 9/10/11）
     int    flashFile;    // 文件高亮闪烁：目标文件下标（-1 = 无）
     float  flashStrength;// 闪烁强度 0…1（淡入/淡出）
     uint   useOrder;     // 空间剔除：1 = 实例经莫顿序置换表间接寻址
@@ -90,13 +90,26 @@ vertex VOut pointVertex(uint vid [[vertex_id]],
                         constant PointUniforms& u   [[buffer(3)]],
                         const device ushort* fileID [[buffer(4)]],
                         const device uint*   order  [[buffer(7)]],
-                        const device uint*   aux    [[buffer(8)]])
+                        const device uint*   aux    [[buffer(8)]],
+                        const device ushort* revealArea [[buffer(9)]],
+                        const device uint*   revealTime [[buffer(10)]],
+                        const device uint*   revealCursor [[buffer(11)]])
 {
     // LOD 抽稀 + 时间筛选区间（时间序）或 置换表区段（空间剔除）
     uint pi, di;
     if (!resolvePointIndex(iid, u, order, aux, pi, di)) {
         VOut cull;
         cull.position = float4(0.0, 0.0, -2.0, 1.0);   // 近平面之外 → 裁掉
+        cull.pxOffset = float2(0.0);
+        cull.color = float4(0.0);
+        cull.radiusPx = 0.0;
+        return cull;
+    }
+    // DeepSeek 2026-10-31：城市章节回放的按区域揭示。每帧 CPU 只更新几十个
+    // 区域的游标；点的“区域 + 相对时间”是载入时一次上传的静态缓冲。
+    if (u.pixelMode != 0u && revealTime[pi] > revealCursor[revealArea[pi]]) {
+        VOut cull;
+        cull.position = float4(0.0, 0.0, -2.0, 1.0);
         cull.pxOffset = float2(0.0);
         cull.color = float4(0.0);
         cull.radiusPx = 0.0;

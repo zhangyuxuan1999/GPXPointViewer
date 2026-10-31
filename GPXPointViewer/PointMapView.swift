@@ -272,6 +272,9 @@ struct PointMapView: NSViewRepresentable {
         private var shownPlaybackID: ObjectIdentifier?
         private var shownPlaybackPoke = 0
         private var playbackLastTick: Double?
+        /// 城市章节回放：当前已绑定逐点区域数据的会话（DeepSeek 2026-10-31）
+        private var shownPlaybackRevealID: ObjectIdentifier?
+        private var shownPlaybackRevealVersion = -1
         // 时光机瓦片门控：相机落定但底图瓦片还在加载时，播放头原地等待
         //（"地图移动到位之后再画"包括瓦片渲染到位；上限防弱网卡死）
         private var mapTilesLoading = false
@@ -1978,6 +1981,22 @@ struct PointMapView: NSViewRepresentable {
             if let upto = reveal.uptoIndex {
                 range = (range.start, max(0, min(range.len, upto - range.start)))
             }
+            // 城市章节回放：设置逐点区域数据（会话变化时一次），每帧更新游标
+            if let pb = store.playback, pb.plan.cityPlan != nil {
+                let id = ObjectIdentifier(pb)
+                if shownPlaybackRevealID != id || shownPlaybackRevealVersion != pb.revealVersion {
+                    if let rv = pb.reveal {
+                        renderer.setPlaybackReveal(areas: rv.areaOfPoint, times: rv.times, areaCount: rv.areaCount)
+                    } else {
+                        renderer.clearPlaybackReveal()
+                    }
+                    shownPlaybackRevealID = id
+                    shownPlaybackRevealVersion = pb.revealVersion
+                }
+                if let cursors = pb.plan.cursors(at: pb.clock.head) {
+                    renderer.updatePlaybackCursors(cursors)
+                }
+            }
             let stride = lodStride(camera: camera, visibleLen: range.len)
             lastLodStride = stride
             overlay.metalLayer.presentsWithTransaction = true   // 平面：与底图逐帧锁定
@@ -2013,7 +2032,8 @@ struct PointMapView: NSViewRepresentable {
                 orderSensitive: store.settings.colorMode != .single
                     || store.displayMode == .overlay
                     || store.playback != nil || store.deleteMode || store.stagedCount > 0
-                    || store.fillMode)
+                    || store.fillMode,
+                reveal: store.playback?.plan.cityPlan != nil)
             updateScaleBar()
         }
 
@@ -2297,6 +2317,8 @@ struct PointMapView: NSViewRepresentable {
             guard let pb = store.playback else { return (nil, .max) }
             let head = pb.clock.head
             if head >= pb.plan.duration - 1e-6 { return (nil, .max) }
+            // 城市章节：揭示由 shader 的区域游标完成，不能再按全局时间截断
+            if pb.plan.cityPlan != nil { return (nil, .max) }
             let dt = pb.plan.dataTime(at: head)
             if let track = store.track, track.isTimeSorted {
                 let upto = track.indexRange(forTimeRange: (-1e18, dt))

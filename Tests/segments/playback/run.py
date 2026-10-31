@@ -14,7 +14,7 @@ out = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else "/private/tmp/gpxpv-seg
 out.mkdir(parents=True, exist_ok=True)
 sources = [
     "Tests/segments/playback/main.swift",
-    "GPXPointViewer/PlaybackReveal.swift",
+    "GPXPointViewer/CityPlayback.swift",
     "GPXPointViewer/Playback.swift",
     "GPXPointViewer/GPXParser.swift",
     "GPXPointViewer/TrackData.swift",

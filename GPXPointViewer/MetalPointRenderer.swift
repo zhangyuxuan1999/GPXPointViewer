@@ -360,6 +360,12 @@ final class MetalPointRenderer {
     private var bufY: MTLBuffer?
     private var bufBreak: MTLBuffer?      // 轨迹线断点前缀和
     private var colorBuffers: PointColorBuffers?
+    // DeepSeek 2026-10-31：城市章节回放的“按区域揭示”缓冲（时间序，与点下标一致）
+    private var revealAreaBuf: MTLBuffer?
+    private var revealTimeBuf: MTLBuffer?
+    private var revealCursorBuf: MTLBuffer?
+    private var revealAreaCount = 0
+    private var dummyUShort: MTLBuffer?
     private var bufUX: MTLBuffer?          // 球面单位向量 SoA（自绘地球用）
     private var bufUY: MTLBuffer?
     private var bufUZ: MTLBuffer?
@@ -478,6 +484,7 @@ final class MetalPointRenderer {
     // MARK: - 数据上传
 
     func setData(track: TrackData) {
+        clearPlaybackReveal()
         pointCount = track.count
         center = track.center
         let n = track.count
@@ -582,6 +589,43 @@ final class MetalPointRenderer {
                   order: spatialOrder, version: current.version &+ 1, allocate: allocate)
         else { return }
         colorBuffers = next
+    }
+
+    /// 城市章节回放：设置逐点区域/时间（一次）。渲染器不依赖规划类型，只收数组。
+    func setPlaybackReveal(areas: [UInt16]?, times: [UInt32], areaCount: Int) {
+        guard let areas, pointCount > 0, areas.count == pointCount,
+              times.count == pointCount, areaCount > 0 else {
+            clearPlaybackReveal()
+            return
+        }
+        let n = pointCount
+        revealAreaBuf = areas.withUnsafeBufferPointer {
+            device.makeBuffer(bytes: $0.baseAddress!, length: n * MemoryLayout<UInt16>.stride,
+                              options: .storageModeShared)
+        }
+        revealTimeBuf = times.withUnsafeBufferPointer {
+            device.makeBuffer(bytes: $0.baseAddress!, length: n * MemoryLayout<UInt32>.stride,
+                              options: .storageModeShared)
+        }
+        revealCursorBuf = device.makeBuffer(length: max(4, areaCount * MemoryLayout<UInt32>.stride),
+                                            options: .storageModeShared)
+        revealAreaCount = areaCount
+        if let c = revealCursorBuf { memset(c.contents(), 0, c.length) }
+    }
+
+    func clearPlaybackReveal() {
+        revealAreaBuf = nil; revealTimeBuf = nil; revealCursorBuf = nil
+        revealAreaCount = 0
+    }
+
+    /// 每帧更新各区域的揭示游标（相对 epoch 的秒 +1）。
+    func updatePlaybackCursors(_ cursors: [UInt32]) {
+        guard let buf = revealCursorBuf, revealAreaCount > 0 else { return }
+        let m = min(cursors.count, revealAreaCount)
+        guard m > 0 else { return }
+        cursors.withUnsafeBufferPointer {
+            memcpy(buf.contents(), $0.baseAddress!, m * MemoryLayout<UInt32>.stride)
+        }
     }
 
     /// Lightweight cached counters for the existing diagnostic/UI hook.
@@ -856,6 +900,7 @@ final class MetalPointRenderer {
                 fogArchiveSmooth: Bool = false,
                 lodDedupe: Bool = false,
                 orderSensitive: Bool = false,
+                reveal: Bool = false,
                 captureTo: ((MTLTexture) -> Void)? = nil) {
         guard camera.w > 0, camera.h > 0,
               layer.drawableSize.width > 1, layer.drawableSize.height > 1 else { return }
@@ -1171,11 +1216,21 @@ final class MetalPointRenderer {
                 count: UInt32(pointCount),
                 start: UInt32(rStart),
                 rangeLen: UInt32(max(rLen, 1)),
-                pixelMode: 0,
+                pixelMode: (reveal && revealAreaBuf != nil && revealCursorBuf != nil) ? 1 : 0,
                 flashFile: flashFile,
                 flashStrength: flashStrength)
 
             enc.setRenderPipelineState(pointPipeline)
+            if let ab = revealAreaBuf, let tb = revealTimeBuf, let cb = revealCursorBuf {
+                enc.setVertexBuffer(ab, offset: 0, index: 9)
+                enc.setVertexBuffer(tb, offset: 0, index: 10)
+                enc.setVertexBuffer(cb, offset: 0, index: 11)
+            } else {
+                if dummyUShort == nil { dummyUShort = device.makeBuffer(length: 2, options: .storageModeShared) }
+                enc.setVertexBuffer(dummyUShort!, offset: 0, index: 9)
+                enc.setVertexBuffer(dummyOrder, offset: 0, index: 10)
+                enc.setVertexBuffer(dummyOrder, offset: 0, index: 11)
+            }
             enc.setVertexBuffer(bufFileID ?? dummyFileID, offset: 0, index: 4)
             enc.setVertexBuffer(bufOrder ?? dummyOrder, offset: 0, index: 7)
             enc.setVertexBuffer(orderedBuf ?? bufFirsts ?? dummyOrder, offset: 0, index: 8)

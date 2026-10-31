@@ -421,7 +421,7 @@ final class TrackStore: ObservableObject {
             let token = publicationClock.begin(.playback, fileIDs: files.map(\.id), sourceID: track.id)
             Task.detached(priority: .userInitiated) { [weak self] in
                 let evs = PlaybackPlan.events(track: track)
-                let plan = PlaybackPlan.build(events: evs, duration: duration)
+                let plan = PlaybackPlan.buildCities(events: evs, duration: duration)
                 guard let self else { return }
                 await MainActor.run {
                     guard self.owns(token) else { return }
@@ -430,7 +430,9 @@ final class TrackStore: ObservableObject {
                         return
                     }
                     guard !self.fillMode, !self.deleteMode else { return }   // 规划期间进了编辑模式
-                    self.playback = PlaybackSession(plan: plan, events: evs, isArchive: false)
+                    self.playback = PlaybackSession(
+                        plan: plan, events: evs, isArchive: false,
+                        reveal: plan.cityPlan.flatMap { PlaybackRevealData(track: track, plan: $0) })
                 }
             }
         } else if let archive = fogArchive {
@@ -455,8 +457,15 @@ final class TrackStore: ObservableObject {
         guard let pb = playback else { return }
         noteUserActivity()
         let frac = pb.plan.duration > 0 ? pb.clock.head / pb.plan.duration : 0
-        guard let plan = PlaybackPlan.build(events: pb.events, duration: d) else { return }
+        let plan = pb.isArchive
+            ? PlaybackPlan.build(events: pb.events, duration: d)
+            : PlaybackPlan.buildCities(events: pb.events, duration: d)
+        guard let plan else { return }
         pb.plan = plan
+        if !pb.isArchive, let track, let cp = plan.cityPlan {
+            pb.reveal = PlaybackRevealData(track: track, plan: cp)
+            pb.revealVersion &+= 1
+        }
         pb.clock.head = frac * plan.duration
         playbackPoke &+= 1
     }

@@ -146,7 +146,13 @@ enum VideoExportEngine {
         guard let renderer = MetalPointRenderer() else {
             done(String(localized: "Metal 渲染器初始化失败", comment: "Video export error detail, shown after 视频导出失败：: the offscreen Metal renderer could not be created")); return
         }
-        if let track = cfg.track { renderer.setData(track: track) }
+        if let track = cfg.track {
+            renderer.setData(track: track)
+            // DeepSeek 2026-10-31：城市章节回放的逐点区域数据（一次上传）
+            if let cp = cfg.plan.cityPlan, let rv = PlaybackRevealData(track: track, plan: cp) {
+                renderer.setPlaybackReveal(areas: rv.areaOfPoint, times: rv.times, areaCount: rv.areaCount)
+            }
+        }
         let layer = MetalPointRenderer.makeOffscreenLayer(device: renderer.device,
                                                           width: cfg.outW, height: cfg.outH)
 
@@ -203,6 +209,10 @@ enum VideoExportEngine {
             let p = min(cfg.plan.duration, Double(fi) / Double(cfg.fps))
             let cam = cfg.plan.camera(at: p, aspect: aspect)
             let dt = cfg.plan.dataTime(at: p)
+            // DeepSeek 2026-10-31：每帧只更新区域游标；点云由 shader 按区域过滤
+            if let cursors = cfg.plan.cursors(at: p) {
+                renderer.updatePlaybackCursors(cursors)
+            }
             let atEnd = p >= cfg.plan.duration - 1e-9
 
             // 揭示区间 / 存档代序
@@ -273,6 +283,7 @@ enum VideoExportEngine {
                 fogArchiveSmooth: cfg.fogSmooth,
                 lodDedupe: false,                     // 成片不去重（末帧不跳变）
                 orderSensitive: true,                 // 回放揭示：新点在上
+                reveal: cfg.plan.cityPlan != nil,     // 城市章节：按区域游标揭示
                 captureTo: { tex in
                     cap.img = MetalPointRenderer.cgImage(from: tex)
                     gpuSem.signal()
