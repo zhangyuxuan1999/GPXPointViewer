@@ -156,3 +156,31 @@ python3 Tests/segments/playback/run.py /private/tmp/gpxpv-playback-proto
 结论：按区域游标可以让西安从空白长起来；剩余问题是**平台只有 0.59 s**（份额按单次会话算），需要配合第 3.2 节的"按区域权重重分份额"，预计西安能拿到约 2.5 s（38% 权重）。
 
 原型测试断言：旧模型 >50% 预画、新模型起点 <1%、终点 >99%，全部通过。
+
+## 11. 实现与样片（2026-10-31，分支 `fix/playback-area-reveal`）
+
+已在分支实现：
+
+- `CityPlayback.swift`：城市种子聚类（按权重取中心、160km 间隔，避免北京/西安被区县拆散）、Top-K、每城一次、城际过渡、片尾总览、逐区域游标；
+- `Playback.swift`：`PlaybackPlan.buildCities`，`camera/dataTime` 分支，`PlaybackSession.reveal`；
+- `MetalPointRenderer` + `Shaders.metal`：逐点区域/时间缓冲 + 每帧游标，顶点着色器过滤（复用 `pixelMode`，不改 uniform 布局）；
+- `VideoExport` / `PointMapView`：视频与实时回放接入；
+- `.fwdb` 仍走旧簇规划。
+
+构建与验证：
+
+- `xcodebuild -scheme GPXPointViewer -configuration Release` **BUILD SUCCEEDED**（worktree；顺手修了工程里重复的 `Localizable.xcstrings` 引用和 ID 冲突）。
+- `Tests/segments/playback`：12 城；西安到达 **0.0%**、中点 46.4%、平台结束 **100%**；片尾 span 0.398（143°）；10 项断言全过。
+- `Tests/segments/render`：94/94（真实 Metal 管线，含新 shader）。
+- 离线导出 harness（不经过 UI）用同一 `VideoExportEngine` 导出 45 s / 720p 样片；抽帧：
+  - 3.1 s 西安几乎空白；
+  - 5.2 s 城市长到一半（2023-03）；
+  - 7.3 s 西安完整（2025-03）；
+  - 8.2 s 过渡段拉到区域视角；
+  - 43 s 片尾 143° 世界总览。
+
+已知限制（下一步）：
+
+- 离线 harness 没有地图瓦片（MKMapSnapshotter 在 CLI 里不出图），样片是黑底点云；真 app 导出会有底图。
+- 城际交通点偏稀：长途被 80km 跳变规则切成很多短会话，只有离城市 >280km 的中段算城际。下一步可按“点离最近城市 >60km”逐点归入城际，路线会连续得多。
+- 轨迹线/箭头与热力/迷雾的揭示还没接 shader 过滤（当前视频是点云模式）。

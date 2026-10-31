@@ -17,3 +17,6 @@ Tools/agents/records/
 # 构建产物（各测试目录还有自己的 .gitignore）
 .build/
 DerivedData/
+
+# DeepSeek 2026-10-31：本地构建产物
+build/
