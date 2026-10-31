@@ -1,0 +1,5 @@
+{
+  "recorded_utc": "2026-10-29T13:38:41.224886+00:00",
+  "first_root_receipt_attempt": "IndexError because independent test result had not finished writing yet; no review receipt and no success claim were written",
+  "resolution": "Waited for actual 8/8 exit0 then repeated readonly evidence check. Launch gate requires this passed receipt before API."
+}

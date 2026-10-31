@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "rg",
+    "-n",
+    "landingJob|assessBatchItem|func fake|fakeRoute|offset|StaleRetime|retarget\\(",
+    "GPXPointViewer/UITestHook.swift",
+    "GPXPointViewer/TrackStore.swift",
+    "GPXPointViewer/RoadNetwork.swift",
+    "GPXPointViewer/GapFill.swift",
+    "GPXPointViewer/BatchFill.swift",
+    "Tests/synth/runner/exam.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "start": "2026-10-28T23:27:58.707872+00:00",
+  "exit_code": 0,
+  "finish": "2026-10-28T23:27:58.722168+00:00"
+}

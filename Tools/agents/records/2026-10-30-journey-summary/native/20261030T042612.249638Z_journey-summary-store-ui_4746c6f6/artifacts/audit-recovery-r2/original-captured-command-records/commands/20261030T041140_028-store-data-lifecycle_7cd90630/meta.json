@@ -1,0 +1,23 @@
+{
+  "label": "028-store-data-lifecycle",
+  "argv": [
+    "sed",
+    "-n",
+    "1140,1236p",
+    "GPXPointViewer/TrackStore.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041140",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 13291,
+  "process_owner": {
+    "pid": 13291,
+    "parent_pid": 13287,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

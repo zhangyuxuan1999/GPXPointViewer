@@ -1,0 +1,13 @@
+{
+  "utc": "2026-10-29T13:38:41.222856+00:00",
+  "passed": true,
+  "tests": 8,
+  "command_record": "commands/20261029T133658_label-cleanup-helper-independent_b7c337b1",
+  "source_hashes": {
+    "Tools/agents/records/2026-10-28-remediation/r4-label-cleanup-recovery/driver.py": "466394755f887cb6b3fd22338dc17d2365930800f462cd313de1c227fb2fa88d",
+    "Tools/agents/records/2026-10-28-remediation/r4-label-cleanup-recovery/test_driver.py": "a68217fbd3b15b3722d4553934eaac857d43bb407dff5d3c1da37557580b32d1"
+  },
+  "archived_before_sha256": "54e413eb9f2b470a41226ef20961c3fceb1963ed01668a834e570ba502e295a8",
+  "archived_after_sha256": "a6af0275f47b1c1adb624817ac488cf7dc68a1e147cce1307997bd6868c89bf1",
+  "review": "Root read exact one-run guard, pinned old results, sole key typed diff, before/prewrite/cache/process checks and postwrite exact original bytes. 8/8 independent mock plus archived-evidence preflight; no actual preference write."
+}

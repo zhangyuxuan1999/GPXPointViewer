@@ -1,0 +1,23 @@
+{
+  "label": "main-entry",
+  "argv": [
+    "sed",
+    "-n",
+    "1570,1605p",
+    "GPXPointViewer/ContentView.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T011721",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 92069,
+  "process_owner": {
+    "pid": 92069,
+    "parent_pid": 92068,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.0
+}

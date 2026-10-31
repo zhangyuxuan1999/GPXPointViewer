@@ -1,0 +1,23 @@
+{
+  "label": "033-file-state-locations",
+  "argv": [
+    "rg",
+    "-n",
+    "var files|var displayMode|func setDisplayMode|rebuildDisplay|compareTracks|rebuild.*Files|fogVisible|func .*File",
+    "GPXPointViewer/TrackStore.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041204",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 13537,
+  "process_owner": {
+    "pid": 13537,
+    "parent_pid": 13535,
+    "process_identity": "darwin:13537:1793333524.225651",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

@@ -1,0 +1,27 @@
+{
+  "label": "phase-chip-finding",
+  "argv": [
+    "python3",
+    "Tools/agents/agent_run.py",
+    "event",
+    "Tools/agents/records/2026-10-30-journey-summary/native/20261030T050227.092173Z_journey-summary-store-review_aec610ee",
+    "--type",
+    "progress",
+    "--json",
+    "{\"completed\":\"Static adapter/cache/map source review and test seam review; confirmed P2 single-day summary chip hidden by ContentView outer guard\",\"doing\":\"Review remaining UI membership/localization and inherited raw53-check evidence\",\"next\":\"Send finding, inspect author minimal fix and directed evidence without rerun\"}"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T050419",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 29695,
+  "process_owner": {
+    "pid": 29695,
+    "parent_pid": 29687,
+    "process_identity": "darwin:29695:1793336659.704632",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.09
+}

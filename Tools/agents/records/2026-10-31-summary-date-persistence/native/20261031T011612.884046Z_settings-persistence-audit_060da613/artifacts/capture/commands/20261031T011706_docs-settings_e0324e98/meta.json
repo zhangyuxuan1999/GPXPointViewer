@@ -1,0 +1,27 @@
+{
+  "label": "docs-settings",
+  "argv": [
+    "rg",
+    "-n",
+    "-C",
+    "3",
+    "语言|持久|idle|偏好|闲置|外观|AppLanguage|UserDefaults|无签名|sandbox|签名",
+    "README.md",
+    "Tests/README.md",
+    "docs"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T011706",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 91675,
+  "process_owner": {
+    "pid": 91675,
+    "parent_pid": 91674,
+    "process_identity": "darwin:91675:1793409426.503414",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

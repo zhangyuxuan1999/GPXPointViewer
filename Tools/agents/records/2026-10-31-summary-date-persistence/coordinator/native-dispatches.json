@@ -1,0 +1,34 @@
+[
+  {
+    "run": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T011612.682340Z_summary-date-architecture_9cf88876",
+    "agent": "/root/summary_date_architecture",
+    "requested_model": "gpt-6-astra",
+    "requested_effort": "ultra",
+    "observed_model": null,
+    "cost_usd": null
+  },
+  {
+    "run": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T011612.884046Z_settings-persistence-audit_060da613",
+    "agent": "/root/settings_persistence_audit",
+    "requested_model": "gpt-6.1-sol",
+    "requested_effort": "ultra",
+    "observed_model": null,
+    "cost_usd": null
+  },
+  {
+    "run": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T012023.801942Z_signing-install-persistence-fix_6b832b3d",
+    "agent": "/root/signing_persistence_fix",
+    "requested_model": "gpt-6.1-sol",
+    "requested_effort": "ultra",
+    "observed_model": null,
+    "cost_usd": null
+  },
+  {
+    "run": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T012543.656242Z_summary-date-navigation-implementation_a203875d",
+    "agent": "/root/summary_date_implementation",
+    "requested_model": "gpt-6.1-sol",
+    "requested_effort": "ultra",
+    "observed_model": null,
+    "cost_usd": null
+  }
+]

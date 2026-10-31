@@ -1,0 +1,27 @@
+{
+  "label": "review-stage-start",
+  "argv": [
+    "python3",
+    "Tools/agents/agent_run.py",
+    "event",
+    "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T013921.126628Z_date-navigation-independent-review_2e7f0998",
+    "--type",
+    "progress",
+    "--json",
+    "{\"completed\":\"Read AGENTS/task/runner instructions; read-only review scope confirmed\",\"doing\":\"Inspect frozen source, design, author evidence\",\"next\":\"Report findings and evidence boundaries\",\"actual_model\":\"unknown\",\"actual_cost_usd\":null}"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T013950",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 13287,
+  "process_owner": {
+    "pid": 13287,
+    "parent_pid": 13283,
+    "process_identity": "darwin:13287:1793410790.086731",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.09
+}

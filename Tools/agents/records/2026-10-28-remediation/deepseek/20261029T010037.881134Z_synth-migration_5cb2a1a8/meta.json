@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "run_id": "20261029T010037.881134Z_synth-migration_5cb2a1a8",
+  "name": "synth-migration",
+  "provider": "deepseek-cli",
+  "requested_model": "deepseek-flash",
+  "requested_effort": "max",
+  "observed_model": null,
+  "observed_effort": null,
+  "model_verification": "CLI report only; actual outbound model/effort unverified",
+  "cwd": "/private/tmp/gpxpv-segment-integration-o3kf8civ",
+  "task_source": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/coordinator/synth-segment-task.md",
+  "started_utc": "2026-10-29T01:00:37.882610+00:00",
+  "watch": [
+    "Tests/synth/runner/main.swift",
+    "Tests/synth/runner/exam.swift",
+    "Tests/synth/runner/check.py",
+    "Tests/synth/format-edge/gen.py",
+    "Tests/synth/format-edge/expect.json",
+    "Tests/synth/scale-mixed/gen.py",
+    "Tests/synth/scale-mixed/expect.json",
+    "Tests/synth/scale-mixed/README.md"
+  ],
+  "allow_write": [
+    "Tests/synth/runner/main.swift",
+    "Tests/synth/runner/exam.swift",
+    "Tests/synth/runner/check.py",
+    "Tests/synth/format-edge/gen.py",
+    "Tests/synth/format-edge/expect.json",
+    "Tests/synth/scale-mixed/gen.py",
+    "Tests/synth/scale-mixed/expect.json",
+    "Tests/synth/scale-mixed/README.md"
+  ],
+  "snapshot_exclusions": {
+    "parts": [
+      ".agents",
+      ".aws",
+      ".codex",
+      ".git",
+      "DerivedData",
+      "__pycache__",
+      "node_modules",
+      "sdkenv"
+    ],
+    "prefixes": [
+      "Tools/agents/records",
+      "Tools/agents/runs",
+      "Tests/reports",
+      "Tests/ui/app.noindex",
+      "Tests/ui/perf",
+      "Tests/ui/synth.gpx",
+      "Tests/exam/results",
+      "Tests/synth/runner/synthrunner",
+      "Tests/synth/runner/build.log"
+    ],
+    "default_prefixes": [
+      "Tools/agents/records",
+      "Tools/agents/runs",
+      "Tests/reports",
+      "Tests/ui/app.noindex",
+      "Tests/ui/perf",
+      "Tests/ui/synth.gpx",
+      "Tests/exam/results",
+      "Tests/synth/runner/synthrunner",
+      "Tests/synth/runner/build.log"
+    ],
+    "user_prefixes": [],
+    "explicit_overrides": [],
+    "generated_pattern": "^Tests/synth/(?:format-edge|garmin-tunnels|legit-motion|replay-artefacts|scale-mixed|stationary-noise)/[^/]+\\.(?:gpx|csv|fit|bin)$"
+  },
+  "parent_run": null,
+  "recovery": "context",
+  "cost_usd": null,
+  "cost_source": "unknown",
+  "max_turns": 30,
+  "timeout_seconds": 900.0,
+  "pid": 11311,
+  "child_pid": 11323,
+  "child_process_identity": "darwin:11323:1793235637.945455",
+  "process_identity": "darwin:11311:1793235637.801594",
+  "session_id": "07c90db4-1f05-44a3-a892-84c8b0da9732",
+  "cli_reported_model": "deepseek-flash"
+}

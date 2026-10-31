@@ -1,0 +1,23 @@
+{
+  "label": "trip-contract",
+  "argv": [
+    "sed",
+    "-n",
+    "930,1085p",
+    "GPXPointViewer/GapFill.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041005",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 12460,
+  "process_owner": {
+    "pid": 12460,
+    "parent_pid": 12455,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

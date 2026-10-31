@@ -1,0 +1,24 @@
+{
+  "label": "014-project-anchors",
+  "argv": [
+    "rg",
+    "-n",
+    "RegionsWindow.swift|JourneySummary|Summary",
+    "GPXPointViewer.xcodeproj/project.pbxproj",
+    "GPXPointViewer/JourneySummary.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T045347",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 20600,
+  "process_owner": {
+    "pid": 20600,
+    "parent_pid": 20599,
+    "process_identity": "darwin:20600:1793336027.422234",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

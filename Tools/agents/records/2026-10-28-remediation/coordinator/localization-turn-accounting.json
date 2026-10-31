@@ -1,0 +1,22 @@
+{
+  "event_types": {
+    "system": 18554,
+    "assistant": 70,
+    "user": 42,
+    "result": 1
+  },
+  "system_subtypes": {
+    "init": 1,
+    "thinking_tokens": 18553
+  },
+  "unique_assistant_message_ids": 18,
+  "tool_uses": {
+    "Glob": 2,
+    "Read": 13,
+    "Grep": 24,
+    "Write": 3
+  },
+  "cli_reported_num_turns": 43,
+  "requested_cli_max_turns": 35,
+  "note": "Observed distinct assistant message IDs18, tool results42, final num_turns43. Do not equate provider num_turns to requested CLI loop bound; CLI bound is passed explicitly and runner independently enforces900s wall clock. No claim of extra43 API requests."
+}

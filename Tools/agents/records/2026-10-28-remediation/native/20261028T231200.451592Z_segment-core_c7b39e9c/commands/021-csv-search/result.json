@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "rg",
+    "-n",
+    "heading|CSVWriter|writeCSV|latitude,|distance.*speed|csvRow",
+    "GPXPointViewer"
+  ],
+  "cwd": "/private/tmp/gpxpv-segment-integration-o3kf8civ",
+  "started_at": "2026-10-28T23:17:27.119531+00:00",
+  "exit_code": 0,
+  "finished_at": "2026-10-28T23:17:27.131388+00:00"
+}

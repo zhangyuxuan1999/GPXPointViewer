@@ -1,0 +1,23 @@
+{
+  "label": "timefilter-placement",
+  "argv": [
+    "rg",
+    "-n",
+    "TimeFilterSection|timeRange|showTimeFilter",
+    "Tools/agents/records/2026-10-30-journey-summary/native/20261030T050227.092173Z_journey-summary-store-review_aec610ee/artifacts/source-20261030T050302-1567d8c8/GPXPointViewer/ContentView.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T050358",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 29209,
+  "process_owner": {
+    "pid": 29209,
+    "parent_pid": 29208,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.0
+}

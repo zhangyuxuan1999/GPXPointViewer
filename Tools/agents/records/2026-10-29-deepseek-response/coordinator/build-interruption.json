@@ -1,0 +1,15 @@
+{
+  "utc": "2026-10-29T21:16:27.309137+00:00",
+  "reason": "Confirmed Xcode NSFileCoordinator iCloud wait before compilation; preserve failed attempt then retry with one-process -SynchronizeWithICloud=NO.",
+  "identity_command": [
+    "ps",
+    "-p",
+    "79865",
+    "-o",
+    "pid=,ppid=,pgid=,lstart=,args="
+  ],
+  "identity_exit_code": 0,
+  "identity_stdout": "79865 79863 79865 Thu Oct 29 22:07:53 2026     /opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python Tools/build_release.py --arch arm64 --no-sign --timeout 1200\n",
+  "identity_stderr": "",
+  "action": "SIGINT sent only to verified owned build_release helper; it handles bounded cleanup of its xcodebuild group."
+}

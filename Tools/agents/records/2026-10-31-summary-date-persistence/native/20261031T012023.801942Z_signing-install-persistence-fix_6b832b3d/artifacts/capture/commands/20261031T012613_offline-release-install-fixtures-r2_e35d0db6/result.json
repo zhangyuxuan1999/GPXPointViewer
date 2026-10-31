@@ -1,0 +1,28 @@
+{
+  "label": "offline-release-install-fixtures-r2",
+  "argv": [
+    "python3",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "Tests/agents",
+    "-p",
+    "test_release_install.py",
+    "-v"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T012613",
+  "status": "failed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 97673,
+  "process_owner": {
+    "pid": 97673,
+    "parent_pid": 97672,
+    "process_identity": "darwin:97673:1793409973.714354",
+    "group_created": true
+  },
+  "exit_code": 1,
+  "duration_s": 0.29
+}

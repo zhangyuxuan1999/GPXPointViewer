@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Fixed R4 engine-label-only retest policy",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "purpose", "new_source_manifest", "new_source_manifest_sha256", "new_build_manifest", "new_build_manifest_sha256", "new_executable_sha256"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "purpose": {"const": "r4-engine-label-only"},
+    "new_source_manifest": {"type": "string", "pattern": "^/"},
+    "new_source_manifest_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "new_build_manifest": {"type": "string", "pattern": "^/"},
+    "new_build_manifest_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "new_executable_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

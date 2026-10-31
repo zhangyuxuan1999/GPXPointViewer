@@ -1,0 +1,23 @@
+{
+  "label": "region-core-app",
+  "argv": [
+    "sed",
+    "-n",
+    "1,37p",
+    "GPXPointViewer/GPXPointViewerApp.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041508",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 14223,
+  "process_owner": {
+    "pid": 14223,
+    "parent_pid": 14222,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.0
+}

@@ -1,0 +1,29 @@
+{
+  "label": "source-index",
+  "argv": [
+    "rg",
+    "-n",
+    "AppleLanguages|idleDisabled|idleGlobeSeconds|idleMapSeconds|appearanceMode|mapStyle|appLanguage|AppLanguage|UserDefaults|application-groups|app-sandbox|CODE_SIGN",
+    "GPXPointViewer/AppLanguage.swift",
+    "GPXPointViewer/TrackStore.swift",
+    "GPXPointViewer/ContentView.swift",
+    "GPXPointViewer.xcodeproj/project.pbxproj",
+    "GPXPointViewer/GPXPointViewer.entitlements",
+    "Tests/ui",
+    "Tools/agents/records/2026-10-30-journey-summary/coordinator/run-summary-acceptance.py"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T011647",
+  "status": "failed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 91306,
+  "process_owner": {
+    "pid": 91306,
+    "parent_pid": 91305,
+    "process_identity": "darwin:91306:1793409407.370628",
+    "group_created": true
+  },
+  "exit_code": 2,
+  "duration_s": 0.02
+}

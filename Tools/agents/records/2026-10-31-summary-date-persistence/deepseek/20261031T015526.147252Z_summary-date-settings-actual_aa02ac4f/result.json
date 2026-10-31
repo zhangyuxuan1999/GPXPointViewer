@@ -1,0 +1,147 @@
+{
+  "process_cleanup": [
+    {
+      "pid": 28779,
+      "status": "confirmed",
+      "attempts": [
+        {
+          "operation": "group_sigterm",
+          "outcome": "absent"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "wait",
+          "outcome": "ok"
+        },
+        {
+          "operation": "group_sigkill",
+          "outcome": "absent"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "wait",
+          "outcome": "ok"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "group_probe",
+          "outcome": "absent"
+        },
+        {
+          "operation": "exit_code",
+          "outcome": "ok"
+        }
+      ],
+      "errors": [],
+      "leader_alive": false,
+      "group_alive": false,
+      "leader_exit_code": 0,
+      "duration_s": 0.000417166855186224
+    }
+  ],
+  "cleanup_complete": true,
+  "stream_incomplete": false,
+  "runner_exit_code": 0,
+  "provider_status": "succeeded",
+  "acceptance_status": "pending",
+  "exit_code": 0,
+  "is_error": false,
+  "error": null,
+  "interrupted": false,
+  "runner_terminal_reason": null,
+  "protocol_errors": [],
+  "duration_s": 39.553,
+  "cost_usd": null,
+  "cost_source": "unknown",
+  "cli_reported_cost_usd": 0.21289499999999997,
+  "cost_note": "CLI estimate is not authoritative DeepSeek billed cost.",
+  "session_id": "8fd34722-dfb6-4452-9c25-bf8b3ea01c79",
+  "subtype": "success",
+  "terminal_reason": "completed",
+  "stop_reason": "end_turn",
+  "errors": null,
+  "api_error_status": null,
+  "permission_denials": [
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "call_00_g8w5qoVlY2jsoLondlD59467",
+      "tool_input": {
+        "command": "GPXPV_AGENT_RUN_DIR=/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/deepseek/20261031T015526.147252Z_summary-date-settings-actual_aa02ac4f python3 /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/coordinator/run-date-acceptance.py",
+        "timeout": 1500000,
+        "description": "Run date/settings acceptance wrapper exactly once",
+        "run_in_background": true,
+        "dangerouslyDisableSandbox": true
+      }
+    },
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "call_00_oGh0KQOMR6pNIujWeQsE8940",
+      "tool_input": {
+        "command": "GPXPV_AGENT_RUN_DIR=/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/deepseek/20261031T015526.147252Z_summary-date-settings-actual_aa02ac4f python3 /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/coordinator/run-date-acceptance.py",
+        "timeout": 1500000,
+        "description": "Run date/settings acceptance wrapper exactly once",
+        "run_in_background": true
+      }
+    }
+  ],
+  "usage": {
+    "input_tokens": 8492,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 46720,
+    "output_tokens": 5883,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "",
+    "iterations": [],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "num_turns": 8,
+  "result_count": 1,
+  "turn_results": [
+    {
+      "sequence": 3048,
+      "result_index": 0,
+      "uuid": "2851d52e-f03d-4514-9a49-864ae4e204e8",
+      "session_id": "8fd34722-dfb6-4452-9c25-bf8b3ea01c79",
+      "subtype": "success",
+      "is_error": false,
+      "terminal_reason": "completed",
+      "stop_reason": "end_turn",
+      "errors": null,
+      "api_error_status": null,
+      "origin": null,
+      "total_cost_usd": 0.21289499999999997
+    }
+  ],
+  "background_tasks": [],
+  "foreground_tasks": [],
+  "unqualified_tasks": [],
+  "background_task_failures": [],
+  "background_incomplete": [],
+  "out_of_scope_changes": [],
+  "incomplete_checks": "Task acceptance requires independent review; provider completion is separate.",
+  "finished_utc": "2026-10-31T01:56:05.755183+00:00",
+  "status": "succeeded",
+  "run_status": "succeeded",
+  "verification_status": "not_run"
+}

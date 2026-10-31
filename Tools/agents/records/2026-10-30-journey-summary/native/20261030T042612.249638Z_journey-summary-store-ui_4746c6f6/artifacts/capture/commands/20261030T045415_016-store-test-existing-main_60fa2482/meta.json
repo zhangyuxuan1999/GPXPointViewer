@@ -1,0 +1,23 @@
+{
+  "label": "016-store-test-existing-main",
+  "argv": [
+    "sed",
+    "-n",
+    "1,95p",
+    "Tests/segments/workflow/WorkflowRegression.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T045415",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 20915,
+  "process_owner": {
+    "pid": 20915,
+    "parent_pid": 20914,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.0
+}

@@ -1,0 +1,22 @@
+{
+  "label": "confirmed-findings",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; r=Path(\"Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T013319.027045Z_signing-install-independent-review_db34a088\"); [print(p.read_text()) for p in (r/\"output.md\",r/\"review-result.json\")]; print(Path(\"Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T012023.801942Z_signing-install-persistence-fix_6b832b3d/output.md\").read_text())"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014035",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 14653,
+  "process_owner": {
+    "pid": 14653,
+    "parent_pid": 14650,
+    "process_identity": "darwin:14653:1793410835.563620",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.03
+}

@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "git",
+    "apply",
+    "--check",
+    "Tools/agents/records/2026-10-28-remediation/native/20261028T232721.100499Z_r4-risk-audit_9c4dd021/artifacts/retime-coverage-proposal.patch"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "start": "2026-10-28T23:40:01.570733+00:00",
+  "exit_code": 0,
+  "finish": "2026-10-28T23:40:01.580211+00:00"
+}

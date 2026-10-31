@@ -1,0 +1,27 @@
+{
+  "label": "review-complete-event",
+  "argv": [
+    "python3",
+    "Tools/agents/agent_run.py",
+    "event",
+    "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T013921.126628Z_date-navigation-independent-review_2e7f0998",
+    "--type",
+    "progress",
+    "--json",
+    "{\"completed\":\"Read-only independent review complete; source and inherited navigation evidence accepted; no actionable defects\",\"outputs\":[\"output.md\",\"artifacts/review-result.json\",\"artifacts/source-hash-lineage.json\"],\"pending\":\"root UI literal keyboard/pixels/isolated persistence/final archive installation\",\"tests_executed\":0,\"actual_model\":\"unknown\",\"cost_usd\":null}"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014357",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 18180,
+  "process_owner": {
+    "pid": 18180,
+    "parent_pid": 18179,
+    "process_identity": "darwin:18180:1793411037.809297",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.05
+}

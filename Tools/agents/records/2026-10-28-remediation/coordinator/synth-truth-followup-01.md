@@ -1,0 +1,1 @@
+Root收到逐段旧kernel和written-value双证据，保持phone正常稀疏候选与失锁区别。请给DeepSeek可机械执行的最小patch/指令，含main.swift所需段内邻接机器字段、check.py严格validator、4个expect及对应gen/README；不要直接改正式文件。当前已准备DeepSeek main身份/profile对齐+exam一行segmentID过滤任务，待你的提案并入，避免两次冲突修改。新字段必须能证明同段且真实路径相邻，单段兼容不能放宽；top-level profile语义不变。请核定114所有机读字段兼容，并说明哪些生成器输出需要最小更新使REGEN不会恢复旧错期望，不实际REGEN。

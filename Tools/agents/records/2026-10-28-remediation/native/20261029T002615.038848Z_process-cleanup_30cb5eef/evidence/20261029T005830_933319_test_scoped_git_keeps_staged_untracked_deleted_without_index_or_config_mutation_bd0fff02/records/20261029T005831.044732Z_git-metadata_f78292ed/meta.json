@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "run_id": "20261029T005831.044732Z_git-metadata_f78292ed",
+  "name": "git-metadata",
+  "provider": "native",
+  "requested_model": null,
+  "requested_effort": null,
+  "observed_model": null,
+  "observed_effort": null,
+  "model_verification": "unknown",
+  "cwd": "/private/tmp/gpxpv-runner-tests-hbldrxp8/20261029T005830_933319_test_scoped_git_keeps_staged_untracked_deleted_without_index_or_config_mutation_bd0fff02/workspace",
+  "task_source": "/private/tmp/gpxpv-runner-tests-hbldrxp8/20261029T005830_933319_test_scoped_git_keeps_staged_untracked_deleted_without_index_or_config_mutation_bd0fff02/task.md",
+  "started_utc": "2026-10-29T00:58:31.045398+00:00",
+  "watch": [
+    "src",
+    "Tools"
+  ],
+  "allow_write": [
+    "src"
+  ],
+  "snapshot_exclusions": {
+    "parts": [
+      ".agents",
+      ".aws",
+      ".codex",
+      ".git",
+      "DerivedData",
+      "__pycache__",
+      "node_modules",
+      "sdkenv"
+    ],
+    "prefixes": [
+      "Tools/agents/records",
+      "Tools/agents/runs",
+      "Tests/reports",
+      "Tests/ui/app.noindex",
+      "Tests/ui/perf",
+      "Tests/ui/synth.gpx",
+      "Tests/exam/results",
+      "Tests/synth/runner/synthrunner",
+      "Tests/synth/runner/build.log"
+    ],
+    "default_prefixes": [
+      "Tools/agents/records",
+      "Tools/agents/runs",
+      "Tests/reports",
+      "Tests/ui/app.noindex",
+      "Tests/ui/perf",
+      "Tests/ui/synth.gpx",
+      "Tests/exam/results",
+      "Tests/synth/runner/synthrunner",
+      "Tests/synth/runner/build.log"
+    ],
+    "user_prefixes": [],
+    "explicit_overrides": [],
+    "generated_pattern": "^Tests/synth/(?:format-edge|garmin-tunnels|legit-motion|replay-artefacts|scale-mixed|stationary-noise)/[^/]+\\.(?:gpx|csv|fit|bin)$"
+  },
+  "parent_run": null,
+  "recovery": "New run; never replay side effects without checking existing evidence.",
+  "cost_usd": null,
+  "cost_source": "unknown"
+}

@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "python3",
+    "/Users/zyx/Documents/GPXPointViewer/Tools/agents/agent_run.py",
+    "finish",
+    "--help"
+  ],
+  "cwd": "/private/tmp/gpxpv-segment-integration-o3kf8civ",
+  "start": "2026-10-29T00:21:17.648452+00:00",
+  "exit_code": 0,
+  "finish": "2026-10-29T00:21:17.694829+00:00"
+}

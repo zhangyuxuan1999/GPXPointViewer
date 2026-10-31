@@ -1,0 +1,22 @@
+{
+  "label": "inspect-native-field",
+  "argv": [
+    "/bin/zsh",
+    "-c",
+    "sed -n \"1,190p\" GPXPointViewer/JourneySummaryWindow.swift; sed -n \"295,365p\" GPXPointViewer/UITestHook.swift; cat Tools/agents/records/2026-10-31-summary-date-persistence/coordinator/native-keyboard-first.json"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T021447",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 42400,
+  "process_owner": {
+    "pid": 42400,
+    "parent_pid": 42399,
+    "process_identity": "darwin:42400:1793412887.730175",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

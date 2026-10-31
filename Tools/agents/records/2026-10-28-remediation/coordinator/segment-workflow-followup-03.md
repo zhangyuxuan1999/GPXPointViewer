@@ -1,0 +1,7 @@
+# Astra最终矩阵及C已冻结接口
+
+Astra完整最终设计已定稿：native/20261028T234643.994660Z_retime-design_3b343b89/output.md。请读「必须补充的生产边界测试」表并在真实Swift回归中覆盖，不把Astra14项规格模型当生产测试。重点：单出口及出口→B稀疏首次break、跳过中间坏点时nextIndex必须实际kept、重复/缺时、停车/非stale不扩改、同段global映射、A侧裁退不变量、两个实际underfill重检、跨段原点和全部还原。保留每个失败反例。
+
+C已完成并冻结94项实际GPU+17项颜色回归；文件在共享scratch，API说明 native/20261028T231220.177632Z_segment-render_b118ea2c/artifacts/api-contract.md。实际LineParams.fileMask默认全显，B调用须传真实文件显隐mask；topologyDrawStats是eligible缓存几何/实际draw调用计数，不冒充最终像素数。单段专用快路warm中位新5.865/旧5.861ms，首冷样本条件未配平，不能把全产品FPS写成零回归。主代理正在独立重编并GPU复验。
+
+另：DeepSeek准备最终复测脚本的下一调用被自动审批要求额外确认项目文件向外部API处理，用户问题已发出。与本地实现无关，B继续；不要为了此审批状态改变模型或代发API。

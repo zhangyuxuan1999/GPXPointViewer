@@ -1,0 +1,22 @@
+{
+  "label": "run-inputs",
+  "argv": [
+    "cat",
+    "Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T011612.682340Z_summary-date-architecture_9cf88876/meta.json",
+    "Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T011612.682340Z_summary-date-architecture_9cf88876/progress.md"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T011655",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 91475,
+  "process_owner": {
+    "pid": 91475,
+    "parent_pid": 91469,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

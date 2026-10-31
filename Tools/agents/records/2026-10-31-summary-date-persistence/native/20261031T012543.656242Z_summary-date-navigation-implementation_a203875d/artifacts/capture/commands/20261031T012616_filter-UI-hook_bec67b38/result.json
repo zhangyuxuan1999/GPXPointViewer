@@ -1,0 +1,22 @@
+{
+  "label": "filter-UI-hook",
+  "argv": [
+    "/bin/zsh",
+    "-c",
+    "rg -n 'ViewFilterSpec|struct TimeFilterSection|func push|summary|Summary|settings|language|idle' GPXPointViewer/ExportSheet.swift GPXPointViewer/UITestHook.swift GPXPointViewer/ContentView.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T012616",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 97716,
+  "process_owner": {
+    "pid": 97716,
+    "parent_pid": 97712,
+    "process_identity": "darwin:97716:1793409976.970116",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

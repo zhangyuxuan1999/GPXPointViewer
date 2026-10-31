@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "rg",
+    "-n",
+    "trip\\.range|t\\.range|pathRange|indexA.*[+\\-]|indexB.*[+\\-]|fillAnchorA.*[+\\-]|fillAnchorB.*[+\\-]|c\\.tA\\]|\\[.*\\.tA\\]|Double\\(p\\[|func batchID|func gapID|static func exitSpeed",
+    "GPXPointViewer/GapFill.swift",
+    "GPXPointViewer/TrackStore.swift",
+    "GPXPointViewer/PointMapView.swift",
+    "GPXPointViewer/ContentView.swift",
+    "GPXPointViewer/UITestHook.swift",
+    "GPXPointViewer/BatchFillWindow.swift",
+    "GPXPointViewer/ChangeReviewWindow.swift",
+    "GPXPointViewer/ChangeLog.swift"
+  ],
+  "cwd": "/private/tmp/gpxpv-segment-integration-o3kf8civ",
+  "start": "2026-10-29T00:13:39.870163+00:00",
+  "exit_code": 0,
+  "finish": "2026-10-29T00:13:39.891134+00:00"
+}

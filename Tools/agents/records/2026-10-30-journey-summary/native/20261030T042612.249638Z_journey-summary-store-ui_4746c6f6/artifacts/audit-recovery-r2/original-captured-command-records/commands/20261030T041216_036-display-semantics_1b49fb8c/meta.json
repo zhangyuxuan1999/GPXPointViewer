@@ -1,0 +1,21 @@
+{
+  "label": "036-display-semantics",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041216",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 13674,
+  "process_owner": {
+    "pid": 13674,
+    "parent_pid": 13671,
+    "process_identity": "darwin:13674:1793333536.489810",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.03
+}

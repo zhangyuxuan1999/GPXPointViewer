@@ -1,0 +1,23 @@
+{
+  "label": "read-test-guide",
+  "argv": [
+    "sed",
+    "-n",
+    "1,180p",
+    "Tests/README.md"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T013403",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 5348,
+  "process_owner": {
+    "pid": 5348,
+    "parent_pid": 5343,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

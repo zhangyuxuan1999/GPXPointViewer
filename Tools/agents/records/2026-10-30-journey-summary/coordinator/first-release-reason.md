@@ -1,0 +1,4 @@
+# First summary feature Release build
+Reason: new pure core + Store integration + new scene + resource/catalog/project membership have not yet been built together as the real application bundle. Existing author complete-product Store test compiles validate executable test module, not Xcode app/resource linkage. First Release build is needed evidence, not rerun of old UI suites.
+Product freeze confirmed by Sol author and independent reviewer05:24UTC: Store c2382edb, ContentView022392d9; core d4b339e6; existing53 + newly added lifecycle12 and modeentry5 evidence inherited. Root catalog assembled76keys. No source changes while building.
+Command: python3 Tools/build_release.py --arch arm64 --no-sign --no-icloud-coordination --timeout1200. Unique Builds archive, full before/after input manifest and owned-process log/cleanup. No installation or formal app launch/close. After success use this exact archive for one summary-only functional run plus en/de visual-only runs.

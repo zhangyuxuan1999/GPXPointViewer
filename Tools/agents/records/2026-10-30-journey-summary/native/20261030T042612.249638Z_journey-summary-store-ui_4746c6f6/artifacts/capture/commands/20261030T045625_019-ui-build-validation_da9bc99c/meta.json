@@ -1,0 +1,25 @@
+{
+  "label": "019-ui-build-validation",
+  "argv": [
+    "rg",
+    "-n",
+    "def app_source|def .*manifest|def .*prefs|preferences|snapshot|CFPreferences|terminate|kill|pid",
+    "Tests/ui/ui.py",
+    "Tests/ui/run_dock_tests.py",
+    "Tests/ui/run_suite.sh"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T045625",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 22916,
+  "process_owner": {
+    "pid": 22916,
+    "parent_pid": 22896,
+    "process_identity": "darwin:22916:1793336185.444979",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.02
+}

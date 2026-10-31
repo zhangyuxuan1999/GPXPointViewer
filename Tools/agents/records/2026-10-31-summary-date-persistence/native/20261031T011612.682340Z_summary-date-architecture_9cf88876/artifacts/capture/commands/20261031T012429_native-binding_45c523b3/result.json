@@ -1,0 +1,24 @@
+{
+  "label": "native-binding",
+  "argv": [
+    "rg",
+    "-n",
+    "agent_id|gpt-6|acceptance|provider_status",
+    "Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T011612.682340Z_summary-date-architecture_9cf88876/meta.json",
+    "Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T011612.682340Z_summary-date-architecture_9cf88876/state.json"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T012429",
+  "status": "failed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 96449,
+  "process_owner": {
+    "pid": 96449,
+    "parent_pid": 96448,
+    "process_identity": "darwin:96449:1793409869.867970",
+    "group_created": true
+  },
+  "exit_code": 2,
+  "duration_s": 0.01
+}

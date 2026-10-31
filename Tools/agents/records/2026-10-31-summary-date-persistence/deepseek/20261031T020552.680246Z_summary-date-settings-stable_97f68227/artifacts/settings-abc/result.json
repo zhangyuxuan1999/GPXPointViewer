@@ -1,0 +1,17 @@
+{
+  "name": "settings-abc",
+  "argv": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "/Users/zyx/Documents/GPXPointViewer/Tests/ui/run_summary_navigation_tests.py",
+    "--evidence",
+    "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/deepseek/20261031T020552.680246Z_summary-date-settings-stable_97f68227/artifacts/settings-abc",
+    "--mode",
+    "persistence"
+  ],
+  "mode": "persistence",
+  "language": null,
+  "started": "2026-10-31T02:06:05.322825+00:00",
+  "pid": 37084,
+  "exit_code": 0,
+  "finished": "2026-10-31T02:06:11.519587+00:00"
+}

@@ -1,0 +1,30 @@
+{
+  "label": "author-records-inventory",
+  "argv": [
+    "rg",
+    "--files",
+    "Tools/agents/records/2026-10-30-journey-summary/native",
+    "-g",
+    "*review*task*",
+    "-g",
+    "meta.json",
+    "-g",
+    "*retest*",
+    "-g",
+    "*fix*"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T052324",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 33599,
+  "process_owner": {
+    "pid": 33599,
+    "parent_pid": 33598,
+    "process_identity": "darwin:33599:1793337804.994723",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.02
+}

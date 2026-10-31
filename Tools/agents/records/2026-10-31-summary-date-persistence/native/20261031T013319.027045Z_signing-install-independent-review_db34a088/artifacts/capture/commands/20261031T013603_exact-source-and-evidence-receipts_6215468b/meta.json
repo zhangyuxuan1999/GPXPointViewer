@@ -1,0 +1,21 @@
+{
+  "label": "exact-source-and-evidence-receipts",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T013603",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 7663,
+  "process_owner": {
+    "pid": 7663,
+    "parent_pid": 7660,
+    "process_identity": "darwin:7663:1793410563.317337",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.04
+}

@@ -1,0 +1,27 @@
+{
+  "label": "codesign-all-architectures-man",
+  "argv": [
+    "rg",
+    "-n",
+    "-A",
+    "10",
+    "-B",
+    "8",
+    "all-arch|architecture|universal",
+    "/usr/share/man/man1/codesign.1"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014533",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 20328,
+  "process_owner": {
+    "pid": 20328,
+    "parent_pid": 20324,
+    "process_identity": "darwin:20328:1793411133.336458",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.02
+}

@@ -1,0 +1,27 @@
+{
+  "label": "actual-lifecycle",
+  "argv": [
+    "rg",
+    "-n",
+    "-A",
+    "85",
+    "-B",
+    "12",
+    "var track:|func switchDisplayMode|func clearTrack|func startBuild|func rebuild",
+    "GPXPointViewer/TrackStore.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014053",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 15064,
+  "process_owner": {
+    "pid": 15064,
+    "parent_pid": 15059,
+    "process_identity": "darwin:15064:1793410853.325179",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.02
+}

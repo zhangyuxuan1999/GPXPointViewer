@@ -1,0 +1,1 @@
+已阅读Sol实现报告与新增单进程参数patch；mock-r2有/无两分支exit0且无真实xcodebuild调用。接受新增flag与metadata接口；原过早mock读取旧源失败保留，修后只验证新增分支。产品源码未改。此结论不代表真实Release通过，仍待iCloud源码恢复后执行。

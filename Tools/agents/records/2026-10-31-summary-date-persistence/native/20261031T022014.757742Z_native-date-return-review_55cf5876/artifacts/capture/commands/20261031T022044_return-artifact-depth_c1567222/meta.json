@@ -1,0 +1,22 @@
+{
+  "label": "return-artifact-depth",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; r=Path(\"Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T021407.735687Z_date-native-return-submit_207886b8\"); print(\"\\n\".join(str(p) for p in r.glob(\"artifacts/*\") if p.is_file())); print(\"\\n\".join(str(p) for p in r.glob(\"artifacts/capture/commands/*/result.json\")))"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T022044",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 46030,
+  "process_owner": {
+    "pid": 46030,
+    "parent_pid": 46019,
+    "process_identity": "darwin:46030:1793413244.413840",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.05
+}

@@ -1,0 +1,105 @@
+{
+  "utc": "2026-10-29T13:33:46.640737+00:00",
+  "passed": false,
+  "run": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/deepseek/20261029T132227.123510Z_r4-label-final_9d13dc4c",
+  "checks": [
+    {
+      "name": "provider_and_runner_success",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "protocol_and_scope",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "label_only_summary",
+      "ok": false,
+      "detail": null
+    },
+    {
+      "name": "new_and_inherited_identity",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "only_label_and_cleanup",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "phase_label_sec2",
+      "ok": true,
+      "detail": 13
+    },
+    {
+      "name": "png_header",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "phase_label_cleanup",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "name": "helper_integrity",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "helper_preferences",
+      "ok": false,
+      "detail": null
+    },
+    {
+      "name": "full_preferences_original_bytes",
+      "ok": false,
+      "detail": "a6af0275f47b1c1adb624817ac488cf7dc68a1e147cce1307997bd6868c89bf1"
+    },
+    {
+      "name": "no_gpx_processes",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "current_50_source_inputs",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "bundle_final-build-bundle-manifest.json",
+      "ok": true,
+      "detail": 38
+    },
+    {
+      "name": "bundle_label-build-bundle-manifest.json",
+      "ok": true,
+      "detail": 38
+    }
+  ],
+  "images": [
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/deepseek/20261029T132227.123510Z_r4-label-final_9d13dc4c/artifacts/shots/20261029T132227.123510Z_r4-label-final_9d13dc4c_20261029T132241_023228Z_37fee15a_line_labels.png",
+      "sha256": "c330172b5b23909a3c96697640d8f36d4a7f5ca498d70c68defe42b820caf42b",
+      "dimensions": [
+        2864,
+        1944
+      ]
+    }
+  ],
+  "bundle_counts": {
+    "final-build-bundle-manifest.json": 38,
+    "label-build-bundle-manifest.json": 38
+  },
+  "inherited_ui_groups_not_rerun": 11,
+  "old_executable_sha256": "445940ea23807364b0b4c09ea99e73077ed0d5f6253da20b3653988c114b22cb",
+  "new_executable_sha256": "22e77c206e74eb6a88d1a9b56cf1a3d6dc7b0928e7d1784cd1e29943c91d0cf2",
+  "pixel_verdict": "PENDING_MAIN_AGENT_PIXEL_REVIEW",
+  "evidence_hashes": {
+    "result.json": "4b118a12682c02be1dea08d5e813e7d3671ca9d177810cb7c7a3a4d2af7cb242",
+    "artifacts/label-closeout-summary.json": "803f1bbed73e2dd2cc882a489eec6415f02bc866f1843882db1a0dba6843e715",
+    "artifacts/label-version-receipt.json": "92291e43f6f2ac0b54e20088f4700ddf864243aff01e207915393a157dacfe1e"
+  }
+}

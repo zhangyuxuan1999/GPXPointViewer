@@ -1,0 +1,21 @@
+{
+  "label": "app-metadata-pref-whitelist",
+  "argv": [
+    "python3",
+    "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T011612.884046Z_settings-persistence-audit_060da613/artifacts/inspect_persistence.py"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T011719",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 91998,
+  "process_owner": {
+    "pid": 91998,
+    "parent_pid": 91997,
+    "process_identity": "darwin:91998:1793409439.133930",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.14
+}

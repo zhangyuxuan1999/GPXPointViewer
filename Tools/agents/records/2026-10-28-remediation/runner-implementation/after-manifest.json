@@ -1,0 +1,42 @@
+{
+  "Tools/agents/agent_run.py": {
+    "sha256": "2b139ef1148e9894318751449f1fd241d66aafeba9f00ef6b4e7ea61494a406e",
+    "size": 24844,
+    "mode": "0o755"
+  },
+  "Tools/agents/api_run.sh": {
+    "sha256": "790473b7b261e9d473685b4f82283eda6ad24b028bece6bb962e0be40c871a3f",
+    "size": 544,
+    "mode": "0o755"
+  },
+  "Tools/agents/status.sh": {
+    "sha256": "4144fff161ca5fbd0071e5cbfd5bb8490ae91b76e50952439e14df7461be36be",
+    "size": 293,
+    "mode": "0o755"
+  },
+  "Tools/agents/deepseek_probe.py": {
+    "sha256": "6f315ba2de0a7f61712a491af0dae787ccac9c5a200a10cd18a080618a67890f",
+    "size": 10353,
+    "mode": "0o644"
+  },
+  "Tools/agents/api_run.py": {
+    "sha256": "543e0cdf28e222c209a1963772b73b6848d4c84016fc88b8fd2fd5be448c9b1a",
+    "size": 13619,
+    "mode": "0o755"
+  },
+  "Tools/agents/run_store.py": {
+    "sha256": "514367d3886846ab08353e9278ed178c53af5245be46922351e68376b85a0597",
+    "size": 28302,
+    "mode": "0o644"
+  },
+  "Tests/run_deepseek.sh": {
+    "sha256": "e1726da62e60162f8c69d6dcd419b6fac380cef8e56288704bb51476e5aabde0",
+    "size": 412,
+    "mode": "0o755"
+  },
+  "Tests/run_deepseek_dev.sh": {
+    "sha256": "22a6f3785b521263b96baaa7d9cbed689e0402889d9324cb1378dd46fc7f1207",
+    "size": 574,
+    "mode": "0o755"
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "process_cleanup": [
+    {
+      "pid": 2100000001,
+      "status": "incomplete",
+      "attempts": [
+        {
+          "operation": "group_sigterm",
+          "outcome": "error",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected group refusal"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "direct_terminate",
+          "outcome": "ok"
+        },
+        {
+          "operation": "wait",
+          "outcome": "error",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected direct join refusal"
+        },
+        {
+          "operation": "group_sigkill",
+          "outcome": "error",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected group refusal"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "wait",
+          "outcome": "error",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected direct join refusal"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "group_probe",
+          "outcome": "error",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected group refusal"
+        },
+        {
+          "operation": "exit_code",
+          "outcome": "ok"
+        }
+      ],
+      "errors": [
+        {
+          "operation": "group_sigterm",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected group refusal"
+        },
+        {
+          "operation": "wait",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected direct join refusal"
+        },
+        {
+          "operation": "group_sigkill",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected group refusal"
+        },
+        {
+          "operation": "wait",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected direct join refusal"
+        },
+        {
+          "operation": "group_probe",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected group refusal"
+        }
+      ],
+      "leader_alive": false,
+      "group_alive": null,
+      "leader_exit_code": -15,
+      "duration_s": 0.00013533304445445538
+    }
+  ],
+  "cleanup_complete": false,
+  "runner_exit_code": 124,
+  "child_exit_code": -15,
+  "provider_status": "interrupted",
+  "acceptance_status": "pending",
+  "started": true,
+  "exit_code": 124,
+  "error": null,
+  "is_error": true,
+  "duration_s": 0.063,
+  "cost_usd": 0.25,
+  "cost_source": "SDK estimate",
+  "actual_billed_cost_usd": null,
+  "budget_usd": 2.0,
+  "budget_ledger": "/private/tmp/gpxpv-runner-tests-l7zhanyz/20261029T003859_178817_test_sdk_direct_terminate_kill_and_join_errors_are_isolated_818519e1/records-2/budget.json",
+  "runner_terminal_reason": "wall_clock_timeout",
+  "usage": null,
+  "num_turns": 2,
+  "session_id": null,
+  "subtype": "error_max_turns",
+  "terminal_reason": "turns",
+  "stop_reason": null,
+  "errors": null,
+  "permission_denials": null,
+  "api_error_status": null,
+  "finished_utc": "2026-10-29T00:38:59.507674+00:00",
+  "status": "interrupted",
+  "run_status": "interrupted",
+  "verification_status": "not_run"
+}

@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "cat",
+    "Tests/synth/runner/run_all.sh"
+  ],
+  "cwd": "/private/tmp/gpxpv-segment-integration-o3kf8civ",
+  "started_at": "2026-10-28T23:17:18.894044+00:00",
+  "exit_code": 0,
+  "finished_at": "2026-10-28T23:17:18.896473+00:00"
+}

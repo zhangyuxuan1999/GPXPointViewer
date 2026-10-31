@@ -1,0 +1,31 @@
+{
+  "provider_status": "succeeded",
+  "acceptance_status": "pending",
+  "started": true,
+  "exit_code": 0,
+  "error": null,
+  "is_error": false,
+  "duration_s": 0.163,
+  "cost_usd": 0.25,
+  "cost_source": "SDK estimate",
+  "actual_billed_cost_usd": null,
+  "budget_usd": 2.0,
+  "budget_ledger": "/private/tmp/gpxpv-runner-tests-xfp05b20/20261029T002121_736538_test_sdk_stderr_is_durable_redacted_and_not_failure_2e847b14/stderr/budget.json",
+  "runner_terminal_reason": null,
+  "usage": {
+    "input_tokens": 51,
+    "output_tokens": 13
+  },
+  "num_turns": 2,
+  "session_id": "offline-sdk-session",
+  "subtype": "success",
+  "terminal_reason": "completed",
+  "stop_reason": null,
+  "errors": null,
+  "permission_denials": null,
+  "api_error_status": null,
+  "finished_utc": "2026-10-29T00:21:22.000774+00:00",
+  "status": "succeeded",
+  "run_status": "succeeded",
+  "verification_status": "not_run"
+}

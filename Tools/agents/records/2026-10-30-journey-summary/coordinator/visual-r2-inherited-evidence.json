@@ -1,0 +1,131 @@
+[
+  {
+    "language": "de",
+    "directory": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/deepseek/20261030T055759.267763Z_journey-summary-visual-r2_7be8ceab/artifacts/visual-recovery/de/evidence/20261030T055836.460512Z-62a1bd01",
+    "execution-mode.json": {
+      "visual_only": true,
+      "visual_extras": false,
+      "functional_checks_executed": 0
+    },
+    "cleanup.json": {
+      "owned_pid": 45525,
+      "owned_process_exit": -15,
+      "preferences_changed": false,
+      "preferences_exact_bytes_restored": true,
+      "fixture_work": "/Users/zyx/Library/Containers/de.wayne.GPXPointViewer/Data/tmp/summary-smoke-f5aaaf8083f4478884e7e00ed445766c",
+      "no_formal_app_process_killed": true
+    },
+    "screen-preflight.json": {
+      "argv": [
+        "/usr/bin/osascript",
+        "-l",
+        "JavaScript",
+        "-e",
+        "ObjC.import('AppKit'); var app=$.NSWorkspace.sharedWorkspace.frontmostApplication; JSON.stringify({bundleIdentifier:ObjC.unwrap(app.bundleIdentifier)||'',name:ObjC.unwrap(app.localizedName)||''});"
+      ],
+      "status": "not_known_locked",
+      "timeout_seconds": 4,
+      "exit_code": 0,
+      "stdout": "{\"bundleIdentifier\":\"com.openai.codex\",\"name\":\"ChatGPT\"}\n",
+      "stderr": "",
+      "frontmost": {
+        "bundleIdentifier": "com.openai.codex",
+        "name": "ChatGPT"
+      }
+    },
+    "build-provenance.json": {
+      "manifest": "/Users/zyx/Documents/GPXPointViewer/Builds/20261030T052611Z_release_25c40b88/archive/build-manifest.json",
+      "app": "/Users/zyx/Documents/GPXPointViewer/Builds/20261030T052611Z_release_25c40b88/archive/GPXPointViewer.app",
+      "executable_sha256": "9c1449f5a6b6d79c9697ab04c3612eadbd86c608737aa053c1c659eb267211d2",
+      "source_sha256": "1328fdd82570ac37dd7fd9fca409074c9ab0d8ac27a5d8c2e16eee8e8f407aa4",
+      "source_association": "build-completed-between-identical-input-snapshots"
+    },
+    "results.json": []
+  },
+  {
+    "language": "en",
+    "directory": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/deepseek/20261030T055759.267763Z_journey-summary-visual-r2_7be8ceab/artifacts/visual-recovery/en/evidence/20261030T055829.681258Z-c7dd0965",
+    "execution-mode.json": {
+      "visual_only": true,
+      "visual_extras": false,
+      "functional_checks_executed": 0
+    },
+    "cleanup.json": {
+      "owned_pid": 45377,
+      "owned_process_exit": -15,
+      "preferences_changed": false,
+      "preferences_exact_bytes_restored": true,
+      "fixture_work": "/Users/zyx/Library/Containers/de.wayne.GPXPointViewer/Data/tmp/summary-smoke-a528b2efd94c48f49503145c5096c44c",
+      "no_formal_app_process_killed": true
+    },
+    "screen-preflight.json": {
+      "argv": [
+        "/usr/bin/osascript",
+        "-l",
+        "JavaScript",
+        "-e",
+        "ObjC.import('AppKit'); var app=$.NSWorkspace.sharedWorkspace.frontmostApplication; JSON.stringify({bundleIdentifier:ObjC.unwrap(app.bundleIdentifier)||'',name:ObjC.unwrap(app.localizedName)||''});"
+      ],
+      "status": "not_known_locked",
+      "timeout_seconds": 4,
+      "exit_code": 0,
+      "stdout": "{\"bundleIdentifier\":\"com.openai.codex\",\"name\":\"ChatGPT\"}\n",
+      "stderr": "",
+      "frontmost": {
+        "bundleIdentifier": "com.openai.codex",
+        "name": "ChatGPT"
+      }
+    },
+    "build-provenance.json": {
+      "manifest": "/Users/zyx/Documents/GPXPointViewer/Builds/20261030T052611Z_release_25c40b88/archive/build-manifest.json",
+      "app": "/Users/zyx/Documents/GPXPointViewer/Builds/20261030T052611Z_release_25c40b88/archive/GPXPointViewer.app",
+      "executable_sha256": "9c1449f5a6b6d79c9697ab04c3612eadbd86c608737aa053c1c659eb267211d2",
+      "source_sha256": "1328fdd82570ac37dd7fd9fca409074c9ab0d8ac27a5d8c2e16eee8e8f407aa4",
+      "source_association": "build-completed-between-identical-input-snapshots"
+    },
+    "results.json": []
+  },
+  {
+    "language": "zh-Hans",
+    "directory": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/deepseek/20261030T055759.267763Z_journey-summary-visual-r2_7be8ceab/artifacts/visual-recovery/zh-Hans/evidence/20261030T055819.022850Z-2cfc7ea1",
+    "execution-mode.json": {
+      "visual_only": true,
+      "visual_extras": true,
+      "functional_checks_executed": 0
+    },
+    "cleanup.json": {
+      "owned_pid": 45253,
+      "owned_process_exit": -15,
+      "preferences_changed": false,
+      "preferences_exact_bytes_restored": true,
+      "fixture_work": "/Users/zyx/Library/Containers/de.wayne.GPXPointViewer/Data/tmp/summary-smoke-99abc2c865574070bc68a1f015da19fe",
+      "no_formal_app_process_killed": true
+    },
+    "screen-preflight.json": {
+      "argv": [
+        "/usr/bin/osascript",
+        "-l",
+        "JavaScript",
+        "-e",
+        "ObjC.import('AppKit'); var app=$.NSWorkspace.sharedWorkspace.frontmostApplication; JSON.stringify({bundleIdentifier:ObjC.unwrap(app.bundleIdentifier)||'',name:ObjC.unwrap(app.localizedName)||''});"
+      ],
+      "status": "not_known_locked",
+      "timeout_seconds": 4,
+      "exit_code": 0,
+      "stdout": "{\"bundleIdentifier\":\"com.openai.codex\",\"name\":\"ChatGPT\"}\n",
+      "stderr": "",
+      "frontmost": {
+        "bundleIdentifier": "com.openai.codex",
+        "name": "ChatGPT"
+      }
+    },
+    "build-provenance.json": {
+      "manifest": "/Users/zyx/Documents/GPXPointViewer/Builds/20261030T052611Z_release_25c40b88/archive/build-manifest.json",
+      "app": "/Users/zyx/Documents/GPXPointViewer/Builds/20261030T052611Z_release_25c40b88/archive/GPXPointViewer.app",
+      "executable_sha256": "9c1449f5a6b6d79c9697ab04c3612eadbd86c608737aa053c1c659eb267211d2",
+      "source_sha256": "1328fdd82570ac37dd7fd9fca409074c9ab0d8ac27a5d8c2e16eee8e8f407aa4",
+      "source_association": "build-completed-between-identical-input-snapshots"
+    },
+    "results.json": []
+  }
+]

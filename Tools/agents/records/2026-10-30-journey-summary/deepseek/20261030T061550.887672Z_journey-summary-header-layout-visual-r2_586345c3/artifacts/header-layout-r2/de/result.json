@@ -1,0 +1,17 @@
+{
+  "exit_code": 0,
+  "child_exit_code": 0,
+  "stop_reason": null,
+  "cleanup_complete": true,
+  "cleanup": [],
+  "owner": {
+    "pid": 51806,
+    "pgid": 51806,
+    "sid": 51806,
+    "started_utc": "2026-10-30T06:16:11.462506+00:00"
+  },
+  "started_utc": "2026-10-30T06:16:11.462506+00:00",
+  "finished_utc": "2026-10-30T06:16:16.783531+00:00",
+  "language": "de",
+  "functional": false
+}

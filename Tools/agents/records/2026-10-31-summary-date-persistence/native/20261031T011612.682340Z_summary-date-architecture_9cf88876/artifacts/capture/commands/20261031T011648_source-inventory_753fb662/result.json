@@ -1,0 +1,25 @@
+{
+  "label": "source-inventory",
+  "argv": [
+    "rg",
+    "-n",
+    "JourneySummary|TimeFilterSection|summary|每日|行程|timeFilter",
+    "GPXPointViewer",
+    "Tests/README.md",
+    "docs/journey-summary-design.md"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T011648",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 91318,
+  "process_owner": {
+    "pid": 91318,
+    "parent_pid": 91317,
+    "process_identity": "darwin:91318:1793409408.010159",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

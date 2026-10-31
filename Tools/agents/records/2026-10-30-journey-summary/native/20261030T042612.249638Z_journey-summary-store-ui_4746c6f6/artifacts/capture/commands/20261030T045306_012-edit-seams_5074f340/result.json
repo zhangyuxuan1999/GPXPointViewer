@@ -1,0 +1,24 @@
+{
+  "label": "012-edit-seams",
+  "argv": [
+    "rg",
+    "-n",
+    "summaryFilterSelection|func initSpan|case \"filter|func regionsJSON|case \"quit|case \"close|case \"open",
+    "GPXPointViewer/ExportSheet.swift",
+    "GPXPointViewer/UITestHook.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T045306",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 19802,
+  "process_owner": {
+    "pid": 19802,
+    "parent_pid": 19801,
+    "process_identity": "darwin:19802:1793335986.418847",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

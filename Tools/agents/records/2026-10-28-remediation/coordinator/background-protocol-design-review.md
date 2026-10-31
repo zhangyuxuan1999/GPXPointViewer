@@ -1,0 +1,3 @@
+Root已读decision.md全部规则并核对原始真实流：两条success为result_index0/1，同session，唯一UUID，后台task start→completed notification→第二result origin精确同run。设计采用结构认证、不依赖自然语言；前错误不能洗白，EOF背景未完成unknown，last累计费用不求和，实际cost null。设计本身接受；可选schema补充以新的Astra协议收口run为准。
+
+原设计run的watch包含实施者同时修改的agent_run.py/README/test_agent_run.py，finish保存scope failed。实施者在其task允许写这三文件并显式确认修改，Astra保存原文归属，根未撤销/覆写原after快照或failed结果。该警告是共享路径变化观测，不能单独证明设计者写了这些文件。只读设计交付由root直接评估，其独立接受不把原run状态改成passed。原run verify保持incomplete，追踪至最终实现/独立审查/真实流重放。

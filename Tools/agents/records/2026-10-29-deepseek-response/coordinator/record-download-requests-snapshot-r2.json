@@ -1,0 +1,71 @@
+{
+  "utc": "2026-10-29T23:07:43.671657+00:00",
+  "reason": "Final coordinator snapshot baseline metadata still dataless; restore original evidence without altering contents.",
+  "requests": [
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/coordinator-runs/20261029T210035.267457Z_coordinator-integration_6bebdbd0/snapshots/before/manifest.json",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/coordinator-runs/20261029T210035.267457Z_coordinator-integration_6bebdbd0/snapshots/before/unstaged.txt",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/coordinator-runs/20261029T210035.267457Z_coordinator-integration_6bebdbd0/snapshots/before/status.txt",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/coordinator-runs/20261029T210035.267457Z_coordinator-integration_6bebdbd0/snapshots/before/git.json",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/coordinator-runs/20261029T210035.267457Z_coordinator-integration_6bebdbd0/snapshots/before/head.txt",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/coordinator-runs/20261029T210035.267457Z_coordinator-integration_6bebdbd0/snapshots/before/files/GPXPointViewer/Localizable.xcstrings",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/coordinator-runs/20261029T210035.267457Z_coordinator-integration_6bebdbd0/snapshots/before/files/GPXPointViewer/FogArchive.swift",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/coordinator-runs/20261029T210035.267457Z_coordinator-integration_6bebdbd0/snapshots/before/files/DeepSeek/2026-10-29-initial-survey.md",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/coordinator-runs/20261029T210035.267457Z_coordinator-integration_6bebdbd0/snapshots/before/files/DeepSeek/2026-10-29-deep-review.md",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/coordinator-runs/20261029T210035.267457Z_coordinator-integration_6bebdbd0/snapshots/before/files/DeepSeek/README.md",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/coordinator-runs/20261029T210035.267457Z_coordinator-integration_6bebdbd0/snapshots/before/files/DeepSeek/issues.md",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/coordinator-runs/20261029T210035.267457Z_coordinator-integration_6bebdbd0/snapshots/before/files/DeepSeek/git.md",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/coordinator-runs/20261029T210035.267457Z_coordinator-integration_6bebdbd0/snapshots/before/files/DeepSeek/2026-10-29-N19-fix.md",
+      "accepted": true,
+      "error": null
+    }
+  ]
+}

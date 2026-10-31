@@ -1,0 +1,136 @@
+{
+  "utc": "2026-10-29T22:56:51.172470+00:00",
+  "purpose": "Restore this task audit receipts for final attribution; no file content overwritten",
+  "requests": [
+    {
+      "path": "Tools/agents/records/2026-10-29-deepseek-response/coordinator/fog-comment-receipt.json",
+      "accepted": false,
+      "has_error": true
+    },
+    {
+      "path": "Tools/agents/records/2026-10-29-deepseek-response/coordinator-runs/20261029T210035.267457Z_coordinator-integration_6bebdbd0/progress.md",
+      "accepted": false,
+      "has_error": true
+    },
+    {
+      "path": "Tools/agents/records/2026-10-29-deepseek-response/coordinator-runs/20261029T210035.267457Z_coordinator-integration_6bebdbd0/task.md",
+      "accepted": false,
+      "has_error": true
+    },
+    {
+      "path": "Tools/agents/records/2026-10-29-deepseek-response/coordinator-runs/20261029T210035.267457Z_coordinator-integration_6bebdbd0/meta.json",
+      "accepted": false,
+      "has_error": true
+    },
+    {
+      "path": "Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204817.033883Z_deepseek-harness-renderer_f132cc89/result.json",
+      "accepted": false,
+      "has_error": true
+    },
+    {
+      "path": "Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204817.033883Z_deepseek-harness-renderer_f132cc89/output.md",
+      "accepted": false,
+      "has_error": true
+    },
+    {
+      "path": "Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204817.033883Z_deepseek-harness-renderer_f132cc89/progress.md",
+      "accepted": false,
+      "has_error": true
+    },
+    {
+      "path": "Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204817.033883Z_deepseek-harness-renderer_f132cc89/task.md",
+      "accepted": false,
+      "has_error": true
+    },
+    {
+      "path": "Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204817.033883Z_deepseek-harness-renderer_f132cc89/meta.json",
+      "accepted": false,
+      "has_error": true
+    },
+    {
+      "path": "Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204816.698428Z_deepseek-architecture-review_9ec4d98d/result.json",
+      "accepted": false,
+      "has_error": true
+    },
+    {
+      "path": "Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204816.698428Z_deepseek-architecture-review_9ec4d98d/output.md",
+      "accepted": false,
+      "has_error": true
+    },
+    {
+      "path": "Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204816.698428Z_deepseek-architecture-review_9ec4d98d/progress.md",
+      "accepted": false,
+      "has_error": true
+    },
+    {
+      "path": "Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204816.698428Z_deepseek-architecture-review_9ec4d98d/task.md",
+      "accepted": false,
+      "has_error": true
+    },
+    {
+      "path": "Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204816.698428Z_deepseek-architecture-review_9ec4d98d/verification.json",
+      "accepted": false,
+      "has_error": true
+    },
+    {
+      "path": "Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204816.698428Z_deepseek-architecture-review_9ec4d98d/meta.json",
+      "accepted": false,
+      "has_error": true
+    },
+    {
+      "path": "Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204816.855795Z_deepseek-core-fixes_69813bdb/result.json",
+      "accepted": false,
+      "has_error": true
+    },
+    {
+      "path": "Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204816.855795Z_deepseek-core-fixes_69813bdb/output.md",
+      "accepted": false,
+      "has_error": true
+    },
+    {
+      "path": "Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204816.855795Z_deepseek-core-fixes_69813bdb/progress.md",
+      "accepted": false,
+      "has_error": true
+    },
+    {
+      "path": "Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204816.855795Z_deepseek-core-fixes_69813bdb/task.md",
+      "accepted": false,
+      "has_error": true
+    },
+    {
+      "path": "Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204816.855795Z_deepseek-core-fixes_69813bdb/verification.json",
+      "accepted": false,
+      "has_error": true
+    },
+    {
+      "path": "Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204816.855795Z_deepseek-core-fixes_69813bdb/meta.json",
+      "accepted": false,
+      "has_error": true
+    },
+    {
+      "path": "Tools/agents/records/2026-10-29-deepseek-response/deepseek/20261029T210624.045916Z_deepseek-bounded-finish_ecbb20c9/meta.json",
+      "accepted": false,
+      "has_error": true
+    },
+    {
+      "path": "Tools/agents/records/2026-10-29-deepseek-response/deepseek/20261029T205753.317876Z_deepseek-bounded-fixes_3c79b2ac/result.json",
+      "accepted": false,
+      "has_error": true
+    },
+    {
+      "path": "Tools/agents/records/2026-10-29-deepseek-response/deepseek/20261029T205753.317876Z_deepseek-bounded-fixes_3c79b2ac/output.md",
+      "accepted": false,
+      "has_error": true
+    },
+    {
+      "path": "Tools/agents/records/2026-10-29-deepseek-response/deepseek/20261029T205753.317876Z_deepseek-bounded-fixes_3c79b2ac/task.md",
+      "accepted": false,
+      "has_error": true
+    },
+    {
+      "path": "Tools/agents/records/2026-10-29-deepseek-response/deepseek/20261029T205753.317876Z_deepseek-bounded-fixes_3c79b2ac/meta.json",
+      "accepted": false,
+      "has_error": true
+    }
+  ]
+}

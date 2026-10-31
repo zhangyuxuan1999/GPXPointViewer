@@ -1,0 +1,23 @@
+{
+  "label": "return-bridge-header",
+  "argv": [
+    "sed",
+    "-n",
+    "135,180p",
+    "GPXPointViewer/JourneySummaryWindow.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T022044",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 46031,
+  "process_owner": {
+    "pid": 46031,
+    "parent_pid": 46017,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

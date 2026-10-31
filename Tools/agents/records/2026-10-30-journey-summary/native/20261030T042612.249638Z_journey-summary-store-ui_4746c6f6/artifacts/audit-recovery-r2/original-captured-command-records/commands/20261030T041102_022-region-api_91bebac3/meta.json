@@ -1,0 +1,21 @@
+{
+  "label": "022-region-api",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041102",
+  "status": "failed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 12999,
+  "process_owner": {
+    "pid": 12999,
+    "parent_pid": 12994,
+    "process_identity": "darwin:12999:1793333462.495861",
+    "group_created": true
+  },
+  "exit_code": 1,
+  "duration_s": 0.04
+}

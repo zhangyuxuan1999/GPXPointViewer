@@ -1,0 +1,21 @@
+{
+  "label": "architecture-inputs",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T040919",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 11681,
+  "process_owner": {
+    "pid": 11681,
+    "parent_pid": 11680,
+    "process_identity": "darwin:11681:1793333359.830061",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.02
+}

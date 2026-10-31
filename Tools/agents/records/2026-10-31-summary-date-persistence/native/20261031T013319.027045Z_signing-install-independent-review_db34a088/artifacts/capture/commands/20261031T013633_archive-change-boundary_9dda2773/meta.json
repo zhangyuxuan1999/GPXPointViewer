@@ -1,0 +1,21 @@
+{
+  "label": "archive-change-boundary",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T013633",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 8326,
+  "process_owner": {
+    "pid": 8326,
+    "parent_pid": 8315,
+    "process_identity": "darwin:8326:1793410593.185959",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.02
+}

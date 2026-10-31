@@ -1,0 +1,23 @@
+{
+  "label": "topology-data",
+  "argv": [
+    "sed",
+    "-n",
+    "450,650p",
+    "GPXPointViewer/TrackData.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T040953",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 12253,
+  "process_owner": {
+    "pid": 12253,
+    "parent_pid": 12252,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.0
+}

@@ -1,0 +1,29 @@
+{
+  "label": "012-publication-and-trip-locations",
+  "argv": [
+    "rg",
+    "-n",
+    "DataPublication|struct Trip|enum Trip|tripKindOverride|tripMap|detectTrips|TripDetector|setTripKind|ensureRegionReport|regionGeneration|regionsMode|selectRegion|goTo|viewFilter|flyTo|focus",
+    "GPXPointViewer/TrackStore.swift",
+    "GPXPointViewer/GapFill.swift",
+    "GPXPointViewer/BatchFill.swift",
+    "GPXPointViewer/GPXPointViewerApp.swift",
+    "GPXPointViewer/ContentView.swift",
+    "GPXPointViewer/RegionsWindow.swift",
+    "GPXPointViewer/TrackData.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041020",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 12633,
+  "process_owner": {
+    "pid": 12633,
+    "parent_pid": 12630,
+    "process_identity": "darwin:12633:1793333420.198843",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

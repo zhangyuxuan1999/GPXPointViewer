@@ -1,0 +1,21 @@
+{
+  "label": "local-derived-data-one-fixture",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014903",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 23986,
+  "process_owner": {
+    "pid": 23986,
+    "parent_pid": 23985,
+    "process_identity": "darwin:23986:1793411343.106375",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.15
+}

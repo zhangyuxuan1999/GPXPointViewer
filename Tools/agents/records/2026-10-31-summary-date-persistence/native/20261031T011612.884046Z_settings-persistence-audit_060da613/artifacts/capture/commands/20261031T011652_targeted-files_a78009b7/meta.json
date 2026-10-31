@@ -1,0 +1,25 @@
+{
+  "label": "targeted-files",
+  "argv": [
+    "rg",
+    "--files",
+    "GPXPointViewer",
+    "docs",
+    "Tools/agents/records/2026-10-31-install",
+    "Tests/ui"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T011652",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 91383,
+  "process_owner": {
+    "pid": 91383,
+    "parent_pid": 91382,
+    "process_identity": "darwin:91383:1793409412.114085",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

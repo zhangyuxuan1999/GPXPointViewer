@@ -1,0 +1,27 @@
+{
+  "label": "driver-pref-paths",
+  "argv": [
+    "rg",
+    "-n",
+    "-C",
+    "3",
+    "pref|defaults|Containers|org.zyx|bundleIdentifier|com.zyx|GPXPointViewer",
+    "Tools/agents/records/2026-10-30-journey-summary/coordinator/header-layout-final-review.md",
+    "Tools/agents/records/2026-10-31-install/20261031T010133.762744Z/coordinator/install_accepted.py",
+    "Tools/archive_build.py"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T011706",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 91677,
+  "process_owner": {
+    "pid": 91677,
+    "parent_pid": 91673,
+    "process_identity": "darwin:91677:1793409426.507038",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

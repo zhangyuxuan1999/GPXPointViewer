@@ -1,0 +1,21 @@
+{
+  "label": "020-synthetic-ownership",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041102",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 12998,
+  "process_owner": {
+    "pid": 12998,
+    "parent_pid": 12995,
+    "process_identity": "darwin:12998:1793333462.495687",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.05
+}

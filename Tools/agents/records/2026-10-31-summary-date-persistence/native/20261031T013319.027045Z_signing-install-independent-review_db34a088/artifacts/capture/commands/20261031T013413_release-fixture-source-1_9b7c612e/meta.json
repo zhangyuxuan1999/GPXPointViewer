@@ -1,0 +1,23 @@
+{
+  "label": "release-fixture-source-1",
+  "argv": [
+    "sed",
+    "-n",
+    "1,135p",
+    "Tests/agents/test_release_install.py"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T013413",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 5692,
+  "process_owner": {
+    "pid": 5692,
+    "parent_pid": 5691,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

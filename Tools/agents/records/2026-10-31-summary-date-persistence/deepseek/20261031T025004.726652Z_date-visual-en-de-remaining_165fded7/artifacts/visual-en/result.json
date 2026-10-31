@@ -1,0 +1,19 @@
+{
+  "name": "visual-en",
+  "argv": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "/Users/zyx/Documents/GPXPointViewer/Tests/ui/run_summary_navigation_tests.py",
+    "--evidence",
+    "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/deepseek/20261031T025004.726652Z_date-visual-en-de-remaining_165fded7/artifacts/visual-en",
+    "--mode",
+    "visual-only",
+    "--language",
+    "en"
+  ],
+  "mode": "visual-only",
+  "language": "en",
+  "started": "2026-10-31T02:50:26.558726+00:00",
+  "pid": 56401,
+  "exit_code": 0,
+  "finished": "2026-10-31T02:50:34.362960+00:00"
+}

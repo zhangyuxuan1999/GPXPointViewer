@@ -1,0 +1,43 @@
+{
+  "label": "locate-sources",
+  "argv": [
+    "rg",
+    "--files",
+    "-g",
+    "*JourneySummary*",
+    "-g",
+    "*TrackStore*",
+    "-g",
+    "*UITestHook*",
+    "-g",
+    "*summary*navigation*",
+    "-g",
+    "*summary*date*",
+    "-g",
+    "*summary*ui*",
+    "-g",
+    "*persistence*",
+    "-g",
+    "*ExportSheet*",
+    "-g",
+    "*GPXPointViewerApp*",
+    "-g",
+    "*ContentView*",
+    "GPXPointViewer",
+    "Tests"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T013956",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 13379,
+  "process_owner": {
+    "pid": 13379,
+    "parent_pid": 13375,
+    "process_identity": "darwin:13379:1793410796.909499",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.03
+}

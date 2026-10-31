@@ -1,0 +1,2 @@
+
+Confirmed agent progress: Astra chooses fixed YMD and same-day content; unified semantic opening from main day filter, including already-open windows. Sol audit found original and current explicit language/idle values coincide, so prefer no real preference writes if final check still same. Tools Sol chooses existing Xcode adhoc signing, explicit unsigned archives not installable, strict main+appex checks and staging rollback. No test execution yet.

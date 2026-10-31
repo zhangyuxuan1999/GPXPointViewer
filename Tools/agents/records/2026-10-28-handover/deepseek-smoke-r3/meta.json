@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "model_requested": "deepseek-flash[1m]",
+  "expected_backend": "DeepSeek V4.1 Flash",
+  "effort": "max",
+  "route": "Existing ~/bin/claude-ds via localhost metadata observer to api.deepseek.com/anthropic",
+  "scope": "synthetic fixture only; Read only; 4 turns maximum; 180 second timeout",
+  "credentials": "existing wrapper; never stored in logs",
+  "cost_usd": null,
+  "recovery": "Read task.md/progress.md/result.json. Do not repeat a successful run.",
+  "result": "result.json",
+  "previous_attempt": "deepseek-smoke-r2",
+  "reason": "已修复观察器 CLI 系统事件解析错误；重新验证完整工具往返",
+  "runner_sha256": "87373779ceafc93ab2e65b29cf499d6071a4faed1755412df3fe9d881e31eb1b"
+}

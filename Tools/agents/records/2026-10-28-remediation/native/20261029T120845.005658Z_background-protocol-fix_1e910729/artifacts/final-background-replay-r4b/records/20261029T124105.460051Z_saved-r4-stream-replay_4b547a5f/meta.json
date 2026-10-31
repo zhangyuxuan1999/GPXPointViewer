@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "run_id": "20261029T124105.460051Z_saved-r4-stream-replay_4b547a5f",
+  "name": "saved-r4-stream-replay",
+  "provider": "deepseek-cli",
+  "requested_model": "deepseek-flash",
+  "requested_effort": "max",
+  "observed_model": null,
+  "observed_effort": null,
+  "model_verification": "CLI report only; actual outbound model/effort unverified",
+  "cwd": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/native/20261029T120845.005658Z_background-protocol-fix_1e910729/artifacts/final-background-replay-r4b/workspace",
+  "task_source": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/native/20261029T120845.005658Z_background-protocol-fix_1e910729/artifacts/final-background-replay-r4b/task.md",
+  "started_utc": "2026-10-29T12:41:05.460699+00:00",
+  "watch": [
+    "."
+  ],
+  "allow_write": [],
+  "snapshot_exclusions": {
+    "parts": [
+      ".agents",
+      ".aws",
+      ".codex",
+      ".git",
+      "DerivedData",
+      "__pycache__",
+      "node_modules",
+      "sdkenv"
+    ],
+    "prefixes": [
+      "Tools/agents/records",
+      "Tools/agents/runs",
+      "Tests/reports",
+      "Tests/ui/app.noindex",
+      "Tests/ui/perf",
+      "Tests/ui/synth.gpx",
+      "Tests/exam/results",
+      "Tests/synth/runner/synthrunner",
+      "Tests/synth/runner/build.log"
+    ],
+    "default_prefixes": [
+      "Tools/agents/records",
+      "Tools/agents/runs",
+      "Tests/reports",
+      "Tests/ui/app.noindex",
+      "Tests/ui/perf",
+      "Tests/ui/synth.gpx",
+      "Tests/exam/results",
+      "Tests/synth/runner/synthrunner",
+      "Tests/synth/runner/build.log"
+    ],
+    "user_prefixes": [],
+    "explicit_overrides": [],
+    "generated_pattern": "^Tests/synth/(?:format-edge|garmin-tunnels|legit-motion|replay-artefacts|scale-mixed|stationary-noise)/[^/]+\\.(?:gpx|csv|fit|bin)$"
+  },
+  "parent_run": null,
+  "recovery": "context",
+  "cost_usd": null,
+  "cost_source": "unknown",
+  "max_turns": 40,
+  "timeout_seconds": 90.0,
+  "pid": 62349,
+  "child_pid": 62356,
+  "child_process_identity": "darwin:62356:1793277665.512871",
+  "process_identity": "darwin:62349:1793277665.414245",
+  "session_id": "81257d1d-9a6e-4d92-a98e-30f715dc6132",
+  "cli_reported_model": "deepseek-flash"
+}

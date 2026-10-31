@@ -1,0 +1,27 @@
+{
+  "status": "complete",
+  "provider_status": "succeeded",
+  "verification_status": "passed",
+  "tests": {
+    "total": 54,
+    "passed": 54,
+    "failed": 0,
+    "legacy_evidence": 5,
+    "current_implementation": 49,
+    "duration_seconds": 11.825
+  },
+  "final_test_output": "command-output/20261028T225520_674253_b50db553.txt",
+  "source_hashes_stable": true,
+  "source_comparison": "tested-source-comparison.json",
+  "changed_test_files": 11,
+  "unresolved_findings": [],
+  "requested_model": "gpt-6.1-sol",
+  "requested_effort": "ultra",
+  "actual_model_receipt": null,
+  "usage": null,
+  "cost_usd": null,
+  "real_provider_api_requests": 0,
+  "app_started": false,
+  "product_build_performed": false,
+  "finished_utc": "2026-10-28T22:57:00.645746+00:00"
+}

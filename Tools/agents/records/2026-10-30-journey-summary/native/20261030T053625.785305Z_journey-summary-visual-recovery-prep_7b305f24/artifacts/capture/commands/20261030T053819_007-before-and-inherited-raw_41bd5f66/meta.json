@@ -1,0 +1,21 @@
+{
+  "label": "007-before-and-inherited-raw",
+  "argv": [
+    "python3",
+    "Tools/agents/records/2026-10-30-journey-summary/native/20261030T053625.785305Z_journey-summary-visual-recovery-prep_7b305f24/artifacts/record_before.py"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T053819",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 41884,
+  "process_owner": {
+    "pid": 41884,
+    "parent_pid": 41883,
+    "process_identity": "darwin:41884:1793338699.162715",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.03
+}

@@ -1,0 +1,24 @@
+{
+  "label": "032-current-scope-doc-map",
+  "argv": [
+    "rg",
+    "-n",
+    "^#|时间|统计|行程|大数据|性能|分段|缺失|合成",
+    "README.md",
+    "Tests/README.md"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041151",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 13390,
+  "process_owner": {
+    "pid": 13390,
+    "parent_pid": 13385,
+    "process_identity": "darwin:13390:1793333511.159074",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

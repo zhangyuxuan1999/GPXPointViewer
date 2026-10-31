@@ -1,0 +1,22 @@
+{
+  "label": "sdk-native-date-apis",
+  "argv": [
+    "/bin/zsh",
+    "-c",
+    "rg -n \"validateEditing|textDidEndEditing|doCommandBy|performKeyEquivalent|sendAction|isContinuous|datePickerStyle|textFieldAndStepper|delegate\" /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSControl.h /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSDatePicker.h /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSDatePickerCell.h /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSWindow.h; sed -n \"1,135p\" /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSDatePicker.h; sed -n \"80,180p\" /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSControl.h"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T021504",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 42719,
+  "process_owner": {
+    "pid": 42719,
+    "parent_pid": 42718,
+    "process_identity": "darwin:42719:1793412904.488182",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.02
+}

@@ -1,0 +1,12 @@
+{
+  "app": "/private/tmp/gpxpv-label-build/Build/Products/Release/GPXPointViewer.app",
+  "executable_sha256": "22e77c206e74eb6a88d1a9b56cf1a3d6dc7b0928e7d1784cd1e29943c91d0cf2",
+  "created_utc": "2026-10-29T13:16:26.278364+00:00",
+  "source_manifest": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/coordinator/label-source-manifest.json",
+  "bundle_manifest": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/coordinator/label-build-bundle-manifest.json",
+  "build_record": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/coordinator/commands/20261029T131256_label-release-build_6b57d306/result.json",
+  "previous_build_manifest": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/r4-final-work/build-manifest.json",
+  "previous_executable_sha256": "445940ea23807364b0b4c09ea99e73077ed0d5f6253da20b3653988c114b22cb",
+  "change_scope": "Only ContentView engine-label font frames and collision avoidance; all other 49 source inputs unchanged.",
+  "inherited_tests": "Original 11 UI groups, remaining numeric phases, and three-language fixed-footer pixels belong to previous executable. Not rerun or relabelled."
+}

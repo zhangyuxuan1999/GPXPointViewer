@@ -1,0 +1,113 @@
+{
+  "process_cleanup": [
+    {
+      "pid": 5643,
+      "status": "incomplete",
+      "attempts": [
+        {
+          "operation": "group_sigterm",
+          "outcome": "error",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected cleanup denial"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "wait",
+          "outcome": "ok"
+        },
+        {
+          "operation": "group_sigkill",
+          "outcome": "error",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected cleanup denial"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "wait",
+          "outcome": "ok"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "group_probe",
+          "outcome": "error",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected cleanup denial"
+        },
+        {
+          "operation": "exit_code",
+          "outcome": "ok"
+        }
+      ],
+      "errors": [
+        {
+          "operation": "group_sigterm",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected cleanup denial"
+        },
+        {
+          "operation": "group_sigkill",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected cleanup denial"
+        },
+        {
+          "operation": "group_probe",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected cleanup denial"
+        }
+      ],
+      "leader_alive": false,
+      "group_alive": null,
+      "leader_exit_code": 0,
+      "duration_s": 0.0013537080958485603
+    }
+  ],
+  "cleanup_complete": false,
+  "stream_incomplete": false,
+  "runner_exit_code": 0,
+  "provider_status": "succeeded",
+  "acceptance_status": "pending",
+  "exit_code": 0,
+  "is_error": false,
+  "error": null,
+  "interrupted": false,
+  "runner_terminal_reason": null,
+  "protocol_errors": [],
+  "duration_s": 60.118,
+  "cost_usd": null,
+  "cost_source": "unknown",
+  "cli_reported_cost_usd": 0.125,
+  "cost_note": "CLI estimate is not authoritative DeepSeek billed cost.",
+  "session_id": "offline-session-123",
+  "subtype": "success",
+  "terminal_reason": "completed",
+  "stop_reason": "end_turn",
+  "errors": null,
+  "api_error_status": null,
+  "permission_denials": null,
+  "usage": {
+    "input_tokens": 123,
+    "output_tokens": 45
+  },
+  "num_turns": 2,
+  "out_of_scope_changes": [],
+  "incomplete_checks": "Task acceptance requires independent review; provider completion is separate.",
+  "finished_utc": "2026-10-29T00:49:38.989062+00:00",
+  "status": "succeeded",
+  "run_status": "succeeded",
+  "verification_status": "not_run"
+}

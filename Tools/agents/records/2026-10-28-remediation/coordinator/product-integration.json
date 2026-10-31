@@ -1,0 +1,407 @@
+{
+  "source": "/private/tmp/gpxpv-segment-integration-o3kf8civ",
+  "destination": "/Users/zyx/Documents/GPXPointViewer",
+  "files": [
+    {
+      "path": "GPXPointViewer/GPXParser.swift",
+      "before_sha256": "23c99716d6d0b3c7f6fdfcac7e42a22754aa93f5f06f70add2c3acf289dcb1a0",
+      "source_sha256": "8bd92bfd7cbe1628947793b93517d6e4a61e4da54289d6de8159cba33016909c",
+      "mode": 384,
+      "size": 56253
+    },
+    {
+      "path": "GPXPointViewer/TrackData.swift",
+      "before_sha256": "871290d5728067cf1cceb369764838f371e6517dc73ff98c98c36aceb8f048ff",
+      "source_sha256": "aba4e10bcc5d2610c45e93b54f2c7873f9db6e8b00d23ac0c0683dd182ef252b",
+      "mode": 384,
+      "size": 84068
+    },
+    {
+      "path": "GPXPointViewer/GeoCompute.swift",
+      "before_sha256": "63bb6433f2ff01a4855fcf81c1cddcfe34a38322b96515df0b6849a77249c306",
+      "source_sha256": "759e56878af92cbbb099e9b64610d20b4adf580859e1f6a2450732874ed023aa",
+      "mode": 384,
+      "size": 12537
+    },
+    {
+      "path": "GPXPointViewer/GPXWriter.swift",
+      "before_sha256": "0c25a9af919edd52f97e73ad19bd96b05b9503daea4aacff06cbec2e7de8d37c",
+      "source_sha256": "dd5bb95b52419e7ce83e09e1798b172fb7c1d4e565f8e1a92876d18f4a8a3f2f",
+      "mode": 384,
+      "size": 10882
+    },
+    {
+      "path": "GPXPointViewer/MetalPointRenderer.swift",
+      "before_sha256": "599427a28313e466c1b12847edf950b8a59e7264934baacafe0fe92bf3362df2",
+      "source_sha256": "3eb38d011e71879bdab608a6e2139c47f455b0f9c0b1df71e7aa35ce529496cf",
+      "mode": 420,
+      "size": 116293
+    },
+    {
+      "path": "GPXPointViewer/Shaders.metal",
+      "before_sha256": "058d914045d428080cecc5f7b20c120e21b77f2f247dd7a573448ba4714d5dcd",
+      "source_sha256": "90532eaaa7422a770704fdb14bf9167db0429b3a8f69c5210348252c1c9facd6",
+      "mode": 384,
+      "size": 53388
+    },
+    {
+      "path": "GPXPointViewer/GapFill.swift",
+      "before_sha256": "e83fbe1096ce09faab5358ec5bb36c9d042e74560b7f211bf2fa1165ba27640b",
+      "source_sha256": "34a542ea9a55d14a87d088be36e4ccfc20ba6fb71c48ae77a1184a3243f428f8",
+      "mode": 420,
+      "size": 143635
+    },
+    {
+      "path": "GPXPointViewer/BatchFill.swift",
+      "before_sha256": "a806c3ace83029caff90555cce0c159a70d81573250b91ca022bea94d32e2be9",
+      "source_sha256": "6a2995101efea213bfd5163f58ece7975fd5cca8240bc19a3ca7e93a0cd0b5db",
+      "mode": 420,
+      "size": 26210
+    },
+    {
+      "path": "GPXPointViewer/TrackStore.swift",
+      "before_sha256": "5fcba32b92658f84e48093aa9271651f1f15bc9308f4ac15eacb4b494e350719",
+      "source_sha256": "eebd8be064d368b737c9809b471a2e545ae47583f590db98e76393c6b2742e22",
+      "mode": 384,
+      "size": 277097
+    },
+    {
+      "path": "GPXPointViewer/ChangeLog.swift",
+      "before_sha256": "3cf087362471b779565244b231887e68ed95db89372a38f9b3bb2ea968459381",
+      "source_sha256": "8ed360e760fb00c709d81cc0365cb1f8d14e678715ce30822fd0348b6a299663",
+      "mode": 420,
+      "size": 18193
+    },
+    {
+      "path": "GPXPointViewer/BatchFillWindow.swift",
+      "before_sha256": "a0f7119aca1bb07025a78058d52a5e3c0c2563c2a9e86848231887da2c2917fc",
+      "source_sha256": "ae3692ab3b4b44e6bf267f6f93183dcfae2e28c538eec41c6a642a57d314cc9d",
+      "mode": 420,
+      "size": 79863
+    },
+    {
+      "path": "GPXPointViewer/ChangeReviewWindow.swift",
+      "before_sha256": "6507d8ae2efa886a1f065d310e5aa88cdd9a4e911de181ed39fac63400034cce",
+      "source_sha256": "1bc5d89b200777f19e1e4ffebb9de9a0c24230de626772e6186687b3d29dd9dd",
+      "mode": 420,
+      "size": 52438
+    },
+    {
+      "path": "GPXPointViewer/ContentView.swift",
+      "before_sha256": "062941d4c8038a7bc254618b0b4e4f09dfc9add932ab4d9f3c5b1f7954662906",
+      "source_sha256": "394e37443581905d505ca510ffec8186b7e443423fa89403c19d386bfc3cb95f",
+      "mode": 384,
+      "size": 150102
+    },
+    {
+      "path": "GPXPointViewer/UITestHook.swift",
+      "before_sha256": "ce8fe2a545dcc0e8f3ed9307f76ca8787ab24244aceb12e389a79a580ad5d978",
+      "source_sha256": "dc5597c6fdb6b18464b9ebc7cda16d39a589b6b0848d9e759c070e9a8bdde783",
+      "mode": 420,
+      "size": 77445
+    },
+    {
+      "path": "GPXPointViewer/PointMapView.swift",
+      "before_sha256": "6d82fc53b4a2f12617f8e9e238d83e716f11252e887e15c669dfd9abdb5e38e2",
+      "source_sha256": "f88486f739b8ba6246720de1827b46fc4823cc893de28814661aa78c793ed0de",
+      "mode": 384,
+      "size": 189670
+    },
+    {
+      "path": "GPXQuickLook/TrackShape.swift",
+      "before_sha256": "c99308cb8ec25354d007667642ba32e275cda3c3924783ecbda5c525ec7cebae",
+      "source_sha256": "b4d772fa1247887adbaf036df74a1bc07ca90d0c4dbe36321487437200c54c96",
+      "mode": 420,
+      "size": 13024
+    },
+    {
+      "path": "GPXQuickLook/PreviewViewController.swift",
+      "before_sha256": "89be72da01ec8dc7c1da332b9bd92f50642519362c429d6dedce53303f03696e",
+      "source_sha256": "d995a01f1b9e95eaac9df1fe19a48b850c82e804835f713bba0cb714e7e3ba94",
+      "mode": 420,
+      "size": 6451
+    },
+    {
+      "path": "GPXThumbnail/ThumbnailProvider.swift",
+      "before_sha256": "bf9f33c42dfb598ebaaf412b1028ba2627e59bf8a36dc58d81ca8fdf17107245",
+      "source_sha256": "ee91e26139dbf8e38878f009cb34ec05bba22d6a7f0ff8a2a6345d39e8398502",
+      "mode": 420,
+      "size": 1733
+    },
+    {
+      "path": "GPXPointViewer/Localizable.xcstrings",
+      "before_sha256": "52d9a59ac387273e8767243166068d0017cf6e3083403e6e18ff3697290bd2bb",
+      "source_sha256": "c13be557e06e5d0fbbbceb0faf0c49e756c7204309f60f2cf2d887537f1e656b",
+      "mode": 420,
+      "size": 914887
+    },
+    {
+      "path": "Tests/l10n/translations/chunk_29.json",
+      "before_sha256": null,
+      "source_sha256": "dcb8ac4539e3dedcfb9cd9a8debb428e2b84783d023052517941f05dbd73ba1c",
+      "mode": 420,
+      "size": 3133
+    },
+    {
+      "path": "Tests/synth/runner/main.swift",
+      "before_sha256": "199142dadc6ce6b9d5e93b03884926044af760b8ed67659bf3dd84cb0d63bf81",
+      "source_sha256": "3807feee2faad1f61e1d4f15ce5a708fc8dde51c04121e027b6b66c62664a873",
+      "mode": 420,
+      "size": 47446
+    },
+    {
+      "path": "Tests/synth/runner/exam.swift",
+      "before_sha256": "fed6fbc61c0272d5ede95006b2f37ec5da75a7246fbc3ba9611774f11c0c89f7",
+      "source_sha256": "7f941893ddcc9e8168bdc84ab0b2a7e23041d069b29d004fd98952f2396defc1",
+      "mode": 420,
+      "size": 28660
+    },
+    {
+      "path": "Tests/synth/runner/check.py",
+      "before_sha256": "a0abab71fb58f3cb189ecc2cd54ea044acfaca0f799ba2ea267ac5617695c103",
+      "source_sha256": "46bb2c20b6a6f2f8d4da2996f7dc9b2b8ba96ea02542f5994be2c560353c0cd4",
+      "mode": 420,
+      "size": 27841
+    },
+    {
+      "path": "Tests/synth/format-edge/gen.py",
+      "before_sha256": "6e129b473751de14a5b727a6042f164b6033a74296c4da83c6810483427b37ec",
+      "source_sha256": "171a58a563c2934d88d4cb2901b16212e162b6ab3f069b49a3072e5fb3c5e4a1",
+      "mode": 420,
+      "size": 71819
+    },
+    {
+      "path": "Tests/synth/format-edge/expect.json",
+      "before_sha256": "66f45e4d82bf8d851be7109337e37c927dd1a290bc4140953fd562ad03e7e3c7",
+      "source_sha256": "cbe1cf042e6fe38e76af7684715c23b1d21f025e906f97f78a05270968014469",
+      "mode": 420,
+      "size": 34650
+    },
+    {
+      "path": "Tests/synth/scale-mixed/gen.py",
+      "before_sha256": "f6fc5e276a9ec806469fc8f83d357fd01a6acc5304d8fa4ab7546f472ac7a892",
+      "source_sha256": "efcc47f1b958f0054ca156da8fcf6be4c9cbe14569cdd003f0778b785691af43",
+      "mode": 420,
+      "size": 69273
+    },
+    {
+      "path": "Tests/synth/scale-mixed/expect.json",
+      "before_sha256": "9e514a55258cd2696b785cf2449af0147b25dbd2f62ebaaa2db0f7efd0b44f93",
+      "source_sha256": "0cd765ec8bdae341492a246d6f9e45c38a151286b3e886d538cfd8ef380d9e79",
+      "mode": 420,
+      "size": 20834
+    },
+    {
+      "path": "Tests/synth/scale-mixed/README.md",
+      "before_sha256": "83348879c639c3e47cf61617ebd591094bdc759e7626cf32896bde966c48e356",
+      "source_sha256": "b470a3b5db6333a2e1b13d0d0db0d399616102736ae69a1fb7c1cb2ce1e33e51",
+      "mode": 420,
+      "size": 7919
+    },
+    {
+      "path": "Tests/segments/core/README.md",
+      "before_sha256": null,
+      "source_sha256": "2e96805f08688b4e1068d82a78f4994a28994d887d21c41a9d6451cce5d0cca1",
+      "mode": 420,
+      "size": 2642
+    },
+    {
+      "path": "Tests/segments/core/Support.swift",
+      "before_sha256": null,
+      "source_sha256": "01b7fc08ccd739054fb7d8b3ccb23addc1244cafaa4119c850ea850099bf1fb8",
+      "mode": 420,
+      "size": 666
+    },
+    {
+      "path": "Tests/segments/core/benchmark/main.swift",
+      "before_sha256": null,
+      "source_sha256": "f8c9a2cdd558fd086c16cc2a3b19a32d51ae4f399dcaff6d71d6eaa75210dac7",
+      "mode": 420,
+      "size": 1327
+    },
+    {
+      "path": "Tests/segments/core/benchmark/run.py",
+      "before_sha256": null,
+      "source_sha256": "ad6a9bebcb6a8f9684ccbf0e27dc4f1aa156fd3f4abd2d592673b855814d83ca",
+      "mode": 420,
+      "size": 1360
+    },
+    {
+      "path": "Tests/segments/core/main.swift",
+      "before_sha256": null,
+      "source_sha256": "d6215e27cf113a4e6fc925146ba332a852fcdd491b21cfadf1f22e8b37023cf4",
+      "mode": 420,
+      "size": 11883
+    },
+    {
+      "path": "Tests/segments/core/preview/main.swift",
+      "before_sha256": null,
+      "source_sha256": "a55232092eaecccbaf8311818289d36467dd673adf6b62de7276fd0c40021880",
+      "mode": 420,
+      "size": 7889
+    },
+    {
+      "path": "Tests/segments/core/preview/run.py",
+      "before_sha256": null,
+      "source_sha256": "a34c7c4c18126644bf59b218385b0ba6af3d749d2723e93708ec8c3221763272",
+      "mode": 420,
+      "size": 900
+    },
+    {
+      "path": "Tests/segments/core/run.py",
+      "before_sha256": null,
+      "source_sha256": "c1029d91a1ab60bef5bfd7cebe57f2677fa5d6673404a0f5902645708650f91d",
+      "mode": 420,
+      "size": 1926
+    },
+    {
+      "path": "Tests/segments/render/README.md",
+      "before_sha256": null,
+      "source_sha256": "ffeddb759d7b8e4d2797928b604d57320f0d0bbde3f550f4203065f47c356d65",
+      "mode": 420,
+      "size": 2162
+    },
+    {
+      "path": "Tests/segments/render/dependencies/BatchFill.swift",
+      "before_sha256": null,
+      "source_sha256": "a806c3ace83029caff90555cce0c159a70d81573250b91ca022bea94d32e2be9",
+      "mode": 420,
+      "size": 26212
+    },
+    {
+      "path": "Tests/segments/render/dependencies/Colormaps.swift",
+      "before_sha256": null,
+      "source_sha256": "0e86ed3b4b3ebc784df91dc123054bca2249ca5ad7ad17d272e3287eabbe24f8",
+      "mode": 420,
+      "size": 10794
+    },
+    {
+      "path": "Tests/segments/render/dependencies/FillPlausibility.swift",
+      "before_sha256": null,
+      "source_sha256": "b740419e409226d9daf4d780a1e6676d494f0c899bb152120dce92e9883f204f",
+      "mode": 420,
+      "size": 31243
+    },
+    {
+      "path": "Tests/segments/render/dependencies/GPXParser.swift",
+      "before_sha256": null,
+      "source_sha256": "8bd92bfd7cbe1628947793b93517d6e4a61e4da54289d6de8159cba33016909c",
+      "mode": 384,
+      "size": 56253
+    },
+    {
+      "path": "Tests/segments/render/dependencies/GPXWriter.swift",
+      "before_sha256": null,
+      "source_sha256": "0c25a9af919edd52f97e73ad19bd96b05b9503daea4aacff06cbec2e7de8d37c",
+      "mode": 420,
+      "size": 10137
+    },
+    {
+      "path": "Tests/segments/render/dependencies/GapFill.swift",
+      "before_sha256": null,
+      "source_sha256": "e83fbe1096ce09faab5358ec5bb36c9d042e74560b7f211bf2fa1165ba27640b",
+      "mode": 420,
+      "size": 120913
+    },
+    {
+      "path": "Tests/segments/render/dependencies/GeoCompute.swift",
+      "before_sha256": null,
+      "source_sha256": "759e56878af92cbbb099e9b64610d20b4adf580859e1f6a2450732874ed023aa",
+      "mode": 384,
+      "size": 12537
+    },
+    {
+      "path": "Tests/segments/render/dependencies/Heat3D.swift",
+      "before_sha256": null,
+      "source_sha256": "1da6a081b456007f240a88f5a512ae57788c5a6aad4c4fb0262f51b1fbcba49c",
+      "mode": 420,
+      "size": 15072
+    },
+    {
+      "path": "Tests/segments/render/dependencies/L10nSupport.swift",
+      "before_sha256": null,
+      "source_sha256": "42231e9844aa73f9a1e51dc72f93bc4386a6a35d25917f1f8212e4b4a30989d3",
+      "mode": 420,
+      "size": 1014
+    },
+    {
+      "path": "Tests/segments/render/dependencies/PixelGlobe.swift",
+      "before_sha256": null,
+      "source_sha256": "5e52dbad6163f0a904a78a1a799eadfaee643836aae4fa48dcae5579e0681174",
+      "mode": 420,
+      "size": 26737
+    },
+    {
+      "path": "Tests/segments/render/dependencies/RoadNetwork.swift",
+      "before_sha256": null,
+      "source_sha256": "bba3adb062a583a706c2fdf455b13843ba26f18330f7a7db40104655175aa58d",
+      "mode": 420,
+      "size": 166094
+    },
+    {
+      "path": "Tests/segments/render/dependencies/RouteReplay.swift",
+      "before_sha256": null,
+      "source_sha256": "4c56f06f6ff6d981ceffdf2eeb51eaa7bc2b16e5784e08e48babf63f43064bd4",
+      "mode": 420,
+      "size": 11332
+    },
+    {
+      "path": "Tests/segments/render/dependencies/TrackData.swift",
+      "before_sha256": null,
+      "source_sha256": "aba4e10bcc5d2610c45e93b54f2c7873f9db6e8b00d23ac0c0683dd182ef252b",
+      "mode": 384,
+      "size": 84068
+    },
+    {
+      "path": "Tests/segments/render/fixtures/Shaders-before.metal",
+      "before_sha256": null,
+      "source_sha256": "058d914045d428080cecc5f7b20c120e21b77f2f247dd7a573448ba4714d5dcd",
+      "mode": 420,
+      "size": 49894
+    },
+    {
+      "path": "Tests/segments/render/gpu-fixtures.swift",
+      "before_sha256": null,
+      "source_sha256": "3ac0cff82546869c1be72cd6015e9f803130adff4ea7974127e535262bd8d74f",
+      "mode": 420,
+      "size": 6977
+    },
+    {
+      "path": "Tests/segments/render/main.swift",
+      "before_sha256": null,
+      "source_sha256": "10dd4c9f9da91625268e401d307de8e55870efbcb5457429b900cf9a6d5bd005",
+      "mode": 420,
+      "size": 19185
+    },
+    {
+      "path": "Tests/segments/render/p3.swift",
+      "before_sha256": null,
+      "source_sha256": "fe42cb68483c98d9b4801ed7dc7c9800c7b3571de1a20b183e53d673835f449d",
+      "mode": 420,
+      "size": 8358
+    },
+    {
+      "path": "Tests/segments/render/run.py",
+      "before_sha256": null,
+      "source_sha256": "63c4bdcb1bc2aa583bc7b6eb614909ab9d799a8e58405270475ea99cada51c87",
+      "mode": 420,
+      "size": 2970
+    },
+    {
+      "path": "Tests/segments/workflow/WorkflowRegression.swift",
+      "before_sha256": null,
+      "source_sha256": "cc9cd719d793f6302080b8f08ea5eb24db60e327d04a1e43ac61cf896c82bfff",
+      "mode": 420,
+      "size": 31176
+    },
+    {
+      "path": "Tests/segments/workflow/run.py",
+      "before_sha256": null,
+      "source_sha256": "d01950eb3d2a1f838f06b2f13a335dfea2016348e4b5473aa0760bb48784308e",
+      "mode": 420,
+      "size": 3735
+    }
+  ],
+  "created_utc": "2026-10-29T01:07:22.592234+00:00",
+  "note": "Explicit owned product files and test sources only. No Git operation, install or cache copy."
+}

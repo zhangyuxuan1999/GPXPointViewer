@@ -1,0 +1,21 @@
+{
+  "label": "read-new-task",
+  "argv": [
+    "cat",
+    "Tools/agents/records/2026-10-30-journey-summary/coordinator/store-review-task.md"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T050246",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 27898,
+  "process_owner": {
+    "pid": 27898,
+    "parent_pid": 27897,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.0
+}

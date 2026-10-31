@@ -1,0 +1,21 @@
+{
+  "label": "023-synthetic-exact",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041122",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 13158,
+  "process_owner": {
+    "pid": 13158,
+    "parent_pid": 13154,
+    "process_identity": "darwin:13158:1793333482.680036",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.03
+}

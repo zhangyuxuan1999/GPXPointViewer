@@ -1,0 +1,43 @@
+{
+  "finalized_utc": "2026-10-29T13:44:19.116804+00:00",
+  "status": "passed",
+  "scope": "Requested R4 remaining retest and remediation; existing four-case exam baseline retained",
+  "unresolved_new_findings": [],
+  "unexecuted_required_phases": [],
+  "inherited_ui_groups": 11,
+  "rerun_ui_groups": 0,
+  "old_executable_sha256": "445940ea23807364b0b4c09ea99e73077ed0d5f6253da20b3653988c114b22cb",
+  "new_executable_sha256": "22e77c206e74eb6a88d1a9b56cf1a3d6dc7b0928e7d1784cd1e29943c91d0cf2",
+  "new_build_scope": "Engine-label geometry/display only; all other 49 build sources unchanged. Old UI/numeric/footer evidence is explicitly inherited, not executed anew.",
+  "tests": {
+    "synth": "114/114",
+    "selftests": "51/51",
+    "exam": "each engine 121/125; four existing baseline cases unchanged",
+    "tools": "109/109 plus actual DeepSeek follow-ups",
+    "label_font_geometry": "24/24",
+    "footer_pixels": "zh-Hans/en/de passed",
+    "label_pixels": "passed"
+  },
+  "original_failed_label_cleanup": "Preserved as failed; only its window restore is closed by the separate exact-state cleanup run.",
+  "exact_window_cleanup_run": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/deepseek/20261029T133852.372561Z_r4-cleanup-final_b50062b0",
+  "preference_sha256": "54e413eb9f2b470a41226ef20961c3fceb1963ed01668a834e570ba502e295a8",
+  "public_route_requests": 0,
+  "release_install_performed": false,
+  "git_commit_or_push_performed": false,
+  "evidence": {
+    "r4-final-partial-review.md": "3cfdd06f5e3596a30bee6561b624b68cbfc1ffb0485162ce24b4d59b5eaf68a2",
+    "r4-remaining-independent-review.json": "f337ebaff3e42df0e45a846a21bafeaa17ce2d00a701fcbd7268470f703eb278",
+    "background-protocol-root-review.json": "490e1f65428b5d8df9de59ba8721c4c68113231131e55b719553fd2719ab6f00",
+    "r4-visual-retry-review.md": "f8bd0b4bdce06bebb70502e8eb980c021496d43c4a78b997d35a01d9c9131c44",
+    "r4-visual-retry-pixel-review.json": "20e10a530509b3a8038cdacdbdc7ad51d69e82995aff30a678a38b27709984b9",
+    "label-fix-root-review.json": "2ba0e265af5d5e0144bb451210507c4211ce66eca6ebf8f8392db4d0889222f0",
+    "label-helper-root-review.json": "32bdb6f9c46ea1302c3e5cfdf5a577067b54e256a5fc516e557949afcbaa02b1",
+    "label-final-independent-review.json": "4b8eab4940f6be60c2e83ebd96396d9b0059890878372497f38993887f248966",
+    "label-final-pixel-review.json": "6c19efaa7fce4ed49d56639517a351872896c0d1419c35cd3a3ab19c25d11ed9",
+    "label-cleanup-helper-root-review.json": "07a1d234b0247f3c8d2bbf6ab71121219c306f50bc5a129e4f037f63754f308e",
+    "label-cleanup-final-root-review.json": "5526f52cd6252551ca0347c001bcd4c6eaf1614787a7b129c897eed2c6d407a7",
+    "final-project-input-check.json": "715568ac88abc9b5b4835658398895374e9ccb1e9210d5c8546305c59b6e9a3a",
+    "fixture-labels-semantic-diff.json": "c80fa8f3daaabcc79538958a2f416635cdf3d5987cdcbbec7cbaf3559fd3fc04",
+    "label-build-manifest.json": "e93ba2477dc290aa027d6a40942e9cb21edc564ca849f09d0ce8312083379406"
+  }
+}

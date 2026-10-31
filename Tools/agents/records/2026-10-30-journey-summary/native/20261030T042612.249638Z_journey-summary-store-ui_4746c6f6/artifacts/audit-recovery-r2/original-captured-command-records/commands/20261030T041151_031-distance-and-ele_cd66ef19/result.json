@@ -1,0 +1,21 @@
+{
+  "label": "031-distance-and-ele",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041151",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 13389,
+  "process_owner": {
+    "pid": 13389,
+    "parent_pid": 13386,
+    "process_identity": "darwin:13389:1793333511.159070",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.03
+}

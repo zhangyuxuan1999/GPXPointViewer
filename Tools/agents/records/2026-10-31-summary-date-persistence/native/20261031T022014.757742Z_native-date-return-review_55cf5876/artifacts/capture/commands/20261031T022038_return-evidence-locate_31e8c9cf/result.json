@@ -1,0 +1,28 @@
+{
+  "label": "return-evidence-locate",
+  "argv": [
+    "rg",
+    "--files",
+    "Tools/agents/records/2026-10-31-summary-date-persistence",
+    "-g",
+    "native-keyboard-first.json",
+    "-g",
+    "settings-and-entry-inheritance.md",
+    "-g",
+    "*utc*"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T022038",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 45895,
+  "process_owner": {
+    "pid": 45895,
+    "parent_pid": 45891,
+    "process_identity": "darwin:45895:1793413238.306188",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.02
+}

@@ -1,0 +1,11 @@
+{
+  "name": "design",
+  "model": "gpt-6-astra",
+  "reasoning_effort": "ultra",
+  "status": "running",
+  "created_utc": "2026-10-28T22:36:03.316387+00:00",
+  "cost_usd": null,
+  "usage": null,
+  "agent_id": "/root/remediation_design",
+  "dispatched_utc": "2026-10-28T22:37:18.634855+00:00"
+}

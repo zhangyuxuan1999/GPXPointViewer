@@ -1,0 +1,5 @@
+# Integration audit acceptance
+
+Root read all source-contract sections in integration-audit.md and compared key owning APIs directly (TrackStore ownership, TrackTopology, Trip heuristics and RegionStats). The audit provides accurate integration constraints: path-rank iteration, missing sentinels, synthetic vs retimed membership, independent summary lane, source IDs, external time-filter UI synchronization and explicit project membership. 20 source snapshot hashes unchanged at end; no product tests/build/network/app or source edits claimed.
+
+Accepted as source investigation evidence; no runtime behavior or performance verdict. Initial bootstrap tool capture was incomplete and helper heredoc stdin was not archived automatically; these limits are explicitly documented in tool-evidence-notes.md. Complete required owning-source snapshots and wrapped read outputs preserve the factual findings. Future implementation tasks must persist executable multi-line scripts before execution and invoke their file paths through capture, so exact command bodies are durable without relying on chat history. No test rerun authorized by this acceptance.

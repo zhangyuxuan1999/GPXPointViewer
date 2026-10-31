@@ -1,0 +1,8 @@
+{
+  "utc": "2026-10-29T23:17:50.391846+00:00",
+  "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/coordinator-runs/20261029T210035.267457Z_coordinator-integration_6bebdbd0/snapshots/before/manifest.json",
+  "sha256": "cbc3ade6b9a2115ed2656abe9a92186412a843591b3f149985c888d1c4664c8b",
+  "bytes": 2688,
+  "top_level_type": "dict",
+  "action": "Read original baseline manifest via authorized FileProvider access; did not overwrite or reconstruct original"
+}

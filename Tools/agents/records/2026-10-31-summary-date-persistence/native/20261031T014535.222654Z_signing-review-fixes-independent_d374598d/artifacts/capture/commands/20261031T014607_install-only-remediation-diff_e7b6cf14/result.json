@@ -1,0 +1,21 @@
+{
+  "label": "install-only-remediation-diff",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014607",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 21122,
+  "process_owner": {
+    "pid": 21122,
+    "parent_pid": 21119,
+    "process_identity": "darwin:21122:1793411167.121489",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.03
+}

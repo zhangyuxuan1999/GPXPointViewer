@@ -1,0 +1,29 @@
+{
+  "label": "build-driver-owner",
+  "argv": [
+    "rg",
+    "-n",
+    "-C",
+    "4",
+    "CODE_SIGNING_ALLOWED|xcodebuild",
+    "Tools",
+    "-g",
+    "*.py",
+    "-g",
+    "!**/records/**"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T012012",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 93447,
+  "process_owner": {
+    "pid": 93447,
+    "parent_pid": 93446,
+    "process_identity": "darwin:93447:1793409612.484355",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

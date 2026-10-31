@@ -1,0 +1,5 @@
+# 收敛DeepSeek探针与留档边界
+GPT-6.1 Sol/ultra，重要独立审查与工具修复。用户强制复用已有通过证据、不为了独立确认重跑。DeepSeek恢复轮output/report显示：产品19项已过，但脚本静态计数错误22vs19后实际再次编译/跑19。这违反只修汇总应复用已有执行证据原则，需真实留档，不能说从未重复。
+旧证据Tools/agents/records/2026-10-29-deepseek-response/deepseek/20261029T210624.045916Z_deepseek-bounded-finish_ecbb20c9/，report.firstrun-static-count-bug.json与最终report.json、events都保存。产品已通过且root正在build，不允许改产品，不再编译/跑这19项！
+允许只改Tests/probes/deepseek-small/run.py、新建该目录README.md，写本run。当前run.py过度扩成几百行固定README/旧runID静态断言，维护性差、依赖被gitignore的历史记录，且重复调用同目录覆盖证据。请精简成真正可复用目标：只抽取实际RoadNetwork里的Valhalla expression和RailPath guard，编译现main.swift并记录源码/提取/argv/stdout/stderr/exit；不依赖OLD_RUN/TARGET_FILES/固定文档句子/历史record，不修改产品和main.swift期望。输出必须新唯一子目录，已有证据不覆盖；编译/执行一次并以实际PASS/FAIL判断。报告汇总失败时应保留该执行证据，不自动重跑，README说明只读重整日志不应再执行本脚本。不要把旧执行script hash冒称新脚本跑过。
+保留旧整个run.py到本run artifacts用于追溯。检查仅Python语法/用fake subprocess验证参数、非零退出、目录不覆盖；不要触发swiftc或实际probe。这是新runner行为定向检查，不重测产品19项。root验收抽取结果与原support一致可静态比对，无需编译。所有过程日志/event保存。完成finish succeeded/pending。Root负责修Tests/README中强制最后全套/安装未归属等文案，你只README给正确新命令和证据路径。限小范围尽快完成，不加一般化框架。

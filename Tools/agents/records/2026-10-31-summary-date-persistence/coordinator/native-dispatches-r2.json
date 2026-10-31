@@ -1,0 +1,46 @@
+[
+  {
+    "agent": "/root/date_navigation_review",
+    "requested_model": "gpt-6.1-sol",
+    "requested_effort": "ultra",
+    "observed_model": null,
+    "actual_cost": null,
+    "run": "native/20261031T013921.126628Z_date-navigation-independent-review_2e7f0998",
+    "task": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/coordinator/date-review-task.md",
+    "mechanism": "spawn fork_turns=none",
+    "bind_receipt": "correspondingcoordinatorcapturedagent_runbind"
+  },
+  {
+    "agent": "/root/signing_persistence_fix",
+    "requested_model": "gpt-6.1-sol",
+    "requested_effort": "ultra",
+    "observed_model": null,
+    "actual_cost": null,
+    "run": "native/20261031T013830.330949Z_signing-review-fixes_cb1bcb2b",
+    "task": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/coordinator/signing-review-fix-task.md",
+    "mechanism": "followup existingSolultra",
+    "bind_receipt": "correspondingcoordinatorcapturedagent_runbind"
+  },
+  {
+    "agent": "/root/signing_independent_review",
+    "requested_model": "gpt-6.1-sol",
+    "requested_effort": "ultra",
+    "observed_model": null,
+    "actual_cost": null,
+    "run": "native/20261031T014535.222654Z_signing-review-fixes-independent_d374598d",
+    "task": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/coordinator/signing-review-r2-task.md",
+    "mechanism": "followup existingSolultra",
+    "bind_receipt": "correspondingcoordinatorcapturedagent_runbind"
+  },
+  {
+    "agent": "/root/signing_persistence_fix",
+    "requested_model": "gpt-6.1-sol",
+    "requested_effort": "ultra",
+    "observed_model": null,
+    "actual_cost": null,
+    "run": "native/20261031T014714.247531Z_signed-build-local-staging_eeebe2fe",
+    "task": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/coordinator/signed-build-staging-fix-task.md",
+    "mechanism": "followup existingSolultra; readonly untilpriorreviewfinish01:48 theneditallowed",
+    "bind_receipt": "correspondingcoordinatorcapturedagent_runbind"
+  }
+]

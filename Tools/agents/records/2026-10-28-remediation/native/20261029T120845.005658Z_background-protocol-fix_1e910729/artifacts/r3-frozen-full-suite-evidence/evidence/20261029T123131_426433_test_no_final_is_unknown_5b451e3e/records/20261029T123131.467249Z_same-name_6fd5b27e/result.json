@@ -1,0 +1,89 @@
+{
+  "process_cleanup": [
+    {
+      "pid": 44954,
+      "status": "confirmed",
+      "attempts": [
+        {
+          "operation": "group_sigterm",
+          "outcome": "absent"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "wait",
+          "outcome": "ok"
+        },
+        {
+          "operation": "group_sigkill",
+          "outcome": "absent"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "wait",
+          "outcome": "ok"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "group_probe",
+          "outcome": "absent"
+        },
+        {
+          "operation": "exit_code",
+          "outcome": "ok"
+        }
+      ],
+      "errors": [],
+      "leader_alive": false,
+      "group_alive": false,
+      "leader_exit_code": 0,
+      "duration_s": 0.00019433279521763325
+    }
+  ],
+  "cleanup_complete": true,
+  "stream_incomplete": false,
+  "runner_exit_code": 1,
+  "provider_status": "unknown",
+  "acceptance_status": "pending",
+  "exit_code": 0,
+  "is_error": true,
+  "error": null,
+  "interrupted": false,
+  "runner_terminal_reason": null,
+  "protocol_errors": [],
+  "duration_s": 0.072,
+  "cost_usd": null,
+  "cost_source": "unknown",
+  "cli_reported_cost_usd": null,
+  "cost_note": "CLI estimate is not authoritative DeepSeek billed cost.",
+  "session_id": "offline-session-123",
+  "subtype": null,
+  "terminal_reason": null,
+  "stop_reason": null,
+  "errors": null,
+  "api_error_status": null,
+  "permission_denials": null,
+  "usage": null,
+  "num_turns": null,
+  "result_count": 0,
+  "turn_results": [],
+  "background_tasks": [],
+  "foreground_tasks": [],
+  "unqualified_tasks": [],
+  "background_task_failures": [],
+  "background_incomplete": [],
+  "out_of_scope_changes": [],
+  "incomplete_checks": "Task acceptance requires independent review; provider completion is separate.",
+  "finished_utc": "2026-10-29T12:31:31.589224+00:00",
+  "status": "unknown",
+  "run_status": "unknown",
+  "verification_status": "not_run"
+}

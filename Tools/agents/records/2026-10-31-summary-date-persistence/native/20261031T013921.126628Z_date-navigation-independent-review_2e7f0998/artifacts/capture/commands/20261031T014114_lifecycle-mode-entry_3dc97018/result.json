@@ -1,0 +1,23 @@
+{
+  "label": "lifecycle-mode-entry",
+  "argv": [
+    "sed",
+    "-n",
+    "700,800p",
+    "GPXPointViewer/TrackStore.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014114",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 15598,
+  "process_owner": {
+    "pid": 15598,
+    "parent_pid": 15594,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

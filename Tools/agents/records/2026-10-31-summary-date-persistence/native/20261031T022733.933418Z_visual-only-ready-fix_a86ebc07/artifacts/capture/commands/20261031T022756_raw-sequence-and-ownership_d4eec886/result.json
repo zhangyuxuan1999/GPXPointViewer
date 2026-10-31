@@ -1,0 +1,21 @@
+{
+  "label": "raw-sequence-and-ownership",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T022756",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 51166,
+  "process_owner": {
+    "pid": 51166,
+    "parent_pid": 51161,
+    "process_identity": "darwin:51166:1793413676.225945",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.09
+}

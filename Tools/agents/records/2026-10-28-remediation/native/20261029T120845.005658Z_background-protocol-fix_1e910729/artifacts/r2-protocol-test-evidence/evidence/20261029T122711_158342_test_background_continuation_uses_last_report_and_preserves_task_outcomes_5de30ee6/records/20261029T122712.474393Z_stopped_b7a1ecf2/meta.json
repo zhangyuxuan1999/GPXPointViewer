@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "run_id": "20261029T122712.474393Z_stopped_b7a1ecf2",
+  "name": "stopped",
+  "provider": "deepseek-cli",
+  "requested_model": "deepseek-flash",
+  "requested_effort": "max",
+  "observed_model": null,
+  "observed_effort": null,
+  "model_verification": "CLI report only; actual outbound model/effort unverified",
+  "cwd": "/private/tmp/gpxpv-runner-tests-ubvo1yw2/20261029T122711_158342_test_background_continuation_uses_last_report_and_preserves_task_outcomes_5de30ee6/workspace",
+  "task_source": "/private/tmp/gpxpv-runner-tests-ubvo1yw2/20261029T122711_158342_test_background_continuation_uses_last_report_and_preserves_task_outcomes_5de30ee6/task.md",
+  "started_utc": "2026-10-29T12:27:12.474838+00:00",
+  "watch": [
+    "."
+  ],
+  "allow_write": [],
+  "snapshot_exclusions": {
+    "parts": [
+      ".agents",
+      ".aws",
+      ".codex",
+      ".git",
+      "DerivedData",
+      "__pycache__",
+      "node_modules",
+      "sdkenv"
+    ],
+    "prefixes": [
+      "Tools/agents/records",
+      "Tools/agents/runs",
+      "Tests/reports",
+      "Tests/ui/app.noindex",
+      "Tests/ui/perf",
+      "Tests/ui/synth.gpx",
+      "Tests/exam/results",
+      "Tests/synth/runner/synthrunner",
+      "Tests/synth/runner/build.log"
+    ],
+    "default_prefixes": [
+      "Tools/agents/records",
+      "Tools/agents/runs",
+      "Tests/reports",
+      "Tests/ui/app.noindex",
+      "Tests/ui/perf",
+      "Tests/ui/synth.gpx",
+      "Tests/exam/results",
+      "Tests/synth/runner/synthrunner",
+      "Tests/synth/runner/build.log"
+    ],
+    "user_prefixes": [],
+    "explicit_overrides": [],
+    "generated_pattern": "^Tests/synth/(?:format-edge|garmin-tunnels|legit-motion|replay-artefacts|scale-mixed|stationary-noise)/[^/]+\\.(?:gpx|csv|fit|bin)$"
+  },
+  "parent_run": null,
+  "recovery": "context",
+  "cost_usd": null,
+  "cost_source": "unknown",
+  "max_turns": 4,
+  "timeout_seconds": 4.0,
+  "pid": 36431,
+  "child_pid": 36437,
+  "child_process_identity": "darwin:36437:1793276832.519147",
+  "process_identity": "darwin:36431:1793276832.438219",
+  "session_id": "background-session",
+  "cli_reported_model": null
+}

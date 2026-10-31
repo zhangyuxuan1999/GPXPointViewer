@@ -1,0 +1,23 @@
+{
+  "label": "signing-build-config",
+  "argv": [
+    "sed",
+    "-n",
+    "560,735p",
+    "GPXPointViewer.xcodeproj/project.pbxproj"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T011831",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 92772,
+  "process_owner": {
+    "pid": 92772,
+    "parent_pid": 92771,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

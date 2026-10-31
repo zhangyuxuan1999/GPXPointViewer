@@ -1,0 +1,27 @@
+{
+  "label": "report-zone-source",
+  "argv": [
+    "rg",
+    "-n",
+    "-A",
+    "10",
+    "-B",
+    "8",
+    "timeZoneIdentifier:|TimeZone\\(identifier: input.timeZoneIdentifier|calendar.timeZone",
+    "GPXPointViewer/JourneySummary.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014155",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 16187,
+  "process_owner": {
+    "pid": 16187,
+    "parent_pid": 16184,
+    "process_identity": "darwin:16187:1793410915.653916",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

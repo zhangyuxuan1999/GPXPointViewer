@@ -1,0 +1,21 @@
+{
+  "label": "xattr-temporary-probe",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T012510",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 96906,
+  "process_owner": {
+    "pid": 96906,
+    "parent_pid": 96905,
+    "process_identity": "darwin:96906:1793409910.901743",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.04
+}

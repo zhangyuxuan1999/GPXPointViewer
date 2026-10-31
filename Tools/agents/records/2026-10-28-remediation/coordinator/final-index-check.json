@@ -1,0 +1,8 @@
+{
+  "utc": "2026-10-29T13:55:35.237464+00:00",
+  "passed": true,
+  "registered_attempt_directories": 41,
+  "referenced_original_files": 335,
+  "missing": [],
+  "scope": "Directory/file navigation only; original statuses/models/costs not inferred; 14 critical evidence hashes from final acceptance."
+}

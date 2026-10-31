@@ -1,0 +1,26 @@
+{
+  "label": "005-struct-map",
+  "argv": [
+    "rg",
+    "-n",
+    "^(@MainActor|final class|class|struct|enum|extension)|^    (let|var|func|private func|static func)",
+    "GPXPointViewer/TrackData.swift",
+    "GPXPointViewer/RegionStats.swift",
+    "GPXPointViewer/GPXPointViewerApp.swift",
+    "GPXPointViewer/RegionIndex.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T040948",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 12239,
+  "process_owner": {
+    "pid": 12239,
+    "parent_pid": 12237,
+    "process_identity": "darwin:12239:1793333388.776451",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

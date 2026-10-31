@@ -1,0 +1,115 @@
+{
+  "process_cleanup": [
+    {
+      "pid": 39296,
+      "status": "confirmed",
+      "attempts": [
+        {
+          "operation": "group_sigterm",
+          "outcome": "absent"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "wait",
+          "outcome": "ok"
+        },
+        {
+          "operation": "group_sigkill",
+          "outcome": "absent"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "wait",
+          "outcome": "ok"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "group_probe",
+          "outcome": "absent"
+        },
+        {
+          "operation": "exit_code",
+          "outcome": "ok"
+        }
+      ],
+      "errors": [],
+      "leader_alive": false,
+      "group_alive": false,
+      "leader_exit_code": 0,
+      "duration_s": 0.00021537486463785172
+    }
+  ],
+  "cleanup_complete": true,
+  "stream_incomplete": false,
+  "runner_exit_code": 0,
+  "provider_status": "succeeded",
+  "acceptance_status": "pending",
+  "exit_code": 0,
+  "is_error": false,
+  "error": null,
+  "interrupted": false,
+  "runner_terminal_reason": null,
+  "protocol_errors": [],
+  "duration_s": 0.215,
+  "cost_usd": null,
+  "cost_source": "unknown",
+  "cli_reported_cost_usd": 0.125,
+  "cost_note": "CLI estimate is not authoritative DeepSeek billed cost.",
+  "session_id": "background-session",
+  "subtype": "success",
+  "terminal_reason": "completed",
+  "stop_reason": null,
+  "errors": null,
+  "api_error_status": null,
+  "permission_denials": null,
+  "usage": null,
+  "num_turns": null,
+  "result_count": 1,
+  "turn_results": [
+    {
+      "sequence": 4,
+      "result_index": 0,
+      "uuid": "result-0",
+      "session_id": "background-session",
+      "subtype": "success",
+      "is_error": false,
+      "terminal_reason": "completed",
+      "stop_reason": null,
+      "errors": null,
+      "api_error_status": null,
+      "origin": null,
+      "total_cost_usd": 0.125
+    }
+  ],
+  "background_tasks": [],
+  "foreground_tasks": [
+    {
+      "task_id": "foreground",
+      "run_id": "run-foreground",
+      "session_id": "background-session",
+      "is_backgrounded": false,
+      "tool_use_id": "tool-foreground",
+      "started_sequence": 2,
+      "status": "completed",
+      "notification_sequence": 3,
+      "notification_result_index": null
+    }
+  ],
+  "background_task_failures": [],
+  "background_incomplete": [],
+  "out_of_scope_changes": [],
+  "incomplete_checks": "Task acceptance requires independent review; provider completion is separate.",
+  "finished_utc": "2026-10-29T12:28:46.901454+00:00",
+  "status": "succeeded",
+  "run_status": "succeeded",
+  "verification_status": "not_run"
+}

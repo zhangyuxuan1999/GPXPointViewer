@@ -1,0 +1,39 @@
+{
+  "utc": "2026-10-29T22:58:42.450208+00:00",
+  "build": "/Users/zyx/Documents/GPXPointViewer/Builds/20261029T225455Z_release_73e5627c",
+  "source": "Actual successful production Release compiler outputs; parsed existing JSON after plist reader error. No additional compilation or product test.",
+  "files": {
+    "ContentView.stringsdata": {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Builds/20261029T225455Z_release_73e5627c/DerivedData/Build/Intermediates.noindex/GPXPointViewer.build/Release/GPXPointViewer.build/Objects-normal/arm64/ContentView.stringsdata",
+      "sha256": "ec737a6a4200d2d6e574875dcb597395db6e42f9202f5d9b072bc4700672f803",
+      "source": "/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/ContentView.swift",
+      "expected_key": "归档回放日期取自区块文件修改时间，不代表实际探索时间。",
+      "matches": [
+        {
+          "comment": ".fwdb archives have no per-cell date: archive playback dates come from block file modification times and do not represent actual exploration dates",
+          "key": "归档回放日期取自区块文件修改时间，不代表实际探索时间。",
+          "location": {
+            "startingColumn": 53,
+            "startingLine": 14
+          }
+        }
+      ]
+    },
+    "GPXWriter.stringsdata": {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Builds/20261029T225455Z_release_73e5627c/DerivedData/Build/Intermediates.noindex/GPXPointViewer.build/Release/GPXPointViewer.build/Objects-normal/arm64/GPXWriter.stringsdata",
+      "sha256": "9bba06c03a9a8f7eb9d1954e11fce046a6ace6ff2640cbd94620211183b547c7",
+      "source": "/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/GPXWriter.swift",
+      "expected_key": "导出范围包含无效的点索引。",
+      "matches": [
+        {
+          "comment": "Error message when exporting GPX: the selected point indices are invalid",
+          "key": "导出范围包含无效的点索引。",
+          "location": {
+            "startingColumn": 38,
+            "startingLine": 23
+          }
+        }
+      ]
+    }
+  }
+}

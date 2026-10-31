@@ -1,0 +1,22 @@
+{
+  "label": "return-diff-first-hunk",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; p=Path(\"Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T021407.735687Z_date-native-return-submit_207886b8/artifacts/exact-changes.diff\"); t=p.read_text(); print(t[:t.index(\"@@ -344,3\")])"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T022133",
+  "status": "failed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 47166,
+  "process_owner": {
+    "pid": 47166,
+    "parent_pid": 47163,
+    "process_identity": "darwin:47166:1793413293.456650",
+    "group_created": true
+  },
+  "exit_code": 1,
+  "duration_s": 0.04
+}

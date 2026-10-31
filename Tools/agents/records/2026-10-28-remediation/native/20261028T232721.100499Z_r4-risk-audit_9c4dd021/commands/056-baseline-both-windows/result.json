@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "python3",
+    "/private/tmp/gpxpv-r4-risk-audit-ui9dgc6y/probe/run.py",
+    "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/native/20261028T232721.100499Z_r4-risk-audit_9c4dd021/artifacts/probe-r6"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "start": "2026-10-28T23:45:06.755861+00:00",
+  "exit_code": 0,
+  "finish": "2026-10-28T23:45:32.767269+00:00"
+}

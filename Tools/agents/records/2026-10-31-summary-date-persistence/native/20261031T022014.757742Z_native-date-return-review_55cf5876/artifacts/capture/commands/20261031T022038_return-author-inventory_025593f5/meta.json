@@ -1,0 +1,22 @@
+{
+  "label": "return-author-inventory",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; r=Path(\"Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T021407.735687Z_date-native-return-submit_207886b8\"); print(\"\\n\".join(str(p) for p in r.rglob(\"*\") if p.is_file() and \"capture\" not in p.parts)); [(print(\"\\nFILE=\"+n),print((r/n).read_text() if (r/n).exists() else \"PENDING\")) for n in [\"task.md\",\"progress.md\",\"output.md\"]]"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T022038",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 45897,
+  "process_owner": {
+    "pid": 45897,
+    "parent_pid": 45892,
+    "process_identity": "darwin:45897:1793413238.323660",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.05
+}

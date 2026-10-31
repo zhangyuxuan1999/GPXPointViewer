@@ -1,0 +1,143 @@
+{
+  "process_cleanup": [
+    {
+      "pid": 58999,
+      "status": "incomplete",
+      "attempts": [
+        {
+          "operation": "group_sigterm",
+          "outcome": "error",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected cleanup denial"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "direct_terminate",
+          "outcome": "error",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected cleanup denial"
+        },
+        {
+          "operation": "wait",
+          "outcome": "wait_timeout"
+        },
+        {
+          "operation": "group_sigkill",
+          "outcome": "error",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected cleanup denial"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "direct_kill",
+          "outcome": "error",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected cleanup denial"
+        },
+        {
+          "operation": "wait",
+          "outcome": "wait_timeout"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "group_probe",
+          "outcome": "error",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected cleanup denial"
+        },
+        {
+          "operation": "exit_code",
+          "outcome": "ok"
+        }
+      ],
+      "errors": [
+        {
+          "operation": "group_sigterm",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected cleanup denial"
+        },
+        {
+          "operation": "direct_terminate",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected cleanup denial"
+        },
+        {
+          "operation": "group_sigkill",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected cleanup denial"
+        },
+        {
+          "operation": "direct_kill",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected cleanup denial"
+        },
+        {
+          "operation": "group_probe",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected cleanup denial"
+        }
+      ],
+      "leader_alive": true,
+      "group_alive": null,
+      "leader_exit_code": null,
+      "duration_s": 0.7096044172067195
+    }
+  ],
+  "cleanup_complete": false,
+  "stream_incomplete": true,
+  "runner_exit_code": 124,
+  "provider_status": "interrupted",
+  "acceptance_status": "pending",
+  "exit_code": null,
+  "is_error": true,
+  "error": null,
+  "interrupted": true,
+  "runner_terminal_reason": "wall_clock_timeout",
+  "protocol_errors": [],
+  "duration_s": 2.098,
+  "cost_usd": null,
+  "cost_source": "unknown",
+  "cli_reported_cost_usd": null,
+  "cost_note": "CLI estimate is not authoritative DeepSeek billed cost.",
+  "session_id": "offline-session-123",
+  "subtype": null,
+  "terminal_reason": null,
+  "stop_reason": null,
+  "errors": null,
+  "api_error_status": null,
+  "permission_denials": null,
+  "usage": null,
+  "num_turns": null,
+  "result_count": 0,
+  "turn_results": [],
+  "background_tasks": [],
+  "foreground_tasks": [],
+  "unqualified_tasks": [],
+  "background_task_failures": [],
+  "background_incomplete": [],
+  "out_of_scope_changes": [],
+  "incomplete_checks": "Task acceptance requires independent review; provider completion is separate.",
+  "finished_utc": "2026-10-29T12:39:10.840416+00:00",
+  "status": "interrupted",
+  "run_status": "interrupted",
+  "verification_status": "not_run"
+}

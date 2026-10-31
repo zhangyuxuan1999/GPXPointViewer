@@ -1,0 +1,14 @@
+{
+  "app": "/private/tmp/gpxpv-remediation-build/Build/Products/Release/GPXPointViewer.app",
+  "executable_sha256": "445940ea23807364b0b4c09ea99e73077ed0d5f6253da20b3653988c114b22cb",
+  "created_utc": "2026-10-29T01:10:30.463674+00:00",
+  "source_manifest": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/coordinator/final-prebuild-source-manifest.json",
+  "bundle_manifest": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/coordinator/final-build-bundle-manifest.json",
+  "build_record": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/coordinator/commands/20261029T010833_final-release-build_481dea6f/result.json",
+  "product_integration_receipt": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/coordinator/product-integration-applied.json",
+  "new_translations_present": {
+    "en": true,
+    "de": true,
+    "zh-Hant": true
+  }
+}

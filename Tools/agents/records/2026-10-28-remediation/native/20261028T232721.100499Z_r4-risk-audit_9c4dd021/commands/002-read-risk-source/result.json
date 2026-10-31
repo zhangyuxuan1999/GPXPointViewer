@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "sed",
+    "-n",
+    "1,430p",
+    "GPXPointViewer/FillPlausibility.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "start": "2026-10-28T23:27:52.133158+00:00",
+  "exit_code": 0,
+  "finish": "2026-10-28T23:27:52.136654+00:00"
+}

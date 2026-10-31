@@ -1,0 +1,27 @@
+{
+  "label": "archive-signing-override",
+  "argv": [
+    "rg",
+    "-n",
+    "-C",
+    "5",
+    "CODE_SIGNING_ALLOWED|codesign|CODE_SIGN_IDENTITY|def build|xcodebuild|def main",
+    "Tools/archive_build.py",
+    "Tests/ui/ui.py",
+    "Tools/agents/records/2026-10-30-journey-summary/coordinator/build-release-archive.py"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T011959",
+  "status": "failed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 93282,
+  "process_owner": {
+    "pid": 93282,
+    "parent_pid": 93281,
+    "process_identity": "darwin:93282:1793409599.937442",
+    "group_created": true
+  },
+  "exit_code": 2,
+  "duration_s": 0.01
+}

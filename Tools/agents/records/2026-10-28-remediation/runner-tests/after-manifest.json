@@ -1,0 +1,57 @@
+{
+  "Tests/agents/README.md": {
+    "sha256": "c10c491297d2bb69f400673aa6a9b9b89fcea011a58fd519e295767e35015064",
+    "size": 1455,
+    "mode": 420
+  },
+  "Tests/agents/fixtures/README.md": {
+    "sha256": "15d916a2ee82b84a4047144a4f61dcaaa57fa8bc75f9cc472484c936f3dd4aae",
+    "size": 525,
+    "mode": 420
+  },
+  "Tests/agents/fixtures/legacy_ledger.md": {
+    "sha256": "448f98a58a477ad03c7a694e97123273dc8186fd5c41cbe7ddb363b0fe7f02a8",
+    "size": 362,
+    "mode": 420
+  },
+  "Tests/agents/fixtures/mock_bins/security": {
+    "sha256": "604a9368e5369ab4aec2114b339a8bd05779dfe82fc6b407486be49a5902437d",
+    "size": 204,
+    "mode": 493
+  },
+  "Tests/agents/fixtures/mock_cli.py": {
+    "sha256": "cb3395701106b4e3a6722a952a951aca954f51b3afb2a17c80acf46b91ae29a6",
+    "size": 3938,
+    "mode": 493
+  },
+  "Tests/agents/fixtures/mock_sdk/claude_agent_sdk.py": {
+    "sha256": "6c2bef349a6b9d349dc59ba8103a9e28b6de0df6e70522eead88b438684b5156",
+    "size": 2524,
+    "mode": 420
+  },
+  "Tests/agents/helpers.py": {
+    "sha256": "4babeb8b418ca5319a1b6bae2e94afdfd57cc5707b1bacb739d57c7245468ced",
+    "size": 3347,
+    "mode": 420
+  },
+  "Tests/agents/test_agent_run.py": {
+    "sha256": "46a9ae51917b5cb94be8c85231a6828fd2148e00c4bfc2c0f2c9ff7d704b1c69",
+    "size": 20465,
+    "mode": 420
+  },
+  "Tests/agents/test_api_run.py": {
+    "sha256": "0c8da86057cb18febb14fb997b3dcfa96680dae452b638723430fb01c7f3d451",
+    "size": 7426,
+    "mode": 420
+  },
+  "Tests/agents/test_legacy_repros.py": {
+    "sha256": "1dbccefc96af399883a9dabb6f78386539cfd51ca7450717c388475a8b177dcd",
+    "size": 4247,
+    "mode": 420
+  },
+  "Tests/agents/test_run_store.py": {
+    "sha256": "d5c4e4a54adc73e0bef83fd33ee3ce6b26d9fa4c43c65ad1ae51bf0bba335de3",
+    "size": 18051,
+    "mode": 420
+  }
+}

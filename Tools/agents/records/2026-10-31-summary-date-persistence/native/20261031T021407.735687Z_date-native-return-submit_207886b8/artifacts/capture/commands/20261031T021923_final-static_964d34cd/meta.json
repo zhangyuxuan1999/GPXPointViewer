@@ -1,0 +1,21 @@
+{
+  "label": "final-static",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T021923",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 44624,
+  "process_owner": {
+    "pid": 44624,
+    "parent_pid": 44623,
+    "process_identity": "darwin:44624:1793413163.263870",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.04
+}

@@ -1,0 +1,23 @@
+{
+  "label": "016-store-trips",
+  "argv": [
+    "sed",
+    "-n",
+    "1420,1515p",
+    "GPXPointViewer/TrackStore.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041029",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 12759,
+  "process_owner": {
+    "pid": 12759,
+    "parent_pid": 12753,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

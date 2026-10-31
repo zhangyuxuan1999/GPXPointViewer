@@ -1,0 +1,82 @@
+{
+  "process_cleanup": [
+    {
+      "pid": 15270,
+      "status": "confirmed",
+      "attempts": [
+        {
+          "operation": "group_sigterm",
+          "outcome": "ok"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "wait",
+          "outcome": "ok"
+        },
+        {
+          "operation": "group_sigkill",
+          "outcome": "absent"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "wait",
+          "outcome": "ok"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "group_probe",
+          "outcome": "absent"
+        },
+        {
+          "operation": "exit_code",
+          "outcome": "ok"
+        }
+      ],
+      "errors": [],
+      "leader_alive": false,
+      "group_alive": false,
+      "leader_exit_code": -15,
+      "duration_s": 0.0018617089372128248
+    }
+  ],
+  "cleanup_complete": true,
+  "stream_incomplete": false,
+  "runner_exit_code": 124,
+  "provider_status": "interrupted",
+  "acceptance_status": "pending",
+  "exit_code": -15,
+  "is_error": true,
+  "error": null,
+  "interrupted": true,
+  "runner_terminal_reason": "wall_clock_timeout",
+  "protocol_errors": [],
+  "duration_s": 0.634,
+  "cost_usd": null,
+  "cost_source": "unknown",
+  "cli_reported_cost_usd": null,
+  "cost_note": "CLI estimate is not authoritative DeepSeek billed cost.",
+  "session_id": "offline-session-123",
+  "subtype": null,
+  "terminal_reason": null,
+  "stop_reason": null,
+  "errors": null,
+  "api_error_status": null,
+  "permission_denials": null,
+  "usage": null,
+  "num_turns": null,
+  "out_of_scope_changes": [],
+  "incomplete_checks": "Task acceptance requires independent review; provider completion is separate.",
+  "finished_utc": "2026-10-29T01:04:26.136590+00:00",
+  "status": "interrupted",
+  "run_status": "interrupted",
+  "verification_status": "not_run"
+}

@@ -1,0 +1,22 @@
+{
+  "label": "store-summary",
+  "argv": [
+    "/bin/zsh",
+    "-c",
+    "rg -n 'summary|Summary|viewFilterSpec' GPXPointViewer/TrackStore.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T012616",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 97715,
+  "process_owner": {
+    "pid": 97715,
+    "parent_pid": 97714,
+    "process_identity": "darwin:97715:1793409976.967825",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

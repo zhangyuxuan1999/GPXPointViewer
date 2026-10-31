@@ -1,0 +1,22 @@
+{
+  "label": "evidence-raw-prefix",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; r=Path(\"Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T012543.656242Z_summary-date-navigation-implementation_a203875d\"); print((r/\"artifacts/capture/commands/20261031T013138_failed-run-output_f513d8ba/stdout.log\").read_text())"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014039",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 14727,
+  "process_owner": {
+    "pid": 14727,
+    "parent_pid": 14722,
+    "process_identity": "darwin:14727:1793410839.938033",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.03
+}

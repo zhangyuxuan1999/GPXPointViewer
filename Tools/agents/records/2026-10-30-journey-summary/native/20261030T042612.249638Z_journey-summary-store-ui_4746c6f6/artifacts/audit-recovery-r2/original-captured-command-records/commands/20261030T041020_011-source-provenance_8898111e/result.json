@@ -1,0 +1,21 @@
+{
+  "label": "011-source-provenance",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041020",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 12634,
+  "process_owner": {
+    "pid": 12634,
+    "parent_pid": 12628,
+    "process_identity": "darwin:12634:1793333420.198917",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.04
+}

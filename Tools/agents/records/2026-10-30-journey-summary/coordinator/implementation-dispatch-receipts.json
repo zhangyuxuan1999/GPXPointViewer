@@ -1,0 +1,14 @@
+{
+  "utc": "2026-10-30T04:27:50.459920+00:00",
+  "engine": {
+    "task_name": "/root/journey_engine",
+    "tool": "collaboration.spawn_agent"
+  },
+  "store_ui": {
+    "task_name": "/root/journey_integration_audit",
+    "tool": "collaboration.followup_task",
+    "return": "no additional receipt exposed"
+  },
+  "provider_model_receipts": null,
+  "cost_usd": null
+}

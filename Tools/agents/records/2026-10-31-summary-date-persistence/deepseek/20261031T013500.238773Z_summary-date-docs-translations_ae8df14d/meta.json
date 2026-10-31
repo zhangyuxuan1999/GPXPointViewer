@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "run_id": "20261031T013500.238773Z_summary-date-docs-translations_ae8df14d",
+  "name": "summary-date-docs-translations",
+  "provider": "deepseek-cli",
+  "requested_model": "deepseek-flash",
+  "requested_effort": "max",
+  "observed_model": null,
+  "observed_effort": null,
+  "model_verification": "CLI report only; actual outbound model/effort unverified",
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "task_source": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/coordinator/date-docs-l10n-task.md",
+  "started_utc": "2026-10-31T01:35:00.239832+00:00",
+  "watch": [
+    "Tests/l10n/translations/chunk_32.json",
+    "README.md",
+    "Tests/README.md",
+    "docs/journey-summary-guide.md",
+    "docs/journey-summary-date-navigation-design.md"
+  ],
+  "allow_write": [
+    "Tests/l10n/translations/chunk_32.json",
+    "README.md",
+    "Tests/README.md",
+    "docs/journey-summary-guide.md",
+    "docs/journey-summary-date-navigation-design.md"
+  ],
+  "snapshot_exclusions": {
+    "parts": [
+      ".agents",
+      ".aws",
+      ".codex",
+      ".git",
+      "DerivedData",
+      "__pycache__",
+      "node_modules",
+      "sdkenv"
+    ],
+    "prefixes": [
+      "Tools/agents/records",
+      "Tools/agents/runs",
+      "Tests/reports",
+      "Tests/ui/app.noindex",
+      "Tests/ui/perf",
+      "Tests/ui/synth.gpx",
+      "Tests/exam/results",
+      "Tests/synth/runner/synthrunner",
+      "Tests/synth/runner/build.log"
+    ],
+    "default_prefixes": [
+      "Tools/agents/records",
+      "Tools/agents/runs",
+      "Tests/reports",
+      "Tests/ui/app.noindex",
+      "Tests/ui/perf",
+      "Tests/ui/synth.gpx",
+      "Tests/exam/results",
+      "Tests/synth/runner/synthrunner",
+      "Tests/synth/runner/build.log"
+    ],
+    "user_prefixes": [],
+    "explicit_overrides": [],
+    "generated_pattern": "^Tests/synth/(?:format-edge|garmin-tunnels|legit-motion|replay-artefacts|scale-mixed|stationary-noise)/[^/]+\\.(?:gpx|csv|fit|bin)$"
+  },
+  "parent_run": null,
+  "recovery": "context",
+  "cost_usd": null,
+  "cost_source": "unknown",
+  "max_turns": 50,
+  "timeout_seconds": 1000.0,
+  "pid": 6575,
+  "child_pid": 6581,
+  "child_process_identity": "darwin:6581:1793410500.304246",
+  "process_identity": "darwin:6575:1793410500.197091",
+  "session_id": "6c675a72-bb6b-4200-b57c-4ba53ab531da",
+  "cli_reported_model": "deepseek-flash"
+}

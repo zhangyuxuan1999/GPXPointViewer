@@ -1,0 +1,23 @@
+{
+  "label": "inherit-directed-and-first-scale",
+  "argv": [
+    "python3",
+    "Tools/agents/records/2026-10-30-journey-summary/native/20261030T045238.784817Z_journey-summary-core-review_56c20eab/inspect_evidence.py",
+    "20261030T045714.829398Z_657f12d0",
+    "20261030T045816.459358Z_666ea520"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T045842",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 24835,
+  "process_owner": {
+    "pid": 24835,
+    "parent_pid": 24834,
+    "process_identity": "darwin:24835:1793336322.885426",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.05
+}

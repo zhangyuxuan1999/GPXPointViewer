@@ -1,0 +1,18 @@
+{
+  "observed_utc": "2026-10-31T01:22:25.649405+00:00",
+  "source": "collaboration.list_agents actual receipt",
+  "agents": [
+    {
+      "id": "/root/settings_persistence_audit",
+      "status": "running"
+    },
+    {
+      "id": "/root/signing_persistence_fix",
+      "status": "running"
+    },
+    {
+      "id": "/root/summary_date_architecture",
+      "status": "running"
+    }
+  ]
+}

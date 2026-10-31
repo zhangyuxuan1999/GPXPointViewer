@@ -1,0 +1,25 @@
+{
+  "label": "navigation-chip",
+  "argv": [
+    "python3",
+    "Tests/summary/store/run.py",
+    "--evidence",
+    "Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T012543.656242Z_summary-date-navigation-implementation_a203875d/artifacts/store",
+    "--group",
+    "navigation-chip"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T013600",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 7575,
+  "process_owner": {
+    "pid": 7575,
+    "parent_pid": 7572,
+    "process_identity": "darwin:7575:1793410560.999238",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 44.25
+}

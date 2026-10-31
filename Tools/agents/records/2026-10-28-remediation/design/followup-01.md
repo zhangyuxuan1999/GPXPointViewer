@@ -1,0 +1,1 @@
+实现Sol正在做run_store.py共用记录与agent_run.py init/event/bind/finish/snapshot/status/deepseek CLI，旧api_run.py适配。DeepSeek默认Read/Glob/Grep，按任务显式allow-command/write/watch。另一个Sol做mock故障测试。请尽快给状态/验收/预算/续跑核心契约，主代理转达，避免实现返工。

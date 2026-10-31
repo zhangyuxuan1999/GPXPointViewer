@@ -1,0 +1,22 @@
+{
+  "label": "build-release-source",
+  "argv": [
+    "nl",
+    "-ba",
+    "Tools/build_release.py"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T013406",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 5485,
+  "process_owner": {
+    "pid": 5485,
+    "parent_pid": 5483,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

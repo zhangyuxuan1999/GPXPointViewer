@@ -1,0 +1,21 @@
+{
+  "label": "finalize-targeted-review",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014749",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 22876,
+  "process_owner": {
+    "pid": 22876,
+    "parent_pid": 22875,
+    "process_identity": "darwin:22876:1793411269.776221",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.21
+}

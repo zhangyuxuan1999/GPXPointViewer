@@ -1,0 +1,21 @@
+{
+  "label": "stable-artifact-two-fixtures",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T020418",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 35221,
+  "process_owner": {
+    "pid": 35221,
+    "parent_pid": 35220,
+    "process_identity": "darwin:35221:1793412258.698950",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.19
+}

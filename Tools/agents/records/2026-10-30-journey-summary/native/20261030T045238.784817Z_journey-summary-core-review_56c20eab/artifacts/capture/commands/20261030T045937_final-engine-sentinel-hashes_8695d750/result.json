@@ -1,0 +1,27 @@
+{
+  "label": "final-engine-sentinel-hashes",
+  "argv": [
+    "shasum",
+    "-a",
+    "256",
+    "GPXPointViewer/JourneySummary.swift",
+    "GPXPointViewer/RegionIndex.swift",
+    "Tests/summary/core/main.swift",
+    "Tests/summary/core/run.py",
+    "Tests/summary/core/fixtures.py"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T045937",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 25565,
+  "process_owner": {
+    "pid": 25565,
+    "parent_pid": 25563,
+    "process_identity": "darwin:25565:1793336377.479532",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.02
+}

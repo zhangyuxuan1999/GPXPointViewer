@@ -1,0 +1,1 @@
+原run因CLI等待策略偏差安全SIGINT，11UI保留不重跑，synth部分中断需完整重做。新上下文run只调用已独立14/14验收恢复入口；沿用原prep/PID/prefs与固定构建，执行剩余11阶段并finally cleanup。正规后台完成通知后读结果，禁止短sleep等轮询。完整原因和已通过门见r4-final-partial-review.md。新run任何失败再建新目录恢复，不覆盖原记录。

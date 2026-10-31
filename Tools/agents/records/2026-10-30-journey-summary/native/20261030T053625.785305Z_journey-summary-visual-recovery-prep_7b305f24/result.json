@@ -1,0 +1,11 @@
+{
+  "provider_status": "succeeded",
+  "acceptance_status": "pending",
+  "exit_code": null,
+  "cost_usd": null,
+  "finished_utc": "2026-10-30T05:40:54.098192+00:00",
+  "session_id": null,
+  "status": "succeeded",
+  "run_status": "succeeded",
+  "verification_status": "not_run"
+}

@@ -1,0 +1,3 @@
+# 独立诊断当前Xcode构建阻塞
+GPT-6.1 Sol/ultra。项目用户要修DeepSeek问题并归档构建，root已冻结源码启动唯一Release：Builds/20261029T210753Z_release_8f33bba8/build.log，已数分钟仅命令头/设置，无BuildService或编译动作；早先N19报告也提到xcodebuild卡住。这是具体阻塞，不能冒称构建通过。当前本任务进程：root capture pid79863，Tools/build_release.py pid79865，其xcodebuild独立pgid/sid79866，开始21:07:53UTC。运行器仍管理它，timeout1200。不要仅凭旧pid操作，先核对身份。
+只读诊断，唯一写入本run。禁止改产品/全局Xcode配置/偏好，禁止杀任何服务或别的build，不另开xcodebuild、不安装/关闭app、不联网或API代理。可用ps精确command/comm过滤（别把DeepSeek长prompt打印）、sample本次xcodebuild1秒、查看本地日志/进程栈/工程配置。全部正常输出/退出码/时间保存，主要阶段event；权限受限先如实报root精确需执行命令，不自行反复尝试。按最小范围找原因与隔离可逆绕过方式，例如不触碰全局缓存的命令参数；建议需以本机证据支持。可只读历史成功构建argv但不重复其测试。约5分钟内报告初步可执行方案，用户等待中。未有服务端模型/token/cost保持unknown/null，完成finish pending。root负责是否中断本次owned构建及恢复，不在agent中发kill。

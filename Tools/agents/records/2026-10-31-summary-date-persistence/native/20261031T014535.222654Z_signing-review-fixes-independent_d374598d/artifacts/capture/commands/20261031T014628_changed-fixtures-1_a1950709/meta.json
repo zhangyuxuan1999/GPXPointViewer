@@ -1,0 +1,21 @@
+{
+  "label": "changed-fixtures-1",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014628",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 21554,
+  "process_owner": {
+    "pid": 21554,
+    "parent_pid": 21552,
+    "process_identity": "darwin:21554:1793411188.372299",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.03
+}

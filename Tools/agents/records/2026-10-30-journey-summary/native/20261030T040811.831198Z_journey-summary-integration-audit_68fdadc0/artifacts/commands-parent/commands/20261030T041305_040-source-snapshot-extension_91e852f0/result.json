@@ -1,0 +1,21 @@
+{
+  "label": "040-source-snapshot-extension",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041305",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 13898,
+  "process_owner": {
+    "pid": 13898,
+    "parent_pid": 13897,
+    "process_identity": "darwin:13898:1793333585.061978",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.03
+}

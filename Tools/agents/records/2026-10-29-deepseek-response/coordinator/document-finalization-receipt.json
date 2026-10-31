@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-29T23:00:32.323600+00:00",
+  "archive": {
+    "manifest": "/Users/zyx/Documents/GPXPointViewer/Builds/20261029T225455Z_release_73e5627c/archive/build-manifest.json",
+    "app": "/Users/zyx/Documents/GPXPointViewer/Builds/20261029T225455Z_release_73e5627c/archive/GPXPointViewer.app",
+    "executable_sha256": "ce9e9d60895025d49253e6916f30df61dd1e22091b0828d8c01b11a3b96be5c8",
+    "source_sha256": "4c358c23892cfae7298cdd73470692068b6eb565c6e278016db73f17cfb4dae6",
+    "source_association": "build-completed-between-identical-input-snapshots"
+  },
+  "after": {
+    "README.md": "d4a4b20d3595fcb796d129b4952d90149a5aee16e3b4fe6474e5e4fd6c0d1a6b",
+    "Tests/README.md": "d7034d4458da75c9fbe9872ddcf45d57d982d4aec125589bd44e437ba77c172e",
+    "DeepSeek/issues.md": "6c2c14d6eda61f494325170d50648b03c8e780320d8e42e63e69fb4f3ab10cb7",
+    "DeepSeek/README.md": "7e194b92f843e17749f3af80947ede7664d3947f22c548d612d44f54ab44f59c",
+    "DeepSeek/2026-10-29-codex-response.md": "61b86beeb32a64447b39a031fad0719c344fd0d239063604b0497a4e5535a3df"
+  },
+  "before": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/coordinator/document-finalization-before",
+  "note": "Only final documentation and status updates; no product tests rerun."
+}

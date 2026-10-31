@@ -1,0 +1,12 @@
+{
+  "started_utc": "2026-10-29T20:48:16.574809+00:00",
+  "user_scope": "Review all DeepSeek N-01..31, fix justified issues, explain non-fixes, save reply file; propose features only",
+  "git_head": "d45f18787833202e6d5889b10614f4a37b043a99",
+  "tracked_status": "",
+  "test_policy": "Reuse existing evidence; record specific reasons before focused retest only",
+  "task_files": [
+    "architecture",
+    "core_fixes",
+    "harness_renderer"
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "process_cleanup": [
+    {
+      "pid": 35518,
+      "status": "confirmed",
+      "attempts": [
+        {
+          "operation": "group_sigterm",
+          "outcome": "absent"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "wait",
+          "outcome": "ok"
+        },
+        {
+          "operation": "group_sigkill",
+          "outcome": "absent"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "wait",
+          "outcome": "ok"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "group_probe",
+          "outcome": "absent"
+        },
+        {
+          "operation": "exit_code",
+          "outcome": "ok"
+        }
+      ],
+      "errors": [],
+      "leader_alive": false,
+      "group_alive": false,
+      "leader_exit_code": 0,
+      "duration_s": 0.00027299998328089714
+    }
+  ],
+  "cleanup_complete": true,
+  "stream_incomplete": false,
+  "runner_exit_code": 0,
+  "provider_status": "succeeded",
+  "acceptance_status": "pending",
+  "exit_code": 0,
+  "is_error": false,
+  "error": null,
+  "interrupted": false,
+  "runner_terminal_reason": null,
+  "protocol_errors": [],
+  "duration_s": 147.523,
+  "cost_usd": null,
+  "cost_source": "unknown",
+  "cli_reported_cost_usd": 0.933371,
+  "cost_note": "CLI estimate is not authoritative DeepSeek billed cost.",
+  "session_id": "5530633c-0754-4b04-a08f-ac7b9c824627",
+  "subtype": "success",
+  "terminal_reason": "completed",
+  "stop_reason": "end_turn",
+  "errors": null,
+  "api_error_status": null,
+  "permission_denials": [],
+  "usage": {
+    "input_tokens": 61592,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 361216,
+    "output_tokens": 14052,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "",
+    "iterations": [],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "num_turns": 15,
+  "result_count": 2,
+  "turn_results": [
+    {
+      "sequence": 1652,
+      "result_index": 0,
+      "uuid": "4f4debc9-0702-4260-b3cb-1c23b379d1a8",
+      "session_id": "5530633c-0754-4b04-a08f-ac7b9c824627",
+      "subtype": "success",
+      "is_error": false,
+      "terminal_reason": "completed",
+      "stop_reason": "end_turn",
+      "errors": null,
+      "api_error_status": null,
+      "origin": null,
+      "total_cost_usd": 0.09350300000000002
+    },
+    {
+      "sequence": 9938,
+      "result_index": 1,
+      "uuid": "13532fd2-22be-4387-89f0-0f587f2d2e1d",
+      "session_id": "5530633c-0754-4b04-a08f-ac7b9c824627",
+      "subtype": "success",
+      "is_error": false,
+      "terminal_reason": "completed",
+      "stop_reason": "end_turn",
+      "errors": null,
+      "api_error_status": null,
+      "origin": {
+        "kind": "task-notification",
+        "producer": "session-task",
+        "runId": "0mvtkpfsc-78760db8"
+      },
+      "total_cost_usd": 0.933371
+    }
+  ],
+  "background_tasks": [
+    {
+      "task_id": "bbsm88oa5",
+      "run_id": "0mvtkpfsc-78760db8",
+      "session_id": "5530633c-0754-4b04-a08f-ac7b9c824627",
+      "is_backgrounded": true,
+      "task_type": "local_bash",
+      "tool_use_id": "call_00_kxygbK3M8cwHDF787dYx9072",
+      "started_sequence": 1373,
+      "status": "failed",
+      "notification_run_id": "0mvtkpfsc-78760db8",
+      "notification_match": "strong",
+      "notification_sequence": 1654,
+      "notification_result_index": 1
+    }
+  ],
+  "foreground_tasks": [],
+  "unqualified_tasks": [],
+  "background_task_failures": [
+    {
+      "task_id": "bbsm88oa5",
+      "run_id": "0mvtkpfsc-78760db8",
+      "session_id": "5530633c-0754-4b04-a08f-ac7b9c824627",
+      "is_backgrounded": true,
+      "task_type": "local_bash",
+      "tool_use_id": "call_00_kxygbK3M8cwHDF787dYx9072",
+      "started_sequence": 1373,
+      "status": "failed",
+      "notification_run_id": "0mvtkpfsc-78760db8",
+      "notification_match": "strong",
+      "notification_sequence": 1654,
+      "notification_result_index": 1
+    }
+  ],
+  "background_incomplete": [],
+  "out_of_scope_changes": [],
+  "incomplete_checks": "Task acceptance requires independent review; provider completion is separate.",
+  "finished_utc": "2026-10-29T13:24:54.913751+00:00",
+  "status": "succeeded",
+  "run_status": "succeeded",
+  "verification_status": "not_run"
+}

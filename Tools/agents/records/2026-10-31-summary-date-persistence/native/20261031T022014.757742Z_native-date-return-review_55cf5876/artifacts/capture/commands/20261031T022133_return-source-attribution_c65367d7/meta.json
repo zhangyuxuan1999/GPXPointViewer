@@ -1,0 +1,21 @@
+{
+  "label": "return-source-attribution",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T022133",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 47164,
+  "process_owner": {
+    "pid": 47164,
+    "parent_pid": 47161,
+    "process_identity": "darwin:47164:1793413293.454128",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.04
+}

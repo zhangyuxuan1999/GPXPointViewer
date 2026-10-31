@@ -1,0 +1,31 @@
+{
+  "label": "003-source-symbols",
+  "argv": [
+    "rg",
+    "-n",
+    "^(@MainActor|final class|class|struct|enum|extension)|time|altitude|topology|trip|revision|cancel|synthetic|sourceID|sourceId|fileID|fileId|Window|openWindow|selection|selected",
+    "GPXPointViewer/TrackData.swift",
+    "GPXPointViewer/TrackStore.swift",
+    "GPXPointViewer/RegionIndex.swift",
+    "GPXPointViewer/RegionStats.swift",
+    "GPXPointViewer/GeoCompute.swift",
+    "GPXPointViewer/GapFill.swift",
+    "GPXPointViewer/BatchFill.swift",
+    "GPXPointViewer/ContentView.swift",
+    "GPXPointViewer/GPXPointViewerApp.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T040936",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 11981,
+  "process_owner": {
+    "pid": 11981,
+    "parent_pid": 11979,
+    "process_identity": "darwin:11981:1793333376.866531",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

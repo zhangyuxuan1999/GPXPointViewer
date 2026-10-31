@@ -1,0 +1,244 @@
+{
+  "run": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/deepseek/20261030T061550.887672Z_journey-summary-header-layout-visual-r2_586345c3",
+  "scope": "only four missing en/de screenshots; no repeated tests",
+  "summary": {
+    "steps": [
+      {
+        "exit_code": 0,
+        "child_exit_code": 0,
+        "stop_reason": null,
+        "cleanup_complete": true,
+        "cleanup": [],
+        "owner": {
+          "pid": 51725,
+          "pgid": 51725,
+          "sid": 51725,
+          "started_utc": "2026-10-30T06:16:05.674531+00:00"
+        },
+        "started_utc": "2026-10-30T06:16:05.674531+00:00",
+        "finished_utc": "2026-10-30T06:16:11.461930+00:00",
+        "language": "en",
+        "functional": false
+      },
+      {
+        "exit_code": 0,
+        "child_exit_code": 0,
+        "stop_reason": null,
+        "cleanup_complete": true,
+        "cleanup": [],
+        "owner": {
+          "pid": 51806,
+          "pgid": 51806,
+          "sid": 51806,
+          "started_utc": "2026-10-30T06:16:11.462506+00:00"
+        },
+        "started_utc": "2026-10-30T06:16:11.462506+00:00",
+        "finished_utc": "2026-10-30T06:16:16.783531+00:00",
+        "language": "de",
+        "functional": false
+      }
+    ],
+    "complete": true,
+    "pixel_verdict": "PENDING_ROOT_REVIEW",
+    "GPXPV_APP": "/Users/zyx/Documents/GPXPointViewer/Builds/20261030T060514Z_release_4bd65c63/archive/GPXPointViewer.app",
+    "GPXPV_BUILD_MANIFEST": "/Users/zyx/Documents/GPXPointViewer/Builds/20261030T060514Z_release_4bd65c63/archive/build-manifest.json",
+    "no_prior_tests_repeated": true,
+    "inherited_functional_run": "20261030T052958.534107Z_journey-summary-ui_1d914c2b",
+    "inherited_other_pixels_run": "20261030T055759.267763Z_journey-summary-visual-r2_7be8ceab",
+    "inherited_new_build_zh_run": "20261030T061054.914921Z_journey-summary-header-layout-visual_d936180c",
+    "reason": "Previous new-build zh two images passed; en preflight known_locked and de not run. Recover only en/de four missing pixels after user confirmed unlock. Temporary caffeinate display/user-active assertion held only for owned bounded driver process. Zero functional checks."
+  },
+  "languages": {
+    "en": {
+      "execution-mode": {
+        "visual_only": true,
+        "visual_extras": false,
+        "layout_only": true,
+        "functional_checks_executed": 0
+      },
+      "results": [],
+      "cleanup": {
+        "owned_pid": 51728,
+        "owned_process_exit": -15,
+        "preferences_changed": false,
+        "preferences_exact_bytes_restored": true,
+        "fixture_work": "/Users/zyx/Library/Containers/de.wayne.GPXPointViewer/Data/tmp/summary-smoke-11f47d8567e2480db579ea6a86e3153b",
+        "no_formal_app_process_killed": true
+      },
+      "build-provenance": {
+        "manifest": "/Users/zyx/Documents/GPXPointViewer/Builds/20261030T060514Z_release_4bd65c63/archive/build-manifest.json",
+        "app": "/Users/zyx/Documents/GPXPointViewer/Builds/20261030T060514Z_release_4bd65c63/archive/GPXPointViewer.app",
+        "executable_sha256": "64d5101be7c3239d10e0cfd01109b3220899f992f9865d1eda0dc2b606b5e883",
+        "source_sha256": "e2bfc9963f3ba993cd6506f0bc54de9565929779114bee584dbafb30ec07c175",
+        "source_association": "build-completed-between-identical-input-snapshots"
+      },
+      "screen-preflight": {
+        "argv": [
+          "/usr/bin/osascript",
+          "-l",
+          "JavaScript",
+          "-e",
+          "ObjC.import('AppKit'); var app=$.NSWorkspace.sharedWorkspace.frontmostApplication; JSON.stringify({bundleIdentifier:ObjC.unwrap(app.bundleIdentifier)||'',name:ObjC.unwrap(app.localizedName)||''});"
+        ],
+        "status": "not_known_locked",
+        "timeout_seconds": 4,
+        "exit_code": 0,
+        "stdout": "{\"bundleIdentifier\":\"com.openai.codex\",\"name\":\"ChatGPT\"}\n",
+        "stderr": "",
+        "frontmost": {
+          "bundleIdentifier": "com.openai.codex",
+          "name": "ChatGPT"
+        }
+      },
+      "images": [
+        {
+          "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/deepseek/20261030T061550.887672Z_journey-summary-header-layout-visual-r2_586345c3/artifacts/header-layout-r2/en/evidence/20261030T061605.766127Z-0911f2bb/daily-top.png",
+          "sha256": "115f89abcaa94ff6b22d0f89db1da106c081023f3fb291b85f6b40efe9404cfd",
+          "pixel_verdict": "passed"
+        },
+        {
+          "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/deepseek/20261030T061550.887672Z_journey-summary-header-layout-visual-r2_586345c3/artifacts/header-layout-r2/en/evidence/20261030T061605.766127Z-0911f2bb/journey-lower.png",
+          "sha256": "026f508b0b6e70edd072750b8a5226e88115e751afba8441fb034949c645e272",
+          "pixel_verdict": "passed"
+        }
+      ],
+      "command": {
+        "argv": [
+          "/usr/bin/caffeinate",
+          "-d",
+          "-u",
+          "/opt/homebrew/opt/python@3.14/bin/python3.14",
+          "/Users/zyx/Documents/GPXPointViewer/Tests/ui/run_summary_tests.py",
+          "--evidence",
+          "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/deepseek/20261030T061550.887672Z_journey-summary-header-layout-visual-r2_586345c3/artifacts/header-layout-r2/en/evidence",
+          "--language",
+          "en",
+          "--visual-only",
+          "--layout-only"
+        ],
+        "cwd": "/Users/zyx/Documents/GPXPointViewer",
+        "env": {
+          "GPXPV_APP": "/Users/zyx/Documents/GPXPointViewer/Builds/20261030T060514Z_release_4bd65c63/archive/GPXPointViewer.app",
+          "GPXPV_BUILD_MANIFEST": "/Users/zyx/Documents/GPXPointViewer/Builds/20261030T060514Z_release_4bd65c63/archive/build-manifest.json"
+        },
+        "started": "2026-10-30T06:16:05.674076+00:00"
+      },
+      "process": {
+        "exit_code": 0,
+        "child_exit_code": 0,
+        "stop_reason": null,
+        "cleanup_complete": true,
+        "cleanup": [],
+        "owner": {
+          "pid": 51725,
+          "pgid": 51725,
+          "sid": 51725,
+          "started_utc": "2026-10-30T06:16:05.674531+00:00"
+        },
+        "started_utc": "2026-10-30T06:16:05.674531+00:00",
+        "finished_utc": "2026-10-30T06:16:11.461930+00:00",
+        "language": "en",
+        "functional": false
+      },
+      "stdout": "VISUAL_ONLY functional_checks=0\nEVIDENCE /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/deepseek/20261030T061550.887672Z_journey-summary-header-layout-visual-r2_586345c3/artifacts/header-layout-r2/en/evidence/20261030T061605.766127Z-0911f2bb\n",
+      "stderr": ""
+    },
+    "de": {
+      "execution-mode": {
+        "visual_only": true,
+        "visual_extras": false,
+        "layout_only": true,
+        "functional_checks_executed": 0
+      },
+      "results": [],
+      "cleanup": {
+        "owned_pid": 51812,
+        "owned_process_exit": -15,
+        "preferences_changed": false,
+        "preferences_exact_bytes_restored": true,
+        "fixture_work": "/Users/zyx/Library/Containers/de.wayne.GPXPointViewer/Data/tmp/summary-smoke-5a86167c36414dab830a092a2280c1cb",
+        "no_formal_app_process_killed": true
+      },
+      "build-provenance": {
+        "manifest": "/Users/zyx/Documents/GPXPointViewer/Builds/20261030T060514Z_release_4bd65c63/archive/build-manifest.json",
+        "app": "/Users/zyx/Documents/GPXPointViewer/Builds/20261030T060514Z_release_4bd65c63/archive/GPXPointViewer.app",
+        "executable_sha256": "64d5101be7c3239d10e0cfd01109b3220899f992f9865d1eda0dc2b606b5e883",
+        "source_sha256": "e2bfc9963f3ba993cd6506f0bc54de9565929779114bee584dbafb30ec07c175",
+        "source_association": "build-completed-between-identical-input-snapshots"
+      },
+      "screen-preflight": {
+        "argv": [
+          "/usr/bin/osascript",
+          "-l",
+          "JavaScript",
+          "-e",
+          "ObjC.import('AppKit'); var app=$.NSWorkspace.sharedWorkspace.frontmostApplication; JSON.stringify({bundleIdentifier:ObjC.unwrap(app.bundleIdentifier)||'',name:ObjC.unwrap(app.localizedName)||''});"
+        ],
+        "status": "not_known_locked",
+        "timeout_seconds": 4,
+        "exit_code": 0,
+        "stdout": "{\"bundleIdentifier\":\"com.openai.codex\",\"name\":\"ChatGPT\"}\n",
+        "stderr": "",
+        "frontmost": {
+          "bundleIdentifier": "com.openai.codex",
+          "name": "ChatGPT"
+        }
+      },
+      "images": [
+        {
+          "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/deepseek/20261030T061550.887672Z_journey-summary-header-layout-visual-r2_586345c3/artifacts/header-layout-r2/de/evidence/20261030T061611.539083Z-db5c1ffc/daily-top.png",
+          "sha256": "f2c0a7fab1a421da2cbe35d7e7b6c92c4c30644ae1298cde59a4581fc300fd07",
+          "pixel_verdict": "passed"
+        },
+        {
+          "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/deepseek/20261030T061550.887672Z_journey-summary-header-layout-visual-r2_586345c3/artifacts/header-layout-r2/de/evidence/20261030T061611.539083Z-db5c1ffc/journey-lower.png",
+          "sha256": "4b2fa3c2f7ade017ce0bf7258e9f1ac6b1a9ed2cf9eb009c33b10cb89279bdc7",
+          "pixel_verdict": "passed"
+        }
+      ],
+      "command": {
+        "argv": [
+          "/usr/bin/caffeinate",
+          "-d",
+          "-u",
+          "/opt/homebrew/opt/python@3.14/bin/python3.14",
+          "/Users/zyx/Documents/GPXPointViewer/Tests/ui/run_summary_tests.py",
+          "--evidence",
+          "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/deepseek/20261030T061550.887672Z_journey-summary-header-layout-visual-r2_586345c3/artifacts/header-layout-r2/de/evidence",
+          "--language",
+          "de",
+          "--visual-only",
+          "--layout-only"
+        ],
+        "cwd": "/Users/zyx/Documents/GPXPointViewer",
+        "env": {
+          "GPXPV_APP": "/Users/zyx/Documents/GPXPointViewer/Builds/20261030T060514Z_release_4bd65c63/archive/GPXPointViewer.app",
+          "GPXPV_BUILD_MANIFEST": "/Users/zyx/Documents/GPXPointViewer/Builds/20261030T060514Z_release_4bd65c63/archive/build-manifest.json"
+        },
+        "started": "2026-10-30T06:16:11.462329+00:00"
+      },
+      "process": {
+        "exit_code": 0,
+        "child_exit_code": 0,
+        "stop_reason": null,
+        "cleanup_complete": true,
+        "cleanup": [],
+        "owner": {
+          "pid": 51806,
+          "pgid": 51806,
+          "sid": 51806,
+          "started_utc": "2026-10-30T06:16:11.462506+00:00"
+        },
+        "started_utc": "2026-10-30T06:16:11.462506+00:00",
+        "finished_utc": "2026-10-30T06:16:16.783531+00:00",
+        "language": "de",
+        "functional": false
+      },
+      "stdout": "VISUAL_ONLY functional_checks=0\nEVIDENCE /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/deepseek/20261030T061550.887672Z_journey-summary-header-layout-visual-r2_586345c3/artifacts/header-layout-r2/de/evidence/20261030T061611.539083Z-db5c1ffc\n",
+      "stderr": ""
+    }
+  },
+  "pixel_verdict": "passed",
+  "pixel_observer": "root viewed all four stored PNGs with view_image; no new screenshots executed",
+  "inherited_chinese_evidence": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/coordinator/header-layout-zh-evidence.json"
+}

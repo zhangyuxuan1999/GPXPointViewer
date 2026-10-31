@@ -1,0 +1,27 @@
+{
+  "label": "019-trip-wrappers",
+  "argv": [
+    "rg",
+    "-n",
+    "-A",
+    "60",
+    "-B",
+    "10",
+    "static func trips\\(|struct SegmentSample|struct SegmentView|protocol SampleTrack|pathRange",
+    "GPXPointViewer/GapFill.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041102",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 13000,
+  "process_owner": {
+    "pid": 13000,
+    "parent_pid": 12996,
+    "process_identity": "darwin:13000:1793333462.496927",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

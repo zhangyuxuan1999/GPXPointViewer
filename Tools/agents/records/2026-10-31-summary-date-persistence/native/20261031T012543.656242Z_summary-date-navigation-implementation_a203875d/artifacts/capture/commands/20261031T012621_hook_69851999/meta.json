@@ -1,0 +1,22 @@
+{
+  "label": "hook",
+  "argv": [
+    "/bin/zsh",
+    "-c",
+    "sed -n '260,335p' GPXPointViewer/UITestHook.swift; sed -n '747,790p' GPXPointViewer/UITestHook.swift; cat GPXPointViewer/AppLanguage.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T012621",
+  "status": "failed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 97853,
+  "process_owner": {
+    "pid": 97853,
+    "parent_pid": 97840,
+    "process_identity": "darwin:97853:1793409981.194254",
+    "group_created": true
+  },
+  "exit_code": 1,
+  "duration_s": 0.02
+}

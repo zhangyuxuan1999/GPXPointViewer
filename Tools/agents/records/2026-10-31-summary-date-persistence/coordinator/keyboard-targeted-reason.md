@@ -1,0 +1,2 @@
+# Missing literal keyboard / Return contradiction
+Actual navfirst3passed; thennativeNSDatePicker action setsdraft2016-01-01butpostedTab+Returndidnotsubmit,selectedDayemptyuntilwaittimeout. NeedONEspecificliteralnativeCUAdateinput+Return/Button check to distinguish productcontrol vs testeventdelivery. Reuseexistinguniquesandboxcopy; no othergroupsor4passedpersistencechecksrepeated. Originalfailedoutputand2imagesretained. Rootviewedmain-selected-16/choose-date, layoutreadableat780x560no alldateslist; pixelpassforthese2only. Other3navassertionsand4zhimages/en/deunexecuted.

@@ -1,0 +1,23 @@
+{
+  "label": "031-ui-mode-location",
+  "argv": [
+    "rg",
+    "-n",
+    "displayMode|switchDisplayMode|case \"clear|case \"mode|case \"resize|case \"shotwin|case \"terminate|case \"close",
+    "GPXPointViewer/UITestHook.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T050140",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 27099,
+  "process_owner": {
+    "pid": 27099,
+    "parent_pid": 27098,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.0
+}

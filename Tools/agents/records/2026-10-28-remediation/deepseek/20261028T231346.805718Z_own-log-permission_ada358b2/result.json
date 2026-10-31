@@ -1,0 +1,51 @@
+{
+  "provider_status": "succeeded",
+  "acceptance_status": "pending",
+  "exit_code": 0,
+  "is_error": false,
+  "error": null,
+  "interrupted": false,
+  "runner_terminal_reason": null,
+  "protocol_errors": [],
+  "duration_s": 15.245,
+  "cost_usd": null,
+  "cost_source": "unknown",
+  "cli_reported_cost_usd": 0.083767,
+  "cost_note": "CLI estimate is not authoritative DeepSeek billed cost.",
+  "session_id": "348cccb3-efa3-4f69-80dd-385983df5f36",
+  "subtype": "success",
+  "terminal_reason": "completed",
+  "stop_reason": "end_turn",
+  "errors": null,
+  "api_error_status": null,
+  "permission_denials": [],
+  "usage": {
+    "input_tokens": 3908,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 11904,
+    "output_tokens": 2331,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "",
+    "iterations": [],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "num_turns": 5,
+  "out_of_scope_changes": [],
+  "incomplete_checks": "Task acceptance requires independent review; provider completion is separate.",
+  "finished_utc": "2026-10-28T23:14:03.432750+00:00",
+  "status": "succeeded",
+  "run_status": "succeeded",
+  "verification_status": "not_run"
+}

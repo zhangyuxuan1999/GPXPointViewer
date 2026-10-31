@@ -1,0 +1,27 @@
+{
+  "label": "phase-evidence-read",
+  "argv": [
+    "python3",
+    "Tools/agents/agent_run.py",
+    "event",
+    "Tools/agents/records/2026-10-30-journey-summary/native/20261030T045238.784817Z_journey-summary-core-review_56c20eab",
+    "--type",
+    "progress",
+    "--json",
+    "{\"completed\":\"Confirmed d4b339e6 checkpoint fix; inherited exact original 19 named passing-case evidence while retaining time-wrapper exit1\",\"doing\":\"Review final evidence linkage and directed/scale outputs when ready\",\"next\":\"Finish with resolved finding and explicit runtime limits\"}"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T045824",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 24645,
+  "process_owner": {
+    "pid": 24645,
+    "parent_pid": 24643,
+    "process_identity": "darwin:24645:1793336304.287845",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.05
+}

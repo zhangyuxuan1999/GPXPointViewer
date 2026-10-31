@@ -1,0 +1,23 @@
+{
+  "label": "read-compare",
+  "argv": [
+    "sed",
+    "-n",
+    "680,778p",
+    "GPXPointViewer/TrackStore.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041030",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 12786,
+  "process_owner": {
+    "pid": 12786,
+    "parent_pid": 12785,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.0
+}

@@ -1,0 +1,23 @@
+{
+  "label": "return-first-diff-read",
+  "argv": [
+    "sed",
+    "-n",
+    "1,55p",
+    "Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T021407.735687Z_date-native-return-submit_207886b8/artifacts/exact-changes.diff"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T022242",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 47881,
+  "process_owner": {
+    "pid": 47881,
+    "parent_pid": 47880,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.0
+}

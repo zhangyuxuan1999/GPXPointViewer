@@ -1,0 +1,23 @@
+{
+  "label": "return-driver-frozen",
+  "argv": [
+    "sed",
+    "-n",
+    "185,360p",
+    "Tests/ui/run_summary_navigation_tests.py"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T022038",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 45896,
+  "process_owner": {
+    "pid": 45896,
+    "parent_pid": 45893,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.02
+}

@@ -1,0 +1,9 @@
+{
+  "status": "error",
+  "cost_usd": null,
+  "started_utc": "2026-10-28T22:19:43.243062+00:00",
+  "error_type": "PermissionError",
+  "error": "[Errno 1] Operation not permitted",
+  "finished_utc": "2026-10-28T22:19:43.243168+00:00",
+  "duration_s": 0.0
+}

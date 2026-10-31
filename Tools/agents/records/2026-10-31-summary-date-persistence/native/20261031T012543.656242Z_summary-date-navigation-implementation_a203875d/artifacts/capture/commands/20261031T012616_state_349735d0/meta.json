@@ -1,0 +1,22 @@
+{
+  "label": "state",
+  "argv": [
+    "/bin/zsh",
+    "-c",
+    "sed -n '1,260p' GPXPointViewer/JourneySummaryState.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T012616",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 97717,
+  "process_owner": {
+    "pid": 97717,
+    "parent_pid": 97713,
+    "process_identity": "darwin:97717:1793409976.973907",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

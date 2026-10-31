@@ -1,0 +1,9 @@
+{
+  "command": [
+    "/bin/ps",
+    "-axo",
+    "pid=,comm="
+  ],
+  "error": "PermissionError: [Errno 1] Operation not permitted: '/bin/ps'",
+  "result": "failed before child launch; subsequent source read not executed"
+}

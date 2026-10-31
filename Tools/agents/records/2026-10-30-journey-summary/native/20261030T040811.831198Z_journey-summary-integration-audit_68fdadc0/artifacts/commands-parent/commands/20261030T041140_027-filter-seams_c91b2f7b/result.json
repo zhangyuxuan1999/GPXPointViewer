@@ -1,0 +1,23 @@
+{
+  "label": "027-filter-seams",
+  "argv": [
+    "rg",
+    "-n",
+    "ViewFilterSpec|viewFilter =|viewFilterSpec =|filterKey|onChange\\(of: store.viewFilter|func setFilter|DatePicker|timeFilter",
+    "GPXPointViewer"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041140",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 13290,
+  "process_owner": {
+    "pid": 13290,
+    "parent_pid": 13285,
+    "process_identity": "darwin:13290:1793333500.715425",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.02
+}

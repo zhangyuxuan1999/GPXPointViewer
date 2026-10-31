@@ -1,0 +1,1 @@
+Root逐段读helper，独立23/23 mock通过（commands/20261029T122731_visual-helper-independent_ff0b5dcc）。核对唯一写路径/键、typed其他键不变、defaults与磁盘一致、漂移/任意路径GPX进程拒绝写、锁屏前零UI/zero kill、finally恢复、五phase边界与23继承phase。helper仅准备通过，不等于真实偏好或截图验收。driver hash=3f08c7f23752d5f88e2d3094ead391991427c822e42dd826941113dbe6d93648。已要求补全全路径可执行guard，最终实现+独立测试包含。

@@ -1,0 +1,7 @@
+# Architecture accepted for implementation
+
+Root has read the full architecture policy, exact Swift engine and Store interface, ownership split and validation matrix, and compared it with direct source reading and independent Sol audit. This is design approval, not a runtime/test acceptance.
+
+Accepted scope: selected source only, explicit Gregorian/IANA day boundaries, 5min continuity and 30min gap journeys, preserved hard topology, observed/estimated/unknown interval unions, robust height estimation with visible coverage limits, offline region evidence, unconfirmed transport candidates and manual override. No false .fwdb temporal statistics, no silent multi-device sums, no use of old fill-only Trip metrics/modes. UI safe navigation and truthful summary filter block address the source audit integration trap. Non-goals CSV/manual journey merge/split/persistence remain explicit; no extra user approval is needed for these implementation choices within the requested first version.
+
+A owns new core and core tests. B owns state/UI and narrow glue plus new Store/UI directed helpers. Root overrides architecture's suggested translation/README ownership: bounded new translation chunks and README/TestsREADME edits go to DeepSeek Flash max after interfaces/text freeze; catalog assembly and final build/acceptance remain root. Thus no concurrent writers. Source investigation and design required no product execution; no passed historical tests rerun. Any issue discovered in implementation must be logged and fixed with minimum affected validation.

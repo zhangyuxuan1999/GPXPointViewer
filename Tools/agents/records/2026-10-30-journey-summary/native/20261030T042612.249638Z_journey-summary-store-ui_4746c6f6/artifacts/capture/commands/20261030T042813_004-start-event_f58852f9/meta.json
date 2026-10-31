@@ -1,0 +1,27 @@
+{
+  "label": "004-start-event",
+  "argv": [
+    "python3",
+    "Tools/agents/agent_run.py",
+    "event",
+    "Tools/agents/records/2026-10-30-journey-summary/native/20261030T042612.249638Z_journey-summary-store-ui_4746c6f6",
+    "--type",
+    "progress",
+    "--json",
+    "{\"completed\":\"Accepted new B task and approved architecture; previous audit remains complete and unchanged.\",\"doing\":\"Coordinate engine interface; implement owned Store/UI adapters with exact source selection, ownership and map filter semantics.\",\"next\":\"Production Store directed tests and compiler stringsdata; prepare unexecuted bounded UI smoke.\",\"scope\":\"No engine edits, translation/catalog/README edits, release build, install or app/UI execution.\"}"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T042813",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 17312,
+  "process_owner": {
+    "pid": 17312,
+    "parent_pid": 17309,
+    "process_identity": "darwin:17312:1793334493.355943",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.05
+}

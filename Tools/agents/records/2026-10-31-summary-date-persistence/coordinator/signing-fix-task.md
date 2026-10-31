@@ -1,0 +1,7 @@
+# 恢复本地构建的sandbox签名并防止安装偏好域回归 — Sol ultra
+请求gpt-6.1-sol/ultra。用户报告新版语言/idle设置不保留，settings审计已确认旧app ad-hoc无TeamIdentifier但sandbox=true，新no-sign archive仅linker-signed且entitlements空；同bundleid从容器Preferences转到非容器Preferences。代码持久化仍在，不要未经证实改AppLanguage/TrackStore。
+先读AGENTS、README构建节、Tests/README构建归属段、Tools/agents/README，审计run native/20261031T011612.884046Z_settings-persistence-audit_060da613 的当前progress/证据和最终output（若尚未完成可先审工具），以及Tools/build_release.py、archive_build.py、Tests/agents中其现有测试。三target Release已有CODE_SIGN_IDENTITY=-和各自entitlements，优先让Xcode按原工程从内向外签名，不新增证书/Team，不用--deep把同一entitlements给所有target。
+拥有可修改文件：Tools/build_release.py、Tools/archive_build.py；可新增Tools/install_release.py作为安全安装入口；Tests/agents中仅构建/归档/安装关联测试（现有test文件先确认是否相关，只改相关）；新增docs/local-install-signing.md。其他产品/UI/翻译/日期文档禁止修改，日期Sol将并行改产品。
+目标：明确未签名构建仅能用于显式研发/诊断，不能无声作为安装版；正常本地Release保留原sandbox与对应权限。最小、清晰的安装前守卫核对实际主app+两个appex签名/entitlements、bundleID、manifest/source归属，拒绝未签或错误sandbox构建。若新增install工具，必须显式确认目标路径/授权、正常退出前置条件、备份与暂存完整校验/回滚，禁止强杀、改真实偏好、签署现有正式app。root最终真正安装，不在本run执行。
+保留既有--no-sign用途时写清not installable，不能假称已验证当前已运行的unsignedarchive是sandboxed。新增签名证据如入manifest须最终签完后生成，不让旧manifest冒充变更binary。既有archive历史兼容可读，但安装不得缺省放过未知签名。不要编译产品测试/重建App，由root最终统一一次Release；只做与工具修改相关的最小离线mock/fixture测试，先记录具体修复理由。原有核心/Store/UI已通过证据复用。
+输出给root可直接调用的正确构建命令、安装命令（如新增）、证据字段和限制。偏好白名单比对/是否迁移由root最终阶段根据现状处理，不写真实profile。保存每个允许修改文件前后快照/哈希/新增删除及正常工具日志；使用旧coordinator/capture.py，环境GPXPV_COMMAND_RECORD_ROOT=本run/artifacts/capture，每主要阶段progress.md+agent_run.py event；完成output+finish供rootverify。禁止其他代理/侧栏聊天/联网路由/生产App操作。

@@ -1,0 +1,11 @@
+{
+  "build": "/Users/zyx/Documents/GPXPointViewer/Builds/20261030T052611Z_release_25c40b88",
+  "compiler_files": 39,
+  "main_app_keys": 1221,
+  "newkeys_after_freeze": [],
+  "required_new_keys": 76,
+  "required_absent_from_final_compiler": [],
+  "missing_translations": [],
+  "status": "passed",
+  "catalog_sha256": "de023fde8dcb226296fa9f8face5f51a4b36f2ebeb7be465c84b06a4a26f720d"
+}

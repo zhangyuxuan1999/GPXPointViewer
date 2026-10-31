@@ -1,0 +1,30 @@
+{
+  "run": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/deepseek/20261029T124907.453283Z_r4-visual-final_dd903ac7",
+  "checks": [
+    {
+      "path": "Tests/synth/format-edge/gen.py",
+      "sha256": "4c6e105f1d01dcb18e8190da71d9b69a5051b98f163578e85fec88f4708a8384",
+      "root_matches": true,
+      "numeric_ast_unchanged": true
+    },
+    {
+      "path": "Tests/synth/format-edge/expect.json",
+      "sha256": "1e0f2eea06704a195d06970b5f355e3df806cd2c708dd245f179f87d4d78c8cf",
+      "root_matches": true,
+      "numeric_ast_unchanged": true
+    },
+    {
+      "path": "Tests/synth/scale-mixed/gen.py",
+      "sha256": "af1b1b0a57928ffd54bf44eb19f52f218a52dc45a9d252bf3b154f3e224ad0c2",
+      "root_matches": true,
+      "numeric_ast_unchanged": true
+    },
+    {
+      "path": "Tests/synth/scale-mixed/expect.json",
+      "sha256": "ec7d93183c7a02776e6d765f73ea5fd6938872153077960ea2cd4169f83fe3a3",
+      "root_matches": true,
+      "numeric_ast_unchanged": true
+    }
+  ],
+  "passed": true
+}

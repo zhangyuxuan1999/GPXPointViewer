@@ -1,0 +1,6 @@
+{
+  "utc": "2026-10-29T22:57:13.473954+00:00",
+  "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/coordinator/fog-comment-receipt.json",
+  "accepted": false,
+  "error": "Error Domain=NSCocoaErrorDomain Code=4099 \"The connection to service named com.apple.FileProvider was invalidated: Connection init failed at lookup with error 159 - Sandbox restriction.\" UserInfo={NSDebugDescription=The connection to service named com.apple.FileProvider was invalidated: Connection init failed at lookup with error 159 - Sandbox restriction.}"
+}

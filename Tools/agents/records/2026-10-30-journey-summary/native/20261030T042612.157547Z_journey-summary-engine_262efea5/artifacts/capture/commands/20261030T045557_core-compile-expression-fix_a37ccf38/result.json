@@ -1,0 +1,23 @@
+{
+  "label": "core-compile-expression-fix",
+  "argv": [
+    "python3",
+    "Tests/summary/core/run.py",
+    "--output-root",
+    "Tools/agents/records/2026-10-30-journey-summary/native/20261030T042612.157547Z_journey-summary-engine_262efea5/artifacts/validation"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T045557",
+  "status": "failed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 22592,
+  "process_owner": {
+    "pid": 22592,
+    "parent_pid": 22588,
+    "process_identity": "darwin:22592:1793336157.299530",
+    "group_created": true
+  },
+  "exit_code": 1,
+  "duration_s": 8.21
+}

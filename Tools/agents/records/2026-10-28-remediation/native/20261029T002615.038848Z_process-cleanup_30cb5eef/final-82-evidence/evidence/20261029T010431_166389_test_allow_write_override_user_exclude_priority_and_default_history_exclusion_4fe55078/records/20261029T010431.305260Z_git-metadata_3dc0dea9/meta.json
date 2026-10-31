@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "run_id": "20261029T010431.305260Z_git-metadata_3dc0dea9",
+  "name": "git-metadata",
+  "provider": "native",
+  "requested_model": null,
+  "requested_effort": null,
+  "observed_model": null,
+  "observed_effort": null,
+  "model_verification": "unknown",
+  "cwd": "/private/tmp/gpxpv-runner-tests-2u21g67p/20261029T010431_166389_test_allow_write_override_user_exclude_priority_and_default_history_exclusion_4fe55078/workspace",
+  "task_source": "/private/tmp/gpxpv-runner-tests-2u21g67p/20261029T010431_166389_test_allow_write_override_user_exclude_priority_and_default_history_exclusion_4fe55078/task.md",
+  "started_utc": "2026-10-29T01:04:31.305872+00:00",
+  "watch": [
+    "Tools/agents/records/batch/work"
+  ],
+  "allow_write": [
+    "Tools/agents/records/batch/work"
+  ],
+  "snapshot_exclusions": {
+    "parts": [
+      ".agents",
+      ".aws",
+      ".codex",
+      ".git",
+      "DerivedData",
+      "__pycache__",
+      "node_modules",
+      "sdkenv"
+    ],
+    "prefixes": [
+      "Tools/agents/records",
+      "Tools/agents/runs",
+      "Tests/reports",
+      "Tests/ui/app.noindex",
+      "Tests/ui/perf",
+      "Tests/ui/synth.gpx",
+      "Tests/exam/results",
+      "Tests/synth/runner/synthrunner",
+      "Tests/synth/runner/build.log",
+      "Tools/agents/records"
+    ],
+    "default_prefixes": [
+      "Tools/agents/records",
+      "Tools/agents/runs",
+      "Tests/reports",
+      "Tests/ui/app.noindex",
+      "Tests/ui/perf",
+      "Tests/ui/synth.gpx",
+      "Tests/exam/results",
+      "Tests/synth/runner/synthrunner",
+      "Tests/synth/runner/build.log"
+    ],
+    "user_prefixes": [
+      "Tools/agents/records"
+    ],
+    "explicit_overrides": [
+      "Tools/agents/records/batch/work"
+    ],
+    "generated_pattern": "^Tests/synth/(?:format-edge|garmin-tunnels|legit-motion|replay-artefacts|scale-mixed|stationary-noise)/[^/]+\\.(?:gpx|csv|fit|bin)$"
+  },
+  "parent_run": null,
+  "recovery": "New run; never replay side effects without checking existing evidence.",
+  "cost_usd": null,
+  "cost_source": "unknown"
+}

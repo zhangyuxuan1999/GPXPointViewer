@@ -1,0 +1,34 @@
+[
+  {
+    "target": "summary_date_architecture",
+    "message": "补充产品取向：未显式选日时可显示年月日控件+清晰选择提示，不能默认静默展示错误日期；显式选日即使窗口已开也应切到该日。主地图日期UI的具体意图不要仅靠viewFilter时长反推（单日DST/自定义区间可能歧义），请查当前TimeFilterSection真正拥有状态的位置。保持核心统计模型/缓存，日期切换仅UI索引。root确认当前70产品输入与已安装验收归档一致，无他人产品代码漂移。"
+  },
+  {
+    "target": "settings_persistence_audit",
+    "message": "补充：root已验证当前70产品源码输入与最后已验收/安装归档完全相同；AGENTS仅新增持续安装授权。安装旧App正常Command-Q时为空无数据，ditto换bundle未碰Library偏好；新App通过CUA明确/Applications路径启动后UI英文，之前旧App同路径中文。此次用户又已切回中文并载入201万点；不要替用户改回旧值，迁移必须尊重当前新域可能更近的设置。关注新旧sandbox与UI副本domains但由证据裁决。"
+  },
+  {
+    "target": "settings_persistence_audit",
+    "message": "收到，root向用户说明确定的sandbox域变化由本次构建安装流程引入，同时不把每次启动普遍失败当已证实。请尽快给保持原sandbox权限/签名的构建修复推荐及新域最近设置迁回原域策略（只白名单、当前显式值优先、不能整plist复制）。需要评估无外部证书可用的ad-hoc sandbox签名是否适合本机应用、扩展顺序签名和manifest归属，给最小证据验证。重要实现将另开Sol任务，不在审计run扩范围。"
+  },
+  {
+    "target": "settings_persistence_audit",
+    "message": "实现方向收到。请最终报告明确区分必要修复（恢复Xcode现有签名/entitlements、安装守卫）与可选产品逻辑变更；若未发现AppLanguage/idle代码缺陷，不为防御而改。对当前用户一次性迁回可由root安装前关闭App后，备份两域并用系统偏好API仅合并已知白名单的当前显式值（新域当前zh-Hans/idleDisabled=true已知），缺键不凭mtime猜测。请提供测试隔离要求和语言显式system缺键风险处理，真实写入由root最后阶段做。"
+  },
+  {
+    "target": "summary_date_architecture",
+    "message": "root已接纳“固定年月日＋当天内容”的方向，设置调查完成不改产品读写，只修构建签名。请在当前日期设计中明确冻结最小接口与文件边界后尽快交付，Sol即可开始；无需重述已有核心数值算法。日期实现可以独占JourneySummaryWindow/State、TrackStore摘要与筛选块、ContentView入口、ExportSheet.TimeFilterSection、App窗口命令及UITestHook/对应Tests，签名Sol只改Tools和Tests/agents，无文件冲突。"
+  },
+  {
+    "target": "signing_persistence_fix",
+    "message": "日期Sol提出最终真实UI/持久化测试必须唯一测试bundleID，不能再与正式app共用偏好。请在你拥有的Tools中提供/复用受控测试副本准备能力：从最终已验证签名归档复制到独有测试路径，主App及两appex改为一致的唯一测试ID族，按各自entitlements由内到外adhoc签名，保存原归档manifest+副本变更/签名/哈希，验证不得等于正式ID。不是安装正式目标，不改原归档。接口请尽快发日期Sol /root/summary_date_implementation 与root，让其驱动适配；若新增小Tools文件需要root授权，先报明确路径，不挤进其他agent文件。当次只实现+离线fixture，不启动实际App。"
+  },
+  {
+    "target": "summary_date_implementation",
+    "message": "已协调签名Sol提供已验收归档->唯一测试bundleID族的重新签名副本准备API，并直接告诉你接口。同一settings测试身份跨进程保留，日期像素三语可各独立身份；确认实际sandbox容器/偏好域再用。持久化建议最小3进程：A生产API写zh-Hans/idle=true及非默认秒数；B无AppleLanguages启动参数读回并记录真实locale/Bundle偏好，再通过生产API改system(remove AppleLanguages)/idle=false；C仍无覆盖参数读回缺键+false显式值和秒数。不测试/修改真实domain、不把命令参数当保存证据。hook仅UITestHook.enabled可用，返回6键及bundleID/容器路径即可，不输出其他偏好。准备但不运行实际App，本轮先完成日期实现/newnavigation Store验证。"
+  },
+  {
+    "target": "summary_date_implementation",
+    "message": "同意UTC仅作为原生DatePicker的civil编辑载体：业务YMD仍严格在实际摘要IANA区求日界/回读，旁边明确显示实际区，不能把UTC冒充统计时区。请在实现报告记录相对ADR的这项小适配及Apia跳过日新断言，保留原YMD和错误、不跳日期。原有Gregorian日期合法性/主面板捕获区对齐仍保持。"
+  }
+]

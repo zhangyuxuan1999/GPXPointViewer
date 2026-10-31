@@ -1,0 +1,19 @@
+{
+  "name": "navigation-remaining-zh",
+  "argv": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "/Users/zyx/Documents/GPXPointViewer/Tests/ui/run_summary_navigation_tests.py",
+    "--evidence",
+    "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/deepseek/20261031T022543.791110Z_summary-date-return-remaining_89a17b6d/artifacts/navigation-remaining-zh",
+    "--mode",
+    "navigation-remaining",
+    "--language",
+    "zh-Hans"
+  ],
+  "mode": "navigation-remaining",
+  "language": "zh-Hans",
+  "started": "2026-10-31T02:26:06.358726+00:00",
+  "pid": 49121,
+  "exit_code": 0,
+  "finished": "2026-10-31T02:26:14.989919+00:00"
+}

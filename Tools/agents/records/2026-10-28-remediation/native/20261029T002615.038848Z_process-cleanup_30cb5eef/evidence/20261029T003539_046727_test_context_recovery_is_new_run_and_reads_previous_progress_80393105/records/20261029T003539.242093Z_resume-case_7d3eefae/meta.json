@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "run_id": "20261029T003539.242093Z_resume-case_7d3eefae",
+  "name": "resume-case",
+  "provider": "deepseek-cli",
+  "requested_model": "deepseek-flash",
+  "requested_effort": "max",
+  "observed_model": null,
+  "observed_effort": null,
+  "model_verification": "CLI report only; actual outbound model/effort unverified",
+  "cwd": "/private/tmp/gpxpv-runner-tests-_bxpw2ro/20261029T003539_046727_test_context_recovery_is_new_run_and_reads_previous_progress_80393105/workspace",
+  "task_source": "/private/tmp/gpxpv-runner-tests-_bxpw2ro/20261029T003539_046727_test_context_recovery_is_new_run_and_reads_previous_progress_80393105/task.md",
+  "started_utc": "2026-10-29T00:35:39.242589+00:00",
+  "watch": [
+    "."
+  ],
+  "allow_write": [],
+  "snapshot_exclusions": {
+    "parts": [
+      ".agents",
+      ".aws",
+      ".codex",
+      ".git",
+      "DerivedData",
+      "__pycache__",
+      "node_modules",
+      "sdkenv"
+    ],
+    "prefixes": [
+      "Tools/agents/records",
+      "Tools/agents/runs",
+      "Tests/reports",
+      "Tests/ui/app.noindex",
+      "Tests/ui/perf",
+      "Tests/ui/synth.gpx",
+      "Tests/exam/results",
+      "Tests/synth/runner/synthrunner",
+      "Tests/synth/runner/build.log"
+    ],
+    "default_prefixes": [
+      "Tools/agents/records",
+      "Tools/agents/runs",
+      "Tests/reports",
+      "Tests/ui/app.noindex",
+      "Tests/ui/perf",
+      "Tests/ui/synth.gpx",
+      "Tests/exam/results",
+      "Tests/synth/runner/synthrunner",
+      "Tests/synth/runner/build.log"
+    ],
+    "user_prefixes": [],
+    "explicit_overrides": [],
+    "generated_pattern": "^Tests/synth/(?:format-edge|garmin-tunnels|legit-motion|replay-artefacts|scale-mixed|stationary-noise)/[^/]+\\.(?:gpx|csv|fit|bin)$"
+  },
+  "parent_run": "/private/tmp/gpxpv-runner-tests-_bxpw2ro/20261029T003539_046727_test_context_recovery_is_new_run_and_reads_previous_progress_80393105/records/20261029T003539.085508Z_same-name_ed38a9f4",
+  "recovery": "context\n\n# Recovery evidence (inspect before acting)\n\n## Previous task.md\nOffline fixture. Do not use API or network. Return the mock report.\n\n## Previous progress.md\n# 进度\n\n## 已完成\n- 已预登记任务。\n\n## 正在做\n- 等待派发。\n\n## 下一步\n- 按任务书执行并逐事件记录。\n\n\n## 阶段更新 2026-10-29T00:35:39.130429+00:00\n### 已完成\n- 已持久记录 `snapshot`，完整输入/结果见 events.jsonl。\n### 正在做\n- runner 状态：planned。\n### 下一步\n- 继续当前任务；恢复前核验既有产物与最后正常工具结果。\n\n\n## 阶段更新 2026-10-29T00:35:39.136585+00:00\n### 已完成\n- 已持久记录 `bound`，完整输入/结果见 events.jsonl。\n### 正在做\n- runner 状态：running。\n### 下一步\n- 继续当前任务；恢复前核验既有产物与最后正常工具结果。\n\n\n## 阶段更新 2026-10-29T00:35:39.136967+00:00\n### 已完成\n- 已持久记录 `process_started`，完整输入/结果见 events.jsonl。\n### 正在做\n- runner 状态：running。\n### 下一步\n- 继续当前任务；恢复前核验既有产物与最后正常工具结果。\n\n\n## 阶段更新 2026-10-29T00:35:39.152087+00:00\n### 已完成\n- 已持久记录 `bound`，完整输入/结果见 events.jsonl。\n### 正在做\n- runner 状态：running。\n### 下一步\n- 继续当前任务；恢复前核验既有产物与最后正常工具结果。\n\n\n## 阶段更新 2026-10-29T00:35:39.153166+00:00\n### 已完成\n- 已持久记录 `bound`，完整输入/结果见 events.jsonl。\n### 正在做\n- runner 状态：running。\n### 下一步\n- 继续当前任务；恢复前核验既有产物与最后正常工具结果。\n\n\n## 阶段更新 2026-10-29T00:35:39.196523+00:00\n### 已完成\n- 已持久记录 `snapshot`，完整输入/结果见 events.jsonl。\n### 正在做\n- runner 状态：running。\n### 下一步\n- 继续当前任务；恢复前核验既有产物与最后正常工具结果。\n\n\n## Runner 收尾 2026-10-29T00:35:39.197656+00:00\n- provider=succeeded，验收=pending。\n- 下一步：核验 output/result/events/changes；未完成项须新建关联轮次恢复。\n\nOLD_COMPLETED_WORK_CANARY: verify artifacts before continuing.\n\n## Previous result.json\n{\n  \"process_cleanup\": [\n    {\n      \"pid\": 87507,\n      \"status\": \"confirmed\",\n      \"attempts\": [\n        {\n          \"operation\": \"group_sigterm\",\n          \"outcome\": \"absent\"\n        },\n        {\n          \"operation\": \"leader_probe\",\n          \"outcome\": \"ok\"\n        },\n        {\n          \"operation\": \"wait\",\n          \"outcome\": \"ok\"\n        },\n        {\n          \"operation\": \"group_sigkill\",\n          \"outcome\": \"absent\"\n        },\n        {\n          \"operation\": \"leader_probe\",\n          \"outcome\": \"ok\"\n        },\n        {\n          \"operation\": \"wait\",\n          \"outcome\": \"ok\"\n        },\n        {\n          \"operation\": \"leader_probe\",\n          \"outcome\": \"ok\"\n        },\n        {\n          \"operation\": \"group_probe\",\n          \"outcome\": \"absent\"\n        },\n        {\n          \"operation\": \"exit_code\",\n          \"outcome\": \"ok\"\n        }\n      ],\n      \"errors\": [],\n      \"leader_alive\": false,\n      \"group_alive\": false,\n      \"leader_exit_code\": 0,\n      \"duration_s\": 0.00018041697330772877\n    }\n  ],\n  \"cleanup_complete\": true,\n  \"stream_incomplete\": false,\n  \"runner_exit_code\": 0,\n  \"provider_status\": \"succeeded\",\n  \"acceptance_status\": \"pending\",\n  \"exit_code\": 0,\n  \"is_error\": false,\n  \"error\": null,\n  \"interrupted\": false,\n  \"runner_terminal_reason\": null,\n  \"protocol_errors\": [],\n  \"duration_s\": 0.065,\n  \"cost_usd\": null,\n  \"cost_source\": \"unknown\",\n  \"cli_reported_cost_usd\": 0.125,\n  \"cost_note\": \"CLI estimate is not authoritative DeepSeek billed cost.\",\n  \"session_id\": \"offline-session-123\",\n  \"subtype\": \"success\",\n  \"terminal_reason\": \"completed\",\n  \"stop_reason\": \"end_turn\",\n  \"errors\": null,\n  \"api_error_status\": null,\n  \"permission_denials\": null,\n  \"usage\": {\n    \"input_tokens\": 123,\n    \"output_tokens\": 45\n  },\n  \"num_turns\": 2,\n  \"out_of_scope_changes\": [],\n  \"incomplete_checks\": \"Task acceptance requires independent review; provider completion is separate.\",\n  \"finished_utc\": \"2026-10-29T00:35:39.196624+00:00\",\n  \"status\": \"succeeded\",\n  \"run_status\": \"succeeded\",\n  \"verification_status\": \"not_run\"\n}\n\n## Recovery plan\nCompleted: initial mock report. Remaining: review only. No side effects may be replayed.\n\nFull previous events: /private/tmp/gpxpv-runner-tests-_bxpw2ro/20261029T003539_046727_test_context_recovery_is_new_run_and_reads_previous_progress_80393105/records/20261029T003539.085508Z_same-name_ed38a9f4/events.jsonl. Verify existing artifacts; do not blindly repeat side effects.\n",
+  "cost_usd": null,
+  "cost_source": "unknown",
+  "max_turns": 4,
+  "timeout_seconds": 4.0,
+  "pid": 87513,
+  "child_pid": 87519,
+  "child_process_identity": "darwin:87519:1793234139.290097",
+  "process_identity": "darwin:87513:1793234139.204329",
+  "session_id": "offline-session-123",
+  "cli_reported_model": "offline-mock"
+}

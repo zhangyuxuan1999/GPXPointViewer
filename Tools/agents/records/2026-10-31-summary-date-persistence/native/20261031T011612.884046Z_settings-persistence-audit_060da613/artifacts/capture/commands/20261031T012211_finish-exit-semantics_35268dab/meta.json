@@ -1,0 +1,25 @@
+{
+  "label": "finish-exit-semantics",
+  "argv": [
+    "rg",
+    "-n",
+    "-C",
+    "4",
+    "def cmd_finish|def finish|provider_status.*succeeded|args.command.*finish|acceptance.*pending",
+    "Tools/agents/agent_run.py"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T012211",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 94893,
+  "process_owner": {
+    "pid": 94893,
+    "parent_pid": 94892,
+    "process_identity": "darwin:94893:1793409731.421471",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.02
+}

@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "run_id": "20261029T004621.521073Z_eof-before-exit_bb02cef6",
+  "name": "eof-before-exit",
+  "provider": "deepseek-cli",
+  "requested_model": "deepseek-flash",
+  "requested_effort": "max",
+  "observed_model": null,
+  "observed_effort": null,
+  "model_verification": "unknown",
+  "cwd": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/native/20261029T003934.821235Z_process-cleanup-review_50726e9e/artifacts/eof-before-exit/workspace",
+  "task_source": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/native/20261029T003934.821235Z_process-cleanup-review_50726e9e/artifacts/eof-before-exit/task.md",
+  "started_utc": "2026-10-29T00:46:21.521756+00:00",
+  "watch": [
+    "."
+  ],
+  "allow_write": [],
+  "snapshot_exclusions": {
+    "parts": [
+      ".agents",
+      ".aws",
+      ".codex",
+      ".git",
+      "DerivedData",
+      "__pycache__",
+      "node_modules",
+      "sdkenv"
+    ],
+    "prefixes": [
+      "Tools/agents/records",
+      "Tools/agents/runs",
+      "Tests/reports",
+      "Tests/ui/app.noindex",
+      "Tests/ui/perf",
+      "Tests/ui/synth.gpx",
+      "Tests/exam/results",
+      "Tests/synth/runner/synthrunner",
+      "Tests/synth/runner/build.log"
+    ],
+    "default_prefixes": [
+      "Tools/agents/records",
+      "Tools/agents/runs",
+      "Tests/reports",
+      "Tests/ui/app.noindex",
+      "Tests/ui/perf",
+      "Tests/ui/synth.gpx",
+      "Tests/exam/results",
+      "Tests/synth/runner/synthrunner",
+      "Tests/synth/runner/build.log"
+    ],
+    "user_prefixes": [],
+    "explicit_overrides": [],
+    "generated_pattern": "^Tests/synth/(?:format-edge|garmin-tunnels|legit-motion|replay-artefacts|scale-mixed|stationary-noise)/[^/]+\\.(?:gpx|csv|fit|bin)$"
+  },
+  "parent_run": null,
+  "recovery": "context",
+  "cost_usd": null,
+  "cost_source": "unknown",
+  "max_turns": 1,
+  "timeout_seconds": 0.15,
+  "pid": 3971,
+  "child_pid": 3983,
+  "child_process_identity": "darwin:3983:1793234781.578284",
+  "process_identity": "darwin:3971:1793234781.480978"
+}

@@ -1,0 +1,10 @@
+{
+  "run": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/deepseek/20261029T124907.453283Z_r4-visual-final_dd903ac7",
+  "passed": true,
+  "changed_keys": [
+    "NSWindow Frame SwiftUI.ModifiedContent<SwiftUI.ModifiedContent<GPXPointViewer.ContentView, SwiftUI._FlexFrameLayout>, SwiftUI._AppearanceActionModifier>-1-AppWindow-1"
+  ],
+  "final_disk_sha256": "54e413eb9f2b470a41226ef20961c3fceb1963ed01668a834e570ba502e295a8",
+  "all_preferences_match_original_bytes": true,
+  "other_keys_equal": true
+}

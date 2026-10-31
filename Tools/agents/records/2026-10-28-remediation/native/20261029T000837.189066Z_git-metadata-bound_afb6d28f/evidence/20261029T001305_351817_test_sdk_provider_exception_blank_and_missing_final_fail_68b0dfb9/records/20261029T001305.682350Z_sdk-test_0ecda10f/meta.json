@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "run_id": "20261029T001305.682350Z_sdk-test_0ecda10f",
+  "name": "sdk-test",
+  "provider": "claude-agent-sdk",
+  "requested_model": "fixture-model",
+  "requested_effort": "max",
+  "observed_model": null,
+  "observed_effort": null,
+  "model_verification": "unknown",
+  "cwd": "/private/tmp/gpxpv-runner-tests-eg3fon55/20261029T001305_351817_test_sdk_provider_exception_blank_and_missing_final_fail_68b0dfb9/workspace",
+  "task_source": "/private/tmp/gpxpv-runner-tests-eg3fon55/20261029T001305_351817_test_sdk_provider_exception_blank_and_missing_final_fail_68b0dfb9/task.md",
+  "started_utc": "2026-10-29T00:13:05.682741+00:00",
+  "watch": [
+    "."
+  ],
+  "allow_write": [],
+  "snapshot_exclusions": {
+    "parts": [
+      ".agents",
+      ".aws",
+      ".codex",
+      ".git",
+      "DerivedData",
+      "__pycache__",
+      "node_modules",
+      "sdkenv"
+    ],
+    "prefixes": [
+      "Tools/agents/records",
+      "Tools/agents/runs",
+      "Tests/reports",
+      "Tests/ui/app.noindex",
+      "Tests/ui/perf",
+      "Tests/ui/synth.gpx",
+      "Tests/exam/results",
+      "Tests/synth/runner/synthrunner",
+      "Tests/synth/runner/build.log"
+    ],
+    "generated_pattern": "^Tests/synth/(?:format-edge|garmin-tunnels|legit-motion|replay-artefacts|scale-mixed|stationary-noise)/[^/]+\\.(?:gpx|csv|fit|bin)$"
+  },
+  "parent_run": null,
+  "recovery": "context",
+  "cost_usd": null,
+  "cost_source": "unknown",
+  "max_turns": 4,
+  "timeout_seconds": 3.0,
+  "pid": 67298,
+  "child_pid": 67305,
+  "process_identity": "darwin:67298:1793232785.630206",
+  "session_id": "offline-sdk-session"
+}

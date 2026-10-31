@@ -1,0 +1,1 @@
+Offline cleanup refusal fixture.

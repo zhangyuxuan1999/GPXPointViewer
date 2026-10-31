@@ -1,0 +1,23 @@
+{
+  "label": "hook-navigation",
+  "argv": [
+    "sed",
+    "-n",
+    "235,357p",
+    "GPXPointViewer/UITestHook.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014014",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 14042,
+  "process_owner": {
+    "pid": 14042,
+    "parent_pid": 14039,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

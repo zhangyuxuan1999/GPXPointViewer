@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "sed",
+    "-n",
+    "1,142p",
+    "GPXPointViewer/GPXWriter.swift"
+  ],
+  "cwd": "/private/tmp/gpxpv-segment-integration-o3kf8civ",
+  "started_at": "2026-10-28T23:13:31.172025+00:00",
+  "exit_code": 0,
+  "finished_at": "2026-10-28T23:13:31.175203+00:00"
+}

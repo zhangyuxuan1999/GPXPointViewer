@@ -1,0 +1,24 @@
+{
+  "label": "fix-deltas-hook-tests",
+  "argv": [
+    "python3",
+    "Tools/agents/records/2026-10-30-journey-summary/native/20261030T050227.092173Z_journey-summary-store-review_aec610ee/read_deltas.py",
+    "GPXPointViewer/UITestHook.swift",
+    "Tests/summary/store/StoreRegression.swift",
+    "Tests/summary/store/run.py"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T052300",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 33144,
+  "process_owner": {
+    "pid": 33144,
+    "parent_pid": 33143,
+    "process_identity": "darwin:33144:1793337780.760629",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.05
+}

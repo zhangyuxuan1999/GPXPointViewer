@@ -1,0 +1,21 @@
+{
+  "label": "verification-reasons",
+  "argv": [
+    "cat",
+    "Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T012543.656242Z_summary-date-navigation-implementation_a203875d/artifacts/verification-reason.md"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014053",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 15062,
+  "process_owner": {
+    "pid": 15062,
+    "parent_pid": 15058,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

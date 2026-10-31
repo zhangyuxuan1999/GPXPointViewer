@@ -1,0 +1,9 @@
+{
+  "run": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/deepseek/20261029T011600.159549Z_r4-final_fa1fd007",
+  "pid": 30473,
+  "expected_identity": "darwin:30473:1793236560.088480",
+  "actual_identity": "darwin:30473:1793236560.088480",
+  "signal": "SIGINT",
+  "reason": "stop repeated short sleep workaround after CLI explicitly blocked long waits; preserve completed 11 UI regressions",
+  "signal_sent": true
+}

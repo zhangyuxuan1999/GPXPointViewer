@@ -1,0 +1,22 @@
+{
+  "label": "document-context-short",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; paths=[\"README.md\",\"Tests/README.md\",\"docs/journey-summary-design.md\"]; [(print(\"\\nFILE=\"+p),print(Path(p).read_text()[:2300])) for p in paths]"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014053",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 15063,
+  "process_owner": {
+    "pid": 15063,
+    "parent_pid": 15061,
+    "process_identity": "darwin:15063:1793410853.319049",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.03
+}

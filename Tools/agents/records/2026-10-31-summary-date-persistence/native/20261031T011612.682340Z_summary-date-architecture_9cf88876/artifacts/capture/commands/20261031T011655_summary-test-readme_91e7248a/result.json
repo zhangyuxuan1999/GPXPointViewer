@@ -1,0 +1,27 @@
+{
+  "label": "summary-test-readme",
+  "argv": [
+    "rg",
+    "-n",
+    "-A",
+    "30",
+    "-B",
+    "4",
+    "journey.summary|每日|行程摘要|Summary",
+    "Tests/README.md"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T011655",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 91479,
+  "process_owner": {
+    "pid": 91479,
+    "parent_pid": 91470,
+    "process_identity": "darwin:91479:1793409415.620963",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

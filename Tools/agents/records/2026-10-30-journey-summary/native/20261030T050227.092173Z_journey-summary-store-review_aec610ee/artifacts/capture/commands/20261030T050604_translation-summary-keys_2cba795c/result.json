@@ -1,0 +1,23 @@
+{
+  "label": "translation-summary-keys",
+  "argv": [
+    "rg",
+    "-l",
+    "每日与行程摘要|摘要时间筛选",
+    "Tests/l10n/translations"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T050604",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 31630,
+  "process_owner": {
+    "pid": 31630,
+    "parent_pid": 31629,
+    "process_identity": "darwin:31630:1793336764.969342",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.03
+}

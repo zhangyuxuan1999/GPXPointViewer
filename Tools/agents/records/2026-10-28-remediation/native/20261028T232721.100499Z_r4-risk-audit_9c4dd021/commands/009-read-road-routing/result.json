@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "rg",
+    "-n",
+    "-A",
+    "35",
+    "-B",
+    "8",
+    "routeOverride",
+    "GPXPointViewer/RoadNetwork.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "start": "2026-10-28T23:28:22.245505+00:00",
+  "exit_code": 0,
+  "finish": "2026-10-28T23:28:22.252091+00:00"
+}

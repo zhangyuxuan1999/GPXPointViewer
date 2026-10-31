@@ -1,0 +1,23 @@
+{
+  "label": "fixed-engine-diff",
+  "argv": [
+    "diff",
+    "-u",
+    "Tools/agents/records/2026-10-30-journey-summary/native/20261030T045238.784817Z_journey-summary-core-review_56c20eab/artifacts/source-20261030T045630-017fd96f/GPXPointViewer/JourneySummary.swift",
+    "Tools/agents/records/2026-10-30-journey-summary/native/20261030T045238.784817Z_journey-summary-core-review_56c20eab/artifacts/source-20261030T045745-32d22d01/GPXPointViewer/JourneySummary.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T045751",
+  "status": "failed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 24109,
+  "process_owner": {
+    "pid": 24109,
+    "parent_pid": 24108,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 1,
+  "duration_s": 0.0
+}

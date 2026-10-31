@@ -1,0 +1,22 @@
+{
+  "label": "original-ui-changes",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; p=Path(\"Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T012543.656242Z_summary-date-navigation-implementation_a203875d/artifacts/exact-changes.diff\"); t=p.read_text(); start=t.index(\"--- before/Tests/ui/run_summary_tests.py\"); print(t[start:])"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014101",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 15200,
+  "process_owner": {
+    "pid": 15200,
+    "parent_pid": 15196,
+    "process_identity": "darwin:15200:1793410861.134952",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.03
+}

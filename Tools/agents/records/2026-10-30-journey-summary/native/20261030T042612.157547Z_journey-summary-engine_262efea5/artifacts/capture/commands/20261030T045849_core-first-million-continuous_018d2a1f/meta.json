@@ -1,0 +1,26 @@
+{
+  "label": "core-first-million-continuous",
+  "argv": [
+    "python3",
+    "Tests/summary/core/run.py",
+    "--output-root",
+    "Tools/agents/records/2026-10-30-journey-summary/native/20261030T042612.157547Z_journey-summary-engine_262efea5/artifacts/validation",
+    "--binary",
+    "Tools/agents/records/2026-10-30-journey-summary/native/20261030T042612.157547Z_journey-summary-engine_262efea5/artifacts/validation/20261030T045816.459358Z_666ea520/summary-probe",
+    "scale-continuous-million"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T045849",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 24947,
+  "process_owner": {
+    "pid": 24947,
+    "parent_pid": 24946,
+    "process_identity": "darwin:24947:1793336329.947931",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.44
+}

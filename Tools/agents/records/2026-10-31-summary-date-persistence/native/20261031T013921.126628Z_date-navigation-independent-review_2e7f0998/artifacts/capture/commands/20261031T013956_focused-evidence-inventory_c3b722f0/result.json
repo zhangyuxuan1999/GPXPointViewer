@@ -1,0 +1,22 @@
+{
+  "label": "focused-evidence-inventory",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; base=Path(\"Tools/agents/records/2026-10-31-summary-date-persistence\"); print(\"\\n\".join(str(p) for p in base.glob(\"coordinator/*\") if p.is_file())); r=base/\"native/20261031T012543.656242Z_summary-date-navigation-implementation_a203875d\"; print(\"\\n\".join(str(p) for p in r.glob(\"*\") if p.is_file())); print(\"\\n\".join(str(p) for p in (r/\"artifacts\").glob(\"*\") if p.is_file())); print(\"\\n\".join(str(p) for p in (r/\"artifacts/store\").glob(\"*/*\") if p.is_file()))"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T013956",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 13378,
+  "process_owner": {
+    "pid": 13378,
+    "parent_pid": 13376,
+    "process_identity": "darwin:13378:1793410796.909326",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.03
+}

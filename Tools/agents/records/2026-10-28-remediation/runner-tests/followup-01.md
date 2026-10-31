@@ -1,0 +1,1 @@
+实现Sol拟采用 stdlib run_store.py（RunStore/快照/事件/状态/账本）、agent_run.py CLI（init/event/bind/finish/snapshot/status/deepseek）、api_run.py兼容。DeepSeek: agent_run.py deepseek NAME TASK --allow-command EXACT ... --max-turns N --timeout SEC --watch PATH --allow-write PATH，默认仅Read/Glob/Grep；命令须显式。你可先准备mock流式CLI与测例，他会给准确签名。测试必须保存完整命令和结果。

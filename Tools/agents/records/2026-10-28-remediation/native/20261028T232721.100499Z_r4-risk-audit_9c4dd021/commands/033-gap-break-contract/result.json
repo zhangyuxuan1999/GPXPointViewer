@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "rg",
+    "-n",
+    "-A",
+    "8",
+    "-B",
+    "3",
+    "static func isBreakStep|var minSeconds",
+    "GPXPointViewer/GapFill.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "start": "2026-10-28T23:38:37.456786+00:00",
+  "exit_code": 0,
+  "finish": "2026-10-28T23:38:37.469043+00:00"
+}

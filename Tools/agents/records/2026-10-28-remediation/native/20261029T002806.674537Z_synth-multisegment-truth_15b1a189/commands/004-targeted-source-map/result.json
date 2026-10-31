@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "rg",
+    "-n",
+    "g13|def s[134]|s[134]_|timeGap|indexB|trips_sim|validate|timestamp|bunch|expect\\(",
+    "Tests/synth/scale-mixed/gen.py",
+    "Tests/synth/scale-mixed/README.md",
+    "Tests/synth/format-edge/gen.py",
+    "Tests/synth/runner/main.swift",
+    "Tests/synth/trips_sim.py"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "start": "2026-10-29T00:32:49.160101+00:00",
+  "exit_code": 2,
+  "finish": "2026-10-29T00:32:49.167195+00:00"
+}

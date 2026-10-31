@@ -1,0 +1,23 @@
+{
+  "label": "window-transport",
+  "argv": [
+    "sed",
+    "-n",
+    "245,345p",
+    "GPXPointViewer/JourneySummaryWindow.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T011741",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 92279,
+  "process_owner": {
+    "pid": 92279,
+    "parent_pid": 92278,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.0
+}

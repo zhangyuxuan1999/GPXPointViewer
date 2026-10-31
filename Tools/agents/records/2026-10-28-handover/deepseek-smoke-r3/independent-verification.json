@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "mode": "offline re-evaluation of saved live transcript; no additional API call",
+  "read_tool_succeeded": true,
+  "http_statuses": [
+    200,
+    200
+  ],
+  "subtype": "success",
+  "terminal_reason": "completed",
+  "session_id": "1facda3e-700a-45bf-bb17-a819ba43aa24",
+  "tool_use_without_tool_result_rejected": true,
+  "verifier_sha256": "6f315ba2de0a7f61712a491af0dae787ccac9c5a200a10cd18a080618a67890f"
+}

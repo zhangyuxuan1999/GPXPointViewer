@@ -1,0 +1,68 @@
+[
+  {
+    "path": "GPXPointViewer/GapFill.swift",
+    "expected": "34a542ea9a55d14a87d088be36e4ccfc20ba6fb71c48ae77a1184a3243f428f8",
+    "actual": "34a542ea9a55d14a87d088be36e4ccfc20ba6fb71c48ae77a1184a3243f428f8",
+    "matches": true
+  },
+  {
+    "path": "GPXPointViewer/BatchFill.swift",
+    "expected": "6a2995101efea213bfd5163f58ece7975fd5cca8240bc19a3ca7e93a0cd0b5db",
+    "actual": "6a2995101efea213bfd5163f58ece7975fd5cca8240bc19a3ca7e93a0cd0b5db",
+    "matches": true
+  },
+  {
+    "path": "GPXPointViewer/TrackStore.swift",
+    "expected": "eebd8be064d368b737c9809b471a2e545ae47583f590db98e76393c6b2742e22",
+    "actual": "eebd8be064d368b737c9809b471a2e545ae47583f590db98e76393c6b2742e22",
+    "matches": true
+  },
+  {
+    "path": "GPXPointViewer/ChangeLog.swift",
+    "expected": "8ed360e760fb00c709d81cc0365cb1f8d14e678715ce30822fd0348b6a299663",
+    "actual": "8ed360e760fb00c709d81cc0365cb1f8d14e678715ce30822fd0348b6a299663",
+    "matches": true
+  },
+  {
+    "path": "GPXPointViewer/BatchFillWindow.swift",
+    "expected": "ae3692ab3b4b44e6bf267f6f93183dcfae2e28c538eec41c6a642a57d314cc9d",
+    "actual": "ae3692ab3b4b44e6bf267f6f93183dcfae2e28c538eec41c6a642a57d314cc9d",
+    "matches": true
+  },
+  {
+    "path": "GPXPointViewer/ChangeReviewWindow.swift",
+    "expected": "1bc5d89b200777f19e1e4ffebb9de9a0c24230de626772e6186687b3d29dd9dd",
+    "actual": "1bc5d89b200777f19e1e4ffebb9de9a0c24230de626772e6186687b3d29dd9dd",
+    "matches": true
+  },
+  {
+    "path": "GPXPointViewer/ContentView.swift",
+    "expected": "394e37443581905d505ca510ffec8186b7e443423fa89403c19d386bfc3cb95f",
+    "actual": "394e37443581905d505ca510ffec8186b7e443423fa89403c19d386bfc3cb95f",
+    "matches": true
+  },
+  {
+    "path": "GPXPointViewer/UITestHook.swift",
+    "expected": "dc5597c6fdb6b18464b9ebc7cda16d39a589b6b0848d9e759c070e9a8bdde783",
+    "actual": "dc5597c6fdb6b18464b9ebc7cda16d39a589b6b0848d9e759c070e9a8bdde783",
+    "matches": true
+  },
+  {
+    "path": "GPXPointViewer/PointMapView.swift",
+    "expected": "f88486f739b8ba6246720de1827b46fc4823cc893de28814661aa78c793ed0de",
+    "actual": "f88486f739b8ba6246720de1827b46fc4823cc893de28814661aa78c793ed0de",
+    "matches": true
+  },
+  {
+    "path": "Tests/segments/workflow/WorkflowRegression.swift",
+    "expected": "cc9cd719d793f6302080b8f08ea5eb24db60e327d04a1e43ac61cf896c82bfff",
+    "actual": "cc9cd719d793f6302080b8f08ea5eb24db60e327d04a1e43ac61cf896c82bfff",
+    "matches": true
+  },
+  {
+    "path": "Tests/segments/workflow/run.py",
+    "expected": "d01950eb3d2a1f838f06b2f13a335dfea2016348e4b5473aa0760bb48784308e",
+    "actual": "d01950eb3d2a1f838f06b2f13a335dfea2016348e4b5473aa0760bb48784308e",
+    "matches": true
+  }
+]

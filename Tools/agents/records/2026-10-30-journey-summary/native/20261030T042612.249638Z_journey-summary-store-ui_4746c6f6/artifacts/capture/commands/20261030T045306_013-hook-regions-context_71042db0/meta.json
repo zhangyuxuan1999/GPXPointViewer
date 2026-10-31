@@ -1,0 +1,23 @@
+{
+  "label": "013-hook-regions-context",
+  "argv": [
+    "sed",
+    "-n",
+    "232,294p",
+    "GPXPointViewer/UITestHook.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T045306",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 19808,
+  "process_owner": {
+    "pid": 19808,
+    "parent_pid": 19807,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.0
+}

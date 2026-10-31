@@ -1,0 +1,21 @@
+{
+  "label": "existing-verification-plan",
+  "argv": [
+    "cat",
+    "Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T012023.801942Z_signing-install-persistence-fix_6b832b3d/artifacts/targeted-verification-plan.md"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T013435",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 6294,
+  "process_owner": {
+    "pid": 6294,
+    "parent_pid": 6293,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

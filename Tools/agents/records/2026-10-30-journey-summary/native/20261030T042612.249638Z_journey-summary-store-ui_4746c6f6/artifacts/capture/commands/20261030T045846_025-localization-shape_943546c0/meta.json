@@ -1,0 +1,23 @@
+{
+  "label": "025-localization-shape",
+  "argv": [
+    "head",
+    "-n",
+    "75",
+    "Tools/agents/records/2026-10-30-journey-summary/native/20261030T042612.249638Z_journey-summary-store-ui_4746c6f6/artifacts/store-tests/20261030T045736.378965Z-411e38bd/stringsdata/JourneySummaryWindow.stringsdata"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T045846",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 24937,
+  "process_owner": {
+    "pid": 24937,
+    "parent_pid": 24936,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

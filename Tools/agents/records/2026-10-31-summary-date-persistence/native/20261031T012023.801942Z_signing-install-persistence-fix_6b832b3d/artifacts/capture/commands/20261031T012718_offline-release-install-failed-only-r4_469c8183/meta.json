@@ -1,0 +1,21 @@
+{
+  "label": "offline-release-install-failed-only-r4",
+  "argv": [
+    "python3",
+    "Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T012023.801942Z_signing-install-persistence-fix_6b832b3d/artifacts/rerun_failed_release_install_r4.py"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T012718",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 99039,
+  "process_owner": {
+    "pid": 99039,
+    "parent_pid": 99038,
+    "process_identity": "darwin:99039:1793410038.312106",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.19
+}

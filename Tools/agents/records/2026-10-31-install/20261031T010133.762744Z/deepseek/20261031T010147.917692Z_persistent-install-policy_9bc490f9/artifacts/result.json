@@ -1,0 +1,41 @@
+{
+  "status": "completed_with_hash_limitation",
+  "task": "persistent-install-policy",
+  "changed_files": [
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/AGENTS.md",
+      "section": "项目开发与验证",
+      "line_before": 53,
+      "line_after": 53,
+      "change": "replaced_per_install_authorization_with_persistent_install_authorization"
+    }
+  ],
+  "artifacts": {
+    "before_snapshot": "artifacts/AGENTS.md.before",
+    "after_snapshot": "artifacts/AGENTS.md.after",
+    "diff": "artifacts/AGENTS.md.diff",
+    "hashes": "artifacts/hashes.txt"
+  },
+  "hashes": {
+    "before_sha256": null,
+    "after_sha256": null,
+    "reason": "no shell/command execution tool exposed in this environment"
+  },
+  "static_checks": {
+    "old_authorization_phrase_absent": true,
+    "new_rule_present": true,
+    "no_cli_session_persistence_rule_retained": true,
+    "target_section_other_lines_unchanged_by_edit": true
+  },
+  "not_run": [
+    "tests",
+    "build",
+    "install",
+    "app_launch"
+  ],
+  "model": {
+    "requested": "deepseek-flash/max",
+    "server_model": null,
+    "actual_cost": null
+  }
+}

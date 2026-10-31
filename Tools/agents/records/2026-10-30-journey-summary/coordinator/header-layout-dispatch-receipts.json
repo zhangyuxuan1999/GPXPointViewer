@@ -1,0 +1,11 @@
+{
+  "created_utc": "2026-10-30T06:11:30.295520+00:00",
+  "run": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/deepseek/20261030T061054.914921Z_journey-summary-header-layout-visual_d936180c",
+  "exec_session_id": 64565,
+  "requested_model": "deepseek-flash",
+  "requested_effort": "max",
+  "observed_server_model": null,
+  "cost_usd": null,
+  "captured_command": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/coordinator/commands/20261030T061054_header-layout-visual-dispatch_2c4d82c5",
+  "source_only_changed": "GPXPointViewer/JourneySummaryWindow.swift"
+}

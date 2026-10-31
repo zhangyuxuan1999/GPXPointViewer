@@ -1,0 +1,23 @@
+{
+  "label": "region-shared",
+  "argv": [
+    "rg",
+    "-n",
+    "static .*shared|static .*load|RegionIndex.shared",
+    "GPXPointViewer/RegionIndex.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T050322",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 28521,
+  "process_owner": {
+    "pid": 28521,
+    "parent_pid": 28519,
+    "process_identity": "darwin:28521:1793336602.316690",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

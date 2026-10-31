@@ -1,0 +1,60 @@
+{
+  "utc": "2026-10-29T22:53:13.147001+00:00",
+  "purpose": "Compare recovered files with frozen reviewed/tested source; no tests executed",
+  "files": [
+    {
+      "path": "GPXPointViewer/GPXWriter.swift",
+      "status": "match",
+      "actual": "4fa2ff3ffc4fc5d902e5a3c1814175c7f5cb469d3f4a0e5ecc0993f059e9c50e",
+      "expected": "4fa2ff3ffc4fc5d902e5a3c1814175c7f5cb469d3f4a0e5ecc0993f059e9c50e"
+    },
+    {
+      "path": "GPXPointViewer/MetalPointRenderer.swift",
+      "status": "match",
+      "actual": "6cb95af16fc5cad6feea237dd5e724ac1468ea3db30c26e0df0f1837819e971b",
+      "expected": "6cb95af16fc5cad6feea237dd5e724ac1468ea3db30c26e0df0f1837819e971b"
+    },
+    {
+      "path": "GPXPointViewer/RoadNetwork.swift",
+      "status": "match",
+      "actual": "49008ea9d1ca43f2cf8eab77ad49bde701cf8b9740d7989b1c352b71090210b8",
+      "expected": "49008ea9d1ca43f2cf8eab77ad49bde701cf8b9740d7989b1c352b71090210b8"
+    },
+    {
+      "path": "GPXPointViewer/ContentView.swift",
+      "status": "match",
+      "actual": "a9933edee4dda872c16788810fa9812a517498636f26e4b9433ae8f7ea00b182",
+      "expected": "a9933edee4dda872c16788810fa9812a517498636f26e4b9433ae8f7ea00b182"
+    },
+    {
+      "path": "GPXPointViewer/VideoExport.swift",
+      "status": "match",
+      "actual": "1b83fc339c8548a5e7a37098987dfd89aaba6a8acd259c7ef881825d3691c162",
+      "expected": "1b83fc339c8548a5e7a37098987dfd89aaba6a8acd259c7ef881825d3691c162"
+    },
+    {
+      "path": "GPXPointViewer/UITestHook.swift",
+      "status": "match",
+      "actual": "06440157a82423a9a60d1ed7f163b6048591c3f921691044340d3e9a95ac721d",
+      "expected": "06440157a82423a9a60d1ed7f163b6048591c3f921691044340d3e9a95ac721d"
+    },
+    {
+      "path": "GPXPointViewer/Localizable.xcstrings",
+      "status": "match",
+      "actual": "bd17a1b9996aecf51c0bf0bb86cd8b5b16980926b6eca6d1176e5e17ce295ca2",
+      "expected": "bd17a1b9996aecf51c0bf0bb86cd8b5b16980926b6eca6d1176e5e17ce295ca2"
+    },
+    {
+      "path": "GPXPointViewer/Colormaps.swift",
+      "status": "match",
+      "actual": "f7c99f65aedc2b07e104f11e545c1c0a149e44ccc0104171f3514e338ab212cd",
+      "expected": "f7c99f65aedc2b07e104f11e545c1c0a149e44ccc0104171f3514e338ab212cd"
+    },
+    {
+      "path": "GPXPointViewer/GeoCompute.swift",
+      "status": "match",
+      "actual": "b5f35db4e6d1e5a0bfbf188ae8f4070426a0972a3e2e398ef823f2b2d21e2705",
+      "expected": "b5f35db4e6d1e5a0bfbf188ae8f4070426a0972a3e2e398ef823f2b2d21e2705"
+    }
+  ]
+}

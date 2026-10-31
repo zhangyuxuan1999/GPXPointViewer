@@ -1,0 +1,21 @@
+{
+  "label": "stable-artifact-final-diff-and-recovery-script",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T020501",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 35803,
+  "process_owner": {
+    "pid": 35803,
+    "parent_pid": 35802,
+    "process_identity": "darwin:35803:1793412301.250478",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.04
+}

@@ -1,0 +1,26 @@
+{
+  "label": "source-outline",
+  "argv": [
+    "rg",
+    "-n",
+    "^(def |class |    def )|for_install|entitlement|signing|test_copy",
+    "Tools/build_release.py",
+    "Tools/archive_build.py",
+    "Tools/install_release.py",
+    "Tests/agents/test_release_install.py"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T013403",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 5349,
+  "process_owner": {
+    "pid": 5349,
+    "parent_pid": 5347,
+    "process_identity": "darwin:5349:1793410443.051115",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.03
+}

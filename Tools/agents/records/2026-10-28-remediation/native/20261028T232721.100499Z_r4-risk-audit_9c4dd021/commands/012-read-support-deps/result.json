@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "rg",
+    "-n",
+    "MetalPointRenderer\\.|Heat3D|PixelGlobe|UITestHook|RouteReplay.mode|enum Mode",
+    "GPXPointViewer/GapFill.swift",
+    "GPXPointViewer/RoadNetwork.swift",
+    "GPXPointViewer/BatchFill.swift",
+    "GPXPointViewer/RouteReplay.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "start": "2026-10-28T23:28:51.534954+00:00",
+  "exit_code": 0,
+  "finish": "2026-10-28T23:28:51.540940+00:00"
+}

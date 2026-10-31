@@ -1,0 +1,2 @@
+# Incomplete execution
+Provider reported inability; bothBashcallsaddedunauthorizedenvprefix(andfirstdangerouslyDisableSandbox), didnotmatchpreauthorizedcommand. NoWrapperexecutionstarted/noApp/nooutputs. Not productfailure/pass. Newcontextrecoverymustuseexactallowedcommandandrunnerinjectedenv; no scope or sandboxexpansion.

@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "rg",
+    "-n",
+    "MetalPointRenderer|Heat3D|PixelGlobe|TrackStore|--.*selftest|retime|StaleRetime",
+    "Tests/synth/runner/main.swift",
+    "Tests/synth/runner/exam.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "start": "2026-10-28T23:41:16.104045+00:00",
+  "exit_code": 0,
+  "finish": "2026-10-28T23:41:16.120653+00:00"
+}

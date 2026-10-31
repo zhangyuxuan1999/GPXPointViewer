@@ -1,0 +1,14 @@
+{
+  "utc": "2026-10-29T13:27:34.078886+00:00",
+  "phase": "label_sec2",
+  "image": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/deepseek/20261029T132227.123510Z_r4-label-final_9d13dc4c/artifacts/shots/20261029T132227.123510Z_r4-label-final_9d13dc4c_20261029T132241_023228Z_37fee15a_line_labels.png",
+  "sha256": "c330172b5b23909a3c96697640d8f36d4a7f5ca498d70c68defe42b820caf42b",
+  "dimensions": [
+    2864,
+    1944
+  ],
+  "reviewer": "root actual view_image pixels",
+  "verdict": "passed",
+  "executable_sha256": "22e77c206e74eb6a88d1a9b56cf1a3d6dc7b0928e7d1784cd1e29943c91d0cf2",
+  "observations": "OSRM and Valhalla blue label frames visibly separated with gap; both words complete and readable on actual selected near-vertical routes. A/B and solid/dashed routes remain visible. Original 90pt visibility/count logic also passes. This is product pixel acceptance only, final single-key window restore remains pending."
+}

@@ -1,0 +1,23 @@
+{
+  "label": "viewfilter-contract",
+  "argv": [
+    "sed",
+    "-n",
+    "315,425p",
+    "GPXPointViewer/ExportSheet.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041526",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 14408,
+  "process_owner": {
+    "pid": 14408,
+    "parent_pid": 14407,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.0
+}

@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "python3",
+    "Tests/segments/core/run.py",
+    "/private/tmp/gpxpv-segment-core-sample-fixed"
+  ],
+  "cwd": "/private/tmp/gpxpv-segment-integration-o3kf8civ",
+  "started_at": "2026-10-28T23:24:49.475592+00:00",
+  "exit_code": 0,
+  "finished_at": "2026-10-28T23:25:02.647610+00:00"
+}

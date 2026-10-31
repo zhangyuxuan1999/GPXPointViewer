@@ -1,0 +1,25 @@
+{
+  "label": "edits-contract",
+  "argv": [
+    "rg",
+    "-n",
+    "struct GapFillRecord|struct PointKey|func syntheticKeys|retimedKeys|enum RouteKind|enum TripKind|struct Trip|tripKinds|tripOverrides|tripMap",
+    "GPXPointViewer/GapFill.swift",
+    "GPXPointViewer/BatchFill.swift",
+    "GPXPointViewer/TrackStore.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041005",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 12457,
+  "process_owner": {
+    "pid": 12457,
+    "parent_pid": 12453,
+    "process_identity": "darwin:12457:1793333405.907164",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

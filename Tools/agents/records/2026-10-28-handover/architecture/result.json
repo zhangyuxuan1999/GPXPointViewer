@@ -1,0 +1,12 @@
+{
+  "status": "completed",
+  "agent_id": "/root/architecture",
+  "model_requested": "gpt-6-astra",
+  "reasoning_effort_requested": "ultra",
+  "backend_model_receipt": null,
+  "usage": null,
+  "cost_usd": null,
+  "output": "output.md",
+  "output_sha256": "360f1e9d86304699f83b8db05893996a3753caac1db490d495cb249a111509b2",
+  "summary": "当前工作区架构、模块与四条数据流、不变量、7项风险与渐进维护顺序；重点是编辑还原、数据换代、GPU所有权，全部区分静态风险与事实。"
+}

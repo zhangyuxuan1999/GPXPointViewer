@@ -1,0 +1,24 @@
+{
+  "label": "date-type-locations",
+  "argv": [
+    "rg",
+    "-n",
+    "struct TimeFilterSpec|enum TimeFilter|func dateRange|summaryWindowOpen|summaryShowsJourneys|summaryTimeZoneChoice",
+    "GPXPointViewer/TrackStore.swift",
+    "GPXPointViewer/ExportSheet.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T011714",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 91881,
+  "process_owner": {
+    "pid": 91881,
+    "parent_pid": 91880,
+    "process_identity": "darwin:91881:1793409434.759611",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

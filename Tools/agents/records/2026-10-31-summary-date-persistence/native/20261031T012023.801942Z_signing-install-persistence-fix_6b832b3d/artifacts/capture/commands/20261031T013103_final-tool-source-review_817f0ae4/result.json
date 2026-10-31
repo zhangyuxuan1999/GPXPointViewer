@@ -1,0 +1,22 @@
+{
+  "label": "final-tool-source-review",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; files=[\"Tools/build_release.py\",\"Tools/archive_build.py\",\"Tools/install_release.py\"]; [(print(\"\\nFILE\",f),print(Path(f).read_text()),compile(Path(f).read_text(),f,\"exec\")) for f in files]"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T013103",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 2347,
+  "process_owner": {
+    "pid": 2347,
+    "parent_pid": 2345,
+    "process_identity": "darwin:2347:1793410263.384549",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.04
+}

@@ -1,0 +1,23 @@
+{
+  "label": "settings-restore-source",
+  "argv": [
+    "sed",
+    "-n",
+    "900,1005p",
+    "GPXPointViewer/TrackStore.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T011658",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 91580,
+  "process_owner": {
+    "pid": 91580,
+    "parent_pid": 91571,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

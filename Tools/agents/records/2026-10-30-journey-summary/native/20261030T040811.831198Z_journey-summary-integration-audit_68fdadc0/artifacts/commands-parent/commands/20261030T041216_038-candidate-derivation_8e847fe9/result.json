@@ -1,0 +1,23 @@
+{
+  "label": "038-candidate-derivation",
+  "argv": [
+    "sed",
+    "-n",
+    "1721,1775p",
+    "GPXPointViewer/TrackStore.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041216",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 13672,
+  "process_owner": {
+    "pid": 13672,
+    "parent_pid": 13670,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

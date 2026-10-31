@@ -1,0 +1,3 @@
+# Stable artifact recovery; all actual checks still pending
+Previous exact-command run 20261031T015641.718099Z failed BEFORE App launch: iCloud addedFinderInfo toprojectarchive. No tests passed or were executed; all4phases pending. Root recovered SAME compiledsignedproduct outsideiCloud, durableZIP+manifest/proof inBuilds/20261031T020525Z_stable_signed_b3251cb3; no recompile/sourcechange. Driver ONLYcopydestinationnowprivate/tmp, sameassertions; frozenhashconfigupdated. Readactualconfig. Executeexactallowedcommandonce withNOenvprefix/NOdangerouslyDisableSandbox, runneralreadyinjectsGPXPV_AGENT_RUN_DIR. Originalfailedrunsintact. No passedtests repeated. Do notexecuteothercommands.
+

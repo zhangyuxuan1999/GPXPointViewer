@@ -1,0 +1,6 @@
+{
+  "starting_installed_executable_sha256": "64d5101be7c3239d10e0cfd01109b3220899f992f9865d1eda0dc2b606b5e883",
+  "prior_acceptance": "docs/journey-summary-acceptance.md",
+  "initial_output_truncation_disclosed": "bootstrap-limitations.json",
+  "user_requirement_date": "2026-10-31"
+}

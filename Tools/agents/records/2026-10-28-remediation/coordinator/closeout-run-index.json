@@ -1,0 +1,1650 @@
+{
+  "generated_utc": "2026-10-29T13:54:53.670151+00:00",
+  "policy": "Only direct registered native/deepseek directories; no recursive fixture counts. Registration is not proof of provider dispatch. Full originals remain in place. Navigation does not infer status/model/cost or rehash historical payloads. Critical hashes come from independently verified final acceptance.",
+  "registered_attempts": 41,
+  "critical_evidence_sha256": {
+    "r4-final-partial-review.md": "3cfdd06f5e3596a30bee6561b624b68cbfc1ffb0485162ce24b4d59b5eaf68a2",
+    "r4-remaining-independent-review.json": "f337ebaff3e42df0e45a846a21bafeaa17ce2d00a701fcbd7268470f703eb278",
+    "background-protocol-root-review.json": "490e1f65428b5d8df9de59ba8721c4c68113231131e55b719553fd2719ab6f00",
+    "r4-visual-retry-review.md": "f8bd0b4bdce06bebb70502e8eb980c021496d43c4a78b997d35a01d9c9131c44",
+    "r4-visual-retry-pixel-review.json": "20e10a530509b3a8038cdacdbdc7ad51d69e82995aff30a678a38b27709984b9",
+    "label-fix-root-review.json": "2ba0e265af5d5e0144bb451210507c4211ce66eca6ebf8f8392db4d0889222f0",
+    "label-helper-root-review.json": "32bdb6f9c46ea1302c3e5cfdf5a577067b54e256a5fc516e557949afcbaa02b1",
+    "label-final-independent-review.json": "4b8eab4940f6be60c2e83ebd96396d9b0059890878372497f38993887f248966",
+    "label-final-pixel-review.json": "6c19efaa7fce4ed49d56639517a351872896c0d1419c35cd3a3ab19c25d11ed9",
+    "label-cleanup-helper-root-review.json": "07a1d234b0247f3c8d2bbf6ab71121219c306f50bc5a129e4f037f63754f308e",
+    "label-cleanup-final-root-review.json": "5526f52cd6252551ca0347c001bcd4c6eaf1614787a7b129c897eed2c6d407a7",
+    "final-project-input-check.json": "715568ac88abc9b5b4835658398895374e9ccb1e9210d5c8546305c59b6e9a3a",
+    "fixture-labels-semantic-diff.json": "c80fa8f3daaabcc79538958a2f416635cdf3d5987cdcbbec7cbaf3559fd3fc04",
+    "label-build-manifest.json": "e93ba2477dc290aa027d6a40942e9cb21edc564ca849f09d0ce8312083379406"
+  },
+  "attempts": [
+    {
+      "directory": "native/20261028T225215.126329Z_segment-topology-design_253f9196",
+      "record_kind": "native",
+      "files": {
+        "task.md": {
+          "path": "native/20261028T225215.126329Z_segment-topology-design_253f9196/task.md",
+          "bytes": 1354
+        },
+        "meta.json": {
+          "path": "native/20261028T225215.126329Z_segment-topology-design_253f9196/meta.json",
+          "bytes": 1454
+        },
+        "progress.md": {
+          "path": "native/20261028T225215.126329Z_segment-topology-design_253f9196/progress.md",
+          "bytes": 1115
+        },
+        "output.md": {
+          "path": "native/20261028T225215.126329Z_segment-topology-design_253f9196/output.md",
+          "bytes": 21504
+        },
+        "result.json": {
+          "path": "native/20261028T225215.126329Z_segment-topology-design_253f9196/result.json",
+          "bytes": 278
+        },
+        "events.jsonl": {
+          "path": "native/20261028T225215.126329Z_segment-topology-design_253f9196/events.jsonl",
+          "bytes": 3189
+        },
+        "changes.json": {
+          "path": "native/20261028T225215.126329Z_segment-topology-design_253f9196/changes.json",
+          "bytes": 192
+        },
+        "verification.json": {
+          "path": "native/20261028T225215.126329Z_segment-topology-design_253f9196/verification.json",
+          "bytes": 546
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "native/20261028T225857.277821Z_state-correctness_4d29be99",
+      "record_kind": "native",
+      "files": {
+        "task.md": {
+          "path": "native/20261028T225857.277821Z_state-correctness_4d29be99/task.md",
+          "bytes": 2050
+        },
+        "meta.json": {
+          "path": "native/20261028T225857.277821Z_state-correctness_4d29be99/meta.json",
+          "bytes": 1533
+        },
+        "progress.md": {
+          "path": "native/20261028T225857.277821Z_state-correctness_4d29be99/progress.md",
+          "bytes": 1027
+        },
+        "output.md": {
+          "path": "native/20261028T225857.277821Z_state-correctness_4d29be99/output.md",
+          "bytes": 8636
+        },
+        "result.json": {
+          "path": "native/20261028T225857.277821Z_state-correctness_4d29be99/result.json",
+          "bytes": 278
+        },
+        "events.jsonl": {
+          "path": "native/20261028T225857.277821Z_state-correctness_4d29be99/events.jsonl",
+          "bytes": 3908
+        },
+        "changes.json": {
+          "path": "native/20261028T225857.277821Z_state-correctness_4d29be99/changes.json",
+          "bytes": 192
+        },
+        "verification.json": {
+          "path": "native/20261028T225857.277821Z_state-correctness_4d29be99/verification.json",
+          "bytes": 533
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "native/20261028T225858.479364Z_metal-correctness_2e556edb",
+      "record_kind": "native",
+      "files": {
+        "task.md": {
+          "path": "native/20261028T225858.479364Z_metal-correctness_2e556edb/task.md",
+          "bytes": 1570
+        },
+        "meta.json": {
+          "path": "native/20261028T225858.479364Z_metal-correctness_2e556edb/meta.json",
+          "bytes": 1455
+        },
+        "progress.md": {
+          "path": "native/20261028T225858.479364Z_metal-correctness_2e556edb/progress.md",
+          "bytes": 987
+        },
+        "output.md": {
+          "path": "native/20261028T225858.479364Z_metal-correctness_2e556edb/output.md",
+          "bytes": 4162
+        },
+        "result.json": {
+          "path": "native/20261028T225858.479364Z_metal-correctness_2e556edb/result.json",
+          "bytes": 278
+        },
+        "events.jsonl": {
+          "path": "native/20261028T225858.479364Z_metal-correctness_2e556edb/events.jsonl",
+          "bytes": 3163
+        },
+        "changes.json": {
+          "path": "native/20261028T225858.479364Z_metal-correctness_2e556edb/changes.json",
+          "bytes": 192
+        },
+        "verification.json": {
+          "path": "native/20261028T225858.479364Z_metal-correctness_2e556edb/verification.json",
+          "bytes": 533
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "native/20261028T231200.451592Z_segment-core_c7b39e9c",
+      "record_kind": "native",
+      "files": {
+        "task.md": {
+          "path": "native/20261028T231200.451592Z_segment-core_c7b39e9c/task.md",
+          "bytes": 2769
+        },
+        "meta.json": {
+          "path": "native/20261028T231200.451592Z_segment-core_c7b39e9c/meta.json",
+          "bytes": 1847
+        },
+        "progress.md": {
+          "path": "native/20261028T231200.451592Z_segment-core_c7b39e9c/progress.md",
+          "bytes": 973
+        },
+        "output.md": {
+          "path": "native/20261028T231200.451592Z_segment-core_c7b39e9c/output.md",
+          "bytes": 4840
+        },
+        "result.json": {
+          "path": "native/20261028T231200.451592Z_segment-core_c7b39e9c/result.json",
+          "bytes": 278
+        },
+        "events.jsonl": {
+          "path": "native/20261028T231200.451592Z_segment-core_c7b39e9c/events.jsonl",
+          "bytes": 4707
+        },
+        "changes.json": {
+          "path": "native/20261028T231200.451592Z_segment-core_c7b39e9c/changes.json",
+          "bytes": 720
+        },
+        "verification.json": {
+          "path": "native/20261028T231200.451592Z_segment-core_c7b39e9c/verification.json",
+          "bytes": 689
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "native/20261028T231220.177632Z_segment-render_b118ea2c",
+      "record_kind": "native",
+      "files": {
+        "task.md": {
+          "path": "native/20261028T231220.177632Z_segment-render_b118ea2c/task.md",
+          "bytes": 2006
+        },
+        "meta.json": {
+          "path": "native/20261028T231220.177632Z_segment-render_b118ea2c/meta.json",
+          "bytes": 1637
+        },
+        "progress.md": {
+          "path": "native/20261028T231220.177632Z_segment-render_b118ea2c/progress.md",
+          "bytes": 1061
+        },
+        "output.md": {
+          "path": "native/20261028T231220.177632Z_segment-render_b118ea2c/output.md",
+          "bytes": 8085
+        },
+        "result.json": {
+          "path": "native/20261028T231220.177632Z_segment-render_b118ea2c/result.json",
+          "bytes": 275
+        },
+        "events.jsonl": {
+          "path": "native/20261028T231220.177632Z_segment-render_b118ea2c/events.jsonl",
+          "bytes": 4736
+        },
+        "changes.json": {
+          "path": "native/20261028T231220.177632Z_segment-render_b118ea2c/changes.json",
+          "bytes": 10599
+        },
+        "verification.json": {
+          "path": "native/20261028T231220.177632Z_segment-render_b118ea2c/verification.json",
+          "bytes": 745
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "native/20261028T232721.100499Z_r4-risk-audit_9c4dd021",
+      "record_kind": "native",
+      "files": {
+        "task.md": {
+          "path": "native/20261028T232721.100499Z_r4-risk-audit_9c4dd021/task.md",
+          "bytes": 2716
+        },
+        "meta.json": {
+          "path": "native/20261028T232721.100499Z_r4-risk-audit_9c4dd021/meta.json",
+          "bytes": 1516
+        },
+        "progress.md": {
+          "path": "native/20261028T232721.100499Z_r4-risk-audit_9c4dd021/progress.md",
+          "bytes": 1116
+        },
+        "output.md": {
+          "path": "native/20261028T232721.100499Z_r4-risk-audit_9c4dd021/output.md",
+          "bytes": 7197
+        },
+        "result.json": {
+          "path": "native/20261028T232721.100499Z_r4-risk-audit_9c4dd021/result.json",
+          "bytes": 278
+        },
+        "events.jsonl": {
+          "path": "native/20261028T232721.100499Z_r4-risk-audit_9c4dd021/events.jsonl",
+          "bytes": 3633
+        },
+        "changes.json": {
+          "path": "native/20261028T232721.100499Z_r4-risk-audit_9c4dd021/changes.json",
+          "bytes": 192
+        },
+        "verification.json": {
+          "path": "native/20261028T232721.100499Z_r4-risk-audit_9c4dd021/verification.json",
+          "bytes": 678
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "native/20261028T234103.668824Z_segment-workflow_e62fc474",
+      "record_kind": "native",
+      "files": {
+        "task.md": {
+          "path": "native/20261028T234103.668824Z_segment-workflow_e62fc474/task.md",
+          "bytes": 4874
+        },
+        "meta.json": {
+          "path": "native/20261028T234103.668824Z_segment-workflow_e62fc474/meta.json",
+          "bytes": 2229
+        },
+        "progress.md": {
+          "path": "native/20261028T234103.668824Z_segment-workflow_e62fc474/progress.md",
+          "bytes": 3218
+        },
+        "output.md": {
+          "path": "native/20261028T234103.668824Z_segment-workflow_e62fc474/output.md",
+          "bytes": 1393
+        },
+        "result.json": {
+          "path": "native/20261028T234103.668824Z_segment-workflow_e62fc474/result.json",
+          "bytes": 272
+        },
+        "events.jsonl": {
+          "path": "native/20261028T234103.668824Z_segment-workflow_e62fc474/events.jsonl",
+          "bytes": 9929
+        },
+        "changes.json": {
+          "path": "native/20261028T234103.668824Z_segment-workflow_e62fc474/changes.json",
+          "bytes": 652
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "native/20261028T234643.994660Z_retime-design_3b343b89",
+      "record_kind": "native",
+      "files": {
+        "task.md": {
+          "path": "native/20261028T234643.994660Z_retime-design_3b343b89/task.md",
+          "bytes": 3202
+        },
+        "meta.json": {
+          "path": "native/20261028T234643.994660Z_retime-design_3b343b89/meta.json",
+          "bytes": 1477
+        },
+        "progress.md": {
+          "path": "native/20261028T234643.994660Z_retime-design_3b343b89/progress.md",
+          "bytes": 1065
+        },
+        "output.md": {
+          "path": "native/20261028T234643.994660Z_retime-design_3b343b89/output.md",
+          "bytes": 10879
+        },
+        "result.json": {
+          "path": "native/20261028T234643.994660Z_retime-design_3b343b89/result.json",
+          "bytes": 278
+        },
+        "events.jsonl": {
+          "path": "native/20261028T234643.994660Z_retime-design_3b343b89/events.jsonl",
+          "bytes": 4291
+        },
+        "changes.json": {
+          "path": "native/20261028T234643.994660Z_retime-design_3b343b89/changes.json",
+          "bytes": 192
+        },
+        "verification.json": {
+          "path": "native/20261028T234643.994660Z_retime-design_3b343b89/verification.json",
+          "bytes": 717
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "native/20261028T235202.669088Z_quicklook-boundaries_0d45a682",
+      "record_kind": "native",
+      "files": {
+        "task.md": {
+          "path": "native/20261028T235202.669088Z_quicklook-boundaries_0d45a682/task.md",
+          "bytes": 2760
+        },
+        "meta.json": {
+          "path": "native/20261028T235202.669088Z_quicklook-boundaries_0d45a682/meta.json",
+          "bytes": 1557
+        },
+        "progress.md": {
+          "path": "native/20261028T235202.669088Z_quicklook-boundaries_0d45a682/progress.md",
+          "bytes": 1000
+        },
+        "output.md": {
+          "path": "native/20261028T235202.669088Z_quicklook-boundaries_0d45a682/output.md",
+          "bytes": 4192
+        },
+        "result.json": {
+          "path": "native/20261028T235202.669088Z_quicklook-boundaries_0d45a682/result.json",
+          "bytes": 278
+        },
+        "events.jsonl": {
+          "path": "native/20261028T235202.669088Z_quicklook-boundaries_0d45a682/events.jsonl",
+          "bytes": 5132
+        },
+        "changes.json": {
+          "path": "native/20261028T235202.669088Z_quicklook-boundaries_0d45a682/changes.json",
+          "bytes": 430
+        },
+        "verification.json": {
+          "path": "native/20261028T235202.669088Z_quicklook-boundaries_0d45a682/verification.json",
+          "bytes": 655
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "native/20261028T235531.920120Z_r4-final-driver-local_d2bf543b",
+      "record_kind": "native",
+      "files": {
+        "task.md": {
+          "path": "native/20261028T235531.920120Z_r4-final-driver-local_d2bf543b/task.md",
+          "bytes": 3955
+        },
+        "meta.json": {
+          "path": "native/20261028T235531.920120Z_r4-final-driver-local_d2bf543b/meta.json",
+          "bytes": 1552
+        },
+        "progress.md": {
+          "path": "native/20261028T235531.920120Z_r4-final-driver-local_d2bf543b/progress.md",
+          "bytes": 1734
+        },
+        "output.md": {
+          "path": "native/20261028T235531.920120Z_r4-final-driver-local_d2bf543b/output.md",
+          "bytes": 5162
+        },
+        "result.json": {
+          "path": "native/20261028T235531.920120Z_r4-final-driver-local_d2bf543b/result.json",
+          "bytes": 275
+        },
+        "events.jsonl": {
+          "path": "native/20261028T235531.920120Z_r4-final-driver-local_d2bf543b/events.jsonl",
+          "bytes": 6514
+        },
+        "changes.json": {
+          "path": "native/20261028T235531.920120Z_r4-final-driver-local_d2bf543b/changes.json",
+          "bytes": 192
+        },
+        "verification.json": {
+          "path": "native/20261028T235531.920120Z_r4-final-driver-local_d2bf543b/verification.json",
+          "bytes": 647
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "native/20261029T000837.189066Z_git-metadata-bound_afb6d28f",
+      "record_kind": "native",
+      "files": {
+        "task.md": {
+          "path": "native/20261029T000837.189066Z_git-metadata-bound_afb6d28f/task.md",
+          "bytes": 2441
+        },
+        "meta.json": {
+          "path": "native/20261029T000837.189066Z_git-metadata-bound_afb6d28f/meta.json",
+          "bytes": 1579
+        },
+        "progress.md": {
+          "path": "native/20261029T000837.189066Z_git-metadata-bound_afb6d28f/progress.md",
+          "bytes": 1864
+        },
+        "output.md": {
+          "path": "native/20261029T000837.189066Z_git-metadata-bound_afb6d28f/output.md",
+          "bytes": 5926
+        },
+        "result.json": {
+          "path": "native/20261029T000837.189066Z_git-metadata-bound_afb6d28f/result.json",
+          "bytes": 275
+        },
+        "events.jsonl": {
+          "path": "native/20261029T000837.189066Z_git-metadata-bound_afb6d28f/events.jsonl",
+          "bytes": 5589
+        },
+        "changes.json": {
+          "path": "native/20261029T000837.189066Z_git-metadata-bound_afb6d28f/changes.json",
+          "bytes": 341
+        },
+        "verification.json": {
+          "path": "native/20261029T000837.189066Z_git-metadata-bound_afb6d28f/verification.json",
+          "bytes": 629
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "native/20261029T001008.666518Z_segment-workflow-review_9b5a389a",
+      "record_kind": "native",
+      "files": {
+        "task.md": {
+          "path": "native/20261029T001008.666518Z_segment-workflow-review_9b5a389a/task.md",
+          "bytes": 3194
+        },
+        "meta.json": {
+          "path": "native/20261029T001008.666518Z_segment-workflow-review_9b5a389a/meta.json",
+          "bytes": 1800
+        },
+        "progress.md": {
+          "path": "native/20261029T001008.666518Z_segment-workflow-review_9b5a389a/progress.md",
+          "bytes": 1363
+        },
+        "output.md": {
+          "path": "native/20261029T001008.666518Z_segment-workflow-review_9b5a389a/output.md",
+          "bytes": 7179
+        },
+        "result.json": {
+          "path": "native/20261029T001008.666518Z_segment-workflow-review_9b5a389a/result.json",
+          "bytes": 267
+        },
+        "events.jsonl": {
+          "path": "native/20261029T001008.666518Z_segment-workflow-review_9b5a389a/events.jsonl",
+          "bytes": 6301
+        },
+        "changes.json": {
+          "path": "native/20261029T001008.666518Z_segment-workflow-review_9b5a389a/changes.json",
+          "bytes": 580
+        },
+        "verification.json": {
+          "path": "native/20261029T001008.666518Z_segment-workflow-review_9b5a389a/verification.json",
+          "bytes": 676
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "native/20261029T002155.836673Z_segment-workflow-recovery_fb92c3ca",
+      "record_kind": "native",
+      "files": {
+        "task.md": {
+          "path": "native/20261029T002155.836673Z_segment-workflow-recovery_fb92c3ca/task.md",
+          "bytes": 1373
+        },
+        "meta.json": {
+          "path": "native/20261029T002155.836673Z_segment-workflow-recovery_fb92c3ca/meta.json",
+          "bytes": 12196
+        },
+        "progress.md": {
+          "path": "native/20261029T002155.836673Z_segment-workflow-recovery_fb92c3ca/progress.md",
+          "bytes": 2130
+        },
+        "output.md": {
+          "path": "native/20261029T002155.836673Z_segment-workflow-recovery_fb92c3ca/output.md",
+          "bytes": 9902
+        },
+        "result.json": {
+          "path": "native/20261029T002155.836673Z_segment-workflow-recovery_fb92c3ca/result.json",
+          "bytes": 275
+        },
+        "events.jsonl": {
+          "path": "native/20261029T002155.836673Z_segment-workflow-recovery_fb92c3ca/events.jsonl",
+          "bytes": 15834
+        },
+        "changes.json": {
+          "path": "native/20261029T002155.836673Z_segment-workflow-recovery_fb92c3ca/changes.json",
+          "bytes": 192
+        },
+        "verification.json": {
+          "path": "native/20261029T002155.836673Z_segment-workflow-recovery_fb92c3ca/verification.json",
+          "bytes": 654
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "native/20261029T002615.038848Z_process-cleanup_30cb5eef",
+      "record_kind": "native",
+      "files": {
+        "task.md": {
+          "path": "native/20261029T002615.038848Z_process-cleanup_30cb5eef/task.md",
+          "bytes": 2611
+        },
+        "meta.json": {
+          "path": "native/20261029T002615.038848Z_process-cleanup_30cb5eef/meta.json",
+          "bytes": 1986
+        },
+        "progress.md": {
+          "path": "native/20261029T002615.038848Z_process-cleanup_30cb5eef/progress.md",
+          "bytes": 1917
+        },
+        "output.md": {
+          "path": "native/20261029T002615.038848Z_process-cleanup_30cb5eef/output.md",
+          "bytes": 6827
+        },
+        "result.json": {
+          "path": "native/20261029T002615.038848Z_process-cleanup_30cb5eef/result.json",
+          "bytes": 275
+        },
+        "events.jsonl": {
+          "path": "native/20261029T002615.038848Z_process-cleanup_30cb5eef/events.jsonl",
+          "bytes": 8704
+        },
+        "changes.json": {
+          "path": "native/20261029T002615.038848Z_process-cleanup_30cb5eef/changes.json",
+          "bytes": 451
+        },
+        "verification.json": {
+          "path": "native/20261029T002615.038848Z_process-cleanup_30cb5eef/verification.json",
+          "bytes": 618
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "native/20261029T002806.674537Z_synth-multisegment-truth_15b1a189",
+      "record_kind": "native",
+      "files": {
+        "task.md": {
+          "path": "native/20261029T002806.674537Z_synth-multisegment-truth_15b1a189/task.md",
+          "bytes": 3151
+        },
+        "meta.json": {
+          "path": "native/20261029T002806.674537Z_synth-multisegment-truth_15b1a189/meta.json",
+          "bytes": 2012
+        },
+        "progress.md": {
+          "path": "native/20261029T002806.674537Z_synth-multisegment-truth_15b1a189/progress.md",
+          "bytes": 1243
+        },
+        "output.md": {
+          "path": "native/20261029T002806.674537Z_synth-multisegment-truth_15b1a189/output.md",
+          "bytes": 7740
+        },
+        "result.json": {
+          "path": "native/20261029T002806.674537Z_synth-multisegment-truth_15b1a189/result.json",
+          "bytes": 275
+        },
+        "events.jsonl": {
+          "path": "native/20261029T002806.674537Z_synth-multisegment-truth_15b1a189/events.jsonl",
+          "bytes": 8772
+        },
+        "changes.json": {
+          "path": "native/20261029T002806.674537Z_synth-multisegment-truth_15b1a189/changes.json",
+          "bytes": 192
+        },
+        "verification.json": {
+          "path": "native/20261029T002806.674537Z_synth-multisegment-truth_15b1a189/verification.json",
+          "bytes": 633
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "native/20261029T003934.821235Z_process-cleanup-review_50726e9e",
+      "record_kind": "native",
+      "files": {
+        "task.md": {
+          "path": "native/20261029T003934.821235Z_process-cleanup-review_50726e9e/task.md",
+          "bytes": 1847
+        },
+        "meta.json": {
+          "path": "native/20261029T003934.821235Z_process-cleanup-review_50726e9e/meta.json",
+          "bytes": 1980
+        },
+        "progress.md": {
+          "path": "native/20261029T003934.821235Z_process-cleanup-review_50726e9e/progress.md",
+          "bytes": 2673
+        },
+        "output.md": {
+          "path": "native/20261029T003934.821235Z_process-cleanup-review_50726e9e/output.md",
+          "bytes": 7463
+        },
+        "result.json": {
+          "path": "native/20261029T003934.821235Z_process-cleanup-review_50726e9e/result.json",
+          "bytes": 275
+        },
+        "events.jsonl": {
+          "path": "native/20261029T003934.821235Z_process-cleanup-review_50726e9e/events.jsonl",
+          "bytes": 6432
+        },
+        "changes.json": {
+          "path": "native/20261029T003934.821235Z_process-cleanup-review_50726e9e/changes.json",
+          "bytes": 192
+        },
+        "verification.json": {
+          "path": "native/20261029T003934.821235Z_process-cleanup-review_50726e9e/verification.json",
+          "bytes": 632
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "native/20261029T010534.921300Z_structured-limit_8153e977",
+      "record_kind": "native",
+      "files": {
+        "task.md": {
+          "path": "native/20261029T010534.921300Z_structured-limit_8153e977/task.md",
+          "bytes": 2152
+        },
+        "meta.json": {
+          "path": "native/20261029T010534.921300Z_structured-limit_8153e977/meta.json",
+          "bytes": 2130
+        },
+        "progress.md": {
+          "path": "native/20261029T010534.921300Z_structured-limit_8153e977/progress.md",
+          "bytes": 1997
+        },
+        "output.md": {
+          "path": "native/20261029T010534.921300Z_structured-limit_8153e977/output.md",
+          "bytes": 4819
+        },
+        "result.json": {
+          "path": "native/20261029T010534.921300Z_structured-limit_8153e977/result.json",
+          "bytes": 275
+        },
+        "events.jsonl": {
+          "path": "native/20261029T010534.921300Z_structured-limit_8153e977/events.jsonl",
+          "bytes": 5167
+        },
+        "changes.json": {
+          "path": "native/20261029T010534.921300Z_structured-limit_8153e977/changes.json",
+          "bytes": 374
+        },
+        "verification.json": {
+          "path": "native/20261029T010534.921300Z_structured-limit_8153e977/verification.json",
+          "bytes": 619
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "native/20261029T011634.911560Z_final-archive-audit_a4f74975",
+      "record_kind": "native",
+      "files": {
+        "task.md": {
+          "path": "native/20261029T011634.911560Z_final-archive-audit_a4f74975/task.md",
+          "bytes": 2238
+        },
+        "meta.json": {
+          "path": "native/20261029T011634.911560Z_final-archive-audit_a4f74975/meta.json",
+          "bytes": 1872
+        },
+        "progress.md": {
+          "path": "native/20261029T011634.911560Z_final-archive-audit_a4f74975/progress.md",
+          "bytes": 2037
+        },
+        "output.md": {
+          "path": "native/20261029T011634.911560Z_final-archive-audit_a4f74975/output.md",
+          "bytes": 8859
+        },
+        "result.json": {
+          "path": "native/20261029T011634.911560Z_final-archive-audit_a4f74975/result.json",
+          "bytes": 275
+        },
+        "events.jsonl": {
+          "path": "native/20261029T011634.911560Z_final-archive-audit_a4f74975/events.jsonl",
+          "bytes": 5651
+        },
+        "changes.json": {
+          "path": "native/20261029T011634.911560Z_final-archive-audit_a4f74975/changes.json",
+          "bytes": 192
+        },
+        "verification.json": {
+          "path": "native/20261029T011634.911560Z_final-archive-audit_a4f74975/verification.json",
+          "bytes": 646
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "native/20261029T014901.614529Z_cli-safe-command-audit_8c0181fb",
+      "record_kind": "native",
+      "files": {
+        "task.md": {
+          "path": "native/20261029T014901.614529Z_cli-safe-command-audit_8c0181fb/task.md",
+          "bytes": 1947
+        },
+        "meta.json": {
+          "path": "native/20261029T014901.614529Z_cli-safe-command-audit_8c0181fb/meta.json",
+          "bytes": 1852
+        },
+        "progress.md": {
+          "path": "native/20261029T014901.614529Z_cli-safe-command-audit_8c0181fb/progress.md",
+          "bytes": 1085
+        },
+        "output.md": {
+          "path": "native/20261029T014901.614529Z_cli-safe-command-audit_8c0181fb/output.md",
+          "bytes": 9354
+        },
+        "result.json": {
+          "path": "native/20261029T014901.614529Z_cli-safe-command-audit_8c0181fb/result.json",
+          "bytes": 278
+        },
+        "events.jsonl": {
+          "path": "native/20261029T014901.614529Z_cli-safe-command-audit_8c0181fb/events.jsonl",
+          "bytes": 5713
+        },
+        "changes.json": {
+          "path": "native/20261029T014901.614529Z_cli-safe-command-audit_8c0181fb/changes.json",
+          "bytes": 192
+        },
+        "verification.json": {
+          "path": "native/20261029T014901.614529Z_cli-safe-command-audit_8c0181fb/verification.json",
+          "bytes": 674
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "native/20261029T015619.367473Z_r4-recovery-driver_ab6e47aa",
+      "record_kind": "native",
+      "files": {
+        "task.md": {
+          "path": "native/20261029T015619.367473Z_r4-recovery-driver_ab6e47aa/task.md",
+          "bytes": 2839
+        },
+        "meta.json": {
+          "path": "native/20261029T015619.367473Z_r4-recovery-driver_ab6e47aa/meta.json",
+          "bytes": 1986
+        },
+        "progress.md": {
+          "path": "native/20261029T015619.367473Z_r4-recovery-driver_ab6e47aa/progress.md",
+          "bytes": 1543
+        },
+        "output.md": {
+          "path": "native/20261029T015619.367473Z_r4-recovery-driver_ab6e47aa/output.md",
+          "bytes": 3672
+        },
+        "result.json": {
+          "path": "native/20261029T015619.367473Z_r4-recovery-driver_ab6e47aa/result.json",
+          "bytes": 278
+        },
+        "events.jsonl": {
+          "path": "native/20261029T015619.367473Z_r4-recovery-driver_ab6e47aa/events.jsonl",
+          "bytes": 5613
+        },
+        "changes.json": {
+          "path": "native/20261029T015619.367473Z_r4-recovery-driver_ab6e47aa/changes.json",
+          "bytes": 436
+        },
+        "verification.json": {
+          "path": "native/20261029T015619.367473Z_r4-recovery-driver_ab6e47aa/verification.json",
+          "bytes": 663
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "native/20261029T120826.125375Z_background-protocol-design_945fc96b",
+      "record_kind": "native",
+      "files": {
+        "task.md": {
+          "path": "native/20261029T120826.125375Z_background-protocol-design_945fc96b/task.md",
+          "bytes": 1498
+        },
+        "meta.json": {
+          "path": "native/20261029T120826.125375Z_background-protocol-design_945fc96b/meta.json",
+          "bytes": 1937
+        },
+        "progress.md": {
+          "path": "native/20261029T120826.125375Z_background-protocol-design_945fc96b/progress.md",
+          "bytes": 1614
+        },
+        "output.md": {
+          "path": "native/20261029T120826.125375Z_background-protocol-design_945fc96b/output.md",
+          "bytes": 1927
+        },
+        "result.json": {
+          "path": "native/20261029T120826.125375Z_background-protocol-design_945fc96b/result.json",
+          "bytes": 270
+        },
+        "events.jsonl": {
+          "path": "native/20261029T120826.125375Z_background-protocol-design_945fc96b/events.jsonl",
+          "bytes": 5497
+        },
+        "changes.json": {
+          "path": "native/20261029T120826.125375Z_background-protocol-design_945fc96b/changes.json",
+          "bytes": 398
+        },
+        "verification.json": {
+          "path": "native/20261029T120826.125375Z_background-protocol-design_945fc96b/verification.json",
+          "bytes": 694
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "native/20261029T120845.005658Z_background-protocol-fix_1e910729",
+      "record_kind": "native",
+      "files": {
+        "task.md": {
+          "path": "native/20261029T120845.005658Z_background-protocol-fix_1e910729/task.md",
+          "bytes": 1711
+        },
+        "meta.json": {
+          "path": "native/20261029T120845.005658Z_background-protocol-fix_1e910729/meta.json",
+          "bytes": 2061
+        },
+        "progress.md": {
+          "path": "native/20261029T120845.005658Z_background-protocol-fix_1e910729/progress.md",
+          "bytes": 9480
+        },
+        "output.md": {
+          "path": "native/20261029T120845.005658Z_background-protocol-fix_1e910729/output.md",
+          "bytes": 3457
+        },
+        "result.json": {
+          "path": "native/20261029T120845.005658Z_background-protocol-fix_1e910729/result.json",
+          "bytes": 275
+        },
+        "events.jsonl": {
+          "path": "native/20261029T120845.005658Z_background-protocol-fix_1e910729/events.jsonl",
+          "bytes": 9098
+        },
+        "changes.json": {
+          "path": "native/20261029T120845.005658Z_background-protocol-fix_1e910729/changes.json",
+          "bytes": 295
+        },
+        "verification.json": {
+          "path": "native/20261029T120845.005658Z_background-protocol-fix_1e910729/verification.json",
+          "bytes": 634
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "native/20261029T121006.859476Z_r4-visual-closeout_0e3ff9b2",
+      "record_kind": "native",
+      "files": {
+        "task.md": {
+          "path": "native/20261029T121006.859476Z_r4-visual-closeout_0e3ff9b2/task.md",
+          "bytes": 2386
+        },
+        "meta.json": {
+          "path": "native/20261029T121006.859476Z_r4-visual-closeout_0e3ff9b2/meta.json",
+          "bytes": 1989
+        },
+        "progress.md": {
+          "path": "native/20261029T121006.859476Z_r4-visual-closeout_0e3ff9b2/progress.md",
+          "bytes": 2403
+        },
+        "output.md": {
+          "path": "native/20261029T121006.859476Z_r4-visual-closeout_0e3ff9b2/output.md",
+          "bytes": 4560
+        },
+        "result.json": {
+          "path": "native/20261029T121006.859476Z_r4-visual-closeout_0e3ff9b2/result.json",
+          "bytes": 278
+        },
+        "events.jsonl": {
+          "path": "native/20261029T121006.859476Z_r4-visual-closeout_0e3ff9b2/events.jsonl",
+          "bytes": 6651
+        },
+        "changes.json": {
+          "path": "native/20261029T121006.859476Z_r4-visual-closeout_0e3ff9b2/changes.json",
+          "bytes": 439
+        },
+        "verification.json": {
+          "path": "native/20261029T121006.859476Z_r4-visual-closeout_0e3ff9b2/verification.json",
+          "bytes": 643
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "native/20261029T122043.207153Z_background-protocol-review_f7f6a719",
+      "record_kind": "native",
+      "files": {
+        "task.md": {
+          "path": "native/20261029T122043.207153Z_background-protocol-review_f7f6a719/task.md",
+          "bytes": 1480
+        },
+        "meta.json": {
+          "path": "native/20261029T122043.207153Z_background-protocol-review_f7f6a719/meta.json",
+          "bytes": 2043
+        },
+        "progress.md": {
+          "path": "native/20261029T122043.207153Z_background-protocol-review_f7f6a719/progress.md",
+          "bytes": 1043
+        },
+        "output.md": {
+          "path": "native/20261029T122043.207153Z_background-protocol-review_f7f6a719/output.md",
+          "bytes": 6837
+        },
+        "result.json": {
+          "path": "native/20261029T122043.207153Z_background-protocol-review_f7f6a719/result.json",
+          "bytes": 278
+        },
+        "events.jsonl": {
+          "path": "native/20261029T122043.207153Z_background-protocol-review_f7f6a719/events.jsonl",
+          "bytes": 6809
+        },
+        "changes.json": {
+          "path": "native/20261029T122043.207153Z_background-protocol-review_f7f6a719/changes.json",
+          "bytes": 192
+        },
+        "verification.json": {
+          "path": "native/20261029T122043.207153Z_background-protocol-review_f7f6a719/verification.json",
+          "bytes": 643
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "native/20261029T123126.015757Z_protocol-optional-schema_7cdcd40f",
+      "record_kind": "native",
+      "files": {
+        "task.md": {
+          "path": "native/20261029T123126.015757Z_protocol-optional-schema_7cdcd40f/task.md",
+          "bytes": 1353
+        },
+        "meta.json": {
+          "path": "native/20261029T123126.015757Z_protocol-optional-schema_7cdcd40f/meta.json",
+          "bytes": 2033
+        },
+        "progress.md": {
+          "path": "native/20261029T123126.015757Z_protocol-optional-schema_7cdcd40f/progress.md",
+          "bytes": 1055
+        },
+        "output.md": {
+          "path": "native/20261029T123126.015757Z_protocol-optional-schema_7cdcd40f/output.md",
+          "bytes": 1503
+        },
+        "result.json": {
+          "path": "native/20261029T123126.015757Z_protocol-optional-schema_7cdcd40f/result.json",
+          "bytes": 278
+        },
+        "events.jsonl": {
+          "path": "native/20261029T123126.015757Z_protocol-optional-schema_7cdcd40f/events.jsonl",
+          "bytes": 5377
+        },
+        "changes.json": {
+          "path": "native/20261029T123126.015757Z_protocol-optional-schema_7cdcd40f/changes.json",
+          "bytes": 192
+        },
+        "verification.json": {
+          "path": "native/20261029T123126.015757Z_protocol-optional-schema_7cdcd40f/verification.json",
+          "bytes": 622
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "native/20261029T124437.480715Z_visual-process-guard_7010fcd0",
+      "record_kind": "native",
+      "files": {
+        "task.md": {
+          "path": "native/20261029T124437.480715Z_visual-process-guard_7010fcd0/task.md",
+          "bytes": 1469
+        },
+        "meta.json": {
+          "path": "native/20261029T124437.480715Z_visual-process-guard_7010fcd0/meta.json",
+          "bytes": 1995
+        },
+        "progress.md": {
+          "path": "native/20261029T124437.480715Z_visual-process-guard_7010fcd0/progress.md",
+          "bytes": 2152
+        },
+        "output.md": {
+          "path": "native/20261029T124437.480715Z_visual-process-guard_7010fcd0/output.md",
+          "bytes": 2495
+        },
+        "result.json": {
+          "path": "native/20261029T124437.480715Z_visual-process-guard_7010fcd0/result.json",
+          "bytes": 278
+        },
+        "events.jsonl": {
+          "path": "native/20261029T124437.480715Z_visual-process-guard_7010fcd0/events.jsonl",
+          "bytes": 5380
+        },
+        "changes.json": {
+          "path": "native/20261029T124437.480715Z_visual-process-guard_7010fcd0/changes.json",
+          "bytes": 439
+        },
+        "verification.json": {
+          "path": "native/20261029T124437.480715Z_visual-process-guard_7010fcd0/verification.json",
+          "bytes": 629
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "native/20261029T125258.355434Z_visual-window-capture-guard_1d9d7e73",
+      "record_kind": "native",
+      "files": {
+        "task.md": {
+          "path": "native/20261029T125258.355434Z_visual-window-capture-guard_1d9d7e73/task.md",
+          "bytes": 1734
+        },
+        "meta.json": {
+          "path": "native/20261029T125258.355434Z_visual-window-capture-guard_1d9d7e73/meta.json",
+          "bytes": 2016
+        },
+        "progress.md": {
+          "path": "native/20261029T125258.355434Z_visual-window-capture-guard_1d9d7e73/progress.md",
+          "bytes": 2269
+        },
+        "output.md": {
+          "path": "native/20261029T125258.355434Z_visual-window-capture-guard_1d9d7e73/output.md",
+          "bytes": 2204
+        },
+        "result.json": {
+          "path": "native/20261029T125258.355434Z_visual-window-capture-guard_1d9d7e73/result.json",
+          "bytes": 278
+        },
+        "events.jsonl": {
+          "path": "native/20261029T125258.355434Z_visual-window-capture-guard_1d9d7e73/events.jsonl",
+          "bytes": 5423
+        },
+        "changes.json": {
+          "path": "native/20261029T125258.355434Z_visual-window-capture-guard_1d9d7e73/changes.json",
+          "bytes": 439
+        },
+        "verification.json": {
+          "path": "native/20261029T125258.355434Z_visual-window-capture-guard_1d9d7e73/verification.json",
+          "bytes": 651
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "native/20261029T130241.650681Z_r4-label-pixel-review_67222b4e",
+      "record_kind": "native",
+      "files": {
+        "task.md": {
+          "path": "native/20261029T130241.650681Z_r4-label-pixel-review_67222b4e/task.md",
+          "bytes": 1980
+        },
+        "meta.json": {
+          "path": "native/20261029T130241.650681Z_r4-label-pixel-review_67222b4e/meta.json",
+          "bytes": 1936
+        },
+        "progress.md": {
+          "path": "native/20261029T130241.650681Z_r4-label-pixel-review_67222b4e/progress.md",
+          "bytes": 1118
+        },
+        "output.md": {
+          "path": "native/20261029T130241.650681Z_r4-label-pixel-review_67222b4e/output.md",
+          "bytes": 4617
+        },
+        "result.json": {
+          "path": "native/20261029T130241.650681Z_r4-label-pixel-review_67222b4e/result.json",
+          "bytes": 278
+        },
+        "events.jsonl": {
+          "path": "native/20261029T130241.650681Z_r4-label-pixel-review_67222b4e/events.jsonl",
+          "bytes": 5123
+        },
+        "changes.json": {
+          "path": "native/20261029T130241.650681Z_r4-label-pixel-review_67222b4e/changes.json",
+          "bytes": 368
+        },
+        "verification.json": {
+          "path": "native/20261029T130241.650681Z_r4-label-pixel-review_67222b4e/verification.json",
+          "bytes": 763
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "native/20261029T131103.683922Z_r4-label-closeout-helper_468e733c",
+      "record_kind": "native",
+      "files": {
+        "task.md": {
+          "path": "native/20261029T131103.683922Z_r4-label-closeout-helper_468e733c/task.md",
+          "bytes": 2202
+        },
+        "meta.json": {
+          "path": "native/20261029T131103.683922Z_r4-label-closeout-helper_468e733c/meta.json",
+          "bytes": 2004
+        },
+        "progress.md": {
+          "path": "native/20261029T131103.683922Z_r4-label-closeout-helper_468e733c/progress.md",
+          "bytes": 2923
+        },
+        "output.md": {
+          "path": "native/20261029T131103.683922Z_r4-label-closeout-helper_468e733c/output.md",
+          "bytes": 3589
+        },
+        "result.json": {
+          "path": "native/20261029T131103.683922Z_r4-label-closeout-helper_468e733c/result.json",
+          "bytes": 278
+        },
+        "events.jsonl": {
+          "path": "native/20261029T131103.683922Z_r4-label-closeout-helper_468e733c/events.jsonl",
+          "bytes": 5920
+        },
+        "changes.json": {
+          "path": "native/20261029T131103.683922Z_r4-label-closeout-helper_468e733c/changes.json",
+          "bytes": 695
+        },
+        "verification.json": {
+          "path": "native/20261029T131103.683922Z_r4-label-closeout-helper_468e733c/verification.json",
+          "bytes": 707
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "native/20261029T132627.835517Z_r4-label-cleanup-recovery_4e63b80e",
+      "record_kind": "native",
+      "files": {
+        "task.md": {
+          "path": "native/20261029T132627.835517Z_r4-label-cleanup-recovery_4e63b80e/task.md",
+          "bytes": 2568
+        },
+        "meta.json": {
+          "path": "native/20261029T132627.835517Z_r4-label-cleanup-recovery_4e63b80e/meta.json",
+          "bytes": 2031
+        },
+        "progress.md": {
+          "path": "native/20261029T132627.835517Z_r4-label-cleanup-recovery_4e63b80e/progress.md",
+          "bytes": 2671
+        },
+        "output.md": {
+          "path": "native/20261029T132627.835517Z_r4-label-cleanup-recovery_4e63b80e/output.md",
+          "bytes": 3546
+        },
+        "result.json": {
+          "path": "native/20261029T132627.835517Z_r4-label-cleanup-recovery_4e63b80e/result.json",
+          "bytes": 278
+        },
+        "events.jsonl": {
+          "path": "native/20261029T132627.835517Z_r4-label-cleanup-recovery_4e63b80e/events.jsonl",
+          "bytes": 5521
+        },
+        "changes.json": {
+          "path": "native/20261029T132627.835517Z_r4-label-cleanup-recovery_4e63b80e/changes.json",
+          "bytes": 460
+        },
+        "verification.json": {
+          "path": "native/20261029T132627.835517Z_r4-label-cleanup-recovery_4e63b80e/verification.json",
+          "bytes": 723
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "deepseek/20261028T225704.094186Z_r4-baseline_b44e2242",
+      "record_kind": "deepseek",
+      "files": {
+        "task.md": {
+          "path": "deepseek/20261028T225704.094186Z_r4-baseline_b44e2242/task.md",
+          "bytes": 37944
+        },
+        "meta.json": {
+          "path": "deepseek/20261028T225704.094186Z_r4-baseline_b44e2242/meta.json",
+          "bytes": 1806
+        },
+        "progress.md": {
+          "path": "deepseek/20261028T225704.094186Z_r4-baseline_b44e2242/progress.md",
+          "bytes": 3458
+        },
+        "output.md": {
+          "path": "deepseek/20261028T225704.094186Z_r4-baseline_b44e2242/output.md",
+          "bytes": 23583
+        },
+        "result.json": {
+          "path": "deepseek/20261028T225704.094186Z_r4-baseline_b44e2242/result.json",
+          "bytes": 7567
+        },
+        "events.jsonl": {
+          "path": "deepseek/20261028T225704.094186Z_r4-baseline_b44e2242/events.jsonl",
+          "bytes": 24169855
+        },
+        "transcript.jsonl": {
+          "path": "deepseek/20261028T225704.094186Z_r4-baseline_b44e2242/transcript.jsonl",
+          "bytes": 15407367
+        },
+        "changes.json": {
+          "path": "deepseek/20261028T225704.094186Z_r4-baseline_b44e2242/changes.json",
+          "bytes": 192
+        },
+        "verification.json": {
+          "path": "deepseek/20261028T225704.094186Z_r4-baseline_b44e2242/verification.json",
+          "bytes": 635
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "deepseek/20261028T231346.805718Z_own-log-permission_ada358b2",
+      "record_kind": "deepseek",
+      "files": {
+        "task.md": {
+          "path": "deepseek/20261028T231346.805718Z_own-log-permission_ada358b2/task.md",
+          "bytes": 974
+        },
+        "meta.json": {
+          "path": "deepseek/20261028T231346.805718Z_own-log-permission_ada358b2/meta.json",
+          "bytes": 1681
+        },
+        "progress.md": {
+          "path": "deepseek/20261028T231346.805718Z_own-log-permission_ada358b2/progress.md",
+          "bytes": 1509
+        },
+        "output.md": {
+          "path": "deepseek/20261028T231346.805718Z_own-log-permission_ada358b2/output.md",
+          "bytes": 2047
+        },
+        "result.json": {
+          "path": "deepseek/20261028T231346.805718Z_own-log-permission_ada358b2/result.json",
+          "bytes": 1450
+        },
+        "events.jsonl": {
+          "path": "deepseek/20261028T231346.805718Z_own-log-permission_ada358b2/events.jsonl",
+          "bytes": 328484
+        },
+        "transcript.jsonl": {
+          "path": "deepseek/20261028T231346.805718Z_own-log-permission_ada358b2/transcript.jsonl",
+          "bytes": 204161
+        },
+        "changes.json": {
+          "path": "deepseek/20261028T231346.805718Z_own-log-permission_ada358b2/changes.json",
+          "bytes": 192
+        },
+        "verification.json": {
+          "path": "deepseek/20261028T231346.805718Z_own-log-permission_ada358b2/verification.json",
+          "bytes": 710
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "deepseek/20261028T235325.642768Z_r4-final-driver-approval-blocked_6f455a53",
+      "record_kind": "deepseek",
+      "files": {
+        "task.md": {
+          "path": "deepseek/20261028T235325.642768Z_r4-final-driver-approval-blocked_6f455a53/task.md",
+          "bytes": 3361
+        },
+        "meta.json": {
+          "path": "deepseek/20261028T235325.642768Z_r4-final-driver-approval-blocked_6f455a53/meta.json",
+          "bytes": 1466
+        },
+        "progress.md": {
+          "path": "deepseek/20261028T235325.642768Z_r4-final-driver-approval-blocked_6f455a53/progress.md",
+          "bytes": 866
+        },
+        "output.md": {
+          "path": "deepseek/20261028T235325.642768Z_r4-final-driver-approval-blocked_6f455a53/output.md",
+          "bytes": 1170
+        },
+        "result.json": {
+          "path": "deepseek/20261028T235325.642768Z_r4-final-driver-approval-blocked_6f455a53/result.json",
+          "bytes": 269
+        },
+        "events.jsonl": {
+          "path": "deepseek/20261028T235325.642768Z_r4-final-driver-approval-blocked_6f455a53/events.jsonl",
+          "bytes": 4149
+        },
+        "changes.json": {
+          "path": "deepseek/20261028T235325.642768Z_r4-final-driver-approval-blocked_6f455a53/changes.json",
+          "bytes": 192
+        },
+        "verification.json": {
+          "path": "deepseek/20261028T235325.642768Z_r4-final-driver-approval-blocked_6f455a53/verification.json",
+          "bytes": 720
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "deepseek/20261029T005551.320812Z_localization_f98171bb",
+      "record_kind": "deepseek",
+      "files": {
+        "task.md": {
+          "path": "deepseek/20261029T005551.320812Z_localization_f98171bb/task.md",
+          "bytes": 2498
+        },
+        "meta.json": {
+          "path": "deepseek/20261029T005551.320812Z_localization_f98171bb/meta.json",
+          "bytes": 2118
+        },
+        "progress.md": {
+          "path": "deepseek/20261029T005551.320812Z_localization_f98171bb/progress.md",
+          "bytes": 3061
+        },
+        "output.md": {
+          "path": "deepseek/20261029T005551.320812Z_localization_f98171bb/output.md",
+          "bytes": 6377
+        },
+        "result.json": {
+          "path": "deepseek/20261029T005551.320812Z_localization_f98171bb/result.json",
+          "bytes": 2571
+        },
+        "events.jsonl": {
+          "path": "deepseek/20261029T005551.320812Z_localization_f98171bb/events.jsonl",
+          "bytes": 6668414
+        },
+        "transcript.jsonl": {
+          "path": "deepseek/20261029T005551.320812Z_localization_f98171bb/transcript.jsonl",
+          "bytes": 4172078
+        },
+        "changes.json": {
+          "path": "deepseek/20261029T005551.320812Z_localization_f98171bb/changes.json",
+          "bytes": 239
+        },
+        "verification.json": {
+          "path": "deepseek/20261029T005551.320812Z_localization_f98171bb/verification.json",
+          "bytes": 607
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "deepseek/20261029T010037.881134Z_synth-migration_5cb2a1a8",
+      "record_kind": "deepseek",
+      "files": {
+        "task.md": {
+          "path": "deepseek/20261029T010037.881134Z_synth-migration_5cb2a1a8/task.md",
+          "bytes": 2816
+        },
+        "meta.json": {
+          "path": "deepseek/20261029T010037.881134Z_synth-migration_5cb2a1a8/meta.json",
+          "bytes": 2659
+        },
+        "progress.md": {
+          "path": "deepseek/20261029T010037.881134Z_synth-migration_5cb2a1a8/progress.md",
+          "bytes": 1255
+        },
+        "output.md": {
+          "path": "deepseek/20261029T010037.881134Z_synth-migration_5cb2a1a8/output.md",
+          "bytes": 55
+        },
+        "result.json": {
+          "path": "deepseek/20261029T010037.881134Z_synth-migration_5cb2a1a8/result.json",
+          "bytes": 3487
+        },
+        "events.jsonl": {
+          "path": "deepseek/20261029T010037.881134Z_synth-migration_5cb2a1a8/events.jsonl",
+          "bytes": 1722366
+        },
+        "transcript.jsonl": {
+          "path": "deepseek/20261029T010037.881134Z_synth-migration_5cb2a1a8/transcript.jsonl",
+          "bytes": 1205209
+        },
+        "changes.json": {
+          "path": "deepseek/20261029T010037.881134Z_synth-migration_5cb2a1a8/changes.json",
+          "bytes": 506
+        },
+        "verification.json": {
+          "path": "deepseek/20261029T010037.881134Z_synth-migration_5cb2a1a8/verification.json",
+          "bytes": 666
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "deepseek/20261029T011600.159549Z_r4-final_fa1fd007",
+      "record_kind": "deepseek",
+      "files": {
+        "task.md": {
+          "path": "deepseek/20261029T011600.159549Z_r4-final_fa1fd007/task.md",
+          "bytes": 4753
+        },
+        "meta.json": {
+          "path": "deepseek/20261029T011600.159549Z_r4-final_fa1fd007/meta.json",
+          "bytes": 2289
+        },
+        "progress.md": {
+          "path": "deepseek/20261029T011600.159549Z_r4-final_fa1fd007/progress.md",
+          "bytes": 2104
+        },
+        "output.md": {
+          "path": "deepseek/20261029T011600.159549Z_r4-final_fa1fd007/output.md",
+          "bytes": 55
+        },
+        "result.json": {
+          "path": "deepseek/20261029T011600.159549Z_r4-final_fa1fd007/result.json",
+          "bytes": 2032
+        },
+        "events.jsonl": {
+          "path": "deepseek/20261029T011600.159549Z_r4-final_fa1fd007/events.jsonl",
+          "bytes": 4910341
+        },
+        "transcript.jsonl": {
+          "path": "deepseek/20261029T011600.159549Z_r4-final_fa1fd007/transcript.jsonl",
+          "bytes": 3216662
+        },
+        "changes.json": {
+          "path": "deepseek/20261029T011600.159549Z_r4-final_fa1fd007/changes.json",
+          "bytes": 192
+        },
+        "verification.json": {
+          "path": "deepseek/20261029T011600.159549Z_r4-final_fa1fd007/verification.json",
+          "bytes": 658
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "deepseek/20261029T112901.777425Z_r4-remaining_d3ab729e",
+      "record_kind": "deepseek",
+      "files": {
+        "task.md": {
+          "path": "deepseek/20261029T112901.777425Z_r4-remaining_d3ab729e/task.md",
+          "bytes": 3655
+        },
+        "meta.json": {
+          "path": "deepseek/20261029T112901.777425Z_r4-remaining_d3ab729e/meta.json",
+          "bytes": 12658
+        },
+        "progress.md": {
+          "path": "deepseek/20261029T112901.777425Z_r4-remaining_d3ab729e/progress.md",
+          "bytes": 3371
+        },
+        "output.md": {
+          "path": "deepseek/20261029T112901.777425Z_r4-remaining_d3ab729e/output.md",
+          "bytes": 19830
+        },
+        "result.json": {
+          "path": "deepseek/20261029T112901.777425Z_r4-remaining_d3ab729e/result.json",
+          "bytes": 2604
+        },
+        "events.jsonl": {
+          "path": "deepseek/20261029T112901.777425Z_r4-remaining_d3ab729e/events.jsonl",
+          "bytes": 4704465
+        },
+        "transcript.jsonl": {
+          "path": "deepseek/20261029T112901.777425Z_r4-remaining_d3ab729e/transcript.jsonl",
+          "bytes": 3067880
+        },
+        "changes.json": {
+          "path": "deepseek/20261029T112901.777425Z_r4-remaining_d3ab729e/changes.json",
+          "bytes": 192
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "deepseek/20261029T124907.453283Z_r4-visual-final_dd903ac7",
+      "record_kind": "deepseek",
+      "files": {
+        "task.md": {
+          "path": "deepseek/20261029T124907.453283Z_r4-visual-final_dd903ac7/task.md",
+          "bytes": 2915
+        },
+        "meta.json": {
+          "path": "deepseek/20261029T124907.453283Z_r4-visual-final_dd903ac7/meta.json",
+          "bytes": 4583
+        },
+        "progress.md": {
+          "path": "deepseek/20261029T124907.453283Z_r4-visual-final_dd903ac7/progress.md",
+          "bytes": 2693
+        },
+        "output.md": {
+          "path": "deepseek/20261029T124907.453283Z_r4-visual-final_dd903ac7/output.md",
+          "bytes": 6447
+        },
+        "result.json": {
+          "path": "deepseek/20261029T124907.453283Z_r4-visual-final_dd903ac7/result.json",
+          "bytes": 5154
+        },
+        "events.jsonl": {
+          "path": "deepseek/20261029T124907.453283Z_r4-visual-final_dd903ac7/events.jsonl",
+          "bytes": 3665215
+        },
+        "transcript.jsonl": {
+          "path": "deepseek/20261029T124907.453283Z_r4-visual-final_dd903ac7/transcript.jsonl",
+          "bytes": 2333194
+        },
+        "changes.json": {
+          "path": "deepseek/20261029T124907.453283Z_r4-visual-final_dd903ac7/changes.json",
+          "bytes": 356
+        },
+        "verification.json": {
+          "path": "deepseek/20261029T124907.453283Z_r4-visual-final_dd903ac7/verification.json",
+          "bytes": 697
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "deepseek/20261029T125630.030432Z_r4-visual-retry_0b33aad1",
+      "record_kind": "deepseek",
+      "files": {
+        "task.md": {
+          "path": "deepseek/20261029T125630.030432Z_r4-visual-retry_0b33aad1/task.md",
+          "bytes": 2062
+        },
+        "meta.json": {
+          "path": "deepseek/20261029T125630.030432Z_r4-visual-retry_0b33aad1/meta.json",
+          "bytes": 4257
+        },
+        "progress.md": {
+          "path": "deepseek/20261029T125630.030432Z_r4-visual-retry_0b33aad1/progress.md",
+          "bytes": 3963
+        },
+        "output.md": {
+          "path": "deepseek/20261029T125630.030432Z_r4-visual-retry_0b33aad1/output.md",
+          "bytes": 3654
+        },
+        "result.json": {
+          "path": "deepseek/20261029T125630.030432Z_r4-visual-retry_0b33aad1/result.json",
+          "bytes": 4178
+        },
+        "events.jsonl": {
+          "path": "deepseek/20261029T125630.030432Z_r4-visual-retry_0b33aad1/events.jsonl",
+          "bytes": 1446774
+        },
+        "transcript.jsonl": {
+          "path": "deepseek/20261029T125630.030432Z_r4-visual-retry_0b33aad1/transcript.jsonl",
+          "bytes": 986139
+        },
+        "changes.json": {
+          "path": "deepseek/20261029T125630.030432Z_r4-visual-retry_0b33aad1/changes.json",
+          "bytes": 192
+        },
+        "verification.json": {
+          "path": "deepseek/20261029T125630.030432Z_r4-visual-retry_0b33aad1/verification.json",
+          "bytes": 765
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "deepseek/20261029T132227.123510Z_r4-label-final_9d13dc4c",
+      "record_kind": "deepseek",
+      "files": {
+        "task.md": {
+          "path": "deepseek/20261029T132227.123510Z_r4-label-final_9d13dc4c/task.md",
+          "bytes": 2234
+        },
+        "meta.json": {
+          "path": "deepseek/20261029T132227.123510Z_r4-label-final_9d13dc4c/meta.json",
+          "bytes": 4286
+        },
+        "progress.md": {
+          "path": "deepseek/20261029T132227.123510Z_r4-label-final_9d13dc4c/progress.md",
+          "bytes": 4665
+        },
+        "output.md": {
+          "path": "deepseek/20261029T132227.123510Z_r4-label-final_9d13dc4c/output.md",
+          "bytes": 7560
+        },
+        "result.json": {
+          "path": "deepseek/20261029T132227.123510Z_r4-label-final_9d13dc4c/result.json",
+          "bytes": 4676
+        },
+        "events.jsonl": {
+          "path": "deepseek/20261029T132227.123510Z_r4-label-final_9d13dc4c/events.jsonl",
+          "bytes": 3781868
+        },
+        "transcript.jsonl": {
+          "path": "deepseek/20261029T132227.123510Z_r4-label-final_9d13dc4c/transcript.jsonl",
+          "bytes": 2443254
+        },
+        "changes.json": {
+          "path": "deepseek/20261029T132227.123510Z_r4-label-final_9d13dc4c/changes.json",
+          "bytes": 192
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    },
+    {
+      "directory": "deepseek/20261029T133852.372561Z_r4-cleanup-final_b50062b0",
+      "record_kind": "deepseek",
+      "files": {
+        "task.md": {
+          "path": "deepseek/20261029T133852.372561Z_r4-cleanup-final_b50062b0/task.md",
+          "bytes": 2012
+        },
+        "meta.json": {
+          "path": "deepseek/20261029T133852.372561Z_r4-cleanup-final_b50062b0/meta.json",
+          "bytes": 2727
+        },
+        "progress.md": {
+          "path": "deepseek/20261029T133852.372561Z_r4-cleanup-final_b50062b0/progress.md",
+          "bytes": 2192
+        },
+        "output.md": {
+          "path": "deepseek/20261029T133852.372561Z_r4-cleanup-final_b50062b0/output.md",
+          "bytes": 1943
+        },
+        "result.json": {
+          "path": "deepseek/20261029T133852.372561Z_r4-cleanup-final_b50062b0/result.json",
+          "bytes": 4207
+        },
+        "events.jsonl": {
+          "path": "deepseek/20261029T133852.372561Z_r4-cleanup-final_b50062b0/events.jsonl",
+          "bytes": 788961
+        },
+        "transcript.jsonl": {
+          "path": "deepseek/20261029T133852.372561Z_r4-cleanup-final_b50062b0/transcript.jsonl",
+          "bytes": 485474
+        },
+        "changes.json": {
+          "path": "deepseek/20261029T133852.372561Z_r4-cleanup-final_b50062b0/changes.json",
+          "bytes": 192
+        },
+        "verification.json": {
+          "path": "deepseek/20261029T133852.372561Z_r4-cleanup-final_b50062b0/verification.json",
+          "bytes": 755
+        }
+      },
+      "status_model_and_cost": "Read original meta/result/verification; not inferred by navigation index"
+    }
+  ]
+}

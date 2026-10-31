@@ -1,0 +1,11 @@
+{
+  "provider_status": "failed",
+  "acceptance_status": "pending",
+  "cost_usd": null,
+  "finished_utc": "2026-10-29T01:04:45.581479+00:00",
+  "session_id": null,
+  "exit_code": null,
+  "status": "failed",
+  "run_status": "failed",
+  "verification_status": "not_run"
+}

@@ -1,0 +1,21 @@
+{
+  "label": "concise-raw-evidence",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T022802",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 51191,
+  "process_owner": {
+    "pid": 51191,
+    "parent_pid": 51190,
+    "process_identity": "darwin:51191:1793413682.554027",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.05
+}

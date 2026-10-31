@@ -1,0 +1,27 @@
+{
+  "label": "source-entry-map",
+  "argv": [
+    "rg",
+    "-n",
+    "summary|Summary|persistsettings|settingsstate|dateValue|datevalue|DatePicker",
+    "GPXPointViewer/UITestHook.swift",
+    "GPXPointViewer/ContentView.swift",
+    "GPXPointViewer/ExportSheet.swift",
+    "GPXPointViewer/GPXPointViewerApp.swift",
+    "Tests/ui/run_summary_navigation_tests.py"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014002",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 13572,
+  "process_owner": {
+    "pid": 13572,
+    "parent_pid": 13566,
+    "process_identity": "darwin:13572:1793410802.707332",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

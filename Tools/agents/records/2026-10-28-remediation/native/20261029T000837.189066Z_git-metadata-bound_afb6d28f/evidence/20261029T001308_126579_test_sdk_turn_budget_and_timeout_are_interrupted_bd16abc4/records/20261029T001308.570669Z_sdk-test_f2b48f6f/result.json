@@ -1,0 +1,31 @@
+{
+  "provider_status": "interrupted",
+  "acceptance_status": "pending",
+  "started": true,
+  "exit_code": 1,
+  "error": null,
+  "is_error": true,
+  "duration_s": 0.171,
+  "cost_usd": 0.25,
+  "cost_source": "SDK estimate",
+  "actual_billed_cost_usd": null,
+  "budget_usd": 2.0,
+  "budget_ledger": "/private/tmp/gpxpv-runner-tests-eg3fon55/20261029T001308_126579_test_sdk_turn_budget_and_timeout_are_interrupted_bd16abc4/budget/budget.json",
+  "runner_terminal_reason": null,
+  "usage": {
+    "input_tokens": 51,
+    "output_tokens": 13
+  },
+  "num_turns": 2,
+  "session_id": "offline-sdk-session",
+  "subtype": "error_max_budget_usd",
+  "terminal_reason": "budget",
+  "stop_reason": null,
+  "errors": null,
+  "permission_denials": null,
+  "api_error_status": null,
+  "finished_utc": "2026-10-29T00:13:08.814514+00:00",
+  "status": "interrupted",
+  "run_status": "interrupted",
+  "verification_status": "not_run"
+}

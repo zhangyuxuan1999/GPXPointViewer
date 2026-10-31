@@ -1,0 +1,380 @@
+{
+  "utc": "2026-10-29T21:24:02.202188+00:00",
+  "scope": "Only build-input roots, agent scripts, and current delivery documents. No data/, historical records or global settings.",
+  "count": 62,
+  "bytes": 34123139,
+  "files": [
+    {
+      "path": "GPXPointViewer/Localizable.xcstrings",
+      "bytes": 916530,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/Colormaps.swift",
+      "bytes": 11482,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/land_mask.png",
+      "bytes": 9292,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/GPXWriter.swift",
+      "bytes": 11422,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/RoadNetwork.swift",
+      "bytes": 166173,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/DiffWindow.swift",
+      "bytes": 10786,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/earth_texture.png",
+      "bytes": 678541,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/RegionIndex.swift",
+      "bytes": 30332,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/Playback.swift",
+      "bytes": 31874,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/GapFill.swift",
+      "bytes": 143635,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/ChangeLog.swift",
+      "bytes": 18193,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/MapSources.swift",
+      "bytes": 21640,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/earth_texture_light.png",
+      "bytes": 806536,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/Shaders.metal",
+      "bytes": 53388,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/InfoPlist.xcstrings",
+      "bytes": 1404,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/FillPlausibility.swift",
+      "bytes": 31243,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/Regions.bin",
+      "bytes": 29411770,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/GPXPointViewerApp.swift",
+      "bytes": 6928,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/FogArchive.swift",
+      "bytes": 20627,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/UITestHook.swift",
+      "bytes": 77268,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/GPXPointViewer.entitlements",
+      "bytes": 366,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/Heat3D.swift",
+      "bytes": 15072,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/RegionsWindow.swift",
+      "bytes": 15991,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/MetalPointRenderer.swift",
+      "bytes": 119028,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/GeoCompute.swift",
+      "bytes": 12979,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/TrackStore.swift",
+      "bytes": 277097,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/TunnelOverlay.swift",
+      "bytes": 17666,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/VideoExport.swift",
+      "bytes": 24100,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/BatchFillWindow.swift",
+      "bytes": 79863,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/StressTest.swift",
+      "bytes": 3415,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/L10nSupport.swift",
+      "bytes": 1014,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/BatchFill.swift",
+      "bytes": 26210,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/RouteReplay.swift",
+      "bytes": 11332,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/RegionStats.swift",
+      "bytes": 6993,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/Info.plist",
+      "bytes": 1110,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/moon_texture.png",
+      "bytes": 501293,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/DiffCompare.swift",
+      "bytes": 7751,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/PointMapView.swift",
+      "bytes": 189670,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/Assets.xcassets/AppIcon.appiconset/icon_256.png",
+      "bytes": 18441,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/Assets.xcassets/AppIcon.appiconset/icon_32.png",
+      "bytes": 1542,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/Assets.xcassets/AppIcon.appiconset/icon_128.png",
+      "bytes": 8371,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/Assets.xcassets/AppIcon.appiconset/icon_512.png",
+      "bytes": 41413,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/Assets.xcassets/AppIcon.appiconset/icon_16.png",
+      "bytes": 639,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/Assets.xcassets/AppIcon.appiconset/Contents.json",
+      "bytes": 1206,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXPointViewer/Assets.xcassets/AppIcon.appiconset/icon_1024.png",
+      "bytes": 89530,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXQuickLook/Localizable.xcstrings",
+      "bytes": 4315,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXQuickLook/PreviewViewController.swift",
+      "bytes": 6451,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXQuickLook/InfoPlist.xcstrings",
+      "bytes": 1334,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXQuickLook/GPXQuickLook.entitlements",
+      "bytes": 240,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXQuickLook/Info.plist",
+      "bytes": 626,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXQuickLook/TrackShape.swift",
+      "bytes": 13024,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXThumbnail/ThumbnailProvider.swift",
+      "bytes": 1733,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXThumbnail/InfoPlist.xcstrings",
+      "bytes": 1339,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXThumbnail/GPXThumbnail.entitlements",
+      "bytes": 240,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "GPXThumbnail/Info.plist",
+      "bytes": 639,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "README.md",
+      "bytes": 52905,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "Tests/README.md",
+      "bytes": 59958,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "DeepSeek/issues.md",
+      "bytes": 29573,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "DeepSeek/README.md",
+      "bytes": 2752,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "DeepSeek/2026-10-29-codex-response.md",
+      "bytes": 10343,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "DeepSeek/2026-10-29-feature-directions.md",
+      "bytes": 3882,
+      "requested": true,
+      "error_present": false
+    },
+    {
+      "path": "Tools/agents/records/2026-10-29-deepseek-response/coordinator/capture.py",
+      "bytes": 2629,
+      "requested": true,
+      "error_present": false
+    }
+  ]
+}

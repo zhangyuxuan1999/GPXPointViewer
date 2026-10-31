@@ -1,0 +1,21 @@
+{
+  "label": "entitlement-and-project-signing-config",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T013627",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 8173,
+  "process_owner": {
+    "pid": 8173,
+    "parent_pid": 8171,
+    "process_identity": "darwin:8173:1793410587.919167",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.02
+}

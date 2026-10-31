@@ -1,0 +1,27 @@
+{
+  "label": "004-start",
+  "argv": [
+    "python3",
+    "Tools/agents/agent_run.py",
+    "event",
+    "Tools/agents/records/2026-10-30-journey-summary/native/20261030T060200.215494Z_journey-summary-header-layout-fix_50b77c73",
+    "--type",
+    "progress",
+    "--json",
+    "{\"completed\":\"Accepted separate minimal header layout fix and targeted screenshot-driver task.\",\"doing\":\"Read exact current header/driver and task evidence before recording minimal diff.\",\"next\":\"Hide redundant visual Picker label while retaining localized accessibility label; add visual-only layout capture mode and static artifacts only.\",\"not_allowed\":\"Build/App/UI/tests/live screen preflight or state/strings changes\"}"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T060242",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 46851,
+  "process_owner": {
+    "pid": 46851,
+    "parent_pid": 46849,
+    "process_identity": "darwin:46851:1793340162.673374",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.08
+}

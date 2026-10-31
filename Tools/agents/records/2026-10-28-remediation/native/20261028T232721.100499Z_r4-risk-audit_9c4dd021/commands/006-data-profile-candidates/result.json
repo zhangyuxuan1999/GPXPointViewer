@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "rg",
+    "-n",
+    "SamplingProfile|GapDetector.detect|detectJitter|mergeChains|defaultSpacing|GapRouteInputs.build|struct Job",
+    "Tests/synth/runner/main.swift",
+    "GPXPointViewer/TrackStore.swift",
+    "GPXPointViewer/GapFill.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "start": "2026-10-28T23:28:10.758473+00:00",
+  "exit_code": 0,
+  "finish": "2026-10-28T23:28:10.774415+00:00"
+}

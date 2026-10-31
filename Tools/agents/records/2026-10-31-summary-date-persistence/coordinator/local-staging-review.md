@@ -1,0 +1,2 @@
+# Local staging source/evidence acceptance
+Root readexactbuild_release20:90 andauthoroutput. Unique mkdtemp/private/tmp/sourceinputs/readpath/receipt correct; one authorfixturepassed notrerun. RealXcodebuild014913rc0provesFinderInfoblockerresolved; archivewrapperrc1unexpectedget-task-allow remainsfailedseparately/newtask. This passesstagingfixscope notfinalartifact.

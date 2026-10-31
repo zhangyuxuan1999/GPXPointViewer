@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "git",
+    "apply",
+    "--check",
+    "Tools/agents/records/2026-10-28-remediation/native/20261028T232721.100499Z_r4-risk-audit_9c4dd021/artifacts/task-expectation.patch"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "start": "2026-10-28T23:37:12.329581+00:00",
+  "exit_code": 0,
+  "finish": "2026-10-28T23:37:12.341543+00:00"
+}

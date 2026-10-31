@@ -1,0 +1,23 @@
+{
+  "label": "005-test-build-pattern",
+  "argv": [
+    "sed",
+    "-n",
+    "1,240p",
+    "Tests/segments/workflow/run.py"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T044931",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 18001,
+  "process_owner": {
+    "pid": 18001,
+    "parent_pid": 17997,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

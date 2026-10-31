@@ -1,0 +1,2 @@
+# New native field targeted keyboard verification
+ConcretefixchangednativeDatePickerimplementation/Return+Viewflush. PrioractualkeytypingworksbutReturnfailed; firstmanualhelperexpired360safterobservations, preserved. NewuniqueChinese-copyidentity afterremainingUIrun, newwork/evidence, bounded600s. Verify literalday/month/year thensingleReturnwithnoclick/Tab; verifypendingsegmentedit+ViewwithoutReturn. No old4settings/first3nav/Store tests. EndbyfinishmarkerimmediatelyafterAXproof, savehookstateandnormalquitcleanup.

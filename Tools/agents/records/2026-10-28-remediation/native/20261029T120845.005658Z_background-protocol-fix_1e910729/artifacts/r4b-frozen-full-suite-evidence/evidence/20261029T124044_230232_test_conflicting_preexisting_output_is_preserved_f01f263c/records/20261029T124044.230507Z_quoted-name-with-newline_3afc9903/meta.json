@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "run_id": "20261029T124044.230507Z_quoted-name-with-newline_3afc9903",
+  "name": "quoted\"name\\with\nnewline",
+  "provider": "codex-native",
+  "requested_model": "gpt-6.1-sol",
+  "requested_effort": "ultra",
+  "observed_model": null,
+  "observed_effort": null,
+  "model_verification": "unknown",
+  "cwd": "/private/tmp/gpxpv-runner-tests-8zqb1gew/20261029T124044_230232_test_conflicting_preexisting_output_is_preserved_f01f263c/workspace",
+  "task_source": "/private/tmp/gpxpv-runner-tests-8zqb1gew/20261029T124044_230232_test_conflicting_preexisting_output_is_preserved_f01f263c/task.md",
+  "started_utc": "2026-10-29T12:40:44.230782+00:00",
+  "watch": [
+    "."
+  ],
+  "allow_write": [],
+  "snapshot_exclusions": {
+    "parts": [
+      ".agents",
+      ".aws",
+      ".codex",
+      ".git",
+      "DerivedData",
+      "__pycache__",
+      "node_modules",
+      "sdkenv"
+    ],
+    "prefixes": [
+      "Tools/agents/records",
+      "Tools/agents/runs",
+      "Tests/reports",
+      "Tests/ui/app.noindex",
+      "Tests/ui/perf",
+      "Tests/ui/synth.gpx",
+      "Tests/exam/results",
+      "Tests/synth/runner/synthrunner",
+      "Tests/synth/runner/build.log"
+    ],
+    "default_prefixes": [
+      "Tools/agents/records",
+      "Tools/agents/runs",
+      "Tests/reports",
+      "Tests/ui/app.noindex",
+      "Tests/ui/perf",
+      "Tests/ui/synth.gpx",
+      "Tests/exam/results",
+      "Tests/synth/runner/synthrunner",
+      "Tests/synth/runner/build.log"
+    ],
+    "user_prefixes": [],
+    "explicit_overrides": [],
+    "generated_pattern": "^Tests/synth/(?:format-edge|garmin-tunnels|legit-motion|replay-artefacts|scale-mixed|stationary-noise)/[^/]+\\.(?:gpx|csv|fit|bin)$"
+  },
+  "parent_run": null,
+  "recovery": "New run; never replay side effects without checking existing evidence.",
+  "cost_usd": null,
+  "cost_source": "unknown"
+}

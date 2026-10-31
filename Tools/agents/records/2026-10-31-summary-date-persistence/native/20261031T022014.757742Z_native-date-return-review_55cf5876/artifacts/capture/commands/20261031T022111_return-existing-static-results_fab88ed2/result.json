@@ -1,0 +1,22 @@
+{
+  "label": "return-existing-static-results",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; r=Path(\"Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T021407.735687Z_date-native-return-submit_207886b8/artifacts/capture/commands\"); groups=[\"20261031T021923_native-final-typecheck_dace4653\",\"20261031T021923_product-syntax-parse_8d30611e\",\"20261031T021923_final-static_964d34cd\"]; [(print(\"\\nFILE=\"+g+\"/\"+n),print((r/g/n).read_text())) for g in groups for n in [\"meta.json\",\"stdout.log\",\"stderr.log\"]]"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T022111",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 46705,
+  "process_owner": {
+    "pid": 46705,
+    "parent_pid": 46700,
+    "process_identity": "darwin:46705:1793413271.399312",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.04
+}

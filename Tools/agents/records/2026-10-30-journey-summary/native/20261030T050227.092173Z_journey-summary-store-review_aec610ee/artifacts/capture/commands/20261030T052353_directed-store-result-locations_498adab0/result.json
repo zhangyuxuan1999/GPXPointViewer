@@ -1,0 +1,26 @@
+{
+  "label": "directed-store-result-locations",
+  "argv": [
+    "rg",
+    "--files",
+    "Tools/agents/records/2026-10-30-journey-summary/native",
+    "-g",
+    "run.stdout.txt",
+    "-g",
+    "source-stability.json"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T052353",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 34177,
+  "process_owner": {
+    "pid": 34177,
+    "parent_pid": 34176,
+    "process_identity": "darwin:34177:1793337833.473899",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.03
+}

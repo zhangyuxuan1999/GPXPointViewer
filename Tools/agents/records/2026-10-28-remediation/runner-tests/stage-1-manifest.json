@@ -1,0 +1,37 @@
+{
+  "Tests/agents/fixtures/README.md": {
+    "sha256": "15d916a2ee82b84a4047144a4f61dcaaa57fa8bc75f9cc472484c936f3dd4aae",
+    "size": 525,
+    "mode": 420
+  },
+  "Tests/agents/fixtures/legacy_ledger.md": {
+    "sha256": "448f98a58a477ad03c7a694e97123273dc8186fd5c41cbe7ddb363b0fe7f02a8",
+    "size": 362,
+    "mode": 420
+  },
+  "Tests/agents/fixtures/mock_cli.py": {
+    "sha256": "051399c078ca27ca0ab767485a26bdd5f950a477a26a17619e8557f4b203096b",
+    "size": 3154,
+    "mode": 493
+  },
+  "Tests/agents/helpers.py": {
+    "sha256": "ea90334a37b3dde878309185bdd1d7c56a213fa8dc3544644e7bcaf30bad14b8",
+    "size": 2710,
+    "mode": 420
+  },
+  "Tests/agents/test_agent_run.py": {
+    "sha256": "de45f42097dcc886a8b45fec2a2c411e33aa338069cda7d89b2cd37de85eab96",
+    "size": 10768,
+    "mode": 420
+  },
+  "Tests/agents/test_legacy_repros.py": {
+    "sha256": "1dbccefc96af399883a9dabb6f78386539cfd51ca7450717c388475a8b177dcd",
+    "size": 4247,
+    "mode": 420
+  },
+  "Tests/agents/test_run_store.py": {
+    "sha256": "ec2d7c602369d0538faa8ec8e980ab4a317913db54fa1d53acc779ada564f3bc",
+    "size": 11932,
+    "mode": 420
+  }
+}

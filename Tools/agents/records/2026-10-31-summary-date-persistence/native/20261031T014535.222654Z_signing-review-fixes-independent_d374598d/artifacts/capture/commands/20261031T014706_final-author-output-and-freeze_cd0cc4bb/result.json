@@ -1,0 +1,21 @@
+{
+  "label": "final-author-output-and-freeze",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014706",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 22278,
+  "process_owner": {
+    "pid": 22278,
+    "parent_pid": 22277,
+    "process_identity": "darwin:22278:1793411226.159893",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.03
+}

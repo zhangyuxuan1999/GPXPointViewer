@@ -1,0 +1,21 @@
+{
+  "label": "026-time-navigation",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041140",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 13292,
+  "process_owner": {
+    "pid": 13292,
+    "parent_pid": 13288,
+    "process_identity": "darwin:13292:1793333500.716926",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.03
+}

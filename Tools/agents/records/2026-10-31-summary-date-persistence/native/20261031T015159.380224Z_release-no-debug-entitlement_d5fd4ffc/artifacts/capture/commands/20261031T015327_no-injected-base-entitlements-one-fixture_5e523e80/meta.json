@@ -1,0 +1,21 @@
+{
+  "label": "no-injected-base-entitlements-one-fixture",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T015327",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 27160,
+  "process_owner": {
+    "pid": 27160,
+    "parent_pid": 27159,
+    "process_identity": "darwin:27160:1793411607.827982",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.14
+}

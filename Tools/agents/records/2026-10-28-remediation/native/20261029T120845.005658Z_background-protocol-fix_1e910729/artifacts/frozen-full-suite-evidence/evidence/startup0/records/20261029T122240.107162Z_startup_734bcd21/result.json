@@ -1,0 +1,82 @@
+{
+  "process_cleanup": [
+    {
+      "pid": 30888,
+      "status": "incomplete",
+      "attempts": [
+        {
+          "operation": "group_sigterm",
+          "outcome": "skipped_unverified_group"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "direct_terminate",
+          "outcome": "ok"
+        },
+        {
+          "operation": "wait",
+          "outcome": "ok"
+        },
+        {
+          "operation": "group_sigkill",
+          "outcome": "skipped_unverified_group"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "wait",
+          "outcome": "ok"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "exit_code",
+          "outcome": "ok"
+        }
+      ],
+      "errors": [],
+      "leader_alive": false,
+      "group_alive": null,
+      "leader_exit_code": -15,
+      "duration_s": 0.00957379094325006
+    }
+  ],
+  "cleanup_complete": false,
+  "sdk_query_completed": null,
+  "sdk_reported_cost_usd": null,
+  "runner_exit_code": 124,
+  "child_exit_code": -15,
+  "provider_status": "interrupted",
+  "acceptance_status": "pending",
+  "started": true,
+  "exit_code": 124,
+  "error": null,
+  "is_error": true,
+  "duration_s": 0.141,
+  "cost_usd": null,
+  "cost_source": "unknown",
+  "actual_billed_cost_usd": null,
+  "budget_usd": 2.0,
+  "budget_ledger": "/private/tmp/gpxpv-runner-tests-bakh534m/20261029T122239_987295_test_real_sdk_short_timeout_startup_race_keeps_result_and_budget_hold_4c87f46b/startup0/budget.json",
+  "runner_terminal_reason": "wall_clock_timeout",
+  "usage": null,
+  "num_turns": null,
+  "session_id": null,
+  "subtype": null,
+  "terminal_reason": null,
+  "stop_reason": null,
+  "errors": null,
+  "permission_denials": null,
+  "api_error_status": null,
+  "finished_utc": "2026-10-29T12:22:40.349265+00:00",
+  "status": "interrupted",
+  "run_status": "interrupted",
+  "verification_status": "not_run"
+}

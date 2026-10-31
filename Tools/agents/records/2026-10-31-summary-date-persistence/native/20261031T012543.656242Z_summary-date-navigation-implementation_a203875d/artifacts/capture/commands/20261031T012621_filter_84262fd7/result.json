@@ -1,0 +1,22 @@
+{
+  "label": "filter",
+  "argv": [
+    "/bin/zsh",
+    "-c",
+    "sed -n '1,75p' GPXPointViewer/ExportSheet.swift; sed -n '176,375p' GPXPointViewer/ExportSheet.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T012621",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 97854,
+  "process_owner": {
+    "pid": 97854,
+    "parent_pid": 97838,
+    "process_identity": "darwin:97854:1793409981.197464",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.02
+}

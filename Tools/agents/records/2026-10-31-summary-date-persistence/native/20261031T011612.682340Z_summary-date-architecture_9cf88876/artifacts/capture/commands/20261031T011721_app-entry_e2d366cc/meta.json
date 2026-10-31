@@ -1,0 +1,23 @@
+{
+  "label": "app-entry",
+  "argv": [
+    "sed",
+    "-n",
+    "120,175p",
+    "GPXPointViewer/GPXPointViewerApp.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T011721",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 92075,
+  "process_owner": {
+    "pid": 92075,
+    "parent_pid": 92074,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.0
+}

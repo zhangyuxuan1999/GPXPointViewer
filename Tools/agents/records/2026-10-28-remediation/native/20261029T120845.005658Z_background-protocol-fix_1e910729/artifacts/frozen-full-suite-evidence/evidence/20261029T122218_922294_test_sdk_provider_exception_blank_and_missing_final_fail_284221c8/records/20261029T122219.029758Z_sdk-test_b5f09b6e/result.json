@@ -1,0 +1,85 @@
+{
+  "process_cleanup": [
+    {
+      "pid": 30377,
+      "status": "confirmed",
+      "attempts": [
+        {
+          "operation": "group_sigterm",
+          "outcome": "absent"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "wait",
+          "outcome": "ok"
+        },
+        {
+          "operation": "group_sigkill",
+          "outcome": "absent"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "wait",
+          "outcome": "ok"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "group_probe",
+          "outcome": "absent"
+        },
+        {
+          "operation": "exit_code",
+          "outcome": "ok"
+        }
+      ],
+      "errors": [],
+      "leader_alive": false,
+      "group_alive": false,
+      "leader_exit_code": 0,
+      "duration_s": 0.0007881249766796827
+    }
+  ],
+  "cleanup_complete": true,
+  "sdk_query_completed": true,
+  "sdk_reported_cost_usd": 0.25,
+  "runner_exit_code": 1,
+  "child_exit_code": 0,
+  "provider_status": "failed",
+  "acceptance_status": "pending",
+  "started": true,
+  "exit_code": 1,
+  "error": null,
+  "is_error": true,
+  "duration_s": 0.331,
+  "cost_usd": 0.25,
+  "cost_source": "SDK estimate",
+  "actual_billed_cost_usd": null,
+  "budget_usd": 2.0,
+  "budget_ledger": "/private/tmp/gpxpv-runner-tests-bakh534m/20261029T122218_922294_test_sdk_provider_exception_blank_and_missing_final_fail_284221c8/provider/budget.json",
+  "runner_terminal_reason": null,
+  "usage": {
+    "input_tokens": 51,
+    "output_tokens": 13
+  },
+  "num_turns": 2,
+  "session_id": "offline-sdk-session",
+  "subtype": "error_during_execution",
+  "terminal_reason": "provider",
+  "stop_reason": null,
+  "errors": null,
+  "permission_denials": null,
+  "api_error_status": null,
+  "finished_utc": "2026-10-29T12:22:19.460851+00:00",
+  "status": "failed",
+  "run_status": "failed",
+  "verification_status": "not_run"
+}

@@ -1,0 +1,22 @@
+{
+  "label": "signature-result-summary",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; import json; p=Path(\"/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T011612.884046Z_settings-persistence-audit_060da613/artifacts/capture/commands/20261031T012000_signature-verification-frozen_1d82d664/stdout.log\"); d=json.loads(p.read_text()); print(json.dumps({k:[{\"path\":v[\"path\"],\"exit\":v[\"exit_code\"],\"stderr\":v[\"stderr\"],\"stdout\":v[\"stdout\"]} for v in rows if v[\"action\"]==\"verify\"] for k,rows in d.items()},ensure_ascii=False,indent=2))"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T012012",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 93453,
+  "process_owner": {
+    "pid": 93453,
+    "parent_pid": 93452,
+    "process_identity": "darwin:93453:1793409612.573180",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.02
+}

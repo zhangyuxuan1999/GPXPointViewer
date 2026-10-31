@@ -1,0 +1,1 @@
+主代理授权你直接在 Tests/agents 补本次精确权限结构回归（原测试Sol已完成工具审查，目前独立P3，不与这些文件冲突）。测试确认自身progress与artifacts只用Edit路径规则、无裸Edit/无整个records、cwd外路径正确锚定；主代理独立复跑并在下一有界DeepSeek回合验证实际Write命中。当前R4已自己诊断UTF16且开始回归，语义进度暂写已授权r4-work/progress_current.md，不中止它；保留拒绝证据，不能说第一轮自身日志Write已通过。修后继续P1/P2。

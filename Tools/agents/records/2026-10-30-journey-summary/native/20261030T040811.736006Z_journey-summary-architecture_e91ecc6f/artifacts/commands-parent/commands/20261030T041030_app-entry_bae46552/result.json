@@ -1,0 +1,21 @@
+{
+  "label": "app-entry",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041030",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 12792,
+  "process_owner": {
+    "pid": 12792,
+    "parent_pid": 12791,
+    "process_identity": "darwin:12792:1793333430.657282",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.02
+}

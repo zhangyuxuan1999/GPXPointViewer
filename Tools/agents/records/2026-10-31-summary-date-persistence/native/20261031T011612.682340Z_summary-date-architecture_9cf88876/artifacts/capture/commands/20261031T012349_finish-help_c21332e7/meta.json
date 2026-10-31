@@ -1,0 +1,23 @@
+{
+  "label": "finish-help",
+  "argv": [
+    "python3",
+    "Tools/agents/agent_run.py",
+    "finish",
+    "--help"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T012349",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 96262,
+  "process_owner": {
+    "pid": 96262,
+    "parent_pid": 96261,
+    "process_identity": "darwin:96262:1793409829.227269",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.04
+}

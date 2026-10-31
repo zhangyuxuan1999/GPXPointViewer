@@ -1,0 +1,23 @@
+{
+  "utc": "2026-10-29T12:46:09.960790+00:00",
+  "passed": true,
+  "source_hashes": {
+    "Tools/agents/agent_run.py": "c1c3a7a5a88c5c88efde796b79dc5fd18cde0b3cf6bd45c741cfbfeaf4278ed3",
+    "Tools/agents/run_store.py": "645ce840224051135000b7d2f8962464e63ff0218cf9746b0ef38f402a44fccc",
+    "Tests/agents/test_agent_run.py": "7a2fea6f5e7bf3b26daed9844b728bf9e9d4700ec89ca80bf2bca05200a0847e",
+    "Tools/agents/README.md": "cd85af53c6084988989fb0285ced8a287ffe70a62b39a70337d53718d1d3a8d1"
+  },
+  "root_tests": {
+    "tests": 109,
+    "errors": 0,
+    "failures": 0,
+    "success": true,
+    "evidence_root": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/coordinator/tool-verification-20261029T124221430438"
+  },
+  "independent_cases": 86,
+  "receipt_checks": 3,
+  "real_replay_assertions": 28,
+  "old_failed_records_unchanged": true,
+  "real_replay_is_offline": true,
+  "next_live_call": "r4-visual-final"
+}

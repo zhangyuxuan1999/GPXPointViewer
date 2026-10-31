@@ -1,0 +1,27 @@
+{
+  "label": "phase-design",
+  "argv": [
+    "python3",
+    "Tools/agents/agent_run.py",
+    "event",
+    "Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T011612.682340Z_summary-date-architecture_9cf88876",
+    "--type",
+    "progress",
+    "--json",
+    "{\"completed\":\"Proposed ADR已保存，冻结统一日期入口、Calendar快照、独立日期导航、后台行索引、生命周期和最小验证接口；主代理已收到可实施决定。\",\"current\":\"文档与记录收尾，不运行产品或测试\",\"next\":\"finish并交主代理独立verify\"}"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T012348",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 96242,
+  "process_owner": {
+    "pid": 96242,
+    "parent_pid": 96241,
+    "process_identity": "darwin:96242:1793409828.916091",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.04
+}

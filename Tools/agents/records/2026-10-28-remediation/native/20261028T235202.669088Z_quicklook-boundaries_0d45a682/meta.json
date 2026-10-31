@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "run_id": "20261028T235202.669088Z_quicklook-boundaries_0d45a682",
+  "name": "quicklook-boundaries",
+  "provider": "codex-native",
+  "requested_model": "gpt-6.1-sol",
+  "requested_effort": "ultra",
+  "observed_model": null,
+  "observed_effort": null,
+  "model_verification": "unknown",
+  "cwd": "/private/tmp/gpxpv-segment-integration-o3kf8civ",
+  "task_source": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/coordinator/quicklook-followup-task.md",
+  "started_utc": "2026-10-28T23:52:02.669661+00:00",
+  "watch": [
+    "GPXQuickLook/TrackShape.swift",
+    "Tests/segments/core"
+  ],
+  "allow_write": [
+    "GPXQuickLook/TrackShape.swift",
+    "Tests/segments/core"
+  ],
+  "snapshot_exclusions": {
+    "parts": [
+      ".agents",
+      ".aws",
+      ".codex",
+      ".git",
+      "DerivedData",
+      "__pycache__",
+      "node_modules",
+      "sdkenv"
+    ],
+    "prefixes": [
+      "Tools/agents/records",
+      "Tools/agents/runs",
+      "Tests/reports",
+      "Tests/ui/app.noindex",
+      "Tests/ui/perf",
+      "Tests/ui/synth.gpx",
+      "Tests/exam/results",
+      "Tests/synth/runner/synthrunner",
+      "Tests/synth/runner/build.log"
+    ],
+    "generated_pattern": "^Tests/synth/(?:format-edge|garmin-tunnels|legit-motion|replay-artefacts|scale-mixed|stationary-noise)/[^/]+\\.(?:gpx|csv|fit|bin)$"
+  },
+  "parent_run": null,
+  "recovery": "context",
+  "cost_usd": null,
+  "cost_source": "unknown",
+  "max_turns": null,
+  "timeout_seconds": null,
+  "agent_id": "/root/segment_core"
+}

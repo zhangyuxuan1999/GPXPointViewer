@@ -1,0 +1,21 @@
+{
+  "label": "041-audit-source-after",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041533",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 14453,
+  "process_owner": {
+    "pid": 14453,
+    "parent_pid": 14452,
+    "process_identity": "darwin:14453:1793333733.598849",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.03
+}

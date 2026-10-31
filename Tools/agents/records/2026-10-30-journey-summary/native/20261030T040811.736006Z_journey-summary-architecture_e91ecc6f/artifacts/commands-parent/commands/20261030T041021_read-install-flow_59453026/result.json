@@ -1,0 +1,23 @@
+{
+  "label": "read-install-flow",
+  "argv": [
+    "sed",
+    "-n",
+    "1125,1240p",
+    "GPXPointViewer/TrackStore.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041021",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 12673,
+  "process_owner": {
+    "pid": 12673,
+    "parent_pid": 12668,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

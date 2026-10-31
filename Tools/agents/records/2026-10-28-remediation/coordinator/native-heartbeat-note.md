@@ -1,0 +1,3 @@
+# 原生状态活动证据
+
+主代理发现原生任务虽然持续写自己的command/progress文件，却未调用RunStore.event，按设计超过120秒时面板会诚实显示unknown。这不是实际停止，也不能把unknown误当完成。已用collaboration.list_agents独立确认当前三个代理running后，写入带该证据来源的native_heartbeat；AGENTS明确要求重要执行阶段event，不能只改Markdown。以后只对实际观察到活跃的任务更新，不自动延续失联状态。

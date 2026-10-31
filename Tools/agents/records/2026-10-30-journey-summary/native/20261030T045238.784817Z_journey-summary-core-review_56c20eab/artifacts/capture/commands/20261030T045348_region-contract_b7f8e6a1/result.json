@@ -1,0 +1,23 @@
+{
+  "label": "region-contract",
+  "argv": [
+    "rg",
+    "-n",
+    "parent\\(of|class Assigner|func assign|isEmpty",
+    "GPXPointViewer/RegionIndex.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T045348",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 20633,
+  "process_owner": {
+    "pid": 20633,
+    "parent_pid": 20632,
+    "process_identity": "darwin:20633:1793336028.585585",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

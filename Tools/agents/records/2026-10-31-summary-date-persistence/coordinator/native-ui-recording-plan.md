@@ -1,0 +1,2 @@
+# Native UI scope
+CUA documentation restored before UI continuation. Root will only fill missing literal year/month/day keyboard evidence on a unique isolated test app, then inspect formal app unsaved state/normal quit/reopen for authorized update. Save full normal AX text/actions and screenshotpaths into this coordinator. No production preference writes or usertrackexports; no repeated functional suite. Existing screenshots inspected notrecaptured.

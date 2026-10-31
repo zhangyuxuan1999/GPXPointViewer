@@ -1,0 +1,16 @@
+{
+  "copied_missing_baseline_files": [
+    "Tests/synth/format-edge/gen.py",
+    "Tests/synth/format-edge/expect.json",
+    "Tests/synth/scale-mixed/gen.py",
+    "Tests/synth/scale-mixed/README.md",
+    "Tests/synth/scale-mixed/expect.json"
+  ],
+  "all_eight_before_after_hashes_checked": true,
+  "changed_cases": [
+    "g13_multi_trk_seg.gpx",
+    "s1_device_1M_11d.gpx",
+    "s3_merged_garmin_phone.gpx",
+    "s4_backup_3y_30s.gpx"
+  ]
+}

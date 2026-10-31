@@ -1,0 +1,82 @@
+{
+  "process_cleanup": [
+    {
+      "pid": 4252,
+      "status": "confirmed",
+      "attempts": [
+        {
+          "operation": "group_sigterm",
+          "outcome": "ok"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "wait",
+          "outcome": "ok"
+        },
+        {
+          "operation": "group_sigkill",
+          "outcome": "absent"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "wait",
+          "outcome": "ok"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "group_probe",
+          "outcome": "absent"
+        },
+        {
+          "operation": "exit_code",
+          "outcome": "ok"
+        }
+      ],
+      "errors": [],
+      "leader_alive": false,
+      "group_alive": false,
+      "leader_exit_code": -15,
+      "duration_s": 0.007319374941289425
+    }
+  ],
+  "cleanup_complete": true,
+  "sdk_query_completed": null,
+  "sdk_reported_cost_usd": null,
+  "runner_exit_code": 124,
+  "child_exit_code": -15,
+  "provider_status": "interrupted",
+  "acceptance_status": "pending",
+  "started": true,
+  "exit_code": 124,
+  "error": null,
+  "is_error": true,
+  "duration_s": 0.275,
+  "cost_usd": null,
+  "cost_source": "unknown",
+  "actual_billed_cost_usd": null,
+  "budget_usd": 2.0,
+  "budget_ledger": "/private/tmp/gpxpv-runner-tests-fhf47gj_/20261029T004627_488274_test_sdk_turn_budget_and_timeout_are_interrupted_04f19f69/timeout/budget.json",
+  "runner_terminal_reason": "wall_clock_timeout",
+  "usage": null,
+  "num_turns": null,
+  "session_id": null,
+  "subtype": null,
+  "terminal_reason": null,
+  "stop_reason": null,
+  "errors": null,
+  "permission_denials": null,
+  "api_error_status": null,
+  "finished_utc": "2026-10-29T00:46:28.467138+00:00",
+  "status": "interrupted",
+  "run_status": "interrupted",
+  "verification_status": "not_run"
+}

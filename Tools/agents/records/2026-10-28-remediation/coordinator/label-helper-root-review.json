@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-29T13:22:24.095886+00:00",
+  "passed": true,
+  "tests": 11,
+  "command_record": "commands/20261029T132202_label-helper-independent_5be632b9",
+  "source_hashes": {
+    "Tools/agents/records/2026-10-28-remediation/r4-label-closeout/driver.py": "37d32fde516f317c6c0dde493cbdec60c1f60d2a8568ed253dd87ae0129353e9",
+    "Tools/agents/records/2026-10-28-remediation/r4-label-closeout/test_driver.py": "2379b3eaa8fed64dc36bec53613994274623fa8b5411bdede4763cfdd82dcde1",
+    "Tools/agents/records/2026-10-28-remediation/r4-label-closeout/policy.json": "a6e2da22ffb71453a362744c72b10ab602752e29020565480f66a65b38f0cdb1",
+    "Tools/agents/records/2026-10-28-remediation/r4-label-closeout/policy.schema.json": "1d82f9f707b367fd89bf750ccf73881d78a53740af70f002282bfdf67fc42caf"
+  },
+  "real_readonly_preflight": {
+    "inherited_phases": 26,
+    "old_build": "445940ea23807364b0b4c09ea99e73077ed0d5f6253da20b3653988c114b22cb",
+    "new_build": "22e77c206e74eb6a88d1a9b56cf1a3d6dc7b0928e7d1784cd1e29943c91d0cf2",
+    "source_count": 50,
+    "only_changed_input": [
+      "GPXPointViewer/ContentView.swift"
+    ]
+  },
+  "review": "Root inspected exact policy, hash drift rejection, immutable old build and old result preservation, scoped two-phase execution and finally preference restoration. No real UI/API in this validation."
+}

@@ -1,0 +1,22 @@
+{
+  "label": "isolated-copy-consumers",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; p=Path(\"Tests/ui/ui.py\"); s=p.read_text(); start=s.index(\"def app_source\"); print(s[start:start+4200]); print(\"CURRENT AUDIT:\"); p=Path(\"Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T011612.884046Z_settings-persistence-audit_060da613/output.md\"); print(p.read_text() if p.exists() else \"not yet final\")"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T012755",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 99637,
+  "process_owner": {
+    "pid": 99637,
+    "parent_pid": 99636,
+    "process_identity": "darwin:99637:1793410075.568977",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.02
+}

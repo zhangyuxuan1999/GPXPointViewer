@@ -1,0 +1,142 @@
+{
+  "finished_utc": "2026-10-29T23:06:31.767490+00:00",
+  "status": "accepted_with_explicit_scope",
+  "objective": "Review all 31 DeepSeek findings, fix confirmed issues, explain non-fixes, prepare reply and feature directions",
+  "issue_counts": {
+    "fixed": 19,
+    "wontfix": 2,
+    "review": 5,
+    "checked": 4,
+    "obsolete": 1
+  },
+  "issue_decisions": {
+    "N-01": "fixed",
+    "N-02": "fixed",
+    "N-03": "wontfix",
+    "N-04": "review",
+    "N-05": "fixed",
+    "N-06": "checked",
+    "N-07": "checked",
+    "N-08": "checked",
+    "N-09": "review",
+    "N-10": "fixed",
+    "N-11": "fixed",
+    "N-12": "fixed",
+    "N-13": "fixed",
+    "N-14": "obsolete",
+    "N-15": "wontfix",
+    "N-16": "checked",
+    "N-17": "fixed",
+    "N-18": "fixed",
+    "N-19": "fixed",
+    "N-20": "fixed",
+    "N-21": "fixed",
+    "N-22": "review",
+    "N-23": "fixed",
+    "N-24": "review",
+    "N-25": "fixed",
+    "N-26": "fixed",
+    "N-27": "fixed",
+    "N-28": "fixed",
+    "N-29": "review",
+    "N-30": "fixed",
+    "N-31": "fixed"
+  },
+  "build": {
+    "manifest": "/Users/zyx/Documents/GPXPointViewer/Builds/20261029T225455Z_release_73e5627c/archive/build-manifest.json",
+    "app": "/Users/zyx/Documents/GPXPointViewer/Builds/20261029T225455Z_release_73e5627c/archive/GPXPointViewer.app",
+    "executable_sha256": "ce9e9d60895025d49253e6916f30df61dd1e22091b0828d8c01b11a3b96be5c8",
+    "source_sha256": "4c358c23892cfae7298cdd73470692068b6eb565c6e278016db73f17cfb4dae6",
+    "source_association": "build-completed-between-identical-input-snapshots"
+  },
+  "build_exit_code": 0,
+  "source_inputs_unchanged_during_build": true,
+  "product_evidence": {
+    "core_sol": {
+      "passed": 34,
+      "total": 34
+    },
+    "metal_contract_cpu_sol": {
+      "passed": 19,
+      "total": 19
+    },
+    "metal_contract_gpu_root_missing_branch_only": {
+      "passed": 51,
+      "total": 51
+    },
+    "routing_deepseek": {
+      "passed": 19,
+      "total": 19,
+      "unnecessary_repeat_disclosed": true
+    },
+    "ui_fixture_root_after_sandbox_abort": {
+      "languages": 4,
+      "visual_acceptance": "passed",
+      "production_app_workflow": false
+    },
+    "ribbon_sol": {
+      "images": 16,
+      "geometry": "passed",
+      "full_video_export": false
+    },
+    "localization": {
+      "new_keys": 2,
+      "old_entries_preserved": 1177,
+      "actual_release_stringsdata_keys_confirmed": true
+    }
+  },
+  "tool_evidence": {
+    "original_harness_cases": 10,
+    "original_harness_execution": "9 passed initially, only failed path normalization case rerun passed",
+    "new_cleanup_mock_cases": 4,
+    "no_icloud_flag_mock_branches": 2,
+    "probe_maintenance_mock_assertions": 136,
+    "probe_maintenance_actual_product_invocations": 0
+  },
+  "inherited_only": [
+    "N19 112 core and 24 preview original logs with matching source hashes",
+    "Previous R4 groups; not claimed as newly executed against this bundle"
+  ],
+  "not_performed": [
+    "Install/overwrite /Applications",
+    "Commit or push",
+    "Full 25 UI suite on new bundle",
+    "Implementation of proposed new features"
+  ],
+  "review_items_not_confirmed_defects": [
+    "N04 actual mainland coordinate/provider behavior",
+    "N09 coastal point lacks reliable land truth",
+    "N22 N24 N29 unmeasured performance hypotheses"
+  ],
+  "model_roles": {
+    "architecture": "requested gpt-6-astra ultra",
+    "important_implementation_review": "requested gpt-6.1-sol ultra",
+    "bounded_tasks": "requested deepseek-flash max",
+    "receipt_policy": "Requested settings are not provider proof; missing observed model/effort/cost remains unknown/null."
+  },
+  "retained_attempt_exceptions": [
+    "DeepSeek first run max_turns interrupted, recovered in separate run",
+    "DeepSeek recovery unnecessarily repeated 19 passed tests after summary-count error; Sol runner maintenance prevents automatic repetition",
+    "Native display and initial build diagnosis default broad watch captured concurrent unrelated changes: original failed records preserved, verification incomplete, content accepted by coordinator evidence",
+    "First build inner interrupted exit130, outer capture timeout124; both cleanup receipts preserved",
+    "Scratch localization and stringsdata parser failures preserved; fixed by using existing evidence, no product reruns"
+  ],
+  "references": [
+    "DeepSeek/2026-10-29-codex-response.md",
+    "DeepSeek/2026-10-29-feature-directions.md",
+    "coordinator/recovered-source-comparison.json",
+    "coordinator/remaining-recovered-source-comparison.json",
+    "coordinator/release-localization-attribution.json",
+    "coordinator/release-build-warnings.json",
+    "coordinator/process-deviations.md",
+    "coordinator/document-finalization-receipt.json",
+    "coordinator/response-terminal-addendum-receipt.json"
+  ],
+  "coordinator_terminal": {
+    "provider_status": "succeeded",
+    "verification_status": "passed",
+    "out_of_scope": [],
+    "verification_utc": "2026-10-29T23:18:46.243294+00:00",
+    "inventory": "agent-terminal-inventory-final.json"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "label": "lifecycle-map",
+  "argv": [
+    "rg",
+    "-n",
+    "var track:|func switchDisplayMode|func clearTrack|track = nil|compareTracks = nil|func beginDataOperation|func commitDataEdit|func publishData",
+    "GPXPointViewer/TrackStore.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014101",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 15201,
+  "process_owner": {
+    "pid": 15201,
+    "parent_pid": 15197,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

@@ -1,0 +1,12 @@
+{
+  "status": "blocked_by_sandbox_before_api",
+  "model_requested": "deepseek-flash[1m]",
+  "expected_backend": "DeepSeek V4.1 Flash",
+  "effort": "max",
+  "route": "Existing ~/bin/claude-ds via localhost metadata observer to api.deepseek.com/anthropic",
+  "scope": "synthetic fixture only; Read only; 4 turns maximum; 180 second timeout",
+  "credentials": "existing wrapper; never stored in logs",
+  "cost_usd": null,
+  "recovery": "Read task.md/progress.md/result.json. Do not repeat a successful run.",
+  "result": "result.json"
+}

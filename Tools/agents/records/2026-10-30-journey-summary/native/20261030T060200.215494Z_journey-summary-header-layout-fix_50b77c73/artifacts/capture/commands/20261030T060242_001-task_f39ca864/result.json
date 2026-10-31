@@ -1,0 +1,21 @@
+{
+  "label": "001-task",
+  "argv": [
+    "cat",
+    "Tools/agents/records/2026-10-30-journey-summary/coordinator/header-layout-fix-task.md"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T060242",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 46854,
+  "process_owner": {
+    "pid": 46854,
+    "parent_pid": 46850,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

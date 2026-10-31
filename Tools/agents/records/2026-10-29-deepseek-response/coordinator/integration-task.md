@@ -1,0 +1,2 @@
+# 主代理整合与回复
+核对并继承已完成Astra/Sol/DeepSeek原始证据，不重跑已有通过项。主代理仅整合新增翻译catalog（编译器提取键）、修正FogArchive文件mtime注释、写DeepSeek完整逐项回复与功能建议/更新issues和README索引。允许这些文件及本run/coordinator记录；记录前后hash。对N23 GPU因sandbox缺失仅补GPU分支；对N05新显示仅补缺失的局部排版证据；代码冻结后一次新Release与源/完整bundle归档，理由为N19与本轮修复尚无对应bundle。若编译修复则留档定向重试，不重复UI全组或数字回归。无安装、启动正式app、全局cleanup、提交/push。费用及root具体底层模型未有工具回执，均unknown/null。全部正常命令/output由capture.py或专用本地记录保存。

@@ -1,0 +1,28 @@
+{
+  "label": "native-final-typecheck",
+  "argv": [
+    "xcrun",
+    "swiftc",
+    "-typecheck",
+    "-parse-as-library",
+    "-target",
+    "arm64-apple-macosx14.0",
+    "-module-cache-path",
+    "Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T021407.735687Z_date-native-return-submit_207886b8/artifacts/module-cache",
+    "Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T021407.735687Z_date-native-return-submit_207886b8/artifacts/NativeDateBridge-final.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T021923",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 44630,
+  "process_owner": {
+    "pid": 44630,
+    "parent_pid": 44629,
+    "process_identity": "darwin:44630:1793413163.403612",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.24
+}

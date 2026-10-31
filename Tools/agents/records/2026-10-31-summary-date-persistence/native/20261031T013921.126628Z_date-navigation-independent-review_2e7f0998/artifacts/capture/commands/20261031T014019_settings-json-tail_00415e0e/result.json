@@ -1,0 +1,23 @@
+{
+  "label": "settings-json-tail",
+  "argv": [
+    "sed",
+    "-n",
+    "863,900p",
+    "GPXPointViewer/UITestHook.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014019",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 14191,
+  "process_owner": {
+    "pid": 14191,
+    "parent_pid": 14188,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

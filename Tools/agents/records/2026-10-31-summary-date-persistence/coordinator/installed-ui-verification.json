@@ -1,0 +1,24 @@
+{
+  "time": "2026-10-31T02:53:59.580101+00:00",
+  "installed_app": "/Applications/GPXPointViewer.app",
+  "install_receipt": "Builds/20261031T025231Z_install_b8204812/install-result.json",
+  "installed_executable_sha256": "eb52d08767443f1d1ee967b994f485731785e111685bef903688366bb8884265",
+  "cua_observations": [
+    {
+      "action": "getApp exact /Applications path after installer exit0",
+      "result": "Chinese main window, daily&journey summary buttonvisible, no fixture/testmode injected"
+    },
+    {
+      "action": "clicksettings",
+      "result": "Appearance System; Language简体中文; 禁用闲置展示模式 checkbox1; no settings changed"
+    },
+    {
+      "action": "Done, File menu inspection, Escape",
+      "result": "Main window left open. No recent-file item, no private file reopened; old imported data unchanged on disk."
+    }
+  ],
+  "formal_preferences_written_by_coordinator": false,
+  "post_quit_settings_source": "settings-after-formal-quit.json",
+  "unsaved_protection": "actual formalPID87604 change review showed no modifications before normalquit; no forcekill",
+  "initial_ui_attribution_correction": "First English settings sheet with3/5secs/unchecked belonged to same-name leftover interface; not used as formal preference evidence. Explicit process+formalwindow and disk sixkeys override it."
+}

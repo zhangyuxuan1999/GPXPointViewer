@@ -1,0 +1,2 @@
+# Build flag fix accepted
+Root inspected actualNOargv/newFalsemanifestfield andauthor1fixture/report. Realbuild015341wrapperrc0/Xcoderc0/sourcebeforeafterstable;3targetstrictsignaturesandactualsecurityentitlements matchoriginalsource, nogettaskallow. This validatesflagandlocalstaging; actualAppdate/settingsstillpending. Originalrc65andwrapperrc1unchanged. Firstsummaryreaderwrongkeytargetsfailed, no productexecutionaffected; correctedonlysummaryschema.

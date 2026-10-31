@@ -1,0 +1,21 @@
+{
+  "label": "compact-frozen-hashes-and-raw-test-outcomes",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T013610",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 7766,
+  "process_owner": {
+    "pid": 7766,
+    "parent_pid": 7764,
+    "process_identity": "darwin:7766:1793410570.904742",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.04
+}

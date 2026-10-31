@@ -1,0 +1,27 @@
+{
+  "label": "042-report-complete",
+  "argv": [
+    "python3",
+    "Tools/agents/agent_run.py",
+    "event",
+    "Tools/agents/records/2026-10-30-journey-summary/native/20261030T040811.831198Z_journey-summary-integration-audit_68fdadc0",
+    "--type",
+    "progress",
+    "--json",
+    "{\"completed\":\"Saved integration-audit.md and output.md, communicated exact APIs/pitfalls to root/Astra; all 20 inspected owning-source inputs matched saved SHA256 snapshots at 04:15:33Z.\",\"doing\":\"Finalize provider execution, with independent acceptance left to root.\",\"next\":\"No further task work; root may reuse source evidence without rerunning tests.\",\"limitations\":\"No tests/build/app/network/product edits; initial bootstrap output capture and helper stdin-replay gaps disclosed in tool-evidence-notes.md. Two read-command errors retained. Actual model/cost/tokens unknown/null.\"}"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041658",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 14863,
+  "process_owner": {
+    "pid": 14863,
+    "parent_pid": 14862,
+    "process_identity": "darwin:14863:1793333818.051211",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.05
+}

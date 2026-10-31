@@ -1,0 +1,28 @@
+{
+  "label": "setting-mutation-paths",
+  "argv": [
+    "rg",
+    "-n",
+    "-C",
+    "3",
+    "settings\\.idle|updateSetting\\(\\\\.idle|AppLanguage.apply|AppleLanguages|removePersistentDomain|setPersistentDomain",
+    "GPXPointViewer",
+    "Tests/ui/ui.py",
+    "Tests/ui/run_summary_tests.py",
+    "Tools/agents/records/2026-10-30-journey-summary/coordinator"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T011810",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 92553,
+  "process_owner": {
+    "pid": 92553,
+    "parent_pid": 92548,
+    "process_identity": "darwin:92553:1793409490.499962",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.09
+}

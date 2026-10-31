@@ -1,0 +1,23 @@
+{
+  "label": "027-key-extractor-contract",
+  "argv": [
+    "sed",
+    "-n",
+    "1,135p",
+    "Tests/l10n/extract_keys.py"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T045902",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 25131,
+  "process_owner": {
+    "pid": 25131,
+    "parent_pid": 25129,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.0
+}

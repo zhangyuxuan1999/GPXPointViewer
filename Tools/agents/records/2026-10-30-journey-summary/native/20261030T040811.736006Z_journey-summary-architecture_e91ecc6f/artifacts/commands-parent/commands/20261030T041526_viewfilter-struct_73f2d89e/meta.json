@@ -1,0 +1,23 @@
+{
+  "label": "viewfilter-struct",
+  "argv": [
+    "rg",
+    "-n",
+    "struct ViewFilterSpec|var viewFilter|enum.*Gran|case custom|filterRange",
+    "GPXPointViewer/ExportSheet.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041526",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 14414,
+  "process_owner": {
+    "pid": 14414,
+    "parent_pid": 14413,
+    "process_identity": "darwin:14414:1793333726.174851",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.02
+}

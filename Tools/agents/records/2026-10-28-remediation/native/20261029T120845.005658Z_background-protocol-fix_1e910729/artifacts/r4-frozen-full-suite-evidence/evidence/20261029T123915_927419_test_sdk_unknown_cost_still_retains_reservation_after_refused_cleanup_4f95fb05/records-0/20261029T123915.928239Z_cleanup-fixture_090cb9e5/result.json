@@ -1,0 +1,114 @@
+{
+  "process_cleanup": [
+    {
+      "pid": 2100000001,
+      "status": "incomplete",
+      "attempts": [
+        {
+          "operation": "group_sigterm",
+          "outcome": "error",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected group refusal"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "direct_terminate",
+          "outcome": "ok"
+        },
+        {
+          "operation": "wait",
+          "outcome": "ok"
+        },
+        {
+          "operation": "group_sigkill",
+          "outcome": "error",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected group refusal"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "wait",
+          "outcome": "ok"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "group_probe",
+          "outcome": "error",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected group refusal"
+        },
+        {
+          "operation": "exit_code",
+          "outcome": "ok"
+        }
+      ],
+      "errors": [
+        {
+          "operation": "group_sigterm",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected group refusal"
+        },
+        {
+          "operation": "group_sigkill",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected group refusal"
+        },
+        {
+          "operation": "group_probe",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected group refusal"
+        }
+      ],
+      "leader_alive": false,
+      "group_alive": null,
+      "leader_exit_code": -15,
+      "duration_s": 0.0001557499635964632
+    }
+  ],
+  "cleanup_complete": false,
+  "sdk_query_completed": true,
+  "sdk_reported_cost_usd": null,
+  "runner_exit_code": 124,
+  "child_exit_code": -15,
+  "provider_status": "interrupted",
+  "acceptance_status": "pending",
+  "started": true,
+  "exit_code": 124,
+  "error": null,
+  "is_error": true,
+  "duration_s": 0.059,
+  "cost_usd": null,
+  "cost_source": "unknown",
+  "actual_billed_cost_usd": null,
+  "budget_usd": 2.0,
+  "budget_ledger": "/private/tmp/gpxpv-runner-tests-jt0fimt5/20261029T123915_927419_test_sdk_unknown_cost_still_retains_reservation_after_refused_cleanup_4f95fb05/records-0/budget.json",
+  "runner_terminal_reason": "wall_clock_timeout",
+  "usage": null,
+  "num_turns": 2,
+  "session_id": null,
+  "subtype": "error_max_turns",
+  "terminal_reason": "turns",
+  "stop_reason": null,
+  "errors": null,
+  "permission_denials": null,
+  "api_error_status": null,
+  "finished_utc": "2026-10-29T12:39:16.042680+00:00",
+  "status": "interrupted",
+  "run_status": "interrupted",
+  "verification_status": "not_run"
+}

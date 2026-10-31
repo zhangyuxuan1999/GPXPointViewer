@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "rg",
+    "--files",
+    "Tests/synth"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "start": "2026-10-29T00:32:57.425423+00:00",
+  "exit_code": 0,
+  "finish": "2026-10-29T00:32:57.433848+00:00"
+}

@@ -1,0 +1,23 @@
+{
+  "label": "summary-driver-preferences",
+  "argv": [
+    "sed",
+    "-n",
+    "1,205p",
+    "Tests/ui/run_summary_tests.py"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T011706",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 91678,
+  "process_owner": {
+    "pid": 91678,
+    "parent_pid": 91671,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.0
+}

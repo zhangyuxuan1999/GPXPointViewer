@@ -1,0 +1,23 @@
+{
+  "label": "paths-focused",
+  "argv": [
+    "rg",
+    "--files",
+    "GPXPointViewer",
+    "docs"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T011658",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 91583,
+  "process_owner": {
+    "pid": 91583,
+    "parent_pid": 91572,
+    "process_identity": "darwin:91583:1793409418.478011",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

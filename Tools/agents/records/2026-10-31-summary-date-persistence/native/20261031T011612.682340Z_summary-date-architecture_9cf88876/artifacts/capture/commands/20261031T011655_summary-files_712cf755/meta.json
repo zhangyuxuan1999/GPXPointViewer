@@ -1,0 +1,23 @@
+{
+  "label": "summary-files",
+  "argv": [
+    "rg",
+    "--files",
+    "GPXPointViewer",
+    "Tests"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T011655",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 91474,
+  "process_owner": {
+    "pid": 91474,
+    "parent_pid": 91472,
+    "process_identity": "darwin:91474:1793409415.606110",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

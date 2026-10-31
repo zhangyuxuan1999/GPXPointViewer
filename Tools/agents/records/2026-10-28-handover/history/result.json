@@ -1,0 +1,12 @@
+{
+  "status": "completed",
+  "agent_id": "/root/history",
+  "model_requested": "gpt-6.1-sol",
+  "reasoning_effort_requested": "ultra",
+  "backend_model_receipt": null,
+  "usage": null,
+  "cost_usd": null,
+  "output": "output.md",
+  "output_sha256": "51fabdb14451874a636f3150ffdf470f0302b1cfe98fad1099ac09ed841022ba",
+  "summary": "53份顶层JSONL索引；保存115条实质用户请求及19条关键回应；还原开发沿革、日志规则、安装链完成与第4轮复测缺口。"
+}

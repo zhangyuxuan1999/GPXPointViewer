@@ -1,0 +1,23 @@
+{
+  "label": "002-design-head",
+  "argv": [
+    "sed",
+    "-n",
+    "1,190p",
+    "docs/journey-summary-design.md"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T042813",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 17311,
+  "process_owner": {
+    "pid": 17311,
+    "parent_pid": 17310,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

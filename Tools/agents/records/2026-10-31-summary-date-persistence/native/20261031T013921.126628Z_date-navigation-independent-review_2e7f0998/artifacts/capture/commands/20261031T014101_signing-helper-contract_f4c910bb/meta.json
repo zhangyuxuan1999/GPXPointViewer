@@ -1,0 +1,27 @@
+{
+  "label": "signing-helper-contract",
+  "argv": [
+    "rg",
+    "-n",
+    "-A",
+    "45",
+    "-B",
+    "12",
+    "def prepare_isolated|test_bundle_id|prepare-isolated-test-copy",
+    "Tools/archive_build.py"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014101",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 15203,
+  "process_owner": {
+    "pid": 15203,
+    "parent_pid": 15199,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

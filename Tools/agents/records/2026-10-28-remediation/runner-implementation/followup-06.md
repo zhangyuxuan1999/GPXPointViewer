@@ -1,0 +1,1 @@
+主代理复核发现 native 收尾使用冲突：任务规范要求 agent 自己写 run/output.md，然而 agent_run finish --output run/output.md 读取后，RunStore.finish 再以 exclusive=True 写同一路径会 FileExistsError，无法形成 result/status。请修成：已有 output.md 与待定稿文本完全一致时保留原文件并成功 finalize；不一致时保留两份证据、明确报错或采用显式导入协议，不能静默覆盖。空稿/二次 result 仍拒绝。补 native 自己已产出报告再 CLI finish 的离线测试，并让独立 Sol 复核。原始 API/DS一般未有 output.md，不受影响。请保存本指令和结果。

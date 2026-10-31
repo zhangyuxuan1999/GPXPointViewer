@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "run_id": "20261029T123151.265940Z_early-eof_b495ae65",
+  "name": "early-eof",
+  "provider": "deepseek-cli",
+  "requested_model": "deepseek-flash",
+  "requested_effort": "max",
+  "observed_model": null,
+  "observed_effort": null,
+  "model_verification": "unknown",
+  "cwd": "/private/tmp/gpxpv-runner-tests-htppvhz1/20261029T123151_225063_test_pipe_eof_before_child_exit_still_obeys_original_wall_timeout_78297a3b/workspace",
+  "task_source": "/private/tmp/gpxpv-runner-tests-htppvhz1/20261029T123151_225063_test_pipe_eof_before_child_exit_still_obeys_original_wall_timeout_78297a3b/task.md",
+  "started_utc": "2026-10-29T12:31:51.266640+00:00",
+  "watch": [
+    "."
+  ],
+  "allow_write": [],
+  "snapshot_exclusions": {
+    "parts": [
+      ".agents",
+      ".aws",
+      ".codex",
+      ".git",
+      "DerivedData",
+      "__pycache__",
+      "node_modules",
+      "sdkenv"
+    ],
+    "prefixes": [
+      "Tools/agents/records",
+      "Tools/agents/runs",
+      "Tests/reports",
+      "Tests/ui/app.noindex",
+      "Tests/ui/perf",
+      "Tests/ui/synth.gpx",
+      "Tests/exam/results",
+      "Tests/synth/runner/synthrunner",
+      "Tests/synth/runner/build.log"
+    ],
+    "default_prefixes": [
+      "Tools/agents/records",
+      "Tools/agents/runs",
+      "Tests/reports",
+      "Tests/ui/app.noindex",
+      "Tests/ui/perf",
+      "Tests/ui/synth.gpx",
+      "Tests/exam/results",
+      "Tests/synth/runner/synthrunner",
+      "Tests/synth/runner/build.log"
+    ],
+    "user_prefixes": [],
+    "explicit_overrides": [],
+    "generated_pattern": "^Tests/synth/(?:format-edge|garmin-tunnels|legit-motion|replay-artefacts|scale-mixed|stationary-noise)/[^/]+\\.(?:gpx|csv|fit|bin)$"
+  },
+  "parent_run": null,
+  "recovery": "context",
+  "cost_usd": null,
+  "cost_source": "unknown",
+  "max_turns": 2,
+  "timeout_seconds": 0.8,
+  "pid": 46265,
+  "child_pid": 46271,
+  "child_process_identity": "darwin:46271:1793277111.319079",
+  "process_identity": "darwin:46265:1793277111.225693"
+}

@@ -1,0 +1,23 @@
+{
+  "label": "008-track-fields",
+  "argv": [
+    "sed",
+    "-n",
+    "588,732p",
+    "GPXPointViewer/TrackData.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041004",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 12428,
+  "process_owner": {
+    "pid": 12428,
+    "parent_pid": 12425,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

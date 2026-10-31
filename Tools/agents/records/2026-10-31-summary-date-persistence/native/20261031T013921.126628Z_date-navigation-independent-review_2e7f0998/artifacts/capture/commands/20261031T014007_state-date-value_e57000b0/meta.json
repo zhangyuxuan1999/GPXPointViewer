@@ -1,0 +1,23 @@
+{
+  "label": "state-date-value",
+  "argv": [
+    "sed",
+    "-n",
+    "1,80p",
+    "GPXPointViewer/JourneySummaryState.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014007",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 13757,
+  "process_owner": {
+    "pid": 13757,
+    "parent_pid": 13751,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

@@ -1,0 +1,27 @@
+{
+  "label": "source-lifecycle",
+  "argv": [
+    "rg",
+    "-n",
+    "-A",
+    "9",
+    "-B",
+    "6",
+    "invalidateSummaryReport\\(|resetSummaryDateNavigation\\(|summaryShowsJourneys",
+    "GPXPointViewer/TrackStore.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014028",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 14478,
+  "process_owner": {
+    "pid": 14478,
+    "parent_pid": 14473,
+    "process_identity": "darwin:14478:1793410828.959792",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.02
+}

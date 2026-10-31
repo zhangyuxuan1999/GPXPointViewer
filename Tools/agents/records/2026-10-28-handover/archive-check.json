@@ -1,0 +1,13 @@
+{
+  "checked_utc": "2026-10-28T22:28:52.242825+00:00",
+  "all_six_attempts_terminal": true,
+  "task_progress_result_present_for_all": true,
+  "report_links_resolve": true,
+  "new_records_api_key_pattern_scan": "no matches",
+  "probe_syntax": "passed",
+  "probe_actual_live_round": "deepseek-smoke-r3",
+  "probe_after_review": "offline transcript evaluator passed; intent-only Read rejected; no repeat API call",
+  "product_source_edits": false,
+  "product_build_or_ui_tests": false,
+  "application_install": false
+}

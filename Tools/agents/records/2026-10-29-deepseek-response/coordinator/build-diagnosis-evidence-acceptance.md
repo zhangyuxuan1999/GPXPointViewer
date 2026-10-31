@@ -1,0 +1,5 @@
+# 原始构建诊断证据验收
+
+主代理已核对 output.md、diagnosis-result.json、自己执行的目标身份/采样和原始本机代码/手册证据。内容判断通过：卡点为NSFileCoordinator工程协调读取；原任务未声称已完成构建。后续独立release-build-unblock任务实现单进程参数并完成mock；本次Builds/20261029T225455Z_release_73e5627c真实Release exit0，故恢复方案有实际完成证据。不重新采样、不重跑原测试。
+
+2026-10-29T23:01:07Z补finish时，默认全仓watch将并发/后续README、TestsREADME、probe维护、build_release.py、AGENT_LOG和Finder .DS_Store变化归为out_of_scope，provider succeeded但acceptance/status failed。changes.json明确注明共享工作区差异无法自动归属。诊断任务仅写自己run，产品工具变更属于另外登记的任务；.DS_Store为Finder元数据，不能归为产品改动。原失败保留；运行记录独立verify记incomplete而非强行passed。coordinator根据真实归属接受诊断证据，并不把这个旧run冒称全流程通过。后续任务使用显式watch解决登记范围问题。

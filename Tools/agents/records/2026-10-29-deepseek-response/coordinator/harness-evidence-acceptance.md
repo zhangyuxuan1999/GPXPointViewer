@@ -1,0 +1,1 @@
+主代理已读Sol最终output、核心源码diff、archive/build helper，接受10项harness按9+单项修正的原始证据，新增timeout四项只补具体遗留子进程风险。Metal CPU19继承，主代理仅执行缺失GPU51且cpu_checks=0。当前Metal SHA与final-manifest一致；没有真实draw或UI像素测试，不冒称完整渲染回归。新增helper已留独立group有界清理且suite超时停止；不声称能清理脱离group的系统服务。验证状态passed，最终Release实际构建另列，当前进行中不能计通过。

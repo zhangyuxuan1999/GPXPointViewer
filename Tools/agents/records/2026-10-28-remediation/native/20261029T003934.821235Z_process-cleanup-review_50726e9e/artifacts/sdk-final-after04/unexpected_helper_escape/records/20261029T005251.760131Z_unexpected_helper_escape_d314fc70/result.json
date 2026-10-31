@@ -1,0 +1,51 @@
+{
+  "process_cleanup": [
+    {
+      "pid": 1999999993,
+      "status": "incomplete",
+      "leader_alive": null,
+      "group_alive": null,
+      "leader_exit_code": null,
+      "attempts": [],
+      "errors": [
+        {
+          "operation": "cleanup_helper",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected whole-helper denied"
+        }
+      ]
+    }
+  ],
+  "cleanup_complete": false,
+  "sdk_query_completed": true,
+  "sdk_reported_cost_usd": 0.25,
+  "runner_exit_code": 124,
+  "child_exit_code": null,
+  "provider_status": "interrupted",
+  "acceptance_status": "pending",
+  "started": true,
+  "exit_code": 124,
+  "error": null,
+  "is_error": true,
+  "duration_s": 0.07,
+  "cost_usd": 0.25,
+  "cost_source": "SDK estimate",
+  "actual_billed_cost_usd": null,
+  "budget_usd": 2.0,
+  "budget_ledger": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/native/20261029T003934.821235Z_process-cleanup-review_50726e9e/artifacts/sdk-final-after04/unexpected_helper_escape/budget.json",
+  "runner_terminal_reason": "wall_clock_timeout",
+  "usage": null,
+  "num_turns": null,
+  "session_id": null,
+  "subtype": "error_max_turns",
+  "terminal_reason": "max_turns",
+  "stop_reason": null,
+  "errors": null,
+  "permission_denials": null,
+  "api_error_status": null,
+  "finished_utc": "2026-10-29T00:52:51.910822+00:00",
+  "status": "interrupted",
+  "run_status": "interrupted",
+  "verification_status": "not_run"
+}

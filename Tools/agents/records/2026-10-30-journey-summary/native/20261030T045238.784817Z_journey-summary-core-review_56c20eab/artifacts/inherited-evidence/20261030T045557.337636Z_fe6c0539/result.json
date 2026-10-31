@@ -1,0 +1,304 @@
+{
+  "directory": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/native/20261030T042612.157547Z_journey-summary-engine_262efea5/artifacts/validation/20261030T045557.337636Z_fe6c0539",
+  "inputSHA256": {
+    "GPXPointViewer/RegionIndex.swift": "341c320e0eccc08ae2cc1a8731e1d63d0be10a484cf8ab5fad0fd6d5d34af263",
+    "GPXPointViewer/JourneySummary.swift": "1f08b2c947ef43dac1682a39a04968304b05f6c5ed6c7a4cb50053492541e835",
+    "Tests/summary/core/main.swift": "8cc7bf85b7a16d0e431d9a53c9d13c8124f29666dad6fd4488e5ff598cbedfb2",
+    "Tests/summary/core/run.py": "1877851277c584c6fdeadac88e4cc0d47f2a6fe3436fdb78824dd53b23cafe7f",
+    "Tests/summary/core/fixtures.py": "b3647cb7b7856439e36622926d7d471a30ccc4e7e0000152d544c1b342ec44e4"
+  },
+  "environment": {
+    "platform": "macOS-26.4.1-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "python": "3.14.6"
+  },
+  "commands": [
+    {
+      "label": "compiler-version",
+      "argv": [
+        "swiftc",
+        "--version"
+      ],
+      "exitCode": 0,
+      "wallSeconds": 0.08064358285628259
+    },
+    {
+      "label": "compile",
+      "argv": [
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/native/20261030T042612.157547Z_journey-summary-engine_262efea5/artifacts/validation/20261030T045557.337636Z_fe6c0539/module-cache",
+        "-o",
+        "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/native/20261030T042612.157547Z_journey-summary-engine_262efea5/artifacts/validation/20261030T045557.337636Z_fe6c0539/summary-probe",
+        "/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/RegionIndex.swift",
+        "/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/JourneySummary.swift",
+        "/Users/zyx/Documents/GPXPointViewer/Tests/summary/core/main.swift"
+      ],
+      "exitCode": 0,
+      "wallSeconds": 7.469576958101243
+    },
+    {
+      "label": "cases",
+      "argv": [
+        "/usr/bin/time",
+        "-l",
+        "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/native/20261030T042612.157547Z_journey-summary-engine_262efea5/artifacts/validation/20261030T045557.337636Z_fe6c0539/summary-probe"
+      ],
+      "exitCode": 1,
+      "wallSeconds": 0.5566891247872263
+    }
+  ],
+  "binarySHA256": "2098c2b95162fcf00c9b51639d1fd6b2cd902c791dbd6767e01dad8a0f6a1129",
+  "fixtureSHA256": "1560210b977e7f0186d3b87abf0df3274abcedfe07c8130a5dc8c93b599bf5ac",
+  "cases": [
+    {
+      "case": "geometry-sparse",
+      "details": {},
+      "inputSHA256": [
+        "c1da321c55088b036ed0d5a40c23b246828a8dfed960470f2f0a961d6a5e68b8"
+      ],
+      "ruleVersion": "summary-v1",
+      "status": "passed",
+      "wallSeconds": 0.003076910972595215
+    },
+    {
+      "case": "topology-interleaving",
+      "details": {},
+      "inputSHA256": [
+        "fea6d3438a27d3b1c5c73f4adf3bdabe77e597cd4638f7c95bfbc70865a0d3d8"
+      ],
+      "ruleVersion": "summary-v1",
+      "status": "passed",
+      "wallSeconds": 7.104873657226562e-05
+    },
+    {
+      "case": "source-selection",
+      "details": {},
+      "inputSHA256": [
+        "1066dc341f6c301e5c9b30c170c3eaa24d4df55fee7150c8277a1fb364ca4b94",
+        "7ff9184b9cd8d89b42ff7919eb3e9dc9e62f0194620fdd71c3db25c599a062c9",
+        "d64034da3d101384e2044d0bf16762fe1818414373eaaf1544ad2e9b745ccf76",
+        "c8f3402353609229123ff5d492054e41f10b6a456da9050d48509f925cf46205",
+        "5f68fe0ef01561b82d89486f5e4c6a9bd6aedcfe892a3c986134c409a5760e1f"
+      ],
+      "ruleVersion": "summary-v1",
+      "status": "passed",
+      "wallSeconds": 0.00018608570098876953
+    },
+    {
+      "case": "continuity-boundaries",
+      "details": {},
+      "inputSHA256": [
+        "e10decb082c7f6382b137d5a8b0b07bfda78b476a1b02088d27962f8609e22e1",
+        "e94bdc70dad33a9ec3a86e3c114dca10d1b53827e617774aa0d4a487bc228e2a",
+        "de04ec0c48a58737a66618d515f147f8025f199c5b0b0b674a504206ed578001",
+        "a6b19d5c40a1718d765d14f59e17972404383c1eb9a4a630b849f7e57aa3f79f",
+        "86265b6899000baf25cacf1af39d63d4df10264a09c2eb00a9c0e9793ac4dfdf",
+        "7906ab205187ec105cce20827aadd3ec428c85a734cff8460adb81c33987d2c7"
+      ],
+      "ruleVersion": "summary-v1",
+      "status": "passed",
+      "wallSeconds": 0.0001710653305053711
+    },
+    {
+      "case": "zero-unavailable",
+      "details": {},
+      "inputSHA256": [
+        "3f59c4793e8be06e54d0dc585df5b05fea83fee9adf905eebeceb1241a87551a",
+        "c4c7534f960fe13920dd59eeca673b31e2d139a8623a7095697e8e542c236d42",
+        "f767af0080727e1ed4e54ab7412725df5ea12a77c6b5e7fe4e93faf28d0182d2"
+      ],
+      "ruleVersion": "summary-v1",
+      "status": "passed",
+      "wallSeconds": 7.998943328857422e-05
+    },
+    {
+      "case": "invalid-input",
+      "details": {},
+      "inputSHA256": [
+        "993f0da33306bd7dc16e706c3cc7b68606d07ff62dc4e151f48692e08e657f8a",
+        "29155275a22b1d786b376e902a2df4abd7b3b53f1db417769d63469d3eaac25d",
+        "b2a435913030adc745b05e99f4b292e68a4d46b56efcbdd40c538114caa8fea8",
+        "1037939f08bd7bc7cc541a911e9be6db289c666501c49e6990050dd085458039",
+        "a0df47a1ab276c8621d9391a9cb75ff2ca6ed49ccb57592a8697080131eaf918",
+        "55b43c5b49ceb5590c59dae4fbea4ef391748c8ef9f99d33a088e997a9b0869e",
+        "fa434d6f453d23ff3fa568dabd54e9924c49635d17c5befd1593f8c0a94bfa90",
+        "c306a02524816293bb1b4dedc7cfc6c238963874d2419f9e7f76e8b4e04da7d0",
+        "633c0e66e7351748b8f74491d07c2d4b42e206523814c151f7169c2c6bf6241d"
+      ],
+      "ruleVersion": "summary-v1",
+      "status": "passed",
+      "wallSeconds": 0.00022995471954345703
+    },
+    {
+      "case": "bad-points",
+      "details": {},
+      "inputSHA256": [
+        "7e615206aff373e99c93f159aac2b5eea3078a9965c39ee103931aad2ebc70d7"
+      ],
+      "ruleVersion": "summary-v1",
+      "status": "passed",
+      "wallSeconds": 3.0040740966796875e-05
+    },
+    {
+      "case": "midnight-conservation",
+      "details": {},
+      "inputSHA256": [
+        "ca260eda8ec2786be0e1659fb81c7dbd3e18b2880447ca7848b6a6a16100836a",
+        "d12a577a1a8c8f19ad860489f09e0572d2d060b8b17feef8520005b459ce068c"
+      ],
+      "ruleVersion": "summary-v1",
+      "status": "passed",
+      "wallSeconds": 0.0013089179992675781
+    },
+    {
+      "case": "calendar-dst-zones",
+      "details": {},
+      "inputSHA256": [
+        "040d7dffe2e1d6fd9d458a2be3e4f452a8a4379ffbd49ff142d9efb848706685",
+        "0b7fd25b087de69ad900ef0ea9b56172fa1a68ed40c19536b782836d7467b8a2",
+        "55bbf833216e560b1a1df8255eefd91888d97da8a938ddd5864d9fc0def3e7e4",
+        "b34d21da132ceee0d37aca35ff5551f76abf14a65fb83fb6c51ee6a12b0c5410"
+      ],
+      "ruleVersion": "summary-v1",
+      "status": "passed",
+      "wallSeconds": 0.0004780292510986328
+    },
+    {
+      "case": "long-gaps-no-empty-days",
+      "details": {},
+      "inputSHA256": [
+        "59f518afde3c20dc5879737d690a3e40ca5885f1a03fc680f046550554686b53",
+        "5ff6f0c914e00abde0bcf9ab795a41257450b6efa68eb467e4574e213b52031a"
+      ],
+      "ruleVersion": "summary-v1",
+      "status": "passed",
+      "wallSeconds": 0.00014102458953857422
+    },
+    {
+      "case": "synthetic-retimed-provenance",
+      "details": {},
+      "inputSHA256": [
+        "d035f3b0f7b5f0192d4af2c32c3a507c340aa1dec323544575cd3e286eeb645d",
+        "54c5786f4791b2874d92495036dae2d07bb76ec231357d62b18aecdac39d0b81",
+        "b270c01e19e2c410f6abbed46c4feb228653600c63cce5de72b37631c5e3b384",
+        "15a6ea6522f70eb460942834cfb31be3d7969bbcd78bf1faf6a0355b250e89a3"
+      ],
+      "ruleVersion": "summary-v1",
+      "status": "passed",
+      "wallSeconds": 0.0001329183578491211
+    },
+    {
+      "case": "interval-precedence",
+      "details": {},
+      "inputSHA256": [
+        "2de7f9a59fcf54b988b106f4b04a44d09ef0af57e9516f85e909a15d6eb52104",
+        "d8e9e6513971f917cd970c0d160fbd3e810348b81aae77647d6b534987bb9bf4"
+      ],
+      "ruleVersion": "summary-v1",
+      "status": "passed",
+      "wallSeconds": 6.604194641113281e-05
+    },
+    {
+      "case": "moving-threshold",
+      "details": {},
+      "inputSHA256": [
+        "fffeea8c57c89b68262612ea5886648772c55aac5f02f43e84ed348db12bf242",
+        "28424f86418db920903b7ccf576f62db3f2c979c344b8df581d624e325b0d2e6"
+      ],
+      "ruleVersion": "summary-v1",
+      "status": "passed",
+      "wallSeconds": 5.698204040527344e-05
+    },
+    {
+      "case": "elevation-filter",
+      "details": {},
+      "inputSHA256": [
+        "7a6312fa9d10fe58dfb3cc6d78a49b9d3a7689ee85fc2e8d5cea259775e2bb1b",
+        "9677a75ca290b024ef2ab78748109a86832436da28d725023d1759da92b41971",
+        "94bd3cd18433a79f1898b1f01159628bc3191ff41c12021bb27eeb58783b7431"
+      ],
+      "ruleVersion": "summary-v1",
+      "status": "passed",
+      "wallSeconds": 0.00010001659393310547
+    },
+    {
+      "case": "elevation-coverage-breaks",
+      "details": {},
+      "inputSHA256": [
+        "4734a3083fa1a98b90e19787ec23c542e3171a9ccf36e2abc544617e5f3ae984",
+        "b537d21a1d0b9ff019f3dc46f22e49137ef9f16d3751726611bac5a3480841bf",
+        "7e8e1d00c6f8385a45ce2a2b7cdb50ba5b42a912f44af9df0fffb5749b07b312",
+        "1daf1e6c164c3d7376a9b3c5751f827b62c2cfb0fd7487b78c64d171beab4288",
+        "1966b3a2e457ab1e314dc1f14861e9085388a85b2d35516b3f23e998a6d12bf2",
+        "9a1403583010f9908190479177778b086fed8d1619645e81bd28ef8958e4ebbd",
+        "48c34e1cd8df883aaeb815ebb15078ef333018944d82afc65c5b45a483c11f02"
+      ],
+      "ruleVersion": "summary-v1",
+      "status": "passed",
+      "wallSeconds": 0.00020694732666015625
+    },
+    {
+      "case": "elevation-midnight",
+      "details": {},
+      "inputSHA256": [
+        "06f107f08fe3be300924a0b089967abb295a503d1680e78377fd88e6ca2b8ae5"
+      ],
+      "ruleVersion": "summary-v1",
+      "status": "passed",
+      "wallSeconds": 0.00011897087097167969
+    },
+    {
+      "case": "geography-evidence",
+      "details": {},
+      "inputSHA256": [
+        "2f1435d33a0fc506dbe874e7020c972b6774c37fe7be11c50c84978bc35a73c6",
+        "e488f2ad32bb1756834ca98dd339f99d831ae7fe5ae9c920e3c4b4b786991472"
+      ],
+      "ruleVersion": "summary-v1",
+      "status": "passed",
+      "wallSeconds": 0.0005159378051757812
+    },
+    {
+      "case": "transport-evidence",
+      "details": {},
+      "inputSHA256": [
+        "c7b09ef1c9ec21db9f88bb6fc5d3b405e5149eb9f385c52161f22c69eaad3e93",
+        "1fff8a69d29bf385d534efbebead2e56e4d5d6b54accdfb3f841749aacb5c21c",
+        "dc2f0ab4b1386f44490f9ae21c8fec77fd8d6b6d76bd60907fa0dbb1a42c2dca",
+        "5cb0c41ccc058fb9c3697a5115424a780ac551ad3db90c83d2822fd7d30e40c2",
+        "21e1d9003e82fb69a32a4df92fe94ff35c95dd56d00bc8d6cf757edfbff5526e",
+        "1827f022087e89caf0b31ab49d69ce49b7bb1014445460d0dc4e5148301c1f98",
+        "def43e69bd9b0a54f1610d5fb48f83a2cc872fa2ac6d626bfcc89851baa29b65"
+      ],
+      "ruleVersion": "summary-v1",
+      "status": "passed",
+      "wallSeconds": 0.00021398067474365234
+    },
+    {
+      "case": "cancellation",
+      "details": {
+        "callbackCalls": 1000,
+        "cancellationWallSeconds": 0.0013840198516845703
+      },
+      "inputSHA256": [
+        "6293a330639afcf45d20695b5001737fb0b672e019050737850d7975acb22d24"
+      ],
+      "ruleVersion": "summary-v1",
+      "status": "passed",
+      "wallSeconds": 0.0016589164733886719
+    }
+  ],
+  "passed": 19,
+  "failed": 0,
+  "inputSHA256After": {
+    "GPXPointViewer/RegionIndex.swift": "341c320e0eccc08ae2cc1a8731e1d63d0be10a484cf8ab5fad0fd6d5d34af263",
+    "GPXPointViewer/JourneySummary.swift": "1f08b2c947ef43dac1682a39a04968304b05f6c5ed6c7a4cb50053492541e835",
+    "Tests/summary/core/main.swift": "8cc7bf85b7a16d0e431d9a53c9d13c8124f29666dad6fd4488e5ff598cbedfb2",
+    "Tests/summary/core/run.py": "1877851277c584c6fdeadac88e4cc0d47f2a6fe3436fdb78824dd53b23cafe7f",
+    "Tests/summary/core/fixtures.py": "b3647cb7b7856439e36622926d7d471a30ccc4e7e0000152d544c1b342ec44e4"
+  },
+  "status": "failed",
+  "exitCode": 1
+}

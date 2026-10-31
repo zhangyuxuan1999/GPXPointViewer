@@ -1,0 +1,28 @@
+{
+  "label": "025-source-and-project-locations",
+  "argv": [
+    "rg",
+    "-n",
+    "struct SegmentSamples|protocol SampleTrack|synthetic|fills:|changes:|activeChanges|func mergeParsed|fileID.append|fileID =|segmentID.append|PBXFileSystem|RegionStats.swift|RegionsWindow.swift|ChangeLog.swift|SceneID.regions|openWindow|ViewFilterSpec|setViewFilter|showTimeFilter",
+    "GPXPointViewer/TrackStore.swift",
+    "GPXPointViewer/ContentView.swift",
+    "GPXPointViewer/GapFill.swift",
+    "GPXPointViewer/GPXParser.swift",
+    "GPXPointViewer.xcodeproj/project.pbxproj",
+    "GPXPointViewer/TrackSamples.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041122",
+  "status": "failed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 13157,
+  "process_owner": {
+    "pid": 13157,
+    "parent_pid": 13156,
+    "process_identity": "darwin:13157:1793333482.680036",
+    "group_created": true
+  },
+  "exit_code": 2,
+  "duration_s": 0.02
+}

@@ -1,0 +1,8 @@
+{
+  "GPXPointViewer/FogArchive.swift": "94bc3490c3a7a6ac5d600ac70cba6bc5e4e991bc38dda3bcb8804cdd020dfb8b",
+  "GPXPointViewer/GPXWriter.swift": "4fa2ff3ffc4fc5d902e5a3c1814175c7f5cb469d3f4a0e5ecc0993f059e9c50e",
+  "GPXPointViewer/Colormaps.swift": "f7c99f65aedc2b07e104f11e545c1c0a149e44ccc0104171f3514e338ab212cd",
+  "GPXPointViewer/GeoCompute.swift": "b5f35db4e6d1e5a0bfbf188ae8f4070426a0972a3e2e398ef823f2b2d21e2705",
+  "Tests/segments/core/main.swift": "2239538f617e4efa154c1a220445ea0d353bf1d7fce0e2270d078ab07d363d6f",
+  "GPXPointViewer/Regions.bin": "dda2f3df9cad4859d68fb13f77083eb9dff96cea48d98a9ed3b1fa08585f6d4e"
+}

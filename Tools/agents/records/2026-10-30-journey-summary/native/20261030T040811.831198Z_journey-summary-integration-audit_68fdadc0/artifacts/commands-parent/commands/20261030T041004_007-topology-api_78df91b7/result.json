@@ -1,0 +1,23 @@
+{
+  "label": "007-topology-api",
+  "argv": [
+    "sed",
+    "-n",
+    "428,556p",
+    "GPXPointViewer/TrackData.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041004",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 12427,
+  "process_owner": {
+    "pid": 12427,
+    "parent_pid": 12423,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

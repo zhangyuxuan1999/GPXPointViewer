@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "/usr/bin/time",
+    "-l",
+    "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/native/20261028T235202.669088Z_quicklook-boundaries_0d45a682/artifacts/baseline-pixels/preview-tests",
+    "--memory"
+  ],
+  "cwd": "/private/tmp/gpxpv-segment-integration-o3kf8civ",
+  "start": "2026-10-29T00:00:15.000165+00:00",
+  "exit_code": 1,
+  "finish": "2026-10-29T00:00:15.555592+00:00"
+}

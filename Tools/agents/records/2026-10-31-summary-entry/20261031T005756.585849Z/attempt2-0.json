@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "/bin/ps",
+    "-axo",
+    "pid=,comm="
+  ],
+  "stdout": " 8461 /private/tmp/gpxpv-remediation-build/Build/Products/Release/GPXPointViewer.app/Contents/PlugIns/GPXThumbnail.appex/Contents/MacOS/GPXThumbnail\n54903 /Applications/GPXPointViewer.app/Contents/PlugIns/GPXQuickLook.appex/Contents/MacOS/GPXQuickLook\n82598 /Applications/GPXPointViewer.app/Contents/MacOS/GPXPointViewer",
+  "stderr": "",
+  "exit_code": 0
+}

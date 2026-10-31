@@ -1,0 +1,23 @@
+{
+  "label": "018-ui-runtime",
+  "argv": [
+    "sed",
+    "-n",
+    "1,220p",
+    "Tests/ui/ui.py"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T045625",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 22909,
+  "process_owner": {
+    "pid": 22909,
+    "parent_pid": 22895,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

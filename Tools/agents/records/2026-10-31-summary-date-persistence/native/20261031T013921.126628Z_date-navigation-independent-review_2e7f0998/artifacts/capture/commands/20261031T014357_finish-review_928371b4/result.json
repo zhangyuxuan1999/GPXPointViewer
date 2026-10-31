@@ -1,0 +1,29 @@
+{
+  "label": "finish-review",
+  "argv": [
+    "python3",
+    "Tools/agents/agent_run.py",
+    "finish",
+    "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T013921.126628Z_date-navigation-independent-review_2e7f0998",
+    "--provider-status",
+    "succeeded",
+    "--acceptance",
+    "pending",
+    "--output",
+    "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T013921.126628Z_date-navigation-independent-review_2e7f0998/output.md"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014357",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 18187,
+  "process_owner": {
+    "pid": 18187,
+    "parent_pid": 18186,
+    "process_identity": "darwin:18187:1793411037.955478",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.15
+}

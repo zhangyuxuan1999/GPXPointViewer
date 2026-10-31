@@ -1,0 +1,21 @@
+{
+  "label": "prepare-native-typecheck",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T021802",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 43723,
+  "process_owner": {
+    "pid": 43723,
+    "parent_pid": 43722,
+    "process_identity": "darwin:43723:1793413082.999210",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.02
+}

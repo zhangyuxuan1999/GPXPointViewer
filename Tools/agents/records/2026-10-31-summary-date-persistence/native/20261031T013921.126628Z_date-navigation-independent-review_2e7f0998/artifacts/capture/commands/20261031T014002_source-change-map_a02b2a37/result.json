@@ -1,0 +1,23 @@
+{
+  "label": "source-change-map",
+  "argv": [
+    "rg",
+    "-n",
+    "summaryDate|SummaryEntry|summaryNavigation|openSummaryFromMain|SummaryBuild|summaryReport|summaryRequest|ViewFilterSpec|summaryWindow",
+    "GPXPointViewer/TrackStore.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014002",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 13573,
+  "process_owner": {
+    "pid": 13573,
+    "parent_pid": 13569,
+    "process_identity": "darwin:13573:1793410802.707346",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

@@ -1,0 +1,22 @@
+{
+  "label": "cli-interface-help",
+  "argv": [
+    "python3",
+    "-c",
+    "import subprocess; [subprocess.run([\"python3\",p,\"--help\"],check=True) for p in [\"Tools/build_release.py\",\"Tools/archive_build.py\",\"Tools/install_release.py\"]]"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T013120",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 2561,
+  "process_owner": {
+    "pid": 2561,
+    "parent_pid": 2560,
+    "process_identity": "darwin:2561:1793410280.990458",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.14
+}

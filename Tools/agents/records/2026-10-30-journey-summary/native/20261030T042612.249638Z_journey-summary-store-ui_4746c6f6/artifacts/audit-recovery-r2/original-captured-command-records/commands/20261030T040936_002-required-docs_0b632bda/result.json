@@ -1,0 +1,21 @@
+{
+  "label": "002-required-docs",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T040936",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 11982,
+  "process_owner": {
+    "pid": 11982,
+    "parent_pid": 11980,
+    "process_identity": "darwin:11982:1793333376.866532",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.02
+}

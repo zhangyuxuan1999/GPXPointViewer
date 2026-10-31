@@ -1,0 +1,27 @@
+{
+  "label": "039-trip-computation-seam",
+  "argv": [
+    "rg",
+    "-n",
+    "-A",
+    "30",
+    "-B",
+    "18",
+    "TripSegmenter.trips|func refreshGapCandidates|func enterFillMode",
+    "GPXPointViewer/TrackStore.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041221",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 13688,
+  "process_owner": {
+    "pid": 13688,
+    "parent_pid": 13687,
+    "process_identity": "darwin:13688:1793333541.401034",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

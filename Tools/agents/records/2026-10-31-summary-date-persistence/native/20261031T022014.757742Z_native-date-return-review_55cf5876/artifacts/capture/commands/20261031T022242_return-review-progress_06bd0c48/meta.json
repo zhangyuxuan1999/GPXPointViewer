@@ -1,0 +1,27 @@
+{
+  "label": "return-review-progress",
+  "argv": [
+    "python3",
+    "Tools/agents/agent_run.py",
+    "event",
+    "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T022014.757742Z_native-date-return-review_55cf5876",
+    "--type",
+    "progress",
+    "--json",
+    "{\"completed\":\"Static bridge/hook/remaining-driver review; author final report and raw typecheck/AST inspected; source hashes/extraction match\",\"doing\":\"Write narrow approval with runtime evidence boundaries\",\"next\":\"Finish pending root verification\",\"findings\":[],\"tests_executed\":0,\"compile_or_parse_executed\":false}"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T022242",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 47888,
+  "process_owner": {
+    "pid": 47888,
+    "parent_pid": 47887,
+    "process_identity": "darwin:47888:1793413362.680031",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.08
+}

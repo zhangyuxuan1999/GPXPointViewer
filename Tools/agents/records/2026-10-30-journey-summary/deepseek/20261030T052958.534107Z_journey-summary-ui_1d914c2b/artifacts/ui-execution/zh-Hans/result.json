@@ -1,0 +1,17 @@
+{
+  "exit_code": 0,
+  "child_exit_code": 0,
+  "stop_reason": null,
+  "cleanup_complete": true,
+  "cleanup": [],
+  "owner": {
+    "pid": 38051,
+    "pgid": 38051,
+    "sid": 38051,
+    "started_utc": "2026-10-30T05:30:17.952176+00:00"
+  },
+  "started_utc": "2026-10-30T05:30:17.952176+00:00",
+  "finished_utc": "2026-10-30T05:30:38.750520+00:00",
+  "language": "zh-Hans",
+  "functional": true
+}

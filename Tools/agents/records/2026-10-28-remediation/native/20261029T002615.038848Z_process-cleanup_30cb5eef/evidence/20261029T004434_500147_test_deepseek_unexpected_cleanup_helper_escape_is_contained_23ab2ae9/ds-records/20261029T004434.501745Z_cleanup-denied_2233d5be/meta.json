@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "run_id": "20261029T004434.501745Z_cleanup-denied_2233d5be",
+  "name": "cleanup-denied",
+  "provider": "deepseek-cli",
+  "requested_model": "deepseek-flash",
+  "requested_effort": "max",
+  "observed_model": null,
+  "observed_effort": null,
+  "model_verification": "CLI report only; actual outbound model/effort unverified",
+  "cwd": "/private/tmp/gpxpv-runner-tests-a56xbnox/20261029T004434_500147_test_deepseek_unexpected_cleanup_helper_escape_is_contained_23ab2ae9/workspace",
+  "task_source": "/private/tmp/gpxpv-runner-tests-a56xbnox/20261029T004434_500147_test_deepseek_unexpected_cleanup_helper_escape_is_contained_23ab2ae9/task.md",
+  "started_utc": "2026-10-29T00:44:34.502015+00:00",
+  "watch": [
+    "."
+  ],
+  "allow_write": [],
+  "snapshot_exclusions": {
+    "parts": [
+      ".agents",
+      ".aws",
+      ".codex",
+      ".git",
+      "DerivedData",
+      "__pycache__",
+      "node_modules",
+      "sdkenv"
+    ],
+    "prefixes": [
+      "Tools/agents/records",
+      "Tools/agents/runs",
+      "Tests/reports",
+      "Tests/ui/app.noindex",
+      "Tests/ui/perf",
+      "Tests/ui/synth.gpx",
+      "Tests/exam/results",
+      "Tests/synth/runner/synthrunner",
+      "Tests/synth/runner/build.log"
+    ],
+    "default_prefixes": [
+      "Tools/agents/records",
+      "Tools/agents/runs",
+      "Tests/reports",
+      "Tests/ui/app.noindex",
+      "Tests/ui/perf",
+      "Tests/ui/synth.gpx",
+      "Tests/exam/results",
+      "Tests/synth/runner/synthrunner",
+      "Tests/synth/runner/build.log"
+    ],
+    "user_prefixes": [],
+    "explicit_overrides": [],
+    "generated_pattern": "^Tests/synth/(?:format-edge|garmin-tunnels|legit-motion|replay-artefacts|scale-mixed|stationary-noise)/[^/]+\\.(?:gpx|csv|fit|bin)$"
+  },
+  "parent_run": null,
+  "recovery": "context",
+  "cost_usd": null,
+  "cost_source": "unknown",
+  "max_turns": 2,
+  "timeout_seconds": 0.15,
+  "pid": 2742,
+  "child_pid": 2801,
+  "child_process_identity": "darwin:2801:1793234674.555735",
+  "process_identity": "darwin:2742:1793234672.248979",
+  "session_id": "offline-session-123",
+  "cli_reported_model": "offline-mock"
+}

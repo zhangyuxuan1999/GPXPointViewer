@@ -1,0 +1,27 @@
+{
+  "label": "progress-stage-one",
+  "argv": [
+    "python3",
+    "Tools/agents/agent_run.py",
+    "event",
+    "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T011612.884046Z_settings-persistence-audit_060da613",
+    "--type",
+    "progress",
+    "--json",
+    "{\"stage\":\"read-only-isolation\",\"completed\":[\"settings-code-trace\",\"old-new-signing-entitlement-compare\",\"whitelist-two-domain-read\"],\"finding\":\"old sandbox entitlement present; new/current absent; real preference keys split across sandbox and non-sandbox paths\",\"app_or_real_preferences_mutated\":false,\"next\":\"test-cleanup-domain-evidence-and-minimal-remediation\"}"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T011753",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 92413,
+  "process_owner": {
+    "pid": 92413,
+    "parent_pid": 92412,
+    "process_identity": "darwin:92413:1793409473.322838",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.04
+}

@@ -1,0 +1,21 @@
+{
+  "label": "prior-architecture",
+  "argv": [
+    "cat",
+    "Tools/agents/records/2026-10-29-deepseek-response/coordinator/architecture-decision.md"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T040932",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 11911,
+  "process_owner": {
+    "pid": 11911,
+    "parent_pid": 11908,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

@@ -1,0 +1,21 @@
+{
+  "label": "read-model",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T040939",
+  "status": "failed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 12010,
+  "process_owner": {
+    "pid": 12010,
+    "parent_pid": 12009,
+    "process_identity": "darwin:12010:1793333379.079054",
+    "group_created": true
+  },
+  "exit_code": 1,
+  "duration_s": 0.04
+}

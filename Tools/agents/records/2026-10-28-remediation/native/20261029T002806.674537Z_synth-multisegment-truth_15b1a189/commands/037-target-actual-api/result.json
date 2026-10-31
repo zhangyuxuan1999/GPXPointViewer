@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "rg",
+    "-n",
+    "computeLocal|bySegment|shiftFrozenChains",
+    "/private/tmp/gpxpv-segment-integration-o3kf8civ/GPXPointViewer/GapFill.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "start": "2026-10-29T00:49:54.735898+00:00",
+  "exit_code": 0,
+  "finish": "2026-10-29T00:49:54.741118+00:00"
+}

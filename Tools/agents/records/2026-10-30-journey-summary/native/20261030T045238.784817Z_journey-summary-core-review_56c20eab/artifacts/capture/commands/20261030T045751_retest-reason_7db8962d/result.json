@@ -1,0 +1,21 @@
+{
+  "label": "retest-reason",
+  "argv": [
+    "cat",
+    "Tools/agents/records/2026-10-30-journey-summary/native/20261030T042612.157547Z_journey-summary-engine_262efea5/artifacts/retest-03-measurement-cancellation.md"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T045751",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 24121,
+  "process_owner": {
+    "pid": 24121,
+    "parent_pid": 24120,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.0
+}

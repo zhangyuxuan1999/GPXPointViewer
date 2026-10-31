@@ -1,0 +1,17 @@
+{
+  "exit_code": 0,
+  "child_exit_code": 0,
+  "stop_reason": null,
+  "cleanup_complete": true,
+  "cleanup": [],
+  "owner": {
+    "pid": 49981,
+    "pgid": 49981,
+    "sid": 49981,
+    "started_utc": "2026-10-30T06:11:16.176522+00:00"
+  },
+  "started_utc": "2026-10-30T06:11:16.176522+00:00",
+  "finished_utc": "2026-10-30T06:11:22.357931+00:00",
+  "language": "zh-Hans",
+  "functional": false
+}

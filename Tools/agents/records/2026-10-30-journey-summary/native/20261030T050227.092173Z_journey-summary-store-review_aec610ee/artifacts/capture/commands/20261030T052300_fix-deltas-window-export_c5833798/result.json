@@ -1,0 +1,23 @@
+{
+  "label": "fix-deltas-window-export",
+  "argv": [
+    "python3",
+    "Tools/agents/records/2026-10-30-journey-summary/native/20261030T050227.092173Z_journey-summary-store-review_aec610ee/read_deltas.py",
+    "GPXPointViewer/JourneySummaryWindow.swift",
+    "GPXPointViewer/ExportSheet.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T052300",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 33138,
+  "process_owner": {
+    "pid": 33138,
+    "parent_pid": 33137,
+    "process_identity": "darwin:33138:1793337780.569770",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.05
+}

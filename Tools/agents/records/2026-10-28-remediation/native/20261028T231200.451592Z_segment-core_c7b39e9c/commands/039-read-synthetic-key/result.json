@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "rg",
+    "-n",
+    "-A",
+    "15",
+    "struct PointKey",
+    "GPXPointViewer/GapFill.swift"
+  ],
+  "cwd": "/private/tmp/gpxpv-segment-integration-o3kf8civ",
+  "started_at": "2026-10-28T23:23:57.529165+00:00",
+  "exit_code": 0,
+  "finished_at": "2026-10-28T23:23:57.541000+00:00"
+}

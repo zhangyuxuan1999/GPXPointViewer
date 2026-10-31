@@ -1,0 +1,52 @@
+{
+  "process_cleanup": [
+    {
+      "pid": 2100000001,
+      "status": "incomplete",
+      "leader_alive": null,
+      "group_alive": null,
+      "leader_exit_code": null,
+      "attempts": [],
+      "errors": [
+        {
+          "operation": "cleanup_helper",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected helper escape"
+        }
+      ],
+      "automatic_exit_join": "not_registered"
+    }
+  ],
+  "cleanup_complete": false,
+  "sdk_query_completed": true,
+  "sdk_reported_cost_usd": 0.25,
+  "runner_exit_code": 124,
+  "child_exit_code": null,
+  "provider_status": "interrupted",
+  "acceptance_status": "pending",
+  "started": true,
+  "exit_code": 124,
+  "error": null,
+  "is_error": true,
+  "duration_s": 0.059,
+  "cost_usd": 0.25,
+  "cost_source": "SDK estimate",
+  "actual_billed_cost_usd": null,
+  "budget_usd": 2.0,
+  "budget_ledger": "/private/tmp/gpxpv-runner-tests-2u21g67p/20261029T010444_936872_test_sdk_unexpected_helper_exception_cannot_skip_finalization_df681dcc/records-0/budget.json",
+  "runner_terminal_reason": "wall_clock_timeout",
+  "usage": null,
+  "num_turns": 2,
+  "session_id": null,
+  "subtype": "error_max_turns",
+  "terminal_reason": "turns",
+  "stop_reason": null,
+  "errors": null,
+  "permission_denials": null,
+  "api_error_status": null,
+  "finished_utc": "2026-10-29T01:04:45.048736+00:00",
+  "status": "interrupted",
+  "run_status": "interrupted",
+  "verification_status": "not_run"
+}

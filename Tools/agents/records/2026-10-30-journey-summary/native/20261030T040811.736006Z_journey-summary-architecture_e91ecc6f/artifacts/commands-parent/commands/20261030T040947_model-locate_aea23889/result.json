@@ -1,0 +1,25 @@
+{
+  "label": "model-locate",
+  "argv": [
+    "rg",
+    "-n",
+    "TrackTopology|struct TrackData|class TrackData|struct ParsedTrack|struct Source|sourceFiles|var time|let time|synthetic|isArchive|fogArchive",
+    "GPXPointViewer/TrackData.swift",
+    "GPXPointViewer/GPXParser.swift",
+    "GPXPointViewer/TrackStore.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T040947",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 12189,
+  "process_owner": {
+    "pid": 12189,
+    "parent_pid": 12185,
+    "process_identity": "darwin:12189:1793333387.235568",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

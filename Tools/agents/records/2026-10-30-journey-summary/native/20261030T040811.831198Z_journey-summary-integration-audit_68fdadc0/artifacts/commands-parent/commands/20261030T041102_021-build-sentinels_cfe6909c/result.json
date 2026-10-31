@@ -1,0 +1,21 @@
+{
+  "label": "021-build-sentinels",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041102",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 12997,
+  "process_owner": {
+    "pid": 12997,
+    "parent_pid": 12993,
+    "process_identity": "darwin:12997:1793333462.495686",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.04
+}

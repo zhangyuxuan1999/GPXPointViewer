@@ -1,0 +1,30 @@
+{
+  "label": "current-source-hashes",
+  "argv": [
+    "shasum",
+    "-a",
+    "256",
+    "GPXPointViewer/JourneySummaryState.swift",
+    "GPXPointViewer/JourneySummaryWindow.swift",
+    "GPXPointViewer/TrackStore.swift",
+    "GPXPointViewer/ContentView.swift",
+    "GPXPointViewer/ExportSheet.swift",
+    "GPXPointViewer/UITestHook.swift",
+    "Tests/summary/store/StoreRegression.swift",
+    "Tests/ui/run_summary_tests.py"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T052353",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 34183,
+  "process_owner": {
+    "pid": 34183,
+    "parent_pid": 34182,
+    "process_identity": "darwin:34183:1793337833.583617",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.03
+}

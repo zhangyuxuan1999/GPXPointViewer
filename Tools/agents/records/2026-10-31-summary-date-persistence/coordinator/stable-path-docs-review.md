@@ -1,0 +1,2 @@
+# Stable path documentation accepted
+RootreadexactREADME+TestsREADMEbeforeafterdiff: currentgenericpathsexamplesuseprintedlocalapp/manifest;durableZIPprojectpathsdescribed; actualhistoricalreferencesanddatecontentunchanged. No producttestclaimed. Staticdocumentationtaskcomplete.

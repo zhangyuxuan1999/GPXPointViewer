@@ -1,0 +1,21 @@
+{
+  "label": "inherit53-and-source-linkage",
+  "argv": [
+    "python3",
+    "Tools/agents/records/2026-10-30-journey-summary/native/20261030T050227.092173Z_journey-summary-store-review_aec610ee/copy_store_evidence.py"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T050629",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 32221,
+  "process_owner": {
+    "pid": 32221,
+    "parent_pid": 32220,
+    "process_identity": "darwin:32221:1793336789.680465",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.04
+}

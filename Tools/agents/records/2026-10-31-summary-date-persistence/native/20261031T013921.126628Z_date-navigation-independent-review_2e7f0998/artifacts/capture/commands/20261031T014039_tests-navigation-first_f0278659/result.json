@@ -1,0 +1,23 @@
+{
+  "label": "tests-navigation-first",
+  "argv": [
+    "sed",
+    "-n",
+    "210,318p",
+    "Tests/summary/store/StoreRegression.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014039",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 14726,
+  "process_owner": {
+    "pid": 14726,
+    "parent_pid": 14721,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

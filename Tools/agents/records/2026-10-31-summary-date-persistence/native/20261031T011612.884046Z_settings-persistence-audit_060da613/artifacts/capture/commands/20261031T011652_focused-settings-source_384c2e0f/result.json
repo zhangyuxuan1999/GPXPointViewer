@@ -1,0 +1,22 @@
+{
+  "label": "focused-settings-source",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; files={\"GPXPointViewer/TrackStore.swift\":[(895,1010)],\"GPXPointViewer/ContentView.swift\":[(1690,1830)],\"GPXPointViewer/GPXPointViewer.entitlements\":[(1,100)],\"Tools/agents/records/2026-10-30-journey-summary/coordinator/run-summary-acceptance.py\":[(1,260)]}; [(print(\"\\nFILE=\"+p),[(print(f\"{i}: {s}\")) for a,b in ranges for i,s in enumerate(Path(p).read_text().splitlines(),1) if a<=i<=b]) for p,ranges in files.items()]"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T011652",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 91397,
+  "process_owner": {
+    "pid": 91397,
+    "parent_pid": 91389,
+    "process_identity": "darwin:91397:1793409412.209114",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.02
+}

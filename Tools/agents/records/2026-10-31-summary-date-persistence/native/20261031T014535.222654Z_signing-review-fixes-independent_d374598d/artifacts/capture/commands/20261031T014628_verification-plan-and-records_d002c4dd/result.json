@@ -1,0 +1,21 @@
+{
+  "label": "verification-plan-and-records",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014628",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 21553,
+  "process_owner": {
+    "pid": 21553,
+    "parent_pid": 21551,
+    "process_identity": "darwin:21553:1793411188.372298",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.03
+}

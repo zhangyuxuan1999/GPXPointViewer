@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-28",
+  "timezone": "Europe/Berlin",
+  "completed_utc": "2026-10-28T22:28:24.268052+00:00",
+  "handover": "docs/codex-handover-2026-10-28.md",
+  "runs": [
+    {
+      "directory": "architecture",
+      "status": "completed",
+      "result_status": "completed",
+      "task_exists": true,
+      "progress_exists": true,
+      "result_exists": true
+    },
+    {
+      "directory": "deepseek-smoke",
+      "status": "blocked_by_sandbox_before_api",
+      "result_status": "error",
+      "task_exists": true,
+      "progress_exists": true,
+      "result_exists": true
+    },
+    {
+      "directory": "deepseek-smoke-r2",
+      "status": "observer_parse_failed_after_api",
+      "result_status": "error",
+      "task_exists": true,
+      "progress_exists": true,
+      "result_exists": true
+    },
+    {
+      "directory": "deepseek-smoke-r3",
+      "status": "passed",
+      "result_status": "passed",
+      "task_exists": true,
+      "progress_exists": true,
+      "result_exists": true
+    },
+    {
+      "directory": "history",
+      "status": "completed",
+      "result_status": "completed",
+      "task_exists": true,
+      "progress_exists": true,
+      "result_exists": true
+    },
+    {
+      "directory": "invocation-audit",
+      "status": "completed",
+      "result_status": "completed",
+      "task_exists": true,
+      "progress_exists": true,
+      "result_exists": true
+    }
+  ],
+  "product_build_or_ui_test_this_turn": false,
+  "provider_billing_verified": false
+}

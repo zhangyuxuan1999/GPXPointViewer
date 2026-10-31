@@ -1,0 +1,22 @@
+{
+  "label": "prior-build-reason-and-current-tool",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; print(Path(\"Tools/agents/records/2026-10-31-summary-date-persistence/coordinator/signed-release-build-reason.md\").read_text()); print(Path(\"Tools/build_release.py\").read_text())"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014744",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 22725,
+  "process_owner": {
+    "pid": 22725,
+    "parent_pid": 22724,
+    "process_identity": "darwin:22725:1793411264.392272",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.03
+}

@@ -1,0 +1,23 @@
+{
+  "label": "summary-driver-cleanup",
+  "argv": [
+    "sed",
+    "-n",
+    "205,320p",
+    "Tests/ui/run_summary_tests.py"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T011810",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 92552,
+  "process_owner": {
+    "pid": 92552,
+    "parent_pid": 92550,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

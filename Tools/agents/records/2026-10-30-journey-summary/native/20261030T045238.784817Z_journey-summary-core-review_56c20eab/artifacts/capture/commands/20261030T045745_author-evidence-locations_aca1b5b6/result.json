@@ -1,0 +1,28 @@
+{
+  "label": "author-evidence-locations",
+  "argv": [
+    "rg",
+    "--files",
+    "Tools/agents/records/2026-10-30-journey-summary/native",
+    "-g",
+    "retest-03-measurement-cancellation.md",
+    "-g",
+    "cases.stdout.log",
+    "-g",
+    "result.json"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T045745",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 24023,
+  "process_owner": {
+    "pid": 24023,
+    "parent_pid": 24022,
+    "process_identity": "darwin:24023:1793336265.566482",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

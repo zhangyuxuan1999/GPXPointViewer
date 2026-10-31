@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "rg",
+    "-n",
+    "candidate\\.id|GapID|pathRange|\\.range\\.contains|indexA *[+-]|indexB *[+-]|tA *\\]",
+    "GPXPointViewer/BatchFill.swift",
+    "GPXPointViewer/BatchFillWindow.swift",
+    "GPXPointViewer/ChangeReviewWindow.swift",
+    "GPXPointViewer/PointMapView.swift",
+    "GPXPointViewer/TrackStore.swift",
+    "GPXPointViewer/GapFill.swift"
+  ],
+  "cwd": "/private/tmp/gpxpv-segment-integration-o3kf8civ",
+  "start": "2026-10-29T00:19:29.242085+00:00",
+  "exit_code": 0,
+  "finish": "2026-10-29T00:19:29.255449+00:00"
+}

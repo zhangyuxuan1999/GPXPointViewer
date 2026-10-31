@@ -1,0 +1,17 @@
+{
+  "exit_code": 0,
+  "child_exit_code": 0,
+  "stop_reason": null,
+  "cleanup_complete": true,
+  "cleanup": [],
+  "owner": {
+    "pid": 38556,
+    "pgid": 38556,
+    "sid": 38556,
+    "started_utc": "2026-10-30T05:30:49.647536+00:00"
+  },
+  "started_utc": "2026-10-30T05:30:49.647536+00:00",
+  "finished_utc": "2026-10-30T05:31:00.041227+00:00",
+  "language": "de",
+  "functional": false
+}

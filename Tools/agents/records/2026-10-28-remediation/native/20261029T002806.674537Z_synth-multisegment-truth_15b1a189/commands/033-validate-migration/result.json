@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "python3",
+    "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/native/20261029T002806.674537Z_synth-multisegment-truth_15b1a189/artifacts/validate_proposal.py"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "start": "2026-10-29T00:46:35.814015+00:00",
+  "exit_code": 1,
+  "finish": "2026-10-29T00:46:39.863555+00:00"
+}

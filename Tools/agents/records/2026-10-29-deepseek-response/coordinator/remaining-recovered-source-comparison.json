@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-29T22:59:45.196069+00:00",
+  "purpose": "Recovered source attribution only, no production test or rebuild",
+  "files": {
+    "GPXPointViewer/FogArchive.swift": {
+      "actual": "8a44459539cd1d1fadcd323b031f5fbf92731b65846398fe73c39f113d7336bc",
+      "with_only_documentation_corrections_reversed": "94bc3490c3a7a6ac5d600ac70cba6bc5e4e991bc38dda3bcb8804cdd020dfb8b",
+      "expected_tested_sha": "94bc3490c3a7a6ac5d600ac70cba6bc5e4e991bc38dda3bcb8804cdd020dfb8b",
+      "status": "exact tested source plus two documented comment replacements"
+    },
+    "Tests/segments/core/main.swift": {
+      "actual": "2239538f617e4efa154c1a220445ea0d353bf1d7fce0e2270d078ab07d363d6f",
+      "expected": "2239538f617e4efa154c1a220445ea0d353bf1d7fce0e2270d078ab07d363d6f",
+      "status": "match"
+    },
+    "GPXPointViewer/Regions.bin": {
+      "actual": "dda2f3df9cad4859d68fb13f77083eb9dff96cea48d98a9ed3b1fa08585f6d4e",
+      "expected": "dda2f3df9cad4859d68fb13f77083eb9dff96cea48d98a9ed3b1fa08585f6d4e",
+      "status": "match"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "created_utc": "2026-10-30T06:20:48.741052+00:00",
+  "manifest": "/Users/zyx/Documents/GPXPointViewer/Builds/20261030T060514Z_release_4bd65c63/archive/build-manifest.json",
+  "files_checked": 70,
+  "drift": [],
+  "status": "passed",
+  "method": "read-only current source hash comparison to successful archived build inputs; no tests/build/app executed"
+}

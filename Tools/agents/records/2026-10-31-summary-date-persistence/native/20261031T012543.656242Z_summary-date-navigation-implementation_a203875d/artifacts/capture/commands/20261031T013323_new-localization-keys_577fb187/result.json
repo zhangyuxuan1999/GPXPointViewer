@@ -1,0 +1,21 @@
+{
+  "label": "new-localization-keys",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T013323",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 4260,
+  "process_owner": {
+    "pid": 4260,
+    "parent_pid": 4259,
+    "process_identity": "darwin:4260:1793410403.061392",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.18
+}

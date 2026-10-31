@@ -1,0 +1,21 @@
+{
+  "label": "read-key-clock",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041021",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 12671,
+  "process_owner": {
+    "pid": 12671,
+    "parent_pid": 12670,
+    "process_identity": "darwin:12671:1793333421.239129",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.05
+}

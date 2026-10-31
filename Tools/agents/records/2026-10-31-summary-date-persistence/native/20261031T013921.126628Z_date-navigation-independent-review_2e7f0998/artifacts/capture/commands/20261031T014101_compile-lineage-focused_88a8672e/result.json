@@ -1,0 +1,22 @@
+{
+  "label": "compile-lineage-focused",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; import json,hashlib; r=Path(\"Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T012543.656242Z_summary-date-navigation-implementation_a203875d/artifacts\"); versions=json.loads((r/\"compiled-source-versions.json\").read_text()); names=[\"JourneySummary.swift\",\"JourneySummaryState.swift\",\"JourneySummaryWindow.swift\",\"TrackStore.swift\",\"UITestHook.swift\",\"ExportSheet.swift\",\"ContentView.swift\",\"GPXPointViewerApp.swift\",\"StoreRegression.swift\"]; out={\"current\":{n:hashlib.sha256((Path(\"Tests/summary/store\")/n if n==\"StoreRegression.swift\" else Path(\"GPXPointViewer\")/n).read_bytes()).hexdigest() for n in names},\"compiled\":[{\"attempt\":a[\"attempt\"],\"files\":{n:a[\"files\"][n] for n in names}} for a in versions]}; print(json.dumps(out,indent=2)); (Path(\"/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T013921.126628Z_date-navigation-independent-review_2e7f0998\")/\"artifacts/source-hash-lineage.json\").write_text(json.dumps(out,indent=2)+\"\\n\")"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014101",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 15202,
+  "process_owner": {
+    "pid": 15202,
+    "parent_pid": 15198,
+    "process_identity": "darwin:15202:1793410861.141879",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.05
+}

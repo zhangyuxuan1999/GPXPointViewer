@@ -1,0 +1,23 @@
+{
+  "label": "017-trip-types",
+  "argv": [
+    "sed",
+    "-n",
+    "950,1120p",
+    "GPXPointViewer/GapFill.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041029",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 12757,
+  "process_owner": {
+    "pid": 12757,
+    "parent_pid": 12752,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

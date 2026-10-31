@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "swiftc",
+    "-typecheck",
+    "GPXPointViewer/GPXParser.swift",
+    "GPXPointViewer/GeoCompute.swift"
+  ],
+  "cwd": "/private/tmp/gpxpv-segment-integration-o3kf8civ",
+  "started_at": "2026-10-28T23:17:07.722378+00:00",
+  "exit_code": 1,
+  "finished_at": "2026-10-28T23:17:07.814766+00:00"
+}

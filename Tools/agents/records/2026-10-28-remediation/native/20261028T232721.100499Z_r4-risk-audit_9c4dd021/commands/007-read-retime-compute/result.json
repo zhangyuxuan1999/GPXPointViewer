@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "sed",
+    "-n",
+    "1513,1607p",
+    "GPXPointViewer/GapFill.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "start": "2026-10-28T23:28:22.012351+00:00",
+  "exit_code": 0,
+  "finish": "2026-10-28T23:28:22.015557+00:00"
+}

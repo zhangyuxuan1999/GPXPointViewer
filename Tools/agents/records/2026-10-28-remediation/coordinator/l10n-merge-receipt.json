@@ -1,0 +1,20 @@
+{
+  "added": [
+    "无法安全还原这些修改。请连同后续相关修改一起还原，或还原全部修改。",
+    "无法应用补点：锚点或区间已改变，请重新选择。",
+    "若后续修改依赖此处，请一并还原相关修改。",
+    "轨迹线沿各段内的时间顺序连接；不同轨迹段不相连，超过 30 分钟或 10 km 的间隔断开；地球视角只显示点云"
+  ],
+  "removed": [
+    "多日轨迹在「全部」时禁用轨迹线：跨天连线无意义且耗性能。选年/月/日或自定义区间后可用",
+    "线段渲染为方向箭头（时间早 → 晚）；超过 10 km 的跨段直连不画；地球视角只显示点云",
+    "还原按点的值找回，不按下标；逐处还原后其它修改不受影响"
+  ],
+  "modified_existing_entries": [],
+  "preserved_entry_count": 1173,
+  "final_key_count": 1177,
+  "catalog_sha256": "c13be557e06e5d0fbbbceb0faf0c49e756c7204309f60f2cf2d887537f1e656b",
+  "chunk_sha256": "dcb8ac4539e3dedcfb9cd9a8debb428e2b84783d023052517941f05dbd73ba1c",
+  "compiler_authority": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/coordinator/l10n-extraction-check.json",
+  "assembly": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/coordinator/l10n-assembled-new/assembly.json"
+}

@@ -1,0 +1,25 @@
+{
+  "label": "product-syntax-parse",
+  "argv": [
+    "xcrun",
+    "swiftc",
+    "-frontend",
+    "-parse",
+    "GPXPointViewer/JourneySummaryWindow.swift",
+    "GPXPointViewer/UITestHook.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T021923",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 44641,
+  "process_owner": {
+    "pid": 44641,
+    "parent_pid": 44640,
+    "process_identity": "darwin:44641:1793413163.720007",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.04
+}

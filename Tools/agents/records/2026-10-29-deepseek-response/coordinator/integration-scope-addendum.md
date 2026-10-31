@@ -1,0 +1,1 @@
+主代理整合额外包含README.md和Tests/README.md的小幅纠正：修正仍遗留的“最后全套”强制指导、安装后可显式使用原manifest的归属说明、iCloud单进程参数说明。用户原请求包含必要文档纠正，属已授权范围，无产品改动。finalize_documents.py执行前保存这两文件及DeepSeek三个文件的完整原件/执行后hash，纳入最终变化收据；目前因云端占位仍未执行。

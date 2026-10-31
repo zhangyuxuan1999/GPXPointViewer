@@ -1,0 +1,50 @@
+{
+  "20261030T055755.830831Z_journey-summary-visual-closeout_0d90bdf1": {
+    "provider_status_receipt": {
+      "status": "succeeded",
+      "provider_status": "succeeded",
+      "acceptance_status": "pending",
+      "last_activity": "2026-10-30T06:21:11.315676+00:00"
+    },
+    "independent_verification": {
+      "time_utc": "2026-10-30T06:21:11.314410+00:00",
+      "verification_status": "passed",
+      "evidence": "/Users/zyx/Documents/GPXPointViewer/docs/journey-summary-acceptance.md",
+      "evidence_sha256": "0c9d2132ec00a24af478cf9394236e9e1148318fe8a22aa63b7a942ce88c2088",
+      "note": "",
+      "saved_evidence": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/coordinator-runs/20261030T055755.830831Z_journey-summary-visual-closeout_0d90bdf1/verification-evidence-856ea8810494493c9eac9416ccdded85.txt"
+    }
+  },
+  "20261030T061550.887672Z_journey-summary-header-layout-visual-r2_586345c3": {
+    "provider_status_receipt": {
+      "status": "succeeded",
+      "provider_status": "succeeded",
+      "acceptance_status": "pending",
+      "last_activity": "2026-10-30T06:20:49.055587+00:00"
+    },
+    "independent_verification": {
+      "time_utc": "2026-10-30T06:20:49.053990+00:00",
+      "verification_status": "passed",
+      "evidence": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/coordinator/header-layout-final-review.md",
+      "evidence_sha256": "4c84769b43c204c94d1375e2c5493448a5067830b6c7a49f79b4f9a145da031d",
+      "note": "",
+      "saved_evidence": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/deepseek/20261030T061550.887672Z_journey-summary-header-layout-visual-r2_586345c3/verification-evidence-3e2f3a52a74548a0aef604964ef8245d.txt"
+    }
+  },
+  "20261030T060200.215494Z_journey-summary-header-layout-fix_50b77c73": {
+    "provider_status_receipt": {
+      "status": "succeeded",
+      "provider_status": "succeeded",
+      "acceptance_status": "pending",
+      "last_activity": "2026-10-30T06:20:48.886134+00:00"
+    },
+    "independent_verification": {
+      "time_utc": "2026-10-30T06:20:48.884846+00:00",
+      "verification_status": "passed",
+      "evidence": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/coordinator/header-layout-final-review.md",
+      "evidence_sha256": "4c84769b43c204c94d1375e2c5493448a5067830b6c7a49f79b4f9a145da031d",
+      "note": "",
+      "saved_evidence": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/native/20261030T060200.215494Z_journey-summary-header-layout-fix_50b77c73/verification-evidence-ca3ac9e9de2247a1b1c90acca6f6c97c.txt"
+    }
+  }
+}

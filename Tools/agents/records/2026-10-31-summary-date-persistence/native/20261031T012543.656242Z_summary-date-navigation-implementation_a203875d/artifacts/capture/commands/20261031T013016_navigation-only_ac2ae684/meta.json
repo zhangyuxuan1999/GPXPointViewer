@@ -1,0 +1,25 @@
+{
+  "label": "navigation-only",
+  "argv": [
+    "python3",
+    "Tests/summary/store/run.py",
+    "--evidence",
+    "Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T012543.656242Z_summary-date-navigation-implementation_a203875d/artifacts/store",
+    "--group",
+    "navigation"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T013016",
+  "status": "failed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 1373,
+  "process_owner": {
+    "pid": 1373,
+    "parent_pid": 1372,
+    "process_identity": "darwin:1373:1793410216.588377",
+    "group_created": true
+  },
+  "exit_code": 251,
+  "duration_s": 43.17
+}

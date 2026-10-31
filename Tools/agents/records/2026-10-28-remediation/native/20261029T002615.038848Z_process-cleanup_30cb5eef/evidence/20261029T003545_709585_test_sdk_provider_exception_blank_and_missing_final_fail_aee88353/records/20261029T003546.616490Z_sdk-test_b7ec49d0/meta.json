@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "run_id": "20261029T003546.616490Z_sdk-test_b7ec49d0",
+  "name": "sdk-test",
+  "provider": "claude-agent-sdk",
+  "requested_model": "fixture-model",
+  "requested_effort": "max",
+  "observed_model": null,
+  "observed_effort": null,
+  "model_verification": "unknown",
+  "cwd": "/private/tmp/gpxpv-runner-tests-_bxpw2ro/20261029T003545_709585_test_sdk_provider_exception_blank_and_missing_final_fail_aee88353/workspace",
+  "task_source": "/private/tmp/gpxpv-runner-tests-_bxpw2ro/20261029T003545_709585_test_sdk_provider_exception_blank_and_missing_final_fail_aee88353/task.md",
+  "started_utc": "2026-10-29T00:35:46.616987+00:00",
+  "watch": [
+    "."
+  ],
+  "allow_write": [],
+  "snapshot_exclusions": {
+    "parts": [
+      ".agents",
+      ".aws",
+      ".codex",
+      ".git",
+      "DerivedData",
+      "__pycache__",
+      "node_modules",
+      "sdkenv"
+    ],
+    "prefixes": [
+      "Tools/agents/records",
+      "Tools/agents/runs",
+      "Tests/reports",
+      "Tests/ui/app.noindex",
+      "Tests/ui/perf",
+      "Tests/ui/synth.gpx",
+      "Tests/exam/results",
+      "Tests/synth/runner/synthrunner",
+      "Tests/synth/runner/build.log"
+    ],
+    "default_prefixes": [
+      "Tools/agents/records",
+      "Tools/agents/runs",
+      "Tests/reports",
+      "Tests/ui/app.noindex",
+      "Tests/ui/perf",
+      "Tests/ui/synth.gpx",
+      "Tests/exam/results",
+      "Tests/synth/runner/synthrunner",
+      "Tests/synth/runner/build.log"
+    ],
+    "user_prefixes": [],
+    "explicit_overrides": [],
+    "generated_pattern": "^Tests/synth/(?:format-edge|garmin-tunnels|legit-motion|replay-artefacts|scale-mixed|stationary-noise)/[^/]+\\.(?:gpx|csv|fit|bin)$"
+  },
+  "parent_run": null,
+  "recovery": "context",
+  "cost_usd": null,
+  "cost_source": "unknown",
+  "max_turns": 4,
+  "timeout_seconds": 3.0,
+  "pid": 87926,
+  "child_pid": 87934,
+  "process_identity": "darwin:87926:1793234146.557501",
+  "session_id": "offline-sdk-session"
+}

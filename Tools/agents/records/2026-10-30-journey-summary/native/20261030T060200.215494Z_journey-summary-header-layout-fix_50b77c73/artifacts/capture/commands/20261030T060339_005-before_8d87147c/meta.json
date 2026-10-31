@@ -1,0 +1,21 @@
+{
+  "label": "005-before",
+  "argv": [
+    "python3",
+    "Tools/agents/records/2026-10-30-journey-summary/native/20261030T060200.215494Z_journey-summary-header-layout-fix_50b77c73/artifacts/before.py"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T060339",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 47205,
+  "process_owner": {
+    "pid": 47205,
+    "parent_pid": 47204,
+    "process_identity": "darwin:47205:1793340219.305550",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.04
+}

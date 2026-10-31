@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "sed",
+    "-n",
+    "1,680p",
+    "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/native/20261029T001008.666518Z_segment-workflow-review_9b5a389a/artifacts/diff-TrackStore.patch"
+  ],
+  "cwd": "/private/tmp/gpxpv-segment-integration-o3kf8civ",
+  "start": "2026-10-29T00:11:38.865611+00:00",
+  "exit_code": 0,
+  "finish": "2026-10-29T00:11:38.868534+00:00"
+}

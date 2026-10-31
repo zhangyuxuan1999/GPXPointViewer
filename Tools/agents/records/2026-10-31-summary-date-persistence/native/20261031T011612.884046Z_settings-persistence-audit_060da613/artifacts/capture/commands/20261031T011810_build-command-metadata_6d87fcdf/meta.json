@@ -1,0 +1,22 @@
+{
+  "label": "build-command-metadata",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; import json; p=Path(\"Builds/20261030T060514Z_release_4bd65c63/archive/build-manifest.json\"); d=json.loads(p.read_text()); print(json.dumps({k:d.get(k) for k in [\"created_utc\",\"source_association\",\"executable_sha256\",\"build\"]},ensure_ascii=False,indent=2))"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T011810",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 92555,
+  "process_owner": {
+    "pid": 92555,
+    "parent_pid": 92551,
+    "process_identity": "darwin:92555:1793409490.499983",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.09
+}

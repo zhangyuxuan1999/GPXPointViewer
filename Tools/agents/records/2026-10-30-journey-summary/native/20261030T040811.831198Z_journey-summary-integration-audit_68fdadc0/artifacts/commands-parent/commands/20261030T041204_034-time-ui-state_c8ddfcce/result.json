@@ -1,0 +1,23 @@
+{
+  "label": "034-time-ui-state",
+  "argv": [
+    "sed",
+    "-n",
+    "555,612p",
+    "GPXPointViewer/ExportSheet.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041204",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 13538,
+  "process_owner": {
+    "pid": 13538,
+    "parent_pid": 13533,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

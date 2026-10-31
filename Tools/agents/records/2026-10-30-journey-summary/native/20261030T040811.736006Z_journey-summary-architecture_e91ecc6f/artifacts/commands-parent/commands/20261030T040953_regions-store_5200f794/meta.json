@@ -1,0 +1,23 @@
+{
+  "label": "regions-store",
+  "argv": [
+    "sed",
+    "-n",
+    "520,610p",
+    "GPXPointViewer/TrackStore.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T040953",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 12259,
+  "process_owner": {
+    "pid": 12259,
+    "parent_pid": 12258,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.0
+}

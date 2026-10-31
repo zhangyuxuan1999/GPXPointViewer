@@ -1,0 +1,22 @@
+{
+  "label": "build-core-attribution",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; import json; p=Path(\"Builds/20261030T060514Z_release_4bd65c63/archive/build-manifest.json\"); j=json.loads(p.read_text()); inputs=j[\"source_inputs\"]; print(json.dumps({\"source_inputs_type\":type(inputs).__name__,\"source_input_keys\":list(inputs.keys())},indent=2)); files=inputs.get(\"files\",{}); print(json.dumps({k:v for k,v in files.items() if \"JourneySummary.swift\" in k or \"L10nSupport.swift\" in k or \"GPXPointViewerApp.swift\" in k},indent=2))"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014227",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 16705,
+  "process_owner": {
+    "pid": 16705,
+    "parent_pid": 16703,
+    "process_identity": "darwin:16705:1793410947.239306",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.03
+}

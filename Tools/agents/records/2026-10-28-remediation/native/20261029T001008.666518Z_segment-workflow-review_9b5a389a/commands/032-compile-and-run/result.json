@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "python3",
+    "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/native/20261029T001008.666518Z_segment-workflow-review_9b5a389a/artifacts/build_and_run.py"
+  ],
+  "cwd": "/private/tmp/gpxpv-segment-integration-o3kf8civ",
+  "start": "2026-10-29T00:18:56.327201+00:00",
+  "exit_code": 0,
+  "finish": "2026-10-29T00:19:42.302160+00:00"
+}

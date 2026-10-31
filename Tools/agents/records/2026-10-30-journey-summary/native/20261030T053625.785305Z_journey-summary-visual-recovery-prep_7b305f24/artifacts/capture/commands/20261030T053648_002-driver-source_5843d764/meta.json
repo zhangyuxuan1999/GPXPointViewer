@@ -1,0 +1,23 @@
+{
+  "label": "002-driver-source",
+  "argv": [
+    "sed",
+    "-n",
+    "1,340p",
+    "Tests/ui/run_summary_tests.py"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T053648",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 41397,
+  "process_owner": {
+    "pid": 41397,
+    "parent_pid": 41393,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

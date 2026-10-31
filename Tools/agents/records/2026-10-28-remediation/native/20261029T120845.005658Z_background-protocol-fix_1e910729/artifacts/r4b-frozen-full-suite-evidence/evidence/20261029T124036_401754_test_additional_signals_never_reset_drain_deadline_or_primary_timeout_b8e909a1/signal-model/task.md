@@ -1,0 +1,1 @@
+Offline signal clock model.

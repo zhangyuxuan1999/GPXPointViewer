@@ -1,0 +1,25 @@
+{
+  "label": "uitest-settings-mutations",
+  "argv": [
+    "rg",
+    "-n",
+    "-C",
+    "2",
+    "idleDisabled|idleGlobeSeconds|idleMapSeconds|AppleLanguages|AppLanguage|autotripmap|case \"set\"|settings\\[",
+    "GPXPointViewer/UITestHook.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T011831",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 92774,
+  "process_owner": {
+    "pid": 92774,
+    "parent_pid": 92768,
+    "process_identity": "darwin:92774:1793409511.848295",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

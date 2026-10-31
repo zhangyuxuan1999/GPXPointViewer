@@ -1,0 +1,21 @@
+{
+  "label": "015-project-membership",
+  "argv": [
+    "python3",
+    "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/native/20261030T042612.249638Z_journey-summary-store-ui_4746c6f6/artifacts/update_project.py"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T045415",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 20909,
+  "process_owner": {
+    "pid": 20909,
+    "parent_pid": 20908,
+    "process_identity": "darwin:20909:1793336055.153753",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.02
+}

@@ -1,0 +1,23 @@
+{
+  "label": "doc-outline",
+  "argv": [
+    "rg",
+    "-n",
+    "^#|openSummary|calendar:|summaryBuildCount|23|25|selectedDay=nil",
+    "docs/journey-summary-date-navigation-design.md"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T012349",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 96254,
+  "process_owner": {
+    "pid": 96254,
+    "parent_pid": 96253,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.0
+}

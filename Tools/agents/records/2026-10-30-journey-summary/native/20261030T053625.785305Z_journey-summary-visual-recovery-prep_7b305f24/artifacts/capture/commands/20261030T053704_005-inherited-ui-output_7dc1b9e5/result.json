@@ -1,0 +1,21 @@
+{
+  "label": "005-inherited-ui-output",
+  "argv": [
+    "cat",
+    "Tools/agents/records/2026-10-30-journey-summary/deepseek/20261030T052958.534107Z_journey-summary-ui_1d914c2b/output.md"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T053704",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 41682,
+  "process_owner": {
+    "pid": 41682,
+    "parent_pid": 41680,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

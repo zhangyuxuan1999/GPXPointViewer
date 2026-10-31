@@ -1,0 +1,22 @@
+{
+  "label": "scope-failure-evidence",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; import json; base=Path(\"/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T011612.884046Z_settings-persistence-audit_060da613\"); d=json.loads((base/\"changes.json\").read_text()); print(json.dumps(d,ensure_ascii=False,indent=2)); m=json.loads((base/\"meta.json\").read_text()); print(\"WATCH\",m.get(\"watch\"));print(\"ALLOW_WRITE\",m.get(\"allow_write\"))"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T012216",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 94968,
+  "process_owner": {
+    "pid": 94968,
+    "parent_pid": 94967,
+    "process_identity": "darwin:94968:1793409736.952577",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.04
+}

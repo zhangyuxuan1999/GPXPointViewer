@@ -1,0 +1,3 @@
+主代理已直接阅读Sol生成的四语CG指标及德语fwdb/简中GPX 1080p原PNG；16张均为新提示的局部生产drawRibbon渲染，不是完整视频流水线。UI因sandbox SIGABRT缺证，主代理只运行已编fixture UI分支，四语均exit0，未重编、未重复CG、窗口未orderFront，未启动正式app或修改偏好。主代理已直接查看四张ui-de/en/zh-Hans/zh-Hant.png：归档说明完整换行无截断，≈与日期可见，GPX对照无近似文字，按钮均完整。局部fixture抽真实视图/绘图代码并隔离数据/动作，不能冒称完整app回放/视频端到端验证。
+
+并发归属：该只写自身run的Sol任务finish把共享工作区中DeepSeek新增run.py和总AGENT_LOG变更误归越权；这些由DeepSeek恢复轮changes及主代理派发证明。保留原finish记录；本次verify据具体归属判该任务passed，不删原失败。不再重新截图。

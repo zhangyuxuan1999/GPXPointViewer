@@ -1,0 +1,18 @@
+{
+  "old_manifest": "/Users/zyx/Documents/GPXPointViewer/Builds/20261030T052611Z_release_25c40b88/archive/build-manifest.json",
+  "new_manifest": "/Users/zyx/Documents/GPXPointViewer/Builds/20261030T060514Z_release_4bd65c63/archive/build-manifest.json",
+  "changed_product_inputs": {
+    "GPXPointViewer/JourneySummaryWindow.swift": {
+      "before": {
+        "sha256": "8dd746705efe8129e53d13228cd85e936737a45f7726e9b3294e4ffab3010077",
+        "bytes": 16268
+      },
+      "after": {
+        "sha256": "c7fe0873015050d26d3392c8aea62f9301d2ed011cb52743627f629599749a38",
+        "bytes": 16392
+      }
+    }
+  },
+  "inherit_functional_evidence": true,
+  "reason": "Only segmented Picker labelsHidden plus existing localized accessibilityLabel; bindings/model/core/Store untouched. Reuse prior12 actual functional checks,22 core named checks,70 Store checks and previously accepted unaffected screenshots; six layout pixels only."
+}

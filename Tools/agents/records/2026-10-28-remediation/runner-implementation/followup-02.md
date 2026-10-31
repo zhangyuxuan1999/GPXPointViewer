@@ -1,0 +1,1 @@
+测试Sol已保存5个旧错误复现，新增 Tests/agents/fixtures/mock_cli.py 可作为 --cli 替代CLI；MOCK_SCENARIO 支持success/stderr/provider/turns/budget/is-error/no-final/bad-json/exit-error/late-nonzero/timeout/signal/stream/secret/unknown-cost/blank-output，stream有192KB正常工具输入/结果验证无截断。你与 /root/runner_tests 可直接 collaboration.send_message 对接接口，每次沟通入自己的journal，不另派agent/API。

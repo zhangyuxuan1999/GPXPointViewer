@@ -1,0 +1,10 @@
+{
+  "utc": "2026-10-29T13:14:11.031249+00:00",
+  "passed": true,
+  "checks": 24,
+  "source_sha256": "33523e1f54f27923b5b8c14d8fd7a45c4b7161e59a583a5c0209f34952851950",
+  "font": ".AppleSystemUIFontDemi",
+  "evidence_directory": "/private/tmp/gpxpv-engine-labels-root-20261029T1313",
+  "command_record": "commands/20261029T131308_engine-labels-independent_c3325f81",
+  "scope": "Actual extracted production EngineLabel geometry + font frames; root reviewed minimal diff, preserved gate/status/text/count and finite ray clearance. Rebuilt pixels pending."
+}

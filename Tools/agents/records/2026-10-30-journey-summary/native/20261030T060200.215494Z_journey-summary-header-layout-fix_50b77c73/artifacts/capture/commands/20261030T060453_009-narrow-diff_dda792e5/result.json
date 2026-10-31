@@ -1,0 +1,21 @@
+{
+  "label": "009-narrow-diff",
+  "argv": [
+    "cat",
+    "Tools/agents/records/2026-10-30-journey-summary/native/20261030T060200.215494Z_journey-summary-header-layout-fix_50b77c73/artifacts/changes.diff"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T060453",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 47573,
+  "process_owner": {
+    "pid": 47573,
+    "parent_pid": 47572,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.0
+}

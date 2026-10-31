@@ -1,0 +1,82 @@
+{
+  "process_cleanup": [
+    {
+      "pid": 2100000001,
+      "status": "confirmed",
+      "attempts": [
+        {
+          "operation": "group_sigterm",
+          "outcome": "absent"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "wait",
+          "outcome": "ok"
+        },
+        {
+          "operation": "group_sigkill",
+          "outcome": "absent"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "wait",
+          "outcome": "ok"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "group_probe",
+          "outcome": "absent"
+        },
+        {
+          "operation": "exit_code",
+          "outcome": "ok"
+        }
+      ],
+      "errors": [],
+      "leader_alive": false,
+      "group_alive": false,
+      "leader_exit_code": 0,
+      "duration_s": 0.00014041690155863762
+    }
+  ],
+  "cleanup_complete": true,
+  "sdk_query_completed": true,
+  "sdk_reported_cost_usd": 0.25,
+  "runner_exit_code": 0,
+  "child_exit_code": 0,
+  "provider_status": "succeeded",
+  "acceptance_status": "pending",
+  "started": true,
+  "exit_code": 0,
+  "error": null,
+  "is_error": false,
+  "duration_s": 0.05,
+  "cost_usd": 0.25,
+  "cost_source": "SDK estimate",
+  "actual_billed_cost_usd": null,
+  "budget_usd": 2.0,
+  "budget_ledger": "/private/tmp/gpxpv-runner-tests-hbldrxp8/20261029T005835_435499_test_exited_worker_absent_group_is_confirmed_without_spurious_error_eb8a78ca/records-0/budget.json",
+  "runner_terminal_reason": null,
+  "usage": null,
+  "num_turns": 2,
+  "session_id": null,
+  "subtype": "success",
+  "terminal_reason": "completed",
+  "stop_reason": null,
+  "errors": null,
+  "permission_denials": null,
+  "api_error_status": null,
+  "finished_utc": "2026-10-29T00:58:35.538684+00:00",
+  "status": "succeeded",
+  "run_status": "succeeded",
+  "verification_status": "not_run"
+}

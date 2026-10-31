@@ -1,0 +1,22 @@
+{
+  "label": "final-fix-diff-and-syntax",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; import difflib,hashlib,json; run=Path(\"Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T013830.330949Z_signing-review-fixes_cb1bcb2b\"); names=[\"Tools/archive_build.py\",\"Tools/install_release.py\",\"Tools/build_release.py\",\"Tests/agents/test_release_install.py\",\"docs/local-install-signing.md\"]; result={}; [(compile(Path(n).read_text(),n,\"exec\") if n.endswith(\".py\") else None) for n in names]; [print(\"\".join(difflib.unified_diff((run/\"snapshots/before/files\"/n).read_text().splitlines(True),Path(n).read_text().splitlines(True),fromfile=\"before/\"+n,tofile=\"after/\"+n))) for n in names]; result={n:hashlib.sha256(Path(n).read_bytes()).hexdigest() for n in names}; print(json.dumps(result,indent=2)); (run/\"artifacts/frozen-file-sha256.json\").write_text(json.dumps(result,indent=2)+\"\\n\")"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014533",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 20327,
+  "process_owner": {
+    "pid": 20327,
+    "parent_pid": 20326,
+    "process_identity": "darwin:20327:1793411133.336458",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.04
+}

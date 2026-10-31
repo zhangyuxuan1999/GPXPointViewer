@@ -1,0 +1,7 @@
+{
+  "stage": "functions.exec JavaScript parsing before child execution",
+  "error": "SyntaxError: Invalid or unexpected token",
+  "cause": "Unescaped Markdown backticks inside JS template string",
+  "child_executed": false,
+  "retry": "update-four-pixel-recovery-state-r2"
+}

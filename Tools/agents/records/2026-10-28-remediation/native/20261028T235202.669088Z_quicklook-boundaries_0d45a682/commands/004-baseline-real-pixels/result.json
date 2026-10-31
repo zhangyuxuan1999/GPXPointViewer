@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "python3",
+    "Tests/segments/core/preview/run.py",
+    "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/native/20261028T235202.669088Z_quicklook-boundaries_0d45a682/artifacts/baseline-pixels",
+    "--baseline"
+  ],
+  "cwd": "/private/tmp/gpxpv-segment-integration-o3kf8civ",
+  "start": "2026-10-28T23:59:02.998138+00:00",
+  "exit_code": 1,
+  "finish": "2026-10-28T23:59:08.053902+00:00"
+}

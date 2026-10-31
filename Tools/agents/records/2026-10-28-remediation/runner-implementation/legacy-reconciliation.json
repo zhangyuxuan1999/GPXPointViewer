@@ -1,0 +1,132 @@
+{
+  "generated_utc": "2026-10-28T22:52:12.400291+00:00",
+  "source": "/Users/zyx/.claude/projects/-Users-zyx-Documents-GPXPointViewer/saved-agent-results/api-runs/LEDGER.md",
+  "source_sha256": "c7ddd16c10d69cab2b00951bedfa5e11938eb0fae400009c8b0530d405bd419e",
+  "known_total_usd": 148.7722,
+  "unknown_costs": [
+    {
+      "line": 9,
+      "run": "20261026_143049_tunnel-diagnosis",
+      "reason": "historical zero lacks reliable final cost",
+      "source": "/Users/zyx/.claude/projects/-Users-zyx-Documents-GPXPointViewer/saved-agent-results/api-runs/20261026_143049_tunnel-diagnosis/result.json"
+    }
+  ],
+  "rows": [
+    {
+      "line": 5,
+      "run": "20261025_143522_spotcheck-world",
+      "cost_usd": 1.1098,
+      "legacy_cumulative_usd": 1.11
+    },
+    {
+      "line": 6,
+      "run": "20261025_150108_spotcheck-world-2",
+      "cost_usd": 0.6731,
+      "legacy_cumulative_usd": 1.78
+    },
+    {
+      "line": 7,
+      "run": "20261025_152651_spotcheck-world-3",
+      "cost_usd": 1.8501,
+      "legacy_cumulative_usd": 3.63
+    },
+    {
+      "line": 8,
+      "run": "20261025_160555_cn-names",
+      "cost_usd": 1.7914,
+      "legacy_cumulative_usd": 5.42
+    },
+    {
+      "line": 9,
+      "run": "20261026_143049_tunnel-diagnosis",
+      "cost_usd": null,
+      "legacy_cumulative_usd": 5.42
+    },
+    {
+      "line": 10,
+      "run": "20261026_143424_tunnel-diagnosis-2",
+      "cost_usd": 14.2185,
+      "legacy_cumulative_usd": 19.64
+    },
+    {
+      "line": 11,
+      "run": "20261026_143101_route-cache",
+      "cost_usd": 19.9711,
+      "legacy_cumulative_usd": 25.39
+    },
+    {
+      "line": 12,
+      "run": "20261026_151311_tunnel-fix",
+      "cost_usd": 18.0746,
+      "legacy_cumulative_usd": 43.46
+    },
+    {
+      "line": 13,
+      "run": "20261026_154640_tunnel-fix-2",
+      "cost_usd": 13.264,
+      "legacy_cumulative_usd": 56.72
+    },
+    {
+      "line": 14,
+      "run": "20261026_161738_deepseek-doc-r2",
+      "cost_usd": 1.4071,
+      "legacy_cumulative_usd": 58.13
+    },
+    {
+      "line": 15,
+      "run": "20261026_162124_map-sources",
+      "cost_usd": 18.3822,
+      "legacy_cumulative_usd": 75.1
+    },
+    {
+      "line": 16,
+      "run": "20261026_173213_basemap-picker-overflow",
+      "cost_usd": 1.3444,
+      "legacy_cumulative_usd": 76.44
+    },
+    {
+      "line": 17,
+      "run": "20261027_191223_batch-card-review-goto",
+      "cost_usd": 3.4251,
+      "legacy_cumulative_usd": 79.87
+    },
+    {
+      "line": 18,
+      "run": "20261027_215456_fill-plausibility-exam",
+      "cost_usd": 25.4325,
+      "legacy_cumulative_usd": 105.3
+    },
+    {
+      "line": 19,
+      "run": "20261027_224806_plausibility-ui-backlog",
+      "cost_usd": 6.419,
+      "legacy_cumulative_usd": 111.72
+    },
+    {
+      "line": 20,
+      "run": "20261027_232342_deepseek-doc-r3",
+      "cost_usd": 1.7436,
+      "legacy_cumulative_usd": 113.46
+    },
+    {
+      "line": 21,
+      "run": "20261028_120149_loose-ends",
+      "cost_usd": 10.6262,
+      "legacy_cumulative_usd": 124.09
+    },
+    {
+      "line": 22,
+      "run": "20261028_132305_plausibility-threshold-b",
+      "cost_usd": 7.3583,
+      "legacy_cumulative_usd": 131.45
+    },
+    {
+      "line": 23,
+      "run": "20261028_135558_deepseek-doc-r4",
+      "cost_usd": 1.6812,
+      "legacy_cumulative_usd": 133.13
+    }
+  ],
+  "last_legacy_cumulative_usd": 133.13,
+  "meaning": "SDK ledger arithmetic only; not account balance or actual billed charges."
+}

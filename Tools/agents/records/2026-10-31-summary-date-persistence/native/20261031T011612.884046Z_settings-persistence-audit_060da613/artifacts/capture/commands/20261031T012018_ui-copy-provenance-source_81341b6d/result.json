@@ -1,0 +1,23 @@
+{
+  "label": "ui-copy-provenance-source",
+  "argv": [
+    "sed",
+    "-n",
+    "1,95p",
+    "Tests/ui/ui.py"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T012018",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 93478,
+  "process_owner": {
+    "pid": 93478,
+    "parent_pid": 93471,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

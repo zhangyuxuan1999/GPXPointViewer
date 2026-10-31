@@ -1,0 +1,21 @@
+{
+  "label": "isolated-release-copy-fixtures",
+  "argv": [
+    "python3",
+    "Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T012023.801942Z_signing-install-persistence-fix_6b832b3d/artifacts/test_isolated_release_copy.py"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T013032",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 1815,
+  "process_owner": {
+    "pid": 1815,
+    "parent_pid": 1814,
+    "process_identity": "darwin:1815:1793410232.838688",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.24
+}

@@ -1,0 +1,1 @@
+Root已核对 proposed-runner-r2 compile/run exit0、四目标validation为空失败，候选/行程集合comparison全equal。调用工具最终81/81与独立3反例已过，DeepSeek翻译正在运行。请冻结最终8文件提案hash并尽快报告/finish；我将准备精确hash锁定的机械应用脚本交DeepSeek执行，然后root审实际changes+正式114/125复测，不让模型重抄巨大JSON或自行决定期望。无需扩大审查或再跑110。

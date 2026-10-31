@@ -1,0 +1,10 @@
+{
+  "coordinator_run": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/coordinator-runs/20261030T055755.830831Z_journey-summary-visual-closeout_0d90bdf1",
+  "deepseek_visual_r2": "20261030T055759.267763Z_journey-summary-visual-r2_7be8ceab",
+  "native_layoutfix_run": "20261030T060200.215494Z_journey-summary-header-layout-fix_50b77c73",
+  "native_agent_id": "/root/journey_integration_audit",
+  "model_requested": "gpt-6.1-sol",
+  "effort_requested": "ultra",
+  "actual_serving_model": null,
+  "task": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/coordinator/header-layout-fix-task.md"
+}

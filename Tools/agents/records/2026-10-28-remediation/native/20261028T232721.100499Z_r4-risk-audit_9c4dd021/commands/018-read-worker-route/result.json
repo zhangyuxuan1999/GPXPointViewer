@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "sed",
+    "-n",
+    "3684,3735p",
+    "GPXPointViewer/TrackStore.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "start": "2026-10-28T23:31:12.673164+00:00",
+  "exit_code": 0,
+  "finish": "2026-10-28T23:31:12.677106+00:00"
+}

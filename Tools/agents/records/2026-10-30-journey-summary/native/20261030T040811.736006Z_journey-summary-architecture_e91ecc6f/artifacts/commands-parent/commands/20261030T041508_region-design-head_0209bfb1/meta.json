@@ -1,0 +1,23 @@
+{
+  "label": "region-design-head",
+  "argv": [
+    "head",
+    "-n",
+    "75",
+    "docs/regions-design.md"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041508",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 14229,
+  "process_owner": {
+    "pid": 14229,
+    "parent_pid": 14228,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.0
+}

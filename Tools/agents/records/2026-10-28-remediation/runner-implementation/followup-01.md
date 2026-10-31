@@ -1,0 +1,1 @@
+测试Sol建议 run_store 提供唯一 create_run、原子 append_event/heartbeat/finalize、before/after snapshot/change manifest、budget reserve/settle/recalculate；CLI 支持可注入 mock command、records-root、timeout/max-turns、明确expected output/验收字段；status --json可指定records root。已让其对接你的计划接口。请尽快给准确签名和mock入口。

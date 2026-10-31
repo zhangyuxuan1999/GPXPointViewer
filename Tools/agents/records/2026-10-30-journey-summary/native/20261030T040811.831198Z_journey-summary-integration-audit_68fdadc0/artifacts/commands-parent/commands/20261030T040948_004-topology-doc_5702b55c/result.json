@@ -1,0 +1,21 @@
+{
+  "label": "004-topology-doc",
+  "argv": [
+    "cat",
+    "docs/segment-topology-design.md"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T040948",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 12240,
+  "process_owner": {
+    "pid": 12240,
+    "parent_pid": 12236,
+    "process_identity": "darwin:12240:1793333388.776451",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

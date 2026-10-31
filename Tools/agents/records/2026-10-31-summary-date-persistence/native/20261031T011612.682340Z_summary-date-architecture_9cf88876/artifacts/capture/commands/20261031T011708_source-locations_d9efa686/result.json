@@ -1,0 +1,26 @@
+{
+  "label": "source-locations",
+  "argv": [
+    "rg",
+    "-n",
+    "summary|Summary|TimeFilterSection|viewFilterSpec|DateFilter",
+    "GPXPointViewer/TrackStore.swift",
+    "GPXPointViewer/ContentView.swift",
+    "GPXPointViewer/JourneySummary.swift",
+    "GPXPointViewer/GPXPointViewerApp.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T011708",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 91734,
+  "process_owner": {
+    "pid": 91734,
+    "parent_pid": 91733,
+    "process_identity": "darwin:91734:1793409428.037335",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

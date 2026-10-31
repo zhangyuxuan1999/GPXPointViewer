@@ -1,0 +1,21 @@
+{
+  "label": "035-math-and-project-simple",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041204",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 13536,
+  "process_owner": {
+    "pid": 13536,
+    "parent_pid": 13534,
+    "process_identity": "darwin:13536:1793333524.225650",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.03
+}

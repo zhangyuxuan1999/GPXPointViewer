@@ -1,0 +1,21 @@
+{
+  "label": "inspect-current",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T021443",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 42306,
+  "process_owner": {
+    "pid": 42306,
+    "parent_pid": 42305,
+    "process_identity": "darwin:42306:1793412883.947254",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.02
+}

@@ -1,0 +1,23 @@
+{
+  "label": "008-test-main-pattern",
+  "argv": [
+    "sed",
+    "-n",
+    "1,155p",
+    "Tests/segments/workflow/main.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T044931",
+  "status": "failed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 18003,
+  "process_owner": {
+    "pid": 18003,
+    "parent_pid": 17999,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 1,
+  "duration_s": 0.01
+}

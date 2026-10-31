@@ -1,0 +1,2 @@
+# F1–F3 source and evidence acceptance
+Root read authoroutput and complete Sol independentre-review. Agrees3specificP2closed in frozen scope,9newtargetedfixtures+16inherited. Rootinspectedactualatomicinstallcode. Actualremove-signature proof remainsrequiredonrealMachO. FirstsignedbuildFinderInforc65 remainsfailed separately, newlocalstagingrunaddressesit. This passesimplementation/review worknotactualreleaseacceptance.

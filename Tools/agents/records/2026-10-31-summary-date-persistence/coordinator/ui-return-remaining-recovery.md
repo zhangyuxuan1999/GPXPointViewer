@@ -1,0 +1,2 @@
+# Required targeted recovery
+ConcreteactualsingleReturnbugfixedonlynativewidget/hookactivation; no Store/statistics/settinglogicchange. Keep4settings+first3nav+44Storeaccepted, no reruns. NewbuildneededforchangedWindow. Executeonly3missingnavchecks+11affected/newimages. Rootliteralkeyboardrechecknecessarybecausewidgetimplementationchanged. Allpreviousfailuresretained.

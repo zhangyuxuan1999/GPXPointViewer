@@ -1,0 +1,21 @@
+{
+  "label": "return-write-review",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T022242",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 47894,
+  "process_owner": {
+    "pid": 47894,
+    "parent_pid": 47893,
+    "process_identity": "darwin:47894:1793413362.851283",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.02
+}

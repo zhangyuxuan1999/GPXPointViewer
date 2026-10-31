@@ -1,0 +1,6 @@
+# Root Store/UI source and author evidence acceptance
+Read independent Sol report completely and author initial53 rawcheckoutput. Independent review inspected exact source+test transformations, raw53+new12lifecycle+5public-modeentry results and hashes. No root test rerun.
+Both concrete P2 findings fixed: single-day filter chip parentguard; public mode transition refresh. Original53 inherited, not relabeled finalrerun. New12+5 are first directed missing/fix evidence, allcompile/run0 and stablehash. Counts include readinesschecks, not70independentscenarios.
+Final appsource matches reviewed Store c2382edb / ContentView022392d9 and latest full-product Storetestcompile. New76keys assembled from compilerhandoff witholdcatalogpreserved. First actualappRelease/UI stillseparate.
+Reviewer inspected UI-driver hash8508a9 before author final432578. Root reviewed exact finaldelta from snapshot: checks nonempty screenshotfile, archives readiness/state commands, fails preference-restoration failure; no scenarios/productalgorithmschanged. Accepted finaldriver staticdelta; notpixelpass.
+No remaining concrete source finding in reviewedscope. Accept native UIimplementation/review whenfinalartifactscomplete; actualUIexecutionpending.

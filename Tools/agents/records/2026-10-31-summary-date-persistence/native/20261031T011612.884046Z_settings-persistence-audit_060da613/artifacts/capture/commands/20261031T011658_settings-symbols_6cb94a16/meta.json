@@ -1,0 +1,24 @@
+{
+  "label": "settings-symbols",
+  "argv": [
+    "rg",
+    "-n",
+    "enum AppLanguage|struct AppLanguage|static func relaunch|static func apply|func updateSetting|settings =|restoreIdleDefaults|persistIdleSetting|removePersistentDomain|volatileDomain",
+    "GPXPointViewer",
+    "Tests/ui"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T011658",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 91579,
+  "process_owner": {
+    "pid": 91579,
+    "parent_pid": 91574,
+    "process_identity": "darwin:91579:1793409418.470720",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

@@ -1,0 +1,22 @@
+{
+  "label": "state-source",
+  "argv": [
+    "nl",
+    "-ba",
+    "GPXPointViewer/JourneySummaryState.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014002",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 13570,
+  "process_owner": {
+    "pid": 13570,
+    "parent_pid": 13567,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

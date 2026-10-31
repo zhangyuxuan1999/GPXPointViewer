@@ -1,0 +1,15 @@
+{
+  "command_record": "Tools/agents/records/2026-10-28-remediation/coordinator/commands/20261029T004152_cleanup-independent_66eff786",
+  "reason": "Coordinator wrapper lacked __main__ guard, causing recursive unittest from multiprocessing spawn. Corrected entry. Sandbox getpgid denied; automatic review rejected proposed kill using only recorded PID. No signal sent by either rejected cleanup. Need read-only ownership evidence before any termination.",
+  "api_calls": 0,
+  "owner_finished": true,
+  "owner_exit_code": 1,
+  "owner_duration_s": 55.93,
+  "signals_sent_by_coordinator": false,
+  "resolution": "Command receipt confirms natural completion, 77 tests with one multiprocessing bootstrap error; main guard corrected before any retry. No termination is now required.",
+  "read_only_process_check": {
+    "pid_and_group": 94870,
+    "matching_processes": [],
+    "scope": "exact PID, parent PID and PGID only; no signals"
+  }
+}

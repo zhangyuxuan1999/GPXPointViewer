@@ -1,0 +1,22 @@
+{
+  "label": "relevant-tests-and-signing",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; import subprocess; print(\"TESTS:\"); print(\"\\n\".join(str(p) for p in Path(\"Tests/agents\").rglob(\"*\") if p.is_file() and (\"build\" in p.name or \"archive\" in p.name or \"install\" in p.name))); [print(str(p)+\"\\n\"+p.read_text()) for p in (Path(\"GPXPointViewer/GPXPointViewer.entitlements\"),Path(\"GPXQuickLook/GPXQuickLook.entitlements\"),Path(\"GPXThumbnail/GPXThumbnail.entitlements\"))]; subprocess.run([\"rg\",\"-n\",\"CODE_SIGN|PRODUCT_BUNDLE_IDENTIFIER|ENTITLEMENTS\",\"GPXPointViewer.xcodeproj/project.pbxproj\"]); subprocess.run([\"git\",\"status\",\"--short\",\"--\",\"Tools/build_release.py\",\"Tools/archive_build.py\",\"Tests/agents\",\"docs/local-install-signing.md\"])"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T012101",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 94360,
+  "process_owner": {
+    "pid": 94360,
+    "parent_pid": 94359,
+    "process_identity": "darwin:94360:1793409661.273920",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.04
+}

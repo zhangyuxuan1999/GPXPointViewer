@@ -1,0 +1,27 @@
+{
+  "label": "utc-alias-proof",
+  "argv": [
+    "rg",
+    "-n",
+    "-A",
+    "7",
+    "-B",
+    "6",
+    "UTC|GMT|canonical",
+    "Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T012543.656242Z_summary-date-navigation-implementation_a203875d/artifacts/compiled-first-to-final-StoreRegression.swift.diff"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014155",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 16185,
+  "process_owner": {
+    "pid": 16185,
+    "parent_pid": 16182,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

@@ -1,0 +1,26 @@
+{
+  "label": "frozen-core-hash",
+  "argv": [
+    "shasum",
+    "-a",
+    "256",
+    "GPXPointViewer/JourneySummary.swift",
+    "Tests/summary/core/main.swift",
+    "Tests/summary/core/run.py",
+    "Tests/summary/core/fixtures.py"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T045722",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 23645,
+  "process_owner": {
+    "pid": 23645,
+    "parent_pid": 23644,
+    "process_identity": "darwin:23645:1793336242.473082",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.05
+}

@@ -1,0 +1,244 @@
+{
+  "captured_utc": "2026-10-29T23:06:31.782366+00:00",
+  "files": [
+    {
+      "path": ".gitignore",
+      "git_state_at_inventory": " M",
+      "sha256": "774da2a44de6a683430be224b052bcb524fe2fb44928c99a6744ad97f8535427",
+      "bytes": 462,
+      "snapshot": "final-files/.gitignore"
+    },
+    {
+      "path": "DeepSeek/README.md",
+      "git_state_at_inventory": " M",
+      "sha256": "7e194b92f843e17749f3af80947ede7664d3947f22c548d612d44f54ab44f59c",
+      "bytes": 3056,
+      "snapshot": "final-files/DeepSeek/README.md"
+    },
+    {
+      "path": "DeepSeek/issues.md",
+      "git_state_at_inventory": " M",
+      "sha256": "6c2c14d6eda61f494325170d50648b03c8e780320d8e42e63e69fb4f3ab10cb7",
+      "bytes": 37030,
+      "snapshot": "final-files/DeepSeek/issues.md"
+    },
+    {
+      "path": "GPXPointViewer/ContentView.swift",
+      "git_state_at_inventory": " M",
+      "sha256": "a9933edee4dda872c16788810fa9812a517498636f26e4b9433ae8f7ea00b182",
+      "bytes": 153323,
+      "snapshot": "final-files/GPXPointViewer/ContentView.swift"
+    },
+    {
+      "path": "GPXPointViewer/FogArchive.swift",
+      "git_state_at_inventory": " M",
+      "sha256": "8a44459539cd1d1fadcd323b031f5fbf92731b65846398fe73c39f113d7336bc",
+      "bytes": 20627,
+      "snapshot": "final-files/GPXPointViewer/FogArchive.swift"
+    },
+    {
+      "path": "GPXPointViewer/GPXWriter.swift",
+      "git_state_at_inventory": " M",
+      "sha256": "4fa2ff3ffc4fc5d902e5a3c1814175c7f5cb469d3f4a0e5ecc0993f059e9c50e",
+      "bytes": 11422,
+      "snapshot": "final-files/GPXPointViewer/GPXWriter.swift"
+    },
+    {
+      "path": "GPXPointViewer/Localizable.xcstrings",
+      "git_state_at_inventory": " M",
+      "sha256": "bd17a1b9996aecf51c0bf0bb86cd8b5b16980926b6eca6d1176e5e17ce295ca2",
+      "bytes": 916530,
+      "snapshot": "final-files/GPXPointViewer/Localizable.xcstrings"
+    },
+    {
+      "path": "GPXPointViewer/MetalPointRenderer.swift",
+      "git_state_at_inventory": " M",
+      "sha256": "6cb95af16fc5cad6feea237dd5e724ac1468ea3db30c26e0df0f1837819e971b",
+      "bytes": 119028,
+      "snapshot": "final-files/GPXPointViewer/MetalPointRenderer.swift"
+    },
+    {
+      "path": "GPXPointViewer/RoadNetwork.swift",
+      "git_state_at_inventory": " M",
+      "sha256": "49008ea9d1ca43f2cf8eab77ad49bde701cf8b9740d7989b1c352b71090210b8",
+      "bytes": 166173,
+      "snapshot": "final-files/GPXPointViewer/RoadNetwork.swift"
+    },
+    {
+      "path": "GPXPointViewer/UITestHook.swift",
+      "git_state_at_inventory": " M",
+      "sha256": "06440157a82423a9a60d1ed7f163b6048591c3f921691044340d3e9a95ac721d",
+      "bytes": 77268,
+      "snapshot": "final-files/GPXPointViewer/UITestHook.swift"
+    },
+    {
+      "path": "GPXPointViewer/VideoExport.swift",
+      "git_state_at_inventory": " M",
+      "sha256": "1b83fc339c8548a5e7a37098987dfd89aaba6a8acd259c7ef881825d3691c162",
+      "bytes": 24100,
+      "snapshot": "final-files/GPXPointViewer/VideoExport.swift"
+    },
+    {
+      "path": "GPXQuickLook/PreviewViewController.swift",
+      "git_state_at_inventory": " M",
+      "sha256": "918d34c340533787808cb626973082b1222a939919229de438d32852f4f90f97",
+      "bytes": 6451,
+      "snapshot": "final-files/GPXQuickLook/PreviewViewController.swift"
+    },
+    {
+      "path": "README.md",
+      "git_state_at_inventory": " M",
+      "sha256": "d4a4b20d3595fcb796d129b4952d90149a5aee16e3b4fe6474e5e4fd6c0d1a6b",
+      "bytes": 53115,
+      "snapshot": "final-files/README.md"
+    },
+    {
+      "path": "Tests/README.md",
+      "git_state_at_inventory": " M",
+      "sha256": "d7034d4458da75c9fbe9872ddcf45d57d982d4aec125589bd44e437ba77c172e",
+      "bytes": 60757,
+      "snapshot": "final-files/Tests/README.md"
+    },
+    {
+      "path": "Tests/ui/run_suite.sh",
+      "git_state_at_inventory": " M",
+      "sha256": "a3a8e41897fc60756f35d21eb1d17120454589ad331c9aa23b087aa8c4a1b46d",
+      "bytes": 4998,
+      "snapshot": "final-files/Tests/ui/run_suite.sh"
+    },
+    {
+      "path": "Tests/ui/ui.py",
+      "git_state_at_inventory": " M",
+      "sha256": "cabf1e542e0b9204b8bc10975f6bafe1c9bf0736c85a8a93ec431067e9055351",
+      "bytes": 3000,
+      "snapshot": "final-files/Tests/ui/ui.py"
+    },
+    {
+      "path": "Tools/agents/AGENT_LOG.md",
+      "git_state_at_inventory": " M",
+      "sha256": "167b51a7ae034bd68760df2cbb42ebd99b84cd6a336c1abcf1eed0b29934f321",
+      "bytes": 49787,
+      "snapshot": "final-files/Tools/agents/AGENT_LOG.md"
+    },
+    {
+      "path": "docs/cross-check-design.md",
+      "git_state_at_inventory": " M",
+      "sha256": "44fae914f0e2a96280ea15d2c9b143889aa499ec2a4a4d35d723ed885b7bca13",
+      "bytes": 24909,
+      "snapshot": "final-files/docs/cross-check-design.md"
+    },
+    {
+      "path": "docs/fill-plausibility-design.md",
+      "git_state_at_inventory": " M",
+      "sha256": "510139ce42d0307fa909267d8e22c56d5fa1af23691da2b82110ba3625a427ad",
+      "bytes": 32914,
+      "snapshot": "final-files/docs/fill-plausibility-design.md"
+    },
+    {
+      "path": "DeepSeek/2026-10-29-codex-response.md",
+      "git_state_at_inventory": "??",
+      "sha256": "70813fc89ed268b0a5a0ee9bd148d74621c528fe930d6b8c4e558d56e75e33f1",
+      "bytes": 14358,
+      "snapshot": "final-files/DeepSeek/2026-10-29-codex-response.md"
+    },
+    {
+      "path": "DeepSeek/2026-10-29-feature-directions.md",
+      "git_state_at_inventory": "??",
+      "sha256": "cb157e738f40ca8509603c3a05ef3d43c7ccdbcd57720153fe4b1778280abf8f",
+      "bytes": 3882,
+      "snapshot": "final-files/DeepSeek/2026-10-29-feature-directions.md"
+    },
+    {
+      "path": "Tests/l10n/translations/chunk_30.json",
+      "git_state_at_inventory": "??",
+      "sha256": "0e68268557a1a4d1ae229c05e4f2756710dbdb65226b3d2d70e4225bf0f9877a",
+      "bytes": 1029,
+      "snapshot": "final-files/Tests/l10n/translations/chunk_30.json"
+    },
+    {
+      "path": "Tests/probes/deepseek-core/README.md",
+      "git_state_at_inventory": "??",
+      "sha256": "9b658153856a0144e3766dc0f80f8d2eb6cc4eaf2395abac7cf1f3916b82647b",
+      "bytes": 817,
+      "snapshot": "final-files/Tests/probes/deepseek-core/README.md"
+    },
+    {
+      "path": "Tests/probes/deepseek-core/main.swift",
+      "git_state_at_inventory": "??",
+      "sha256": "d4001330a26d409d70700661bbaeb5e556ada578cda090fde8e9ed966b30775a",
+      "bytes": 6808,
+      "snapshot": "final-files/Tests/probes/deepseek-core/main.swift"
+    },
+    {
+      "path": "Tests/probes/deepseek-core/run.py",
+      "git_state_at_inventory": "??",
+      "sha256": "23f15e7ecf05b15f8ef551d43077e1cbc9130478b2f09644fe3a4a964175283e",
+      "bytes": 3142,
+      "snapshot": "final-files/Tests/probes/deepseek-core/run.py"
+    },
+    {
+      "path": "Tests/probes/deepseek-harness/README.md",
+      "git_state_at_inventory": "??",
+      "sha256": "5c423c60e9537399a5a61a5661c7c6cc5a18af711f2ba75a836dad290b89d971",
+      "bytes": 1207,
+      "snapshot": "final-files/Tests/probes/deepseek-harness/README.md"
+    },
+    {
+      "path": "Tests/probes/deepseek-harness/metal_contract.swift",
+      "git_state_at_inventory": "??",
+      "sha256": "564267380571208dfc604edd976784d13b4702e2089c9f60cb16dc1617bf7811",
+      "bytes": 3750,
+      "snapshot": "final-files/Tests/probes/deepseek-harness/metal_contract.swift"
+    },
+    {
+      "path": "Tests/probes/deepseek-harness/run_metal_contract.py",
+      "git_state_at_inventory": "??",
+      "sha256": "c6e6dd0887121b2d77632686034d665dc9ad6f3c8e4c28c7dbf8a9642bff2c5e",
+      "bytes": 3707,
+      "snapshot": "final-files/Tests/probes/deepseek-harness/run_metal_contract.py"
+    },
+    {
+      "path": "Tests/probes/deepseek-harness/test_harness.py",
+      "git_state_at_inventory": "??",
+      "sha256": "b9a8d311afd7d00ae4d9fea0db2e9b572a5301d7abc828bffa455952ca6c81c8",
+      "bytes": 17159,
+      "snapshot": "final-files/Tests/probes/deepseek-harness/test_harness.py"
+    },
+    {
+      "path": "Tests/probes/deepseek-small/README.md",
+      "git_state_at_inventory": "??",
+      "sha256": "2f749a7cba6adc320000de6268eed0fdf1886085da2d9d4d9f23c57a852cd782",
+      "bytes": 2020,
+      "snapshot": "final-files/Tests/probes/deepseek-small/README.md"
+    },
+    {
+      "path": "Tests/probes/deepseek-small/main.swift",
+      "git_state_at_inventory": "??",
+      "sha256": "d76871f73c33fd5a8f422e32c7a9d8e9833ee6e042b072eb8c6b307770f389f4",
+      "bytes": 4221,
+      "snapshot": "final-files/Tests/probes/deepseek-small/main.swift"
+    },
+    {
+      "path": "Tests/probes/deepseek-small/run.py",
+      "git_state_at_inventory": "??",
+      "sha256": "60280fe7088a30a6e88843aba508a3aa3620c40e50c08ce76f27bb3539b97b52",
+      "bytes": 7856,
+      "snapshot": "final-files/Tests/probes/deepseek-small/run.py"
+    },
+    {
+      "path": "Tools/archive_build.py",
+      "git_state_at_inventory": "??",
+      "sha256": "944f0a1ed49204200d355ead30d1bbf0317d89c77d6d6b11f06f54e929b1490d",
+      "bytes": 10412,
+      "snapshot": "final-files/Tools/archive_build.py"
+    },
+    {
+      "path": "Tools/build_release.py",
+      "git_state_at_inventory": "??",
+      "sha256": "f99bbf1c941d055367e4de2186e5224735e2803cc1749d88e98bcfe0e8a1f264",
+      "bytes": 3775,
+      "snapshot": "final-files/Tools/build_release.py"
+    }
+  ],
+  "note": "Includes untracked additions. AGENT_LOG is an append-only live log and may receive subsequent finish/verify entries. Before snapshots are retained per original writing task and document-finalization-before."
+}

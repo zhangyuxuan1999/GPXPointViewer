@@ -1,0 +1,40 @@
+[
+  {
+    "argv": [
+      "/bin/ps",
+      "-axo",
+      "pid=,comm="
+    ],
+    "stdout": " 8461 /private/tmp/gpxpv-remediation-build/Build/Products/Release/GPXPointViewer.app/Contents/PlugIns/GPXThumbnail.appex/Contents/MacOS/GPXThumbnail\n54903 /Applications/GPXPointViewer.app/Contents/PlugIns/GPXQuickLook.appex/Contents/MacOS/GPXQuickLook\n82598 /Applications/GPXPointViewer.app/Contents/MacOS/GPXPointViewer",
+    "stderr": "",
+    "exit_code": 0
+  },
+  {
+    "argv": [
+      "/Applications/ChatGPT.app/Contents/Resources/codex-cli/codex-path/rg",
+      "-n",
+      "-C",
+      "5",
+      "每日与行程摘要|JourneySummaryWindow|summaryWindow|journeySummary",
+      "/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/ContentView.swift",
+      "/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/GPXPointViewerApp.swift"
+    ],
+    "stdout": "/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/GPXPointViewerApp.swift-6-import SwiftUI\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/GPXPointViewerApp.swift-7-import AppKit\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/GPXPointViewerApp.swift-8-\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/GPXPointViewerApp.swift-9-/// 各 Window 场景的 id：openWindow(id:) 与按场景找 NSWindow 都用它（窗口标题会被本地化，不能拿来当标识）\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/GPXPointViewerApp.swift-10-enum SceneID {\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/GPXPointViewerApp.swift:11:    static let diff = \"diff\", batchFill = \"batchFill\", changeReview = \"changeReview\", regions = \"regions\", journeySummary = \"journeySummary\"\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/GPXPointViewerApp.swift-12-}\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/GPXPointViewerApp.swift-13-\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/GPXPointViewerApp.swift-14-extension NSApplication {\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/GPXPointViewerApp.swift-15-    /// 按 SwiftUI 场景 id 找窗口：NSWindow.identifier 为 id 本身或 \"id-AppWindow-N\" 之类；优先可见的那个。\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/GPXPointViewerApp.swift-16-    /// 批量补点窗口兜底再按（本地化后的）标题找一次\n--\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/GPXPointViewerApp.swift-152-        Window(\"地区统计\", id: SceneID.regions) {\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/GPXPointViewerApp.swift-153-            RegionsWindowView(store: store)\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/GPXPointViewerApp.swift-154-        }\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/GPXPointViewerApp.swift-155-        .defaultSize(width: 720, height: 640)\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/GPXPointViewerApp.swift-156-\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/GPXPointViewerApp.swift:157:        Window(\"每日与行程摘要\", id: SceneID.journeySummary) {\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/GPXPointViewerApp.swift:158:            JourneySummaryWindowView(store: store)\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/GPXPointViewerApp.swift-159-        }\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/GPXPointViewerApp.swift-160-        .defaultSize(width: 1000, height: 700)\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/GPXPointViewerApp.swift-161-    }\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/GPXPointViewerApp.swift-162-}\n--\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/ContentView.swift-211-            NetworkHealth.shared.start()\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/ContentView.swift-212-            if UITestHook.enabled {\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/ContentView.swift-213-                UITestHook.shared.openBatchWindow = { openWindow(id: SceneID.batchFill) }\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/ContentView.swift-214-                UITestHook.shared.openReviewWindow = { openWindow(id: SceneID.changeReview) }\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/ContentView.swift-215-                UITestHook.shared.openRegionsWindow = { openWindow(id: SceneID.regions) }\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/ContentView.swift:216:                UITestHook.shared.openSummaryWindow = { openWindow(id: SceneID.journeySummary) }\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/ContentView.swift-217-            }\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/ContentView.swift-218-        }\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/ContentView.swift-219-        .coordinateSpace(name: \"root\")\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/ContentView.swift-220-        .onDrop(of: [UTType.fileURL], isTargeted: $dropTargeted) { handleDrop($0) }\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/ContentView.swift-221-        .onChange(of: dropTargeted) {\n--\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/ContentView.swift-1584-                    .font(.caption)\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/ContentView.swift-1585-                    .toggleStyle(.checkbox)\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/ContentView.swift-1586-                    .help(\"等级 / 探索面积 / 地球占比，算法与《世界迷雾》一致（2²²×2²² 格网 + 逐格纬度面积 + 等级=√(面积×250)）\")\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/ContentView.swift-1587-            }\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/ContentView.swift-1588-            HStack(spacing: 8) {\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/ContentView.swift:1589:                Button(\"每日与行程摘要…\") {\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/ContentView.swift:1590:                    store.summaryWindowOpen = true\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/ContentView.swift:1591:                    openWindow(id: SceneID.journeySummary)\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/ContentView.swift-1592-                }\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/ContentView.swift-1593-                if !store.settings.heatMap {\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/ContentView.swift-1594-                    Button(\"地区统计…\") { openWindow(id: SceneID.regions) }\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/ContentView.swift-1595-                        .disabled((store.track == nil && !fwdbMode) || !RegionIndex.hasData)\n/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/ContentView.swift-1596-                        .help(RegionIndex.hasData\n",
+    "stderr": "",
+    "exit_code": 0
+  },
+  {
+    "app": "/Applications/GPXPointViewer.app",
+    "exists": true,
+    "CFBundleShortVersionString": "1.0",
+    "CFBundleVersion": "1",
+    "executable_sha256": "a901e819c26dab26af37366507792c7cbc670093f1c90050ccfa08f5a04c2210"
+  },
+  {
+    "app": "/Users/zyx/Documents/GPXPointViewer/Builds/20261030T060514Z_release_4bd65c63/archive/GPXPointViewer.app",
+    "exists": true,
+    "CFBundleShortVersionString": "1.0",
+    "CFBundleVersion": "1",
+    "executable_sha256": "64d5101be7c3239d10e0cfd01109b3220899f992f9865d1eda0dc2b606b5e883"
+  }
+]

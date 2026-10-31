@@ -1,0 +1,27 @@
+{
+  "label": "010-prepared-event",
+  "argv": [
+    "python3",
+    "Tools/agents/agent_run.py",
+    "event",
+    "Tools/agents/records/2026-10-30-journey-summary/native/20261030T053625.785305Z_journey-summary-visual-recovery-prep_7b305f24",
+    "--type",
+    "progress",
+    "--json",
+    "{\"completed\":\"Prepared driver visual-only extras and bounded NSWorkspace known-loginwindow preflight; before/after snapshots,diff,hashes saved. AST parse passed and visual-only branch has0check calls. Actual inherited zh12/en0/de0 results and cleanup saved without rerun.\",\"doing\":\"Finish provider execution with acceptance pending root diff review.\",\"next\":\"After user unlock, root creates NEW hash-locked screenshot-only wrapper; zh visual-only+extras,en/de visual-only. No old passing functionalchecks repeated.\",\"not_executed\":\"App/UI/build/Store/coretests/live screen preflight query\"}"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T054053",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 42905,
+  "process_owner": {
+    "pid": 42905,
+    "parent_pid": 42904,
+    "process_identity": "darwin:42905:1793338853.885633",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.05
+}

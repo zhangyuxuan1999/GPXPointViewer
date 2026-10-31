@@ -1,0 +1,9 @@
+{
+  "signing_fix_run": "20261031T013830.330949Z_signing-review-fixes_cb1bcb2b",
+  "agent": "/root/signing_persistence_fix",
+  "model_requested": "gpt-6.1-sol",
+  "effort_requested": "ultra",
+  "actual_model": null,
+  "instructions": "Read complete new task and final review; fix3P2 only, reuseold16, no real App/sign/build/install/prefs.",
+  "date_followup": "Add visual-only mode: en/de onlyselected/chooser/journeytop images, zero repeated functional checks; literal native field typing pending later. Original27+25 pass inherited; newchip9 passed."
+}

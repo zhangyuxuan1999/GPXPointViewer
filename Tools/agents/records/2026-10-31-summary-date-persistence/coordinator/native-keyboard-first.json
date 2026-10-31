@@ -1,0 +1,78 @@
+{
+  "unique_test_id": "de.wayne.GPXPointViewer.test.t20261031t020611z-403e4aea9ee1",
+  "actions": [
+    {
+      "api": "getApp",
+      "path": "/private/tmp/GPXPointViewer-summary-navigation-o8ts5_v_/isolated-copy/GPXPointViewer.app",
+      "AX": "date8=17.10.26, Viewbutton9, selectedempty"
+    },
+    {
+      "api": "click8/getAXScreenshot",
+      "result": "datepicker visible17.10.2026"
+    },
+    {
+      "api": "clickcoord450294",
+      "result": "noWindowsAvailable, noactionconfirmed"
+    },
+    {
+      "api": "performSecondaryAction0 Raise",
+      "result": "AXunchanged"
+    },
+    {
+      "api": "getState",
+      "result": "testbundleisRunning true; unrelatedappinventoryomitted"
+    },
+    {
+      "api": "pressKey Home;1",
+      "result": "AXvalueunchangedwhileediting"
+    },
+    {
+      "api": "computer.launch_app",
+      "result": "APIunavailable TypeError; noaction"
+    },
+    {
+      "api": "click9",
+      "result": "date8=01.10.26; selected2026-10-01; emptydatecorrect"
+    },
+    {
+      "api": "click8; Home;Right;1",
+      "result": "monthsegmentshows1, selecteddaystillOctober"
+    },
+    {
+      "api": "Right;2;0;1;6;Return",
+      "result": "date8=01.01.16;selectedstill2026-10-01, RETURNFAILED"
+    },
+    {
+      "api": "click9",
+      "result": "selected2016-01-01;actualrow2016-01-01 12:00:00–12:01:00;distance0.02km,1minute"
+    }
+  ],
+  "literal_keyboard_and_button": "passed",
+  "single_return_submission": "failed",
+  "formalapp_touched": false,
+  "oldtests_repeated": false,
+  "harness_terminal": "expired360seconds beforefinishmarker; rc1 preserved; earlierCUAobservationsremainvalid, notwholeharnesspass",
+  "cleanup": {
+    "owned_processes": [
+      {
+        "stage": "keyboard-only",
+        "pid": 39193,
+        "argv": [
+          "/private/tmp/GPXPointViewer-summary-navigation-o8ts5_v_/isolated-copy/GPXPointViewer.app/Contents/MacOS/GPXPointViewer",
+          "-NSQuitAlwaysKeepsWindows",
+          "NO",
+          "-AppleLanguages",
+          "(zh-Hans)"
+        ],
+        "normal_quit": false,
+        "exit_code": -15,
+        "failure_cleanup": true
+      }
+    ],
+    "isolated_bundle_id": "de.wayne.GPXPointViewer.test.t20261031t020611z-403e4aea9ee1",
+    "isolated_work": "/Users/zyx/Library/Containers/de.wayne.GPXPointViewer.test.t20261031t020611z-403e4aea9ee1/Data/tmp/summary-keyboard",
+    "formal_preference_domain_accessed": false,
+    "formal_app_process_touched": false,
+    "isolated_domain_retained_for_evidence": true
+  }
+}

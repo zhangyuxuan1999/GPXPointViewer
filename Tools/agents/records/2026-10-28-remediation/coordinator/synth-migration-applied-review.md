@@ -1,0 +1,1 @@
+真实DeepSeek调用达到30轮限制，CLI exit1/error_max_turns/max_turns，无最终报告。原run保留failed/pending，已派T11修结构化分类顺序，不改写原失败。执行正常工具回执证实唯一批准脚本已完成，8实际文件逐SHA256与独立Sol final-freeze逐条相同；原before、after、changes、installer receipt都在本run。Bash广泛find/ls尝试被拒绝，后续准确脚本允许；无范围外写入。未完成的是代理静态抽核/总结，root已独立验证8变更，最终R4将验证完整114/125。禁止重复运行写入脚本，直接继续未完成测试。

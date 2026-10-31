@@ -1,0 +1,22 @@
+{
+  "label": "bootstrap-complete-source-record",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; files=[\"AGENTS.md\",\"Tools/agents/README.md\",\"Tools/agents/records/2026-10-30-journey-summary/coordinator/capture.py\"]; [(print(\"\\nFILE=\"+f),print(Path(f).read_text())) for f in files]"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014227",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 16706,
+  "process_owner": {
+    "pid": 16706,
+    "parent_pid": 16702,
+    "process_identity": "darwin:16706:1793410947.239307",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.03
+}

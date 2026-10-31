@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "sed",
+    "-n",
+    "370,411p",
+    "Tests/synth/runner/main.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "start": "2026-10-28T23:44:36.660257+00:00",
+  "exit_code": 0,
+  "finish": "2026-10-28T23:44:36.663804+00:00"
+}

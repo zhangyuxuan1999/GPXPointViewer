@@ -1,0 +1,28 @@
+{
+  "app": "/private/tmp/GPXPointViewer-20261031T022013Z_release_622cc5f4-41jxc2qk/archive/GPXPointViewer.app",
+  "manifest": "/private/tmp/GPXPointViewer-20261031T022013Z_release_622cc5f4-41jxc2qk/archive/build-manifest.json",
+  "durable_zip": "/Users/zyx/Documents/GPXPointViewer/Builds/20261031T022013Z_release_622cc5f4/archive/GPXPointViewer.app.zip",
+  "durable_manifest": "/Users/zyx/Documents/GPXPointViewer/Builds/20261031T022013Z_release_622cc5f4/archive/build-manifest.json",
+  "executable_sha256": "eb52d08767443f1d1ee967b994f485731785e111685bef903688366bb8884265",
+  "source_sha256": "d22ea9dc6cd7c993429da024b03e99d2958b3bb4a4d6f7f67a08f459ecd401ab",
+  "signing_policy": "sandboxed-local",
+  "installable": true,
+  "driver_sha256": "2119b111eb34470f67bb39a8d1dbab6c7b29e45aa3d3623eade5619502471659",
+  "phases": [
+    {
+      "name": "navigation-remaining-zh",
+      "mode": "navigation-remaining",
+      "language": "zh-Hans"
+    },
+    {
+      "name": "visual-en",
+      "mode": "visual-only",
+      "language": "en"
+    },
+    {
+      "name": "visual-de",
+      "mode": "visual-only",
+      "language": "de"
+    }
+  ]
+}

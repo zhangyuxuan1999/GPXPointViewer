@@ -1,0 +1,22 @@
+{
+  "label": "region-api",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; p=Path(\"GPXPointViewer/RegionIndex.swift\"); lines=p.read_text().splitlines(); ranges=[(1,65),(85,155),(227,244),(480,530)]; [(print(\"\\n\"+str(a)+\"-\"+str(b)),print(\"\\n\".join(lines[a-1:b]))) for a,b in ranges]; print(Path(\"Tests/probes/regions/run.sh\").read_text())"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T042833",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 17579,
+  "process_owner": {
+    "pid": 17579,
+    "parent_pid": 17578,
+    "process_identity": "darwin:17579:1793334513.185724",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.03
+}

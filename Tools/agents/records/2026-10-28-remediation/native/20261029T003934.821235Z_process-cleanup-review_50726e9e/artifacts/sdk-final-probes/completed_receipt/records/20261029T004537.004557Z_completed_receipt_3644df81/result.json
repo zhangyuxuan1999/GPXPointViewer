@@ -1,0 +1,154 @@
+{
+  "process_cleanup": [
+    {
+      "pid": 1999999993,
+      "status": "incomplete",
+      "attempts": [
+        {
+          "operation": "group_sigterm",
+          "outcome": "error",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected group denied"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "direct_terminate",
+          "outcome": "error",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected terminate denied"
+        },
+        {
+          "operation": "wait",
+          "outcome": "error",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected join denied"
+        },
+        {
+          "operation": "group_sigkill",
+          "outcome": "error",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected group denied"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "direct_kill",
+          "outcome": "error",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected kill denied"
+        },
+        {
+          "operation": "wait",
+          "outcome": "error",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected join denied"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "group_probe",
+          "outcome": "error",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected group denied"
+        },
+        {
+          "operation": "exit_code",
+          "outcome": "ok"
+        }
+      ],
+      "errors": [
+        {
+          "operation": "group_sigterm",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected group denied"
+        },
+        {
+          "operation": "direct_terminate",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected terminate denied"
+        },
+        {
+          "operation": "wait",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected join denied"
+        },
+        {
+          "operation": "group_sigkill",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected group denied"
+        },
+        {
+          "operation": "direct_kill",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected kill denied"
+        },
+        {
+          "operation": "wait",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected join denied"
+        },
+        {
+          "operation": "group_probe",
+          "type": "PermissionError",
+          "errno": 1,
+          "message": "[Errno 1] injected group denied"
+        }
+      ],
+      "leader_alive": true,
+      "group_alive": null,
+      "leader_exit_code": null,
+      "duration_s": 0.00019891606643795967
+    }
+  ],
+  "cleanup_complete": false,
+  "sdk_query_completed": true,
+  "sdk_reported_cost_usd": 0.25,
+  "runner_exit_code": 124,
+  "child_exit_code": null,
+  "provider_status": "interrupted",
+  "acceptance_status": "pending",
+  "started": true,
+  "exit_code": 124,
+  "error": null,
+  "is_error": true,
+  "duration_s": 0.073,
+  "cost_usd": 0.25,
+  "cost_source": "SDK estimate",
+  "actual_billed_cost_usd": null,
+  "budget_usd": 2.0,
+  "budget_ledger": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/native/20261029T003934.821235Z_process-cleanup-review_50726e9e/artifacts/sdk-final-probes/completed_receipt/budget.json",
+  "runner_terminal_reason": "wall_clock_timeout",
+  "usage": null,
+  "num_turns": null,
+  "session_id": null,
+  "subtype": "error_max_turns",
+  "terminal_reason": "max_turns",
+  "stop_reason": null,
+  "errors": null,
+  "permission_denials": null,
+  "api_error_status": null,
+  "finished_utc": "2026-10-29T00:45:37.136387+00:00",
+  "status": "interrupted",
+  "run_status": "interrupted",
+  "verification_status": "not_run"
+}

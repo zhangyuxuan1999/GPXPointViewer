@@ -1,0 +1,1 @@
+测试隔离修正：允许测试在 /private/tmp 的独立临时目录创建合成RunStore与git仓库，再将命令/结果/必要证据复制回runner-tests。停止自动从路径推断并写主AGENT_LOG；实现提供明确 index=false / --no-project-index，或显式项目索引目标，离线测试默认不写真实总账。已新增的合成索引不删除历史，主代理在总账注明仅offline fixture、未派模型/API。请协调修复后继续全套mock。

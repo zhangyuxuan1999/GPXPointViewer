@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "sed",
+    "-n",
+    "2470,2875p",
+    "GPXPointViewer/TrackStore.swift"
+  ],
+  "cwd": "/private/tmp/gpxpv-segment-integration-o3kf8civ",
+  "start": "2026-10-29T00:12:40.183696+00:00",
+  "exit_code": 0,
+  "finish": "2026-10-29T00:12:40.187251+00:00"
+}

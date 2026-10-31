@@ -1,0 +1,27 @@
+{
+  "label": "main-calendar",
+  "argv": [
+    "rg",
+    "-n",
+    "-A",
+    "65",
+    "-B",
+    "12",
+    "struct ViewFilterSpec|func summaryRange|private func push",
+    "GPXPointViewer/ExportSheet.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014014",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 14043,
+  "process_owner": {
+    "pid": 14043,
+    "parent_pid": 14038,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

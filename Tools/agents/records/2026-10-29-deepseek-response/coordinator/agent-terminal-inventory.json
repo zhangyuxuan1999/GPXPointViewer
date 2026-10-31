@@ -1,0 +1,124 @@
+[
+  {
+    "run": "Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204816.698428Z_deepseek-architecture-review_9ec4d98d",
+    "result.json": {
+      "provider_status": "succeeded",
+      "acceptance_status": "pending",
+      "run_status": "succeeded",
+      "verification_status": "not_run",
+      "exit_code": null,
+      "finished_utc": "2026-10-29T20:57:43.787082+00:00"
+    },
+    "verification.json": {
+      "verification_status": "passed"
+    }
+  },
+  {
+    "run": "Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204816.855795Z_deepseek-core-fixes_69813bdb",
+    "result.json": {
+      "provider_status": "succeeded",
+      "acceptance_status": "pending",
+      "run_status": "succeeded",
+      "verification_status": "not_run",
+      "exit_code": 0,
+      "finished_utc": "2026-10-29T20:56:15.148511+00:00"
+    },
+    "verification.json": {
+      "verification_status": "passed"
+    }
+  },
+  {
+    "run": "Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204817.033883Z_deepseek-harness-renderer_f132cc89",
+    "result.json": {
+      "provider_status": "succeeded",
+      "acceptance_status": "pending",
+      "run_status": "succeeded",
+      "verification_status": "not_run",
+      "exit_code": null,
+      "finished_utc": "2026-10-29T21:05:06.986368+00:00"
+    },
+    "verification.json": {
+      "verification_status": "passed"
+    }
+  },
+  {
+    "run": "Tools/agents/records/2026-10-29-deepseek-response/native/20261029T210912.200676Z_n05-display-acceptance_4d8e6033",
+    "result.json": {
+      "provider_status": "succeeded",
+      "acceptance_status": "failed",
+      "run_status": "failed",
+      "verification_status": "failed",
+      "exit_code": null,
+      "finished_utc": "2026-10-29T21:13:45.171613+00:00"
+    },
+    "verification.json": "missing"
+  },
+  {
+    "run": "Tools/agents/records/2026-10-29-deepseek-response/native/20261029T211057.193397Z_release-build-diagnosis_47e230d2",
+    "result.json": {
+      "provider_status": "succeeded",
+      "acceptance_status": "failed",
+      "run_status": "failed",
+      "verification_status": "failed",
+      "exit_code": null,
+      "finished_utc": "2026-10-29T23:01:07.125759+00:00"
+    },
+    "verification.json": {
+      "verification_status": "incomplete"
+    }
+  },
+  {
+    "run": "Tools/agents/records/2026-10-29-deepseek-response/native/20261029T212431.026419Z_release-build-unblock_a6a4c8be",
+    "result.json": {
+      "provider_status": "succeeded",
+      "acceptance_status": "pending",
+      "run_status": "succeeded",
+      "verification_status": "not_run",
+      "exit_code": null,
+      "finished_utc": "2026-10-29T21:29:04.176755+00:00"
+    },
+    "verification.json": {
+      "verification_status": "passed"
+    }
+  },
+  {
+    "run": "Tools/agents/records/2026-10-29-deepseek-response/native/20261029T212431.155785Z_deepseek-probe-maintenance_7cc0567b",
+    "result.json": {
+      "provider_status": "succeeded",
+      "acceptance_status": "pending",
+      "run_status": "succeeded",
+      "verification_status": "not_run",
+      "exit_code": 0,
+      "finished_utc": "2026-10-29T21:32:08.716350+00:00"
+    },
+    "verification.json": {
+      "verification_status": "passed"
+    }
+  },
+  {
+    "run": "Tools/agents/records/2026-10-29-deepseek-response/deepseek/20261029T205753.317876Z_deepseek-bounded-fixes_3c79b2ac",
+    "result.json": {
+      "provider_status": "interrupted",
+      "acceptance_status": "pending",
+      "run_status": "interrupted",
+      "verification_status": "not_run",
+      "exit_code": 1,
+      "finished_utc": "2026-10-29T21:03:44.425067+00:00"
+    },
+    "verification.json": "missing"
+  },
+  {
+    "run": "Tools/agents/records/2026-10-29-deepseek-response/deepseek/20261029T210624.045916Z_deepseek-bounded-finish_ecbb20c9",
+    "result.json": {
+      "provider_status": "succeeded",
+      "acceptance_status": "pending",
+      "run_status": "succeeded",
+      "verification_status": "not_run",
+      "exit_code": 0,
+      "finished_utc": "2026-10-29T21:11:55.982173+00:00"
+    },
+    "verification.json": {
+      "verification_status": "passed"
+    }
+  }
+]

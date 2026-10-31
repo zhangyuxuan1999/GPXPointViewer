@@ -1,0 +1,1 @@
+Root初读当前terminate_group：owns_pid在expected/current身份缺失时仍允许；proc.poll可能reap leader后PID可复用，owns_group随后getpgid/getsid==pid或known receipt并不足证明当前新group仍原组。请独立判断是否有真实可执行窗口/如何最小保守收敛；不要仅凭低概率说安全。另helper会在正常exit仍group SIGTERM/KILL，应证明不会错杀PID复用组。只是假设待你核定，不宣称已复现。

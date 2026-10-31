@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "rg",
+    "-n",
+    "^(struct|enum|extension|final class)|PixelGlobe|Metal|Point|GeoMath",
+    "GPXPointViewer/GapFill.swift",
+    "GPXPointViewer/TrackData.swift",
+    "GPXPointViewer/GeoCompute.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "start": "2026-10-29T00:33:43.952461+00:00",
+  "exit_code": 0,
+  "finish": "2026-10-29T00:33:43.964827+00:00"
+}

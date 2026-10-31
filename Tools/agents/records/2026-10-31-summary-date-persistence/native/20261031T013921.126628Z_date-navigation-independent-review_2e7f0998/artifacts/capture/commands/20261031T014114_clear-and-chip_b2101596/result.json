@@ -1,0 +1,23 @@
+{
+  "label": "clear-and-chip",
+  "argv": [
+    "sed",
+    "-n",
+    "1250,1290p",
+    "GPXPointViewer/TrackStore.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014114",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 15596,
+  "process_owner": {
+    "pid": 15596,
+    "parent_pid": 15592,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

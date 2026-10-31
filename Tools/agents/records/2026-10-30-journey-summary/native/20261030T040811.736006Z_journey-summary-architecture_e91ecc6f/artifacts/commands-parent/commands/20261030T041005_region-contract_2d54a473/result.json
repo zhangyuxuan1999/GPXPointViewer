@@ -1,0 +1,23 @@
+{
+  "label": "region-contract",
+  "argv": [
+    "sed",
+    "-n",
+    "1,145p",
+    "GPXPointViewer/RegionStats.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041005",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 12458,
+  "process_owner": {
+    "pid": 12458,
+    "parent_pid": 12454,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

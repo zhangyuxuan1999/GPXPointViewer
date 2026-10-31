@@ -1,0 +1,7 @@
+{
+  "cpu_checks" : 19,
+  "gpu_available" : false,
+  "gpu_checks" : 0,
+  "scope" : "actual renderer malformed-column contract; no app\/UI\/draw",
+  "total_checks" : 19
+}

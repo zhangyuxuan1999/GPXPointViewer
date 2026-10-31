@@ -1,0 +1,23 @@
+{
+  "label": "hook-settings-and-state",
+  "argv": [
+    "sed",
+    "-n",
+    "780,872p",
+    "GPXPointViewer/UITestHook.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014014",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 14044,
+  "process_owner": {
+    "pid": 14044,
+    "parent_pid": 14041,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

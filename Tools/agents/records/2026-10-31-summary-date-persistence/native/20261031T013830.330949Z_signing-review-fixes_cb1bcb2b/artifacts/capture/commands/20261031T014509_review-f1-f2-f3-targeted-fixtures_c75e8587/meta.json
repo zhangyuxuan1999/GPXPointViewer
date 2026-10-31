@@ -1,0 +1,21 @@
+{
+  "label": "review-f1-f2-f3-targeted-fixtures",
+  "argv": [
+    "python3",
+    "Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T013830.330949Z_signing-review-fixes_cb1bcb2b/artifacts/run_review_fix_fixtures.py"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014509",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 20065,
+  "process_owner": {
+    "pid": 20065,
+    "parent_pid": 20064,
+    "process_identity": "darwin:20065:1793411109.908512",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.38
+}

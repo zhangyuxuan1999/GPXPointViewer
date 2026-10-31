@@ -1,0 +1,21 @@
+{
+  "label": "finding-progress",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T013532",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 7244,
+  "process_owner": {
+    "pid": 7244,
+    "parent_pid": 7243,
+    "process_identity": "darwin:7244:1793410532.429063",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.08
+}

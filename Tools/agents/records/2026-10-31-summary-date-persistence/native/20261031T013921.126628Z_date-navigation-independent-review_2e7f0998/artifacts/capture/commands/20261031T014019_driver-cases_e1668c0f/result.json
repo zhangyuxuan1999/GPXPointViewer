@@ -1,0 +1,23 @@
+{
+  "label": "driver-cases",
+  "argv": [
+    "sed",
+    "-n",
+    "291,450p",
+    "Tests/ui/run_summary_navigation_tests.py"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014019",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 14194,
+  "process_owner": {
+    "pid": 14194,
+    "parent_pid": 14190,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

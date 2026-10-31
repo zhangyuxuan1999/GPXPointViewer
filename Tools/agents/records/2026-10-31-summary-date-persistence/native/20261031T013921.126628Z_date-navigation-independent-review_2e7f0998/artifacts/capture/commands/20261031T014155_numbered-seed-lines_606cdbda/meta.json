@@ -1,0 +1,22 @@
+{
+  "label": "numbered-seed-lines",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; p=Path(\"GPXPointViewer/TrackStore.swift\"); t=p.read_text().splitlines(); [(print(f\"{i+1}: {t[i]}\")) for a,b in [(4620,4658),(4837,4853)] for i in range(a-1,b)]"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014155",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 16186,
+  "process_owner": {
+    "pid": 16186,
+    "parent_pid": 16183,
+    "process_identity": "darwin:16186:1793410915.653915",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.03
+}

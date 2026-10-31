@@ -1,0 +1,22 @@
+{
+  "label": "tests-inventory",
+  "argv": [
+    "rg",
+    "--files",
+    "Tests/summary/core"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T045348",
+  "status": "failed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 20639,
+  "process_owner": {
+    "pid": 20639,
+    "parent_pid": 20638,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 2,
+  "duration_s": 0.0
+}

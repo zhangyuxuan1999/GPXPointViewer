@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "purpose": "r4-engine-label-only",
+  "new_source_manifest": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/coordinator/label-source-manifest.json",
+  "new_source_manifest_sha256": "09ca42fb8bd41c07c7196330705212a3f4f706beb662bfeaf116fe0c05187c32",
+  "new_build_manifest": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/coordinator/label-build-manifest.json",
+  "new_build_manifest_sha256": "e93ba2477dc290aa027d6a40942e9cb21edc564ca849f09d0ce8312083379406",
+  "new_executable_sha256": "22e77c206e74eb6a88d1a9b56cf1a3d6dc7b0928e7d1784cd1e29943c91d0cf2"
+}

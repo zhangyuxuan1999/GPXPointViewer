@@ -1,0 +1,82 @@
+{
+  "process_cleanup": [
+    {
+      "pid": 9859,
+      "status": "confirmed",
+      "attempts": [
+        {
+          "operation": "group_sigterm",
+          "outcome": "absent"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "wait",
+          "outcome": "ok"
+        },
+        {
+          "operation": "group_sigkill",
+          "outcome": "absent"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "wait",
+          "outcome": "ok"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "group_probe",
+          "outcome": "absent"
+        },
+        {
+          "operation": "exit_code",
+          "outcome": "ok"
+        }
+      ],
+      "errors": [],
+      "leader_alive": false,
+      "group_alive": false,
+      "leader_exit_code": 0,
+      "duration_s": 0.0003572499845176935
+    }
+  ],
+  "cleanup_complete": true,
+  "sdk_query_completed": true,
+  "sdk_reported_cost_usd": null,
+  "runner_exit_code": 1,
+  "child_exit_code": 0,
+  "provider_status": "unknown",
+  "acceptance_status": "pending",
+  "started": true,
+  "exit_code": 1,
+  "error": null,
+  "is_error": true,
+  "duration_s": 0.164,
+  "cost_usd": null,
+  "cost_source": "unknown",
+  "actual_billed_cost_usd": null,
+  "budget_usd": 2.0,
+  "budget_ledger": "/private/tmp/gpxpv-runner-tests-hbldrxp8/20261029T005821_101301_test_sdk_provider_exception_blank_and_missing_final_fail_b16cf1ce/no-final/budget.json",
+  "runner_terminal_reason": null,
+  "usage": null,
+  "num_turns": null,
+  "session_id": null,
+  "subtype": null,
+  "terminal_reason": null,
+  "stop_reason": null,
+  "errors": null,
+  "permission_denials": null,
+  "api_error_status": null,
+  "finished_utc": "2026-10-29T00:58:22.237132+00:00",
+  "status": "unknown",
+  "run_status": "unknown",
+  "verification_status": "not_run"
+}

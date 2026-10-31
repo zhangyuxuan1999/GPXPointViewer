@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "run_id": "20261028T234103.668824Z_segment-workflow_e62fc474",
+  "name": "segment-workflow",
+  "provider": "codex-native",
+  "requested_model": "gpt-6.1-sol",
+  "requested_effort": "ultra",
+  "observed_model": null,
+  "observed_effort": null,
+  "model_verification": "unknown",
+  "cwd": "/private/tmp/gpxpv-segment-integration-o3kf8civ",
+  "task_source": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/coordinator/segment-workflow-task.md",
+  "started_utc": "2026-10-28T23:41:03.670086+00:00",
+  "watch": [
+    "GPXPointViewer/GapFill.swift",
+    "GPXPointViewer/BatchFill.swift",
+    "GPXPointViewer/TrackStore.swift",
+    "GPXPointViewer/ChangeLog.swift",
+    "GPXPointViewer/BatchFillWindow.swift",
+    "GPXPointViewer/ChangeReviewWindow.swift",
+    "GPXPointViewer/ContentView.swift",
+    "GPXPointViewer/UITestHook.swift",
+    "GPXPointViewer/PointMapView.swift",
+    "Tests/segments/workflow"
+  ],
+  "allow_write": [
+    "GPXPointViewer/GapFill.swift",
+    "GPXPointViewer/BatchFill.swift",
+    "GPXPointViewer/TrackStore.swift",
+    "GPXPointViewer/ChangeLog.swift",
+    "GPXPointViewer/BatchFillWindow.swift",
+    "GPXPointViewer/ChangeReviewWindow.swift",
+    "GPXPointViewer/ContentView.swift",
+    "GPXPointViewer/UITestHook.swift",
+    "GPXPointViewer/PointMapView.swift",
+    "Tests/segments/workflow"
+  ],
+  "snapshot_exclusions": {
+    "parts": [
+      ".agents",
+      ".aws",
+      ".codex",
+      ".git",
+      "DerivedData",
+      "__pycache__",
+      "node_modules",
+      "sdkenv"
+    ],
+    "prefixes": [
+      "Tools/agents/records",
+      "Tools/agents/runs",
+      "Tests/reports",
+      "Tests/ui/app.noindex",
+      "Tests/ui/perf",
+      "Tests/ui/synth.gpx",
+      "Tests/exam/results",
+      "Tests/synth/runner/synthrunner",
+      "Tests/synth/runner/build.log"
+    ],
+    "generated_pattern": "^Tests/synth/(?:format-edge|garmin-tunnels|legit-motion|replay-artefacts|scale-mixed|stationary-noise)/[^/]+\\.(?:gpx|csv|fit|bin)$"
+  },
+  "parent_run": null,
+  "recovery": "New run; never replay side effects without checking existing evidence.",
+  "cost_usd": null,
+  "cost_source": "unknown",
+  "agent_id": "/root/runner_implementation"
+}

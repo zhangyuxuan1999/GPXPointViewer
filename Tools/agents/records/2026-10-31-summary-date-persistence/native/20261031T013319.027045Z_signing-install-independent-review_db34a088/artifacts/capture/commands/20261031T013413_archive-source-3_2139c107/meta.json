@@ -1,0 +1,23 @@
+{
+  "label": "archive-source-3",
+  "argv": [
+    "sed",
+    "-n",
+    "313,480p",
+    "Tools/archive_build.py"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T013413",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 5693,
+  "process_owner": {
+    "pid": 5693,
+    "parent_pid": 5690,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

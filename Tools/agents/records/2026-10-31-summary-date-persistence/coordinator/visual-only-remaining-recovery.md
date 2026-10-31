@@ -1,0 +1,1 @@
+Recover only missing English/German6PNGs afterproven fixture-readiness harnessfix. PriorChinese5andall6navigationpassed; no rerun. Productunchangedeb52d087. LiteralkeyboardR3passedwithnormalquit. Onlytwophasescurrentconfig,0functionalassertions. Preservefailedrun022543.

@@ -1,0 +1,22 @@
+{
+  "label": "author-final-receipt",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; p=Path(\"Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T012543.656242Z_summary-date-navigation-implementation_a203875d\"); [(print(\"\\nFILE=\"+n),print((p/n).read_text() if (p/n).exists() else \"PENDING_NOT_YET_WRITTEN\")) for n in [\"output.md\",\"result.json\",\"status.json\"]]"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014140",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 15980,
+  "process_owner": {
+    "pid": 15980,
+    "parent_pid": 15979,
+    "process_identity": "darwin:15980:1793410900.656859",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.05
+}

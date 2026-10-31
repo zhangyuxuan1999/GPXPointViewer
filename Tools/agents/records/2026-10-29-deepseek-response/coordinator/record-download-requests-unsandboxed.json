@@ -1,0 +1,136 @@
+{
+  "utc": "2026-10-29T22:58:25.147374+00:00",
+  "reason": "Previous request blocked by FileProvider sandbox error 4099/159; user authorized project download.",
+  "requests": [
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/coordinator/fog-comment-receipt.json",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/coordinator-runs/20261029T210035.267457Z_coordinator-integration_6bebdbd0/progress.md",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/coordinator-runs/20261029T210035.267457Z_coordinator-integration_6bebdbd0/task.md",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/coordinator-runs/20261029T210035.267457Z_coordinator-integration_6bebdbd0/meta.json",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204817.033883Z_deepseek-harness-renderer_f132cc89/result.json",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204817.033883Z_deepseek-harness-renderer_f132cc89/output.md",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204817.033883Z_deepseek-harness-renderer_f132cc89/progress.md",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204817.033883Z_deepseek-harness-renderer_f132cc89/task.md",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204817.033883Z_deepseek-harness-renderer_f132cc89/meta.json",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204816.698428Z_deepseek-architecture-review_9ec4d98d/result.json",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204816.698428Z_deepseek-architecture-review_9ec4d98d/output.md",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204816.698428Z_deepseek-architecture-review_9ec4d98d/progress.md",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204816.698428Z_deepseek-architecture-review_9ec4d98d/task.md",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204816.698428Z_deepseek-architecture-review_9ec4d98d/verification.json",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204816.698428Z_deepseek-architecture-review_9ec4d98d/meta.json",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204816.855795Z_deepseek-core-fixes_69813bdb/result.json",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204816.855795Z_deepseek-core-fixes_69813bdb/output.md",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204816.855795Z_deepseek-core-fixes_69813bdb/progress.md",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204816.855795Z_deepseek-core-fixes_69813bdb/task.md",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204816.855795Z_deepseek-core-fixes_69813bdb/verification.json",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/native/20261029T204816.855795Z_deepseek-core-fixes_69813bdb/meta.json",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/deepseek/20261029T210624.045916Z_deepseek-bounded-finish_ecbb20c9/meta.json",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/deepseek/20261029T205753.317876Z_deepseek-bounded-fixes_3c79b2ac/result.json",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/deepseek/20261029T205753.317876Z_deepseek-bounded-fixes_3c79b2ac/output.md",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/deepseek/20261029T205753.317876Z_deepseek-bounded-fixes_3c79b2ac/task.md",
+      "accepted": true,
+      "error": null
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-29-deepseek-response/deepseek/20261029T205753.317876Z_deepseek-bounded-fixes_3c79b2ac/meta.json",
+      "accepted": true,
+      "error": null
+    }
+  ]
+}

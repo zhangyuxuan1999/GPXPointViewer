@@ -1,0 +1,8 @@
+{
+  "actor": "root coordinator",
+  "requested_model": null,
+  "observed_model": null,
+  "cost_usd": null,
+  "delegations": [],
+  "permissions": "read-only diagnosis; own records writes; no installation authorization inferred"
+}

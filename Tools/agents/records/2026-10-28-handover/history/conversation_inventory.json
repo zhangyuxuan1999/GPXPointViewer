@@ -1,0 +1,1040 @@
+[
+  {
+    "file": "0a12bcb4-42c4-4da0-90ed-150d5bb86078.jsonl",
+    "bytes": 322538,
+    "start": "2026-10-25T10:29:03.769Z",
+    "end": "2026-10-25T10:29:06.247Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 3,
+      "attachment": 12,
+      "last-prompt": 4,
+      "file-history-snapshot": 1,
+      "atis-latch": 3,
+      "api-request-shape": 2,
+      "api-request-blob": 3,
+      "api-request": 4,
+      "assistant": 1,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "0bdaba38-8083-4671-addd-b2a3bab2be7d.jsonl",
+    "bytes": 324834,
+    "start": "2026-10-24T22:20:02.595Z",
+    "end": "2026-10-24T22:20:05.319Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 3,
+      "attachment": 12,
+      "last-prompt": 4,
+      "file-history-snapshot": 1,
+      "atis-latch": 3,
+      "api-request-shape": 2,
+      "api-request-blob": 3,
+      "api-request": 4,
+      "assistant": 1,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "0e08eec7-ad85-4475-8add-5180d162f25e.jsonl",
+    "bytes": 5108788,
+    "start": "2026-10-26T13:30:50.794Z",
+    "end": "2026-10-26T13:31:49.145Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 20,
+      "attachment": 53,
+      "last-prompt": 10,
+      "file-history-snapshot": 1,
+      "atis-latch": 9,
+      "api-request-shape": 1,
+      "api-request-blob": 19,
+      "api-request": 12,
+      "assistant": 27,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "101127f6-e12a-43f5-966f-ba7c7d19ee46.jsonl",
+    "bytes": 1227115,
+    "start": "2026-10-26T02:57:50.185Z",
+    "end": "2026-10-26T03:07:57.613Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 66,
+      "attachment": 55,
+      "file-history-snapshot": 1,
+      "atis-latch": 24,
+      "api-request-shape": 1,
+      "api-request-blob": 54,
+      "api-request": 57,
+      "last-prompt": 23,
+      "assistant": 123,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "10349c2f-4010-45a4-8264-56d766b82af4.jsonl",
+    "bytes": 15466160,
+    "start": "2026-10-27T21:48:07.113Z",
+    "end": "2026-10-27T22:21:38.305Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 138,
+      "attachment": 199,
+      "last-prompt": 54,
+      "file-history-snapshot": 1,
+      "atis-latch": 53,
+      "api-request-shape": 1,
+      "api-request-blob": 213,
+      "api-request": 107,
+      "assistant": 222,
+      "file-history-delta": 15,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "11598a0a-54a0-4623-bba1-2c01477ac99c.jsonl",
+    "bytes": 65697,
+    "start": "2026-10-25T10:40:53.168Z",
+    "end": "2026-10-25T10:40:54.301Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 1,
+      "attachment": 10,
+      "file-history-snapshot": 1,
+      "atis-latch": 2,
+      "api-request-shape": 1,
+      "api-request-blob": 2,
+      "api-request": 1,
+      "last-prompt": 2,
+      "assistant": 2,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "11e86393-8a62-4798-a37e-fff79ee3de6f.jsonl",
+    "bytes": 4300593,
+    "start": "2026-10-25T10:07:12.831Z",
+    "end": "2026-10-25T10:15:11.853Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 86,
+      "attachment": 39,
+      "file-history-snapshot": 1,
+      "atis-latch": 28,
+      "api-request-shape": 1,
+      "api-request-blob": 74,
+      "api-request": 55,
+      "last-prompt": 28,
+      "assistant": 149,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "1b706494-9d56-423a-a5da-16fc568f843e.jsonl",
+    "bytes": 1499551,
+    "start": "2026-10-26T16:58:51.224Z",
+    "end": "2026-10-26T17:03:41.148Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 75,
+      "attachment": 15,
+      "file-history-snapshot": 1,
+      "atis-latch": 26,
+      "api-request-shape": 1,
+      "api-request-blob": 53,
+      "api-request": 45,
+      "last-prompt": 25,
+      "assistant": 121,
+      "file-history-delta": 5,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "1f74476f-26c7-4bff-9753-4e44c811bf8d.jsonl",
+    "bytes": 1239547,
+    "start": "2026-10-25T14:01:10.826Z",
+    "end": "2026-10-25T14:09:11.897Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 81,
+      "attachment": 33,
+      "file-history-snapshot": 1,
+      "atis-latch": 26,
+      "api-request-shape": 1,
+      "api-request-blob": 57,
+      "api-request": 64,
+      "last-prompt": 25,
+      "assistant": 145,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "23ff34af-3c78-4c56-9baf-70b8669e4cf3.jsonl",
+    "bytes": 7639911,
+    "start": "2026-10-26T15:21:25.054Z",
+    "end": "2026-10-26T16:00:23.304Z",
+    "counts": {
+      "queue-operation": 16,
+      "user": 219,
+      "attachment": 340,
+      "last-prompt": 52,
+      "file-history-snapshot": 1,
+      "atis-latch": 51,
+      "api-request-shape": 1,
+      "api-request-blob": 188,
+      "api-request": 85,
+      "assistant": 276,
+      "file-history-delta": 19,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "29985968-6718-4699-8653-054c699f709f.jsonl",
+    "bytes": 578839,
+    "start": "2026-10-25T15:05:56.734Z",
+    "end": "2026-10-25T15:13:18.726Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 17,
+      "attachment": 41,
+      "last-prompt": 10,
+      "file-history-snapshot": 1,
+      "atis-latch": 9,
+      "api-request-shape": 1,
+      "api-request-blob": 17,
+      "api-request": 13,
+      "assistant": 30,
+      "file-history-delta": 2,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "2c1caa83-5f57-42a3-be5a-93a05ea07c1d.jsonl",
+    "bytes": 74277,
+    "start": "2026-10-25T10:29:06.669Z",
+    "end": "2026-10-25T10:29:07.774Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 1,
+      "attachment": 10,
+      "file-history-snapshot": 1,
+      "atis-latch": 2,
+      "api-request-shape": 1,
+      "api-request-blob": 2,
+      "api-request": 1,
+      "last-prompt": 2,
+      "assistant": 2,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "393f5462-a908-4c50-84c5-78a7029800f7.jsonl",
+    "bytes": 5264296,
+    "start": "2026-10-27T18:12:24.651Z",
+    "end": "2026-10-27T18:31:22.077Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 109,
+      "attachment": 190,
+      "last-prompt": 34,
+      "file-history-snapshot": 1,
+      "atis-latch": 33,
+      "api-request-shape": 1,
+      "api-request-blob": 132,
+      "api-request": 75,
+      "assistant": 169,
+      "file-history-delta": 10,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "3d66b9ed-8a92-4118-bf36-8ce65d043724.jsonl",
+    "bytes": 7908077,
+    "start": "2026-10-26T13:34:25.120Z",
+    "end": "2026-10-26T14:00:52.235Z",
+    "counts": {
+      "queue-operation": 10,
+      "user": 51,
+      "attachment": 117,
+      "last-prompt": 24,
+      "file-history-snapshot": 1,
+      "atis-latch": 23,
+      "api-request-shape": 1,
+      "api-request-blob": 57,
+      "api-request": 29,
+      "assistant": 80,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "4be56992-d2cf-4336-99f0-4ffa9bf4d9ff.jsonl",
+    "bytes": 169640,
+    "start": "2026-10-25T10:40:46.846Z",
+    "end": "2026-10-25T10:40:48.480Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 3,
+      "attachment": 12,
+      "last-prompt": 3,
+      "file-history-snapshot": 1,
+      "atis-latch": 3,
+      "api-request-shape": 1,
+      "api-request-blob": 2,
+      "api-request": 1,
+      "assistant": 2,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "59127c52-70a9-4318-a653-55cf2f72fc4c.jsonl",
+    "bytes": 5774476,
+    "start": "2026-10-25T11:06:28.377Z",
+    "end": "2026-10-25T11:15:55.391Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 74,
+      "attachment": 30,
+      "file-history-snapshot": 1,
+      "atis-latch": 28,
+      "api-request-shape": 1,
+      "api-request-blob": 54,
+      "api-request": 52,
+      "last-prompt": 28,
+      "assistant": 124,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "5c449b62-eafe-4dc8-af95-4f9d2a20fcb8.jsonl",
+    "bytes": 9769175,
+    "start": "2026-10-26T16:32:14.004Z",
+    "end": "2026-10-26T16:41:16.531Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 55,
+      "attachment": 119,
+      "last-prompt": 19,
+      "file-history-snapshot": 1,
+      "atis-latch": 18,
+      "api-request-shape": 1,
+      "api-request-blob": 86,
+      "api-request": 38,
+      "assistant": 85,
+      "file-history-delta": 6,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "6802a27a-adca-4aac-9eb1-94cd0c8d9805.jsonl",
+    "bytes": 1768070,
+    "start": "2026-10-28T11:01:55.701Z",
+    "end": "2026-10-28T11:07:31.998Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 77,
+      "attachment": 12,
+      "file-history-snapshot": 1,
+      "atis-latch": 21,
+      "api-request-shape": 1,
+      "api-request-blob": 40,
+      "api-request": 21,
+      "last-prompt": 20,
+      "assistant": 98,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "6f4a3dda-1f9b-44bf-bf5e-c9945fd227b5.jsonl",
+    "bytes": 572537,
+    "start": "2026-10-25T13:35:25.072Z",
+    "end": "2026-10-25T13:41:22.851Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 19,
+      "attachment": 47,
+      "last-prompt": 12,
+      "file-history-snapshot": 1,
+      "atis-latch": 11,
+      "api-request-shape": 1,
+      "api-request-blob": 34,
+      "api-request": 17,
+      "assistant": 35,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "72135877-a178-4425-80dd-b6bc75f24f4b.jsonl",
+    "bytes": 1472361,
+    "start": "2026-10-26T16:51:56.548Z",
+    "end": "2026-10-26T16:57:30.057Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 107,
+      "attachment": 11,
+      "file-history-snapshot": 1,
+      "atis-latch": 26,
+      "api-request-shape": 1,
+      "api-request-blob": 58,
+      "api-request": 61,
+      "last-prompt": 26,
+      "assistant": 173,
+      "file-history-delta": 1,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "76ec8b85-8a12-4803-bf9c-cdd073ce40ff.jsonl",
+    "bytes": 838782,
+    "start": "2026-10-25T14:26:52.662Z",
+    "end": "2026-10-25T14:35:41.715Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 35,
+      "attachment": 69,
+      "last-prompt": 18,
+      "file-history-snapshot": 1,
+      "atis-latch": 18,
+      "api-request-shape": 1,
+      "api-request-blob": 53,
+      "api-request": 33,
+      "assistant": 68,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "7f689131-3a6c-40f4-822e-22f734a1d718.jsonl",
+    "bytes": 30828981,
+    "start": "2026-10-26T16:49:20.213Z",
+    "end": "2026-10-26T17:08:33.541Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 162,
+      "attachment": 79,
+      "last-prompt": 51,
+      "file-history-snapshot": 1,
+      "atis-latch": 51,
+      "api-request-shape": 1,
+      "api-request-blob": 107,
+      "api-request": 112,
+      "assistant": 287,
+      "file-history-delta": 14,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "839cab52-4e5d-4e50-b34a-80c69aaa690d.jsonl",
+    "bytes": 8478348,
+    "start": "2026-10-25T09:54:25.501Z",
+    "end": "2026-10-25T10:03:01.732Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 106,
+      "attachment": 11,
+      "file-history-snapshot": 1,
+      "atis-latch": 32,
+      "api-request-shape": 1,
+      "api-request-blob": 38,
+      "api-request": 82,
+      "last-prompt": 31,
+      "assistant": 184,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "84e7be0d-cf7d-470e-9701-04baedd4dc06.jsonl",
+    "bytes": 215787818,
+    "start": "2026-08-04T09:33:55.587Z",
+    "end": "2026-10-28T13:12:10.834Z",
+    "counts": {
+      "queue-operation": 570,
+      "user": 3520,
+      "attachment": 4348,
+      "custom-title": 1460,
+      "ai-title": 1444,
+      "assistant": 5551,
+      "last-prompt": 1463,
+      "mode": 1408,
+      "system": 225,
+      "atis-latch": 1140,
+      "agent-name": 1141,
+      "file-history-snapshot": 73,
+      "file-history-delta": 34,
+      "cost-state": 5,
+      "api-request-shape": 7,
+      "api-request-blob": 1671,
+      "api-request": 1053,
+      "bridge-session": 804,
+      "dev-mods": 59
+    }
+  },
+  {
+    "file": "859a5a13-0f0d-4a3e-b814-3d1671b717e5.jsonl",
+    "bytes": 5171044,
+    "start": "2026-10-26T13:31:02.554Z",
+    "end": "2026-10-26T14:12:14.761Z",
+    "counts": {
+      "queue-operation": 8,
+      "user": 205,
+      "attachment": 278,
+      "last-prompt": 45,
+      "file-history-snapshot": 1,
+      "atis-latch": 44,
+      "api-request-shape": 1,
+      "api-request-blob": 158,
+      "api-request": 69,
+      "assistant": 251,
+      "file-history-delta": 19,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "8788da9f-c630-4e49-bb8e-7be4e601d7b8.jsonl",
+    "bytes": 2168075,
+    "start": "2026-10-26T14:13:12.303Z",
+    "end": "2026-10-26T14:35:29.134Z",
+    "counts": {
+      "queue-operation": 6,
+      "user": 75,
+      "attachment": 118,
+      "last-prompt": 21,
+      "file-history-snapshot": 1,
+      "atis-latch": 20,
+      "api-request-shape": 1,
+      "api-request-blob": 64,
+      "api-request": 34,
+      "assistant": 99,
+      "file-history-delta": 5,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "87efeaf4-641f-4ac7-977e-cf7d081daa7b.jsonl",
+    "bytes": 179973,
+    "start": "2026-10-25T10:56:05.381Z",
+    "end": "2026-10-25T10:56:05.422Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 3,
+      "attachment": 13,
+      "last-prompt": 2,
+      "file-history-snapshot": 1,
+      "atis-latch": 2,
+      "api-request-shape": 1,
+      "api-request-blob": 2,
+      "api-request": 1,
+      "assistant": 1,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "8869159e-3974-4d3f-80d6-2a4c95b5d462.jsonl",
+    "bytes": 53441,
+    "start": "2026-10-28T22:01:23.386Z",
+    "end": "2026-10-28T22:01:24.808Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 1,
+      "attachment": 8,
+      "atis-latch": 2,
+      "api-request-shape": 1,
+      "api-request-blob": 2,
+      "api-request": 1,
+      "last-prompt": 2,
+      "assistant": 2,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "8992c86d-2101-4853-b0e0-efef1e1ba87b.jsonl",
+    "bytes": 1604770,
+    "start": "2026-10-26T16:03:09.555Z",
+    "end": "2026-10-26T16:19:52.937Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 145,
+      "attachment": 12,
+      "file-history-snapshot": 1,
+      "atis-latch": 36,
+      "api-request-shape": 1,
+      "api-request-blob": 23,
+      "api-request": 134,
+      "last-prompt": 35,
+      "assistant": 278,
+      "system": 1,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "9231ce16-d203-4bac-a059-51075074c285.jsonl",
+    "bytes": 2818427,
+    "start": "2026-10-24T22:40:10.493Z",
+    "end": "2026-10-24T22:46:31.934Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 82,
+      "attachment": 33,
+      "file-history-snapshot": 1,
+      "atis-latch": 24,
+      "api-request-shape": 1,
+      "api-request-blob": 60,
+      "api-request": 50,
+      "last-prompt": 23,
+      "assistant": 153,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "958daf35-099e-4a9e-b2d4-2b16c60c0995.jsonl",
+    "bytes": 79525,
+    "start": "2026-10-24T22:21:31.764Z",
+    "end": "2026-10-24T22:21:34.308Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 2,
+      "attachment": 10,
+      "file-history-snapshot": 1,
+      "atis-latch": 2,
+      "api-request-shape": 1,
+      "api-request-blob": 2,
+      "api-request": 2,
+      "last-prompt": 2,
+      "assistant": 4,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "a6fbbee3-f073-427b-8b4d-29dfc43a902a.jsonl",
+    "bytes": 2245970,
+    "start": "2026-10-26T14:46:41.435Z",
+    "end": "2026-10-26T15:15:12.984Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 140,
+      "attachment": 171,
+      "last-prompt": 31,
+      "file-history-snapshot": 1,
+      "atis-latch": 30,
+      "api-request-shape": 1,
+      "api-request-blob": 105,
+      "api-request": 49,
+      "assistant": 176,
+      "file-history-delta": 16,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "aa648344-98fe-42b9-82f2-6783651f61a6.jsonl",
+    "bytes": 146106065,
+    "start": "2026-08-04T09:33:55.587Z",
+    "end": "2026-10-24T21:26:07.982Z",
+    "counts": {
+      "queue-operation": 378,
+      "user": 2758,
+      "attachment": 2839,
+      "custom-title": 1012,
+      "ai-title": 996,
+      "assistant": 4367,
+      "last-prompt": 1014,
+      "mode": 960,
+      "system": 152,
+      "atis-latch": 692,
+      "agent-name": 694,
+      "file-history-snapshot": 61,
+      "file-history-delta": 14,
+      "cost-state": 5,
+      "api-request-shape": 5,
+      "api-request-blob": 807,
+      "api-request": 457,
+      "bridge-session": 355
+    }
+  },
+  {
+    "file": "aa8c77b7-345b-4649-b60c-f2ffb1ceb652.jsonl",
+    "bytes": 1426207,
+    "start": "2026-10-25T15:18:29.941Z",
+    "end": "2026-10-25T15:27:28.266Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 78,
+      "attachment": 49,
+      "file-history-snapshot": 1,
+      "atis-latch": 28,
+      "api-request-shape": 1,
+      "api-request-blob": 56,
+      "api-request": 68,
+      "last-prompt": 27,
+      "assistant": 162,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "b4c78d18-e9db-4dc3-ae6a-74ca14aaed19.jsonl",
+    "bytes": 5125186,
+    "start": "2026-10-27T20:54:57.029Z",
+    "end": "2026-10-27T21:46:06.336Z",
+    "counts": {
+      "queue-operation": 30,
+      "user": 251,
+      "attachment": 333,
+      "last-prompt": 58,
+      "file-history-snapshot": 1,
+      "atis-latch": 58,
+      "api-request-shape": 2,
+      "api-request-blob": 199,
+      "api-request": 92,
+      "assistant": 314,
+      "file-history-delta": 23,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "ba1977b0-e92d-4da6-826b-2439e8cae474.jsonl",
+    "bytes": 205149,
+    "start": "2026-10-26T16:49:08.051Z",
+    "end": "2026-10-26T16:49:13.789Z",
+    "counts": {
+      "queue-operation": 4,
+      "user": 6,
+      "attachment": 15,
+      "last-prompt": 5,
+      "file-history-snapshot": 1,
+      "atis-latch": 4,
+      "api-request-shape": 2,
+      "api-request-blob": 3,
+      "api-request": 6,
+      "assistant": 7,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "c04ffd78-0908-406e-b4ea-9618d92c2579.jsonl",
+    "bytes": 6913574,
+    "start": "2026-10-28T11:01:50.334Z",
+    "end": "2026-10-28T11:56:05.658Z",
+    "counts": {
+      "queue-operation": 12,
+      "user": 198,
+      "attachment": 278,
+      "last-prompt": 66,
+      "file-history-snapshot": 1,
+      "atis-latch": 65,
+      "api-request-shape": 2,
+      "api-request-blob": 292,
+      "api-request": 142,
+      "assistant": 303,
+      "file-history-delta": 22,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "c276ad78-5b88-410e-8748-b184475e9f28.jsonl",
+    "bytes": 2803902,
+    "start": "2026-10-28T11:57:51.343Z",
+    "end": "2026-10-28T12:06:05.078Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 171,
+      "attachment": 45,
+      "file-history-snapshot": 1,
+      "atis-latch": 42,
+      "api-request-shape": 1,
+      "api-request-blob": 99,
+      "api-request": 63,
+      "last-prompt": 42,
+      "assistant": 241,
+      "file-history-delta": 4,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "c3a79870-349e-4e4a-a0fd-2e7c9cd765ba.jsonl",
+    "bytes": 871682,
+    "start": "2026-08-11T11:02:43.738Z",
+    "end": "2026-08-22T00:14:47.978Z",
+    "counts": {
+      "queue-operation": 30,
+      "user": 77,
+      "attachment": 27,
+      "custom-title": 26,
+      "ai-title": 23,
+      "assistant": 151,
+      "last-prompt": 24,
+      "system": 8,
+      "mode": 6,
+      "atis-latch": 1,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "cc7d615e-8882-436c-bc27-dfb45274f3da.jsonl",
+    "bytes": 889952,
+    "start": "2026-10-27T22:23:43.689Z",
+    "end": "2026-10-27T22:29:56.637Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 43,
+      "attachment": 38,
+      "last-prompt": 16,
+      "file-history-snapshot": 1,
+      "atis-latch": 16,
+      "api-request-shape": 1,
+      "api-request-blob": 50,
+      "api-request": 23,
+      "assistant": 62,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "ccd6e842-b2ee-47ed-818b-a5fd7bd3b698.jsonl",
+    "bytes": 2019362,
+    "start": "2026-10-28T12:23:06.979Z",
+    "end": "2026-10-28T12:54:09.416Z",
+    "counts": {
+      "queue-operation": 6,
+      "user": 127,
+      "attachment": 199,
+      "last-prompt": 35,
+      "file-history-snapshot": 1,
+      "atis-latch": 34,
+      "api-request-shape": 2,
+      "api-request-blob": 129,
+      "api-request": 48,
+      "assistant": 158,
+      "file-history-delta": 10,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "d358e9d3-61ef-422f-a750-a22a93f09158.jsonl",
+    "bytes": 140194,
+    "start": "2026-10-25T13:32:17.234Z",
+    "end": "2026-10-25T13:32:17.657Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 3,
+      "attachment": 13,
+      "last-prompt": 3,
+      "file-history-snapshot": 1,
+      "atis-latch": 2,
+      "api-request-shape": 1,
+      "api-request-blob": 2,
+      "api-request": 1,
+      "assistant": 1,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "d8dde2cd-3769-43aa-858e-e6ea1f447ce6.jsonl",
+    "bytes": 1083822,
+    "start": "2026-10-25T11:57:06.657Z",
+    "end": "2026-10-25T12:08:50.676Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 54,
+      "attachment": 11,
+      "file-history-snapshot": 1,
+      "atis-latch": 21,
+      "api-request-shape": 1,
+      "api-request-blob": 18,
+      "api-request": 40,
+      "last-prompt": 20,
+      "assistant": 107,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "db4e65b2-8827-4f75-ab22-dcb7187a5a29.jsonl",
+    "bytes": 1230348,
+    "start": "2026-10-27T23:04:16.001Z",
+    "end": "2026-10-27T23:09:36.094Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 68,
+      "attachment": 27,
+      "file-history-snapshot": 1,
+      "atis-latch": 25,
+      "api-request-shape": 1,
+      "api-request-blob": 40,
+      "api-request": 45,
+      "last-prompt": 24,
+      "assistant": 122,
+      "file-history-delta": 2,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "dceff79c-e05f-4b53-bf76-e86f159cad73.jsonl",
+    "bytes": 1688895,
+    "start": "2026-10-27T22:34:54.644Z",
+    "end": "2026-10-27T23:02:40.837Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 139,
+      "attachment": 12,
+      "file-history-snapshot": 1,
+      "atis-latch": 38,
+      "api-request-shape": 1,
+      "api-request-blob": 21,
+      "api-request": 123,
+      "last-prompt": 37,
+      "assistant": 296,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "e3577fe7-0215-4dd0-a6a7-8a47ba9b9fd7.jsonl",
+    "bytes": 1461675,
+    "start": "2026-10-25T14:26:54.841Z",
+    "end": "2026-10-25T14:37:45.430Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 88,
+      "attachment": 12,
+      "file-history-snapshot": 1,
+      "atis-latch": 28,
+      "api-request-shape": 1,
+      "api-request-blob": 25,
+      "api-request": 69,
+      "last-prompt": 27,
+      "assistant": 165,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "e3797a0b-1d45-439f-aff6-c2bf10503fa5.jsonl",
+    "bytes": 384718,
+    "start": "2026-10-25T14:01:10.507Z",
+    "end": "2026-10-25T14:04:56.301Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 15,
+      "attachment": 32,
+      "last-prompt": 8,
+      "file-history-snapshot": 1,
+      "atis-latch": 8,
+      "api-request-shape": 1,
+      "api-request-blob": 21,
+      "api-request": 12,
+      "assistant": 24,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "e8d68c41-d751-424b-a919-5a87e81bbec3.jsonl",
+    "bytes": 857531,
+    "start": "2026-10-26T15:17:39.227Z",
+    "end": "2026-10-26T15:22:28.795Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 27,
+      "attachment": 47,
+      "last-prompt": 14,
+      "file-history-snapshot": 1,
+      "atis-latch": 13,
+      "api-request-shape": 1,
+      "api-request-blob": 35,
+      "api-request": 15,
+      "assistant": 41,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "e984944b-b0a2-4146-a5ac-5ccff6c20534.jsonl",
+    "bytes": 169820,
+    "start": "2026-10-25T10:35:20.289Z",
+    "end": "2026-10-25T10:35:22.682Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 3,
+      "attachment": 12,
+      "last-prompt": 3,
+      "file-history-snapshot": 1,
+      "atis-latch": 3,
+      "api-request-shape": 1,
+      "api-request-blob": 2,
+      "api-request": 1,
+      "assistant": 2,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "f206a5f9-6c69-4e9a-b9d9-83aa75a896f7.jsonl",
+    "bytes": 936652,
+    "start": "2026-10-28T12:55:59.910Z",
+    "end": "2026-10-28T13:01:38.136Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 40,
+      "attachment": 41,
+      "last-prompt": 14,
+      "file-history-snapshot": 1,
+      "atis-latch": 14,
+      "api-request-shape": 1,
+      "api-request-blob": 46,
+      "api-request": 25,
+      "assistant": 58,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "f37aaec2-17f8-4303-8d30-336e9c5a64e0.jsonl",
+    "bytes": 11078687,
+    "start": "2026-10-24T22:21:42.884Z",
+    "end": "2026-10-24T22:33:54.637Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 133,
+      "attachment": 61,
+      "file-history-snapshot": 1,
+      "atis-latch": 41,
+      "api-request-shape": 1,
+      "api-request-blob": 90,
+      "api-request": 94,
+      "last-prompt": 40,
+      "assistant": 239,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "fb2936ba-2558-4f8c-bac7-1f26f417a31d.jsonl",
+    "bytes": 1002307,
+    "start": "2026-10-25T12:12:35.674Z",
+    "end": "2026-10-25T12:17:32.553Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 63,
+      "attachment": 11,
+      "file-history-snapshot": 1,
+      "atis-latch": 19,
+      "api-request-shape": 1,
+      "api-request-blob": 26,
+      "api-request": 44,
+      "last-prompt": 18,
+      "assistant": 107,
+      "cost-state": 1
+    }
+  },
+  {
+    "file": "fe18ee84-24b3-40ff-a75e-d906207201c5.jsonl",
+    "bytes": 1472047,
+    "start": "2026-10-25T21:19:17.392Z",
+    "end": "2026-10-25T21:38:06.350Z",
+    "counts": {
+      "queue-operation": 2,
+      "user": 90,
+      "attachment": 72,
+      "file-history-snapshot": 1,
+      "atis-latch": 33,
+      "api-request-shape": 1,
+      "api-request-blob": 74,
+      "api-request": 81,
+      "last-prompt": 32,
+      "assistant": 171,
+      "cost-state": 1
+    }
+  }
+]

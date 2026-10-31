@@ -1,0 +1,197 @@
+{
+  "utc": "2026-10-29T12:17:55.633677+00:00",
+  "app": "/private/tmp/gpxpv-remediation-build/Build/Products/Release/GPXPointViewer.app",
+  "files": [
+    {
+      "file": "Contents/Info.plist",
+      "sha256": "682f64c564978c0339668df6e2f4dc57fb28c76ff84501a826eecafa0bc34824",
+      "matches": true
+    },
+    {
+      "file": "Contents/PkgInfo",
+      "sha256": "82502191c9484b04d685374f9879a0066069c49b8acae7a04b01d38d07e8eca0",
+      "matches": true
+    },
+    {
+      "file": "Contents/_CodeSignature/CodeResources",
+      "sha256": "dfb6a840a7cc89edb098ff09f241bbe7e1c6b56b2fca68a6402f18cf0eb8720c",
+      "matches": true
+    },
+    {
+      "file": "Contents/MacOS/GPXPointViewer",
+      "sha256": "445940ea23807364b0b4c09ea99e73077ed0d5f6253da20b3653988c114b22cb",
+      "matches": true
+    },
+    {
+      "file": "Contents/Resources/earth_texture.png",
+      "sha256": "d302711e94302241d4056e4deedd840e99d6236c377e629af4d3e0a4f3a48a0e",
+      "matches": true
+    },
+    {
+      "file": "Contents/Resources/default.metallib",
+      "sha256": "83a3bcea1f64d20ab23ec2e3d29fff394cd443d332ef0ae0d39ef9b68fd979ab",
+      "matches": true
+    },
+    {
+      "file": "Contents/Resources/land_mask.bin",
+      "sha256": "104e8e6476d8212f95d7bff2cdf389309ac65fe71c7af11292a1ec3d0c45296c",
+      "matches": true
+    },
+    {
+      "file": "Contents/Resources/AppIcon.icns",
+      "sha256": "9d1846df0c1136098df5971bc0073c5ea097a9050c7b88b5e7c1932387d51d38",
+      "matches": true
+    },
+    {
+      "file": "Contents/Resources/earth_texture_light.png",
+      "sha256": "c0ca6e847c47b876e9fcaea0f5096addbedb5fb5f547b3225c4f5495392ae9f9",
+      "matches": true
+    },
+    {
+      "file": "Contents/Resources/Regions.bin",
+      "sha256": "dda2f3df9cad4859d68fb13f77083eb9dff96cea48d98a9ed3b1fa08585f6d4e",
+      "matches": true
+    },
+    {
+      "file": "Contents/Resources/Assets.car",
+      "sha256": "1be8f2eb776f2e318f64c826340ddfdf22120616f84ef1067fda6d591deb3a49",
+      "matches": true
+    },
+    {
+      "file": "Contents/Resources/moon_texture.png",
+      "sha256": "93c356429925a468b6b6e31a89f5cedc2938b64a8668ec9e68bfd6e6914f40b7",
+      "matches": true
+    },
+    {
+      "file": "Contents/Resources/de.lproj/Localizable.strings",
+      "sha256": "105b2cf9f90875fa2287d22b28904775423c89d9ee9a1807c081f17dd786fa7f",
+      "matches": true
+    },
+    {
+      "file": "Contents/Resources/de.lproj/InfoPlist.strings",
+      "sha256": "ee14791be812d27e4b23ee1e487711ed2984d35002ec330bd9edee22540a2ccd",
+      "matches": true
+    },
+    {
+      "file": "Contents/Resources/de.lproj/Localizable.stringsdict",
+      "sha256": "8d6387da7411a51101da54e9f0c3c92119fc04ff47d97518c1d1240148935619",
+      "matches": true
+    },
+    {
+      "file": "Contents/Resources/zh-Hans.lproj/InfoPlist.strings",
+      "sha256": "cba9db28fa201c57ff7959864b6d05b4ba5e6ee532da4c0f3049266619cc8aae",
+      "matches": true
+    },
+    {
+      "file": "Contents/Resources/en.lproj/Localizable.strings",
+      "sha256": "4e22102d2ec384061b05d6581dae8c7bdc60b3dc211bd26f97a6e853b7e72505",
+      "matches": true
+    },
+    {
+      "file": "Contents/Resources/en.lproj/InfoPlist.strings",
+      "sha256": "41545d64f9dad397390fb16a25e41a602fb6ac34faf160aa09d1c732565ebba3",
+      "matches": true
+    },
+    {
+      "file": "Contents/Resources/en.lproj/Localizable.stringsdict",
+      "sha256": "c420830cd8b9e1b49eefca50118916081d32176f116bb099cb951e714f5ee18c",
+      "matches": true
+    },
+    {
+      "file": "Contents/Resources/zh-Hant.lproj/Localizable.strings",
+      "sha256": "a4d79e7ef3b4fe3bb5035329a9e3f6daa38e7c7bd6a7510344f0d44bf4247648",
+      "matches": true
+    },
+    {
+      "file": "Contents/Resources/zh-Hant.lproj/InfoPlist.strings",
+      "sha256": "31078ce3e60dae60e5e4ea9072f460c513fe21d324320c2206146f4ffc1eebac",
+      "matches": true
+    },
+    {
+      "file": "Contents/PlugIns/GPXThumbnail.appex/Contents/Info.plist",
+      "sha256": "ab59285d765cd0b03adab582eb08b9c5ffb618e2ec49e971806af4c6b504c08b",
+      "matches": true
+    },
+    {
+      "file": "Contents/PlugIns/GPXThumbnail.appex/Contents/_CodeSignature/CodeResources",
+      "sha256": "82f6bd550271cb45a0fa5e73c914dc21cebe244e5a129d69c7000f637b1214df",
+      "matches": true
+    },
+    {
+      "file": "Contents/PlugIns/GPXThumbnail.appex/Contents/MacOS/GPXThumbnail",
+      "sha256": "72fa81f18f2e6219fabeee39c24dbc9bec84279c43cac547cdfb7c0866079d08",
+      "matches": true
+    },
+    {
+      "file": "Contents/PlugIns/GPXThumbnail.appex/Contents/Resources/de.lproj/InfoPlist.strings",
+      "sha256": "a669660019e5f4c9e7ae5346dfe8c4aab36665c8daef03e8d9e3ade9e138f99c",
+      "matches": true
+    },
+    {
+      "file": "Contents/PlugIns/GPXThumbnail.appex/Contents/Resources/zh-Hans.lproj/InfoPlist.strings",
+      "sha256": "da050f0d88bd180c293d7eb37d891cca4fa6cf40e89d61eee8ad0eb21de8aad0",
+      "matches": true
+    },
+    {
+      "file": "Contents/PlugIns/GPXThumbnail.appex/Contents/Resources/en.lproj/InfoPlist.strings",
+      "sha256": "85a2f2d41a29fbbeba419e7ea9e5da4c48f75571c5d77800f6044446becddbb5",
+      "matches": true
+    },
+    {
+      "file": "Contents/PlugIns/GPXThumbnail.appex/Contents/Resources/zh-Hant.lproj/InfoPlist.strings",
+      "sha256": "940b8c4de43ced8ba5b2ab481680ea4f976b42dde4866f35561238517cbec441",
+      "matches": true
+    },
+    {
+      "file": "Contents/PlugIns/GPXQuickLook.appex/Contents/Info.plist",
+      "sha256": "12460b28cdf8c608f92528a9ed5e467ac09da5181a0677082e502bcfef3fdf85",
+      "matches": true
+    },
+    {
+      "file": "Contents/PlugIns/GPXQuickLook.appex/Contents/_CodeSignature/CodeResources",
+      "sha256": "1925b4cc563c77096634595f2edb6c358df83aa55ff1f309c27ae74bcf1eadcb",
+      "matches": true
+    },
+    {
+      "file": "Contents/PlugIns/GPXQuickLook.appex/Contents/MacOS/GPXQuickLook",
+      "sha256": "2ff44c68cad526178d6da3a629c331c43136c402b2858f08155881dd5695c551",
+      "matches": true
+    },
+    {
+      "file": "Contents/PlugIns/GPXQuickLook.appex/Contents/Resources/de.lproj/Localizable.strings",
+      "sha256": "6399494a3ee7b6de6dd769ec63c6ce3774b3ae08f981add67630b8b368b2ff46",
+      "matches": true
+    },
+    {
+      "file": "Contents/PlugIns/GPXQuickLook.appex/Contents/Resources/de.lproj/InfoPlist.strings",
+      "sha256": "63762bf70481bceacfbe6ee15ed296b84973ac1fd18fe3b12f58ca477d3cd390",
+      "matches": true
+    },
+    {
+      "file": "Contents/PlugIns/GPXQuickLook.appex/Contents/Resources/zh-Hans.lproj/InfoPlist.strings",
+      "sha256": "fd37716bd8a4eddc1a7efcda1cf1aef0a007d22336510f3669133e2eb7460d05",
+      "matches": true
+    },
+    {
+      "file": "Contents/PlugIns/GPXQuickLook.appex/Contents/Resources/en.lproj/Localizable.strings",
+      "sha256": "e2ae2a661e616b8202ac7b73510fe2dee4e7512a218f1386ace5b84dc2a92f5e",
+      "matches": true
+    },
+    {
+      "file": "Contents/PlugIns/GPXQuickLook.appex/Contents/Resources/en.lproj/InfoPlist.strings",
+      "sha256": "1b3560ab56602dc3ed980e70d303105b6639df5d4709a5bfd781b3bb05e4552e",
+      "matches": true
+    },
+    {
+      "file": "Contents/PlugIns/GPXQuickLook.appex/Contents/Resources/zh-Hant.lproj/Localizable.strings",
+      "sha256": "5b16e095b1851762cea612be3676d3cf24607a3faf0dd63ef22705e8ecddd128",
+      "matches": true
+    },
+    {
+      "file": "Contents/PlugIns/GPXQuickLook.appex/Contents/Resources/zh-Hant.lproj/InfoPlist.strings",
+      "sha256": "41377d81c37ca327d09a0e78b022b9098e1fa01927fcface212f1c8c7da50a24",
+      "matches": true
+    }
+  ],
+  "passed": true
+}

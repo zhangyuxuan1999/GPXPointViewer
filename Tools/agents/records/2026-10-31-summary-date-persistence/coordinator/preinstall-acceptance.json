@@ -1,0 +1,117 @@
+{
+  "time": "2026-10-31T02:52:31.345381+00:00",
+  "visuals": [
+    {
+      "phase": "visual-en",
+      "result": [
+        {
+          "mode": "visual-only",
+          "completed": true,
+          "functional_checks_executed": 0,
+          "functional_checks_failed": 0,
+          "pixel_verdict": "PENDING_MAIN_AGENT_PIXEL_REVIEW"
+        }
+      ],
+      "cleanup": [
+        {
+          "owned_processes": [
+            {
+              "stage": "visual-only",
+              "pid": 56434,
+              "argv": [
+                "/private/tmp/GPXPointViewer-summary-navigation-4bivssua/isolated-copy/GPXPointViewer.app/Contents/MacOS/GPXPointViewer",
+                "-NSQuitAlwaysKeepsWindows",
+                "NO",
+                "-AppleLanguages",
+                "(en)"
+              ],
+              "normal_quit": true,
+              "exit_code": 0
+            }
+          ],
+          "isolated_bundle_id": "de.wayne.GPXPointViewer.test.t20261031t025026z-fde3c5b39aee",
+          "isolated_work": "/Users/zyx/Library/Containers/de.wayne.GPXPointViewer.test.t20261031t025026z-fde3c5b39aee/Data/tmp/summary-navigation",
+          "formal_preference_domain_accessed": false,
+          "formal_app_process_touched": false,
+          "isolated_domain_retained_for_evidence": true
+        }
+      ],
+      "images": [
+        {
+          "path": "Tools/agents/records/2026-10-31-summary-date-persistence/deepseek/20261031T025004.726652Z_date-visual-en-de-remaining_165fded7/artifacts/visual-en/20261031T025026.657076Z-6336cfb5/choose-date.png",
+          "sha256": "0b0e86df7cd54f6a4aa5904d9e2338e557933a1f77a4d616ee7493b5602ca6ff",
+          "root_pixel_verdict": "PASS: fixed date chooser, main day and complete cross-midnight header all readable; no overlaps or date list; scrolling body expected"
+        },
+        {
+          "path": "Tools/agents/records/2026-10-31-summary-date-persistence/deepseek/20261031T025004.726652Z_date-visual-en-de-remaining_165fded7/artifacts/visual-en/20261031T025026.657076Z-6336cfb5/cross-midnight-journey-top.png",
+          "sha256": "c5b44a222cec3ccb4f316a79d5a89f63199c2791942f252d1f9e6295f1732f8e",
+          "root_pixel_verdict": "PASS: fixed date chooser, main day and complete cross-midnight header all readable; no overlaps or date list; scrolling body expected"
+        },
+        {
+          "path": "Tools/agents/records/2026-10-31-summary-date-persistence/deepseek/20261031T025004.726652Z_date-visual-en-de-remaining_165fded7/artifacts/visual-en/20261031T025026.657076Z-6336cfb5/main-selected-16.png",
+          "sha256": "21946ffb05bf099e201624d765367eb3966aaea7d7e529a915403512a80b7624",
+          "root_pixel_verdict": "PASS: fixed date chooser, main day and complete cross-midnight header all readable; no overlaps or date list; scrolling body expected"
+        }
+      ]
+    },
+    {
+      "phase": "visual-de",
+      "result": [
+        {
+          "mode": "visual-only",
+          "completed": true,
+          "functional_checks_executed": 0,
+          "functional_checks_failed": 0,
+          "pixel_verdict": "PENDING_MAIN_AGENT_PIXEL_REVIEW"
+        }
+      ],
+      "cleanup": [
+        {
+          "owned_processes": [
+            {
+              "stage": "visual-only",
+              "pid": 56654,
+              "argv": [
+                "/private/tmp/GPXPointViewer-summary-navigation-ko2nkiuu/isolated-copy/GPXPointViewer.app/Contents/MacOS/GPXPointViewer",
+                "-NSQuitAlwaysKeepsWindows",
+                "NO",
+                "-AppleLanguages",
+                "(de)"
+              ],
+              "normal_quit": true,
+              "exit_code": 0
+            }
+          ],
+          "isolated_bundle_id": "de.wayne.GPXPointViewer.test.t20261031t025034z-76d564411549",
+          "isolated_work": "/Users/zyx/Library/Containers/de.wayne.GPXPointViewer.test.t20261031t025034z-76d564411549/Data/tmp/summary-navigation",
+          "formal_preference_domain_accessed": false,
+          "formal_app_process_touched": false,
+          "isolated_domain_retained_for_evidence": true
+        }
+      ],
+      "images": [
+        {
+          "path": "Tools/agents/records/2026-10-31-summary-date-persistence/deepseek/20261031T025004.726652Z_date-visual-en-de-remaining_165fded7/artifacts/visual-de/20261031T025034.450155Z-0fee0037/choose-date.png",
+          "sha256": "1d7603fc637efe4794a0888b18a0be6fb3886a08ad1b57587ea9ba2f32cff857",
+          "root_pixel_verdict": "PASS: fixed date chooser, main day and complete cross-midnight header all readable; no overlaps or date list; scrolling body expected"
+        },
+        {
+          "path": "Tools/agents/records/2026-10-31-summary-date-persistence/deepseek/20261031T025004.726652Z_date-visual-en-de-remaining_165fded7/artifacts/visual-de/20261031T025034.450155Z-0fee0037/cross-midnight-journey-top.png",
+          "sha256": "20a47d3503eda63b4d38be6f7a55da611de5eac6c79f7a00db47950fffe8a2c6",
+          "root_pixel_verdict": "PASS: fixed date chooser, main day and complete cross-midnight header all readable; no overlaps or date list; scrolling body expected"
+        },
+        {
+          "path": "Tools/agents/records/2026-10-31-summary-date-persistence/deepseek/20261031T025004.726652Z_date-visual-en-de-remaining_165fded7/artifacts/visual-de/20261031T025034.450155Z-0fee0037/main-selected-16.png",
+          "sha256": "1e630c3e58858983099f41dfdc7cd342452de9a6b3b61cf794ace06b484ba9de",
+          "root_pixel_verdict": "PASS: fixed date chooser, main day and complete cross-midnight header all readable; no overlaps or date list; scrolling body expected"
+        }
+      ]
+    }
+  ],
+  "functional_checks_executed": 0,
+  "inherited": "root-date-partial-verdict.json",
+  "product_acceptance": "PASS within documented scope; install next",
+  "prefs": "settings-after-formal-quit.json: explicit language/idleDisabled/mapStyle agree; no preference writes needed",
+  "formal_quit": "CUA actual PID87604 /Applications path, change review says no changes, SuperQ returned App quit; earlier initial English sheet attribution not formal",
+  "new_app_sha256": "eb52d08767443f1d1ee967b994f485731785e111685bef903688366bb8884265"
+}

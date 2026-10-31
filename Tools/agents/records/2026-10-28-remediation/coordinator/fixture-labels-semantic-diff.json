@@ -1,0 +1,62 @@
+[
+  {
+    "path": "Tests/synth/format-edge/gen.py",
+    "changes": [
+      {
+        "line": 684,
+        "before": "Two <trk> in reverse chronological order (day 2 first), 2 + 3 <trkseg>. Each explicit source segment is a hard boundary, including the 120 s / ~1.5 km transition. All five source segments are internally continuous: 0 gaps and 5 trips.",
+        "after": "[2026-10-29 调整] Two <trk> in reverse chronological order (day 2 first), 2 + 3 <trkseg>. Each explicit source segment is a hard boundary, including the 120 s / ~1.5 km transition. All five source segments are internally continuous: 0 gaps and 5 trips. 调整理由：旧扁平期待gap1/trips4会跨源段连接；独立逐段旧算法与生成器真值确认五段各自连续，改为gap0/trips5。"
+      }
+    ]
+  },
+  {
+    "path": "Tests/synth/format-edge/expect.json",
+    "changes": [
+      {
+        "path": "/files/g13_multi_trk_seg.gpx/desc",
+        "before": "Two tracks in reverse chronological order, 2 + 3 explicit hard source segments. Each segment is internally continuous; the 120 s / ~1.5 km transition is a source boundary. Therefore 0 gaps and 5 trips.",
+        "after": "[2026-10-29 调整] Two tracks in reverse chronological order, 2 + 3 explicit hard source segments. Each segment is internally continuous; the 120 s / ~1.5 km transition is a source boundary. Therefore 0 gaps and 5 trips. 调整理由：旧扁平期待gap1/trips4会跨源段连接；独立逐段旧算法与生成器真值确认五段各自连续，改为gap0/trips5。"
+      }
+    ]
+  },
+  {
+    "path": "Tests/synth/scale-mixed/gen.py",
+    "changes": [
+      {
+        "line": 1406,
+        "before": "1,000,000-point Garmin eTrex (creator garmin, no accuracy -> deviceLogger) at strict 1 Hz for 11.57 days (2026-06-01..06-12), mixed driving 11-36 m/s, walking 1.3-1.5 m/s, short stops <= 4 min and %d long stops >= 15 min (lunch/rest/dinner/night). No dt >= 20 s anywhere -> 0 timeGap; largest single step %.0f m (< 150 m) -> staleClock can never trigger; no bit-identical coordinates while moving -> 0 replays; every step << 300 m and never 200 m backwards -> 0 jitter. Each daily source segment is a hard boundary. The original trip kernel runs independently per day, giving %d trips; it cannot scan a stop into the next day. Load (read+parse+build) of this %.0f MB GPX must stay under 20 s (measured ~0.5 s with an -O synthrunner on an Apple-silicon Mac; 20 s is the requested budget).",
+        "after": "[2026-10-29 调整] 1,000,000-point Garmin eTrex (creator garmin, no accuracy -> deviceLogger) at strict 1 Hz for 11.57 days (2026-06-01..06-12), mixed driving 11-36 m/s, walking 1.3-1.5 m/s, short stops <= 4 min and %d long stops >= 15 min (lunch/rest/dinner/night). No dt >= 20 s anywhere -> 0 timeGap; largest single step %.0f m (< 150 m) -> staleClock can never trigger; no bit-identical coordinates while moving -> 0 replays; every step << 300 m and never 200 m backwards -> 0 jitter. Each daily source segment is a hard boundary. The original trip kernel runs independently per day, giving %d trips; it cannot scan a stop into the next day. Load (read+parse+build) of this %.0f MB GPX must stay under 20 s (measured ~0.5 s with an -O synthrunner on an Apple-silicon Mac; 20 s is the requested budget). 调整理由：旧扁平期待48 trips；12个日段分别运行原trip算法并重置30秒检查点，独立真值为61，数值不表示61次物理旅程。"
+      },
+      {
+        "line": 1475,
+        "before": "Two explicit hard source segments: Garmin (%d points) has 2 tunnel timeGaps; phone (%d points) has 146 ordinary 20-30 s background sparse-sampling steps plus its own 2 tunnel timeGaps. Thus 150 raw timeGap candidates, 0 staleClock and 2 trips. These are not 150 signal-loss incidents. Top-level profile retains its combined-track meaning; physical tunnel coverage intervals remain unchanged.",
+        "after": "[2026-10-29 调整] Two explicit hard source segments: Garmin (%d points) has 2 tunnel timeGaps; phone (%d points) has 146 ordinary 20-30 s background sparse-sampling steps plus its own 2 tunnel timeGaps. Thus 150 raw timeGap candidates, 0 staleClock and 2 trips. These are not 150 signal-loss incidents. Top-level profile retains its combined-track meaning; physical tunnel coverage intervals remain unchanged. 调整理由：旧扁平期待2个候选，时间排序使Garmin密集点掩盖手机段邻接；独立按源采样得到Garmin2与手机148个timeGap，共150，stale0/trips2；其中146个为正常稀疏采样，并非新增失锁。"
+      },
+      {
+        "line": 1495,
+        "before": "3-year 一生足迹 backup (2023-2025, creator StepOfMyWorld -> phone), %d sessions written newest year first (load-time sort), strict 29-31 s sampling with 5-min holes (dt 295-305 s). No step has dt < 20 s -> detectJitter never tests a step -> 0 jitter. timeGap = documented rule on written consecutive pairs within each source segment (every car / bike 30-s step >= 150 m is a candidate; %d sure, %d incl. borderline). gap_cover: car / bike 5-min holes (one candidate exactly on the hole); gap_free: walking 5-min holes (~420 m in 300 s = ~5 km/h < 15 km/h). 0 replays (no injected repeats; 7-decimal noisy fixes). trips = documented rule (split at recording holes >= 10 min; sessions never stop >= 10 min): %d blanks of 40 min - 2 days between sessions -> %d trips. %d of those blanks follow a 29-s step; a segmenter that only tests for a blank at the end of each 30-s checkpoint scan steps over them (checkpoint 29 s before the blank -> next checkpoint is the first point after it), which merges sessions across blanks of up to ~25 h.%s",
+        "after": "[2026-10-29 调整] 3-year 一生足迹 backup (2023-2025, creator StepOfMyWorld -> phone), %d sessions written newest year first (load-time sort), strict 29-31 s sampling with 5-min holes (dt 295-305 s). No step has dt < 20 s -> detectJitter never tests a step -> 0 jitter. timeGap = documented rule on written consecutive pairs within each source segment (every car / bike 30-s step >= 150 m is a candidate; %d sure, %d incl. borderline). gap_cover: car / bike 5-min holes (one candidate exactly on the hole); gap_free: walking 5-min holes (~420 m in 300 s = ~5 km/h < 15 km/h). 0 replays (no injected repeats; 7-decimal noisy fixes). trips = documented rule (split at recording holes >= 10 min; sessions never stop >= 10 min): %d blanks of 40 min - 2 days between sessions -> %d trips. %d of those blanks follow a 29-s step; a segmenter that only tests for a blank at the end of each 30-s checkpoint scan steps over them (checkpoint 29 s before the blank -> next checkpoint is the first point after it), which merges sessions across blanks of up to ~25 h.%s 调整理由：旧期待timeGap[51362,51365]含跨源段配对；只按各源段written-value连续点独立计数为[51311,51313]，保留原±0.01边界容差。"
+      }
+    ]
+  },
+  {
+    "path": "Tests/synth/scale-mixed/expect.json",
+    "changes": [
+      {
+        "path": "/files/s1_device_1M_11d.gpx/desc",
+        "before": "1,000,000-point Garmin eTrex (creator garmin, no accuracy -> deviceLogger) at strict 1 Hz for 11.57 days (2026-06-01..06-12), mixed driving 11-36 m/s, walking 1.3-1.5 m/s, short stops <= 4 min and 47 long stops >= 15 min (lunch/rest/dinner/night). No dt >= 20 s anywhere -> 0 timeGap; largest single step 37 m (< 150 m) -> staleClock can never trigger; no bit-identical coordinates while moving -> 0 replays; every step << 300 m and never 200 m backwards -> 0 jitter. The original trip kernel runs independently within 12 hard day segments: 5,5,5,6,5,5,5,5,5,6,5,4 = 61; it cannot scan a stop into another day. Load (read+parse+build) of this 99 MB GPX must stay under 20 s (measured ~0.5 s with an -O synthrunner on an Apple-silicon Mac; 20 s is the requested budget).",
+        "after": "[2026-10-29 调整] 1,000,000-point Garmin eTrex (creator garmin, no accuracy -> deviceLogger) at strict 1 Hz for 11.57 days (2026-06-01..06-12), mixed driving 11-36 m/s, walking 1.3-1.5 m/s, short stops <= 4 min and 47 long stops >= 15 min (lunch/rest/dinner/night). No dt >= 20 s anywhere -> 0 timeGap; largest single step 37 m (< 150 m) -> staleClock can never trigger; no bit-identical coordinates while moving -> 0 replays; every step << 300 m and never 200 m backwards -> 0 jitter. The original trip kernel runs independently within 12 hard day segments: 5,5,5,6,5,5,5,5,5,6,5,4 = 61; it cannot scan a stop into another day. Load (read+parse+build) of this 99 MB GPX must stay under 20 s (measured ~0.5 s with an -O synthrunner on an Apple-silicon Mac; 20 s is the requested budget). 调整理由：旧扁平期待48 trips；12个日段分别运行原trip算法并重置30秒检查点，独立真值为61，数值不表示61次物理旅程。"
+      },
+      {
+        "path": "/files/s3_merged_garmin_phone.gpx/desc",
+        "before": "Two time-overlapping hard source segments: Garmin 6405 points contributes 2 tunnel timeGaps; phone 1520 points contributes 146 ordinary 20-30 s background sparse steps plus its own 2 tunnel timeGaps. Thus 150 raw timeGap candidates, 0 staleClock and 2 trips; not 150 signal-loss incidents. Per-source profiles are deviceLogger and phone. Top-level combined-track profile and physical tunnel coverage retain their meanings.",
+        "after": "[2026-10-29 调整] Two time-overlapping hard source segments: Garmin 6405 points contributes 2 tunnel timeGaps; phone 1520 points contributes 146 ordinary 20-30 s background sparse steps plus its own 2 tunnel timeGaps. Thus 150 raw timeGap candidates, 0 staleClock and 2 trips; not 150 signal-loss incidents. Per-source profiles are deviceLogger and phone. Top-level combined-track profile and physical tunnel coverage retain their meanings. 调整理由：旧扁平期待2个候选，时间排序使Garmin密集点掩盖手机段邻接；独立按源采样得到Garmin2与手机148个timeGap，共150，stale0/trips2；其中146个为正常稀疏采样，并非新增失锁。"
+      },
+      {
+        "path": "/files/s4_backup_3y_30s.gpx/desc",
+        "before": "3-year 一生足迹 backup (2023-2025, creator StepOfMyWorld -> phone), 1576 sessions written newest year first (load-time sort), strict 29-31 s sampling with 5-min holes (dt 295-305 s). No step has dt < 20 s -> detectJitter never tests a step -> 0 jitter. timeGap = documented rule on written consecutive pairs within each source segment (every car / bike 30-s step >= 150 m is a candidate; 51311 sure, 51313 incl. borderline; 52 formerly accepted cross-source transitions excluded). gap_cover: car / bike 5-min holes (one candidate exactly on the hole); gap_free: walking 5-min holes (~420 m in 300 s = ~5 km/h < 15 km/h). 0 replays (no injected repeats; 7-decimal noisy fixes). trips = documented rule (split at recording holes >= 10 min; sessions never stop >= 10 min): 1575 blanks of 40 min - 2 days between sessions -> 1576 trips. 323 of those blanks follow a 29-s step; a segmenter that only tests for a blank at the end of each 30-s checkpoint scan steps over them (checkpoint 29 s before the blank -> next checkpoint is the first point after it), which merges sessions across blanks of up to ~25 h. cover/free intervals limited to the time before the 4500th rule candidate (runner lists 5000).",
+        "after": "[2026-10-29 调整] 3-year 一生足迹 backup (2023-2025, creator StepOfMyWorld -> phone), 1576 sessions written newest year first (load-time sort), strict 29-31 s sampling with 5-min holes (dt 295-305 s). No step has dt < 20 s -> detectJitter never tests a step -> 0 jitter. timeGap = documented rule on written consecutive pairs within each source segment (every car / bike 30-s step >= 150 m is a candidate; 51311 sure, 51313 incl. borderline; 52 formerly accepted cross-source transitions excluded). gap_cover: car / bike 5-min holes (one candidate exactly on the hole); gap_free: walking 5-min holes (~420 m in 300 s = ~5 km/h < 15 km/h). 0 replays (no injected repeats; 7-decimal noisy fixes). trips = documented rule (split at recording holes >= 10 min; sessions never stop >= 10 min): 1575 blanks of 40 min - 2 days between sessions -> 1576 trips. 323 of those blanks follow a 29-s step; a segmenter that only tests for a blank at the end of each 30-s checkpoint scan steps over them (checkpoint 29 s before the blank -> next checkpoint is the first point after it), which merges sessions across blanks of up to ~25 h. cover/free intervals limited to the time before the 4500th rule candidate (runner lists 5000). 调整理由：旧期待timeGap[51362,51365]含跨源段配对；只按各源段written-value连续点独立计数为[51311,51313]，保留原±0.01边界容差。"
+      }
+    ]
+  }
+]

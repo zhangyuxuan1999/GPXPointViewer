@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "run_id": "20261029T122240.949590Z_startup_a96c64bc",
+  "name": "startup",
+  "provider": "claude-agent-sdk",
+  "requested_model": "fixture-model",
+  "requested_effort": "max",
+  "observed_model": null,
+  "observed_effort": null,
+  "model_verification": "unknown",
+  "cwd": "/private/tmp/gpxpv-runner-tests-bakh534m/20261029T122239_987295_test_real_sdk_short_timeout_startup_race_keeps_result_and_budget_hold_4c87f46b/workspace",
+  "task_source": "/private/tmp/gpxpv-runner-tests-bakh534m/20261029T122239_987295_test_real_sdk_short_timeout_startup_race_keeps_result_and_budget_hold_4c87f46b/task.md",
+  "started_utc": "2026-10-29T12:22:40.950937+00:00",
+  "watch": [
+    "."
+  ],
+  "allow_write": [],
+  "snapshot_exclusions": {
+    "parts": [
+      ".agents",
+      ".aws",
+      ".codex",
+      ".git",
+      "DerivedData",
+      "__pycache__",
+      "node_modules",
+      "sdkenv"
+    ],
+    "prefixes": [
+      "Tools/agents/records",
+      "Tools/agents/runs",
+      "Tests/reports",
+      "Tests/ui/app.noindex",
+      "Tests/ui/perf",
+      "Tests/ui/synth.gpx",
+      "Tests/exam/results",
+      "Tests/synth/runner/synthrunner",
+      "Tests/synth/runner/build.log"
+    ],
+    "default_prefixes": [
+      "Tools/agents/records",
+      "Tools/agents/runs",
+      "Tests/reports",
+      "Tests/ui/app.noindex",
+      "Tests/ui/perf",
+      "Tests/ui/synth.gpx",
+      "Tests/exam/results",
+      "Tests/synth/runner/synthrunner",
+      "Tests/synth/runner/build.log"
+    ],
+    "user_prefixes": [],
+    "explicit_overrides": [],
+    "generated_pattern": "^Tests/synth/(?:format-edge|garmin-tunnels|legit-motion|replay-artefacts|scale-mixed|stationary-noise)/[^/]+\\.(?:gpx|csv|fit|bin)$"
+  },
+  "parent_run": null,
+  "recovery": "context",
+  "cost_usd": null,
+  "cost_source": "unknown",
+  "max_turns": 100,
+  "timeout_seconds": 0.001,
+  "pid": 30946,
+  "child_pid": 30969,
+  "process_identity": "darwin:30946:1793276560.808816"
+}

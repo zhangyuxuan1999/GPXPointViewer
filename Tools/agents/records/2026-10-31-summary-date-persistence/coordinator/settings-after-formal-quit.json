@@ -1,0 +1,70 @@
+{
+  "time": "2026-10-31T02:52:03.881113+00:00",
+  "scope": "six explicit nonsecret settings only, no full plist copied",
+  "domains": {
+    "current_unsandboxed": {
+      "path": "/Users/zyx/Library/Preferences/de.wayne.GPXPointViewer.plist",
+      "exists": true,
+      "values": {
+        "AppleLanguages": {
+          "present": true,
+          "value": [
+            "zh-Hans"
+          ]
+        },
+        "idleDisabled": {
+          "present": true,
+          "value": true
+        },
+        "idleGlobeSeconds": {
+          "present": false,
+          "value": null
+        },
+        "idleMapSeconds": {
+          "present": false,
+          "value": null
+        },
+        "appearanceMode": {
+          "present": false,
+          "value": null
+        },
+        "mapStyle": {
+          "present": true,
+          "value": "标准"
+        }
+      }
+    },
+    "original_sandbox": {
+      "path": "/Users/zyx/Library/Containers/de.wayne.GPXPointViewer/Data/Library/Preferences/de.wayne.GPXPointViewer.plist",
+      "exists": true,
+      "values": {
+        "AppleLanguages": {
+          "present": true,
+          "value": [
+            "zh-Hans"
+          ]
+        },
+        "idleDisabled": {
+          "present": true,
+          "value": true
+        },
+        "idleGlobeSeconds": {
+          "present": true,
+          "value": 4.0
+        },
+        "idleMapSeconds": {
+          "present": true,
+          "value": 4.0
+        },
+        "appearanceMode": {
+          "present": true,
+          "value": "跟随系统"
+        },
+        "mapStyle": {
+          "present": true,
+          "value": "标准"
+        }
+      }
+    }
+  }
+}

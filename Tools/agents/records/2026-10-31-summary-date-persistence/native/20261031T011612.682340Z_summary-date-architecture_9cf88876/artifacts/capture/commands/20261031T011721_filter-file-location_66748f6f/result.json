@@ -1,0 +1,23 @@
+{
+  "label": "filter-file-location",
+  "argv": [
+    "rg",
+    "-n",
+    "struct TimeFilterSection|struct TimeFilterSpec|enum TimeFilterMode",
+    "GPXPointViewer"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T011721",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 92057,
+  "process_owner": {
+    "pid": 92057,
+    "parent_pid": 92056,
+    "process_identity": "darwin:92057:1793409441.543574",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

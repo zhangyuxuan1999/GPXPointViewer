@@ -1,0 +1,27 @@
+{
+  "label": "029-async-checkpoint",
+  "argv": [
+    "python3",
+    "Tools/agents/agent_run.py",
+    "event",
+    "Tools/agents/records/2026-10-30-journey-summary/native/20261030T040811.831198Z_journey-summary-integration-audit_68fdadc0",
+    "--type",
+    "progress",
+    "--json",
+    "{\"completed\":\"Inspected topology, missing values, stable sorting, region lookup/stats, trip inference, synthetic/retimed ownership, publication clock and window seams; factual preliminary map sent to root/Astra.\",\"doing\":\"Close exact filter/map and lifecycle details, then write evidence-backed integration report.\",\"next\":\"Save complete output, communication receipts, source hashes and finish provider execution with acceptance pending.\",\"read_errors\":\"One range printer overshot RegionIndex.swift end after printing requested APIs (exit1), one rg named nonexistent TrackSamples.swift while still finding SegmentSamples in GapFill.swift (exit2); both retained as read-command errors, no tests/builds performed.\"}"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041140",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 13289,
+  "process_owner": {
+    "pid": 13289,
+    "parent_pid": 13286,
+    "process_identity": "darwin:13289:1793333500.715418",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.05
+}

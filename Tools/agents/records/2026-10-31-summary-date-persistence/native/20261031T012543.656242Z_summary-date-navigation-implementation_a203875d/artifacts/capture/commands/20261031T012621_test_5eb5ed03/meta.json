@@ -1,0 +1,22 @@
+{
+  "label": "test",
+  "argv": [
+    "/bin/zsh",
+    "-c",
+    "sed -n '1,165p' Tests/summary/store/StoreRegression.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T012621",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 97855,
+  "process_owner": {
+    "pid": 97855,
+    "parent_pid": 97841,
+    "process_identity": "darwin:97855:1793409981.197890",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

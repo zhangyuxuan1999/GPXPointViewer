@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "rg",
+    "-n",
+    "CSVWriter|csv|prev|distance|heading",
+    "GPXPointViewer/CSVWriter.swift",
+    "Tests/synth/runner/build.sh"
+  ],
+  "cwd": "/private/tmp/gpxpv-segment-integration-o3kf8civ",
+  "started_at": "2026-10-28T23:16:55.633193+00:00",
+  "exit_code": 2,
+  "finished_at": "2026-10-28T23:16:55.646257+00:00"
+}

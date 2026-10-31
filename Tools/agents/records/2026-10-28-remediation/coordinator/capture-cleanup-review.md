@@ -1,0 +1,1 @@
+协调器命令留档脚本超时路径改用同版已审有界/归属确认cleanup，捕获helper异常仍落result/journal，不再无界wait。受控sleep10子进程timeout0.15真实exit124，子进程exit-15，stdout/cleanup回执/结果全部保存于commands/20261029T005441_capture-timeout-fixture_c328be3e。该探针不调用API或app。原capture文件及diff保留。

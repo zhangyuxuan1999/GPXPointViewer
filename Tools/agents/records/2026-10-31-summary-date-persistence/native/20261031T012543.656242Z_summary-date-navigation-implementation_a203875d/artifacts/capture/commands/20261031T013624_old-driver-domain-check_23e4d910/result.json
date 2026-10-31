@@ -1,0 +1,21 @@
+{
+  "label": "old-driver-domain-check",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T013624",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 7977,
+  "process_owner": {
+    "pid": 7977,
+    "parent_pid": 7976,
+    "process_identity": "darwin:7977:1793410584.006951",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.02
+}

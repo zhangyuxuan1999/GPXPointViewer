@@ -1,0 +1,22 @@
+{
+  "label": "isolated-implementation-source",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; s=Path(\"Tools/archive_build.py\").read_text(); print(s[s.index(\"def validate_bundle\"):]); compile(s,\"Tools/archive_build.py\",\"exec\")"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T012918",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 888,
+  "process_owner": {
+    "pid": 888,
+    "parent_pid": 887,
+    "process_identity": "darwin:888:1793410158.124286",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.03
+}

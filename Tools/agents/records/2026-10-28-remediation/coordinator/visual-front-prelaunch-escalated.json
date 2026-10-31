@@ -1,0 +1,13 @@
+{
+  "utc": "2026-10-29T12:41:45.012789+00:00",
+  "argv": [
+    "/usr/bin/osascript",
+    "-l",
+    "JavaScript",
+    "-e",
+    "ObjC.import('AppKit'); var a=$.NSWorkspace.sharedWorkspace.frontmostApplication; JSON.stringify({front:a?ObjC.unwrap(a.localizedName):null,bundle_id:a?ObjC.unwrap(a.bundleIdentifier):null});"
+  ],
+  "exit_code": 0,
+  "stdout": "{\"front\":\"DeepSeek Harness\",\"bundle_id\":\"com.deepseek.dsh\"}\n",
+  "stderr": ""
+}

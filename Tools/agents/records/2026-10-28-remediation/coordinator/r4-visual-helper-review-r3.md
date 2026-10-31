@@ -1,0 +1,1 @@
+Root读shotwin源码确认NSApp.windows.isVisible+title筛选，CGWindowListCreateImage optionIncludingWindow只捕获指定本进程windowNumber；无全局前台要求。helper删额外GPX front bundle门，保留loginwindow/屏保/未知前台阻止。Root独立29/29（commands本次visual-capture-guard-independent）通过，原product/shotwin未改。driver hash=184f7abb3b586c7f0b125629d4dc36bc815fbbab49d2d09e3e5de9aabdc7a93e。先前实际blocked原件保留，真实窗口还原与4desc已独立接受；新run仅补图，不重复应用元数据。

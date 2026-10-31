@@ -1,0 +1,567 @@
+{
+  "workspace": "/private/tmp/gpxpv-segment-integration-o3kf8civ",
+  "source": "/Users/zyx/Documents/GPXPointViewer",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "size": 4739,
+      "sha256": "bab6c41c291a4f400306ddbf3024024256cb9013ca640fedd6e9864e55d9a7de"
+    },
+    {
+      "path": "GPXPointViewer/Assets.xcassets/AppIcon.appiconset/Contents.json",
+      "size": 1206,
+      "sha256": "caed3ff5ad521ea21662df2481d409347f9c407f118df6a304c01d2675125e7a"
+    },
+    {
+      "path": "GPXPointViewer/Assets.xcassets/AppIcon.appiconset/icon_1024.png",
+      "size": 89530,
+      "sha256": "2bc4ba1d863fddc1943124496e440670a20205eb1287a1194e3bfe173f154fec"
+    },
+    {
+      "path": "GPXPointViewer/Assets.xcassets/AppIcon.appiconset/icon_128.png",
+      "size": 8371,
+      "sha256": "01554794635db66288ab779ae274e3a53e7d86c51f8cfd3a77e0ce1375da36c5"
+    },
+    {
+      "path": "GPXPointViewer/Assets.xcassets/AppIcon.appiconset/icon_16.png",
+      "size": 639,
+      "sha256": "43ec9ae6b59a81d59aacf7c0a6abedad04ba7758de2085f4ff84db8035bfb648"
+    },
+    {
+      "path": "GPXPointViewer/Assets.xcassets/AppIcon.appiconset/icon_256.png",
+      "size": 18441,
+      "sha256": "b597b19caa7b8355c17df86b84860f1456c8a97f75b4ab706e8f971dcdc3124e"
+    },
+    {
+      "path": "GPXPointViewer/Assets.xcassets/AppIcon.appiconset/icon_32.png",
+      "size": 1542,
+      "sha256": "e306e8b176a58a788787a62642a55e8cf94cdd43f18cfb44d259f8894e0c4a43"
+    },
+    {
+      "path": "GPXPointViewer/Assets.xcassets/AppIcon.appiconset/icon_512.png",
+      "size": 41413,
+      "sha256": "59165a7469cd6d91ec3e8bb89c9814c52db7d6078ac1cd47ad86018d6bbcf652"
+    },
+    {
+      "path": "GPXPointViewer/Assets.xcassets/AppIcon.appiconset/icon_64.png",
+      "size": 3559,
+      "sha256": "96657e5d8a2f0ef0f5319873a82649691611f324396e0884b5c07095a1358700"
+    },
+    {
+      "path": "GPXPointViewer/Assets.xcassets/Contents.json",
+      "size": 59,
+      "sha256": "a3393322cd7b4c1e0aa93bebe09abaa91ad891290d1225b0b5d10b5c6f216025"
+    },
+    {
+      "path": "GPXPointViewer/BatchFill.swift",
+      "size": 26212,
+      "sha256": "a806c3ace83029caff90555cce0c159a70d81573250b91ca022bea94d32e2be9"
+    },
+    {
+      "path": "GPXPointViewer/BatchFillWindow.swift",
+      "size": 79864,
+      "sha256": "a0f7119aca1bb07025a78058d52a5e3c0c2563c2a9e86848231887da2c2917fc"
+    },
+    {
+      "path": "GPXPointViewer/ChangeLog.swift",
+      "size": 13830,
+      "sha256": "3cf087362471b779565244b231887e68ed95db89372a38f9b3bb2ea968459381"
+    },
+    {
+      "path": "GPXPointViewer/ChangeReviewWindow.swift",
+      "size": 52459,
+      "sha256": "6507d8ae2efa886a1f065d310e5aa88cdd9a4e911de181ed39fac63400034cce"
+    },
+    {
+      "path": "GPXPointViewer/Colormaps.swift",
+      "size": 10794,
+      "sha256": "0e86ed3b4b3ebc784df91dc123054bca2249ca5ad7ad17d272e3287eabbe24f8"
+    },
+    {
+      "path": "GPXPointViewer/ContentView.swift",
+      "size": 149448,
+      "sha256": "062941d4c8038a7bc254618b0b4e4f09dfc9add932ab4d9f3c5b1f7954662906"
+    },
+    {
+      "path": "GPXPointViewer/DiffCompare.swift",
+      "size": 7751,
+      "sha256": "0a5a58daac80407178aad4373a9924618adb4ec23d94a3c946c1a0f005ac9ad3"
+    },
+    {
+      "path": "GPXPointViewer/DiffWindow.swift",
+      "size": 10786,
+      "sha256": "3a36a255542c1484bf5cc32bf1d6469711145c9a4a1ec7ce18272aba28865079"
+    },
+    {
+      "path": "GPXPointViewer/ExportSheet.swift",
+      "size": 23548,
+      "sha256": "bfaf20e3a8e90900ad6af0a320ba909c150379a8befcf5f962ce7049dd7d1ff1"
+    },
+    {
+      "path": "GPXPointViewer/FillPlausibility.swift",
+      "size": 31243,
+      "sha256": "b740419e409226d9daf4d780a1e6676d494f0c899bb152120dce92e9883f204f"
+    },
+    {
+      "path": "GPXPointViewer/FogArchive.swift",
+      "size": 20312,
+      "sha256": "7ea859310d0160fa475f370c4b0d6b8d2c5fd82cfe6c58e543533a603b2b989c"
+    },
+    {
+      "path": "GPXPointViewer/GPXParser.swift",
+      "size": 46634,
+      "sha256": "23c99716d6d0b3c7f6fdfcac7e42a22754aa93f5f06f70add2c3acf289dcb1a0"
+    },
+    {
+      "path": "GPXPointViewer/GPXPointViewer.entitlements",
+      "size": 366,
+      "sha256": "d3dcf28bbd8c4589addd4e9259d7406544e896f90d359038e833e7f54cdaa129"
+    },
+    {
+      "path": "GPXPointViewer/GPXPointViewerApp.swift",
+      "size": 6928,
+      "sha256": "9b06feb57e4068ad0c5b9ba679ea25973ef6a8d87c13a7dcc8760f017bb9f0e2"
+    },
+    {
+      "path": "GPXPointViewer/GPXWriter.swift",
+      "size": 10137,
+      "sha256": "0c25a9af919edd52f97e73ad19bd96b05b9503daea4aacff06cbec2e7de8d37c"
+    },
+    {
+      "path": "GPXPointViewer/GapFill.swift",
+      "size": 120913,
+      "sha256": "e83fbe1096ce09faab5358ec5bb36c9d042e74560b7f211bf2fa1165ba27640b"
+    },
+    {
+      "path": "GPXPointViewer/GeoCompute.swift",
+      "size": 11584,
+      "sha256": "63bb6433f2ff01a4855fcf81c1cddcfe34a38322b96515df0b6849a77249c306"
+    },
+    {
+      "path": "GPXPointViewer/Heat3D.swift",
+      "size": 15072,
+      "sha256": "1da6a081b456007f240a88f5a512ae57788c5a6aad4c4fb0262f51b1fbcba49c"
+    },
+    {
+      "path": "GPXPointViewer/Info.plist",
+      "size": 1110,
+      "sha256": "dc43cb71342751e20ffa8961c02f0b7c2fb368991c60b198790fd09ab47eaf81"
+    },
+    {
+      "path": "GPXPointViewer/InfoPlist.xcstrings",
+      "size": 1404,
+      "sha256": "43af36740d8d4c440286cb914ad58d3398c29c56c0c0520e2c9644ebacfda446"
+    },
+    {
+      "path": "GPXPointViewer/L10nSupport.swift",
+      "size": 1014,
+      "sha256": "42231e9844aa73f9a1e51dc72f93bc4386a6a35d25917f1f8212e4b4a30989d3"
+    },
+    {
+      "path": "GPXPointViewer/Localizable.xcstrings",
+      "size": 914179,
+      "sha256": "52d9a59ac387273e8767243166068d0017cf6e3083403e6e18ff3697290bd2bb"
+    },
+    {
+      "path": "GPXPointViewer/MapSources.swift",
+      "size": 21640,
+      "sha256": "bd92c04f59e6839f4d130033fa82d2e736df1eba1c2be60f7338b5c32f8d9489"
+    },
+    {
+      "path": "GPXPointViewer/MetalPointRenderer.swift",
+      "size": 105444,
+      "sha256": "599427a28313e466c1b12847edf950b8a59e7264934baacafe0fe92bf3362df2"
+    },
+    {
+      "path": "GPXPointViewer/PixelGlobe.swift",
+      "size": 26737,
+      "sha256": "5e52dbad6163f0a904a78a1a799eadfaee643836aae4fa48dcae5579e0681174"
+    },
+    {
+      "path": "GPXPointViewer/Playback.swift",
+      "size": 31874,
+      "sha256": "733dd7bf83722334941202de7b6da74e5f7c69e8340d0e1286826a9dd2c97793"
+    },
+    {
+      "path": "GPXPointViewer/PointMapView.swift",
+      "size": 189095,
+      "sha256": "6d82fc53b4a2f12617f8e9e238d83e716f11252e887e15c669dfd9abdb5e38e2"
+    },
+    {
+      "path": "GPXPointViewer/RegionIndex.swift",
+      "size": 30332,
+      "sha256": "341c320e0eccc08ae2cc1a8731e1d63d0be10a484cf8ab5fad0fd6d5d34af263"
+    },
+    {
+      "path": "GPXPointViewer/RegionStats.swift",
+      "size": 6993,
+      "sha256": "3d81debe4f121f21075fc407d634ec9df268a8c5eea2fec89d08cf241fe34c21"
+    },
+    {
+      "path": "GPXPointViewer/Regions.bin",
+      "size": 29411770,
+      "sha256": "dda2f3df9cad4859d68fb13f77083eb9dff96cea48d98a9ed3b1fa08585f6d4e"
+    },
+    {
+      "path": "GPXPointViewer/RegionsWindow.swift",
+      "size": 15991,
+      "sha256": "1379cad6891427983f0de8b4cd496b8a70c54b12264e2b75cf22c188c47f353c"
+    },
+    {
+      "path": "GPXPointViewer/RoadNetwork.swift",
+      "size": 166094,
+      "sha256": "bba3adb062a583a706c2fdf455b13843ba26f18330f7a7db40104655175aa58d"
+    },
+    {
+      "path": "GPXPointViewer/RouteReplay.swift",
+      "size": 11332,
+      "sha256": "4c56f06f6ff6d981ceffdf2eeb51eaa7bc2b16e5784e08e48babf63f43064bd4"
+    },
+    {
+      "path": "GPXPointViewer/Shaders.metal",
+      "size": 49894,
+      "sha256": "058d914045d428080cecc5f7b20c120e21b77f2f247dd7a573448ba4714d5dcd"
+    },
+    {
+      "path": "GPXPointViewer/StressTest.swift",
+      "size": 3415,
+      "sha256": "620d9d817f935bef33ee1e9570e8e7fabefaeecb6a3ed9a86aeb57770a5d6bc3"
+    },
+    {
+      "path": "GPXPointViewer/TrackData.swift",
+      "size": 77864,
+      "sha256": "871290d5728067cf1cceb369764838f371e6517dc73ff98c98c36aceb8f048ff"
+    },
+    {
+      "path": "GPXPointViewer/TrackStore.swift",
+      "size": 264556,
+      "sha256": "5fcba32b92658f84e48093aa9271651f1f15bc9308f4ac15eacb4b494e350719"
+    },
+    {
+      "path": "GPXPointViewer/TunnelOverlay.swift",
+      "size": 17666,
+      "sha256": "87fc41f83de2eb68ff0bdd01b7385f3c4f54f4996d5343f53cf8c77eadb4b20b"
+    },
+    {
+      "path": "GPXPointViewer/UITestHook.swift",
+      "size": 76064,
+      "sha256": "ce8fe2a545dcc0e8f3ed9307f76ca8787ab24244aceb12e389a79a580ad5d978"
+    },
+    {
+      "path": "GPXPointViewer/VideoExport.swift",
+      "size": 23911,
+      "sha256": "365e181ac85dfaaa3cde789bc529fc572f5c439d520ccb4513b471ee6e540ae0"
+    },
+    {
+      "path": "GPXPointViewer/earth_texture.png",
+      "size": 678541,
+      "sha256": "d302711e94302241d4056e4deedd840e99d6236c377e629af4d3e0a4f3a48a0e"
+    },
+    {
+      "path": "GPXPointViewer/earth_texture_light.png",
+      "size": 806536,
+      "sha256": "c0ca6e847c47b876e9fcaea0f5096addbedb5fb5f547b3225c4f5495392ae9f9"
+    },
+    {
+      "path": "GPXPointViewer/land_mask.bin",
+      "size": 65540,
+      "sha256": "104e8e6476d8212f95d7bff2cdf389309ac65fe71c7af11292a1ec3d0c45296c"
+    },
+    {
+      "path": "GPXPointViewer/land_mask.png",
+      "size": 9292,
+      "sha256": "4fcc4053562f8bf1a6fc5c5228b65d2f10e89d5b516d5ee403291c51c608c2de"
+    },
+    {
+      "path": "GPXPointViewer/moon_texture.png",
+      "size": 501293,
+      "sha256": "93c356429925a468b6b6e31a89f5cedc2938b64a8668ec9e68bfd6e6914f40b7"
+    },
+    {
+      "path": "GPXPointViewer.xcodeproj/project.pbxproj",
+      "size": 44273,
+      "sha256": "55cb89158078b54864da45f3904ec916748e393e70dca9f8e0d3225191b5ce4a"
+    },
+    {
+      "path": "GPXQuickLook/GPXQuickLook.entitlements",
+      "size": 240,
+      "sha256": "b746c74b201e6af4e0864fbd1f4f629f96156a7ec4b7208bc995d0a5089bb592"
+    },
+    {
+      "path": "GPXQuickLook/Info.plist",
+      "size": 626,
+      "sha256": "c4dd2d0d1ad1150e6771639006736b456834ee081706cbeb5413a831089792d3"
+    },
+    {
+      "path": "GPXQuickLook/InfoPlist.xcstrings",
+      "size": 1334,
+      "sha256": "0fbf82a900ad21f4dc0c014c7cb043d517fa2b5b7499790b8facdac3d1ae09e9"
+    },
+    {
+      "path": "GPXQuickLook/Localizable.xcstrings",
+      "size": 4315,
+      "sha256": "f12c3ab67fac6e5ee01f6b1a531866f19f6ab4a717b481a057d8406f8ee8b206"
+    },
+    {
+      "path": "GPXQuickLook/PreviewViewController.swift",
+      "size": 6782,
+      "sha256": "89be72da01ec8dc7c1da332b9bd92f50642519362c429d6dedce53303f03696e"
+    },
+    {
+      "path": "GPXQuickLook/TrackShape.swift",
+      "size": 5899,
+      "sha256": "c99308cb8ec25354d007667642ba32e275cda3c3924783ecbda5c525ec7cebae"
+    },
+    {
+      "path": "GPXThumbnail/GPXThumbnail.entitlements",
+      "size": 240,
+      "sha256": "b746c74b201e6af4e0864fbd1f4f629f96156a7ec4b7208bc995d0a5089bb592"
+    },
+    {
+      "path": "GPXThumbnail/Info.plist",
+      "size": 639,
+      "sha256": "ff358401c7c2fa80e273d90617190f63e3400ee9f575ce0e5234a9683b7d5887"
+    },
+    {
+      "path": "GPXThumbnail/InfoPlist.xcstrings",
+      "size": 1339,
+      "sha256": "7c6316ed2fac345a9874e0fc39fb899a2a76f920afcad9da55337e67944b143e"
+    },
+    {
+      "path": "GPXThumbnail/ThumbnailProvider.swift",
+      "size": 1706,
+      "sha256": "bf9f33c42dfb598ebaaf412b1028ba2627e59bf8a36dc58d81ca8fdf17107245"
+    },
+    {
+      "path": "README.md",
+      "size": 48673,
+      "sha256": "8b291737e1765fbea54c1ad552e05807c4553b5dc0dd2043000655be5118d208"
+    },
+    {
+      "path": "Tests/README.md",
+      "size": 54347,
+      "sha256": "be7de8a879e2439e0da74382766f6a16d1d8a10b93cdbccda8dc8d808695fd54"
+    },
+    {
+      "path": "Tests/l10n/RULES.md",
+      "size": 38623,
+      "sha256": "edd14ba047840d3cdfce45abda05e6fe2fd2d9d54bedfb8a965a917f4b914386"
+    },
+    {
+      "path": "Tests/l10n/assemble.py",
+      "size": 2632,
+      "sha256": "6dbf61d8f71b860d3072c327615dae65f99a8c438443da11a6d8bd0599b16e3f"
+    },
+    {
+      "path": "Tests/l10n/extract_keys.py",
+      "size": 2510,
+      "sha256": "3e2b92c7b309a994dede7afeffe872e1059961286afb6d4e5a45cc68ed6377ed"
+    },
+    {
+      "path": "Tests/l10n/translations/chunk_00.json",
+      "size": 21518,
+      "sha256": "ef6f1d23b1457cb94a985fae7f9e94edc1ba6a3a5b956add43e5bf9cd69898f5"
+    },
+    {
+      "path": "Tests/l10n/translations/chunk_01.json",
+      "size": 26722,
+      "sha256": "525fe2e603f00bdcd5ef422c5bea86e2496f321f3ea335cc9c0ee617683ce5ce"
+    },
+    {
+      "path": "Tests/l10n/translations/chunk_02.json",
+      "size": 33346,
+      "sha256": "e0beb568c10a500c544857252b7eead60bc98f969d2239a34b58df6eb2436b46"
+    },
+    {
+      "path": "Tests/l10n/translations/chunk_03.json",
+      "size": 33088,
+      "sha256": "fc6f1e2a0c2a277017a1a3eebbbed1b5e7f95b1b0454498fb2bc7b0f9a85a74d"
+    },
+    {
+      "path": "Tests/l10n/translations/chunk_04.json",
+      "size": 23136,
+      "sha256": "102aa375f32a10807d2ac58f4679a0d0d9aa4127cdddbab921c12cde3e4ed6c6"
+    },
+    {
+      "path": "Tests/l10n/translations/chunk_05.json",
+      "size": 14361,
+      "sha256": "7d808bbca30fd922aee5c773f714a1e2fbfa8ced3b443a303287579a9a7ec11a"
+    },
+    {
+      "path": "Tests/l10n/translations/chunk_06.json",
+      "size": 25099,
+      "sha256": "d228f3bb2314178b5f0fc0147d6d02ff037b83b3f7ece5883dd444d974ff3bad"
+    },
+    {
+      "path": "Tests/l10n/translations/chunk_07.json",
+      "size": 22000,
+      "sha256": "d9524ac1d8cbed9289d81e89a64bca5383b616c319a04979df3ee71e65e74fb5"
+    },
+    {
+      "path": "Tests/l10n/translations/chunk_08.json",
+      "size": 19253,
+      "sha256": "d14bb0b2e9d16432732e14b7ddc75c770deea1bea6f7ae6a243673e89f539ead"
+    },
+    {
+      "path": "Tests/l10n/translations/chunk_09.json",
+      "size": 17681,
+      "sha256": "d5657664397f8a99f6d523ce1ce60f1ed21a0a791746240d3733b58c15d97e97"
+    },
+    {
+      "path": "Tests/l10n/translations/chunk_10.json",
+      "size": 18283,
+      "sha256": "6da4195cfef999cbcfa23df1e597bc656500d8eb3a8e20c5f565133d5c26ace5"
+    },
+    {
+      "path": "Tests/l10n/translations/chunk_11.json",
+      "size": 22261,
+      "sha256": "593c4899b9ae667472fcc7b2bdea1be0754cd20bc36a02c134698cb062821d83"
+    },
+    {
+      "path": "Tests/l10n/translations/chunk_12.json",
+      "size": 10282,
+      "sha256": "fab05e24e97cb981f6e746bc3c201901d8cb4890ac714aacd7ae05d49c796e40"
+    },
+    {
+      "path": "Tests/l10n/translations/chunk_13.json",
+      "size": 1384,
+      "sha256": "0ba409ef069a97accce96785245ba9d63ff27849e87520c8d7645d2dc48df548"
+    },
+    {
+      "path": "Tests/l10n/translations/chunk_14.json",
+      "size": 13304,
+      "sha256": "5bfe194716e5effef2cde00a0b4ffbae9397e70844587d8a71d934ff16abceaf"
+    },
+    {
+      "path": "Tests/l10n/translations/chunk_15.json",
+      "size": 2783,
+      "sha256": "a4587637bed8fe944156ca45d9438506c1fe760d110440e3bfb8127862d15e30"
+    },
+    {
+      "path": "Tests/l10n/translations/chunk_16.json",
+      "size": 30549,
+      "sha256": "e315661f6cb5a0f2d6e79019cbdbe690b6d2037da9d4e03ac8c4d46c97db774b"
+    },
+    {
+      "path": "Tests/l10n/translations/chunk_17.json",
+      "size": 5320,
+      "sha256": "e22ccfc1b96c93ff462c116db52f98c134a4f35960a52aa21cf8e0b450338b00"
+    },
+    {
+      "path": "Tests/l10n/translations/chunk_18.json",
+      "size": 5655,
+      "sha256": "8c974e00a5c5bc40c38f0be5a77f63d31d2ab3428e8d1b0fcaca754c9799c0d4"
+    },
+    {
+      "path": "Tests/l10n/translations/chunk_19.json",
+      "size": 12031,
+      "sha256": "2fa5e0bd85ed789c8350ab0c0b6e9974d28fcf2c851f73e8ecf31c930f61553d"
+    },
+    {
+      "path": "Tests/l10n/translations/chunk_20.json",
+      "size": 5841,
+      "sha256": "16d71f8e5bb4798ebcedc7e34ca9c0bc5a4432dfd87be96222a4e9cf5e52cacd"
+    },
+    {
+      "path": "Tests/l10n/translations/chunk_21.json",
+      "size": 12256,
+      "sha256": "a4855757d76260032e0d006d61c0522ad38202efe8cd7f5b1978f21531237c74"
+    },
+    {
+      "path": "Tests/l10n/translations/chunk_22.json",
+      "size": 9726,
+      "sha256": "3a70f8630026e04a28a483ebb06e6ee88485d1a96f817917fa8cdecb1d486d9c"
+    },
+    {
+      "path": "Tests/l10n/translations/chunk_23.json",
+      "size": 11182,
+      "sha256": "d2023eb450379a8f7ac4028fe657e395daead41a7c58ff99fbef47772b8a7e56"
+    },
+    {
+      "path": "Tests/l10n/translations/chunk_24.json",
+      "size": 1394,
+      "sha256": "c41d983928f2b3837939271d91e06526c30997dced67a5da59c68acb0b3f8b3d"
+    },
+    {
+      "path": "Tests/l10n/translations/chunk_25.json",
+      "size": 8166,
+      "sha256": "aaf8d70bf5515f89d36968fc45f925f125bd630764c5b2082410aa8661a0342d"
+    },
+    {
+      "path": "Tests/l10n/translations/chunk_26.json",
+      "size": 2496,
+      "sha256": "fbdf488d8876cf8d707b597aadeedea5fee5f0759e5ea1344bcb39f3d2317726"
+    },
+    {
+      "path": "Tests/l10n/translations/chunk_27.json",
+      "size": 1907,
+      "sha256": "5073093763909e1dc2ca1e9157e2383b8048b73692db14b0e06e4e197f65764e"
+    },
+    {
+      "path": "Tests/l10n/translations/chunk_28.json",
+      "size": 1680,
+      "sha256": "fbe78a70ac72b3cd4e4bf2c04a679ae9ed9cb1eb85067d0cfefe297aa3669298"
+    },
+    {
+      "path": "Tests/synth/runner/check.py",
+      "size": 26495,
+      "sha256": "a0abab71fb58f3cb189ecc2cd54ea044acfaca0f799ba2ea267ac5617695c103"
+    },
+    {
+      "path": "Tests/synth/runner/check_garmin_tunnel.py",
+      "size": 4328,
+      "sha256": "f99ba144f1e6d194120bc473df4f7c87d18121e2930ade3dd73620966152ff4f"
+    },
+    {
+      "path": "Tests/synth/runner/exam.swift",
+      "size": 28573,
+      "sha256": "fed6fbc61c0272d5ede95006b2f37ec5da75a7246fbc3ba9611774f11c0c89f7"
+    },
+    {
+      "path": "Tests/synth/runner/main.swift",
+      "size": 45985,
+      "sha256": "199142dadc6ce6b9d5e93b03884926044af760b8ed67659bf3dd84cb0d63bf81"
+    },
+    {
+      "path": "Tests/synth/runner/run_all.sh",
+      "size": 2853,
+      "sha256": "a7784bfb5b3657b129eccb791d5d76b47747181915e4b9658e705c181975c763"
+    },
+    {
+      "path": "docs/batch-review-design.md",
+      "size": 15545,
+      "sha256": "33afd16a9100ce5180c51f5ab37898f8948c35040423ca1a3cb10a85381a3a25"
+    },
+    {
+      "path": "docs/codex-handover-2026-10-28.md",
+      "size": 11272,
+      "sha256": "df9b8432e6b725688622146ed5f7ee771047e2706c856afac6ff1f1cac25d5bc"
+    },
+    {
+      "path": "docs/cross-check-design.md",
+      "size": 23832,
+      "sha256": "d94b76f67b4fa32429bba2ee006832f98af8b6d4ab292831754851f7061163bb"
+    },
+    {
+      "path": "docs/fill-plausibility-design.md",
+      "size": 32643,
+      "sha256": "2c8ff1dcbf4f8353fc47f22b07c70e85300de0e5ea131f6957d2c4210f57738d"
+    },
+    {
+      "path": "docs/fwdb-format-notes.md",
+      "size": 1366,
+      "sha256": "e40a3f00df84f94c72d6d216cce6306c7ef32924ce377ecd5e578c73b7b1ad1a"
+    },
+    {
+      "path": "docs/map-sources.md",
+      "size": 7968,
+      "sha256": "6438bfc3207fc36b2880d1abbdc080c8acd5a1ffa12097db815b90b4d71ce798"
+    },
+    {
+      "path": "docs/regions-design.md",
+      "size": 15044,
+      "sha256": "dd3e4ea55e5fb0c168be4524a5dd5a71f6e9a9e880fd7c4a9bd2173eee0cf96a"
+    }
+  ],
+  "note": "Copy only. Product source remains frozen for R4. Assign disjoint file owners before edits."
+}

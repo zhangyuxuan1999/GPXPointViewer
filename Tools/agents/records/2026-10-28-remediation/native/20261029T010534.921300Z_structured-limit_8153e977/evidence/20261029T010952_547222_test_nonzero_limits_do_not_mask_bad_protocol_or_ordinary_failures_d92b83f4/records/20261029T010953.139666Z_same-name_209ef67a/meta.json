@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "run_id": "20261029T010953.139666Z_same-name_209ef67a",
+  "name": "same-name",
+  "provider": "deepseek-cli",
+  "requested_model": "deepseek-flash",
+  "requested_effort": "max",
+  "observed_model": null,
+  "observed_effort": null,
+  "model_verification": "CLI report only; actual outbound model/effort unverified",
+  "cwd": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/native/20261029T010534.921300Z_structured-limit_8153e977/artifacts/active-fixtures/20261029T010952_547222_test_nonzero_limits_do_not_mask_bad_protocol_or_ordinary_failures_d92b83f4/workspace",
+  "task_source": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/native/20261029T010534.921300Z_structured-limit_8153e977/artifacts/active-fixtures/20261029T010952_547222_test_nonzero_limits_do_not_mask_bad_protocol_or_ordinary_failures_d92b83f4/task.md",
+  "started_utc": "2026-10-29T01:09:53.140372+00:00",
+  "watch": [
+    "."
+  ],
+  "allow_write": [],
+  "snapshot_exclusions": {
+    "parts": [
+      ".agents",
+      ".aws",
+      ".codex",
+      ".git",
+      "DerivedData",
+      "__pycache__",
+      "node_modules",
+      "sdkenv"
+    ],
+    "prefixes": [
+      "Tools/agents/records",
+      "Tools/agents/runs",
+      "Tests/reports",
+      "Tests/ui/app.noindex",
+      "Tests/ui/perf",
+      "Tests/ui/synth.gpx",
+      "Tests/exam/results",
+      "Tests/synth/runner/synthrunner",
+      "Tests/synth/runner/build.log"
+    ],
+    "default_prefixes": [
+      "Tools/agents/records",
+      "Tools/agents/runs",
+      "Tests/reports",
+      "Tests/ui/app.noindex",
+      "Tests/ui/perf",
+      "Tests/ui/synth.gpx",
+      "Tests/exam/results",
+      "Tests/synth/runner/synthrunner",
+      "Tests/synth/runner/build.log"
+    ],
+    "user_prefixes": [],
+    "explicit_overrides": [],
+    "generated_pattern": "^Tests/synth/(?:format-edge|garmin-tunnels|legit-motion|replay-artefacts|scale-mixed|stationary-noise)/[^/]+\\.(?:gpx|csv|fit|bin)$"
+  },
+  "parent_run": null,
+  "recovery": "context",
+  "cost_usd": null,
+  "cost_source": "unknown",
+  "max_turns": 4,
+  "timeout_seconds": 4.0,
+  "pid": 21402,
+  "child_pid": 21421,
+  "child_process_identity": "darwin:21421:1793236193.197121",
+  "process_identity": "darwin:21402:1793236193.098666",
+  "session_id": "offline-session-123",
+  "cli_reported_model": "offline-mock"
+}

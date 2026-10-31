@@ -1,0 +1,23 @@
+{
+  "label": "006-current-ui-contract",
+  "argv": [
+    "sed",
+    "-n",
+    "260,270p",
+    "docs/journey-summary-design.md"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T060339",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 47211,
+  "process_owner": {
+    "pid": 47211,
+    "parent_pid": 47210,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.0
+}

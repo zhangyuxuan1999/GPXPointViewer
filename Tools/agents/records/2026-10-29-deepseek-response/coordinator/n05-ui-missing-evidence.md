@@ -1,0 +1,1 @@
+N05新增说明缺局部排版证据。Sol四语视频丝带16PNG已生成且几何通过，不再重画。UI fixture首个简中进程在sandbox下SIGABRT、没有生成UI证据；不能证明具体初始化函数。只在有UI服务权限上下文执行已编fixture四语UI模式，不重编、不重复CG、不启动正式app、不写全局偏好；脚本参数已核对仅进程AppleLanguages/Locale，输出到指定run。读生成PNG验收，不再次截图。

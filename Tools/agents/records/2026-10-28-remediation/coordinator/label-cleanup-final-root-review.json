@@ -1,0 +1,27 @@
+{
+  "utc": "2026-10-29T13:40:37.624582+00:00",
+  "passed": true,
+  "run": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/deepseek/20261029T133852.372561Z_r4-cleanup-final_b50062b0",
+  "checks": {
+    "provider_protocol_scope": true,
+    "summary": true,
+    "live_original_byte_hash": true,
+    "exactly_the_one_key": true,
+    "one_defaults_write": true,
+    "only_process_and_pref_commands": true,
+    "no_app_processes": true
+  },
+  "commands": 7,
+  "changed_keys": [
+    "NSWindow Frame SwiftUI.ModifiedContent<SwiftUI.ModifiedContent<GPXPointViewer.ContentView, SwiftUI._FlexFrameLayout>, SwiftUI._AppearanceActionModifier>-1-AppWindow-1"
+  ],
+  "live_preference_sha256": "54e413eb9f2b470a41226ef20961c3fceb1963ed01668a834e570ba502e295a8",
+  "no_app_processes": [],
+  "evidence_hashes": {
+    "result.json": "9afa675072fadb1f8baaec95779d1bd829fed6ba84d606fa82130fbecd2ce213",
+    "artifacts/cleanup-recovery-summary.json": "00b6d0ee6b4f1c1635dce2a5e76a5e051483e7c6a994a43dbff40b8afdea718a",
+    "artifacts/preferences/restore_20261029T133916_669892Z_608ed7ea.json": "425d0bf051c7d50a68b781932e15a494f2f9ae7e6fb743c8d46a364913a2bc6a",
+    "artifacts/commands.jsonl": "892123cdb8551c0ce590fd414efa88cbdc6cf8c95d04bd838c415508ab87a658"
+  },
+  "scope": "Only exact failed-run frame restored; zero app launches, UI stages, or network commands; previous product and pixel results retain their own source/build provenance."
+}

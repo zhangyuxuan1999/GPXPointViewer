@@ -1,0 +1,26 @@
+{
+  "label": "core-directed-cancellation-overlap",
+  "argv": [
+    "python3",
+    "Tests/summary/core/run.py",
+    "--output-root",
+    "Tools/agents/records/2026-10-30-journey-summary/native/20261030T042612.157547Z_journey-summary-engine_262efea5/artifacts/validation",
+    "topology-interleaving",
+    "interval-precedence",
+    "cancellation"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T045714",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 23599,
+  "process_owner": {
+    "pid": 23599,
+    "parent_pid": 23598,
+    "process_identity": "darwin:23599:1793336234.798385",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 7.34
+}

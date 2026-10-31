@@ -1,0 +1,1 @@
+Root审完整报告、完整旧逐段/新组合集合comparison、s3标签分布、提案main/check/gen关键差异，四源旧算法+独立written-value规则支持新契约，未以新实现计数独立决定期待。Root逐hash核对八最终稿及当前正式/临时前态；独立JSON比较仅4已批准条目改变、两family其他条目完全相同，其余family文件不在patch。s4保留±0.01容差，机器JSON保留iEnd并增加真实段内证据，评分/题/baseline未动。四目标真实编译/验证及五类严格负例证据完整。批准DeepSeek精确机械应用已冻结八稿，正式114/125随后验证。

@@ -1,0 +1,23 @@
+{
+  "label": "mode-control-availability",
+  "argv": [
+    "sed",
+    "-n",
+    "1400,1435p",
+    "Tools/agents/records/2026-10-30-journey-summary/native/20261030T050227.092173Z_journey-summary-store-review_aec610ee/artifacts/source-20261030T050302-1567d8c8/GPXPointViewer/ContentView.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T050452",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 30495,
+  "process_owner": {
+    "pid": 30495,
+    "parent_pid": 30494,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.0
+}

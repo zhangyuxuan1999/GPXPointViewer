@@ -1,0 +1,21 @@
+{
+  "added": [
+    "Tests/agents/README.md",
+    "Tests/agents/fixtures/README.md",
+    "Tests/agents/fixtures/legacy_ledger.md",
+    "Tests/agents/fixtures/mock_bins/security",
+    "Tests/agents/fixtures/mock_cli.py",
+    "Tests/agents/fixtures/mock_sdk/claude_agent_sdk.py",
+    "Tests/agents/helpers.py",
+    "Tests/agents/test_agent_run.py",
+    "Tests/agents/test_api_run.py",
+    "Tests/agents/test_legacy_repros.py",
+    "Tests/agents/test_run_store.py"
+  ],
+  "deleted": [],
+  "modified": [],
+  "generated_caches_removed": [
+    "Tests/agents/fixtures/mock_sdk/__pycache__",
+    "Tests/agents/__pycache__"
+  ]
+}

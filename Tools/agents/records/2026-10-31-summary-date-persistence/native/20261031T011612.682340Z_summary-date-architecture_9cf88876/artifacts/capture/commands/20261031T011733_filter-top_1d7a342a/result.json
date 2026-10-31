@@ -1,0 +1,23 @@
+{
+  "label": "filter-top",
+  "argv": [
+    "sed",
+    "-n",
+    "1,150p",
+    "GPXPointViewer/ExportSheet.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T011733",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 92227,
+  "process_owner": {
+    "pid": 92227,
+    "parent_pid": 92226,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.0
+}

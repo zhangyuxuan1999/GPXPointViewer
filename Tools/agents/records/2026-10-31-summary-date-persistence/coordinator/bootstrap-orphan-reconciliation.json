@@ -1,0 +1,14 @@
+{
+  "original_record": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/coordinator/commands/20261031T011631_--help_ce8eeaca",
+  "result": {
+    "status": "failed",
+    "failure_stage": "bootstrap before child process creation",
+    "reported_error_type": "IndexError",
+    "argv": [],
+    "child_executed": false,
+    "child_exit_code": null,
+    "reconciled_utc": "2026-10-31T01:32:23.845248+00:00",
+    "evidence": "Astra completed-run output and direct empty-argv metadata; this capture never launched an app/test or external command",
+    "current_task_record": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/coordinator"
+  }
+}

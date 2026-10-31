@@ -1,0 +1,17 @@
+{
+  "exit_code": 1,
+  "child_exit_code": 1,
+  "stop_reason": null,
+  "cleanup_complete": true,
+  "cleanup": [],
+  "owner": {
+    "pid": 50089,
+    "pgid": 50089,
+    "sid": 50089,
+    "started_utc": "2026-10-30T06:11:22.358666+00:00"
+  },
+  "started_utc": "2026-10-30T06:11:22.358666+00:00",
+  "finished_utc": "2026-10-30T06:11:22.564539+00:00",
+  "language": "en",
+  "functional": false
+}

@@ -1,0 +1,24 @@
+{
+  "label": "initial-docs",
+  "argv": [
+    "cat",
+    "AGENTS.md",
+    "README.md",
+    "/Users/zyx/.codex/plugins/cache/claude-cowork/engineering/1.2.0/skills/architecture/SKILL.md",
+    "Tools/agents/README.md"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T011647",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 91312,
+  "process_owner": {
+    "pid": 91312,
+    "parent_pid": 91311,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.0
+}

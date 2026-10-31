@@ -1,0 +1,21 @@
+{
+  "label": "failed-owned-product-metadata",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014733",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 22609,
+  "process_owner": {
+    "pid": 22609,
+    "parent_pid": 22605,
+    "process_identity": "darwin:22609:1793411253.046900",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.05
+}

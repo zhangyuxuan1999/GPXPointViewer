@@ -1,0 +1,129 @@
+{
+  "process_cleanup": [
+    {
+      "pid": 26116,
+      "status": "confirmed",
+      "attempts": [
+        {
+          "operation": "group_sigterm",
+          "outcome": "absent"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "wait",
+          "outcome": "ok"
+        },
+        {
+          "operation": "group_sigkill",
+          "outcome": "absent"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "wait",
+          "outcome": "ok"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "group_probe",
+          "outcome": "absent"
+        },
+        {
+          "operation": "exit_code",
+          "outcome": "ok"
+        }
+      ],
+      "errors": [],
+      "leader_alive": false,
+      "group_alive": false,
+      "leader_exit_code": 1,
+      "duration_s": 0.000240708002820611
+    }
+  ],
+  "cleanup_complete": true,
+  "stream_incomplete": false,
+  "runner_exit_code": 1,
+  "provider_status": "interrupted",
+  "acceptance_status": "pending",
+  "exit_code": 1,
+  "is_error": true,
+  "error": null,
+  "interrupted": false,
+  "runner_terminal_reason": null,
+  "protocol_errors": [],
+  "duration_s": 255.681,
+  "cost_usd": null,
+  "cost_source": "unknown",
+  "cli_reported_cost_usd": 3.8918250000000003,
+  "cost_note": "CLI estimate is not authoritative DeepSeek billed cost.",
+  "session_id": "6dbe1568-7646-4ee0-bf26-91c3a85313a1",
+  "subtype": "error_max_turns",
+  "terminal_reason": "max_turns",
+  "stop_reason": "tool_use",
+  "errors": [
+    "Reached maximum number of turns (40)"
+  ],
+  "api_error_status": null,
+  "permission_denials": [],
+  "usage": {
+    "input_tokens": 121070,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 4380800,
+    "output_tokens": 43843,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "",
+    "iterations": [],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "num_turns": 41,
+  "result_count": 1,
+  "turn_results": [
+    {
+      "sequence": 32448,
+      "result_index": 0,
+      "uuid": "174b356e-7000-4d4c-aadf-c6fd8fecf456",
+      "session_id": "6dbe1568-7646-4ee0-bf26-91c3a85313a1",
+      "subtype": "error_max_turns",
+      "is_error": true,
+      "terminal_reason": "max_turns",
+      "stop_reason": "tool_use",
+      "errors": [
+        "Reached maximum number of turns (40)"
+      ],
+      "api_error_status": null,
+      "origin": null,
+      "total_cost_usd": 3.8918250000000003
+    }
+  ],
+  "background_tasks": [],
+  "foreground_tasks": [],
+  "unqualified_tasks": [],
+  "background_task_failures": [],
+  "background_incomplete": [],
+  "out_of_scope_changes": [],
+  "incomplete_checks": "Task acceptance requires independent review; provider completion is separate.",
+  "finished_utc": "2026-10-30T05:04:37.482667+00:00",
+  "status": "interrupted",
+  "run_status": "interrupted",
+  "verification_status": "not_run"
+}

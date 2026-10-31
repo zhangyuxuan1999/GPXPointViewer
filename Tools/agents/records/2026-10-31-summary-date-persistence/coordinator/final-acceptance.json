@@ -1,0 +1,20 @@
+{
+  "time": "2026-10-31T02:54:38.832193+00:00",
+  "status": "accepted-and-installed",
+  "report": "/Users/zyx/Documents/GPXPointViewer/docs/journey-summary-date-persistence-acceptance.md",
+  "report_sha256": "3ebb9fb7427d4a40a02c48d3640a6226fcf4938d509b4730539e4511686e1dca",
+  "install_receipt": "Builds/20261031T025231Z_install_b8204812/install-result.json",
+  "installed_executable_sha256": "eb52d08767443f1d1ee967b994f485731785e111685bef903688366bb8884265",
+  "root_pixel_verdict": "11/11 reviewed PASS",
+  "manual_keyboard_verdict": "Return and View PASS; R3normalquit0",
+  "inherited_evidence": "6navigation total (3old/3final); settings4previous signedbuild unchangedlogic; Store44unique names, previous70/22; tooling29acrossruns",
+  "repeated_passed_groups": false,
+  "real_preferences_written": false,
+  "remaining_required_work": [],
+  "not_claimed": [
+    "fwdb UI",
+    "zh-Hant pixels",
+    "VoiceOver",
+    "Developer ID notarization"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "label": "003-owning-state",
+  "argv": [
+    "rg",
+    "-n",
+    "summary|Summary|publicationClock|fills:|compareTracks|isLoading|viewFilter|fillApplying|keepChangeLog|func invalidateData|func apply\\(|func clearTrack|func applyJobs|fillUndo|fills =|fills.append|changes =",
+    "GPXPointViewer/TrackStore.swift",
+    "GPXPointViewer/JourneySummary.swift",
+    "GPXPointViewer/UITestHook.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T042813",
+  "status": "failed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 17313,
+  "process_owner": {
+    "pid": 17313,
+    "parent_pid": 17308,
+    "process_identity": "darwin:17313:1793334493.355950",
+    "group_created": true
+  },
+  "exit_code": 2,
+  "duration_s": 0.03
+}

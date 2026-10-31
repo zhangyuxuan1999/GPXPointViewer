@@ -1,0 +1,22 @@
+{
+  "label": "local-macos-interfaces",
+  "argv": [
+    "python3",
+    "-c",
+    "import subprocess; from pathlib import Path; print(subprocess.run([\"xcrun\",\"--show-sdk-path\"],capture_output=True,text=True).stdout); p=Path(\"/usr/share/man/man1/codesign.1\"); s=p.read_text() if p.exists() else \"\"; k=s.find(\"remove-signature\"); print(s[max(0,k-200):k+1500]); [print(str(p)) for p in Path(\"/Library/Developer/CommandLineTools/SDKs\").glob(\"*/usr/include/stdio.h\")]"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014035",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 14652,
+  "process_owner": {
+    "pid": 14652,
+    "parent_pid": 14651,
+    "process_identity": "darwin:14652:1793410835.563620",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.05
+}

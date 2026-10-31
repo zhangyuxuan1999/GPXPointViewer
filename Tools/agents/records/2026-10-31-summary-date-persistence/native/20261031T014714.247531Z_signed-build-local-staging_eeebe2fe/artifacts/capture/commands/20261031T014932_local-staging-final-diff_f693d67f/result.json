@@ -1,0 +1,21 @@
+{
+  "label": "local-staging-final-diff",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014932",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 24724,
+  "process_owner": {
+    "pid": 24724,
+    "parent_pid": 24723,
+    "process_identity": "darwin:24724:1793411372.420699",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.05
+}

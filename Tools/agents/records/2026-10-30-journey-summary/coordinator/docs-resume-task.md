@@ -1,0 +1,12 @@
+# Resume only unfinished summary documentation — DeepSeek Flash max
+Requested deepseek-flash / max. Previous run /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/deepseek/20261030T050021.740364Z_journey-summary-translations_0e6bbebf hit40-turn limit (interrupted, not success). Root read prior task/progress/result/changes and actual chunk31: exactly76 translations complete plus README section added. Do NOT redo translations or README or broad source inventory. No tests/build/app/network beyond modelAPI.
+Read old progress/result and this task, then only current Tests/README.md and docs/journey-summary-guide.md and relevant exact design paragraph266 if needed. Prior completed reads are inherited; avoid repeatedly reading entire AGENTS/runner/design/source.
+OWN ONLY Tests/README.md and docs/journey-summary-guide.md; own run progress/artifacts. Do not edit chunk31/catalog/README/product/tests/design.
+1. Tests README append concise summary-only validation section. Actual commands:
+python3 Tests/summary/core/run.py --output-root /tmp/gpx-summary-core [CASE...]
+python3 Tests/summary/store/run.py --evidence /tmp/gpx-summary-store [--group cache|sources|ownership|map|provenance|lifecycle]
+Case names documented at Tests/summary/core/README.md; omit invented specifics. Only affected named case/group reruns with pre-recorded reason. Existing core22 unique evidence and Store53 initial evidence are inherited, not rerun by you. Additional lifecycle validation and UI pending; do not claim overall release pass. Link docs/journey-summary-acceptance.md for eventualfinalstatus. UI script pendingfreeze, don't inventcommand.
+2. Guide firstparagraph: currentdevelopmentbranchsummary-v1; final acceptance linked. Remove stale interfaceparallel wording, no publishedpassclaim.
+IMPORTANT CORRECTION supersedes previous task's mistaken instruction: architecture guarantees SAME-SOURCE timezone changes preserve manual overrides. Current implementation clears on source selection change, replacement/edit data version, orclear. Document exactly: '同一来源只切换摘要时区会保留手动选择；切换来源、更换或编辑轨迹、清空数据会清除。' Do NOT promise preserving source-selection changes.
+3. Update progress all completed and write artifacts/documentation-result.json with actual twofilechanges, prior outputs inherited, no executedtests, unknown actualservingmodel/costnull. Finaloutput selfcontained.
+Stop after these edits; no extra investigations, sourceanalysis, agentdispatch, permissionexpansion, credentials or realtracks. Runner records events/snapshots.

@@ -1,0 +1,22 @@
+{
+  "label": "final-build-cleanup-raw",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; import json; base=Path(\"Tools/agents/records/2026-10-30-journey-summary/deepseek\"); roots=[\"20261030T061054.914921Z_journey-summary-header-layout-visual_d936180c\",\"20261030T061550.887672Z_journey-summary-header-layout-visual-r2_586345c3\"]; [(print(str(p)),print(p.read_text())) for r in roots for p in sorted((base/r/\"artifacts\").rglob(\"cleanup.json\"))]"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T011831",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 92775,
+  "process_owner": {
+    "pid": 92775,
+    "parent_pid": 92769,
+    "process_identity": "darwin:92775:1793409511.848309",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.03
+}

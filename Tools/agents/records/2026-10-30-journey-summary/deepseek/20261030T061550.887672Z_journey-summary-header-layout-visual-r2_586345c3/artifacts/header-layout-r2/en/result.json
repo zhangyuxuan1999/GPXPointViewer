@@ -1,0 +1,17 @@
+{
+  "exit_code": 0,
+  "child_exit_code": 0,
+  "stop_reason": null,
+  "cleanup_complete": true,
+  "cleanup": [],
+  "owner": {
+    "pid": 51725,
+    "pgid": 51725,
+    "sid": 51725,
+    "started_utc": "2026-10-30T06:16:05.674531+00:00"
+  },
+  "started_utc": "2026-10-30T06:16:05.674531+00:00",
+  "finished_utc": "2026-10-30T06:16:11.461930+00:00",
+  "language": "en",
+  "functional": false
+}

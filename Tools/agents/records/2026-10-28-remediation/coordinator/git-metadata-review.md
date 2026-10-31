@@ -1,0 +1,1 @@
+Root独立审阅collect_git_metadata/显式watch覆盖、补丁及测试，核对完整65项独立回归exit0（commands/20261029T002243_git-metadata-independent_ecc7c5a3，95.28s）。文件changes先保存，Git仅辅助且有总预算、每命令上限、归属进程组清理，空watch不退化全仓；敏感目录/用户排除保留优先。已确认的SDK清理EPERM另由T10修复，不以本项通过掩盖。

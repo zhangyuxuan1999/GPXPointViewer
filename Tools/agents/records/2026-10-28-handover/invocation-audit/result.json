@@ -1,0 +1,12 @@
+{
+  "status": "completed",
+  "agent_id": "/root/invocation_audit",
+  "model_requested": "gpt-6.1-sol",
+  "reasoning_effort_requested": "ultra",
+  "backend_model_receipt": null,
+  "usage": null,
+  "cost_usd": null,
+  "output": "output.md",
+  "output_sha256": "de03c9bc94a5392f9e1dcce2b3700c0841e5ee2d53672c9007be5c9022378a8e",
+  "summary": "旧调用脚本发现累计费用、错误状态、未跟踪文件快照、恢复与状态面板问题；独立核对DeepSeek r3模型/max、HTTP200、Read成功与答案。"
+}

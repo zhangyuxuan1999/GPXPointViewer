@@ -1,0 +1,21 @@
+{
+  "label": "read-targeted-review-task",
+  "argv": [
+    "cat",
+    "Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T014535.222654Z_signing-review-fixes-independent_d374598d/task.md"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014553",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 20956,
+  "process_owner": {
+    "pid": 20956,
+    "parent_pid": 20941,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.0
+}

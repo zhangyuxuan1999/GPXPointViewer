@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "run_id": "20261028T225858.479364Z_metal-correctness_2e556edb",
+  "name": "metal-correctness",
+  "provider": "codex-native",
+  "requested_model": "gpt-6.1-sol",
+  "requested_effort": "ultra",
+  "observed_model": null,
+  "observed_effort": null,
+  "model_verification": "unknown",
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "task_source": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/coordinator/metal-correctness-task.md",
+  "started_utc": "2026-10-28T22:58:58.479852+00:00",
+  "watch": [
+    "GPXPointViewer/MetalPointRenderer.swift"
+  ],
+  "allow_write": [],
+  "snapshot_exclusions": {
+    "parts": [
+      ".agents",
+      ".aws",
+      ".codex",
+      ".git",
+      "DerivedData",
+      "__pycache__",
+      "node_modules",
+      "sdkenv"
+    ],
+    "prefixes": [
+      "Tools/agents/records",
+      "Tools/agents/runs",
+      "Tests/reports",
+      "Tests/ui/app.noindex",
+      "Tests/ui/perf",
+      "Tests/ui/synth.gpx",
+      "Tests/exam/results",
+      "Tests/synth/runner/synthrunner",
+      "Tests/synth/runner/build.log"
+    ],
+    "generated_pattern": "^Tests/synth/(?:format-edge|garmin-tunnels|legit-motion|replay-artefacts|scale-mixed|stationary-noise)/[^/]+\\.(?:gpx|csv|fit|bin)$"
+  },
+  "parent_run": null,
+  "recovery": "context",
+  "cost_usd": null,
+  "cost_source": "unknown",
+  "max_turns": null,
+  "timeout_seconds": null,
+  "agent_id": "/root/runner_tests"
+}

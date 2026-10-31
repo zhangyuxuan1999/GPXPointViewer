@@ -1,0 +1,27 @@
+{
+  "label": "phase-start",
+  "argv": [
+    "python3",
+    "Tools/agents/agent_run.py",
+    "event",
+    "Tools/agents/records/2026-10-30-journey-summary/native/20261030T045238.784817Z_journey-summary-core-review_56c20eab",
+    "--type",
+    "progress",
+    "--json",
+    "{\"completed\":\"Read task, AGENTS, runner and code-review skill; snapshotted exact sources\",\"doing\":\"Review approved design and core implementation\",\"next\":\"Send concrete findings and assess author test evidence\"}"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T045330",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 20239,
+  "process_owner": {
+    "pid": 20239,
+    "parent_pid": 20238,
+    "process_identity": "darwin:20239:1793336010.706341",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.05
+}

@@ -1,0 +1,27 @@
+{
+  "label": "phase-source",
+  "argv": [
+    "python3",
+    "Tools/agents/agent_run.py",
+    "event",
+    "Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T011612.682340Z_summary-date-architecture_9cf88876",
+    "--type",
+    "progress",
+    "--json",
+    "{\"completed\":\"读取任务与架构技能；定位现有全列表、入口无日期传递和Store整源缓存。原有22/70/12通过证据继承，未运行测试。\",\"current\":\"读取主面板日期形状、日界及状态发布细节\",\"next\":\"定下年月日导航与入口契约，保存Proposed ADR\"}"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T011732",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 92221,
+  "process_owner": {
+    "pid": 92221,
+    "parent_pid": 92220,
+    "process_identity": "darwin:92221:1793409452.965073",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.04
+}

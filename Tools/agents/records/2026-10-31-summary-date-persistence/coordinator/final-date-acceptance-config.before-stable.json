@@ -1,0 +1,28 @@
+{
+  "app": "/Users/zyx/Documents/GPXPointViewer/Builds/20261031T015341Z_release_e8e131ea/archive/GPXPointViewer.app",
+  "manifest": "/Users/zyx/Documents/GPXPointViewer/Builds/20261031T015341Z_release_e8e131ea/archive/build-manifest.json",
+  "executable_sha256": "76578d2a74fd5549de967f7fef92dbf1b78af82525395b8a6734aae9882cec30",
+  "source_sha256": "ad6b4f54617f6021eda1d08ae165146cb753f06e48b2b58e42a8f0699b985cff",
+  "driver_sha256": "d282a7ff41956d33a5b1a9dd7e5359b10f8fbcf8fc48b372fc70d10e8689bd90",
+  "phases": [
+    {
+      "name": "settings-abc",
+      "mode": "persistence"
+    },
+    {
+      "name": "navigation-zh",
+      "mode": "navigation",
+      "language": "zh-Hans"
+    },
+    {
+      "name": "visual-en",
+      "mode": "visual-only",
+      "language": "en"
+    },
+    {
+      "name": "visual-de",
+      "mode": "visual-only",
+      "language": "de"
+    }
+  ]
+}

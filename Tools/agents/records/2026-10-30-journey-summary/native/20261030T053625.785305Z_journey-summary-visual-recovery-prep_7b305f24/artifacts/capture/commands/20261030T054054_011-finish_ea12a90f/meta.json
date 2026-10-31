@@ -1,0 +1,29 @@
+{
+  "label": "011-finish",
+  "argv": [
+    "python3",
+    "Tools/agents/agent_run.py",
+    "finish",
+    "Tools/agents/records/2026-10-30-journey-summary/native/20261030T053625.785305Z_journey-summary-visual-recovery-prep_7b305f24",
+    "--provider-status",
+    "succeeded",
+    "--acceptance",
+    "pending",
+    "--output",
+    "Tools/agents/records/2026-10-30-journey-summary/native/20261030T053625.785305Z_journey-summary-visual-recovery-prep_7b305f24/output.md"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T054054",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 42911,
+  "process_owner": {
+    "pid": 42911,
+    "parent_pid": 42910,
+    "process_identity": "darwin:42911:1793338854.020669",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.09
+}

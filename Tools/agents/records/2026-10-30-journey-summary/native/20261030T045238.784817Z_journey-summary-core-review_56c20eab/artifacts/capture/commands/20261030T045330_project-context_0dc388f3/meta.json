@@ -1,0 +1,23 @@
+{
+  "label": "project-context",
+  "argv": [
+    "sed",
+    "-n",
+    "1,100p",
+    "README.md"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T045330",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 20270,
+  "process_owner": {
+    "pid": 20270,
+    "parent_pid": 20259,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

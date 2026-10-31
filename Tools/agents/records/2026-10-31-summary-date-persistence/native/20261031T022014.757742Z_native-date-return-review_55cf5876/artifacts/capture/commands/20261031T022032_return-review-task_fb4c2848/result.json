@@ -1,0 +1,21 @@
+{
+  "label": "return-review-task",
+  "argv": [
+    "cat",
+    "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T022014.757742Z_native-date-return-review_55cf5876/task.md"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T022032",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 45770,
+  "process_owner": {
+    "pid": 45770,
+    "parent_pid": 45769,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

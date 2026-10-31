@@ -1,0 +1,4 @@
+主代理已读Sol完整output、TrackStore持久化当前源码及变更/终态记录。接受sandbox丢失导致偏好域切换的根因和必要修复建议；不认定语言/idle代码已删除，也不把尚未执行的跨重启验证冒称通过。旧新两域显式zh-Hans/idleDisabled=true相同，安装前复核一致即可不写真实偏好。历史UI cleanup仅覆盖容器plist的局限保留，后续必须隔离测试身份。
+审计run provider succeeded，但finish因默认宽watch检测共享Tools/agents/AGENT_LOG.md和两处DS_Store变化将acceptance/verification置failed。总日志由root及登记器在并行派发中明确追加；DS_Store仅属文件树变化，不能据此自动归给审计agent。审计正常命令只读产品/指定白名单、写自身记录；接受其调查结论，原自动失败receipt保留，独立verify用于证据判断，不改写原失败。
+
+实际verify调用返回exit2：cannot pass verification of failed/interrupted/unknown execution。该run维持原failed终态，不再尝试改写或冒称agent验收通过。root只接受并引用可核对的调查证据用于后续修复；最终交付由新的实现与独立审查结果决定。此异常完整记录在commands/20261031T012543_verify-initial-findings_19468241。

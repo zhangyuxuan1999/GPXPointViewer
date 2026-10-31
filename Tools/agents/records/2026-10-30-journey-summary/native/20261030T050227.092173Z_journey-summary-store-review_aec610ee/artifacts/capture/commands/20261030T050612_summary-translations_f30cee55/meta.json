@@ -1,0 +1,21 @@
+{
+  "label": "summary-translations",
+  "argv": [
+    "cat",
+    "Tests/l10n/translations/chunk_31.json"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T050612",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 31836,
+  "process_owner": {
+    "pid": 31836,
+    "parent_pid": 31835,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.0
+}

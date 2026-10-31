@@ -1,0 +1,17 @@
+[
+  {
+    "path": "/private/tmp/gpxpv-segment-integration-o3kf8civ/GPXPointViewer/TrackStore.swift",
+    "source": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/native/20261028T225857.277821Z_state-correctness_4d29be99/artifacts/after/GPXPointViewer/TrackStore.swift",
+    "sha256": "e1de1281c8f7b2c2b7fb1630b1bea8ba9a62b2caa07e3f2340f27788c04e47c8"
+  },
+  {
+    "path": "/private/tmp/gpxpv-segment-integration-o3kf8civ/GPXPointViewer/ChangeLog.swift",
+    "source": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/native/20261028T225857.277821Z_state-correctness_4d29be99/artifacts/after/GPXPointViewer/ChangeLog.swift",
+    "sha256": "f68e76707f8e69ad7b8581f656b1c26ea05b1f60b11f075de4141a08ad6dcd12"
+  },
+  {
+    "path": "/private/tmp/gpxpv-segment-integration-o3kf8civ/GPXPointViewer/PointMapView.swift",
+    "source": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/native/20261028T225857.277821Z_state-correctness_4d29be99/artifacts/after/GPXPointViewer/PointMapView.swift",
+    "sha256": "130dc6b2e938aa164281ee900319d026f512a7798b19e9630aceeaf549bc72f7"
+  }
+]

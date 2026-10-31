@@ -1,0 +1,27 @@
+{
+  "label": "final-progress",
+  "argv": [
+    "python3",
+    "Tools/agents/agent_run.py",
+    "event",
+    "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T011612.884046Z_settings-persistence-audit_060da613",
+    "--type",
+    "progress",
+    "--json",
+    "{\"stage\":\"audit-complete\",\"root_cause\":\"no-sign build removed sandbox entitlements and switched preference domain\",\"current_new_domain_language_idle_persisted\":true,\"necessary\":[\"restore existing signing\",\"install signature and entitlement guard\"],\"app_language_idle_product_bug_confirmed\":false,\"product_or_real_preference_mutations\":false,\"evidence\":\"output.md; artifacts/audit-result.json; artifacts/capture/journal.jsonl\",\"acceptance\":\"pending-root-verification\"}"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T012204",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 94819,
+  "process_owner": {
+    "pid": 94819,
+    "parent_pid": 94818,
+    "process_identity": "darwin:94819:1793409724.813192",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.08
+}

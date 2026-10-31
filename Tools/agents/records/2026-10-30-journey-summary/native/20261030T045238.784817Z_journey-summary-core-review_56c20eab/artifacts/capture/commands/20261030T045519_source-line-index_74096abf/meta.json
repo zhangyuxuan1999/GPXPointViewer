@@ -1,0 +1,23 @@
+{
+  "label": "source-line-index",
+  "argv": [
+    "rg",
+    "-n",
+    "spanStart|spanEnd|sample.time -|intervals.sorted|observedMovingSeconds|transportWeight|for _ in 0..<4|input.elevation.*isFinite",
+    "GPXPointViewer/JourneySummary.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T045519",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 21811,
+  "process_owner": {
+    "pid": 21811,
+    "parent_pid": 21810,
+    "process_identity": "darwin:21811:1793336119.469167",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

@@ -1,0 +1,22 @@
+{
+  "label": "read-small-results",
+  "argv": [
+    "cat",
+    "Tools/agents/records/2026-10-30-journey-summary/native/20261030T042612.157547Z_journey-summary-engine_262efea5/artifacts/validation/20261030T045557.337636Z_fe6c0539/cases.stdout.log",
+    "Tools/agents/records/2026-10-30-journey-summary/native/20261030T042612.157547Z_journey-summary-engine_262efea5/artifacts/validation/20261030T045557.337636Z_fe6c0539/cases.stderr.log"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T045612",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 22788,
+  "process_owner": {
+    "pid": 22788,
+    "parent_pid": 22787,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

@@ -1,0 +1,23 @@
+{
+  "label": "021-store-compile-r2",
+  "argv": [
+    "python3",
+    "Tests/summary/store/run.py",
+    "--evidence",
+    "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/native/20261030T042612.249638Z_journey-summary-store-ui_4746c6f6/artifacts/store-tests"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T045736",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 23838,
+  "process_owner": {
+    "pid": 23838,
+    "parent_pid": 23837,
+    "process_identity": "darwin:23838:1793336256.349287",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 42.17
+}

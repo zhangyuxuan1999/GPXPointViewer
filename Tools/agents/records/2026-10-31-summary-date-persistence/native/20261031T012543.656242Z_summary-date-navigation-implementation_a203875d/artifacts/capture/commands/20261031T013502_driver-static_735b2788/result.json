@@ -1,0 +1,21 @@
+{
+  "label": "driver-static",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T013502",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 6656,
+  "process_owner": {
+    "pid": 6656,
+    "parent_pid": 6650,
+    "process_identity": "darwin:6656:1793410502.446396",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.04
+}

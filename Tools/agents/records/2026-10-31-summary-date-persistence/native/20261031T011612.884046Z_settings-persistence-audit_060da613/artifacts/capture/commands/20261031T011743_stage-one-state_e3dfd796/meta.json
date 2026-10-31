@@ -1,0 +1,22 @@
+{
+  "label": "stage-one-state",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; print(Path(\"/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T011612.884046Z_settings-persistence-audit_060da613/progress.md\").read_text()); print(Path(\"/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T011612.884046Z_settings-persistence-audit_060da613/meta.json\").read_text()); print(Path(\"/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T011612.884046Z_settings-persistence-audit_060da613/artifacts/capture/commands/20261031T011639_initial-instructions_8ec72c60/stdout.log\").read_text()[:17000])"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T011743",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 92331,
+  "process_owner": {
+    "pid": 92331,
+    "parent_pid": 92330,
+    "process_identity": "darwin:92331:1793409463.398399",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.04
+}

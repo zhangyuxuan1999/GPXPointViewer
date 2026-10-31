@@ -1,0 +1,23 @@
+{
+  "label": "topology-contract",
+  "argv": [
+    "rg",
+    "-n",
+    "struct TrackTopology|struct Segment|struct PathSegment|segmentID|pathRange",
+    "GPXPointViewer/TrackData.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T045504",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 21502,
+  "process_owner": {
+    "pid": 21502,
+    "parent_pid": 21498,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

@@ -1,0 +1,26 @@
+{
+  "label": "evidence-current-directories",
+  "argv": [
+    "rg",
+    "--files",
+    "Tools/agents/records/2026-10-30-journey-summary/native/20261030T042612.157547Z_journey-summary-engine_262efea5/artifacts/validation",
+    "-g",
+    "input-sha256.json",
+    "-g",
+    "result.json"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T045835",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 24811,
+  "process_owner": {
+    "pid": 24811,
+    "parent_pid": 24809,
+    "process_identity": "darwin:24811:1793336315.647928",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.02
+}

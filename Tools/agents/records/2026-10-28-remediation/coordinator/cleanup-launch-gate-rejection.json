@@ -1,0 +1,7 @@
+{
+  "recorded_utc": "2026-10-29T13:38:41.350132+00:00",
+  "launch_exit_code": 1,
+  "error": "FileNotFoundError: label-cleanup-helper-root-review.json",
+  "meaning": "Local pre-dispatch gate rejected while independent receipt had not yet completed. No agent_run invocation or provider dispatch happened. Wait for root receipt then retry with a fresh agent_run directory.",
+  "automatic_approval_rejection": false
+}

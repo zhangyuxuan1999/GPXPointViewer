@@ -1,0 +1,7 @@
+{
+  "status": "completed",
+  "diagnosis": "Running installed app differs from accepted uninstalled archive; screenshot lacks new entry",
+  "product_changes": [],
+  "tests_rerun": false,
+  "installation": false
+}

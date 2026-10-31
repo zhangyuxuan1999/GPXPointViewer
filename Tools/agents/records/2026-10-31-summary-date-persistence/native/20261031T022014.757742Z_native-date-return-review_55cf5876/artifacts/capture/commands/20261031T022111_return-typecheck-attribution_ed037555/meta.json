@@ -1,0 +1,22 @@
+{
+  "label": "return-typecheck-attribution",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; r=Path(\"Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T021407.735687Z_date-native-return-submit_207886b8\"); [(print(\"\\nFILE=\"+n),print((r/n).read_text())) for n in [\"artifacts/final-typecheck-source.json\",\"artifacts/native-typecheck-source.json\",\"artifacts/native-api-evidence.json\",\"artifacts/retest-reason.md\"]]"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T022111",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 46706,
+  "process_owner": {
+    "pid": 46706,
+    "parent_pid": 46699,
+    "process_identity": "darwin:46706:1793413271.400356",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.03
+}

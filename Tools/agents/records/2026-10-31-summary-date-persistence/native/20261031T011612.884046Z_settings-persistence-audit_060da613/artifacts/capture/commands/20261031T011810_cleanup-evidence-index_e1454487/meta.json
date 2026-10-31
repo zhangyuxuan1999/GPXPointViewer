@@ -1,0 +1,29 @@
+{
+  "label": "cleanup-evidence-index",
+  "argv": [
+    "rg",
+    "-l",
+    "preferences_restored|preferences_changed|prefs_restored|restored_exactly",
+    "Tools/agents/records/2026-10-30-journey-summary",
+    "-g",
+    "*.json",
+    "-g",
+    "!preferences-*",
+    "-g",
+    "!manifest.json"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T011810",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 92554,
+  "process_owner": {
+    "pid": 92554,
+    "parent_pid": 92549,
+    "process_identity": "darwin:92554:1793409490.499970",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.09
+}

@@ -1,0 +1,22 @@
+{
+  "label": "extension-entitlement-source",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; paths=[\"GPXQuickLook/GPXQuickLook.entitlements\",\"GPXThumbnail/GPXThumbnail.entitlements\"]; [(print(\"FILE=\"+p),print(Path(p).read_text())) for p in paths]"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T011831",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 92773,
+  "process_owner": {
+    "pid": 92773,
+    "parent_pid": 92770,
+    "process_identity": "darwin:92773:1793409511.848284",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.03
+}

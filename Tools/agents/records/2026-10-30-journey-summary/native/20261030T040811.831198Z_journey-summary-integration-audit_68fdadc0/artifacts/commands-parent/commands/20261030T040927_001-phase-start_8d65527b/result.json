@@ -1,0 +1,27 @@
+{
+  "label": "001-phase-start",
+  "argv": [
+    "python3",
+    "Tools/agents/agent_run.py",
+    "event",
+    "Tools/agents/records/2026-10-30-journey-summary/native/20261030T040811.831198Z_journey-summary-integration-audit_68fdadc0",
+    "--type",
+    "progress",
+    "--json",
+    "{\"completed\":\"Read task, AGENTS.md, runner workflow and corrected watch; initial uncaptured read truncation disclosed in bootstrap receipt.\",\"doing\":\"Read source/design contracts and collect exact file-line evidence.\",\"next\":\"Send factual API/pitfall map to root and Astra; write audit artifact. No tests/build/network/product writes.\"}"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T040927",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 11774,
+  "process_owner": {
+    "pid": 11774,
+    "parent_pid": 11773,
+    "process_identity": "darwin:11774:1793333367.555233",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.04
+}

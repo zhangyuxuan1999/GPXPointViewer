@@ -1,0 +1,24 @@
+{
+  "label": "011-hook-switch",
+  "argv": [
+    "rg",
+    "-n",
+    "case \"regions|case \"regionstate|case \"state|switch p|func execute|fwdbVersion|func summary",
+    "GPXPointViewer/UITestHook.swift",
+    "GPXPointViewer/TrackStore.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T045259",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 19775,
+  "process_owner": {
+    "pid": 19775,
+    "parent_pid": 19774,
+    "process_identity": "darwin:19775:1793335979.453394",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.02
+}

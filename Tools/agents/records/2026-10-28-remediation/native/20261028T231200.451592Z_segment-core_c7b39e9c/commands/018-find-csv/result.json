@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "rg",
+    "-n",
+    "writeCSV|enum CSV|struct CSV|heading|distance",
+    "GPXPointViewer/ExportSheet.swift",
+    "Tests/synth/runner/run_all.sh"
+  ],
+  "cwd": "/private/tmp/gpxpv-segment-integration-o3kf8civ",
+  "started_at": "2026-10-28T23:17:18.808104+00:00",
+  "exit_code": 1,
+  "finished_at": "2026-10-28T23:17:18.816160+00:00"
+}

@@ -1,0 +1,23 @@
+{
+  "label": "006-lock-evidence-route",
+  "argv": [
+    "rg",
+    "-n",
+    "loginwindow|20261030T052611Z_release_25c40b88|black|全黑",
+    "Tools/agents/records/2026-10-30-journey-summary/coordinator"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T053704",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 41684,
+  "process_owner": {
+    "pid": 41684,
+    "parent_pid": 41679,
+    "process_identity": "darwin:41684:1793338624.517623",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.03
+}

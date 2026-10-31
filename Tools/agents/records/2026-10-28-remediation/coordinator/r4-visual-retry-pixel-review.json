@@ -1,0 +1,54 @@
+[
+  {
+    "utc": "2026-10-29T13:04:50.979455+00:00",
+    "phase": "visual_sec2",
+    "image": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/deepseek/20261029T125630.030432Z_r4-visual-retry_0b33aad1/artifacts/shots/20261029T125630.030432Z_r4-visual-retry_0b33aad1_20261029T125638_533487Z_e5b34415_line_labels.png",
+    "sha256": "56b1e4d8d4d5c7c4e371efe5f8440c89947d60f0a9f1f5fc544fb6cbdb63eaac",
+    "dim": [
+      2864,
+      1944
+    ],
+    "reviewer": "root actual view_image pixels",
+    "verdict": "needs_independent_label_geometry_review",
+    "scope": "OSRM/Valhalla text visible, pill edges appear close; actual overlap under independent review"
+  },
+  {
+    "utc": "2026-10-29T13:04:50.980004+00:00",
+    "phase": "visual_sec5_zh-Hans",
+    "image": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/deepseek/20261029T125630.030432Z_r4-visual-retry_0b33aad1/artifacts/shots/20261029T125630.030432Z_r4-visual-retry_0b33aad1_20261029T125724_858538Z_7bc0c594_main_fill_zh-Hans.png",
+    "sha256": "2bebd81bc414fd753c9dbcd0a751dca74d0143e549b9e88b443fcb0a2fd42a7e",
+    "dim": [
+      2144,
+      1824
+    ],
+    "reviewer": "root actual view_image pixels",
+    "verdict": "passed",
+    "scope": "960x800 actual language confirmed; fixed icon action row and complete Change Log row visible above fill bar, no footer truncation. Middle scroll view intentional; unrelated right-side help truncation is not this criterion."
+  },
+  {
+    "utc": "2026-10-29T13:04:50.980977+00:00",
+    "phase": "visual_sec5_en",
+    "image": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/deepseek/20261029T125630.030432Z_r4-visual-retry_0b33aad1/artifacts/shots/20261029T125630.030432Z_r4-visual-retry_0b33aad1_20261029T125738_420729Z_74d560b7_main_fill_en.png",
+    "sha256": "1a3a5d87c33302297ac85eb991e03a95023d43e7595d2e8a051a941663ff34a2",
+    "dim": [
+      2144,
+      1824
+    ],
+    "reviewer": "root actual view_image pixels",
+    "verdict": "passed",
+    "scope": "960x800 actual language confirmed; fixed icon action row and complete Change Log row visible above fill bar, no footer truncation. Middle scroll view intentional; unrelated right-side help truncation is not this criterion."
+  },
+  {
+    "utc": "2026-10-29T13:04:50.981941+00:00",
+    "phase": "visual_sec5_de",
+    "image": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/deepseek/20261029T125630.030432Z_r4-visual-retry_0b33aad1/artifacts/shots/20261029T125630.030432Z_r4-visual-retry_0b33aad1_20261029T125752_706242Z_0268ddb1_main_fill_de.png",
+    "sha256": "49d76cd51d184bea769176d5b31a326cf2735fe3bb9f35c44b5a20285791dbd6",
+    "dim": [
+      2144,
+      1824
+    ],
+    "reviewer": "root actual view_image pixels",
+    "verdict": "passed",
+    "scope": "960x800 actual language confirmed; fixed icon action row and complete Change Log row visible above fill bar, no footer truncation. Middle scroll view intentional; unrelated right-side help truncation is not this criterion."
+  }
+]

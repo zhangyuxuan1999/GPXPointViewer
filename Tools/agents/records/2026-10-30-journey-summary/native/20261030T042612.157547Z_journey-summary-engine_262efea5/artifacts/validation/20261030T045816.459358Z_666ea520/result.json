@@ -1,0 +1,77 @@
+{
+  "directory": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/native/20261030T042612.157547Z_journey-summary-engine_262efea5/artifacts/validation/20261030T045816.459358Z_666ea520",
+  "inputSHA256": {
+    "GPXPointViewer/RegionIndex.swift": "341c320e0eccc08ae2cc1a8731e1d63d0be10a484cf8ab5fad0fd6d5d34af263",
+    "GPXPointViewer/JourneySummary.swift": "d4b339e61278e765536e3d87aceb22677a00cd11380c3933cd9d32777e0c7da3",
+    "Tests/summary/core/main.swift": "2e69c8d6212983855b0f76f0486662fdaad433bf53945f52a5ee36bd370e688f",
+    "Tests/summary/core/run.py": "f3c3e5ea06f8a27442c4dbf758ae975866a726894a5d2d04cbab605b616b1347",
+    "Tests/summary/core/fixtures.py": "b3647cb7b7856439e36622926d7d471a30ccc4e7e0000152d544c1b342ec44e4"
+  },
+  "environment": {
+    "platform": "macOS-26.4.1-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "python": "3.14.6"
+  },
+  "commands": [
+    {
+      "label": "compiler-version",
+      "argv": [
+        "swiftc",
+        "--version"
+      ],
+      "exitCode": 0,
+      "wallSeconds": 0.13557799998670816
+    },
+    {
+      "label": "compile",
+      "argv": [
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/native/20261030T042612.157547Z_journey-summary-engine_262efea5/artifacts/validation/20261030T045816.459358Z_666ea520/module-cache",
+        "-o",
+        "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/native/20261030T042612.157547Z_journey-summary-engine_262efea5/artifacts/validation/20261030T045816.459358Z_666ea520/summary-probe",
+        "/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/RegionIndex.swift",
+        "/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/JourneySummary.swift",
+        "/Users/zyx/Documents/GPXPointViewer/Tests/summary/core/main.swift"
+      ],
+      "exitCode": 0,
+      "wallSeconds": 7.323072500061244
+    },
+    {
+      "label": "cases",
+      "argv": [
+        "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/native/20261030T042612.157547Z_journey-summary-engine_262efea5/artifacts/validation/20261030T045816.459358Z_666ea520/summary-probe",
+        "elevation-midnight-proportions"
+      ],
+      "exitCode": 0,
+      "wallSeconds": 0.26301220897585154
+    }
+  ],
+  "binarySHA256": "20c3899c00e9df22cdd842e87c72ed632ff12c2b6825e58767549d91612f012e",
+  "fixtureSHA256": "1560210b977e7f0186d3b87abf0df3274abcedfe07c8130a5dc8c93b599bf5ac",
+  "cases": [
+    {
+      "case": "elevation-midnight-proportions",
+      "details": {},
+      "inputSHA256": [
+        "87424e622495b9995d0927ef399654ed1cef6f5f61aa1b1dd9279c51f98fd391"
+      ],
+      "processPeakRSSBytes": 9093120,
+      "ruleVersion": "summary-v1",
+      "status": "passed",
+      "wallSeconds": 0.005713939666748047
+    }
+  ],
+  "passed": 1,
+  "failed": 0,
+  "inputSHA256After": {
+    "GPXPointViewer/RegionIndex.swift": "341c320e0eccc08ae2cc1a8731e1d63d0be10a484cf8ab5fad0fd6d5d34af263",
+    "GPXPointViewer/JourneySummary.swift": "d4b339e61278e765536e3d87aceb22677a00cd11380c3933cd9d32777e0c7da3",
+    "Tests/summary/core/main.swift": "2e69c8d6212983855b0f76f0486662fdaad433bf53945f52a5ee36bd370e688f",
+    "Tests/summary/core/run.py": "f3c3e5ea06f8a27442c4dbf758ae975866a726894a5d2d04cbab605b616b1347",
+    "Tests/summary/core/fixtures.py": "b3647cb7b7856439e36622926d7d471a30ccc4e7e0000152d544c1b342ec44e4"
+  },
+  "status": "passed",
+  "exitCode": 0
+}

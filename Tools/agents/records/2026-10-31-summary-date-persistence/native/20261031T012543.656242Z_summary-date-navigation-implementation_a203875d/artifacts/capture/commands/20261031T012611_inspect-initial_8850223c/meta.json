@@ -1,0 +1,22 @@
+{
+  "label": "inspect-initial",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; files=[\"GPXPointViewer/JourneySummaryState.swift\",\"GPXPointViewer/JourneySummaryWindow.swift\",\"Tests/summary/store/run.py\",\"Tests/summary/store/README.md\"]; [(print(\"FILE\",f),print(Path(f).read_text())) for f in files]"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T012611",
+  "status": "failed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 97667,
+  "process_owner": {
+    "pid": 97667,
+    "parent_pid": 97666,
+    "process_identity": "darwin:97667:1793409971.636558",
+    "group_created": true
+  },
+  "exit_code": 1,
+  "duration_s": 0.05
+}

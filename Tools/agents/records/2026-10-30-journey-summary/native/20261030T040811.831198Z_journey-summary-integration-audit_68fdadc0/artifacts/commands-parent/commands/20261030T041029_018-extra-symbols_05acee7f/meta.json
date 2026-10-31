@@ -1,0 +1,23 @@
+{
+  "label": "018-extra-symbols",
+  "argv": [
+    "rg",
+    "-n",
+    "DataPublicationClock|DataPublicationToken|syntheticKeys|PointKey|sortByTimeIfNeeded|buildStageSpeed|buildStageProjection|func distances|func distance|func haversine|func assign|func parent|func name",
+    "GPXPointViewer"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041029",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 12756,
+  "process_owner": {
+    "pid": 12756,
+    "parent_pid": 12755,
+    "process_identity": "darwin:12756:1793333429.487553",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

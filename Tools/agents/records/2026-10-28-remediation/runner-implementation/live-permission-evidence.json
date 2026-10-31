@@ -1,0 +1,11 @@
+{
+  "source": "https://code.claude.com/docs/en/permissions#writepath-notebookeditpath-and-globpath-rules-never-match",
+  "source_checked_utc": "2026-10-28T23:02 UTC",
+  "source_lines": "398-423",
+  "finding": "Official permission documentation states file modifications use Edit(path), while Write(path) is accepted but does not match. Filesystem-root absolute patterns start with //; one slash anchors to settings/cwd.",
+  "live_evidence": "Main agent R4 observed own Write-only paths denied while allowed Write+Edit work paths succeeded; followup-07-live.md.",
+  "scope": "Only exact own progress.md and own artifacts/** changed; no bare Edit/Write, no entire records grant.",
+  "before_sha256": "2b139ef1148e9894318751449f1fd241d66aafeba9f00ef6b4e7ea61494a406e",
+  "after_sha256": "b270b684008092610ac6a632e42ed74f494decf271e6fbf1cdff9c198936c354",
+  "live_validation": "pending main-agent bounded R4 recovery; no paid probe run by implementation agent"
+}

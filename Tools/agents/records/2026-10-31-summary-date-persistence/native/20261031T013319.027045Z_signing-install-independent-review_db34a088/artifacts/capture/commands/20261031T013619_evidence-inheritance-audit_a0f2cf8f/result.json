@@ -1,0 +1,21 @@
+{
+  "label": "evidence-inheritance-audit",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T013619",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 7916,
+  "process_owner": {
+    "pid": 7916,
+    "parent_pid": 7914,
+    "process_identity": "darwin:7916:1793410579.963822",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.04
+}

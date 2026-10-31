@@ -1,0 +1,23 @@
+{
+  "label": "isolated-copy-preflight-lines",
+  "argv": [
+    "sed",
+    "-n",
+    "313,332p",
+    "Tools/archive_build.py"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T013435",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 6296,
+  "process_owner": {
+    "pid": 6296,
+    "parent_pid": 6292,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

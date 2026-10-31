@@ -1,0 +1,4 @@
+# Visual recovery preparation acceptance
+Root read exact driver.diff and inherited actual UI/cleanup. Addition only testdriver: visual-extras restrictedtozh+visualonly, extra2screenshots via neededsetup/readiness with0functionalcheckcalls; 4summaryscreenshots retained. Existingfunctionalpath/ownedprocess/prefs/archiveidentity unchanged.
+Bounded4second NSWorkspace-only query records stdout/stderr/status and rejectsknownloginwindow beforetestcopy/app creation; no unlock/wake/loginactions. Unknownquery remainsunknown, actualpixeljudgment stillrequired.
+Preparation only; no actualUI/preflight/build/test rerun. Frozenapp unchanged, no newRelease needed. Newwrapper run-summary-visual-recovery.py prepared withnew6b409...driverhash andall3languagesvisual-only; only executeafteruserunlock. Priorwrapperretained, donotuseforrecovery becauseitwouldrepeatfunctionalchecks.

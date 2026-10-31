@@ -1,0 +1,44 @@
+{
+  "directory": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/native/20261030T042612.157547Z_journey-summary-engine_262efea5/artifacts/validation/20261030T045519.983150Z_0e40dfaf",
+  "inputSHA256": {
+    "GPXPointViewer/RegionIndex.swift": "341c320e0eccc08ae2cc1a8731e1d63d0be10a484cf8ab5fad0fd6d5d34af263",
+    "GPXPointViewer/JourneySummary.swift": "af3a0fa9e6b463e84ba1e492eea395c402376cfdfdb79607bfdac2fd44cb82b0",
+    "Tests/summary/core/main.swift": "8cc7bf85b7a16d0e431d9a53c9d13c8124f29666dad6fd4488e5ff598cbedfb2",
+    "Tests/summary/core/run.py": "1877851277c584c6fdeadac88e4cc0d47f2a6fe3436fdb78824dd53b23cafe7f",
+    "Tests/summary/core/fixtures.py": "b3647cb7b7856439e36622926d7d471a30ccc4e7e0000152d544c1b342ec44e4"
+  },
+  "environment": {
+    "platform": "macOS-26.4.1-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "python": "3.14.6"
+  },
+  "commands": [
+    {
+      "label": "compiler-version",
+      "argv": [
+        "swiftc",
+        "--version"
+      ],
+      "exitCode": 0,
+      "wallSeconds": 0.08300049998797476
+    },
+    {
+      "label": "compile",
+      "argv": [
+        "swiftc",
+        "-O",
+        "-module-cache-path",
+        "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/native/20261030T042612.157547Z_journey-summary-engine_262efea5/artifacts/validation/20261030T045519.983150Z_0e40dfaf/module-cache",
+        "-o",
+        "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/native/20261030T042612.157547Z_journey-summary-engine_262efea5/artifacts/validation/20261030T045519.983150Z_0e40dfaf/summary-probe",
+        "/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/RegionIndex.swift",
+        "/Users/zyx/Documents/GPXPointViewer/GPXPointViewer/JourneySummary.swift",
+        "/Users/zyx/Documents/GPXPointViewer/Tests/summary/core/main.swift"
+      ],
+      "exitCode": 1,
+      "wallSeconds": 6.902959499973804
+    }
+  ],
+  "status": "compile-failed",
+  "exitCode": 1
+}

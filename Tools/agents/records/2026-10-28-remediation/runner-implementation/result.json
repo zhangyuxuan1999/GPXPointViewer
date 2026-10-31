@@ -1,0 +1,60 @@
+{
+  "status": "succeeded",
+  "run_status": "succeeded",
+  "verification_status": "passed",
+  "model_requested": "gpt-6.1-sol",
+  "effort_requested": "ultra",
+  "model_observed": null,
+  "effort_observed": null,
+  "cost_usd": null,
+  "usage": null,
+  "finished_utc": "2026-10-28T22:59:38.568601+00:00",
+  "tests": {
+    "count": 54,
+    "passed": 54,
+    "duration_s": 12.128,
+    "evidence": "command-output/20261028T225732.071955Z_bc001cb6.txt",
+    "same_source_hashes": true
+  },
+  "implementation_files": 7,
+  "changes": {
+    "added": [
+      "Tools/agents/agent_run.py",
+      "Tools/agents/run_store.py"
+    ],
+    "deleted": [],
+    "modified": [
+      "Tests/run_deepseek.sh",
+      "Tests/run_deepseek_dev.sh",
+      "Tools/agents/api_run.py",
+      "Tools/agents/api_run.sh",
+      "Tools/agents/status.sh"
+    ]
+  },
+  "live_model_api_calls": 0,
+  "product_app_runs": 0,
+  "product_builds": 0,
+  "remaining_confirmed_defects": [],
+  "next_owner_action": "Main agent performs authorized DeepSeek r4 product regression.",
+  "r4_launch_version": {
+    "basis": "Reconstructed from main agent explicit 2026-10-28 R4 launch statement: launch source precedes only final queue backpressure change. Not an independent in-process source attestation.",
+    "r4_launch_agent_run_sha256": "8fd012cd99a524939b023ab4d58cb21e343a29b1d3b05b946bcd2b8fbf11ef61",
+    "final_verified_agent_run_sha256": "2b139ef1148e9894318751449f1fd241d66aafeba9f00ef6b4e7ea61494a406e",
+    "difference": "queue.Queue() at R4 startup; final verified source uses queue.Queue(maxsize=64) with explanatory comment.",
+    "other_six_files": "unchanged according to main agent launch statement; see final-verification-after.json",
+    "saved_source": "Tools/agents/records/2026-10-28-remediation/runner-implementation/versions/r4-launch/Tools/agents/agent_run.py",
+    "created_utc": "2026-10-28T23:00:15.126063+00:00"
+  },
+  "live_permission_followup": {
+    "status": "implemented_offline_verified",
+    "tests_count": 55,
+    "passed": 55,
+    "duration_s": 12.35,
+    "evidence": "command-output/20261028T230514.894147Z_2584f1cb.txt",
+    "actual_write_validation": "Main agent reported independently verified 3 Write + 1 Read, zero denials; source state-correctness/followup-01.md",
+    "source_hashes": {
+      "Tools/agents/agent_run.py": "b270b684008092610ac6a632e42ed74f494decf271e6fbf1cdff9c198936c354",
+      "Tests/agents/test_agent_run.py": "167142e1ae50c86c10a4e7cb0dc004724dee85812bac53d8aa5f39d855d5bc28"
+    }
+  }
+}

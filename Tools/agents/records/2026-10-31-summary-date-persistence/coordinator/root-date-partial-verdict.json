@@ -1,0 +1,42 @@
+{
+  "native_return_author": "native/20261031T021407.735687Z_date-native-return-submit_207886b8",
+  "independent_review": "native/20261031T022014.757742Z_native-date-return-review_55cf5876/output.md",
+  "actual_navigation_remaining": {
+    "run": "deepseek/20261031T022543.791110Z_summary-date-return-remaining_89a17b6d",
+    "phase": "navigation-remaining-zh",
+    "passed": 3,
+    "whole_run_passed": false,
+    "failed_other_phase": "visual-en fixture-load race; fixed driver only in native022733; recovery is separate"
+  },
+  "pixel_zh": {
+    "images": 5,
+    "verdict": "PASS",
+    "observed": "Header fixed date field+View readable, choose/no-records explicit, selected2016and2015 match, full cross-midnight top/lower readable; content scrolling permitted, no all-date list",
+    "viewed_by": "root"
+  },
+  "manual_keyboard": "keyboard-evidence-r3/cua-actions-and-observations.json",
+  "manual_cleanup": {
+    "owned_processes": [
+      {
+        "stage": "keyboard-only",
+        "pid": 55419,
+        "argv": [
+          "/private/tmp/GPXPointViewer-summary-navigation-bw0alals/isolated-copy/GPXPointViewer.app/Contents/MacOS/GPXPointViewer",
+          "-NSQuitAlwaysKeepsWindows",
+          "NO",
+          "-AppleLanguages",
+          "(zh-Hans)"
+        ],
+        "normal_quit": true,
+        "exit_code": 0
+      }
+    ],
+    "isolated_bundle_id": "de.wayne.GPXPointViewer.test.t20261031t022606z-edf78d910a9d",
+    "isolated_work": "/Users/zyx/Library/Containers/de.wayne.GPXPointViewer.test.t20261031t022606z-edf78d910a9d/Data/tmp/summary-keyboard-r3",
+    "formal_preference_domain_accessed": false,
+    "formal_app_process_touched": false,
+    "isolated_domain_retained_for_evidence": true
+  },
+  "inherited": "settings-and-entry-inheritance.md",
+  "next": "English/German pixels and installation"
+}

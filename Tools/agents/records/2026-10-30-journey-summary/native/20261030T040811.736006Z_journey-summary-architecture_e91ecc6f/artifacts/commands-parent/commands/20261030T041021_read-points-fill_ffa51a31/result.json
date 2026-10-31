@@ -1,0 +1,23 @@
+{
+  "label": "read-points-fill",
+  "argv": [
+    "sed",
+    "-n",
+    "1560,1610p",
+    "GPXPointViewer/GapFill.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041021",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 12674,
+  "process_owner": {
+    "pid": 12674,
+    "parent_pid": 12667,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

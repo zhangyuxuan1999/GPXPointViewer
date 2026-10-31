@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "swiftc",
+    "-module-cache-path",
+    "/private/tmp/gpxpv-segment-core-modulecache",
+    "-typecheck",
+    "GPXPointViewer/GPXParser.swift",
+    "GPXPointViewer/GeoCompute.swift",
+    "GPXQuickLook/TrackShape.swift",
+    "GPXQuickLook/PreviewViewController.swift",
+    "GPXThumbnail/ThumbnailProvider.swift"
+  ],
+  "cwd": "/private/tmp/gpxpv-segment-integration-o3kf8civ",
+  "started_at": "2026-10-28T23:23:57.627669+00:00",
+  "exit_code": 0,
+  "finished_at": "2026-10-28T23:23:58.751675+00:00"
+}

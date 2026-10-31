@@ -1,0 +1,23 @@
+{
+  "label": "006-store-contract-map",
+  "argv": [
+    "rg",
+    "-n",
+    "^(@MainActor|final class|class|struct|enum|extension)|^    (@Published|private var|var |let |func |private func |static func )|publicationClock|revision|token",
+    "GPXPointViewer/TrackStore.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T040948",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 12241,
+  "process_owner": {
+    "pid": 12241,
+    "parent_pid": 12238,
+    "process_identity": "darwin:12241:1793333388.776452",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

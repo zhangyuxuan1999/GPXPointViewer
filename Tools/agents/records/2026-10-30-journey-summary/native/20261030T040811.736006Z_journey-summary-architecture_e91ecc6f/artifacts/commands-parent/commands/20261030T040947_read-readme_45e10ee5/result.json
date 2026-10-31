@@ -1,0 +1,23 @@
+{
+  "label": "read-readme",
+  "argv": [
+    "head",
+    "-n",
+    "105",
+    "README.md"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T040947",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 12190,
+  "process_owner": {
+    "pid": 12190,
+    "parent_pid": 12186,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

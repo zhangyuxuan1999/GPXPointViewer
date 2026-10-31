@@ -1,0 +1,21 @@
+{
+  "label": "exact-diff",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T022053",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 46392,
+  "process_owner": {
+    "pid": 46392,
+    "parent_pid": 46391,
+    "process_identity": "darwin:46392:1793413253.800989",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.04
+}

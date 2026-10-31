@@ -1,0 +1,23 @@
+{
+  "label": "003-current-driver",
+  "argv": [
+    "sed",
+    "-n",
+    "72,245p",
+    "Tests/ui/run_summary_tests.py"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T060242",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 46853,
+  "process_owner": {
+    "pid": 46853,
+    "parent_pid": 46848,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

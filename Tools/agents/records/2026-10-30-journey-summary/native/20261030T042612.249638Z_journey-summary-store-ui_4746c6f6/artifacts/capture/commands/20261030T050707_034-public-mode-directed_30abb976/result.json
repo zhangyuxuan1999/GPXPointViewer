@@ -1,0 +1,25 @@
+{
+  "label": "034-public-mode-directed",
+  "argv": [
+    "python3",
+    "Tests/summary/store/run.py",
+    "--evidence",
+    "Tools/agents/records/2026-10-30-journey-summary/native/20261030T042612.249638Z_journey-summary-store-ui_4746c6f6/artifacts/store-tests",
+    "--group",
+    "modeentry"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T050707",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 32261,
+  "process_owner": {
+    "pid": 32261,
+    "parent_pid": 32260,
+    "process_identity": "darwin:32261:1793336827.199127",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 64.52
+}

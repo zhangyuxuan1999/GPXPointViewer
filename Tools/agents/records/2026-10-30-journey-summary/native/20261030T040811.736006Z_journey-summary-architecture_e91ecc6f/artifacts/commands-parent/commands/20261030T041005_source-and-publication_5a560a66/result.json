@@ -1,0 +1,23 @@
+{
+  "label": "source-and-publication",
+  "argv": [
+    "rg",
+    "-n",
+    "DataPublication|enum.*Lane|func mergeParsed|func rebuildDisplayTrack|func ingest|files\\[.*parsed|files =|func setViewFilter|func.*Filter|reviewGoto|reviewGoTo|mapFocus|flyTo|focusVersion",
+    "GPXPointViewer"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041005",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 12459,
+  "process_owner": {
+    "pid": 12459,
+    "parent_pid": 12456,
+    "process_identity": "darwin:12459:1793333405.907180",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.03
+}

@@ -1,0 +1,27 @@
+{
+  "label": "store-phase-start",
+  "argv": [
+    "python3",
+    "Tools/agents/agent_run.py",
+    "event",
+    "Tools/agents/records/2026-10-30-journey-summary/native/20261030T050227.092173Z_journey-summary-store-review_aec610ee",
+    "--type",
+    "progress",
+    "--json",
+    "{\"completed\":\"Read separate Store/UI task; core remains closed; snapshot product and tests\",\"doing\":\"Review adapter publication/cache, map selection and UI wiring\",\"next\":\"Assess author 53-check raw evidence and report concrete findings\"}"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T050302",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 28083,
+  "process_owner": {
+    "pid": 28083,
+    "parent_pid": 28082,
+    "process_identity": "darwin:28083:1793336582.994005",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.05
+}

@@ -1,0 +1,22 @@
+{
+  "label": "inputs-read",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; paths=[\"AGENTS.md\",\"README.md\",\"Tests/README.md\",\"docs/journey-summary-design.md\",\"docs/segment-topology-design.md\",\"docs/regions-design.md\",\"Tools/agents/records/2026-10-30-journey-summary/native/20261030T040811.831198Z_journey-summary-integration-audit_68fdadc0/artifacts/integration-audit.md\"]; [(print(\"\\nFILE=\"+p),print(Path(p).read_text())) for p in paths]"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T042748",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 17248,
+  "process_owner": {
+    "pid": 17248,
+    "parent_pid": 17247,
+    "process_identity": "darwin:17248:1793334468.442198",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.03
+}

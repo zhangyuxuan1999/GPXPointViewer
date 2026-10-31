@@ -1,0 +1,3 @@
+Root独立完整81/81通过（38.322s，exit0），命令commands/20261029T005221_cleanup-independent-r2_5ce206e5；fixture与正常输出全部独立保存在tool-verification-20261029T005221357876。测试后4拥有源与最终冻结hash匹配。首次root测试脚本缺main guard引发multiprocessing bootstrap错误，失败及无信号自然退出证据已单列保存；新入口已修，未覆盖原失败。另Sol独立真实/注入复验三项ownership、固定drain首因截止、双EOF路径；待最终报告一并验收。
+
+Root已读Sol完整独立审查，三项P1/P2均以原反例关闭，同版本10项聚焦验证、原81项root独立回归相互印证；开放finding 0。真实供应商尚未在最终工具版本调用，将以有界DeepSeek实际任务验证。

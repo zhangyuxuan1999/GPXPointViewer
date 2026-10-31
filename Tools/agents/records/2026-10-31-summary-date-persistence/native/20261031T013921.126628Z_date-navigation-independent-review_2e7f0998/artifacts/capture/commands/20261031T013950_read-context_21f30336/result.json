@@ -1,0 +1,22 @@
+{
+  "label": "read-context",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; paths=[\"AGENTS.md\",\"README.md\",\"Tests/README.md\",\"docs/journey-summary-date-navigation-design.md\",\"Tools/agents/records/2026-10-31-summary-date-persistence/coordinator/architecture-review.md\",\"Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T012543.656242Z_summary-date-navigation-implementation_a203875d/output.md\"]; [(print(\"\\nFILE=\"+p),print(Path(p).read_text())) for p in paths]"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T013950",
+  "status": "failed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 13285,
+  "process_owner": {
+    "pid": 13285,
+    "parent_pid": 13284,
+    "process_identity": "darwin:13285:1793410790.086680",
+    "group_created": true
+  },
+  "exit_code": 1,
+  "duration_s": 0.05
+}

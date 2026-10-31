@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "python3",
+    "/Users/zyx/Documents/GPXPointViewer/Tools/agents/agent_run.py",
+    "finish",
+    "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/native/20261029T001008.666518Z_segment-workflow-review_9b5a389a",
+    "--provider-status",
+    "succeeded",
+    "--acceptance",
+    "pending",
+    "--output",
+    "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-28-remediation/native/20261029T001008.666518Z_segment-workflow-review_9b5a389a/output.md",
+    "--exit-code",
+    "0"
+  ],
+  "cwd": "/private/tmp/gpxpv-segment-integration-o3kf8civ",
+  "start": "2026-10-29T00:22:25.680919+00:00",
+  "exit_code": 1,
+  "finish": "2026-10-29T00:22:25.771802+00:00"
+}

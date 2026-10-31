@@ -1,0 +1,27 @@
+{
+  "label": "original-summary-evidence-contract",
+  "argv": [
+    "rg",
+    "-n",
+    "-A",
+    "10",
+    "-B",
+    "3",
+    "22|70|12/12|12 项|navigation|日期导航|原生|keyboard|持久",
+    "docs/journey-summary-acceptance.md"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014140",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 15982,
+  "process_owner": {
+    "pid": 15982,
+    "parent_pid": 15976,
+    "process_identity": "darwin:15982:1793410900.656867",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.02
+}

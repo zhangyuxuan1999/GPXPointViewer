@@ -1,0 +1,21 @@
+{
+  "label": "stable-artifact-failure-and-build",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T015931",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 32095,
+  "process_owner": {
+    "pid": 32095,
+    "parent_pid": 32094,
+    "process_identity": "darwin:32095:1793411971.530856",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.02
+}

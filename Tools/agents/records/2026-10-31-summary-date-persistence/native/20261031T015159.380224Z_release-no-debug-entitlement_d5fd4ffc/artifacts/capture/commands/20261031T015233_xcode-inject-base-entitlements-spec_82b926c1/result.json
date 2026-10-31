@@ -1,0 +1,29 @@
+{
+  "label": "xcode-inject-base-entitlements-spec",
+  "argv": [
+    "rg",
+    "-n",
+    "-A",
+    "9",
+    "-B",
+    "9",
+    "CODE_SIGN_INJECT_BASE_ENTITLEMENTS",
+    "/Applications/Xcode.app/Contents/SharedFrameworks/XCBuild.framework",
+    "-g",
+    "*.xcspec"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T015233",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 26724,
+  "process_owner": {
+    "pid": 26724,
+    "parent_pid": 26723,
+    "process_identity": "darwin:26724:1793411553.366423",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

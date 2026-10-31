@@ -1,0 +1,140 @@
+{
+  "process_cleanup": [
+    {
+      "pid": 48601,
+      "status": "confirmed",
+      "attempts": [
+        {
+          "operation": "group_sigterm",
+          "outcome": "absent"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "wait",
+          "outcome": "ok"
+        },
+        {
+          "operation": "group_sigkill",
+          "outcome": "absent"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "wait",
+          "outcome": "ok"
+        },
+        {
+          "operation": "leader_probe",
+          "outcome": "ok"
+        },
+        {
+          "operation": "group_probe",
+          "outcome": "absent"
+        },
+        {
+          "operation": "exit_code",
+          "outcome": "ok"
+        }
+      ],
+      "errors": [],
+      "leader_alive": false,
+      "group_alive": false,
+      "leader_exit_code": 0,
+      "duration_s": 0.005142709007486701
+    }
+  ],
+  "cleanup_complete": true,
+  "stream_incomplete": false,
+  "runner_exit_code": 0,
+  "provider_status": "succeeded",
+  "acceptance_status": "pending",
+  "exit_code": 0,
+  "is_error": false,
+  "error": null,
+  "interrupted": false,
+  "runner_terminal_reason": null,
+  "protocol_errors": [],
+  "duration_s": 182.651,
+  "cost_usd": null,
+  "cost_source": "unknown",
+  "cli_reported_cost_usd": 1.005457,
+  "cost_note": "CLI estimate is not authoritative DeepSeek billed cost.",
+  "session_id": "cf630e59-6e1f-4b88-be81-28d84f394147",
+  "subtype": "success",
+  "terminal_reason": "completed",
+  "stop_reason": "end_turn",
+  "errors": null,
+  "api_error_status": null,
+  "permission_denials": [],
+  "usage": {
+    "input_tokens": 44969,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 305024,
+    "output_tokens": 25124,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "",
+    "iterations": [],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "num_turns": 51,
+  "result_count": 1,
+  "turn_results": [
+    {
+      "sequence": 13516,
+      "result_index": 0,
+      "uuid": "1f3c0f0f-18b9-4651-b42e-52479e656e3f",
+      "session_id": "cf630e59-6e1f-4b88-be81-28d84f394147",
+      "subtype": "success",
+      "is_error": false,
+      "terminal_reason": "completed",
+      "stop_reason": "end_turn",
+      "errors": null,
+      "api_error_status": null,
+      "origin": null,
+      "total_cost_usd": 1.005457
+    }
+  ],
+  "background_tasks": [],
+  "foreground_tasks": [
+    {
+      "task_id": "btxdevxg7",
+      "run_id": "0mvvs4ugo-b9094946",
+      "session_id": "cf630e59-6e1f-4b88-be81-28d84f394147",
+      "is_backgrounded": false,
+      "task_type": "local_bash",
+      "tool_use_id": "call_00_vJhMRw8cLR9V8v5n0d9b9891",
+      "started_sequence": 2760,
+      "status": "failed",
+      "notification_run_id": "0mvvs4ugo-b9094946",
+      "notification_match": "strong",
+      "notification_sequence": 2762,
+      "notification_result_index": null
+    }
+  ],
+  "unqualified_tasks": [],
+  "background_task_failures": [],
+  "background_incomplete": [],
+  "out_of_scope_changes": [],
+  "incomplete_checks": "Task acceptance requires independent review; provider completion is separate.",
+  "finished_utc": "2026-10-31T02:28:46.513900+00:00",
+  "status": "succeeded",
+  "run_status": "succeeded",
+  "verification_status": "not_run"
+}

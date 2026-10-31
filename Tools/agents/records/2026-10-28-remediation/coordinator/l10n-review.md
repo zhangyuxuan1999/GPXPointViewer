@@ -1,0 +1,1 @@
+Root读四条en/de/zh-Hant译文，术语/数字/原key保真。实际DeepSeek Flash/max runner完成exit0、cleanup confirmed、permission_denials空，真实费用null。唯一新增chunk_29，范围外/既有修改为空。与编译器/Xcode权威四key逐项一致，独立JSON和无占位符检查通过；assemble missing0/specifier0。合并保留1173条旧entry逐字段不变，只增4删3已不存在于生产stringsdata的旧key，见l10n-merge-receipt.json。不把此次文本检查冒称三语UI截图验收。

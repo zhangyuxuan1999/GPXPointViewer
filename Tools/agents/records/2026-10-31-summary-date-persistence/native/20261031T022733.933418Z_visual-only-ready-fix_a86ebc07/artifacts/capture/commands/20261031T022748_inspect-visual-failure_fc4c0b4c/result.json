@@ -1,0 +1,21 @@
+{
+  "label": "inspect-visual-failure",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T022748",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 51062,
+  "process_owner": {
+    "pid": 51062,
+    "parent_pid": 51060,
+    "process_identity": "darwin:51062:1793413668.434436",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.09
+}

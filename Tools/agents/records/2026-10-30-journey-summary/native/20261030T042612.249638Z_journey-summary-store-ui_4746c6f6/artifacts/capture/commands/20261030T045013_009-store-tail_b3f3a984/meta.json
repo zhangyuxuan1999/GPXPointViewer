@@ -1,0 +1,23 @@
+{
+  "label": "009-store-tail",
+  "argv": [
+    "tail",
+    "-n",
+    "35",
+    "GPXPointViewer/TrackStore.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T045013",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 18204,
+  "process_owner": {
+    "pid": 18204,
+    "parent_pid": 18203,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

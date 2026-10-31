@@ -1,0 +1,21 @@
+{
+  "label": "013-region-stats",
+  "argv": [
+    "cat",
+    "GPXPointViewer/RegionStats.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T041020",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 12631,
+  "process_owner": {
+    "pid": 12631,
+    "parent_pid": 12629,
+    "process_identity": null,
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

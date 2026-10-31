@@ -1,0 +1,23 @@
+{
+  "label": "return-source-map",
+  "argv": [
+    "rg",
+    "-n",
+    "SummaryDate|NSDatePicker|monitor|Monitor|func|keyDown|keyCode|editing|firstResponder|onSubmit|Return|submit",
+    "GPXPointViewer/JourneySummaryWindow.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T022038",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 45894,
+  "process_owner": {
+    "pid": 45894,
+    "parent_pid": 45890,
+    "process_identity": "darwin:45894:1793413238.304121",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

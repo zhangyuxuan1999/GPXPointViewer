@@ -1,0 +1,28 @@
+{
+  "label": "rename-swap-header",
+  "argv": [
+    "rg",
+    "-n",
+    "-A",
+    "16",
+    "-B",
+    "12",
+    "RENAME_SWAP|renameatx_np|AT_FDCWD",
+    "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/stdio.h",
+    "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/fcntl.h"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T014039",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 14702,
+  "process_owner": {
+    "pid": 14702,
+    "parent_pid": 14701,
+    "process_identity": "darwin:14702:1793410839.791795",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

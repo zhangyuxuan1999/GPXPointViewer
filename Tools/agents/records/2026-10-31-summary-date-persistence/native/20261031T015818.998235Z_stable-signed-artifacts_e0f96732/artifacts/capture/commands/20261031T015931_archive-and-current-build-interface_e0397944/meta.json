@@ -1,0 +1,22 @@
+{
+  "label": "archive-and-current-build-interface",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; s=Path(\"Tools/archive_build.py\").read_text(); print(s[s.index(\"def prepare_isolated_test_copy\"):]); print(Path(\"Tools/build_release.py\").read_text())"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T015931",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 32096,
+  "process_owner": {
+    "pid": 32096,
+    "parent_pid": 32093,
+    "process_identity": "darwin:32096:1793411971.537809",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.02
+}

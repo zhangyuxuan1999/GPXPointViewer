@@ -1,0 +1,212 @@
+{
+  "run": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/deepseek/20261030T061054.914921Z_journey-summary-header-layout-visual_d936180c",
+  "provider_result": {
+    "process_cleanup": [
+      {
+        "pid": 49697,
+        "status": "confirmed",
+        "attempts": [
+          {
+            "operation": "group_sigterm",
+            "outcome": "absent"
+          },
+          {
+            "operation": "leader_probe",
+            "outcome": "ok"
+          },
+          {
+            "operation": "wait",
+            "outcome": "ok"
+          },
+          {
+            "operation": "group_sigkill",
+            "outcome": "absent"
+          },
+          {
+            "operation": "leader_probe",
+            "outcome": "ok"
+          },
+          {
+            "operation": "wait",
+            "outcome": "ok"
+          },
+          {
+            "operation": "leader_probe",
+            "outcome": "ok"
+          },
+          {
+            "operation": "group_probe",
+            "outcome": "absent"
+          },
+          {
+            "operation": "exit_code",
+            "outcome": "ok"
+          }
+        ],
+        "errors": [],
+        "leader_alive": false,
+        "group_alive": false,
+        "leader_exit_code": 0,
+        "duration_s": 0.0004007078241556883
+      }
+    ],
+    "cleanup_complete": true,
+    "stream_incomplete": false,
+    "runner_exit_code": 0,
+    "provider_status": "succeeded",
+    "acceptance_status": "pending",
+    "exit_code": 0,
+    "is_error": false,
+    "error": null,
+    "interrupted": false,
+    "runner_terminal_reason": null,
+    "protocol_errors": [],
+    "duration_s": 97.686,
+    "cost_usd": null,
+    "cost_source": "unknown",
+    "cli_reported_cost_usd": 0.691886,
+    "cost_note": "CLI estimate is not authoritative DeepSeek billed cost.",
+    "session_id": "5c0fe67a-621f-478a-b1b2-d20575f150cc",
+    "subtype": "success",
+    "terminal_reason": "completed",
+    "stop_reason": "end_turn",
+    "errors": null,
+    "api_error_status": null,
+    "permission_denials": [
+      {
+        "tool_name": "Bash",
+        "tool_use_id": "call_00_ytdtimQhxfiQgvV1CGu75837",
+        "tool_input": {
+          "command": "GPXPV_AGENT_RUN_DIR=/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/deepseek/20261030T061054.914921Z_journey-summary-header-layout-visual_d936180c python3 /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/coordinator/run-summary-header-layout.py > /Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/deepseek/20261030T061054.914921Z_journey-summary-header-layout-visual_d936180c/artifacts/wrapper-output.txt 2>&1",
+          "timeout": 900000,
+          "description": "Run header-layout visual wrapper once for zh/en/de",
+          "run_in_background": true
+        }
+      },
+      {
+        "tool_name": "Bash",
+        "tool_use_id": "call_00_7g1tTffK17exlD6cq1aG6101",
+        "tool_input": {
+          "command": "printenv GPXPV_AGENT_RUN_DIR",
+          "description": "Check whether run directory env var is preset"
+        }
+      }
+    ],
+    "usage": {
+      "input_tokens": 28497,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 285952,
+      "output_tokens": 16257,
+      "output_tokens_details": {
+        "thinking_tokens": 0
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "inference_geo": "",
+      "iterations": [],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "num_turns": 32,
+    "result_count": 1,
+    "turn_results": [
+      {
+        "sequence": 7224,
+        "result_index": 0,
+        "uuid": "454272e2-f776-4525-a4cd-dc136ba79900",
+        "session_id": "5c0fe67a-621f-478a-b1b2-d20575f150cc",
+        "subtype": "success",
+        "is_error": false,
+        "terminal_reason": "completed",
+        "stop_reason": "end_turn",
+        "errors": null,
+        "api_error_status": null,
+        "origin": null,
+        "total_cost_usd": 0.691886
+      }
+    ],
+    "background_tasks": [],
+    "foreground_tasks": [
+      {
+        "task_id": "b3hsit9d5",
+        "run_id": "0mvukqk16-7d0e7e73",
+        "session_id": "5c0fe67a-621f-478a-b1b2-d20575f150cc",
+        "is_backgrounded": false,
+        "task_type": "local_bash",
+        "tool_use_id": "call_00_Pbb0nT50H23z6U3JdlR26297",
+        "started_sequence": 1633,
+        "status": "failed",
+        "notification_run_id": "0mvukqk16-7d0e7e73",
+        "notification_match": "strong",
+        "notification_sequence": 1634,
+        "notification_result_index": null
+      }
+    ],
+    "unqualified_tasks": [],
+    "background_task_failures": [],
+    "background_incomplete": [],
+    "out_of_scope_changes": [],
+    "incomplete_checks": "Task acceptance requires independent review; provider completion is separate.",
+    "finished_utc": "2026-10-30T06:12:32.660090+00:00",
+    "status": "succeeded",
+    "run_status": "succeeded",
+    "verification_status": "not_run"
+  },
+  "changes": {
+    "added": [],
+    "deleted": [],
+    "modified": [],
+    "out_of_scope": [],
+    "attribution": "Difference from baseline; concurrent shared-workspace writes cannot be attributed automatically."
+  },
+  "zh_images": [
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/deepseek/20261030T061054.914921Z_journey-summary-header-layout-visual_d936180c/artifacts/header-layout/zh-Hans/evidence/20261030T061116.263730Z-6c939f8e/daily-top.png",
+      "sha256": "69e50bca9974b44a098cfbe5e682245cf8c98d1056da220e21df66e4eb686554",
+      "verdict": "passed"
+    },
+    {
+      "path": "/Users/zyx/Documents/GPXPointViewer/Tools/agents/records/2026-10-30-journey-summary/deepseek/20261030T061054.914921Z_journey-summary-header-layout-visual_d936180c/artifacts/header-layout/zh-Hans/evidence/20261030T061116.263730Z-6c939f8e/journey-lower.png",
+      "sha256": "f589cc65b9c955b1bf3e5da263c092587337900e27729d9aebe2d7a10bc992a8",
+      "verdict": "passed"
+    }
+  ],
+  "zh_provenance": {
+    "manifest": "/Users/zyx/Documents/GPXPointViewer/Builds/20261030T060514Z_release_4bd65c63/archive/build-manifest.json",
+    "app": "/Users/zyx/Documents/GPXPointViewer/Builds/20261030T060514Z_release_4bd65c63/archive/GPXPointViewer.app",
+    "executable_sha256": "64d5101be7c3239d10e0cfd01109b3220899f992f9865d1eda0dc2b606b5e883",
+    "source_sha256": "e2bfc9963f3ba993cd6506f0bc54de9565929779114bee584dbafb30ec07c175",
+    "source_association": "build-completed-between-identical-input-snapshots"
+  },
+  "zh_cleanup": {
+    "owned_pid": 49983,
+    "owned_process_exit": -15,
+    "preferences_changed": false,
+    "preferences_exact_bytes_restored": true,
+    "fixture_work": "/Users/zyx/Library/Containers/de.wayne.GPXPointViewer/Data/tmp/summary-smoke-61fe596758fa4cd0acbc8a28607a6668",
+    "no_formal_app_process_killed": true
+  },
+  "zh_mode": {
+    "visual_only": true,
+    "visual_extras": false,
+    "layout_only": true,
+    "functional_checks_executed": 0
+  },
+  "zh_results": [],
+  "pixel_review": "Root viewed both stored PNGs. Header compact, no redundant visible label. Country/transport/manual water/map action readable. Pass zh pixels only.",
+  "whole_task": "incomplete",
+  "remaining": [
+    "en daily-top",
+    "en journey-lower",
+    "de daily-top",
+    "de journey-lower"
+  ],
+  "no_tests_rerun": true
+}

@@ -1,0 +1,24 @@
+{
+  "label": "failed-run-output",
+  "argv": [
+    "/usr/bin/script",
+    "-q",
+    "/dev/null",
+    "Tools/agents/records/2026-10-31-summary-date-persistence/native/20261031T012543.656242Z_summary-date-navigation-implementation_a203875d/artifacts/store/20261031T013016.620842Z-0ea540cd/summary-store",
+    "navigation"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261031T013138",
+  "status": "failed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 2663,
+  "process_owner": {
+    "pid": 2663,
+    "parent_pid": 2662,
+    "process_identity": "darwin:2663:1793410298.123876",
+    "group_created": true
+  },
+  "exit_code": 5,
+  "duration_s": 0.24
+}

@@ -1,0 +1,23 @@
+{
+  "label": "fill-exit-side-effects",
+  "argv": [
+    "rg",
+    "-n",
+    "func exitFillMode|func resetFill",
+    "Tools/agents/records/2026-10-30-journey-summary/native/20261030T050227.092173Z_journey-summary-store-review_aec610ee/artifacts/source-20261030T050302-1567d8c8/GPXPointViewer/TrackStore.swift"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T050452",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 30501,
+  "process_owner": {
+    "pid": 30501,
+    "parent_pid": 30500,
+    "process_identity": "darwin:30501:1793336692.513221",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.01
+}

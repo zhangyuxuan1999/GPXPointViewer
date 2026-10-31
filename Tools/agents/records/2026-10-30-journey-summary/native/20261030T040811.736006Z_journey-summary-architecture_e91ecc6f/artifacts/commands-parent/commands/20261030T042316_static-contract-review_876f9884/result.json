@@ -1,0 +1,21 @@
+{
+  "label": "static-contract-review",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "cwd": "/Users/zyx/Documents/GPXPointViewer",
+  "started_utc": "20261030T042316",
+  "status": "completed",
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "pid": 16206,
+  "process_owner": {
+    "pid": 16206,
+    "parent_pid": 16205,
+    "process_identity": "darwin:16206:1793334196.731517",
+    "group_created": true
+  },
+  "exit_code": 0,
+  "duration_s": 0.05
+}

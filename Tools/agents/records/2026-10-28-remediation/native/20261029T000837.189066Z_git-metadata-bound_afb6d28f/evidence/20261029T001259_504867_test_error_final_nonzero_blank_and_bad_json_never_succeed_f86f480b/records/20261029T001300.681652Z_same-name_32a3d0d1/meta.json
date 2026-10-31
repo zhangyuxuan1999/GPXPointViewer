@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "run_id": "20261029T001300.681652Z_same-name_32a3d0d1",
+  "name": "same-name",
+  "provider": "deepseek-cli",
+  "requested_model": "deepseek-flash",
+  "requested_effort": "max",
+  "observed_model": null,
+  "observed_effort": null,
+  "model_verification": "CLI report only; actual outbound model/effort unverified",
+  "cwd": "/private/tmp/gpxpv-runner-tests-eg3fon55/20261029T001259_504867_test_error_final_nonzero_blank_and_bad_json_never_succeed_f86f480b/workspace",
+  "task_source": "/private/tmp/gpxpv-runner-tests-eg3fon55/20261029T001259_504867_test_error_final_nonzero_blank_and_bad_json_never_succeed_f86f480b/task.md",
+  "started_utc": "2026-10-29T00:13:00.682020+00:00",
+  "watch": [
+    "."
+  ],
+  "allow_write": [],
+  "snapshot_exclusions": {
+    "parts": [
+      ".agents",
+      ".aws",
+      ".codex",
+      ".git",
+      "DerivedData",
+      "__pycache__",
+      "node_modules",
+      "sdkenv"
+    ],
+    "prefixes": [
+      "Tools/agents/records",
+      "Tools/agents/runs",
+      "Tests/reports",
+      "Tests/ui/app.noindex",
+      "Tests/ui/perf",
+      "Tests/ui/synth.gpx",
+      "Tests/exam/results",
+      "Tests/synth/runner/synthrunner",
+      "Tests/synth/runner/build.log"
+    ],
+    "generated_pattern": "^Tests/synth/(?:format-edge|garmin-tunnels|legit-motion|replay-artefacts|scale-mixed|stationary-noise)/[^/]+\\.(?:gpx|csv|fit|bin)$"
+  },
+  "parent_run": null,
+  "recovery": "context",
+  "cost_usd": null,
+  "cost_source": "unknown",
+  "max_turns": 4,
+  "timeout_seconds": 4.0,
+  "pid": 67063,
+  "child_pid": 67071,
+  "process_identity": "darwin:67063:1793232780.644319",
+  "session_id": "offline-session-123",
+  "cli_reported_model": "offline-mock"
+}
