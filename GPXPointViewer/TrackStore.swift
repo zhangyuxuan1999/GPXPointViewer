@@ -484,10 +484,12 @@ final class TrackStore: ObservableObject {
         // DeepSeek 2026-11-01：段间跳过空白期；段内按“新覆盖格子”给时间。
         // 在雁栖湖反复绕圈不产生新格子 → 该段占时极少；出门才拿时间。
         let order = (0..<track.count).sorted { track.time[$0] < track.time[$1] }
-        let gap: Double = 6 * 3600
+        // DeepSeek 2026-11-01：按“北京本地日”切段，每天单独算新覆盖。
+        // 没新格子的日子权重 0，直接跳过；有新格子的日子按新格子多少分时间。
+        func localDay(_ t: Double) -> Int { Int(floor((t + 8 * 3600) / 86400)) }
         var ranges: [Range<Int>] = []
         var start = 0
-        for k in 1..<order.count where track.time[order[k]] - track.time[order[k - 1]] > gap {
+        for k in 1..<order.count where localDay(track.time[order[k]]) != localDay(track.time[order[k - 1]]) {
             ranges.append(start..<k); start = k
         }
         ranges.append(start..<order.count)
