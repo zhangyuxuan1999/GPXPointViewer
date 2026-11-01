@@ -341,6 +341,51 @@ final class TrackGPUBuffers {
     }
 }
 
+/// DeepSeek 2026-11-01：屏幕空间分层 LOD。
+/// 每层把相机范围按 2×2 屏幕像素切格；每格最多 K 点，不足全留。
+struct PointLODLevel {
+    let order: [UInt32]      // 本层保留的原始点下标（升序）
+    let span: Double         // 本层目标相机 span（Mercator）
+}
+
+enum PointLODBuilder {
+    static func build(track: TrackData, center: (x: Double, y: Double),
+                      baseSpan: Double, levels: Int = 5, k: Int = 2,
+                      cells: (Int, Int) = (480, 270)) -> [PointLODLevel] {
+        let n = track.count
+        guard n > 0, baseSpan > 0, levels > 0 else { return [] }
+        var out: [PointLODLevel] = []
+        for level in 0..<levels {
+            let span = baseSpan * pow(2.0, -Double(level))
+            let half = span / 2
+            let x0 = center.x - half, x1 = center.x + half
+            let y0 = center.y - half, y1 = center.y + half
+            var buckets: [Int: [Int]] = [:]
+            for i in 0..<n {
+                let x = track.mercX[i], y = track.mercY[i]
+                guard x >= x0, x < x1, y >= y0, y < y1 else { continue }
+                let cx = min(cells.0 - 1, max(0, Int((x - x0) / span * Double(cells.0))))
+                let cy = min(cells.1 - 1, max(0, Int((y - y0) / span * Double(cells.1))))
+                buckets[cy * cells.0 + cx, default: []].append(i)
+            }
+            var chosen: [UInt32] = []
+            chosen.reserveCapacity(buckets.count * k)
+            for (_, arr) in buckets {
+                if arr.count <= k {
+                    chosen.append(contentsOf: arr.map { UInt32($0) })
+                } else {
+                    for j in 0..<k {
+                        chosen.append(UInt32(arr[j * arr.count / k]))
+                    }
+                }
+            }
+            chosen.sort()
+            out.append(PointLODLevel(order: chosen, span: span))
+        }
+        return out
+    }
+}
+
 final class MetalPointRenderer {
     let device: MTLDevice
     private let queue: MTLCommandQueue
