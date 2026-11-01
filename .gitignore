@@ -27,3 +27,6 @@ DeepSeek/review/
 
 # 回放预览 app（项目根，人工审核用）
 /GPXPlaybackPreview.app/
+
+# 西安单城预览 app
+/GPXPlaybackPreview-Xian.app/
