@@ -58,3 +58,19 @@
 - 这样不用重建置换缓冲，只需新增 `lodOrder` 缓冲 + uniform 开关；
   reveal 的区域/时间缓冲仍按 `pi` 索引，不受影响。
 - LOD 激活时关闭空间剔除（LOD order 已经保证覆盖）；时间筛选走 shader 逐点判断。
+
+## r9b/r9c 完成：接入渲染器（复用既有 useOrder==3 路径）
+
+发现渲染器已有"任意原始下标列表 + 未置换缓冲"的 ordered 路径：
+- `u.useOrder=3`：`pi = aux[iid]`、`di = pi`，位置/颜色按原始下标读；
+- 因此 LOD **不需要改 shader、不需要重建置换缓冲**。
+
+实现：
+- `MetalPointRenderer.setLODLevels/clearLODLevels`：每层预建 order 缓冲；
+- `render` 内按相机 `camera.w` 自动选层（选不粗于相机的最后一层）；
+- `PointMapView` / `VideoExport`：单城回放按城市 bbox 建 5 层（2×2px、K=2），
+  `setData` 时清除旧层。
+- 非回放路径不启用 LOD；多城暂未启用。
+
+构建：Release BUILD SUCCEEDED。tag `beijing-r9`。
+待验证：实时画面与导出视频的稀疏段观感、HUD 实际绘制点数。
