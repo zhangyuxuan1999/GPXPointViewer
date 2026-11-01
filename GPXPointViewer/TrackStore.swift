@@ -532,6 +532,13 @@ final class TrackStore: ObservableObject {
         }
         q[0] = segs[0].t0 - 1
         q[1023] = segs.last!.t1
+        // DeepSeek 2026-11-01：保证游标时间严格递增，零时长/零权重段不能让日期停住
+        if let t0 = segs.first?.t0, let t1 = segs.last?.t1, t1 > t0 {
+            let step = max(1.0, (t1 - t0) / Double(q.count) * 0.05)
+            for k in 1..<q.count where q[k] <= q[k - 1] {
+                q[k] = min(t1, q[k - 1] + step)
+            }
+        }
         cp.cityTimeAt = [q]
         plan.cityPlan = cp
     }

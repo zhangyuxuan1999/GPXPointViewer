@@ -1065,19 +1065,10 @@ struct PointMapView: NSViewRepresentable {
                 if pb.clock.playing {
                     let dt = min(0.1, now - (playbackLastTick ?? now))
                     playbackLastTick = now
-                    // 瓦片门控：飞行中不等（瓦片必然追不上），只在相机
-                    // 落定的平台/驻留期等待底图就位，最多 2.5s
-                    var gate = false
-                    if mapTilesLoading, playbackCameraStatic(pb) {
-                        if playbackStallStart == nil { playbackStallStart = now }
-                        gate = now - (playbackStallStart ?? now) < 0.8
-                    } else {
-                        playbackStallStart = nil
-                    }
-                    if !gate {
-                        pb.clock.head = min(pb.plan.duration, pb.clock.head + dt)
-                        if pb.clock.head >= pb.plan.duration { pb.clock.playing = false }
-                    }
+                    // DeepSeek 2026-11-01：播放头必须每帧前进，不再因底图瓦片
+                    // 加载/相机静止而暂停。瓦片晚到只是底图短暂空白，不能冻住时间轴。
+                    pb.clock.head = min(pb.plan.duration, pb.clock.head + dt)
+                    if pb.clock.head >= pb.plan.duration { pb.clock.playing = false }
                     applyPlaybackFrame()
                     lastInteraction = now          // 播放期间保持帧循环
                 } else {
