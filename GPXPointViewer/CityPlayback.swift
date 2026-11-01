@@ -41,6 +41,16 @@ struct PlaybackTransit {
     var b: Int = -1          // 到达城市
 }
 
+struct TripCluster {
+    var ids: [Int] = []
+    var t0: Double = .infinity
+    var t1: Double = -.infinity
+    var x0: Double = .infinity, y0: Double = .infinity
+    var x1: Double = -.infinity, y1: Double = -.infinity
+    var weight: Double = 0
+    var span: Double { max(x1 - x0, y1 - y0) }
+}
+
 struct PlaybackChapter {
     var p0: Double = 0
     var p1: Double = 0
@@ -533,24 +543,45 @@ enum CityPlaybackPlanner {
         // 7) 时长：驻留按权重、过渡按是否有城际段
         let n = cities.count
         var transDurs = [Double](repeating: 1.0, count: max(0, n - 1))
-        // 5c) 长途专题：权重最大的几条跨区域行程，单独成章
-        let allTrips = transit.enumerated().filter { _, t in
-            max(t.x1 - t.x0, t.y1 - t.y0) >= 0.008 && t.weight >= 3000
-        }.sorted { $0.element.weight > $1.element.weight }
-        let tripPicked = singleCity ? [] : Array(allTrips.prefix(4))
-        let tripSet = Set(tripPicked.map { $0.offset })
-        var pairTransit = [[Int]](repeating: [], count: max(0, n - 1))
-        // 过渡段展示“离开这座城市”的城际段（出发或返回都算）。这样北京→西安
-        // 在离开北京时画出来；西安落地时城市是空的，正好从零开始生长。
-        for (k, tr) in transit.enumerated() {
-            var touched = Set<Int>()
-            if tr.a >= 0, tr.a < n - 1 { touched.insert(tr.a) }
-            if tr.b >= 0, tr.b < n - 1, tr.b != tr.a { touched.insert(tr.b) }
-            if tripSet.contains(k) { continue }
-            for c in touched { pairTransit[c].append(k) }
+        // 5c) 长途专题：按时间/空间聚成“一次完整行程”（如北京—哈尔滨—漠河—北京），
+        //     而不是把同一次行程的火车/自驾拆成不同章节。
+        var tripClusters: [TripCluster] = []
+        if !singleCity {
+            let orderedTransit = transit.enumerated().sorted { $0.element.t0 < $1.element.t0 }
+            for (ti, t) in orderedTransit {
+                if var last = tripClusters.last {
+                    let gap = t.t0 - last.t1
+                    let uw = max(last.x1, t.x1) - min(last.x0, t.x0)
+                    let uh = max(last.y1, t.y1) - min(last.y0, t.y0)
+                    if gap < 12 * 3600, t.t1 - last.t0 < 10 * 86400, uw < 0.35, uh < 0.35 {
+                        last.ids.append(ti)
+                        last.t0 = min(last.t0, t.t0); last.t1 = max(last.t1, t.t1)
+                        last.x0 = min(last.x0, t.x0); last.y0 = min(last.y0, t.y0)
+                        last.x1 = max(last.x1, t.x1); last.y1 = max(last.y1, t.y1)
+                        last.weight += t.weight
+                        tripClusters[tripClusters.count - 1] = last
+                        continue
+                    }
+                }
+                tripClusters.append(TripCluster(ids: [ti], t0: t.t0, t1: t.t1,
+                                                x0: t.x0, y0: t.y0, x1: t.x1, y1: t.y1,
+                                                weight: t.weight))
+            }
+            tripClusters = tripClusters.filter { $0.span >= 0.008 && $0.weight >= 3000 }
+            tripClusters.sort { $0.weight > $1.weight }
+            if tripClusters.count > 5 { tripClusters = Array(tripClusters.prefix(5)) }
+            tripClusters.sort { $0.t0 < $1.t0 }
         }
+        func tripDuration(_ c: TripCluster) -> Double {
+            min(4.0, 1.8 + 0.5 * Double(max(0, c.ids.count - 2)))
+        }
+        let tripSet = Set(tripClusters.flatMap { $0.ids })
+        // 过渡段只做城市间的相机移动，不再画城际点：
+        // 城际全部交给长途专题/片尾，避免“断线”和把相机拉到全国尺度。
+        let pairTransit = [[Int]](repeating: [], count: max(0, n - 1))
+        _ = tripSet
         for c in 0..<max(0, n - 1) where !pairTransit[c].isEmpty { transDurs[c] = 1.5 }
-        let tripDur = 2.2 * Double(tripPicked.count)
+        let tripDur = tripClusters.reduce(0.0) { $0 + tripDuration($1) }
         let holdTotal = max(Double(n) * 1.5, duration - finaleDur - tripDur - transDurs.reduce(0, +))
         let wSum = max(1e-9, cities.reduce(0.0) { $0 + $1.weight })
         let floorHold = 1.5
@@ -579,10 +610,8 @@ enum CityPlaybackPlanner {
                            y1: max(cities[c].y1, cities[c + 1].y1))
                 var d0 = cities[c].t1
                 var d1 = max(cities[c].t1 + 1, cities[c + 1].t0)
-                for k in pairTransit[c] {
-                    let tr = transit[k]
-                    d0 = min(d0, tr.t0); d1 = max(d1, tr.t1)
-                }
+                // 过渡段没有城际点，d0/d1 只用于日期条
+                _ = d0; _ = d1
                 chapters.append(PlaybackChapter(p0: p, p1: p + transDurs[c],
                                                 d0: d0, d1: max(d0 + 1, d1),
                                                 fromCity: c, toCity: c + 1,
@@ -604,14 +633,14 @@ enum CityPlaybackPlanner {
             all.x0 = min(all.x0, tr.x0); all.y0 = min(all.y0, tr.y0)
             all.x1 = max(all.x1, tr.x1); all.y1 = max(all.y1, tr.y1)
         }
-        for (ti, _) in tripPicked.sorted(by: { $0.element.t0 < $1.element.t0 }) {
-            let t = transit[ti]
-            chapters.append(PlaybackChapter(p0: p, p1: p + 2.2,
-                                            d0: t.t0, d1: max(t.t0 + 1, t.t1),
-                                            transit: [ti],
-                                            x0: t.x0, y0: t.y0, x1: t.x1, y1: t.y1,
-                                            margin: 1.08, wide: true, trip: true))
-            p += 2.2
+        for cl in tripClusters {
+            let dur = tripDuration(cl)
+            chapters.append(PlaybackChapter(p0: p, p1: p + dur,
+                                            d0: cl.t0, d1: max(cl.t0 + 1, cl.t1),
+                                            transit: cl.ids,
+                                            x0: cl.x0, y0: cl.y0, x1: cl.x1, y1: cl.y1,
+                                            margin: 1.12, wide: true, trip: true))
+            p += dur
         }
         if !transit.isEmpty, !singleCity {
             let tr0 = transit.map(\.t0).min() ?? firstT
