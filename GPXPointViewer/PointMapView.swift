@@ -1993,15 +1993,9 @@ struct PointMapView: NSViewRepresentable {
                     } else {
                         renderer.clearPlaybackReveal()
                     }
-                    // DeepSeek 2026-11-01：单城回放启用屏幕空间 LOD（每层 2×2px K=2）
-                    if let track = store.track, let cp = pb.plan.cityPlan, cp.cities.count == 1 {
-                        let c = cp.cities[0]
-                        let base = max(c.x1 - c.x0, c.y1 - c.y0) * 1.15
-                        renderer.setLODLevels(PointLODBuilder.build(track: track, center: (c.cx, c.cy),
-                                                                    baseSpan: max(base, 0.001), levels: 5))
-                    } else {
-                        renderer.clearLODLevels()
-                    }
+                    // DeepSeek 2026-11-01：单城回放 LOD 层已在后台规划阶段建好
+                    if !pb.lodLevels.isEmpty { renderer.setLODLevels(pb.lodLevels) }
+                    else { renderer.clearLODLevels() }
                     shownPlaybackRevealID = id
                     shownPlaybackRevealVersion = pb.revealVersion
                 }

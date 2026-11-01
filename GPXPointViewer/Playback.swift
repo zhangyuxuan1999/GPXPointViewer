@@ -711,12 +711,15 @@ final class PlaybackSession: ObservableObject {
     var reveal: PlaybackRevealData?
     /// 规划重建（改时长）后递增；视图据此重绑渲染器的逐点数据
     var revealVersion = 1
+    /// 单城回放的屏幕空间 LOD 层（在后台规划阶段建好，视图不再主线程计算）
+    var lodLevels: [PointLODLevel] = []
 
     init(plan: PlaybackPlan, events: [PlaybackEvent], isArchive: Bool,
-         reveal: PlaybackRevealData? = nil) {
+         reveal: PlaybackRevealData? = nil, lodLevels: [PointLODLevel] = []) {
         self.plan = plan
         self.events = events
         self.isArchive = isArchive
         self.reveal = reveal
+        self.lodLevels = lodLevels
     }
 }

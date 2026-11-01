@@ -425,6 +425,14 @@ final class TrackStore: ObservableObject {
                 let evs = PlaybackPlan.events(track: track)
                 let plan = PlaybackPlan.buildCities(events: evs, duration: chosen)
                 guard let self else { return }
+                // DeepSeek 2026-11-01：LOD 建层放到后台规划阶段（约 183ms/650k 点）
+                var lodLevels: [PointLODLevel] = []
+                if let cp = plan?.cityPlan, cp.cities.count == 1 {
+                    let c = cp.cities[0]
+                    let base = max(c.x1 - c.x0, c.y1 - c.y0) * 1.15
+                    lodLevels = PointLODBuilder.build(track: track, center: (c.cx, c.cy),
+                                                      baseSpan: max(base, 0.001), levels: 5)
+                }
                 await MainActor.run {
                     guard self.owns(token) else { return }
                     guard let plan else {
@@ -436,7 +444,8 @@ final class TrackStore: ObservableObject {
                     self.refineCityQuantiles(&adjusted, track: track)
                     self.playback = PlaybackSession(
                         plan: adjusted, events: evs, isArchive: false,
-                        reveal: adjusted.cityPlan.flatMap { PlaybackRevealData(track: track, plan: $0) })
+                        reveal: adjusted.cityPlan.flatMap { PlaybackRevealData(track: track, plan: $0) },
+                        lodLevels: lodLevels)
                 }
             }
         } else if let archive = fogArchive {
