@@ -636,7 +636,9 @@ final class PlaybackPlan: @unchecked Sendable {
     /// nil = 旧规划（.fwdb），不做区域揭示。
     func cursors(at p: Double) -> [UInt32]? {
         guard let cp = cityPlan else { return nil }
-        return cp.relativeCursors(at: p, epoch: dataStart.rounded(.down))
+        // epoch 必须与 PlaybackRevealData 一致（都用 CityPlan.dataStart），
+        // 否则多城时游标会整体偏移，点被误裁。
+        return cp.relativeCursors(at: p, epoch: cp.dataStart.rounded(.down))
     }
 
     /// 城市章节规划（GPX 时光机）：每城一次、城际区域视角、片尾总览。
