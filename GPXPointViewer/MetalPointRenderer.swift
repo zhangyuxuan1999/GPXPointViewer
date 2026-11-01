@@ -1026,7 +1026,7 @@ final class MetalPointRenderer {
         var lodIndex = -1
         if pointsPass, !lodLevels.isEmpty {
             for (i, lv) in lodLevels.enumerated() where lv.span <= camera.w * 1.001 { lodIndex = i }
-            if lodIndex < 0 { lodIndex = 0 }
+            if lodIndex < 0 { lodIndex = lodLevels.count - 1 }   // 放到比最细层还大时用最细层
         }
         var padPx = pointSizePx * 1.55 + (halo ? 1.1 : 0) + 2.0
         if heatMap { padPx = max(padPx, max(10.0, pointSizePx * 2.5)) }

@@ -522,6 +522,14 @@ enum CityPlaybackPlanner {
             transit.append(tr)
         }
 
+        if singleCity, !transit.isEmpty {
+            // 单城没有过渡/片尾：城际（长途）点并入城市区域，时间范围也覆盖它们
+            if let t0 = transit.map(\.t0).min(), let t1 = transit.map(\.t1).max() {
+                cities[0].t0 = min(cities[0].t0, t0)
+                cities[0].t1 = max(cities[0].t1, t1)
+            }
+        }
+
         // 7) 时长：驻留按权重、过渡按是否有城际段
         let n = cities.count
         var transDurs = [Double](repeating: 1.0, count: max(0, n - 1))
@@ -626,6 +634,7 @@ enum CityPlaybackPlanner {
         for (i, s) in ss.enumerated() {
             let area: Int
             if cityOfSession[i] >= 0 { area = cityOfSession[i] }
+            else if singleCity { area = 0 }   // 单城：长途点跟城市一起揭示
             else if let ti = transit.firstIndex(where: { $0.session == i }) { area = cities.count + ti }
             else { continue }
             timeline.append((s.t0, s.t1, area))

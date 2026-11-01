@@ -123,7 +123,7 @@ vertex VOut pointVertex(uint vid [[vertex_id]],
             cull.glow = 0.0;
             return cull;
         }
-        revealGlow = clamp(1.0 - float(cur - rt) / 2.5, 0.0, 1.0);
+        revealGlow = clamp(1.0 - float(cur - rt) / 1.2, 0.0, 1.0);
     }
 
     float2 center = float2(posX[di], posY[di]) * u.scale + u.offset;
@@ -173,7 +173,7 @@ fragment float4 pointFragment(VOut in [[stage_in]],
     float outer = 1.0 - smoothstep(haloR - 0.8, haloR + 0.8, d);   // 整体覆盖
     float core  = 1.0 - smoothstep(coreR - 0.8, coreR + 0.8, d);   // 彩色芯
     float3 rgb  = mix(float3(1.0), in.color.rgb, core);            // 芯外一圈白描边
-    rgb = mix(rgb, float3(1.0), in.glow * 0.85);                   // 新揭示的点提亮
+    rgb = mix(rgb, float3(1.0), in.glow * 0.45);                   // 新揭示的点提亮
     return float4(rgb, outer * in.color.a);
 }
 

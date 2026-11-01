@@ -1070,7 +1070,7 @@ struct PointMapView: NSViewRepresentable {
                     var gate = false
                     if mapTilesLoading, playbackCameraStatic(pb) {
                         if playbackStallStart == nil { playbackStallStart = now }
-                        gate = now - (playbackStallStart ?? now) < 2.5
+                        gate = now - (playbackStallStart ?? now) < 0.8
                     } else {
                         playbackStallStart = nil
                     }
