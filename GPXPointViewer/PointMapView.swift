@@ -278,6 +278,10 @@ struct PointMapView: NSViewRepresentable {
         private var playbackLastTick: Double?
         private var playbackCameraDetached = false
         private var resetCameraObserver: NSObjectProtocol?
+        private var smoothCam: PlaybackCamera?
+        private var smoothAt: CFTimeInterval = 0
+        private var cameraAnimUntil: CFTimeInterval = 0
+        private var lastPlaybackID: ObjectIdentifier?
         /// 城市章节回放：当前已绑定逐点区域数据的会话（DeepSeek 2026-10-31）
         private var shownPlaybackRevealID: ObjectIdentifier?
         private var shownPlaybackRevealVersion = -1
@@ -2256,28 +2260,51 @@ struct PointMapView: NSViewRepresentable {
             return abs(log(c.span / a.span)) < 0.002 && move < a.span * 0.002
         }
 
-        /// DeepSeek 2026-11-02：回到规划机位（播放中用户拖动/缩放后）
+        private func mapRect(_ cam: PlaybackCamera, aspect: Double) -> MKMapRect {
+            let world = MKMapRect.world.size.width
+            let w = cam.span * world
+            let h = w * aspect
+            return MKMapRect(x: cam.cx * world - w / 2,
+                             y: cam.cy * world - h / 2,
+                             width: w, height: h)
+        }
+
+        /// DeepSeek 2026-11-02：回到规划机位，用 0.35s 动画，不瞬移
         private func resetCameraToDefault() {
             playbackCameraDetached = false
-            if store.playback != nil {
-                applyPlaybackFrame()
-                store.pokePlayback()
-            }
+            guard let container, let pb = store.playback, !globeActive else { return }
+            let b = container.bounds
+            let aspect = b.width > 1 ? Double(b.height / b.width) : 0.66
+            let target = pb.plan.camera(at: pb.clock.head, aspect: aspect)
+            smoothCam = target
+            smoothAt = CACurrentMediaTime()
+            cameraAnimUntil = smoothAt + 0.35
+            container.mapView.setVisibleMapRect(mapRect(target, aspect: aspect), animated: true)
+            store.pokePlayback()
         }
 
         private func applyPlaybackFrame() {
             guard !playbackCameraDetached else { return }
             guard let container, let pb = store.playback, !globeActive else { return }
+            let now = CACurrentMediaTime()
+            if now < cameraAnimUntil { return }
             let b = container.bounds
             let aspect = b.width > 1 ? Double(b.height / b.width) : 0.66
-            let cam = pb.plan.camera(at: pb.clock.head, aspect: aspect)
-            let world = MKMapRect.world.size.width
-            let w = cam.span * world
-            let h = w * aspect
-            let rect = MKMapRect(x: cam.cx * world - w / 2,
-                                 y: cam.cy * world - h / 2,
-                                 width: w, height: h)
-            container.mapView.setVisibleMapRect(rect, animated: false)
+            let target = pb.plan.camera(at: pb.clock.head, aspect: aspect)
+            let id = ObjectIdentifier(pb)
+            if lastPlaybackID != id { lastPlaybackID = id; smoothCam = nil }
+            var cam = target
+            if let s = smoothCam {
+                let dt = min(0.1, max(0.008, now - smoothAt))
+                let k = 1 - exp(-dt / 0.22)
+                let ls = log(max(s.span, 1e-9)), lt = log(max(target.span, 1e-9))
+                cam = PlaybackCamera(cx: s.cx + (target.cx - s.cx) * k,
+                                     cy: s.cy + (target.cy - s.cy) * k,
+                                     span: exp(ls + (lt - ls) * k))
+            }
+            smoothCam = cam
+            smoothAt = now
+            container.mapView.setVisibleMapRect(mapRect(cam, aspect: aspect), animated: false)
         }
 
         /// 视频导出：存盘面板 → 配置快照 → 后台离屏引擎（进度走载入卡片）

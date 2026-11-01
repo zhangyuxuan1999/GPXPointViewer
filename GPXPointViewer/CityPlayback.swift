@@ -567,10 +567,27 @@ enum CityPlaybackPlanner {
                                                 x0: t.x0, y0: t.y0, x1: t.x1, y1: t.y1,
                                                 weight: t.weight))
             }
-            tripClusters = tripClusters.filter { $0.span >= 0.008 && $0.weight >= 3000 }
-            tripClusters.sort { $0.weight > $1.weight }
-            if tripClusters.count > 5 { tripClusters = Array(tripClusters.prefix(5)) }
+            let candidates = tripClusters.filter { $0.span >= 0.008 && $0.weight >= 3000 }
+            func centerLon(_ c: TripCluster) -> Double { ((c.x0 + c.x1) / 2) * 360 - 180 }
+            func centerLat(_ c: TripCluster) -> Double {
+                let y = (c.y0 + c.y1) / 2
+                return atan(sinh(.pi * (1 - 2 * y))) * 180 / .pi
+            }
+            var chosen = Array(candidates.sorted { $0.weight > $1.weight }.prefix(5))
+            // 保证至少有一条欧洲、一条新疆/西部行程
+            if !chosen.contains(where: { centerLon($0) < 30 }),
+               let eu = candidates.filter({ centerLon($0) < 30 }).max(by: { $0.weight < $1.weight }) {
+                chosen.append(eu)
+            }
+            if !chosen.contains(where: { centerLon($0) > 70 && centerLon($0) < 100 && centerLat($0) > 35 }),
+               let xj = candidates.filter({ centerLon($0) > 70 && centerLon($0) < 100 && centerLat($0) > 35 })
+                                    .max(by: { $0.weight < $1.weight }) {
+                chosen.append(xj)
+            }
+            var seenT0 = Set<Int>()
+            tripClusters = chosen.filter { seenT0.insert(Int($0.t0)).inserted }
             tripClusters.sort { $0.t0 < $1.t0 }
+            if tripClusters.count > 7 { tripClusters = Array(tripClusters.prefix(7)) }
         }
         func tripDuration(_ c: TripCluster) -> Double {
             min(4.0, 1.8 + 0.5 * Double(max(0, c.ids.count - 2)))
@@ -639,7 +656,7 @@ enum CityPlaybackPlanner {
                                             d0: cl.t0, d1: max(cl.t0 + 1, cl.t1),
                                             transit: cl.ids,
                                             x0: cl.x0, y0: cl.y0, x1: cl.x1, y1: cl.y1,
-                                            margin: 1.12, wide: true, trip: true))
+                                            margin: 1.3, wide: true, trip: true))
             p += dur
         }
         if !transit.isEmpty, !singleCity {
