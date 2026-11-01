@@ -481,20 +481,36 @@ final class TrackStore: ObservableObject {
     /// DeepSeek 2026-11-01：单城调试用实际点时间分位，没点的日子直接跳过
     private func refineCityQuantiles(_ plan: inout PlaybackPlan, track: TrackData) {
         guard var cp = plan.cityPlan, cp.cities.count == 1, track.count > 1 else { return }
-        // DeepSeek 2026-11-01：只保留有数据的段，段与段直接拼接。
-        // 超过 6 小时没有点就断段；空白期（寒暑假不在北京）不占播放时间。
+        // DeepSeek 2026-11-01：段间跳过空白期；段内按“新覆盖格子”给时间。
+        // 在雁栖湖反复绕圈不产生新格子 → 该段占时极少；出门才拿时间。
         let order = (0..<track.count).sorted { track.time[$0] < track.time[$1] }
         let gap: Double = 6 * 3600
-        var segs: [(t0: Double, t1: Double, w: Double)] = []
-        var s0 = track.time[order[0]], s1 = s0, n = 1.0
-        for i in order.dropFirst() {
-            let t = track.time[i]
-            if t - s1 > gap { segs.append((s0, s1, n)); s0 = t; s1 = t; n = 1 }
-            else { s1 = t; n += 1 }
+        var ranges: [Range<Int>] = []
+        var start = 0
+        for k in 1..<order.count where track.time[order[k]] - track.time[order[k - 1]] > gap {
+            ranges.append(start..<k); start = k
         }
-        segs.append((s0, s1, n))
-        let total = segs.reduce(0.0) { $0 + $1.w }
-        guard total > 0 else { return }
+        ranges.append(start..<order.count)
+        let c = cp.cities[0]
+        let x0 = c.x0, x1 = max(c.x1, c.x0 + 1e-9)
+        let y0 = c.y0, y1 = max(c.y1, c.y0 + 1e-9)
+        let cols = 320, rows = 180
+        var seen = Set<Int>()
+        var segs: [(t0: Double, t1: Double, w: Double)] = []
+        for r in ranges {
+            let t0 = track.time[order[r.lowerBound]]
+            let t1 = track.time[order[r.upperBound - 1]]
+            var novel = 0.0
+            for j in r {
+                let i = order[j]
+                let cx = min(cols - 1, max(0, Int((track.mercX[i] - x0) / (x1 - x0) * Double(cols))))
+                let cy = min(rows - 1, max(0, Int((track.mercY[i] - y0) / (y1 - y0) * Double(rows))))
+                if seen.insert(cy * cols + cx).inserted { novel += 1 }
+            }
+            segs.append((t0, t1, novel > 0 ? novel : 0))
+        }
+        var total = segs.reduce(0.0) { $0 + $1.w }
+        if total < 1 { for i in segs.indices { segs[i].w = 1 }; total = Double(segs.count) }
         var q = [Double](repeating: segs[0].t0, count: 129)
         var si = 0, cum = 0.0
         for k in 0...128 {
