@@ -414,6 +414,7 @@ enum PointLODBuilder {
                 chosenSet.formUnion(extra)
                 chosen = chosenSet.sorted()
             }
+            chosen.sort()
             out.append(PointLODLevel(order: chosen, span: span))
         }
         return out
