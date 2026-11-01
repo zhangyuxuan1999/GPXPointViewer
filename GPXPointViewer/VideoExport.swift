@@ -152,6 +152,13 @@ enum VideoExportEngine {
             if let cp = cfg.plan.cityPlan, let rv = PlaybackRevealData(track: track, plan: cp) {
                 renderer.setPlaybackReveal(areas: rv.areaOfPoint, times: rv.times, areaCount: rv.areaCount)
             }
+            // DeepSeek 2026-11-01：导出的单城回放同样启用屏幕空间 LOD
+            if let cp = cfg.plan.cityPlan, cp.cities.count == 1 {
+                let c = cp.cities[0]
+                let base = max(c.x1 - c.x0, c.y1 - c.y0) * 1.15
+                renderer.setLODLevels(PointLODBuilder.build(track: track, center: (c.cx, c.cy),
+                                                            baseSpan: max(base, 0.001), levels: 5))
+            }
         }
         let layer = MetalPointRenderer.makeOffscreenLayer(device: renderer.device,
                                                           width: cfg.outW, height: cfg.outH)

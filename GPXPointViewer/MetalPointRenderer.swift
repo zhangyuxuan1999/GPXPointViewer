@@ -436,6 +436,8 @@ final class MetalPointRenderer {
     private var bufBreakPrefix: MTLBuffer?            // 迷雾断点前缀和
     private var bufOrder: MTLBuffer?                  // 莫顿序置换表（视口剔除）
     private var bufSX: MTLBuffer?                     // 莫顿序重排的位置/颜色副本
+    private var lodLevels: [PointLODLevel] = []
+    private var lodBuffers: [MTLBuffer] = []
     private var bufSY: MTLBuffer?
     private var bufFirsts: MTLBuffer?                 // 各级格首点位置表
     private var spatialKeys: [UInt64] = []            // 有序莫顿键（CPU 侧二分区段）
@@ -528,8 +530,22 @@ final class MetalPointRenderer {
 
     // MARK: - 数据上传
 
+    func setLODLevels(_ levels: [PointLODLevel]) {
+        lodLevels = levels
+        lodBuffers = levels.map { lv in
+            let n = max(1, lv.order.count)
+            return lv.order.withUnsafeBufferPointer {
+                device.makeBuffer(bytes: $0.baseAddress!, length: n * MemoryLayout<UInt32>.stride,
+                                  options: .storageModeShared)!
+            }
+        }
+    }
+
+    func clearLODLevels() { lodLevels = []; lodBuffers = [] }
+
     func setData(track: TrackData) {
         clearPlaybackReveal()
+        clearLODLevels()
         pointCount = track.count
         center = track.center
         let n = track.count
@@ -971,6 +987,12 @@ final class MetalPointRenderer {
         // 按时间序提交更省（区段不含时间过滤，着色器逐点剔除），两条路径按实例
         // 数取小；视口内没有点时区段为空 → 提交 0 个实例，绝不退回全量时间序
         let pointsPass = !heatMap && !fogMap
+        // DeepSeek 2026-11-01：屏幕空间 LOD 选层（选择不粗于当前相机的层）
+        var lodIndex = -1
+        if pointsPass, !lodLevels.isEmpty {
+            for (i, lv) in lodLevels.enumerated() where lv.span >= camera.w * 0.999 { lodIndex = i }
+            if lodIndex < 0 { lodIndex = lodLevels.count - 1 }
+        }
         var padPx = pointSizePx * 1.55 + (halo ? 1.1 : 0) + 2.0
         if heatMap { padPx = max(padPx, max(10.0, pointSizePx * 2.5)) }
         var fogPadMerc = 0.0
@@ -1027,6 +1049,7 @@ final class MetalPointRenderer {
         // 时间序缓冲——与旧路径逐点同序、同混合结果，只是少了视口外的。视口内
         // 点过多时 CPU 排序不划算 → 时间序全量（永不劣于旧路径）
         var orderedList: [UInt32]? = nil
+        if lodIndex >= 0, lodIndex < lodLevels.count { orderedList = lodLevels[lodIndex].order }
         if pointsPass, orderSensitive, useSpatial, spatialTotal <= 150_000 {
             var list = [UInt32]()
             list.reserveCapacity(spatialTotal)
@@ -1047,11 +1070,15 @@ final class MetalPointRenderer {
         }
         let ordered = orderedList != nil
         var orderedBuf: MTLBuffer?
-        if let list = orderedList, !list.isEmpty, let buf = visibleBuffer(count: list.count) {
-            list.withUnsafeBufferPointer {
-                _ = memcpy(buf.contents(), $0.baseAddress!, list.count * MemoryLayout<UInt32>.stride)
+        if let list = orderedList, !list.isEmpty {
+            if lodIndex >= 0, lodIndex < lodBuffers.count {
+                orderedBuf = lodBuffers[lodIndex]
+            } else if let buf = visibleBuffer(count: list.count) {
+                list.withUnsafeBufferPointer {
+                    _ = memcpy(buf.contents(), $0.baseAddress!, list.count * MemoryLayout<UInt32>.stride)
+                }
+                orderedBuf = buf
             }
-            orderedBuf = buf
         }
         let pointsSpatial = useSpatial && (!orderSensitive || ordered)
         var drawnActual: Int
