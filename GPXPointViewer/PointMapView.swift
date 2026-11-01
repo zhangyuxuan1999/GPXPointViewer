@@ -15,6 +15,10 @@
 //
 
 import SwiftUI
+
+extension Notification.Name {
+    static let resetPlaybackCamera = Notification.Name("GPXResetPlaybackCamera")
+}
 import AppKit
 import MapKit
 import MetalKit
@@ -273,6 +277,7 @@ struct PointMapView: NSViewRepresentable {
         private var shownPlaybackPoke = 0
         private var playbackLastTick: Double?
         private var playbackCameraDetached = false
+        private var resetCameraObserver: NSObjectProtocol?
         /// 城市章节回放：当前已绑定逐点区域数据的会话（DeepSeek 2026-10-31）
         private var shownPlaybackRevealID: ObjectIdentifier?
         private var shownPlaybackRevealVersion = -1
@@ -408,6 +413,7 @@ struct PointMapView: NSViewRepresentable {
             displayLink?.invalidate()
             if let m = wheelMonitor { NSEvent.removeMonitor(m) }
             if let m = magnifyMonitor { NSEvent.removeMonitor(m) }
+            if let o = resetCameraObserver { NotificationCenter.default.removeObserver(o) }
             if let m = mouseDownMonitor { NSEvent.removeMonitor(m) }
             if let m = fillDragMonitor { NSEvent.removeMonitor(m) }
             if let o = windowCloseObserver { NotificationCenter.default.removeObserver(o) }
@@ -535,6 +541,10 @@ struct PointMapView: NSViewRepresentable {
                     self.routeScroll(dy: dy, precise: precise, windowID: wid, locationInWindow: loc)
                 }
                 return consumed ? nil : event
+            }
+            resetCameraObserver = NotificationCenter.default.addObserver(
+                forName: .resetPlaybackCamera, object: nil, queue: .main) { [weak self] _ in
+                MainActor.assumeIsolated { self?.resetCameraToDefault() }
             }
             magnifyMonitor = NSEvent.addLocalMonitorForEvents(matching: .magnify) { [weak self] event in
                 guard let self else { return event }
@@ -1244,6 +1254,8 @@ struct PointMapView: NSViewRepresentable {
             guard let renderer, let container,
                   store.track != nil || store.fwdbActive else { return }
             let panel = NSSavePanel()
+        panel.setContentSize(NSSize(width: 960, height: 620))
+        panel.minSize = NSSize(width: 720, height: 480)
             panel.allowedContentTypes = [.png]
             let base = store.track?.name ?? store.fogArchive?.name ?? "track"
             panel.nameFieldStringValue = "\(base)_\(globeActive ? "globe" : "map")_\(opt.pixelWidth)w.png"
@@ -2242,6 +2254,15 @@ struct PointMapView: NSViewRepresentable {
             let move = ((c.cx - a.cx) * (c.cx - a.cx)
                       + (c.cy - a.cy) * (c.cy - a.cy)).squareRoot()
             return abs(log(c.span / a.span)) < 0.002 && move < a.span * 0.002
+        }
+
+        /// DeepSeek 2026-11-02：回到规划机位（播放中用户拖动/缩放后）
+        private func resetCameraToDefault() {
+            playbackCameraDetached = false
+            if store.playback != nil {
+                applyPlaybackFrame()
+                store.pokePlayback()
+            }
         }
 
         private func applyPlaybackFrame() {

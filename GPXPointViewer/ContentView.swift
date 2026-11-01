@@ -2532,6 +2532,14 @@ struct PlaybackBarView: View {
             .help("回放总时长")
 
             Button {
+                NotificationCenter.default.post(name: .resetPlaybackCamera, object: nil)
+            } label: {
+                Image(systemName: "scope")
+            }
+            .buttonStyle(.plain)
+            .help("回到默认视角")
+
+            Button {
                 store.showVideoExportSheet = true
             } label: {
                 Image(systemName: "film")
