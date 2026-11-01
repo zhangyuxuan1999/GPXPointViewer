@@ -205,3 +205,15 @@ LOD 覆盖只有 28.5% / 3.7%。改为固定覆盖整个 baseSpan，层越细格
 - 回放中鼠标按下/拖动不再 `clock.playing=false`，只把机位交还用户。
 - 片元着色器：点芯始终用原色；白色只用于 `White Outline` 开启时的描边环。
   新点提亮改为颜色乘 1.35，不再混白。1px 点不再被白色 AA 边缘染白。
+
+## full-r2 多城揭示空白根因
+
+现象：完整多城 45s 视频里，所有城市章节都没有点。
+根因：`PlaybackPlan.cursors(at:)` 用 `PlaybackPlan.dataStart` 作 epoch，
+而 `PlaybackRevealData.epoch` 用 `CityPlan.dataStart`。多城时两者相差 155M 秒
+（全局起始 vs 首城起始），游标整体偏早，所有点被 shader 当成“还没到”裁掉。
+单城时两者恰好相等，所以单城预览没暴露。
+
+修复：cursors 改用 `cp.dataStart`，与 reveal 数据一致。
+离屏验证：Xi'an 章节 reveal=true 从 0 像素变为 16,815 像素。
+重新导出 45s：20s 北京帧有点，城市章节正常。
