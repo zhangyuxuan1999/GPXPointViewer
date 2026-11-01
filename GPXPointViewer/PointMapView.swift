@@ -2002,6 +2002,12 @@ struct PointMapView: NSViewRepresentable {
                 if let cursors = pb.plan.cursors(at: pb.clock.head) {
                     renderer.updatePlaybackCursors(cursors)
                 }
+            } else if shownPlaybackRevealID != nil {
+                // DeepSeek 2026-11-01：回放结束后清掉 LOD/揭示，普通视图恢复全量
+                renderer.clearPlaybackReveal()
+                renderer.clearLODLevels()
+                shownPlaybackRevealID = nil
+                shownPlaybackRevealVersion = -1
             }
             let stride = lodStride(camera: camera, visibleLen: range.len)
             lastLodStride = stride
