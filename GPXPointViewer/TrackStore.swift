@@ -513,15 +513,16 @@ final class TrackStore: ObservableObject {
         }
         var total = segs.reduce(0.0) { $0 + $1.w }
         if total < 1 { for i in segs.indices { segs[i].w = 1 }; total = Double(segs.count) }
-        var q = [Double](repeating: segs[0].t0, count: 129)
+        var q = [Double](repeating: segs[0].t0, count: 1024)
         var si = 0, cum = 0.0
-        for k in 0...128 {
-            let target = total * Double(k) / 128.0
+        for k in 0...1023 {
+            let target = total * Double(k) / 1023.0
             while si + 1 < segs.count && cum + segs[si].w < target { cum += segs[si].w; si += 1 }
             let f = segs[si].w > 0 ? min(1, max(0, (target - cum) / segs[si].w)) : 1
             q[k] = segs[si].t0 + (segs[si].t1 - segs[si].t0) * f
         }
-        q[128] = segs.last!.t1
+        q[0] = segs[0].t0 - 1
+        q[1023] = segs.last!.t1
         cp.cityTimeAt = [q]
         plan.cityPlan = cp
     }
