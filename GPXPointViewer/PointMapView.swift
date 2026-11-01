@@ -557,11 +557,11 @@ struct PointMapView: NSViewRepresentable {
                     // 时光机播放中任何按下即暂停（相机交还用户）。
                     // 底部 ~110pt 是回放时间轴条：按下先被这里置 false、按钮的
                     // toggle 在抬起时又翻回 true——暂停键永远按不下去，故排除
-                    if let pb = self.store.playback, pb.clock.playing,
+                    if self.store.playback != nil,
                        event.window === self.container?.window,
                        event.locationInWindow.y > 110 {
+                        // DeepSeek 2026-11-01：回放中拖动地图只交还机位，不暂停播放
                         self.playbackCameraDetached = true
-                        pb.clock.playing = false
                     }
                 }
                 return event

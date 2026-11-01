@@ -171,9 +171,16 @@ fragment float4 pointFragment(VOut in [[stage_in]],
     float coreR = in.radiusPx;
     float haloR = in.radiusPx + u.haloPx;
     float outer = 1.0 - smoothstep(haloR - 0.8, haloR + 0.8, d);   // 整体覆盖
-    float core  = 1.0 - smoothstep(coreR - 0.8, coreR + 0.8, d);   // 彩色芯
-    float3 rgb  = mix(float3(1.0), in.color.rgb, core);            // 芯外一圈白描边
-    rgb = mix(rgb, float3(1.0), in.glow * 0.45);                   // 新揭示的点提亮
+    // DeepSeek 2026-11-01：点芯始终是原色；只有开启 White Outline 时，
+    // 芯外才画一圈白描边。1px 小点不再被白色 AA 边缘染白。
+    float3 rgb = in.color.rgb;
+    if (u.haloPx > 0.0) {
+        float ring = smoothstep(coreR - 0.6, coreR + 0.6, d)
+                   * (1.0 - smoothstep(haloR - 0.8, haloR + 0.8, d));
+        rgb = mix(rgb, float3(1.0), ring);
+    }
+    // 新揭示的点只提亮、不混白，避免密集轨迹整体发白
+    rgb = min(float3(1.0), rgb * (1.0 + in.glow * 0.35));
     return float4(rgb, outer * in.color.a);
 }
 
