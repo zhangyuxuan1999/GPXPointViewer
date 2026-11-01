@@ -123,3 +123,9 @@ LOD 覆盖只有 28.5% / 3.7%。改为固定覆盖整个 baseSpan，层越细格
 - 真实离屏覆盖：北京全景/六环/海淀均 **99.9%**（10% 采样分别丢 14.2%/36.8%/59.9%）。
 - 183ms 在点“时光机”后、开播前发生，属于可接受前置计算；若实际观感有卡顿，
   下一步把 `PointLODBuilder.build` 移到 `startPlayback` 的后台 Task 并随会话保存。
+
+## r12 后台建层
+
+183ms 的 5 层建层从 `PointMapView` 的视图更新移到 `startPlayback` 的
+`Task.detached` 规划阶段；`PlaybackSession` 持有 `lodLevels`，视图只做
+`renderer.setLODLevels(pb.lodLevels)`。开播前不再有主线程同步计算。
