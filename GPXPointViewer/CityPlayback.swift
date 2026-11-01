@@ -382,7 +382,9 @@ enum CityPlaybackPlanner {
             }
             if ranked.count < 2 { ranked = base.filter { $0.element.w >= totalW * 0.005 } }
         }
-        let finaleDur = min(8.0, max(4.0, duration * 0.13))
+        // DeepSeek 2026-11-01：单城不做片尾/长途章节（否则日期倒回重放）
+        var singleCity = ranked.count <= 1
+        var finaleDur = singleCity ? 0.0 : min(8.0, max(4.0, duration * 0.13))
         let maxK = min(8, max(4, Int((duration - finaleDur) / 3.7) + 1))
         if ranked.count > maxK { ranked = Array(ranked.prefix(maxK)) }
         while ranked.count > 4 {
@@ -467,6 +469,9 @@ enum CityPlaybackPlanner {
             }
         }
 
+        // 合并/吸收后如果只剩一座城市，同样不做片尾
+        if cities.count == 1 { singleCity = true; finaleDur = 0 }
+
         // 3b) 每城“累计点数 → 时间”分位：揭示按点数走，不按时间线性走
         var cityTimeAt = [[Double]](repeating: [], count: cities.count)
         for i in cities.indices {
@@ -521,9 +526,10 @@ enum CityPlaybackPlanner {
         let n = cities.count
         var transDurs = [Double](repeating: 1.0, count: max(0, n - 1))
         // 5c) 长途专题：权重最大的几条跨区域行程，单独成章
-        let tripPicked = transit.enumerated().filter { _, t in
+        let allTrips = transit.enumerated().filter { _, t in
             max(t.x1 - t.x0, t.y1 - t.y0) >= 0.008 && t.weight >= 3000
-        }.sorted { $0.element.weight > $1.element.weight }.prefix(4)
+        }.sorted { $0.element.weight > $1.element.weight }
+        let tripPicked = singleCity ? [] : Array(allTrips.prefix(4))
         let tripSet = Set(tripPicked.map { $0.offset })
         var pairTransit = [[Int]](repeating: [], count: max(0, n - 1))
         // 过渡段展示“离开这座城市”的城际段（出发或返回都算）。这样北京→西安
@@ -599,7 +605,7 @@ enum CityPlaybackPlanner {
                                             margin: 1.08, wide: true, trip: true))
             p += 2.2
         }
-        if !transit.isEmpty {
+        if !transit.isEmpty, !singleCity {
             let tr0 = transit.map(\.t0).min() ?? firstT
             let tr1 = transit.map(\.t1).max() ?? lastT
             chapters.append(PlaybackChapter(p0: p, p1: p + finaleDur,
