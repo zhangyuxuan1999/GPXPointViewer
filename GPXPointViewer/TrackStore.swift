@@ -954,13 +954,13 @@ final class TrackStore: ObservableObject {
         Task.detached(priority: .userInitiated) { [weak self] in
             var merged = GPXParser.mergeParsed(parseds)
             merged.name = name
-            // DeepSeek 2026-11-01：北京单城调试 —— 只载入北京框内的点，用来单独验收城市揭示
-            if true {   // DeepSeek 2026-11-01：北京单城预览构建固定只载入北京框内的点
+            // DeepSeek 2026-11-01：西安单城预览构建 —— 只载入西安框内的点
+            if true {
                 var q = ParsedTrack()
                 q.name = merged.name
                 for i in merged.lat.indices
-                where merged.lat[i] > 39.3 && merged.lat[i] < 40.7
-                   && merged.lon[i] > 115.5 && merged.lon[i] < 117.6 {
+                where merged.lat[i] > 33.8 && merged.lat[i] < 34.8
+                   && merged.lon[i] > 108.3 && merged.lon[i] < 109.5 {
                     q.lat.append(merged.lat[i]); q.lon.append(merged.lon[i])
                     q.ele.append(merged.ele[i]); q.time.append(merged.time[i])
                     if i < merged.fileID.count { q.fileID.append(merged.fileID[i]) }
