@@ -379,7 +379,39 @@ enum PointLODBuilder {
                     }
                 }
             }
-            chosen.sort()
+            // 轨迹兜底：同段内相邻保留点屏幕间距 >3px 时，把中间的点补回。
+            // 只对连续轨迹（同 segment、时间间隔 <6h）生效，不跨航段/空白期。
+            var chosenSet = Set(chosen)
+            var last = -1
+            var extra: [UInt32] = []
+            for i in 0..<n where chosenSet.contains(UInt32(i)) {
+                if last >= 0,
+                   track.topology.segment(of: i) == track.topology.segment(of: last),
+                   track.time[i] - track.time[last] < 6 * 3600 {
+                    let dx = (track.mercX[i] - track.mercX[last]) * 960.0 / span
+                    let dy = (track.mercY[i] - track.mercY[last]) * 960.0 / span
+                    let gapPx = (dx * dx + dy * dy).squareRoot()
+                    if gapPx > 3.0 {
+                        // 只补到“每 3px 一个点”，不整段恢复全密度
+                        let need = min(i - last - 1, max(0, Int(ceil(gapPx / 3.0)) - 1))
+                        let seg = track.topology.segment(of: last)
+                        if need > 0 {
+                            for j in 1...need {
+                                let idx = last + (i - last) * j / (need + 1)
+                                if idx > last, idx < i, !chosenSet.contains(UInt32(idx)),
+                                   track.topology.segment(of: idx) == seg {
+                                    extra.append(UInt32(idx))
+                                }
+                            }
+                        }
+                    }
+                }
+                last = i
+            }
+            if !extra.isEmpty {
+                chosenSet.formUnion(extra)
+                chosen = chosenSet.sorted()
+            }
             out.append(PointLODLevel(order: chosen, span: span))
         }
         return out
