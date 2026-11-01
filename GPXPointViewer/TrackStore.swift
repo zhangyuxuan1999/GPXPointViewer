@@ -427,11 +427,12 @@ final class TrackStore: ObservableObject {
                 guard let self else { return }
                 // DeepSeek 2026-11-01：LOD 建层放到后台规划阶段（约 183ms/650k 点）
                 var lodLevels: [PointLODLevel] = []
-                if let cp = plan?.cityPlan, cp.cities.count == 1 {
-                    let c = cp.cities[0]
-                    let base = max(c.x1 - c.x0, c.y1 - c.y0) * 1.15
-                    lodLevels = PointLODBuilder.build(track: track, center: (c.cx, c.cy),
-                                                      baseSpan: max(base, 0.001), levels: 5)
+                if let cp = plan?.cityPlan {
+                    for c in cp.cities {
+                        let base = max(c.x1 - c.x0, c.y1 - c.y0) * 1.15
+                        lodLevels += PointLODBuilder.build(track: track, center: (c.cx, c.cy),
+                                                           baseSpan: max(base, 0.001), levels: 5)
+                    }
                 }
                 await MainActor.run {
                     guard self.owns(token) else { return }
@@ -441,11 +442,13 @@ final class TrackStore: ObservableObject {
                     }
                     guard !self.fillMode, !self.deleteMode else { return }   // 规划期间进了编辑模式
                     var adjusted = plan
-                    self.refineCityQuantiles(&adjusted, track: track)
+                    let reveal = adjusted.cityPlan.flatMap { PlaybackRevealData(track: track, plan: $0) }
+                    if let reveal {
+                        self.refineCityQuantiles(&adjusted, track: track, reveal: reveal)
+                    }
                     self.playback = PlaybackSession(
                         plan: adjusted, events: evs, isArchive: false,
-                        reveal: adjusted.cityPlan.flatMap { PlaybackRevealData(track: track, plan: $0) },
-                        lodLevels: lodLevels)
+                        reveal: reveal, lodLevels: lodLevels)
                 }
             }
         } else if let archive = fogArchive {
@@ -476,70 +479,77 @@ final class TrackStore: ObservableObject {
             : PlaybackPlan.buildCities(events: pb.events, duration: d)
         guard let plan else { return }
         var adjusted = plan
-        if !pb.isArchive, let track { refineCityQuantiles(&adjusted, track: track) }
-        pb.plan = adjusted
-        if !pb.isArchive, let track, let cp = plan.cityPlan {
-            pb.reveal = PlaybackRevealData(track: track, plan: cp)
+        if !pb.isArchive, let track {
+            let reveal = adjusted.cityPlan.flatMap { PlaybackRevealData(track: track, plan: $0) }
+            if let reveal { refineCityQuantiles(&adjusted, track: track, reveal: reveal) }
+            pb.reveal = reveal
             pb.revealVersion &+= 1
         }
+        pb.plan = adjusted
         pb.clock.head = 0
         pb.clock.playing = true
         playbackPoke &+= 1
     }
 
-    /// DeepSeek 2026-11-01：单城调试用实际点时间分位，没点的日子直接跳过
-    private func refineCityQuantiles(_ plan: inout PlaybackPlan, track: TrackData) {
-        guard var cp = plan.cityPlan, cp.cities.count == 1, track.count > 1 else { return }
-        // DeepSeek 2026-11-01：段间跳过空白期；段内按“新覆盖格子”给时间。
-        // 在雁栖湖反复绕圈不产生新格子 → 该段占时极少；出门才拿时间。
-        let order = (0..<track.count).sorted { track.time[$0] < track.time[$1] }
-        // DeepSeek 2026-11-01：按“活动间隔”切段（>30 分钟无点即断）。
-        // 一天内的长时间空白不再占用播放时间；每段按新覆盖格子分时间。
-        let activityGap: Double = 30 * 60
-        var ranges: [Range<Int>] = []
-        var start = 0
-        for k in 1..<order.count where track.time[order[k]] - track.time[order[k - 1]] > activityGap {
-            ranges.append(start..<k); start = k
+    /// DeepSeek 2026-11-01：多城逐城用“真实点时间 + 活动间隔 + 新覆盖格子”建游标曲线。
+    private func refineCityQuantiles(_ plan: inout PlaybackPlan, track: TrackData,
+                                     reveal: PlaybackRevealData) {
+        guard var cp = plan.cityPlan, !cp.cities.isEmpty, track.count > 1 else { return }
+        var idxByArea = [[Int]](repeating: [], count: cp.cities.count)
+        for p in 0..<track.count {
+            let a = Int(reveal.areaOfPoint[p])
+            if a >= 0 && a < cp.cities.count { idxByArea[a].append(p) }
         }
-        ranges.append(start..<order.count)
-        let c = cp.cities[0]
-        let x0 = c.x0, x1 = max(c.x1, c.x0 + 1e-9)
-        let y0 = c.y0, y1 = max(c.y1, c.y0 + 1e-9)
-        let cols = 320, rows = 180
-        var seen = Set<Int>()
-        var segs: [(t0: Double, t1: Double, w: Double)] = []
-        for r in ranges {
-            let t0 = track.time[order[r.lowerBound]]
-            let t1 = track.time[order[r.upperBound - 1]]
-            var novel = 0.0
-            for j in r {
-                let i = order[j]
-                let cx = min(cols - 1, max(0, Int((track.mercX[i] - x0) / (x1 - x0) * Double(cols))))
-                let cy = min(rows - 1, max(0, Int((track.mercY[i] - y0) / (y1 - y0) * Double(rows))))
-                if seen.insert(cy * cols + cx).inserted { novel += 1 }
+        var allQ = [[Double]](repeating: [], count: cp.cities.count)
+        for ci in cp.cities.indices {
+            var idx = idxByArea[ci]
+            guard idx.count > 1 else { continue }
+            idx.sort { track.time[$0] < track.time[$1] }
+            // 按活动间隔（>30 分钟无点）切段
+            let activityGap: Double = 30 * 60
+            var ranges: [Range<Int>] = []
+            var start = 0
+            for k in 1..<idx.count where track.time[idx[k]] - track.time[idx[k - 1]] > activityGap {
+                ranges.append(start..<k); start = k
             }
-            segs.append((t0, t1, novel > 0 ? novel : 0))
-        }
-        var total = segs.reduce(0.0) { $0 + $1.w }
-        if total < 1 { for i in segs.indices { segs[i].w = 1 }; total = Double(segs.count) }
-        var q = [Double](repeating: segs[0].t0, count: 1024)
-        var si = 0, cum = 0.0
-        for k in 0...1023 {
-            let target = total * Double(k) / 1023.0
-            while si + 1 < segs.count && cum + segs[si].w < target { cum += segs[si].w; si += 1 }
-            let f = segs[si].w > 0 ? min(1, max(0, (target - cum) / segs[si].w)) : 1
-            q[k] = segs[si].t0 + (segs[si].t1 - segs[si].t0) * f
-        }
-        q[0] = segs[0].t0 - 1
-        q[1023] = segs.last!.t1
-        // DeepSeek 2026-11-01：保证游标时间严格递增，零时长/零权重段不能让日期停住
-        if let t0 = segs.first?.t0, let t1 = segs.last?.t1, t1 > t0 {
-            let step = max(1.0, (t1 - t0) / Double(q.count) * 0.05)
-            for k in 1..<q.count where q[k] <= q[k - 1] {
-                q[k] = min(t1, q[k - 1] + step)
+            ranges.append(start..<idx.count)
+            let c = cp.cities[ci]
+            let x0 = c.x0, x1 = max(c.x1, c.x0 + 1e-9)
+            let y0 = c.y0, y1 = max(c.y1, c.y0 + 1e-9)
+            let cols = 320, rows = 180
+            var seen = Set<Int>()
+            var segs: [(t0: Double, t1: Double, w: Double)] = []
+            for r in ranges {
+                let t0 = track.time[idx[r.lowerBound]]
+                let t1 = track.time[idx[r.upperBound - 1]]
+                var novel = 0.0
+                for j in r {
+                    let i = idx[j]
+                    let cx = min(cols - 1, max(0, Int((track.mercX[i] - x0) / (x1 - x0) * Double(cols))))
+                    let cy = min(rows - 1, max(0, Int((track.mercY[i] - y0) / (y1 - y0) * Double(rows))))
+                    if seen.insert(cy * cols + cx).inserted { novel += 1 }
+                }
+                segs.append((t0, t1, novel))
             }
+            var total = segs.reduce(0.0) { $0 + $1.w }
+            if total < 1 { for i in segs.indices { segs[i].w = 1 }; total = Double(segs.count) }
+            var q = [Double](repeating: segs[0].t0, count: 1024)
+            var si = 0, cum = 0.0
+            for k in 0...1023 {
+                let target = total * Double(k) / 1023.0
+                while si + 1 < segs.count && cum + segs[si].w < target { cum += segs[si].w; si += 1 }
+                let f = segs[si].w > 0 ? min(1, max(0, (target - cum) / segs[si].w)) : 1
+                q[k] = segs[si].t0 + (segs[si].t1 - segs[si].t0) * f
+            }
+            q[0] = segs[0].t0 - 1
+            q[1023] = segs.last!.t1
+            if let t0 = segs.first?.t0, let t1 = segs.last?.t1, t1 > t0 {
+                let step = max(1.0, (t1 - t0) / Double(q.count) * 0.05)
+                for k in 1..<q.count where q[k] <= q[k - 1] { q[k] = min(t1, q[k - 1] + step) }
+            }
+            allQ[ci] = q
         }
-        cp.cityTimeAt = [q]
+        cp.cityTimeAt = allQ
         plan.cityPlan = cp
     }
 
@@ -954,20 +964,7 @@ final class TrackStore: ObservableObject {
         Task.detached(priority: .userInitiated) { [weak self] in
             var merged = GPXParser.mergeParsed(parseds)
             merged.name = name
-            // DeepSeek 2026-11-01：西安单城预览构建 —— 只载入西安框内的点
-            if true {
-                var q = ParsedTrack()
-                q.name = merged.name
-                for i in merged.lat.indices
-                where merged.lat[i] > 33.8 && merged.lat[i] < 34.8
-                   && merged.lon[i] > 108.3 && merged.lon[i] < 109.5 {
-                    q.lat.append(merged.lat[i]); q.lon.append(merged.lon[i])
-                    q.ele.append(merged.ele[i]); q.time.append(merged.time[i])
-                    if i < merged.fileID.count { q.fileID.append(merged.fileID[i]) }
-                    if i < merged.segmentID.count { q.segmentID.append(merged.segmentID[i]) }
-                }
-                merged = q
-            }
+            // 完整数据回放：不再做单城过滤（单城预览见 tag beijing-r19 / xian-r1）
             let (track, stats) = TrackData.build(parsed: merged, preferredMode: mode,
                                                  singleColor: single,
                                                  overlayFileColors: overlayColors)

@@ -346,6 +346,9 @@ final class TrackGPUBuffers {
 struct PointLODLevel {
     let order: [UInt32]      // 本层保留的原始点下标（升序）
     let span: Double         // 本层目标相机 span（Mercator）
+    let cx: Double           // 本层覆盖区域中心
+    let cy: Double
+    let baseSpan: Double     // 本层覆盖区域大小
 }
 
 enum PointLODBuilder {
@@ -415,7 +418,7 @@ enum PointLODBuilder {
                 chosen = chosenSet.sorted()
             }
             chosen.sort()
-            out.append(PointLODLevel(order: chosen, span: span))
+            out.append(PointLODLevel(order: chosen, span: span, cx: center.x, cy: center.y, baseSpan: baseSpan))
         }
         return out
     }
@@ -1025,8 +1028,14 @@ final class MetalPointRenderer {
         // DeepSeek 2026-11-01：屏幕空间 LOD 选层（选择不粗于当前相机的层）
         var lodIndex = -1
         if pointsPass, !lodLevels.isEmpty {
-            for (i, lv) in lodLevels.enumerated() where lv.span <= camera.w * 1.001 { lodIndex = i }
-            if lodIndex < 0 { lodIndex = lodLevels.count - 1 }   // 放到比最细层还大时用最细层
+            let ccx = camera.x0 + camera.w / 2
+            let ccy = camera.y0 + camera.h / 2
+            for (i, lv) in lodLevels.enumerated() {
+                let half = lv.baseSpan / 2
+                guard ccx >= lv.cx - half, ccx <= lv.cx + half,
+                      ccy >= lv.cy - half, ccy <= lv.cy + half else { continue }
+                if lv.span <= camera.w * 1.001 { lodIndex = i }
+            }
         }
         var padPx = pointSizePx * 1.55 + (halo ? 1.1 : 0) + 2.0
         if heatMap { padPx = max(padPx, max(10.0, pointSizePx * 2.5)) }
