@@ -23,3 +23,4 @@ build/
 
 # DeepSeek 2026-11-01：本地构建日志
 /build*.log
+/mc/
