@@ -129,3 +129,8 @@ LOD 覆盖只有 28.5% / 3.7%。改为固定覆盖整个 baseSpan，层越细格
 183ms 的 5 层建层从 `PointMapView` 的视图更新移到 `startPlayback` 的
 `Task.detached` 规划阶段；`PlaybackSession` 持有 `lodLevels`，视图只做
 `renderer.setLODLevels(pb.lodLevels)`。开播前不再有主线程同步计算。
+
+## r13 回放结束清理 LOD
+
+之前回放停止只停时钟，LOD 层仍生效，普通浏览会一直用抽稀点。
+现在会话消失或非城市规划时：清除 reveal + LOD，恢复全量绘制。
