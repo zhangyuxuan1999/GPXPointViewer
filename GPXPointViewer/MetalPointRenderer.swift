@@ -356,17 +356,19 @@ enum PointLODBuilder {
         guard n > 0, baseSpan > 0, levels > 0 else { return [] }
         var out: [PointLODLevel] = []
         for level in 0..<levels {
+            // 层覆盖始终是整个 baseSpan 区域；层越细，格子越小、格数越多。
             let span = baseSpan * pow(2.0, -Double(level))
-            let half = span / 2
-            let x0 = center.x - half, x1 = center.x + half
-            let y0 = center.y - half, y1 = center.y + half
+            let x0 = center.x - baseSpan / 2
+            let y0 = center.y - baseSpan / 2
+            let cols = max(1, Int((Double(cells.0) * baseSpan / span).rounded()))
+            let rows = max(1, Int((Double(cells.1) * baseSpan / span).rounded()))
             var buckets: [Int: [Int]] = [:]
             for i in 0..<n {
                 let x = track.mercX[i], y = track.mercY[i]
-                guard x >= x0, x < x1, y >= y0, y < y1 else { continue }
-                let cx = min(cells.0 - 1, max(0, Int((x - x0) / span * Double(cells.0))))
-                let cy = min(cells.1 - 1, max(0, Int((y - y0) / span * Double(cells.1))))
-                buckets[cy * cells.0 + cx, default: []].append(i)
+                guard x >= x0, x < x0 + baseSpan, y >= y0, y < y0 + baseSpan else { continue }
+                let cx = min(cols - 1, max(0, Int((x - x0) / baseSpan * Double(cols))))
+                let cy = min(rows - 1, max(0, Int((y - y0) / baseSpan * Double(rows))))
+                buckets[cy * cols + cx, default: []].append(i)
             }
             var chosen: [UInt32] = []
             chosen.reserveCapacity(buckets.count * k)
@@ -1022,8 +1024,8 @@ final class MetalPointRenderer {
         // DeepSeek 2026-11-01：屏幕空间 LOD 选层（选择不粗于当前相机的层）
         var lodIndex = -1
         if pointsPass, !lodLevels.isEmpty {
-            for (i, lv) in lodLevels.enumerated() where lv.span >= camera.w * 0.999 { lodIndex = i }
-            if lodIndex < 0 { lodIndex = lodLevels.count - 1 }
+            for (i, lv) in lodLevels.enumerated() where lv.span <= camera.w * 1.001 { lodIndex = i }
+            if lodIndex < 0 { lodIndex = 0 }
         }
         var padPx = pointSizePx * 1.55 + (halo ? 1.1 : 0) + 2.0
         if heatMap { padPx = max(padPx, max(10.0, pointSizePx * 2.5)) }
