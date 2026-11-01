@@ -272,6 +272,7 @@ struct PointMapView: NSViewRepresentable {
         private var shownPlaybackID: ObjectIdentifier?
         private var shownPlaybackPoke = 0
         private var playbackLastTick: Double?
+        private var playbackCameraDetached = false
         /// 城市章节回放：当前已绑定逐点区域数据的会话（DeepSeek 2026-10-31）
         private var shownPlaybackRevealID: ObjectIdentifier?
         private var shownPlaybackRevealVersion = -1
@@ -559,6 +560,7 @@ struct PointMapView: NSViewRepresentable {
                     if let pb = self.store.playback, pb.clock.playing,
                        event.window === self.container?.window,
                        event.locationInWindow.y > 110 {
+                        self.playbackCameraDetached = true
                         pb.clock.playing = false
                     }
                 }
@@ -1083,6 +1085,7 @@ struct PointMapView: NSViewRepresentable {
                     playbackStallStart = nil    // 暂停残留旧时间戳会吞掉下次门控预算
                 }
             } else {
+                playbackCameraDetached = false
                 playbackLastTick = nil
                 playbackStallStart = nil
             }
@@ -2242,6 +2245,7 @@ struct PointMapView: NSViewRepresentable {
         }
 
         private func applyPlaybackFrame() {
+            guard !playbackCameraDetached else { return }
             guard let container, let pb = store.playback, !globeActive else { return }
             let b = container.bounds
             let aspect = b.width > 1 ? Double(b.height / b.width) : 0.66
@@ -2501,7 +2505,8 @@ struct PointMapView: NSViewRepresentable {
             let loc = container.convert(locationInWindow, from: nil)
             guard container.bounds.contains(loc) else { return false }
             noteActivity()   // 平面分支也算活动（globeZoomWheel 内部的调用只覆盖地球分支）
-            if let pb = store.playback, pb.clock.playing { pb.clock.playing = false }
+            // DeepSeek 2026-11-01：回放中滚轮缩放不再暂停，改为保留用户视角
+            if store.playback != nil { playbackCameraDetached = true }
 
             if heat3DOn {
                 let sc = precise ? 0.004 : 0.06

@@ -62,7 +62,7 @@ final class PlaybackPlan: @unchecked Sendable {
     let dataStart: Double
     let dataEnd: Double
     let holdDurs: [Double]     // 每簇驻留段回放时长（飞行端点与子相机衔接用）
-    let cityPlan: CityPlan?    // 非 nil = 城市章节规划（GPX）；nil = 旧簇规划（.fwdb）
+    var cityPlan: CityPlan?    // 非 nil = 城市章节规划（GPX）；nil = 旧簇规划（.fwdb）
 
     private init(clusters: [Cluster], segments: [Segment], duration: Double,
                  holdDurs: [Double], cityPlan: CityPlan? = nil) {

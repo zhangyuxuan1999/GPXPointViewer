@@ -415,13 +415,15 @@ final class TrackStore: ObservableObject {
     /// 启动时光机：后台规划（会话切分 → 活跃簇 → 相机路径 → 时间弯曲）后开播
     func startPlayback(duration: Double = 45) {
         guard playback == nil, !isLoading, !fillMode, !deleteMode else { return }
+        // DeepSeek 2026-11-01：记住用户上次选的时长
+        let chosen = UserDefaults.standard.object(forKey: "playbackDuration") as? Double ?? duration
         noteUserActivity()
         if settings.heat3D { settings.heat3D = false }   // 3D 热力与回放互斥
         if let track, track.isTimeSorted {
             let token = publicationClock.begin(.playback, fileIDs: files.map(\.id), sourceID: track.id)
             Task.detached(priority: .userInitiated) { [weak self] in
                 let evs = PlaybackPlan.events(track: track)
-                let plan = PlaybackPlan.buildCities(events: evs, duration: duration)
+                let plan = PlaybackPlan.buildCities(events: evs, duration: chosen)
                 guard let self else { return }
                 await MainActor.run {
                     guard self.owns(token) else { return }
@@ -430,14 +432,16 @@ final class TrackStore: ObservableObject {
                         return
                     }
                     guard !self.fillMode, !self.deleteMode else { return }   // 规划期间进了编辑模式
+                    var adjusted = plan
+                    self.refineCityQuantiles(&adjusted, track: track)
                     self.playback = PlaybackSession(
-                        plan: plan, events: evs, isArchive: false,
-                        reveal: plan.cityPlan.flatMap { PlaybackRevealData(track: track, plan: $0) })
+                        plan: adjusted, events: evs, isArchive: false,
+                        reveal: adjusted.cityPlan.flatMap { PlaybackRevealData(track: track, plan: $0) })
                 }
             }
         } else if let archive = fogArchive {
             let evs = PlaybackPlan.events(archive: archive)
-            guard let plan = PlaybackPlan.build(events: evs, duration: duration) else {
+            guard let plan = PlaybackPlan.build(events: evs, duration: chosen) else {
                 errorMessage = String(localized: "迷雾存档没有可用的时间线（区块时间戳单一）。", comment: "Error alert: the Fog of World archive has no usable timeline for playback (all blocks share one timestamp)")
                 return
             }
@@ -454,20 +458,54 @@ final class TrackStore: ObservableObject {
 
     /// 调整总时长（重建规划，进度按比例保持）
     func setPlaybackDuration(_ d: Double) {
+        // DeepSeek 2026-11-01：改时长后从头重播，并记住这个选项
+        UserDefaults.standard.set(d, forKey: "playbackDuration")
         guard let pb = playback else { return }
         noteUserActivity()
-        let frac = pb.plan.duration > 0 ? pb.clock.head / pb.plan.duration : 0
         let plan = pb.isArchive
             ? PlaybackPlan.build(events: pb.events, duration: d)
             : PlaybackPlan.buildCities(events: pb.events, duration: d)
         guard let plan else { return }
-        pb.plan = plan
+        var adjusted = plan
+        if !pb.isArchive, let track { refineCityQuantiles(&adjusted, track: track) }
+        pb.plan = adjusted
         if !pb.isArchive, let track, let cp = plan.cityPlan {
             pb.reveal = PlaybackRevealData(track: track, plan: cp)
             pb.revealVersion &+= 1
         }
-        pb.clock.head = frac * plan.duration
+        pb.clock.head = 0
+        pb.clock.playing = true
         playbackPoke &+= 1
+    }
+
+    /// DeepSeek 2026-11-01：单城调试用实际点时间分位，没点的日子直接跳过
+    private func refineCityQuantiles(_ plan: inout PlaybackPlan, track: TrackData) {
+        guard var cp = plan.cityPlan, cp.cities.count == 1, track.count > 1 else { return }
+        // DeepSeek 2026-11-01：只保留有数据的段，段与段直接拼接。
+        // 超过 6 小时没有点就断段；空白期（寒暑假不在北京）不占播放时间。
+        let order = (0..<track.count).sorted { track.time[$0] < track.time[$1] }
+        let gap: Double = 6 * 3600
+        var segs: [(t0: Double, t1: Double, w: Double)] = []
+        var s0 = track.time[order[0]], s1 = s0, n = 1.0
+        for i in order.dropFirst() {
+            let t = track.time[i]
+            if t - s1 > gap { segs.append((s0, s1, n)); s0 = t; s1 = t; n = 1 }
+            else { s1 = t; n += 1 }
+        }
+        segs.append((s0, s1, n))
+        let total = segs.reduce(0.0) { $0 + $1.w }
+        guard total > 0 else { return }
+        var q = [Double](repeating: segs[0].t0, count: 129)
+        var si = 0, cum = 0.0
+        for k in 0...128 {
+            let target = total * Double(k) / 128.0
+            while si + 1 < segs.count && cum + segs[si].w < target { cum += segs[si].w; si += 1 }
+            let f = segs[si].w > 0 ? min(1, max(0, (target - cum) / segs[si].w)) : 1
+            q[k] = segs[si].t0 + (segs[si].t1 - segs[si].t0) * f
+        }
+        q[128] = segs.last!.t1
+        cp.cityTimeAt = [q]
+        plan.cityPlan = cp
     }
 
     /// 暂停状态下拖动时间轴后要求协调器立即应用帧
@@ -881,6 +919,20 @@ final class TrackStore: ObservableObject {
         Task.detached(priority: .userInitiated) { [weak self] in
             var merged = GPXParser.mergeParsed(parseds)
             merged.name = name
+            // DeepSeek 2026-11-01：北京单城调试 —— 只载入北京框内的点，用来单独验收城市揭示
+            if true {   // DeepSeek 2026-11-01：北京单城预览构建固定只载入北京框内的点
+                var q = ParsedTrack()
+                q.name = merged.name
+                for i in merged.lat.indices
+                where merged.lat[i] > 39.3 && merged.lat[i] < 40.7
+                   && merged.lon[i] > 115.5 && merged.lon[i] < 117.6 {
+                    q.lat.append(merged.lat[i]); q.lon.append(merged.lon[i])
+                    q.ele.append(merged.ele[i]); q.time.append(merged.time[i])
+                    if i < merged.fileID.count { q.fileID.append(merged.fileID[i]) }
+                    if i < merged.segmentID.count { q.segmentID.append(merged.segmentID[i]) }
+                }
+                merged = q
+            }
             let (track, stats) = TrackData.build(parsed: merged, preferredMode: mode,
                                                  singleColor: single,
                                                  overlayFileColors: overlayColors)

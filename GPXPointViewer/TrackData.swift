@@ -106,9 +106,9 @@ enum AppearanceMode: String, CaseIterable, Identifiable {
 struct ViewSettings: Equatable {
     var colorMode: ColorMode = .single   // 默认单色显示
     var mapStyle: BaseMapStyle = .standard
-    var pointSize: Double = 3.5          // 半径（pt）
+    var pointSize: Double = 1.0          // 半径（pt）；默认 1.0
     var opacity: Double = 0.9            // 点透明度
-    var mapOpacity: Double = 1.0         // 底图不透明度（1 = 原样，越小越暗）
+    var mapOpacity: Double = 0.5         // 底图不透明度（1 = 原样，越小越暗）
     var singleColor: Color = Color(red: 0.90, green: 0.16, blue: 0.16)   // 默认红色
     // 找不同：两侧"独有点"的高亮色（对比面板与独立差异窗口共用）
     var diffColorLeft: Color = Color(red: 1.0, green: 0.35, blue: 0.10)   // 橙

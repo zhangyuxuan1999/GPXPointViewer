@@ -145,6 +145,16 @@ struct CityPlan {
             return chapters.last.map { $0.d1 } ?? dataEnd
         }
         let u = progress(ch, p)
+        // DeepSeek 2026-11-01：城市章节的日期必须和点的揭示游标用同一条
+        // 点数分位曲线，否则会出现“2021 年却显示 2023 年的点”。
+        if ch.city >= 0, cityTimeAt.indices.contains(ch.city) {
+            let q = cityTimeAt[ch.city]
+            if q.count >= 2 {
+                let x = min(1, max(0, u)) * Double(q.count - 1)
+                let i = Int(x), f = x - Double(i)
+                return q[i] + ((i + 1 < q.count ? q[i + 1] : q[i]) - q[i]) * f
+            }
+        }
         return ch.d0 + (ch.d1 - ch.d0) * u
     }
 
