@@ -554,7 +554,7 @@ enum CityPlaybackPlanner {
         let regions = [
             RegionDef(name: "欧洲", minLat: 30, maxLat: 65, minLon: -15, maxLon: 30),
             RegionDef(name: "新疆", minLat: 35, maxLat: 50, minLon: 73, maxLon: 97),
-            RegionDef(name: "东北", minLat: 43, maxLat: 55, minLon: 118, maxLon: 135),
+            RegionDef(name: "东北", minLat: 40, maxLat: 56, minLon: 118, maxLon: 135),
             RegionDef(name: "青藏", minLat: 26, maxLat: 38, minLon: 78, maxLon: 103),
         ]
         var tripClusters: [TripCluster] = []
