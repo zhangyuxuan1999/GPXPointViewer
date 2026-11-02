@@ -543,55 +543,49 @@ enum CityPlaybackPlanner {
         // 7) 时长：驻留按权重、过渡按是否有城际段
         let n = cities.count
         var transDurs = [Double](repeating: 1.0, count: max(0, n - 1))
-        // 5c) 长途专题：按时间/空间聚成“一次完整行程”（如北京—哈尔滨—漠河—北京），
-        //     而不是把同一次行程的火车/自驾拆成不同章节。
+        // 5c) 长途专题按“地理区域”聚合：同一区域的所有城际会话在同一章内
+        // 按时间揭示，保证新疆/东北/欧洲的路线不会一半在专题、一半在片尾。
+        func latitude(_ y: Double) -> Double { atan(sinh(.pi * (1 - 2 * y))) * 180 / .pi }
+        func longitude(_ x: Double) -> Double { x * 360 - 180 }
+        struct RegionDef {
+            let name: String
+            let minLat: Double, maxLat: Double, minLon: Double, maxLon: Double
+        }
+        let regions = [
+            RegionDef(name: "欧洲", minLat: 30, maxLat: 65, minLon: -15, maxLon: 30),
+            RegionDef(name: "新疆", minLat: 35, maxLat: 50, minLon: 73, maxLon: 97),
+            RegionDef(name: "东北", minLat: 43, maxLat: 55, minLon: 118, maxLon: 135),
+            RegionDef(name: "青藏", minLat: 26, maxLat: 38, minLon: 78, maxLon: 103),
+        ]
         var tripClusters: [TripCluster] = []
         if !singleCity {
-            let orderedTransit = transit.enumerated().sorted { $0.element.t0 < $1.element.t0 }
-            for (ti, t) in orderedTransit {
-                if var last = tripClusters.last {
-                    let gap = t.t0 - last.t1
-                    let uw = max(last.x1, t.x1) - min(last.x0, t.x0)
-                    let uh = max(last.y1, t.y1) - min(last.y0, t.y0)
-                    if gap < 18 * 3600, t.t1 - last.t0 < 30 * 86400, uw < 0.35, uh < 0.35 {
-                        last.ids.append(ti)
-                        last.t0 = min(last.t0, t.t0); last.t1 = max(last.t1, t.t1)
-                        last.x0 = min(last.x0, t.x0); last.y0 = min(last.y0, t.y0)
-                        last.x1 = max(last.x1, t.x1); last.y1 = max(last.y1, t.y1)
-                        last.weight += t.weight
-                        tripClusters[tripClusters.count - 1] = last
-                        continue
-                    }
+            var bucketed = [[Int]](repeating: [], count: regions.count)
+            for (ti, t) in transit.enumerated() {
+                let la = latitude((t.y0 + t.y1) / 2)
+                let lo = longitude((t.x0 + t.x1) / 2)
+                for (ri, r) in regions.enumerated()
+                where la >= r.minLat && la <= r.maxLat && lo >= r.minLon && lo <= r.maxLon {
+                    bucketed[ri].append(ti); break
                 }
-                tripClusters.append(TripCluster(ids: [ti], t0: t.t0, t1: t.t1,
-                                                x0: t.x0, y0: t.y0, x1: t.x1, y1: t.y1,
-                                                weight: t.weight))
             }
-            let candidates = tripClusters.filter { $0.span >= 0.008 && $0.weight >= 3000 }
-            func centerLon(_ c: TripCluster) -> Double { ((c.x0 + c.x1) / 2) * 360 - 180 }
-            func centerLat(_ c: TripCluster) -> Double {
-                let y = (c.y0 + c.y1) / 2
-                return atan(sinh(.pi * (1 - 2 * y))) * 180 / .pi
+            for ids in bucketed where ids.count >= 3 {
+                let w = ids.reduce(0.0) { $0 + transit[$1].weight }
+                guard w >= 8000 else { continue }
+                var c = TripCluster(ids: ids)
+                for ti in ids {
+                    let t = transit[ti]
+                    c.t0 = min(c.t0, t.t0); c.t1 = max(c.t1, t.t1)
+                    c.x0 = min(c.x0, t.x0); c.y0 = min(c.y0, t.y0)
+                    c.x1 = max(c.x1, t.x1); c.y1 = max(c.y1, t.y1)
+                }
+                c.weight = w
+                tripClusters.append(c)
             }
-            var chosen = Array(candidates.sorted { $0.weight > $1.weight }.prefix(5))
-            // 保证至少有一条欧洲、一条新疆/西部行程
-            // 欧洲/新疆优先选“跨度大”的行程（跨国/长线），而不是当地小环线
-            if !chosen.contains(where: { centerLon($0) < 30 && $0.span >= 0.015 }),
-               let eu = candidates.filter({ centerLon($0) < 30 }).max(by: { $0.span < $1.span }) {
-                chosen.append(eu)
-            }
-            if !chosen.contains(where: { centerLon($0) > 70 && centerLon($0) < 100 && centerLat($0) > 35 && $0.span >= 0.015 }),
-               let xj = candidates.filter({ centerLon($0) > 70 && centerLon($0) < 100 && centerLat($0) > 35 })
-                                    .max(by: { $0.span < $1.span }) {
-                chosen.append(xj)
-            }
-            var seenT0 = Set<Int>()
-            tripClusters = chosen.filter { seenT0.insert(Int($0.t0)).inserted }
             tripClusters.sort { $0.t0 < $1.t0 }
-            if tripClusters.count > 7 { tripClusters = Array(tripClusters.prefix(7)) }
+            if tripClusters.count > 4 { tripClusters = Array(tripClusters.prefix(4)) }
         }
         func tripDuration(_ c: TripCluster) -> Double {
-            min(4.0, 1.8 + 0.5 * Double(max(0, c.ids.count - 2)))
+            min(5.0, 2.0 + 0.12 * Double(c.ids.count))
         }
         let tripSet = Set(tripClusters.flatMap { $0.ids })
         // 过渡段只做城市间的相机移动，不再画城际点：

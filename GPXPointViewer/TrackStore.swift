@@ -542,7 +542,7 @@ final class TrackStore: ObservableObject {
                 q[k] = segs[si].t0 + (segs[si].t1 - segs[si].t0) * f
             }
             // 城市章节开头留 3% 的空场：镜头到位时城市必须是空的
-            let holdCount = Int(Double(q.count) * 0.03)
+            let holdCount = Int(Double(q.count) * 0.08)
             for k in 0..<holdCount { q[k] = segs[0].t0 - 1 }
             q[0] = segs[0].t0 - 1
             q[1023] = segs.last!.t1
