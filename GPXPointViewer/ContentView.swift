@@ -2493,6 +2493,7 @@ struct PlaybackBarView: View {
     @ObservedObject var store: TrackStore
     @ObservedObject var session: PlaybackSession
     @ObservedObject var clock: PlaybackClock
+    @AppStorage("videoWidth") private var playbackVideoWidth = 1920
 
     private static let dayFmt: DateFormatter = {
         let f = DateFormatter()
@@ -2550,6 +2551,19 @@ struct PlaybackBarView: View {
             .menuStyle(.borderlessButton)
             .fixedSize()
             .help("回放总时长")
+
+            Menu {
+                Button("720p") { playbackVideoWidth = 1280 }
+                Button("1080p") { playbackVideoWidth = 1920 }
+                Button("4K") { playbackVideoWidth = 3840 }
+            } label: {
+                Text(verbatim: playbackVideoWidth <= 1280 ? "720p"
+                     : (playbackVideoWidth <= 1920 ? "1080p" : "4K"))
+                    .font(.caption.monospacedDigit())
+            }
+            .menuStyle(.borderlessButton)
+            .fixedSize()
+            .help("视频导出分辨率")
 
             Button {
                 NotificationCenter.default.post(name: .resetPlaybackCamera, object: nil)
@@ -2909,7 +2923,7 @@ struct CityPickerSheet: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             Text("选择要单独展示的城市").font(.headline)
-            Text("默认勾选当前自动选中的城市；点数 ≥10000 的种子城市都可加入。")
+            Text("自动选中的城市始终保留；勾选下面的城市作为额外单独展示。")
                 .font(.caption).foregroundStyle(.secondary)
             List(store.cityPickerItems) { item in
                 Toggle(isOn: Binding(

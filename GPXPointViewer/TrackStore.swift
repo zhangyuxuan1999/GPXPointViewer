@@ -491,28 +491,21 @@ final class TrackStore: ObservableObject {
     }
 
     func defaultCitySelection() -> Set<Int> {
-        guard let pb = playback, let cp = pb.plan.cityPlan else { return [] }
-        var out = Set<Int>()
-        for c in cp.cities {
-            var best = -1
-            var bestD = Double.infinity
-            for (i, item) in cityPickerItems.enumerated() {
-                let d = abs(item.x - c.cx) + abs(item.y - c.cy)
-                if d < bestD { bestD = d; best = i }
-            }
-            if best >= 0 { out.insert(best) }
-        }
-        return out
+        []   // 自动城市始终保留，复选框只代表额外城市
     }
 
     func applyCitySelection(_ ids: Set<Int>) {
-        guard !ids.isEmpty else { return }
-        let centers: [(x: Double, y: Double)] = ids.sorted().compactMap { i in
-            guard cityPickerItems.indices.contains(i) else { return nil }
-            return (cityPickerItems[i].x, cityPickerItems[i].y)
+        guard let pb = playback, let cp = pb.plan.cityPlan else { return }
+        // 自动城市始终保留；勾选的是“额外单独展示”的城市
+        var centers: [(x: Double, y: Double)] = cp.cities.map { (x: $0.cx, y: $0.cy) }
+        for i in ids.sorted() where cityPickerItems.indices.contains(i) {
+            let x = cityPickerItems[i].x, y = cityPickerItems[i].y
+            if !centers.contains(where: { abs($0.x - x) + abs($0.y - y) < 0.002 }) {
+                centers.append((x: x, y: y))
+            }
         }
         guard !centers.isEmpty else { return }
-        let d = playback?.plan.duration ?? 45
+        let d = pb.plan.duration
         stopPlayback()
         startPlayback(duration: d, seedCenters: centers)
     }
