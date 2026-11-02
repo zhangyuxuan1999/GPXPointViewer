@@ -504,7 +504,8 @@ enum CityPlaybackPlanner {
                 let d = dist(s.cx, s.cy, seed.x, seed.y)
                 if d < bestD { bestD = d; best = k }
             }
-            guard best >= 0, bestD <= 0.0016 else { continue }   // ~85km：更远的算城际，城市镜头不会被撑大
+            let maxD = (seedOverride?.count == 1) ? 0.01 : 0.0016
+            guard best >= 0, bestD <= maxD else { continue }   // 单城预览放宽，避免城市点因距离被全部算成城际
             accOfSession[i] = best
             var a = accs[best]
             a.sessions.append(i)
