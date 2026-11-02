@@ -41,9 +41,9 @@ for (i, ch) in cp.chapters.enumerated() {
                 failures += 1
             }
         }
-        // 城市开头强制空
-        if ch.city >= 0, frac <= 0.02, p < ch.p0 + 0.2 {
-            if !active.isEmpty { print("FAIL \(i) city\(ch.city) start has \(active.count) active areas"); failures += 1 }
+        // 城市/长途章节开头强制空
+        if (ch.city >= 0 || ch.trip), frac <= 0.02 {
+            if !active.isEmpty { print("FAIL \(i) chapter start has \(active.count) active areas"); failures += 1 }
         }
         // 长途：活动区域中心必须在同一区域（欧洲章不能混中国）
         if ch.trip {
