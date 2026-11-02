@@ -66,6 +66,7 @@ struct PlaybackChapter {
     var finale: Bool = false
     var trip: Bool = false        // 长途专题章节
     var timeAt: [Double] = []     // 长途章节的时间曲线（按活动段/点数）
+    var shortForm: Bool = false   // 10/20 秒短版：片尾只轻拉，不拉到全球
 }
 
 /// 一个点的区域归属（城市或城际段），以及按时间排序的会话表。
@@ -132,16 +133,20 @@ struct CityPlan {
                           wide: ch.wide, aspect: aspect)
         }
         if ch.finale {
-            let end = camera(box: (ch.x0, ch.y0, ch.x1, ch.y1), margin: ch.margin,
-                             wide: ch.wide, aspect: aspect)
+            let fullEnd = camera(box: (ch.x0, ch.y0, ch.x1, ch.y1), margin: ch.margin,
+                                 wide: ch.wide, aspect: aspect)
             guard let idx = chapters.firstIndex(where: { abs($0.p0 - ch.p0) < 1e-9 }), idx > 0 else {
-                return end
+                return fullEnd
             }
             var j = idx - 1
             while j >= 0 && chapters[j].city < 0 && !chapters[j].trip { j -= 1 }
             let prev = chapters[max(0, j)]
             let start = camera(box: (prev.x0, prev.y0, prev.x1, prev.y1),
                                margin: prev.margin, wide: prev.wide, aspect: aspect)
+            // 短版只轻轻拉远，避免最后 1 秒变成全球空镜
+            let end = ch.shortForm
+                ? PlaybackCamera(cx: start.cx, cy: start.cy, span: start.span * 1.35)
+                : fullEnd
             let u = min(1, max(0, (p - ch.p0) / max(1e-9, ch.p1 - ch.p0)))
             let e = 1 - pow(1 - u, 2.2)
             let ls = log(max(start.span, 1e-9)), le = log(max(end.span, 1e-9))
@@ -837,6 +842,7 @@ enum CityPlaybackPlanner {
         guard !timeline.isEmpty else { return nil }
 
         var plan = CityPlan()
+        for i in chapters.indices { chapters[i].shortForm = shortForm }
         plan.cities = cities
         plan.transit = transit
         plan.chapters = chapters
