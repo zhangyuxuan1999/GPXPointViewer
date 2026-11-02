@@ -179,6 +179,7 @@ struct CityPlan {
             return chapters.last.map { $0.d1 } ?? dataEnd
         }
         let u = progress(ch, p)
+        if ch.finale { return ch.d1 }   // 片尾日期必须停在最新，不能倒回 2016
         // DeepSeek 2026-11-01：城市章节的日期必须和点的揭示游标用同一条
         // 点数分位曲线，否则会出现“2021 年却显示 2023 年的点”。
         if ch.trip, ch.timeAt.count >= 2 {
@@ -663,7 +664,7 @@ enum CityPlaybackPlanner {
 
         // 7) 时长：驻留按权重、过渡按是否有城际段
         let n = cities.count
-        var transDurs = [Double](repeating: shortForm ? 0.0 : 1.0, count: max(0, n - 1))
+        var transDurs = [Double](repeating: 0.0, count: max(0, n - 1))
         // 5c) 长途专题按“地理区域”聚合：同一区域的所有城际会话在同一章内
         // 按时间揭示，保证新疆/东北/欧洲的路线不会一半在专题、一半在片尾。
         func latitude(_ y: Double) -> Double { atan(sinh(.pi * (1 - 2 * y))) * 180 / .pi }
