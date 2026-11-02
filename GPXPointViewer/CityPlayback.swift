@@ -238,25 +238,51 @@ struct PlaybackRevealData {
         let n = track.count
         guard n > 0, plan.areaCount > 0, !plan.timeline.isEmpty else { return nil }
         let epoch = plan.dataStart.rounded(.down)
-        var areas = [UInt16](repeating: 0, count: n)
+        var areas = [UInt16](repeating: UInt16(plan.areaCount), count: n)   // 默认隐藏区
         var times = [UInt32](repeating: 0, count: n)
         let tl = plan.timeline
         let m = tl.count
-        // 每个点按时间找会话；落在会话间隙时取时间上更近的一侧
+        // 每个点：在时间覆盖它的会话中，优先选 bbox 包含该点的区域。
+        // 只按时间会在“同一时刻有跨洲会话”时把中国点错分到欧洲区域，
+        // 导致画面在欧洲却画出中国轨迹。
+        func areaBox(_ a: Int) -> (x0: Double, y0: Double, x1: Double, y1: Double) {
+            if a < plan.cities.count {
+                let c = plan.cities[a]; return (c.x0, c.y0, c.x1, c.y1)
+            }
+            let t = plan.transit[a - plan.cities.count]; return (t.x0, t.y0, t.x1, t.y1)
+        }
+        var active: [Int] = []
+        var next = 0
         var lo = 0
         for i in 0..<n {
             let t = track.time[i]
             guard t.isFinite else { times[i] = 0; continue }
-            while lo + 1 < m && tl[lo + 1].t0 <= t { lo += 1 }
-            var area: Int
-            if t >= tl[lo].t0 && t <= tl[lo].t1 {
-                area = tl[lo].area
-            } else if lo + 1 < m && (t - tl[lo].t1) > (tl[lo + 1].t0 - t) {
-                area = tl[lo + 1].area
-            } else {
-                area = tl[lo].area
+            while next < m && tl[next].t0 <= t { active.append(next); next += 1 }
+            active.removeAll { tl[$0].t1 < t }
+            var area = plan.areaCount   // 隐藏区
+            if !active.isEmpty {
+                let x = track.mercX[i], y = track.mercY[i]
+                var bestSpan = Double.infinity
+                var bestDist = Double.infinity
+                var insideArea = -1
+                var nearestArea = -1
+                for j in active {
+                    let a = tl[j].area
+                    let b = areaBox(a)
+                    if x >= b.x0 && x <= b.x1 && y >= b.y0 && y <= b.y1 {
+                        let sp = (b.x1 - b.x0) + (b.y1 - b.y0)
+                        if sp < bestSpan { bestSpan = sp; insideArea = a }
+                    } else {
+                        let dx = max(0, max(b.x0 - x, x - b.x1))
+                        let dy = max(0, max(b.y0 - y, y - b.y1))
+                        let d = dx * dx + dy * dy
+                        if d < bestDist { bestDist = d; nearestArea = a }
+                    }
+                }
+                area = insideArea >= 0 ? insideArea
+                    : (bestDist < 0.000004 ? nearestArea : plan.areaCount)
             }
-            areas[i] = UInt16(max(0, min(plan.areaCount - 1, area)))
+            areas[i] = UInt16(max(0, min(plan.areaCount, area)))
             let rel = (t - epoch).rounded(.down)
             times[i] = rel <= 0 ? 1
                 : (rel >= Double(UInt32.max - 2) ? UInt32.max - 1 : UInt32(rel) + 1)
@@ -264,7 +290,7 @@ struct PlaybackRevealData {
         self.areaOfPoint = areas
         self.times = times
         self.epoch = epoch
-        self.areaCount = plan.areaCount
+        self.areaCount = plan.areaCount + 1
     }
 }
 
