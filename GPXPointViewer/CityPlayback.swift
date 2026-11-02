@@ -229,8 +229,11 @@ struct CityPlan {
             }
             return ch.d0 + (ch.d1 - ch.d0) * u
         }
-        // 没有专题章节的城际段：片尾一次性显示（不重画，之前已显示的保持）
-        if let fin = chapters.last, fin.finale, p >= fin.p0 { return transit[ti].t1 }
+        // 没有专题章节的城际段：片尾按时间逐渐揭示（不能一次性倒出来）
+        if let fin = chapters.last, fin.finale, p >= fin.p0 {
+            if p >= fin.p1 { return transit[ti].t1 }
+            return fin.d0 + (fin.d1 - fin.d0) * progress(fin, p)
+        }
         return -.infinity
     }
 
