@@ -581,10 +581,9 @@ enum CityPlaybackPlanner {
             let minLat: Double, maxLat: Double, minLon: Double, maxLon: Double
         }
         let regions = [
+            // 两段就够了：中国（含东北/新疆）一次全中国视角，欧洲一次。
+            RegionDef(name: "中国", minLat: 18, maxLat: 54, minLon: 73, maxLon: 135),
             RegionDef(name: "欧洲", minLat: 30, maxLat: 65, minLon: -15, maxLon: 30),
-            RegionDef(name: "新疆", minLat: 35, maxLat: 50, minLon: 73, maxLon: 97),
-            RegionDef(name: "东北", minLat: 38, maxLat: 56, minLon: 115, maxLon: 135),
-            RegionDef(name: "青藏", minLat: 26, maxLat: 38, minLon: 78, maxLon: 103),
         ]
         var tripClusters: [TripCluster] = []
         if !singleCity {
@@ -615,7 +614,7 @@ enum CityPlaybackPlanner {
                 tripClusters.append(c)
             }
             tripClusters.sort { $0.t0 < $1.t0 }
-            if tripClusters.count > 4 { tripClusters = Array(tripClusters.prefix(4)) }
+            if tripClusters.count > 2 { tripClusters = Array(tripClusters.prefix(2)) }
         }
         func tripDuration(_ c: TripCluster) -> Double {
             min(5.0, 2.0 + 0.12 * Double(c.ids.count))
