@@ -70,6 +70,14 @@ final class Heat3DCamState: ObservableObject {
 }
 
 @MainActor
+struct CityPickItem: Identifiable {
+    let id: Int
+    let x: Double
+    let y: Double
+    let w: Double
+}
+
+@MainActor
 final class TrackStore: ObservableObject {
     @Published var track: TrackData? {
         didSet { if oldValue?.id != track?.id { invalidateDataOperations() } }
@@ -84,6 +92,8 @@ final class TrackStore: ObservableObject {
         set { renderStats.stats = newValue }
     }
     @Published var settings = ViewSettings()
+    @Published var cityPickerItems: [CityPickItem] = []
+    @Published var showCityPicker = false
     var hover: PointInfo? {
         get { hoverState.info }
         set { if hoverState.info != newValue { hoverState.info = newValue } }
@@ -413,7 +423,7 @@ final class TrackStore: ObservableObject {
     }
 
     /// 启动时光机：后台规划（会话切分 → 活跃簇 → 相机路径 → 时间弯曲）后开播
-    func startPlayback(duration: Double = 45) {
+    func startPlayback(duration: Double = 45, seedCenters: [(x: Double, y: Double)]? = nil) {
         guard playback == nil, !isLoading, !fillMode, !deleteMode else { return }
         // DeepSeek 2026-11-01：记住用户上次选的时长
         let chosen = UserDefaults.standard.object(forKey: "playbackDuration") as? Double ?? duration
@@ -423,7 +433,8 @@ final class TrackStore: ObservableObject {
             let token = publicationClock.begin(.playback, fileIDs: files.map(\.id), sourceID: track.id)
             Task.detached(priority: .userInitiated) { [weak self] in
                 let evs = PlaybackPlan.events(track: track)
-                let plan = PlaybackPlan.buildCities(events: evs, duration: chosen)
+                let candidates = CityPlaybackPlanner.candidateCities(events: evs)
+                let plan = PlaybackPlan.buildCities(events: evs, duration: chosen, seedOverride: seedCenters)
                 guard let self else { return }
                 // DeepSeek 2026-11-01：LOD 建层放到后台规划阶段（约 183ms/650k 点）
                 var lodLevels: [PointLODLevel] = []
@@ -446,9 +457,12 @@ final class TrackStore: ObservableObject {
                     if let reveal {
                         self.refineCityQuantiles(&adjusted, track: track, reveal: reveal)
                     }
+                    self.cityPickerItems = candidates.enumerated().map {
+                        CityPickItem(id: $0.offset, x: $0.element.x, y: $0.element.y, w: $0.element.w)
+                    }
                     self.playback = PlaybackSession(
                         plan: adjusted, events: evs, isArchive: false,
-                        reveal: reveal, lodLevels: lodLevels)
+                        reveal: reveal, lodLevels: lodLevels, seedCenters: seedCenters)
                 }
             }
         } else if let archive = fogArchive {
@@ -459,6 +473,33 @@ final class TrackStore: ObservableObject {
             }
             playback = PlaybackSession(plan: plan, events: evs, isArchive: true)
         }
+    }
+
+    func defaultCitySelection() -> Set<Int> {
+        guard let pb = playback, let cp = pb.plan.cityPlan else { return [] }
+        var out = Set<Int>()
+        for c in cp.cities {
+            var best = -1
+            var bestD = Double.infinity
+            for (i, item) in cityPickerItems.enumerated() {
+                let d = abs(item.x - c.cx) + abs(item.y - c.cy)
+                if d < bestD { bestD = d; best = i }
+            }
+            if best >= 0 { out.insert(best) }
+        }
+        return out
+    }
+
+    func applyCitySelection(_ ids: Set<Int>) {
+        guard !ids.isEmpty else { return }
+        let centers: [(x: Double, y: Double)] = ids.sorted().compactMap { i in
+            guard cityPickerItems.indices.contains(i) else { return nil }
+            return (cityPickerItems[i].x, cityPickerItems[i].y)
+        }
+        guard !centers.isEmpty else { return }
+        let d = playback?.plan.duration ?? 45
+        stopPlayback()
+        startPlayback(duration: d, seedCenters: centers)
     }
 
     func stopPlayback() {
@@ -476,7 +517,7 @@ final class TrackStore: ObservableObject {
         noteUserActivity()
         let plan = pb.isArchive
             ? PlaybackPlan.build(events: pb.events, duration: d)
-            : PlaybackPlan.buildCities(events: pb.events, duration: d)
+            : PlaybackPlan.buildCities(events: pb.events, duration: d, seedOverride: pb.seedCenters)
         guard let plan else { return }
         var adjusted = plan
         if !pb.isArchive, let track {

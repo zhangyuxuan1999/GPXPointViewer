@@ -137,7 +137,9 @@ struct CityPlan {
             guard let idx = chapters.firstIndex(where: { abs($0.p0 - ch.p0) < 1e-9 }), idx > 0 else {
                 return end
             }
-            let prev = chapters[idx - 1]
+            var j = idx - 1
+            while j >= 0 && chapters[j].city < 0 && !chapters[j].trip { j -= 1 }
+            let prev = chapters[max(0, j)]
             let start = camera(box: (prev.x0, prev.y0, prev.x1, prev.y1),
                                margin: prev.margin, wide: prev.wide, aspect: aspect)
             let u = min(1, max(0, (p - ch.p0) / max(1e-9, ch.p1 - ch.p0)))
@@ -370,7 +372,40 @@ enum CityPlaybackPlanner {
         max(abs(x0 - x1), abs(y0 - y1))
     }
 
-    static func build(events: [PlaybackEvent], duration: Double) -> CityPlan? {
+    /// 供 UI 的城市候选：种子聚类后总点数 ≥10000 的中心
+    static func candidateCities(events: [PlaybackEvent]) -> [(x: Double, y: Double, w: Double)] {
+        let ev = events.sorted { $0.t < $1.t }
+        let ss = sessions(ev)
+        guard !ss.isEmpty else { return [] }
+        let shortIdx = ss.indices.filter { ss[$0].span <= 0.002 }
+        let byWeight = shortIdx.sorted { ss[$0].w > ss[$1].w }
+        var seeds: [(x: Double, y: Double)] = []
+        for i in byWeight {
+            let d = seeds.map { dist(ss[i].cx, ss[i].cy, $0.x, $0.y) }.min() ?? .infinity
+            if d > 0.003 {
+                seeds.append((ss[i].cx, ss[i].cy))
+                if seeds.count >= 14 { break }
+            }
+        }
+        guard !seeds.isEmpty else { return [] }
+        var weights = [Double](repeating: 0, count: seeds.count)
+        for i in shortIdx {
+            let s = ss[i]
+            var best = -1
+            var bestD = Double.infinity
+            for (k, seed) in seeds.enumerated() {
+                let d = dist(s.cx, s.cy, seed.x, seed.y)
+                if d < bestD { bestD = d; best = k }
+            }
+            if best >= 0, bestD <= 0.0016 { weights[best] += s.w }
+        }
+        return seeds.enumerated().map { (x: $0.element.x, y: $0.element.y, w: weights[$0.offset]) }
+            .filter { $0.w >= 10_000 }
+            .sorted { $0.w > $1.w }
+    }
+
+    static func build(events: [PlaybackEvent], duration: Double,
+                      seedOverride: [(x: Double, y: Double)]? = nil) -> CityPlan? {
         guard events.count >= 2, duration > 6 else { return nil }
         let ev = events.sorted { $0.t < $1.t }
         guard let firstT = ev.first?.t, let lastT = ev.last?.t, lastT - firstT > 60 else { return nil }
@@ -405,7 +440,11 @@ enum CityPlaybackPlanner {
         // 默认 ~90km 间距：北京/西安的区县归到同一个种子。只有整份数据几乎
         // 集中在一个城市（种子 ≤1 个）时才收紧，避免把大城市拆成多章。
         var seeds = pickSeeds(0.003)
-        if seeds.count < 2 { seeds = pickSeeds(0.0015) }
+        if let seedOverride, !seedOverride.isEmpty {
+            seeds = seedOverride
+        } else if seeds.count < 2 {
+            seeds = pickSeeds(0.0015)
+        }
         guard !seeds.isEmpty else { return nil }
 
         // 2) 会话 → 最近种子（约 280km 外算城际；长会话直接算城际）
@@ -441,7 +480,7 @@ enum CityPlaybackPlanner {
         let totalW = accs.reduce(0.0) { $0 + $1.w }
         var ranked = accs.enumerated().filter { $0.element.w > 0 }
             .sorted { $0.element.w > $1.element.w }
-        if ranked.count > 4 {
+        if seedOverride == nil, ranked.count > 4 {
             let base = ranked
             ranked = ranked.filter { item in
                 let a = item.element
@@ -453,15 +492,18 @@ enum CityPlaybackPlanner {
         }
         // DeepSeek 2026-11-01：单城不做片尾/长途章节（否则日期倒回重放）
         var singleCity = ranked.count <= 1
-        var finaleDur = singleCity ? 0.0 : min(8.0, max(4.0, duration * 0.13))
-        let minK = duration < 20 ? 2 : 4
-        let maxK = min(8, max(minK, Int((duration - finaleDur) / 3.7) + 1))
-        if ranked.count > maxK { ranked = Array(ranked.prefix(maxK)) }
-        while ranked.count > minK {
-            let k = ranked.count
-            let need = finaleDur + Double(k - 1) * 1.5 + Double(k) * 3.0
-            if need <= duration { break }
-            ranked.removeLast()
+        let shortForm = duration < 25
+        var finaleDur = singleCity ? 0.0 : (shortForm ? min(2.0, max(1.2, duration * 0.12)) : min(8.0, max(4.0, duration * 0.13)))
+        if seedOverride == nil {
+            let minK = duration < 20 ? 2 : 4
+            let maxK = min(8, max(minK, Int((duration - finaleDur) / 3.7) + 1))
+            if ranked.count > maxK { ranked = Array(ranked.prefix(maxK)) }
+            while ranked.count > minK {
+                let k = ranked.count
+                let need = finaleDur + Double(k - 1) * 1.5 + Double(k) * 3.0
+                if need <= duration { break }
+                ranked.removeLast()
+            }
         }
         guard !ranked.isEmpty else { return nil }
 
@@ -513,7 +555,7 @@ enum CityPlaybackPlanner {
 
         // 5b) 收尾合并：吸收周边小城后，两个同城种子的包围盒可能靠得很近
         //     （北京被拆成两三章）。中心相距 <~40km 的城市合并，会话归属同步改写。
-        var mergedAny = true
+        var mergedAny = seedOverride == nil
         while mergedAny {
             mergedAny = false
             var i = 0
@@ -543,7 +585,7 @@ enum CityPlaybackPlanner {
         if cities.count == 1 { singleCity = true; finaleDur = 0 }
 
         // 非常驻小城（权重 <5%）不单独成章：会话并入城际，由区域章绘制一次
-        if cities.count > 2 {
+        if seedOverride == nil, cities.count > 2 {
             let totalW = cities.reduce(0.0) { $0 + $1.weight }
             var ci = cities.count - 1
             while ci >= 0 && cities.count > 2 {
@@ -616,7 +658,7 @@ enum CityPlaybackPlanner {
 
         // 7) 时长：驻留按权重、过渡按是否有城际段
         let n = cities.count
-        var transDurs = [Double](repeating: 1.0, count: max(0, n - 1))
+        var transDurs = [Double](repeating: shortForm ? 0.0 : 1.0, count: max(0, n - 1))
         // 5c) 长途专题按“地理区域”聚合：同一区域的所有城际会话在同一章内
         // 按时间揭示，保证新疆/东北/欧洲的路线不会一半在专题、一半在片尾。
         func latitude(_ y: Double) -> Double { atan(sinh(.pi * (1 - 2 * y))) * 180 / .pi }
@@ -724,7 +766,7 @@ enum CityPlaybackPlanner {
                                             x1: cities[c].x1, y1: cities[c].y1,
                                             margin: 1.35, wide: false))
             p += holds[c]
-            if c + 1 < n {
+            if c + 1 < n, transDurs[c] > 1e-6 {
                 var box = (x0: min(cities[c].x0, cities[c + 1].x0),
                            y0: min(cities[c].y0, cities[c + 1].y0),
                            x1: max(cities[c].x1, cities[c + 1].x1),

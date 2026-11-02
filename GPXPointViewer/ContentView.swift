@@ -2507,6 +2507,18 @@ struct PlaybackBarView: View {
             }
             .buttonStyle(.plain)
 
+            Button {
+                store.showCityPicker = true
+            } label: {
+                Image(systemName: "building.2")
+                    .frame(width: 16)
+            }
+            .buttonStyle(.plain)
+            .help("选择要单独展示的城市")
+            .sheet(isPresented: Binding(get: { store.showCityPicker }, set: { store.showCityPicker = $0 })) {
+                CityPickerSheet(store: store)
+            }
+
             Text(Self.dayFmt.string(from: Date(
                 timeIntervalSince1970: session.plan.dataTime(at: clock.head))))
                 .font(.system(size: 12, weight: .semibold, design: .monospaced))
@@ -2863,5 +2875,46 @@ private struct WrappingHStack: Layout {
             }
             y += (row.map { $0.1.height }.max() ?? 0) + lineSpacing
         }
+    }
+}
+
+
+struct CityPickerSheet: View {
+    @ObservedObject var store: TrackStore
+    @State private var selected: Set<Int> = []
+
+    private func lat(_ y: Double) -> Double { atan(sinh(.pi * (1 - 2 * y))) * 180 / .pi }
+    private func lon(_ x: Double) -> Double { x * 360 - 180 }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text("选择要单独展示的城市").font(.headline)
+            Text("默认勾选当前自动选中的城市；点数 ≥10000 的种子城市都可加入。")
+                .font(.caption).foregroundStyle(.secondary)
+            List(store.cityPickerItems) { item in
+                Toggle(isOn: Binding(
+                    get: { selected.contains(item.id) },
+                    set: { on in
+                        if on { selected.insert(item.id) } else { selected.remove(item.id) }
+                    })) {
+                    Text(String(format: "%.3f, %.3f  ·  %d 点",
+                                lat(item.y), lon(item.x), Int(item.w)))
+                        .font(.system(.body, design: .monospaced))
+                }
+            }
+            HStack {
+                Spacer()
+                Button("取消") { store.showCityPicker = false }
+                Button("应用") {
+                    store.showCityPicker = false
+                    store.applyCitySelection(selected)
+                }
+                .keyboardShortcut(.defaultAction)
+                .disabled(selected.isEmpty)
+            }
+        }
+        .padding()
+        .frame(width: 440, height: 480)
+        .onAppear { selected = store.defaultCitySelection() }
     }
 }

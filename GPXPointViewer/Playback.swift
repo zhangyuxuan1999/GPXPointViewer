@@ -642,8 +642,10 @@ final class PlaybackPlan: @unchecked Sendable {
     }
 
     /// 城市章节规划（GPX 时光机）：每城一次、城际区域视角、片尾总览。
-    static func buildCities(events: [PlaybackEvent], duration: Double) -> PlaybackPlan? {
-        guard let cp = CityPlaybackPlanner.build(events: events, duration: duration) else { return nil }
+    static func buildCities(events: [PlaybackEvent], duration: Double,
+                            seedOverride: [(x: Double, y: Double)]? = nil) -> PlaybackPlan? {
+        guard let cp = CityPlaybackPlanner.build(events: events, duration: duration,
+                                                 seedOverride: seedOverride) else { return nil }
         let clusters = cp.cities.map { c in
             Cluster(t0: c.t0, t1: c.t1, cx: c.cx, cy: c.cy,
                     spanX: max(0, c.x1 - c.x0), spanY: max(0, c.y1 - c.y0),
@@ -715,13 +717,16 @@ final class PlaybackSession: ObservableObject {
     var revealVersion = 1
     /// 单城回放的屏幕空间 LOD 层（在后台规划阶段建好，视图不再主线程计算）
     var lodLevels: [PointLODLevel] = []
+    var seedCenters: [(x: Double, y: Double)]?
 
     init(plan: PlaybackPlan, events: [PlaybackEvent], isArchive: Bool,
-         reveal: PlaybackRevealData? = nil, lodLevels: [PointLODLevel] = []) {
+         reveal: PlaybackRevealData? = nil, lodLevels: [PointLODLevel] = [],
+         seedCenters: [(x: Double, y: Double)]? = nil) {
         self.plan = plan
         self.events = events
         self.isArchive = isArchive
         self.reveal = reveal
         self.lodLevels = lodLevels
+        self.seedCenters = seedCenters
     }
 }
