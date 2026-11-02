@@ -65,6 +65,7 @@ struct PlaybackChapter {
     var wide: Bool = false
     var finale: Bool = false
     var trip: Bool = false        // 长途专题章节
+    var timeAt: [Double] = []     // 长途章节的时间曲线（按活动段/点数）
 }
 
 /// 一个点的区域归属（城市或城际段），以及按时间排序的会话表。
@@ -157,6 +158,11 @@ struct CityPlan {
         let u = progress(ch, p)
         // DeepSeek 2026-11-01：城市章节的日期必须和点的揭示游标用同一条
         // 点数分位曲线，否则会出现“2021 年却显示 2023 年的点”。
+        if ch.trip, ch.timeAt.count >= 2 {
+            let x = min(1, max(0, u)) * Double(ch.timeAt.count - 1)
+            let i = Int(x), f = x - Double(i)
+            return ch.timeAt[i] + ((i + 1 < ch.timeAt.count ? ch.timeAt[i + 1] : ch.timeAt[i]) - ch.timeAt[i]) * f
+        }
         if ch.city >= 0, cityTimeAt.indices.contains(ch.city) {
             let q = cityTimeAt[ch.city]
             if q.count >= 2 {
@@ -200,6 +206,11 @@ struct CityPlan {
             if p < ch.p0 + hold { return -.infinity }
             let denom = max(1e-9, ch.p1 - ch.p0 - hold)
             let u = min(1, max(0, (p - ch.p0 - hold) / denom))
+            if ch.timeAt.count >= 2 {
+                let x = u * Double(ch.timeAt.count - 1)
+                let i = Int(x), f = x - Double(i)
+                return ch.timeAt[i] + ((i + 1 < ch.timeAt.count ? ch.timeAt[i + 1] : ch.timeAt[i]) - ch.timeAt[i]) * f
+            }
             return ch.d0 + (ch.d1 - ch.d0) * u
         }
         // 没有专题章节的城际段：片尾一次性显示（不重画，之前已显示的保持）
@@ -619,6 +630,37 @@ enum CityPlaybackPlanner {
         func tripDuration(_ c: TripCluster) -> Double {
             min(5.0, 2.0 + 0.12 * Double(c.ids.count))
         }
+        func tripTimeCurve(_ c: TripCluster) -> [Double] {
+            let entries = c.ids.map { transit[$0] }.sorted { $0.t0 < $1.t0 }
+            guard let first = entries.first else { return [] }
+            var segs: [(t0: Double, t1: Double, w: Double)] = []
+            var s0 = first.t0, s1 = first.t1, w = max(1.0, first.weight)
+            for t in entries.dropFirst() {
+                if t.t0 - s1 > 18 * 3600 {
+                    segs.append((s0, s1, w)); s0 = t.t0; s1 = t.t1; w = max(1.0, t.weight)
+                } else {
+                    s1 = max(s1, t.t1); w += max(1.0, t.weight)
+                }
+            }
+            segs.append((s0, s1, w))
+            let total = segs.reduce(0.0) { $0 + $1.w }
+            guard total > 0 else { return [] }
+            var q = [Double](repeating: segs[0].t0, count: 1024)
+            var si = 0; var cum = 0.0
+            for k in 0...1023 {
+                let target = total * Double(k) / 1023.0
+                while si + 1 < segs.count && cum + segs[si].w < target { cum += segs[si].w; si += 1 }
+                let f = segs[si].w > 0 ? min(1, max(0, (target - cum) / segs[si].w)) : 1
+                q[k] = segs[si].t0 + (segs[si].t1 - segs[si].t0) * f
+            }
+            q[0] = segs[0].t0 - 1
+            q[1023] = segs.last!.t1
+            if let t0 = segs.first?.t0, let t1 = segs.last?.t1, t1 > t0 {
+                let step = max(1.0, (t1 - t0) / Double(q.count) * 0.05)
+                for k in 1..<q.count where q[k] <= q[k - 1] { q[k] = min(t1, q[k - 1] + step) }
+            }
+            return q
+        }
         let tripSet = Set(tripClusters.flatMap { $0.ids })
         // 过渡段只做城市间的相机移动，不再画城际点：
         // 城际全部交给长途专题/片尾，避免“断线”和把相机拉到全国尺度。
@@ -679,11 +721,13 @@ enum CityPlaybackPlanner {
         }
         for cl in tripClusters {
             let dur = tripDuration(cl)
-            chapters.append(PlaybackChapter(p0: p, p1: p + dur,
-                                            d0: cl.t0, d1: max(cl.t0 + 1, cl.t1),
-                                            transit: cl.ids,
-                                            x0: cl.x0, y0: cl.y0, x1: cl.x1, y1: cl.y1,
-                                            margin: 1.3, wide: true, trip: true))
+            var chapter = PlaybackChapter(p0: p, p1: p + dur,
+                                          d0: cl.t0, d1: max(cl.t0 + 1, cl.t1),
+                                          transit: cl.ids,
+                                          x0: cl.x0, y0: cl.y0, x1: cl.x1, y1: cl.y1,
+                                          margin: 1.3, wide: true, trip: true)
+            chapter.timeAt = tripTimeCurve(cl)
+            chapters.append(chapter)
             p += dur
         }
         if !transit.isEmpty, !singleCity {
