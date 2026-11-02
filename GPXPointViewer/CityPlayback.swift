@@ -168,24 +168,18 @@ struct CityPlan {
         return ch.d0 + (ch.d1 - ch.d0) * u
     }
 
-    /// 某区域在时刻 p 的揭示时间（-inf = 隐藏）
-    /// 只显示当前章节的活动区域：城市章节只显示该城，长途章节只显示该区域的会话，
-    /// 过渡段不显示点，片尾显示全部。这样不会出现“画面在欧洲、却在画中国”。
+    /// 某区域在时刻 p 的揭示时间。
+    /// 关键：一旦某个区域开始揭示，它就**单调累积**，不会因为换章节被清零/重画。
+    /// 城市/长途章节只决定“现在推进哪个区域”，已经画过的点永远保留。
     func cursor(area: Int, at p: Double) -> Double {
-        guard let ch = chapter(at: p) else { return -.infinity }
-        if ch.finale {
-            if area < cities.count { return cities[area].t1 }
-            let ti = area - cities.count
-            guard ti >= 0, ti < transit.count else { return -.infinity }
-            if p >= ch.p1 { return transit[ti].t1 }
-            return ch.d0 + (ch.d1 - ch.d0) * progress(ch, p)
-        }
-        if ch.city >= 0 {
-            guard area == ch.city else { return -.infinity }
-            // 城市章节开头强制空场：镜头到位时城市必须是空的
+        if area < cities.count {
+            let ci = cityChapter[area]
+            guard ci >= 0 else { return -.infinity }
+            let ch = chapters[ci]
+            if p < ch.p0 { return -.infinity }
+            if p >= ch.p1 { return cities[area].t1 }
             let hold = min(0.5, (ch.p1 - ch.p0) * 0.1)
             if p < ch.p0 + hold { return -.infinity }
-            if p >= ch.p1 { return cities[area].t1 }
             let denom = max(1e-9, ch.p1 - ch.p0 - hold)
             let u = min(1, max(0, (p - ch.p0 - hold) / denom))
             let q = cityTimeAt.indices.contains(area) ? cityTimeAt[area] : []
@@ -196,9 +190,11 @@ struct CityPlan {
             }
             return ch.d0 + (ch.d1 - ch.d0) * u
         }
-        if ch.trip || !ch.transit.isEmpty {
-            let ti = area - cities.count
-            guard ti >= 0, ti < transit.count, ch.transit.contains(ti) else { return -.infinity }
+        let ti = area - cities.count
+        guard ti >= 0, ti < transit.count else { return -.infinity }
+        if let ci = transitChapter.indices.contains(ti) ? transitChapter[ti] : nil, ci >= 0 {
+            let ch = chapters[ci]
+            if p < ch.p0 { return -.infinity }
             if p >= ch.p1 { return transit[ti].t1 }
             let hold = min(0.3, (ch.p1 - ch.p0) * 0.05)
             if p < ch.p0 + hold { return -.infinity }
@@ -206,7 +202,9 @@ struct CityPlan {
             let u = min(1, max(0, (p - ch.p0 - hold) / denom))
             return ch.d0 + (ch.d1 - ch.d0) * u
         }
-        return -.infinity   // 过渡段
+        // 没有专题章节的城际段：片尾一次性显示（不重画，之前已显示的保持）
+        if let fin = chapters.last, fin.finale, p >= fin.p0 { return transit[ti].t1 }
+        return -.infinity
     }
 
     /// 全部区域的揭示游标（相对 epoch 的秒 +1；0 = 未开始）
@@ -585,7 +583,7 @@ enum CityPlaybackPlanner {
         let regions = [
             RegionDef(name: "欧洲", minLat: 30, maxLat: 65, minLon: -15, maxLon: 30),
             RegionDef(name: "新疆", minLat: 35, maxLat: 50, minLon: 73, maxLon: 97),
-            RegionDef(name: "东北", minLat: 40, maxLat: 56, minLon: 118, maxLon: 135),
+            RegionDef(name: "东北", minLat: 38, maxLat: 56, minLon: 115, maxLon: 135),
             RegionDef(name: "青藏", minLat: 26, maxLat: 38, minLon: 78, maxLon: 103),
         ]
         var tripClusters: [TripCluster] = []
