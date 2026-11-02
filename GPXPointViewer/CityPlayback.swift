@@ -200,7 +200,11 @@ struct CityPlan {
             let ti = area - cities.count
             guard ti >= 0, ti < transit.count, ch.transit.contains(ti) else { return -.infinity }
             if p >= ch.p1 { return transit[ti].t1 }
-            return ch.d0 + (ch.d1 - ch.d0) * progress(ch, p)
+            let hold = min(0.3, (ch.p1 - ch.p0) * 0.05)
+            if p < ch.p0 + hold { return -.infinity }
+            let denom = max(1e-9, ch.p1 - ch.p0 - hold)
+            let u = min(1, max(0, (p - ch.p0 - hold) / denom))
+            return ch.d0 + (ch.d1 - ch.d0) * u
         }
         return -.infinity   // 过渡段
     }
@@ -562,10 +566,14 @@ enum CityPlaybackPlanner {
         if !singleCity {
             var bucketed = [[Int]](repeating: [], count: regions.count)
             for (ti, t) in transit.enumerated() {
-                let la = latitude((t.y0 + t.y1) / 2)
-                let lo = longitude((t.x0 + t.x1) / 2)
+                // 只有整段都落在区域内才收进来，跨洲/跨国长线不进区域章，
+                // 避免“欧洲章里画出中国轨迹”。
+                let laLo = latitude(max(t.y0, t.y1))
+                let laHi = latitude(min(t.y0, t.y1))
+                let loLo = longitude(min(t.x0, t.x1))
+                let loHi = longitude(max(t.x0, t.x1))
                 for (ri, r) in regions.enumerated()
-                where la >= r.minLat && la <= r.maxLat && lo >= r.minLon && lo <= r.maxLon {
+                where laLo >= r.minLat && laHi <= r.maxLat && loLo >= r.minLon && loHi <= r.maxLon {
                     bucketed[ri].append(ti); break
                 }
             }
