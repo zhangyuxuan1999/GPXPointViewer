@@ -168,40 +168,41 @@ struct CityPlan {
         return ch.d0 + (ch.d1 - ch.d0) * u
     }
 
-    /// 某区域在时刻 p 的揭示时间（-inf = 还没开始）
+    /// 某区域在时刻 p 的揭示时间（-inf = 隐藏）
+    /// 只显示当前章节的活动区域：城市章节只显示该城，长途章节只显示该区域的会话，
+    /// 过渡段不显示点，片尾显示全部。这样不会出现“画面在欧洲、却在画中国”。
     func cursor(area: Int, at p: Double) -> Double {
-        if area < cities.count {
-            let ci = cityChapter[area]
-            guard ci >= 0 else { return -.infinity }
-            let ch = chapters[ci]
-            if p < ch.p0 { return -.infinity }
+        guard let ch = chapter(at: p) else { return -.infinity }
+        if ch.finale {
+            if area < cities.count { return cities[area].t1 }
+            let ti = area - cities.count
+            guard ti >= 0, ti < transit.count else { return -.infinity }
+            if p >= ch.p1 { return transit[ti].t1 }
+            return ch.d0 + (ch.d1 - ch.d0) * progress(ch, p)
+        }
+        if ch.city >= 0 {
+            guard area == ch.city else { return -.infinity }
+            // 城市章节开头强制空场：镜头到位时城市必须是空的
+            let hold = min(0.5, (ch.p1 - ch.p0) * 0.1)
+            if p < ch.p0 + hold { return -.infinity }
             if p >= ch.p1 { return cities[area].t1 }
-            let u = progress(ch, p)
+            let denom = max(1e-9, ch.p1 - ch.p0 - hold)
+            let u = min(1, max(0, (p - ch.p0 - hold) / denom))
             let q = cityTimeAt.indices.contains(area) ? cityTimeAt[area] : []
             if q.count >= 2 {
-                let x = min(1, max(0, u)) * Double(q.count - 1)
+                let x = u * Double(q.count - 1)
                 let i = Int(x), f = x - Double(i)
                 return q[i] + ((i + 1 < q.count ? q[i + 1] : q[i]) - q[i]) * f
             }
             return ch.d0 + (ch.d1 - ch.d0) * u
         }
-        let ti = area - cities.count
-        guard ti >= 0, ti < transit.count else { return -.infinity }
-        if let ci = transitChapter.indices.contains(ti) ? transitChapter[ti] : nil, ci >= 0 {
-            let ch = chapters[ci]
-            if p >= ch.p0 && p < ch.p1 {
-                return ch.d0 + (ch.d1 - ch.d0) * progress(ch, p)
-            }
+        if ch.trip || !ch.transit.isEmpty {
+            let ti = area - cities.count
+            guard ti >= 0, ti < transit.count, ch.transit.contains(ti) else { return -.infinity }
             if p >= ch.p1 { return transit[ti].t1 }
+            return ch.d0 + (ch.d1 - ch.d0) * progress(ch, p)
         }
-        // 片尾：所有城际段按时间再走一遍
-        if let fin = chapters.last, fin.finale {
-            if p >= fin.p0 && p < fin.p1 {
-                return fin.d0 + (fin.d1 - fin.d0) * progress(fin, p)
-            }
-            if p >= fin.p1 { return transit[ti].t1 }
-        }
-        return -.infinity
+        return -.infinity   // 过渡段
     }
 
     /// 全部区域的揭示游标（相对 epoch 的秒 +1；0 = 未开始）
