@@ -2889,9 +2889,22 @@ private struct WrappingHStack: Layout {
 struct CityPickerSheet: View {
     @ObservedObject var store: TrackStore
     @State private var selected: Set<Int> = []
+    @State private var names: [Int: String] = [:]
 
     private func lat(_ y: Double) -> Double { atan(sinh(.pi * (1 - 2 * y))) * 180 / .pi }
     private func lon(_ x: Double) -> Double { x * 360 - 180 }
+
+    private func loadNames() {
+        for item in store.cityPickerItems where names[item.id] == nil {
+            let loc = CLLocation(latitude: lat(item.y), longitude: lon(item.x))
+            CLGeocoder().reverseGeocodeLocation(loc) { placemarks, _ in
+                let p = placemarks?.first
+                if let n = p?.locality ?? p?.subAdministrativeArea ?? p?.administrativeArea {
+                    DispatchQueue.main.async { names[item.id] = n }
+                }
+            }
+        }
+    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -2904,8 +2917,7 @@ struct CityPickerSheet: View {
                     set: { on in
                         if on { selected.insert(item.id) } else { selected.remove(item.id) }
                     })) {
-                    Text(String(format: "%.3f, %.3f  ·  %d 点",
-                                lat(item.y), lon(item.x), Int(item.w)))
+                    Text("\(names[item.id] ?? String(format: "%.2f, %.2f", lat(item.y), lon(item.x)))  ·  \(Int(item.w)) 点")
                         .font(.system(.body, design: .monospaced))
                 }
             }
@@ -2922,7 +2934,7 @@ struct CityPickerSheet: View {
         }
         .padding()
         .frame(width: 440, height: 480)
-        .onAppear { selected = store.defaultCitySelection() }
+        .onAppear { selected = store.defaultCitySelection(); loadNames() }
     }
 }
 
