@@ -575,13 +575,14 @@ enum CityPlaybackPlanner {
             }
             var chosen = Array(candidates.sorted { $0.weight > $1.weight }.prefix(5))
             // 保证至少有一条欧洲、一条新疆/西部行程
-            if !chosen.contains(where: { centerLon($0) < 30 }),
-               let eu = candidates.filter({ centerLon($0) < 30 }).max(by: { $0.weight < $1.weight }) {
+            // 欧洲/新疆优先选“跨度大”的行程（跨国/长线），而不是当地小环线
+            if !chosen.contains(where: { centerLon($0) < 30 && $0.span >= 0.015 }),
+               let eu = candidates.filter({ centerLon($0) < 30 }).max(by: { $0.span < $1.span }) {
                 chosen.append(eu)
             }
-            if !chosen.contains(where: { centerLon($0) > 70 && centerLon($0) < 100 && centerLat($0) > 35 }),
+            if !chosen.contains(where: { centerLon($0) > 70 && centerLon($0) < 100 && centerLat($0) > 35 && $0.span >= 0.015 }),
                let xj = candidates.filter({ centerLon($0) > 70 && centerLon($0) < 100 && centerLat($0) > 35 })
-                                    .max(by: { $0.weight < $1.weight }) {
+                                    .max(by: { $0.span < $1.span }) {
                 chosen.append(xj)
             }
             var seenT0 = Set<Int>()
