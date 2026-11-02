@@ -420,7 +420,8 @@ enum CityPlaybackPlanner {
     }
 
     static func build(events: [PlaybackEvent], duration: Double,
-                      seedOverride: [(x: Double, y: Double)]? = nil) -> CityPlan? {
+                      seedOverride: [(x: Double, y: Double)]? = nil,
+                      extraSeeds: [(x: Double, y: Double)]? = nil) -> CityPlan? {
         guard events.count >= 2, duration > 6 else { return nil }
         let ev = events.sorted { $0.t < $1.t }
         guard let firstT = ev.first?.t, let lastT = ev.last?.t, lastT - firstT > 60 else { return nil }
@@ -459,6 +460,21 @@ enum CityPlaybackPlanner {
             seeds = seedOverride
         } else if seeds.count < 2 {
             seeds = pickSeeds(0.0015)
+        }
+        // 追加城市：保留自动种子，只把额外城市加进来
+        var forcedSeedIdx = Set<Int>()
+        if seedOverride == nil {
+            for e in extraSeeds ?? [] {
+                // 额外城市可能本来就是一个自动种子：把它标记为强制保留即可
+                if let near = seeds.enumerated().min(by: {
+                    dist($0.element.x, $0.element.y, e.x, e.y) < dist($1.element.x, $1.element.y, e.x, e.y)
+                }), dist(near.element.x, near.element.y, e.x, e.y) <= 0.002 {
+                    forcedSeedIdx.insert(near.offset)
+                } else {
+                    forcedSeedIdx.insert(seeds.count)
+                    seeds.append(e)
+                }
+            }
         }
         guard !seeds.isEmpty else { return nil }
 
@@ -520,6 +536,12 @@ enum CityPlaybackPlanner {
                 ranked.removeLast()
             }
         }
+        if !forcedSeedIdx.isEmpty {
+            for off in forcedSeedIdx.sorted() where accs[off].w > 0
+                && !ranked.contains(where: { $0.offset == off }) {
+                ranked.append((offset: off, element: accs[off]))
+            }
+        }
         guard !ranked.isEmpty else { return nil }
 
         // 4) 建立城市（按首次到访时间排序）
@@ -529,6 +551,16 @@ enum CityPlaybackPlanner {
         let ordered: [Int]
         if seedOverride != nil {
             ordered = ranked.map { $0.offset }.sorted { accs[$0].t0 < accs[$1].t0 }
+        } else if let extraSeeds, !extraSeeds.isEmpty {
+            // 自动城市保持原有顺序；额外城市排到最后，避免插到中国城市前面
+            func isExtra(_ off: Int) -> Bool {
+                extraSeeds.contains { dist(accs[off].cx, accs[off].cy, $0.x, $0.y) <= 0.002 }
+            }
+            ordered = ranked.map { $0.offset }.sorted {
+                let a = isExtra($0), b = isExtra($1)
+                if a != b { return !a }
+                return accs[$0].w > accs[$1].w
+            }
         } else {
             ordered = ranked.map { $0.offset }.sorted { accs[$0].w > accs[$1].w }
         }
@@ -606,7 +638,7 @@ enum CityPlaybackPlanner {
         if cities.count == 1 { singleCity = true; finaleDur = 0 }
 
         // 非常驻小城（权重 <5%）不单独成章：会话并入城际，由区域章绘制一次
-        if seedOverride == nil, cities.count > 2 {
+        if seedOverride == nil, extraSeeds == nil, cities.count > 2 {
             let totalW = cities.reduce(0.0) { $0 + $1.weight }
             var ci = cities.count - 1
             while ci >= 0 && cities.count > 2 {

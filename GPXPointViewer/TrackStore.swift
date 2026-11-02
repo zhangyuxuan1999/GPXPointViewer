@@ -433,7 +433,8 @@ final class TrackStore: ObservableObject {
     }
 
     /// 启动时光机：后台规划（会话切分 → 活跃簇 → 相机路径 → 时间弯曲）后开播
-    func startPlayback(duration: Double = 45, seedCenters: [(x: Double, y: Double)]? = nil) {
+    func startPlayback(duration: Double = 45, seedCenters: [(x: Double, y: Double)]? = nil,
+                       extraSeeds: [(x: Double, y: Double)]? = nil) {
         guard playback == nil, !isLoading, !fillMode, !deleteMode else { return }
         // DeepSeek 2026-11-01：记住用户上次选的时长
         let chosen = UserDefaults.standard.object(forKey: "playbackDuration") as? Double ?? duration
@@ -456,7 +457,7 @@ final class TrackStore: ObservableObject {
             Task.detached(priority: .userInitiated) { [weak self] in
                 let evs = PlaybackPlan.events(track: track)
                 let candidates = CityPlaybackPlanner.candidateCities(events: evs)
-                let plan = PlaybackPlan.buildCities(events: evs, duration: chosen, seedOverride: seedCenters)
+                let plan = PlaybackPlan.buildCities(events: evs, duration: chosen, seedOverride: seedCenters, extraSeeds: extraSeeds)
                 guard let self else { return }
                 // DeepSeek 2026-11-01：LOD 建层放到后台规划阶段（约 183ms/650k 点）
                 var lodLevels: [PointLODLevel] = []
@@ -484,7 +485,8 @@ final class TrackStore: ObservableObject {
                     }
                     self.playback = PlaybackSession(
                         plan: adjusted, events: evs, isArchive: false,
-                        reveal: reveal, lodLevels: lodLevels, seedCenters: seedCenters)
+                        reveal: reveal, lodLevels: lodLevels, seedCenters: seedCenters,
+                        extraSeeds: extraSeeds)
                 }
             }
         } else if let archive = fogArchive {
@@ -550,19 +552,15 @@ final class TrackStore: ObservableObject {
     }
 
     func applyCitySelection(_ ids: Set<Int>) {
-        guard let pb = playback, let cp = pb.plan.cityPlan else { return }
-        // 自动城市始终保留；勾选的是“额外单独展示”的城市
-        var centers: [(x: Double, y: Double)] = cp.cities.map { (x: $0.cx, y: $0.cy) }
+        guard let pb = playback else { return }
+        // 自动城市不重建；勾选的是额外追加的城市
+        var extras: [(x: Double, y: Double)] = []
         for i in ids.sorted() where cityPickerItems.indices.contains(i) {
-            let x = cityPickerItems[i].x, y = cityPickerItems[i].y
-            if !centers.contains(where: { abs($0.x - x) + abs($0.y - y) < 0.002 }) {
-                centers.append((x: x, y: y))
-            }
+            extras.append((x: cityPickerItems[i].x, y: cityPickerItems[i].y))
         }
-        guard !centers.isEmpty else { return }
         let d = pb.plan.duration
         stopPlayback()
-        startPlayback(duration: d, seedCenters: centers)
+        startPlayback(duration: d, extraSeeds: extras)
     }
 
     func stopPlayback() {
@@ -580,7 +578,7 @@ final class TrackStore: ObservableObject {
         noteUserActivity()
         let plan = pb.isArchive
             ? PlaybackPlan.build(events: pb.events, duration: d)
-            : PlaybackPlan.buildCities(events: pb.events, duration: d, seedOverride: pb.seedCenters)
+            : PlaybackPlan.buildCities(events: pb.events, duration: d, seedOverride: pb.seedCenters, extraSeeds: pb.extraSeeds)
         guard let plan else { return }
         var adjusted = plan
         if !pb.isArchive, let track {
