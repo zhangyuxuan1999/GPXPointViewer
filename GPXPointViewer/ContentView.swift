@@ -2489,7 +2489,7 @@ struct PlaybackBarView: View {
 
     private static let dayFmt: DateFormatter = {
         let f = DateFormatter()
-        f.setLocalizedDateFormatFromTemplate("yMMMd HH:mm")   // 中文即「yyyy年M月d日」，其它语言用各自的日期写法
+        f.dateFormat = "yyyy-MM-dd HH:mm"
         return f
     }()
 
@@ -2509,8 +2509,9 @@ struct PlaybackBarView: View {
 
             Text(Self.dayFmt.string(from: Date(
                 timeIntervalSince1970: session.plan.dataTime(at: clock.head))))
-                .font(.caption.monospacedDigit().bold())
-                .frame(width: 108, alignment: .leading)
+                .font(.system(size: 12, weight: .semibold, design: .monospaced))
+                .frame(width: 150, height: 16, alignment: .leading)
+                .lineLimit(1)
 
             Slider(value: Binding(
                 get: { clock.head },
@@ -2520,7 +2521,7 @@ struct PlaybackBarView: View {
                 .controlSize(.small)
 
             Menu {
-                ForEach([30.0, 45.0, 60.0, 120.0], id: \.self) { d in
+                ForEach([10.0, 20.0, 30.0, 45.0, 60.0, 120.0], id: \.self) { d in
                     Button("\(Int(d)) 秒") { store.setPlaybackDuration(d) }
                 }
             } label: {

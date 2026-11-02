@@ -127,9 +127,25 @@ struct CityPlan {
             return camera(box: (last.x0, last.y0, last.x1, last.y1), margin: last.margin,
                           wide: last.wide, aspect: aspect)
         }
-        if ch.city >= 0 || ch.finale || ch.trip {
+        if ch.city >= 0 || ch.trip {
             return camera(box: (ch.x0, ch.y0, ch.x1, ch.y1), margin: ch.margin,
                           wide: ch.wide, aspect: aspect)
+        }
+        if ch.finale {
+            let end = camera(box: (ch.x0, ch.y0, ch.x1, ch.y1), margin: ch.margin,
+                             wide: ch.wide, aspect: aspect)
+            guard let idx = chapters.firstIndex(where: { abs($0.p0 - ch.p0) < 1e-9 }), idx > 0 else {
+                return end
+            }
+            let prev = chapters[idx - 1]
+            let start = camera(box: (prev.x0, prev.y0, prev.x1, prev.y1),
+                               margin: prev.margin, wide: prev.wide, aspect: aspect)
+            let u = min(1, max(0, (p - ch.p0) / max(1e-9, ch.p1 - ch.p0)))
+            let e = 1 - pow(1 - u, 2.2)
+            let ls = log(max(start.span, 1e-9)), le = log(max(end.span, 1e-9))
+            return PlaybackCamera(cx: start.cx + (end.cx - start.cx) * e,
+                                  cy: start.cy + (end.cy - start.cy) * e,
+                                  span: exp(ls + (le - ls) * e))
         }
         // 过渡：城市 A → 区域视角 → 城市 B
         let u = ch.p1 > ch.p0 ? min(1, max(0, (p - ch.p0) / (ch.p1 - ch.p0))) : 1
@@ -435,9 +451,10 @@ enum CityPlaybackPlanner {
         // DeepSeek 2026-11-01：单城不做片尾/长途章节（否则日期倒回重放）
         var singleCity = ranked.count <= 1
         var finaleDur = singleCity ? 0.0 : min(8.0, max(4.0, duration * 0.13))
-        let maxK = min(8, max(4, Int((duration - finaleDur) / 3.7) + 1))
+        let minK = duration < 20 ? 2 : 4
+        let maxK = min(8, max(minK, Int((duration - finaleDur) / 3.7) + 1))
         if ranked.count > maxK { ranked = Array(ranked.prefix(maxK)) }
-        while ranked.count > 4 {
+        while ranked.count > minK {
             let k = ranked.count
             let need = finaleDur + Double(k - 1) * 1.5 + Double(k) * 3.0
             if need <= duration { break }
@@ -521,6 +538,20 @@ enum CityPlaybackPlanner {
 
         // 合并/吸收后如果只剩一座城市，同样不做片尾
         if cities.count == 1 { singleCity = true; finaleDur = 0 }
+
+        // 非常驻小城（权重 <5%）不单独成章：会话并入城际，由区域章绘制一次
+        if cities.count > 2 {
+            let totalW = cities.reduce(0.0) { $0 + $1.weight }
+            var ci = cities.count - 1
+            while ci >= 0 && cities.count > 2 {
+                if cities[ci].weight < totalW * 0.05 {
+                    for k in 0..<ss.count where cityOfSession[k] == ci { cityOfSession[k] = -1 }
+                    for k in 0..<ss.count where cityOfSession[k] > ci { cityOfSession[k] -= 1 }
+                    cities.remove(at: ci)
+                }
+                ci -= 1
+            }
+        }
 
         // 3b) 每城“累计点数 → 时间”分位：揭示按点数走，不按时间线性走
         var cityTimeAt = [[Double]](repeating: [], count: cities.count)
@@ -661,6 +692,7 @@ enum CityPlaybackPlanner {
             }
             return q
         }
+        if duration < 25 { tripClusters = [] }   // 10/20 秒短版只放城市
         let tripSet = Set(tripClusters.flatMap { $0.ids })
         // 过渡段只做城市间的相机移动，不再画城际点：
         // 城际全部交给长途专题/片尾，避免“断线”和把相机拉到全国尺度。

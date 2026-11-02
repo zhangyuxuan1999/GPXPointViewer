@@ -4,6 +4,12 @@
 //
 
 import SwiftUI
+
+#if ROME_PREVIEW
+let appWindowTitle = "GPXPointViewer DeepSeek Rome"
+#else
+let appWindowTitle = "GPXPointViewer DeepSeek"
+#endif
 import AppKit
 
 /// 各 Window 场景的 id：openWindow(id:) 与按场景找 NSWindow 都用它（窗口标题会被本地化，不能拿来当标识）
@@ -125,7 +131,7 @@ struct GPXPointViewerApp: App {
     }
 
     var body: some Scene {
-        WindowGroup("GPXPointViewer DeepSeek") {
+                WindowGroup(appWindowTitle) {
             ContentView(store: store)
                 .frame(minWidth: 960, minHeight: 640)
                 .onAppear { UITestHook.shared.start(store: store) }   // 仅 GPXPV_UITEST_DIR 环境变量存在时生效

@@ -212,7 +212,7 @@ enum VideoExportEngine {
         var frameErr: String?
 
         let dayFmt = DateFormatter()
-        dayFmt.setLocalizedDateFormatFromTemplate("yMMMd HH:mm")
+        dayFmt.dateFormat = "yyyy-MM-dd HH:mm"
 
         for fi in 0...totalFrames {
             autoreleasepool {
@@ -460,7 +460,7 @@ enum VideoExportEngine {
         ctx.strokePath()
 
         let fontSize = rh * 0.52
-        let font = CTFontCreateWithName("Helvetica-Bold" as CFString, fontSize, nil)
+        let font = CTFontCreateWithName("Menlo-Bold" as CFString, fontSize, nil)
         let attr = NSAttributedString(string: date, attributes: [
             kCTFontAttributeName as NSAttributedString.Key: font,
             kCTForegroundColorAttributeName as NSAttributedString.Key: CGColor(gray: 1, alpha: 0.95),
