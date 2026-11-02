@@ -387,36 +387,50 @@ enum CityPlaybackPlanner {
         max(abs(x0 - x1), abs(y0 - y1))
     }
 
-    /// 供 UI 的城市候选：种子聚类后总点数 ≥10000 的中心
+    /// 供 UI 的城市候选：按事件点的密度网格聚类，权重 ≥10000 的中心。
+    /// 不用会话中心：长途会话的中心会漂到没有点的地名上（例如 Kupferzell）。
     static func candidateCities(events: [PlaybackEvent]) -> [(x: Double, y: Double, w: Double)] {
-        let ev = events.sorted { $0.t < $1.t }
-        let ss = sessions(ev)
-        guard !ss.isEmpty else { return [] }
-        let shortIdx = ss.indices.filter { ss[$0].span <= 0.002 }
-        let byWeight = shortIdx.sorted { ss[$0].w > ss[$1].w }
-        var seeds: [(x: Double, y: Double)] = []
-        for i in byWeight {
-            let d = seeds.map { dist(ss[i].cx, ss[i].cy, $0.x, $0.y) }.min() ?? .infinity
-            if d > 0.003 {
-                seeds.append((ss[i].cx, ss[i].cy))
-                if seeds.count >= 14 { break }
-            }
+        guard !events.isEmpty else { return [] }
+        struct Cell {
+            var w = 0.0
+            var sx = 0.0
+            var sy = 0.0
+            var lat = 0.0
+            var lon = 0.0
         }
-        guard !seeds.isEmpty else { return [] }
-        var weights = [Double](repeating: 0, count: seeds.count)
-        for i in shortIdx {
-            let s = ss[i]
-            var best = -1
-            var bestD = Double.infinity
-            for (k, seed) in seeds.enumerated() {
-                let d = dist(s.cx, s.cy, seed.x, seed.y)
-                if d < bestD { bestD = d; best = k }
-            }
-            if best >= 0, bestD <= 0.0016 { weights[best] += s.w }
+        func lonOf(_ x: Double) -> Double { x * 360 - 180 }
+        func latOf(_ y: Double) -> Double { atan(sinh(.pi * (1 - 2 * y))) * 180 / .pi }
+        var cells: [String: Cell] = [:]
+        for e in events {
+            let la = latOf(e.y), lo = lonOf(e.x)
+            let key = String(format: "%.2f,%.2f", (la * 50).rounded() / 50, (lo * 50).rounded() / 50)
+            var c = cells[key] ?? Cell()
+            c.w += e.w
+            c.sx += e.x * e.w
+            c.sy += e.y * e.w
+            c.lat = (la * 50).rounded() / 50
+            c.lon = (lo * 50).rounded() / 50
+            cells[key] = c
         }
-        return seeds.enumerated().map { (x: $0.element.x, y: $0.element.y, w: weights[$0.offset]) }
-            .filter { $0.w >= 10_000 }
-            .sorted { $0.w > $1.w }
+        let sorted = cells.values.filter { $0.w > 0 }.sorted { $0.w > $1.w }
+        var out: [(x: Double, y: Double, w: Double)] = []
+        for c in sorted {
+            let cx = c.sx / c.w, cy = c.sy / c.w
+            if out.contains(where: { max(abs($0.x - cx), abs($0.y - cy)) < 0.003 }) { continue }
+            let clat = latOf(cy), clon = lonOf(cx)
+            var ww = 0.0, sx = 0.0, sy = 0.0
+            for o in cells.values {
+                let ola = latOf(o.sy / o.w), olo = lonOf(o.sx / o.w)
+                if abs(ola - clat) < 0.05 && abs(olo - clon) < 0.07 {
+                    ww += o.w; sx += o.sx; sy += o.sy
+                }
+            }
+            if ww >= 10_000 {
+                out.append((sx / ww, sy / ww, ww))
+            }
+            if out.count >= 14 { break }
+        }
+        return out.sorted { $0.w > $1.w }
     }
 
     static func build(events: [PlaybackEvent], duration: Double,
