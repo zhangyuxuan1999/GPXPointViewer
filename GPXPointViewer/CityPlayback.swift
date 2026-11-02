@@ -82,6 +82,7 @@ struct CityPlan {
     var dataStart: Double = 0
     var dataEnd: Double = 0
     var finaleRange: (Double, Double) = (0, 0)
+    var clipBox: (x0: Double, y0: Double, x1: Double, y1: Double)?   // 单城模式只画城市半径内的点
 
     var areaCount: Int { cities.count + transit.count }
     /// 片尾/跨洲过渡允许的宽幅上限（约 162°；实时回放在这个尺度会进入地球视角）
@@ -129,6 +130,9 @@ struct CityPlan {
                           wide: last.wide, aspect: aspect)
         }
         if ch.city >= 0 || ch.trip {
+            if ch.city >= 0, let clip = clipBox {
+                return camera(box: clip, margin: 1.1, wide: false, aspect: aspect)
+            }
             return camera(box: (ch.x0, ch.y0, ch.x1, ch.y1), margin: ch.margin,
                           wide: ch.wide, aspect: aspect)
         }
@@ -302,6 +306,16 @@ struct PlaybackRevealData {
         for i in 0..<n {
             let t = track.time[i]
             guard t.isFinite else { times[i] = 0; continue }
+            if let clip = plan.clipBox {
+                let x = track.mercX[i], y = track.mercY[i]
+                if x < clip.x0 || x > clip.x1 || y < clip.y0 || y > clip.y1 {
+                    areas[i] = UInt16(plan.areaCount)   // 单城半径外：隐藏
+                    let rel = (t - epoch).rounded(.down)
+                    times[i] = rel <= 0 ? 1
+                        : (rel >= Double(UInt32.max - 2) ? UInt32.max - 1 : UInt32(rel) + 1)
+                    continue
+                }
+            }
             while next < m && tl[next].t0 <= t { active.append(next); next += 1 }
             active.removeAll { tl[$0].t1 < t }
             var area = plan.areaCount   // 隐藏区
@@ -904,6 +918,11 @@ enum CityPlaybackPlanner {
         guard !timeline.isEmpty else { return nil }
 
         var plan = CityPlan()
+        if let seedOverride, seedOverride.count == 1 {
+            let c = seedOverride[0]
+            let r = 0.0009   // 约 36km：城市及近郊，镜头不再拉到大同
+            plan.clipBox = (c.x - r, c.y - r, c.x + r, c.y + r)
+        }
         for i in chapters.indices { chapters[i].shortForm = shortForm }
         plan.cities = cities
         plan.transit = transit
