@@ -2994,6 +2994,16 @@ struct PlaybackSetupSheet: View {
         names[item.id] ?? String(format: "%.2f, %.2f", lat(item.y), lon(item.x))
     }
 
+    private var setupCenters: [(x: Double, y: Double)]? {
+        guard modeRaw == "city" else { return nil }
+        guard let item = store.cityPickerItems.first(where: { $0.id == selectedCity }) else { return nil }
+        return [(x: item.x, y: item.y)]
+    }
+
+    private func prewarm() {
+        store.prewarmPlayback(duration: duration, seedCenters: setupCenters)
+    }
+
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
             Text("时光机").font(.title2).bold()
@@ -3080,7 +3090,11 @@ struct PlaybackSetupSheet: View {
         .onChange(of: store.cityPickerItems.count) { _ in
             restoreSelection()
             loadNames()
+            prewarm()
         }
-        .onAppear { loadNames() }
+        .onChange(of: duration) { _ in prewarm() }
+        .onChange(of: modeRaw) { _ in prewarm() }
+        .onChange(of: selectedCity) { _ in prewarm() }
+        .onAppear { loadNames(); prewarm() }
     }
 }

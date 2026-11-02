@@ -143,10 +143,19 @@ struct CityPlan {
             let prev = chapters[max(0, j)]
             let start = camera(box: (prev.x0, prev.y0, prev.x1, prev.y1),
                                margin: prev.margin, wide: prev.wide, aspect: aspect)
-            // 短版只轻轻拉远，避免最后 1 秒变成全球空镜
-            let end = ch.shortForm
-                ? PlaybackCamera(cx: start.cx, cy: start.cy, span: start.span * 1.35)
-                : fullEnd
+            // 短版片尾：拉到所有城市/长途章的并集（中国+欧洲都在），不是只停在最后一个城市
+            var union: (x0: Double, y0: Double, x1: Double, y1: Double)?
+            for c in chapters where c.city >= 0 || c.trip {
+                if let u = union {
+                    union = (min(u.x0, c.x0), min(u.y0, c.y0), max(u.x1, c.x1), max(u.y1, c.y1))
+                } else {
+                    union = (c.x0, c.y0, c.x1, c.y1)
+                }
+            }
+            let shortEnd = union.map {
+                camera(box: $0, margin: 1.15, wide: true, aspect: aspect)
+            } ?? fullEnd
+            let end = ch.shortForm ? shortEnd : fullEnd
             let u = min(1, max(0, (p - ch.p0) / max(1e-9, ch.p1 - ch.p0)))
             let e = 1 - pow(1 - u, 2.2)
             let ls = log(max(start.span, 1e-9)), le = log(max(end.span, 1e-9))

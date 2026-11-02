@@ -3291,6 +3291,12 @@ struct PointMapView: NSViewRepresentable {
         }
 
         private func processHover(at p: CGPoint) {
+            // 时光机播放时不做悬停拾取：不显示未揭示/已画轨迹的点信息，也省掉每帧拾取
+            if store.playback != nil {
+                if store.hover != nil { store.hover = nil }
+                if highlightIndex != nil { highlightIndex = nil }
+                return
+            }
             guard let track = store.track else { return }
             let hit = hitTest(at: p)
             let newHover = hit.map { track.info(at: $0, screenPoint: p) }

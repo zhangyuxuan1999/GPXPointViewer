@@ -95,6 +95,15 @@ final class TrackStore: ObservableObject {
     @Published var cityPickerItems: [CityPickItem] = []
     @Published var showCityPicker = false
     @Published var showPlaybackSetup = false
+    private struct PlaybackPrewarm {
+        var duration: Double
+        var seedCenters: [(x: Double, y: Double)]?
+        var plan: PlaybackPlan
+        var events: [PlaybackEvent]
+        var lodLevels: [PointLODLevel]
+    }
+    private var prewarm: PlaybackPrewarm?
+    private var prewarmToken = 0
     var hover: PointInfo? {
         get { hoverState.info }
         set { if hoverState.info != newValue { hoverState.info = newValue } }
@@ -430,6 +439,18 @@ final class TrackStore: ObservableObject {
         let chosen = UserDefaults.standard.object(forKey: "playbackDuration") as? Double ?? duration
         noteUserActivity()
         if settings.heat3D { settings.heat3D = false }   // 3D 热力与回放互斥
+        if let track, track.isTimeSorted,
+           let pre = prewarm,
+           abs(pre.duration - chosen) < 0.05,
+           centersEqual(pre.seedCenters, seedCenters) {
+            prewarm = nil
+            var adjusted = pre.plan
+            let reveal = adjusted.cityPlan.flatMap { PlaybackRevealData(track: track, plan: $0) }
+            if let reveal { refineCityQuantiles(&adjusted, track: track, reveal: reveal) }
+            playback = PlaybackSession(plan: adjusted, events: pre.events, isArchive: false,
+                                       reveal: reveal, lodLevels: pre.lodLevels, seedCenters: seedCenters)
+            return
+        }
         if let track, track.isTimeSorted {
             let token = publicationClock.begin(.playback, fileIDs: files.map(\.id), sourceID: track.id)
             Task.detached(priority: .userInitiated) { [weak self] in
@@ -473,6 +494,40 @@ final class TrackStore: ObservableObject {
                 return
             }
             playback = PlaybackSession(plan: plan, events: evs, isArchive: true)
+        }
+    }
+
+    private func centersEqual(_ a: [(x: Double, y: Double)]?, _ b: [(x: Double, y: Double)]?) -> Bool {
+        switch (a, b) {
+        case (nil, nil): return true
+        case let (a?, b?):
+            guard a.count == b.count else { return false }
+            return zip(a, b).allSatisfy { abs($0.x - $1.x) < 1e-6 && abs($0.y - $1.y) < 1e-6 }
+        default: return false
+        }
+    }
+
+    /// 设置面板打开/改选项时后台预构建计划和 LOD，点“开始”直接提交
+    func prewarmPlayback(duration: Double, seedCenters: [(x: Double, y: Double)]?) {
+        guard let track, track.isTimeSorted, playback == nil else { return }
+        prewarmToken += 1
+        let token = prewarmToken
+        Task.detached(priority: .userInitiated) { [weak self] in
+            let evs = PlaybackPlan.events(track: track)
+            guard let plan = PlaybackPlan.buildCities(events: evs, duration: duration, seedOverride: seedCenters) else { return }
+            var lod: [PointLODLevel] = []
+            if let cp = plan.cityPlan {
+                for c in cp.cities {
+                    let base = max(c.x1 - c.x0, c.y1 - c.y0) * 1.15
+                    lod += PointLODBuilder.build(track: track, center: (c.cx, c.cy),
+                                                 baseSpan: max(base, 0.001), levels: 5)
+                }
+            }
+            await MainActor.run {
+                guard let self, token == self.prewarmToken else { return }
+                self.prewarm = PlaybackPrewarm(duration: duration, seedCenters: seedCenters,
+                                               plan: plan, events: evs, lodLevels: lod)
+            }
         }
     }
 
