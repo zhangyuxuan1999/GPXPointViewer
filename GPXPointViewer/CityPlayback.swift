@@ -525,7 +525,13 @@ enum CityPlaybackPlanner {
         // 4) 建立城市（按首次到访时间排序）
         var cities: [PlaybackCity] = []
         var oldToNew: [Int: Int] = [:]
-        let ordered = ranked.map { $0.offset }.sorted { accs[$0].w > accs[$1].w }
+        // 追加城市时按首次到访时间排，避免一个欧洲小城因会话权重大而插到北京/西安前面
+        let ordered: [Int]
+        if seedOverride != nil {
+            ordered = ranked.map { $0.offset }.sorted { accs[$0].t0 < accs[$1].t0 }
+        } else {
+            ordered = ranked.map { $0.offset }.sorted { accs[$0].w > accs[$1].w }
+        }
         for (newID, oldID) in ordered.enumerated() {
             oldToNew[oldID] = newID
             let a = accs[oldID]
