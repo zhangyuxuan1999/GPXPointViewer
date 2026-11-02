@@ -968,6 +968,19 @@ final class TrackStore: ObservableObject {
             var merged = GPXParser.mergeParsed(parseds)
             merged.name = name
             // 完整数据回放：不再做单城过滤（单城预览见 tag beijing-r19 / xian-r1）
+#if ROME_PREVIEW
+            var rome = ParsedTrack()
+            rome.name = merged.name
+            for i in merged.lat.indices
+            where merged.lat[i] > 41.5 && merged.lat[i] < 42.2
+               && merged.lon[i] > 12.0 && merged.lon[i] < 12.9 {
+                rome.lat.append(merged.lat[i]); rome.lon.append(merged.lon[i])
+                rome.ele.append(merged.ele[i]); rome.time.append(merged.time[i])
+                if i < merged.fileID.count { rome.fileID.append(merged.fileID[i]) }
+                if i < merged.segmentID.count { rome.segmentID.append(merged.segmentID[i]) }
+            }
+            merged = rome
+#endif
             let (track, stats) = TrackData.build(parsed: merged, preferredMode: mode,
                                                  singleColor: single,
                                                  overlayFileColors: overlayColors)

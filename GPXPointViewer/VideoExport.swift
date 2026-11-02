@@ -212,7 +212,7 @@ enum VideoExportEngine {
         var frameErr: String?
 
         let dayFmt = DateFormatter()
-        dayFmt.setLocalizedDateFormatFromTemplate("y")   // DeepSeek 2026-10-31：用户要求只显示年份
+        dayFmt.setLocalizedDateFormatFromTemplate("yMMMd HH:mm")
 
         for fi in 0...totalFrames {
             autoreleasepool {

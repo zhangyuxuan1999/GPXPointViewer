@@ -2489,7 +2489,7 @@ struct PlaybackBarView: View {
 
     private static let dayFmt: DateFormatter = {
         let f = DateFormatter()
-        f.setLocalizedDateFormatFromTemplate("yMMMd")   // 中文即「yyyy年M月d日」，其它语言用各自的日期写法
+        f.setLocalizedDateFormatFromTemplate("yMMMd HH:mm")   // 中文即「yyyy年M月d日」，其它语言用各自的日期写法
         return f
     }()
 

@@ -125,7 +125,7 @@ struct GPXPointViewerApp: App {
     }
 
     var body: some Scene {
-        WindowGroup("GPX 点位查看器") {
+        WindowGroup("GPXPointViewer DeepSeek") {
             ContentView(store: store)
                 .frame(minWidth: 960, minHeight: 640)
                 .onAppear { UITestHook.shared.start(store: store) }   // 仅 GPXPV_UITEST_DIR 环境变量存在时生效
