@@ -6,6 +6,7 @@ let parsed = try! GPXParser.parse(data: data)
 let (track, _) = TrackData.build(parsed: parsed, preferredMode: .single)
 let plan = PlaybackPlan.buildCities(events: PlaybackPlan.events(track: track), duration: 45.0667)!
 let cp = plan.cityPlan!
+guard let rv = PlaybackRevealData(track: track, plan: cp) else { print("no reveal"); exit(1) }
 func lon(_ x: Double) -> Double { x*360-180 }
 func lat(_ y: Double) -> Double { atan(sinh(.pi*(1-2*y)))*180 / .pi }
 var failures = 0
@@ -39,6 +40,28 @@ for (i, ch) in cp.chapters.enumerated() {
             if !inside {
                 print(String(format: "FAIL %d %@ frac=%.2f active bbox outside camera (n=%d) x=%.4f..%.4f cam=%.4f±%.4f y=%.4f..%.4f cam=%.4f±%.4f", i, kind, frac, active.count, x0,x1,cam.cx,halfW,y0,y1,cam.cy,halfH))
                 failures += 1
+            }
+        }
+        // 点级：当前活动区域已揭示的点必须落在本章 bbox 内
+        if ch.city >= 0 || ch.trip {
+            let pm = (ch.p0 + ch.p1) * 0.5
+            if let cm = plan.cursors(at: pm) {
+                var outside = 0, total = 0
+                for k in 0..<track.count {
+                    let a = Int(rv.areaOfPoint[k])
+                    guard a < cm.count, cm[a] > 0 else { continue }
+                    let tt = Double(rv.times[k]) + cp.dataStart - 1
+                    guard tt <= cp.dataStart + Double(cm[a] - 1) else { continue }
+                    total += 1
+                    let x = track.mercX[k], y = track.mercY[k]
+                    if x < ch.x0 - 2e-5 || x > ch.x1 + 2e-5 || y < ch.y0 - 2e-5 || y > ch.y1 + 2e-5 {
+                        outside += 1
+                    }
+                }
+                if outside > 0 {
+                    print("FAIL \(i) \(kind) \(outside)/\(total) visible points outside chapter bbox")
+                    failures += 1
+                }
             }
         }
         // 城市/长途章节开头强制空
