@@ -553,7 +553,7 @@ enum CityPlaybackPlanner {
                     let gap = t.t0 - last.t1
                     let uw = max(last.x1, t.x1) - min(last.x0, t.x0)
                     let uh = max(last.y1, t.y1) - min(last.y0, t.y0)
-                    if gap < 12 * 3600, t.t1 - last.t0 < 10 * 86400, uw < 0.35, uh < 0.35 {
+                    if gap < 18 * 3600, t.t1 - last.t0 < 30 * 86400, uw < 0.35, uh < 0.35 {
                         last.ids.append(ti)
                         last.t0 = min(last.t0, t.t0); last.t1 = max(last.t1, t.t1)
                         last.x0 = min(last.x0, t.x0); last.y0 = min(last.y0, t.y0)
