@@ -8,6 +8,7 @@
 //
 
 import SwiftUI
+import CoreLocation
 import UniformTypeIdentifiers
 
 struct ContentView: View {
@@ -324,7 +325,7 @@ struct ContentView: View {
     @State private var imgExportTransparent = false
     @State private var imgExportScaleBar = true
 
-    @State private var vidExportWidth = 1920
+    @AppStorage("videoWidth") private var vidExportWidth = 1920
 
     private var videoExportSheet: some View {
         VStack(alignment: .leading, spacing: 14) {
@@ -337,6 +338,7 @@ struct ContentView: View {
             HStack(spacing: 8) {
                 Text("分辨率").font(.callout).frame(width: 60, alignment: .leading)
                 Picker("分辨率", selection: $vidExportWidth) {
+                    Text("720p（1280×720）").tag(1280)
                     Text("1080p（1920×1080）").tag(1920)
                     Text("4K（3840×2160）").tag(3840)
                 }
@@ -1331,11 +1333,16 @@ struct ContentView: View {
                 if store.playbackAvailable, store.playback == nil,
                    !store.deleteMode, !store.fillMode, store.displayMode != .compare {
                     Button {
-                        store.startPlayback()
+                        store.loadCityCandidates()
+                        store.showPlaybackSetup = true
                     } label: {
                         Image(systemName: "clock.arrow.circlepath")
                     }
-                    .help("时光机：按真实时间回放整段历史——轨迹/迷雾从无到有生长，相机在活跃区域间自动巡游；底部时间轴可拖动，支持导出视频")
+                    .help("时光机：先选城市/整体模式、时长和分辨率")
+                    .sheet(isPresented: Binding(get: { store.showPlaybackSetup },
+                                                set: { store.showPlaybackSetup = $0 })) {
+                        PlaybackSetupSheet(store: store)
+                    }
                 }
 
                 Spacer(minLength: 0)
@@ -2483,7 +2490,7 @@ private struct TooltipCard: View {
 // MARK: - 时光机时间轴（独立观察回放时钟，60fps 步进不惊扰整棵视图树）
 
 struct PlaybackBarView: View {
-    let store: TrackStore
+    @ObservedObject var store: TrackStore
     @ObservedObject var session: PlaybackSession
     @ObservedObject var clock: PlaybackClock
 
@@ -2916,5 +2923,138 @@ struct CityPickerSheet: View {
         .padding()
         .frame(width: 440, height: 480)
         .onAppear { selected = store.defaultCitySelection() }
+    }
+}
+
+struct PlaybackSetupSheet: View {
+    @ObservedObject var store: TrackStore
+    @AppStorage("playbackMode") private var modeRaw = "overall"
+    @AppStorage("playbackDuration") private var duration = 45.0
+    @AppStorage("videoWidth") private var videoWidth = 1920
+    @AppStorage("playbackCityX") private var cityX = 0.0
+    @AppStorage("playbackCityY") private var cityY = 0.0
+    @State private var selectedCity = -1
+    @State private var names: [Int: String] = [:]
+
+    private func lat(_ y: Double) -> Double { atan(sinh(.pi * (1 - 2 * y))) * 180 / .pi }
+    private func lon(_ x: Double) -> Double { x * 360 - 180 }
+
+    private func restoreSelection() {
+        guard !store.cityPickerItems.isEmpty else { return }
+        var best = -1
+        var bestD = Double.infinity
+        for (i, item) in store.cityPickerItems.enumerated() {
+            let d = abs(item.x - cityX) + abs(item.y - cityY)
+            if d < bestD { bestD = d; best = i }
+        }
+        if bestD < 0.01 { selectedCity = best }
+        else if selectedCity < 0 { selectedCity = store.cityPickerItems.first?.id ?? -1 }
+    }
+
+    private func loadNames() {
+        for item in store.cityPickerItems where names[item.id] == nil {
+            let loc = CLLocation(latitude: lat(item.y), longitude: lon(item.x))
+            CLGeocoder().reverseGeocodeLocation(loc) { placemarks, _ in
+                let p = placemarks?.first
+                let name = p?.locality ?? p?.subAdministrativeArea ?? p?.administrativeArea
+                if let name {
+                    DispatchQueue.main.async { names[item.id] = name }
+                }
+            }
+        }
+    }
+
+    private func name(for item: CityPickItem) -> String {
+        names[item.id] ?? String(format: "%.2f, %.2f", lat(item.y), lon(item.x))
+    }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 14) {
+            Text("时光机").font(.title2).bold()
+            Picker("模式", selection: $modeRaw) {
+                Text("整体时光机").tag("overall")
+                Text("城市时光机").tag("city")
+            }
+            .pickerStyle(.segmented)
+
+            if modeRaw == "city" {
+                Text("选择城市").font(.headline)
+                if store.cityPickerItems.isEmpty {
+                    HStack { ProgressView(); Text("正在分析城市…").font(.caption) }
+                        .frame(maxWidth: .infinity, minHeight: 120)
+                } else {
+                    ScrollView {
+                        VStack(spacing: 0) {
+                            ForEach(store.cityPickerItems) { item in
+                                Button {
+                                    selectedCity = item.id
+                                } label: {
+                                    HStack(spacing: 8) {
+                                        Image(systemName: selectedCity == item.id ? "largecircle.fill.circle" : "circle")
+                                        Text(name(for: item))
+                                        Spacer()
+                                        Text("\(Int(item.w)) 点").font(.caption).foregroundStyle(.secondary)
+                                    }
+                                    .contentShape(Rectangle())
+                                    .padding(.vertical, 4)
+                                }
+                                .buttonStyle(.plain)
+                                Divider()
+                            }
+                        }
+                    }
+                    .frame(height: 150)
+                }
+            }
+
+            Picker("时长", selection: $duration) {
+                Text("10 秒").tag(10.0)
+                Text("20 秒").tag(20.0)
+                Text("30 秒").tag(30.0)
+                Text("45 秒").tag(45.0)
+                Text("60 秒").tag(60.0)
+                Text("2 分钟").tag(120.0)
+            }
+            .pickerStyle(.segmented)
+            .onAppear {
+                if duration < 10 { duration = 10 }
+                if duration > 120 { duration = 120 }
+            }
+
+            Picker("视频分辨率", selection: $videoWidth) {
+                Text("720p").tag(1280)
+                Text("1080p").tag(1920)
+                Text("4K").tag(3840)
+            }
+            .pickerStyle(.segmented)
+
+            HStack {
+                Spacer()
+                Button("取消") { store.showPlaybackSetup = false }
+                Button("开始") {
+                    var centers: [(x: Double, y: Double)]? = nil
+                    if modeRaw == "city", let item = store.cityPickerItems.first(where: { $0.id == selectedCity }) {
+                        centers = [(x: item.x, y: item.y)]
+                        cityX = item.x
+                        cityY = item.y
+                    }
+                    store.showPlaybackSetup = false
+                    store.startPlayback(duration: duration, seedCenters: centers)
+                }
+                .keyboardShortcut(.defaultAction)
+                .disabled(modeRaw == "city" && selectedCity < 0)
+            }
+        }
+        .padding(20)
+        .frame(width: 520, height: 520)
+        .onAppear {
+            store.loadCityCandidates()
+            restoreSelection()
+        }
+        .onChange(of: store.cityPickerItems.count) { _ in
+            restoreSelection()
+            loadNames()
+        }
+        .onAppear { loadNames() }
     }
 }

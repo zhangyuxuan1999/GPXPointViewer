@@ -94,6 +94,7 @@ final class TrackStore: ObservableObject {
     @Published var settings = ViewSettings()
     @Published var cityPickerItems: [CityPickItem] = []
     @Published var showCityPicker = false
+    @Published var showPlaybackSetup = false
     var hover: PointInfo? {
         get { hoverState.info }
         set { if hoverState.info != newValue { hoverState.info = newValue } }
@@ -472,6 +473,20 @@ final class TrackStore: ObservableObject {
                 return
             }
             playback = PlaybackSession(plan: plan, events: evs, isArchive: true)
+        }
+    }
+
+    func loadCityCandidates() {
+        guard let track, cityPickerItems.isEmpty else { return }
+        Task.detached(priority: .userInitiated) { [weak self] in
+            let evs = PlaybackPlan.events(track: track)
+            let cands = CityPlaybackPlanner.candidateCities(events: evs)
+            await MainActor.run {
+                guard let self else { return }
+                self.cityPickerItems = cands.enumerated().map {
+                    CityPickItem(id: $0.offset, x: $0.element.x, y: $0.element.y, w: $0.element.w)
+                }
+            }
         }
     }
 

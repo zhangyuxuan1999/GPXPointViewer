@@ -710,7 +710,7 @@ enum CityPlaybackPlanner {
             if tripClusters.count > 2 { tripClusters = Array(tripClusters.prefix(2)) }
         }
         func tripDuration(_ c: TripCluster) -> Double {
-            min(5.0, 2.0 + 0.12 * Double(c.ids.count))
+            duration < 25 ? 1.6 : min(5.0, 2.0 + 0.12 * Double(c.ids.count))
         }
         func tripTimeCurve(_ c: TripCluster) -> [Double] {
             let entries = c.ids.map { transit[$0] }.sorted { $0.t0 < $1.t0 }
@@ -743,7 +743,6 @@ enum CityPlaybackPlanner {
             }
             return q
         }
-        if duration < 25 { tripClusters = [] }   // 10/20 秒短版只放城市
         let tripSet = Set(tripClusters.flatMap { $0.ids })
         // 过渡段只做城市间的相机移动，不再画城际点：
         // 城际全部交给长途专题/片尾，避免“断线”和把相机拉到全国尺度。
