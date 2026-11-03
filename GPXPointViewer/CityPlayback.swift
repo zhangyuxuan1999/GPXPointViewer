@@ -84,6 +84,8 @@ struct CityPlan {
     var finaleRange: (Double, Double) = (0, 0)
     var clipBox: (x0: Double, y0: Double, x1: Double, y1: Double)?   // 单城：行政区 bbox
     var clipRegion: UInt16?                                        // 单城：行政区 id（优先于半径）
+    var clipRegions: [UInt16] = []                                 // 单城：可多个（西安+咸阳）
+    var clipDataBox: (x0: Double, y0: Double, x1: Double, y1: Double)?   // 单城：实际数据范围（相机用它，不用整个行政区）
 
     var areaCount: Int { cities.count + transit.count }
     /// 片尾/跨洲过渡允许的宽幅上限（约 162°；实时回放在这个尺度会进入地球视角）
@@ -131,6 +133,10 @@ struct CityPlan {
                           wide: last.wide, aspect: aspect)
         }
         if ch.city >= 0 || ch.trip {
+            if ch.city >= 0, let data = clipDataBox {
+                // 城市镜头按实际点范围取景，避免行政区一大片空白
+                return camera(box: data, margin: 1.12, wide: false, aspect: aspect)
+            }
             if ch.city >= 0, let clip = clipBox {
                 return camera(box: clip, margin: 1.1, wide: false, aspect: aspect)
             }
@@ -310,11 +316,11 @@ struct PlaybackRevealData {
             if let clip = plan.clipBox {
                 let x = track.mercX[i], y = track.mercY[i]
                 var outside = x < clip.x0 || x > clip.x1 || y < clip.y0 || y > clip.y1
-                if !outside, let rid = plan.clipRegion, let idx = RegionIndex.shared {
+                if !outside, !plan.clipRegions.isEmpty, let idx = RegionIndex.shared {
                     let la = atan(sinh(.pi * (1 - 2 * y))) * 180 / .pi
                     let lo = x * 360 - 180
                     let ym = Int64((la * 1e6).rounded()), xm = Int64((lo * 1e6).rounded())
-                    outside = !idx.contains(rid, latMicro: ym, lonMicro: xm)
+                    outside = !plan.clipRegions.contains(where: { idx.contains($0, latMicro: ym, lonMicro: xm) })
                 }
                 if outside {
                     areas[i] = UInt16(plan.areaCount)   // 行政区外：隐藏
@@ -945,13 +951,51 @@ enum CityPlaybackPlanner {
                     || municipalities.contains(parent.nameEn)) {
                     use = parent
                 }
-                // 单城模式直接用内置行政区：北京包含雁栖湖，不会把大同算进来
-                let x0 = (use.minLonDeg + 180) / 360, x1 = (use.maxLonDeg + 180) / 360
-                let yTop = 0.5 - log(tan(.pi / 4 + use.maxLatDeg * .pi / 360)) / (2 * .pi)
-                let yBot = 0.5 - log(tan(.pi / 4 + use.minLatDeg * .pi / 360)) / (2 * .pi)
+                var uses = [use]
+                // 用户规则：西安默认带咸阳
+                if use.nameHans.contains("西安") || use.nameEn.lowercased().contains("xi'an") {
+                    if let xy = idx.regions.first(where: {
+                        $0.level >= 2 && ($0.nameHans.contains("咸阳") || $0.nameEn.lowercased().contains("xianyang"))
+                    }) {
+                        uses.append(xy)
+                    }
+                }
+                var minLa = 90.0, maxLa = -90.0, minLo = 180.0, maxLo = -180.0
+                for u in uses {
+                    minLa = min(minLa, u.minLatDeg); maxLa = max(maxLa, u.maxLatDeg)
+                    minLo = min(minLo, u.minLonDeg); maxLo = max(maxLo, u.maxLonDeg)
+                }
+                let x0 = (minLo + 180) / 360, x1 = (maxLo + 180) / 360
+                let yTop = 0.5 - log(tan(.pi / 4 + maxLa * .pi / 360)) / (2 * .pi)
+                let yBot = 0.5 - log(tan(.pi / 4 + minLa * .pi / 360)) / (2 * .pi)
                 plan.clipBox = (x0, yTop, x1, yBot)
-                plan.clipRegion = use.id
+                plan.clipRegions = uses.map(\.id)
+                plan.clipRegion = uses[0].id
                 usedRegion = true
+                // 相机只取点的密集范围（2%–98% 分位），不让少量远郊/长途把画面撑满空白
+                var xs: [(v: Double, w: Double)] = []
+                var ys: [(v: Double, w: Double)] = []
+                for e in ev {
+                    let la = atan(sinh(.pi * (1 - 2 * e.y))) * 180 / .pi
+                    let lo = e.x * 360 - 180
+                    let ym = Int64((la * 1e6).rounded()), xm = Int64((lo * 1e6).rounded())
+                    guard uses.contains(where: { idx.contains($0.id, latMicro: ym, lonMicro: xm) }) else { continue }
+                    xs.append((e.x, e.w)); ys.append((e.y, e.w))
+                }
+                if xs.count > 4 {
+                    xs.sort { $0.v < $1.v }; ys.sort { $0.v < $1.v }
+                    let total = xs.reduce(0.0) { $0 + $1.w }
+                    func quantile(_ a: [(v: Double, w: Double)], _ q: Double) -> Double {
+                        let target = total * q
+                        var acc = 0.0
+                        for e in a { acc += e.w; if acc >= target { return e.v } }
+                        return a.last?.v ?? 0
+                    }
+                    let x0 = quantile(xs, 0.10), x1 = quantile(xs, 0.90)
+                    let y0 = quantile(ys, 0.10), y1 = quantile(ys, 0.90)
+                    let padX = max(1e-5, (x1 - x0) * 0.06), padY = max(1e-5, (y1 - y0) * 0.06)
+                    plan.clipDataBox = (x0 - padX, y0 - padY, x1 + padX, y1 + padY)
+                }
             }
             if !usedRegion {
                 let rr = 0.0009

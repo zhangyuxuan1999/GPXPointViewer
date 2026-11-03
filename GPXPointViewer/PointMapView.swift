@@ -21,6 +21,9 @@ extension Notification.Name {
 }
 import AppKit
 import MapKit
+
+/// 时光机城市区域淡黄色底纹（和地区统计的高亮区分）
+final class CityTintPolygon: MKPolygon {}
 import MetalKit
 import QuartzCore
 import simd
@@ -246,6 +249,8 @@ struct PointMapView: NSViewRepresentable {
         private var shownLocateVersion = 0
         private var shownRegionFocusVersion = 0
         private var regionOverlays: [MKOverlay] = []      // 地区统计：当前高亮的边界多边形
+        private var playbackTintOverlays: [MKOverlay] = []
+        private var shownPlaybackTintKey: String = ""
         private let baseMap = BaseMapApplier()            // 底图来源（Apple 配置 / 外部瓦片 overlay）
         private let tunnels = TunnelLayer(name: "main")   // 叠加 OSM 隧道
         private var shownFwdbVersion = 0
@@ -1770,6 +1775,33 @@ struct PointMapView: NSViewRepresentable {
             }
         }
 
+        /// 时光机城市模式：给整个行政区铺非常淡的黄色底纹
+        private func updatePlaybackCityTint(_ pb: PlaybackSession) {
+            guard let container, let cp = pb.plan.cityPlan else { return }
+            let ids = cp.clipRegions
+            let key = ids.map(String.init).joined(separator: ",")
+            guard key != shownPlaybackTintKey else { return }
+            if !playbackTintOverlays.isEmpty {
+                container.mapView.removeOverlays(playbackTintOverlays)
+                playbackTintOverlays = []
+            }
+            shownPlaybackTintKey = key
+            guard !ids.isEmpty, let index = RegionIndex.shared else { return }
+            var polys: [MKPolygon] = []
+            for id in ids {
+                for poly in index.polygons(of: id) where poly.outer.count >= 3 {
+                    let o = poly.outer.map { CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.lon) }
+                    let inner = poly.holes.filter { $0.count >= 3 }.map { h -> MKPolygon in
+                        let c = h.map { CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.lon) }
+                        return MKPolygon(coordinates: c, count: c.count)
+                    }
+                    polys.append(CityTintPolygon(coordinates: o, count: o.count, interiorPolygons: inner))
+                }
+            }
+            playbackTintOverlays = polys
+            container.mapView.addOverlays(polys, level: .aboveRoads)
+        }
+
         /// 行政区高亮：MKPolygon 覆盖层（洞按写入顺序归入紧挨着的外环），可选飞到地区范围
         /// （经度范围按环在圆上的最大空隙算，跨日界线的俄/美/斐济不会飞成整幅世界；太大的地区裁到 ≤5500 km 以免触发地球视角把覆盖层藏掉）
         private func applyRegionHighlight(fly: Bool? = nil) {
@@ -2009,10 +2041,16 @@ struct PointMapView: NSViewRepresentable {
                 if let cursors = pb.plan.cursors(at: pb.clock.head) {
                     renderer.updatePlaybackCursors(cursors)
                 }
+                updatePlaybackCityTint(pb)
             } else if shownPlaybackRevealID != nil {
                 // DeepSeek 2026-11-01：回放结束后清掉 LOD/揭示，普通视图恢复全量
                 renderer.clearPlaybackReveal()
                 renderer.clearLODLevels()
+                if !playbackTintOverlays.isEmpty {
+                    container.mapView.removeOverlays(playbackTintOverlays)
+                    playbackTintOverlays = []
+                }
+                shownPlaybackTintKey = ""
                 shownPlaybackRevealID = nil
                 shownPlaybackRevealVersion = -1
             }
@@ -3228,6 +3266,12 @@ struct PointMapView: NSViewRepresentable {
             if let r = TunnelLayer.renderer(for: overlay) { return r }
             if let poly = overlay as? MKPolygon {
                 let r = MKPolygonRenderer(polygon: poly)
+                if overlay is CityTintPolygon {
+                    r.strokeColor = NSColor.systemYellow.withAlphaComponent(0.35)
+                    r.fillColor = NSColor.systemYellow.withAlphaComponent(0.10)
+                    r.lineWidth = 1
+                    return r
+                }
                 r.strokeColor = NSColor.systemOrange
                 r.fillColor = NSColor.systemOrange.withAlphaComponent(0.12)
                 r.lineWidth = 2
