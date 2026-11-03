@@ -82,7 +82,8 @@ struct CityPlan {
     var dataStart: Double = 0
     var dataEnd: Double = 0
     var finaleRange: (Double, Double) = (0, 0)
-    var clipBox: (x0: Double, y0: Double, x1: Double, y1: Double)?   // 单城模式只画城市半径内的点
+    var clipBox: (x0: Double, y0: Double, x1: Double, y1: Double)?   // 单城：行政区 bbox
+    var clipRegion: UInt16?                                        // 单城：行政区 id（优先于半径）
 
     var areaCount: Int { cities.count + transit.count }
     /// 片尾/跨洲过渡允许的宽幅上限（约 162°；实时回放在这个尺度会进入地球视角）
@@ -308,8 +309,15 @@ struct PlaybackRevealData {
             guard t.isFinite else { times[i] = 0; continue }
             if let clip = plan.clipBox {
                 let x = track.mercX[i], y = track.mercY[i]
-                if x < clip.x0 || x > clip.x1 || y < clip.y0 || y > clip.y1 {
-                    areas[i] = UInt16(plan.areaCount)   // 单城半径外：隐藏
+                var outside = x < clip.x0 || x > clip.x1 || y < clip.y0 || y > clip.y1
+                if !outside, let rid = plan.clipRegion, let idx = RegionIndex.shared {
+                    let la = atan(sinh(.pi * (1 - 2 * y))) * 180 / .pi
+                    let lo = x * 360 - 180
+                    let ym = Int64((la * 1e6).rounded()), xm = Int64((lo * 1e6).rounded())
+                    outside = !idx.contains(rid, latMicro: ym, lonMicro: xm)
+                }
+                if outside {
+                    areas[i] = UInt16(plan.areaCount)   // 行政区外：隐藏
                     let rel = (t - epoch).rounded(.down)
                     times[i] = rel <= 0 ? 1
                         : (rel >= Double(UInt32.max - 2) ? UInt32.max - 1 : UInt32(rel) + 1)
@@ -920,8 +928,35 @@ enum CityPlaybackPlanner {
         var plan = CityPlan()
         if let seedOverride, seedOverride.count == 1 {
             let c = seedOverride[0]
-            let r = 0.0009   // 约 36km：城市及近郊，镜头不再拉到大同
-            plan.clipBox = (c.x - r, c.y - r, c.x + r, c.y + r)
+            let lon = c.x * 360 - 180
+            let lat = atan(sinh(.pi * (1 - 2 * c.y))) * 180 / .pi
+            var usedRegion = false
+            if let idx = RegionIndex.shared,
+               let id = idx.lookup(lat: lat, lon: lon),
+               let r = idx.region(id), r.level >= 2 {
+                // 直辖市（北京/上海/天津/重庆）：查到的 level 2 往往是区，取带“市”的父级
+                var use = r
+                let municipalities: Set<String> = ["北京", "上海", "天津", "重庆",
+                                                    "Beijing", "Shanghai", "Tianjin", "Chongqing"]
+                if r.level == 2, r.hasParent,
+                   let parent = idx.region(r.parent), parent.level == 1,
+                   (parent.nameHans.hasSuffix("市")
+                    || municipalities.contains(parent.nameHans)
+                    || municipalities.contains(parent.nameEn)) {
+                    use = parent
+                }
+                // 单城模式直接用内置行政区：北京包含雁栖湖，不会把大同算进来
+                let x0 = (use.minLonDeg + 180) / 360, x1 = (use.maxLonDeg + 180) / 360
+                let yTop = 0.5 - log(tan(.pi / 4 + use.maxLatDeg * .pi / 360)) / (2 * .pi)
+                let yBot = 0.5 - log(tan(.pi / 4 + use.minLatDeg * .pi / 360)) / (2 * .pi)
+                plan.clipBox = (x0, yTop, x1, yBot)
+                plan.clipRegion = use.id
+                usedRegion = true
+            }
+            if !usedRegion {
+                let rr = 0.0009
+                plan.clipBox = (c.x - rr, c.y - rr, c.x + rr, c.y + rr)
+            }
         }
         for i in chapters.indices { chapters[i].shortForm = shortForm }
         plan.cities = cities
